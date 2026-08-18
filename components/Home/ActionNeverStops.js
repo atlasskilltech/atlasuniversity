@@ -26,13 +26,15 @@ import { CONTAINER, SECTION, H2, SUB } from '@/components/Home/SectionHead';
  * opening the Instagram-style viewer in `InstagramPostModal`. What is kept from
  * the reference's own feed page is its card vocabulary (square tiles, badge,
  * video/carousel indicator, hover overlay with real counts) and its
- * local-cache-first rule for media: every `src` is a file in
- * `public/assets/images/instagram/`, never an expiring fbcdn URL.
+ * local-URL-only rule for media: every `src` is `/api/instagram/media/<id>` on
+ * this origin, never an expiring fbcdn URL. That route resolves the current CDN
+ * URL server-side per request, so nothing has to be written to a filesystem the
+ * host may not let us keep.
  *
  * ── Fallback ──────────────────────────────────────────────────────────────
- * If no posts can be resolved — no `META_ACCESS_TOKEN`, a Graph error with no
- * cached feed behind it, or media that could not be stored locally — the section
- * renders its heading and the real profile CTA. Nothing is fabricated.
+ * If no posts can be resolved — no `META_ACCESS_TOKEN`, or a Graph error with no
+ * cached feed behind it — the section renders its heading and the real profile
+ * CTA. Nothing is fabricated.
  */
 export default async function ActionNeverStops() {
   const { posts, hasMore } = await getInstagramFeed();

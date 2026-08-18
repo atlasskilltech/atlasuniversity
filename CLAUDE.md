@@ -205,20 +205,46 @@ to 500 — `font-poppins font-normal` reproduces that.
 **Section 22 needs a token to show anything.** It resolves the latest Instagram
 post through the Meta Graph API server-side. Copy `.env.example` to `.env.local`
 and set `META_ACCESS_TOKEN`; without it the section renders its heading and a
-real profile link rather than a fabricated post. `lib/instagram/latestPost.js` is
-`import 'server-only'` — the token is read there and nowhere else, is never
-returned to the caller, and never appears in an error message (Graph errors can
-echo the request URL, so only the status is surfaced). There is deliberately no
-`NEXT_PUBLIC_` variant.
+real profile link rather than a fabricated post. `lib/instagram/posts.js` and
+`lib/instagram/mediaUrl.js` are both `import 'server-only'` — the token is read
+in those two places and nowhere else, is never returned to the caller, and never
+appears in an error message (Graph errors can echo the request URL, so only the
+status is surfaced). There is deliberately no `NEXT_PUBLIC_` variant.
 
 `app/page.js` carries `export const revalidate = 900` for this: everything else
 on the page is static, but the feed must not be frozen into the build.
-`lib/instagram/posts.js` keeps its own file-backed cache with the same TTL in
-`public/assets/images/instagram/feed.json` (gitignored), downloads the post media
-there, and serves a **local** path — mirroring the reference's
-`social_cache/thumbs/` architecture, because Meta's CDN URLs are signed and
-expire. A stale cache entry is preferred over an empty section if a refresh
-fails.
+`lib/instagram/posts.js` keeps the walked feed in a **module-scope** cache with
+the same TTL, and every `src` it emits is `/api/instagram/media/<media-id>` on
+this origin — never a signed fbcdn URL, which expires within hours. A stale cache
+entry is preferred over an empty section if a refresh fails.
+
+**Nothing about this section may touch the filesystem.** The first build of it
+downloaded every image into `public/assets/images/instagram/` and cached the feed
+as `feed.json` beside them, which works on a long-lived box and cannot work on
+Vercel: the deployment filesystem is read-only and a lambda's `/tmp` is
+per-instance and ephemeral, so the writes silently failed, the emitted
+`/instagram-media/<file>` paths 404'd, and Load More — which needed the stored
+cursor — failed outright. The fix is `app/api/instagram/media/[id]/route.js`:
+given a media id it resolves the *current* CDN URL server-side and streams the
+bytes back under
+`Cache-Control: public, s-maxage=900, stale-while-revalidate=3600`. A media id is
+already public (it is `post.id` in the HTML); the token and the signed URL never
+leave the server.
+
+Two details that make the one route sufficient. A **CAROUSEL_ALBUM child id
+resolves on its own** (`/{child-id}?fields=media_type,media_url` → 200), verified
+against the live API, so every slide of an album is addressable without naming a
+parent or an index; and the **profile picture** — which is not a media object —
+takes the reserved alias `profile`. A **VIDEO** returns no `media_url` on a direct
+lookup, only `thumbnail_url`, which is exactly the poster frame the UI shows.
+
+The viewer sizes its media pane to the post's own aspect ratio and the Graph API
+does not return dimensions, so those used to come from the downloaded bytes.
+They still are measured, with a `Range: bytes=0-65535` request whose body is read
+and dropped (fbcdn answers 206 with exactly that slice) — and only for each
+post's **cover**, since `InstagramPostModal` takes `aspectOf(slides[0])` and every
+later slide is `object-contain` inside that frame. Nine measurements per page,
+not one per carousel child.
 
 **The section is a 9-up grid with Load More, not one post.** `getInstagramFeed()`
 returns the first `PAGE_SIZE` (9) posts newest-first; `getMoreInstagramPosts()`
@@ -234,19 +260,19 @@ walks Meta's own `after` cursor and appends. Three rules that matter:
   request URL is rebuilt server-side.
 - **The cursor never reaches the browser.** Load More is a server action
   (`lib/instagram/actions.js`) that takes only the number of posts already shown;
-  the cursor lives in the cache. Pages already walked are served from disk, and
-  appended posts are deduplicated by media id on both sides.
+  the cursor lives in the cache. Pages already walked are served from memory, and
+  appended posts are deduplicated by media id on both sides. Because that cache
+  is per-instance, a Load More can land somewhere that has never built the feed —
+  so it rebuilds page 1 and walks the cursor forward to the requested offset
+  instead of failing.
 
 **Two Next.js traps this section hit, both worth remembering.**
 
 - **`next start` snapshots `public/` at boot.** A file written into `public/`
   after the server starts 404s until a restart — verified directly: on disk,
-  404 before a restart, 200 after. The build-time page of media worked, so this
-  only showed up as broken images on the *second* page of Load More. Cached media
-  is therefore served by `app/instagram-media/[name]/route.js`, which reads the
-  file per request; the bytes still live in
-  `public/assets/images/instagram/`. Anything written at runtime needs the same
-  treatment.
+  404 before a restart, 200 after. That is what first drove this section's media
+  through a route handler rather than a public asset; it has since stopped
+  writing files at all, but the rule stands for anything else that would.
 - **`fetch(url, { cache: 'no-store' })` in a server component makes the whole
   route dynamic.** The homepage flipped from `○ Static / Revalidate 15m` to
   `ƒ Dynamic`, so every visitor re-rendered all 18 sections. The obvious fix —
