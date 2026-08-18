@@ -1,7 +1,7 @@
 import { campusContent } from '@/lib/campusContent';
 
 import CampusHero from '@/components/Campus/CampusHero';
-import CampusStats from '@/components/Campus/CampusStats';
+import StatBand from '@/components/ui/StatBand';
 import StudyInMumbai from '@/components/Campus/StudyInMumbai';
 import CampusOverview from '@/components/Campus/CampusOverview';
 import HolisticLearning from '@/components/Campus/HolisticLearning';
@@ -20,7 +20,7 @@ import FAQ from '@/components/Home/FAQ';
  *
  * Sections in the reference's own order:
  *    1  hero .inner-header-wrapper.full-ht         CampusHero          25
- *    2  three figures .top-cards-wrapper           CampusStats         37
+ *    2  three figures .top-cards-wrapper           StatBand            37
  *    3  Study in the Middle of Mumbai's Momentum   StudyInMumbai       49
  *    4  A campus built to learn, live & thrive     CampusOverview      75
  *    5  Purpose-Built for Holistic Learning        HolisticLearning   118
@@ -73,7 +73,7 @@ export default function CampusAtlasPage() {
   return (
     <>
       <CampusHero />
-      <CampusStats />
+      <StatBand data={campusContent.stats} />
       <StudyInMumbai />
       <CampusOverview />
       <HolisticLearning />

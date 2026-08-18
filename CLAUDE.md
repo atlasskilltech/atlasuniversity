@@ -579,3 +579,79 @@ Neither is ported, and the welfare background image is not downloaded.
 `width: auto` slide between 569 and 767px, which blows the card out to a whole
 viewport and overflows the page — the same upstream bug the homepage
 testimonials already carry a fix for.
+
+## /success-stories-atlas — `components/Success/`, `lib/successContent.js`
+
+`reference/success-stories-atlas.php` (`$css =
+"…690f183b48c1348d36a35eda-0d692a94e.css"`, a fourth distinct sheet) in sixteen
+sections, in the reference's order: hero, the three head-top figures, "Beliefs
+that power our success", "Startups", "Startups founded by ATLAS ISME Alumni",
+"Placements", "Students at work", "Our Recruitment Partners", "Industry
+Testimonials", "Our Career Support Services", "Master's Progressions", "Our
+Global Partnerships", "Patents & Copyrights", "Research Papers", "Awards &
+Recognitions", FAQ.
+
+235 assets, 223 downloaded from `cdn.prod.website-files.com` into
+`public/assets/images/success/<section>/` and 12 already local from Home /
+Campus / Life. Six are painted only by the stylesheet (the three stat vectors,
+`startup-bg.png`, and the two `.css-content-wrapper.atlas-bg-*` washes) so they
+travel as data.
+
+**Three components were extracted, one was generalised.**
+`components/ui/GridGallery` is `.grid-gallery` (three sections here),
+`components/ui/LogoGrid` is `.logos-grid` (both tab sets), and
+`components/ui/PillTabs` gained a `spacing` prop — this page uses the plain
+`.tabs-menu-mint` (gap 48 / bleed -73 / padding 70), not the `.less-space`
+every earlier page uses, so `spacing="wide"` selects it and `less` stays the
+default. `components/Campus/CampusStats` became `components/ui/StatBand`, taking
+its cards as data: the band appears twice on this page and once on
+/campus-atlas, identical in every measured property except the label colour.
+
+**`place-items: start` is not inert on a block box.** `.grid-gallery` is
+`display: block; column-count: 4` and also declares `place-items: start`.
+Chrome applies `justify-items` in block layout, so every card becomes
+**fit-content** rather than filling its column — the first card is 292px wide
+inside a 299px column because that is its photograph's natural width, and the
+awards cards come out 251-299px each. Without it every card fills the column,
+7px wider, with the caption plate shifted to match.
+
+**`<img height="80">` is real, and Preflight cancels it.** Seven logos in the
+two tab sets carry a numeric HTML `height` attribute while their width is left
+to `max-width: 100%`, which stretches them out of aspect and changes the grid's
+row heights (Nottingham's 146x52 mark renders 102x90). Tailwind's Preflight
+declares `img { height: auto }`, which beats a presentational hint, so the
+authored height has to be restated as an inline style. **Transcribe `width` /
+`height` attributes on every image** — `width="Auto"` / `height="Auto"` also
+appear on this page, are invalid, and are correctly ignored.
+
+**The logo strip is a Webflow interaction, not a Swiper.** `.slide-wrap` is
+driven by IX2 action list `a-22` ("marquee-swiper"), fired on this page's
+`PAGE_START`: `TRANSFORM_MOVE x -2184px over 30000ms` with empty easing, then
+`x 0 over 0ms` — a 30s linear travel that snaps back and repeats. It is the
+`slide-wrap` keyframe in `tailwind.config.js`. Read interactions out of
+`Webflow.require('ix2').store.getState().ixData` when an element moves and
+nothing in footer.php explains it. **The same `a-22` targets `.slide-wrap` on
+/about-us**, where the port left it static because that reference fatals before
+webflow.js loads — worth revisiting.
+
+**The local reference renders in quirks mode.**
+`assets/include/dynamic.php` emits a PHP warning about a missing
+`connection.php` *before* `<!DOCTYPE html>`, so `document.compatMode` is
+`BackCompat`. Chrome then drops the line-box strut on lines with no directly
+contained text: `.patent-holder` (24px/32, containing only a `<strong>` at
+18px/27 and a `<br>`) lays out at a 27px pitch there and 32px in standards mode,
+from identical computed styles and identical font metrics. Standards mode is
+what the live site renders, so this port keeps 32. Check `document.compatMode`
+before treating an unexplainable line-height as a design property.
+
+**Reference defects on this page, none reproduced (each recorded in its
+component):**
+- Every `.swiper-slide` is a full viewport tall while the cards are 388-622px,
+  leaving 458-1522px of dead space under five sliders.
+- `.testimonial-card` is `width: 100%` inside a `slidesPerView: 'auto'` slide,
+  so between 568 and 767px it measures 1127px at a 700px viewport — the same
+  blow-up the homepage testimonials carry a fix for. Below 568px the reference
+  is correct again, and the container width is used throughout here.
+- `id="our-beliefs"` is authored on two consecutive sections; kept on the first.
+- The page has three `<h1>`s (hero, "Beliefs…", "Startups"); only the hero
+  keeps it. No stylesheet rule keys off the tag.

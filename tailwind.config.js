@@ -165,6 +165,21 @@ module.exports = {
           from: { transform: 'translateY(0)' },
           to: { transform: 'translateY(-50%)' },
         },
+
+        /*
+         * `.slide-wrap` — the startup logo strip on /success-stories-atlas.
+         * Not a Swiper: a Webflow IX2 action list (`a-22`, "marquee-swiper",
+         * fired on PAGE_START for this page) with two groups —
+         * `TRANSFORM_MOVE x: -2184px, duration 30000, easing ""` then
+         * `x: 0, duration 0` — i.e. a 30s linear travel of exactly 2184px that
+         * snaps back and repeats. The distance is the designer's own number,
+         * not the track width, so the loop is deliberately not seamless; it is
+         * transcribed rather than recomputed.
+         */
+        'slide-wrap': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-2184px)' },
+        },
       },
 
       animation: {
@@ -184,6 +199,8 @@ module.exports = {
         'impact-marquee-40': 'impact-marquee 40s linear infinite', // 10 slides
 
         'marquee-y-16': 'marquee-y 16s linear infinite', // 4 slides x 4s
+
+        'slide-wrap': 'slide-wrap 30s linear infinite', // ref IX2 a-22
       },
 
       zIndex: {

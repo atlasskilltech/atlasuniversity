@@ -5,26 +5,37 @@ import { cx } from '@/lib/cx';
 
 /**
  * The reference's `.rounded-tabs-mint` tab set, shared by the homepage
- * testimonials (`index.php:3119`) and the About page's "Recognition that
- * Reflects Our Commitment" (`about-us.php:357`). Both use the same Webflow
- * widget with the same `.tabs-menu-mint.less-space` modifier, so the strip is
- * pixel-identical on both pages; only what sits under it differs.
+ * testimonials (`index.php:3119`), the About page's "Recognition that Reflects
+ * Our Commitment" (`about-us.php:357`), /campus-atlas, /life-at-atlas and the
+ * two logo tab sets on /success-stories-atlas. Same Webflow widget everywhere;
+ * only what sits under it — and the strip's own spacing modifier — differs.
  *
- * ── Measured (identical on both pages) ────────────────────────────────────
+ * ── The two spacings ──────────────────────────────────────────────────────
+ * `.tabs-menu-mint` carries an optional `.less-space`, and the two are
+ * genuinely different strips, so `spacing` selects between them. Every page
+ * built before /success-stories-atlas uses `less`, which stays the default.
+ *
+ *                     >=768px              480-767px            <=479px
+ *   less  gap          24                   8                    8
+ *         bleed        -61 / padding 60     same                 same
+ *   wide  gap          48                   24                   24
+ *         bleed        -73 / padding 70     -41 left, -73 right, -41 both,
+ *                                           padding 40           padding 30
+ *
+ * ── Measured, identical for both spacings ─────────────────────────────────
  *                          >=768px                    <=767px
- *   .tabs-menu-mint        gap 24, margin -61,        gap 8, same bleed,
- *   .less-space            padding 0 60,              overflow-x auto
- *                          overflow-x auto
  *   .tab-roundmint-tab-1   h40, px20, 18px/1.2, 400   16px/1.2 — an arbitrary
  *                                                     size, because `text-base`
  *                                                     would drag 1.5 with it
  *     .w--current          bg #5cbdca, r20, 500       same (only the current
  *                                                     pill is rounded)
- *   .tab-content-mint      padding-top 42, 18px       padding-top 20
+ *   .tab-content-mint      padding-top 56, 18px       padding-top 40
+ *     .atlas               padding-top 42             padding-top 20
  *
- * The strip bleeds 61px past the container with 60px of inner padding, which
- * leaves the first tab sitting exactly 1px left of the container edge — that is
- * the reference's own arithmetic, not a rounding error.
+ * The `less` strip bleeds 61px past the container with 60px of inner padding,
+ * which leaves the first tab sitting exactly 1px left of the container edge —
+ * that is the reference's own arithmetic, not a rounding error. `wide` does the
+ * same thing 3px out.
  *
  * Two exports, because the two pages put the panel in different places: the
  * testimonials panel is a carousel that has to bleed to the viewport edge and so
@@ -33,13 +44,25 @@ import { cx } from '@/lib/cx';
  * `PillTabs` is the whole widget for the simple in-container case.
  */
 
-/* ref .tabs-menu-mint.less-space */
-export function PillTabStrip({ tabs, active, onChange, label, idPrefix }) {
+/* ref .tabs-menu-mint / .tabs-menu-mint.less-space — whole literal strings,
+   because the Tailwind scanner only reads source text. */
+const SPACING = {
+  less: '-mx-[61px] gap-6 px-[60px] max-md:gap-2',
+  wide:
+    '-mx-[73px] gap-12 px-[70px] ' +
+    'max-md:-ml-[41px] max-md:gap-6 max-md:px-10 ' +
+    'max-sm:-mr-[41px] max-sm:px-[30px]',
+};
+
+export function PillTabStrip({ tabs, active, onChange, label, idPrefix, spacing = 'less' }) {
   return (
     <div
       role="tablist"
       aria-label={label}
-      className="relative -mx-[61px] flex items-center gap-6 overflow-x-auto px-[60px] max-md:gap-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      className={cx(
+        'relative flex items-center overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
+        SPACING[spacing],
+      )}
     >
       {tabs.map((tab, i) => (
         /* ref a.tab-roundmint-tab-1.atlas (+ .w--current) */
@@ -69,7 +92,7 @@ export function PillTabStrip({ tabs, active, onChange, label, idPrefix }) {
  * Strip + panel. `tabs` is `[{ label, render() }]`; only the active panel is
  * mounted, matching Webflow's `display: none` on the inactive `.w-tab-pane`s.
  */
-export default function PillTabs({ tabs, label, idPrefix, contentClassName }) {
+export default function PillTabs({ tabs, label, idPrefix, contentClassName, spacing }) {
   const [active, setActive] = useState(0);
 
   return (
@@ -81,6 +104,7 @@ export default function PillTabs({ tabs, label, idPrefix, contentClassName }) {
         onChange={setActive}
         label={label}
         idPrefix={idPrefix}
+        spacing={spacing}
       />
 
       {/* ref .tab-content-mint.atlas */}
