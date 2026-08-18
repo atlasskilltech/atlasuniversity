@@ -49,6 +49,9 @@ module.exports = {
       xl: '1280px',
       '2xl': '1440px',
       '3xl': '1920px',
+      /* min-width twin of `max-mcm`: header.php scales the `.zoom-slider`
+         cards from `@media (min-width: 568px)` up */
+      mcm: '568px',
       'max-lg': { max: '991px' },
       'max-md': { max: '767px' },
       'max-mcm': { max: '568px' },  // header.php inline: .mobile-swiper-cm slide = 100%
@@ -148,6 +151,20 @@ module.exports = {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-50%)' },
         },
+
+        /*
+         * The four vertical photo columns behind the /life-at-atlas hero.
+         * `new Swiper('.vertical-swiper', {direction:'vertical', loop:true,
+         * autoplay:{delay:0}, speed:4000})` over a `transition-timing-function:
+         * linear` wrapper — the same constant-velocity marquee as the bands
+         * above, running downward-to-up instead of right-to-left. Each column
+         * holds its four photographs twice and travels -50%, so one authored
+         * set takes 4 x 4s = 16s and the seam is invisible.
+         */
+        'marquee-y': {
+          from: { transform: 'translateY(0)' },
+          to: { transform: 'translateY(-50%)' },
+        },
       },
 
       animation: {
@@ -165,6 +182,8 @@ module.exports = {
         'impact-marquee-48': 'impact-marquee 48s linear infinite', // 12 slides
         'impact-marquee-56': 'impact-marquee 56s linear infinite', // 14 slides
         'impact-marquee-40': 'impact-marquee 40s linear infinite', // 10 slides
+
+        'marquee-y-16': 'marquee-y 16s linear infinite', // 4 slides x 4s
       },
 
       zIndex: {

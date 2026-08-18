@@ -1,5 +1,5 @@
 import { campusContent } from '@/lib/campusContent';
-import SupportCard, { SUPPORT_CARD_ROW } from '@/components/Campus/SupportCard';
+import SupportCard, { SUPPORT_CARD_ROW } from '@/components/ui/SupportCard';
 import { CONTAINER, SECTION, H2 } from '@/components/Home/SectionHead';
 
 /**

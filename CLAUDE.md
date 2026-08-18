@@ -483,3 +483,73 @@ all three everywhere.
 
 **`.card-content-b` keeps `min-height: 480px` at every width** — it was being
 cancelled at 767 in the first port of it.
+
+## /life-at-atlas — `components/Life/`, `lib/lifeContent.js`
+
+`reference/life-at-atlas.php` (`$css = "…690b5e72fe2165e6fc022c61-78245c0e5.css"`,
+a fourth distinct sheet; `$body = "body-isme"`, which measures the same as the
+other pages) in nineteen sections: hero, The 7 wonders of ATLAS, Vibes that go
+viral, Intercollegiate events, Win on and off the field, Student Council, The
+council members, Events organized by the Student Council, Beyond campus within
+reach, Your Growth is Our Mission, Wellness is success, YourDOST, Your Support
+System, Service learning and SSR, Live Where You Learn, Student favourites,
+Embracing every identity, Ready to live the ATLAS life?, FAQ.
+
+**This page fatals the same way about-us.php does.** Line 1078 is
+`<!--<?php include "assets/include/faq.php" ?>-->`; PHP runs it anyway and it
+dies on a missing database handle, taking the FAQ, the footer, Bootstrap and the
+Swiper initialiser with it — so **none of the reference's own sliders start**.
+Everything above line 1078 still renders, so the fix for measuring is to load the
+page in Playwright, inject `swiper-bundle`, and re-run footer.php's initialisers
+and the page's own trailing `<script>` verbatim
+(`scratchpad/life_probe.py` does exactly this). Do not try to read slider
+geometry off the raw page.
+
+**Reuse, and what it cost.** Four things were extracted so this page could share
+them rather than copy them, and /campus-atlas was re-verified after each:
+`components/ui/ZoomSliderLg` (the 0.6/0.65/1 scale carousel, 3 instances),
+`components/ui/PortCardH` (`.port-card-h-wrap.atlas`, 3 instances),
+`components/ui/SupportCard` (moved out of `components/Campus/`, 4 instances) and
+`components/ui/ButtonRegular` (`.button-regular`, the third button shape after
+`.btn-primary` and `.secondary-btn`). `components/Campus/LiveWhereYouLearn` now
+takes `data` + `id`: /life-at-atlas repeats that section verbatim, same images
+included, and only the YouTube id differs.
+
+**A `:where()` variant loses to the plain rule that follows it.** The community
+cards are `border-radius: 16px`, not the `32px 0` their Webflow variant asks
+for: `.motion-card.swiper-slide.width-motion:where(.w-variant-…)` and
+`.motion-card.swiper-slide.width-motion` have the same specificity — `:where()`
+contributes nothing — so source order decides and the later plain rule wins.
+Measure the element; do not read the variant and assume.
+
+**A card inside a slide is not the slide.** `.port-card-b.swiper-slide.width-motion`
+shrinks to 305x430 below 768px, but the fest cards are `.port-card-b` *inside* a
+`.swiper-slide`, so that rule never matches them and they stay 340x480 at every
+width. The community cards, which really are the slide, do shrink.
+
+**The `.zoom-slider` ladder turns at 568, not 767.** `header.php` scales
+`.zoom-slider` slides 0.8 / 0.88 / 1 from `@media (min-width: 568px)` — hence the
+`mcm` screen added to `tailwind.config.js`, the min-width twin of `max-mcm`.
+Above 767px its `spaceBetween` is 0, so Swiper writes no inline margin and both
+±20px neighbour pulls apply; at and below 767 it writes `margin-right: 16px`,
+which beats the stylesheet's 20px on `-prev` and leaves only the `-next` pull.
+
+**Four hero columns, no Swiper needed.** The vertical photo columns are
+`direction: 'vertical', autoplay {delay: 0}, speed: 4000, allowTouchMove: false`
+over a `linear` wrapper — the same constant-velocity marquee as the awards and
+impact bands, so they are the same CSS animation (`marquee-y`, one authored set
+of four photographs in 16s). The middle two columns are `display: none` below
+768px.
+
+**Two more inline scripts that do nothing.** `.code-button` sets
+`fontSize = getAttribute('data-font-size') + 'px'` from an empty attribute (so
+the invalid string `"px"`), and the welfare cards' `data-slider-card-a-bg` is
+read by a script that targets `.slider-card-a`, a class none of them carries.
+Neither is ported, and the welfare background image is not downloaded.
+
+**Reference defects not reproduced:** the `.common-swiper-full`,
+`.zoom-slider-lg` and `.tr-cont-wrapper` boxes are a full viewport tall around
+360-480px content, and `.square-card-atlas` is `width: 100%` inside a
+`width: auto` slide between 569 and 767px, which blows the card out to a whole
+viewport and overflows the page — the same upstream bug the homepage
+testimonials already carry a fix for.

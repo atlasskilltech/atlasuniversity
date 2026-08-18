@@ -1,5 +1,5 @@
 import { campusContent } from '@/lib/campusContent';
-import SupportCard, { SUPPORT_CARD_ROW } from '@/components/Campus/SupportCard';
+import SupportCard, { SUPPORT_CARD_ROW } from '@/components/ui/SupportCard';
 import { COMMON_WRAPPER } from '@/components/ui/ContentCardB';
 import { CONTAINER, SECTION, H2, SUB_INNER_MRGBTM } from '@/components/Home/SectionHead';
 
@@ -8,6 +8,11 @@ import { CONTAINER, SECTION, H2, SUB_INNER_MRGBTM } from '@/components/Home/Sect
  * (`section#campus-housing.section > .container > (.h2-tag.mrg16,
  *   .sub-heading.mrgbtm, .center-image-full-wrap-atlas, .common-wrapper >
  *   .common-flex-26-wrap, .bl-card-wrapper-isme.atlas)`).
+ *
+ * /life-at-atlas repeats this section verbatim (`life-at-atlas.php:878-952`) —
+ * same copy, same three residence cards, same eight mosaic cells and the same
+ * image files — differing only in its `id` and in the YouTube video it embeds,
+ * so both take it as `data` + `id` and neither passes it any styling.
  *
  * Three blocks under one heading: a 16:9-ish video, three residence cards, and
  * an eight-cell photo mosaic.
@@ -33,13 +38,13 @@ import { CONTAINER, SECTION, H2, SUB_INNER_MRGBTM } from '@/components/Home/Sect
  * authored at exactly the 414x564 cell, so at the 1366px container it lands
  * 1:1) and switches to `cover` below — reproduced as declared.
  */
-export default function LiveWhereYouLearn() {
-  const { housing } = campusContent;
+export default function LiveWhereYouLearn({ data = campusContent.housing, id = 'campus-housing' }) {
+  const housing = data;
   const [ac, security, meals, lounges, gym, study, coffee, housekeeping] = housing.mosaic;
 
   return (
     /* ref section#campus-housing.section */
-    <section id="campus-housing" className={SECTION}>
+    <section id={id} className={SECTION}>
       {/* ref .container */}
       <div className={CONTAINER}>
         {/* ref .h2-tag.mrg16 */}
