@@ -39,10 +39,7 @@ import { useMediaQuery } from '@/lib/useMediaQuery';
  * a stylesheet rule, so the `-prev` rule never applies. Measured on the live
  * page, not assumed.
  *
- * ── Two reference behaviours not reproduced ───────────────────────────────
- *  - The `.swiper` box is a full viewport tall while its cards are ~478px, so
- *    the reference leaves hundreds of pixels of blank space under every one of
- *    these strips. Same stray `height: 100vh` skipped elsewhere in this rebuild.
+ * ── One reference behaviour not reproduced ────────────────────────────────
  *  - Swiper measures its slide grid before the `-100px` neighbour margin is
  *    applied, so its translate is a few tens of pixels out and the current card
  *    drifts left of where it is authored. The card is placed at its authored

@@ -30,7 +30,7 @@ import { cx } from '@/lib/cx';
  * gallery keeps its 300px card and its centred crop, and only the plain one
  * shrinks to 250x350 and switches to `object-position: top`.
  *
- * ── `place-items: start` is load-bearing ──────────────────────────────────
+ * ── `place-items: start` is load-bearing, twice ───────────────────────────
  * `.grid-gallery` also declares `place-items: start`, which looks inert on a
  * `display: block` box and is not. Chrome applies `justify-items` in block
  * layout, and `start` makes every block-level child **fit-content** instead of
@@ -39,6 +39,11 @@ import { cx } from '@/lib/cx';
  * come out 251-299px each for the same reason. Dropping it makes every card
  * fill the column — 7px wider, with the caption plate shifted to match — which
  * is how this port first rendered.
+ *
+ * Its `align-items` half matters at <=540px, where the gallery really is a
+ * flex row: `start` keeps each card at its natural height, against the default
+ * `stretch` that would pull every one of them up to the tallest. Hence
+ * `place-items-start` rather than `justify-items-start`.
  */
 
 /*
@@ -76,7 +81,7 @@ export default function GridGallery({ cards, variant = 'plain', className, name,
     /* ref .grid-gallery */
     <div
       className={cx(
-        'mt-14 justify-items-start [column-count:4] [column-gap:16px]',
+        'mt-14 place-items-start [column-count:4] [column-gap:16px] [row-gap:16px]',
         'max-md:-mx-[22px] max-md:mt-10 max-md:px-5 max-md:[column-count:2]',
         'max-vsm:flex max-vsm:overflow-auto',
         className,
@@ -118,11 +123,17 @@ export default function GridGallery({ cards, variant = 'plain', className, name,
             )}
           />
 
-          {/* ref .grid-txt-wrapper — empty on the two pattern tiles, which is
-              why both halves are conditional */}
+          {/* ref .grid-txt-wrapper — absent on the pattern tiles, which is why
+              both halves are conditional.
+
+              `caption` is tested against `undefined`, not for truthiness: on
+              /advantages every card authors an *empty* `.title-txt-grid`, and
+              although it paints nothing it is still a flex child, so the
+              wrapper's 4px gap applies and the name sits 4px higher. Cards
+              with no caption element at all omit it. */}
           <div className="absolute inset-x-5 bottom-4 flex flex-col gap-1 max-md:inset-x-6 max-md:bottom-6">
             {card.name && <div className={name}>{card.name}</div>}
-            {card.caption && <div className={caption}>{card.caption}</div>}
+            {card.caption !== undefined && <div className={caption}>{card.caption}</div>}
           </div>
         </div>
       ))}

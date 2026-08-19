@@ -48,9 +48,13 @@ function SpotlightCard({ item }) {
 
       {/* ref .grid-txt-wrapper */}
       <div className="absolute inset-x-5 bottom-4 flex flex-col gap-1 max-md:inset-x-6 max-md:bottom-6">
-        {/* ref .grid-card-name-atlas — wrapped in <strong> upstream */}
+        {/* ref .grid-card-name-atlas — wrapped in <strong> upstream. The
+            explicit 700 matters: Preflight declares `strong { font-weight:
+            bolder }`, which is *relative*, so inside this 700 parent it
+            resolves to 900, where the reference's normalize gives a flat
+            `bold` = 700. */}
         <div className="z-[3] text-2xl font-bold leading-6 text-atlas-cyan max-md:text-xl max-md:leading-6">
-          <strong>{item.name}</strong>
+          <strong className="font-bold">{item.name}</strong>
         </div>
 
         {/* ref .title-txt-grid (.title-txt-grid2 on /about-us — same size and

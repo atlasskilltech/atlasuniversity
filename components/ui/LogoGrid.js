@@ -23,6 +23,11 @@
  * (`width="Auto"` and `height="Auto"` appear elsewhere on the page, are invalid
  * and are ignored by the browser, so they are not transcribed.)
  *
+ * ── One page resizes the cell ─────────────────────────────────────────────
+ * /advantages/atlas-internationalisation's inline `<style>` gives
+ * `.grid-img-wrap` 265x100 (180 wide, height auto and `padding: 0 10px` below
+ * 768px) rather than the 215x85 every other page renders. Hence `size="wide"`.
+ *
  * The tracks are `1fr`, not `minmax(0, 1fr)`, so a track can never be narrower
  * than `.grid-img-wrap`'s fixed 215px: between 768 and about 900px the four
  * columns total more than the container and the row is centred, which clips
@@ -32,7 +37,16 @@
  * `grid-cols-4`, which would silently substitute `minmax(0, 1fr)` and lay the
  * panel out differently from the reference at those widths.
  */
-export default function LogoGrid({ logos }) {
+/* ref .grid-img-wrap — /advantages/atlas-internationalisation's own `<style>`
+   block resizes it, which is a real measured difference between two references
+   rather than a skin, so it selects on a named size. Whole literal strings,
+   because the Tailwind scanner reads source text. */
+const CELL = {
+  default: 'my-6 flex h-[85px] w-[215px] items-center justify-center px-6 max-md:h-auto max-md:w-[150px]',
+  wide: 'my-6 flex h-[100px] w-[265px] items-center justify-center px-6 max-md:h-auto max-md:w-[180px] max-md:px-2.5',
+};
+
+export default function LogoGrid({ logos, size = 'default' }) {
   return (
     /* ref .w-layout-layout.logos-grid */
     <div
@@ -49,7 +63,7 @@ export default function LogoGrid({ logos }) {
           className="flex flex-col items-center justify-center bg-white"
         >
           {/* ref .grid-img-wrap */}
-          <div className="my-6 flex h-[85px] w-[215px] items-center justify-center px-6 max-md:h-auto max-md:w-[150px]">
+          <div className={CELL[size]}>
             {/* ref img.grid-inner-img */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img

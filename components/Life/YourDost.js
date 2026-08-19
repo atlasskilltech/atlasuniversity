@@ -1,4 +1,5 @@
 import { lifeContent } from '@/lib/lifeContent';
+import withBreaks from '@/lib/withBreaks';
 import { CONTAINER, SECTION, H2 } from '@/components/Home/SectionHead';
 
 /**
@@ -8,6 +9,9 @@ import { CONTAINER, SECTION, H2 } from '@/components/Home/SectionHead';
  *   .process-wrap > .process-card > 3x .pro-card.atlas-clr)`).
  *
  * A 30/70 split of copy and photograph, over three numbered indigo steps.
+ *
+ * /advantages/atlas-advantages repeats this section with byte-identical copy
+ * and a different photograph, so it takes `data` and passes nothing else.
  *
  * ── Measured cascade ──────────────────────────────────────────────────────
  *                            >=768px                     <=767px
@@ -26,8 +30,8 @@ import { CONTAINER, SECTION, H2 } from '@/components/Home/SectionHead';
  *   .proc-ttile              24px/1.5, mt 24, pb 16      20px <=479
  *   .proc-desc               16px/1.5                    14px <=479
  */
-export default function YourDost() {
-  const { yourdost } = lifeContent;
+export default function YourDost({ data = lifeContent.yourdost }) {
+  const yourdost = data;
 
   return (
     /* ref section.section */
@@ -48,7 +52,8 @@ export default function YourDost() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={yourdost.image.src}
-            sizes="(max-width: 991px) 100vw, 833px"
+            srcSet={yourdost.image.srcSet}
+            sizes={yourdost.image.sizes ?? '(max-width: 991px) 100vw, 833px'}
             alt={yourdost.image.alt}
             loading="lazy"
             className="block w-[calc(70%-40px)] flex-none overflow-hidden object-cover max-md:mt-10 max-md:w-auto"

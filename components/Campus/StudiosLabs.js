@@ -1,5 +1,6 @@
 import { campusContent } from '@/lib/campusContent';
 import ZoomSliderLg from '@/components/ui/ZoomSliderLg';
+import ChipSlideCard from '@/components/ui/ChipSlideCard';
 import { CONTAINER, SECTION, H2, SUB_INNER_MRGBTM } from '@/components/Home/SectionHead';
 
 /**
@@ -13,14 +14,9 @@ import { CONTAINER, SECTION, H2, SUB_INNER_MRGBTM } from '@/components/Home/Sect
  * which carries the notes on what the reference does and does not do here.
  * Only `.mrg-lft` is this page's: `margin-left: 20%`, cancelled below 768px.
  *
- * ── Measured cascade ──────────────────────────────────────────────────────
- *                            >=768px                     <=767px
- *   .slider-card-e-ugdx      800 x 478, radius 32/0      width 100%
- *   .slider-card-e-atlas-2   bottom half, #00263700 14%  padding 0 16 24
- *                            -> #040404e6, padding
- *                            0 40 50 0
- *   .slide-cd-atlas-2        24px/1, 600, #072058 on     same
- *                            #5cbdca, padding 8 15
+ * The card is `components/ui/ChipSlideCard`, shared with
+ * /advantages/atlas-enterprenurship, which uses it twice; it carries the
+ * measurements.
  */
 export default function StudiosLabs() {
   const { studios } = campusContent;
@@ -39,37 +35,7 @@ export default function StudiosLabs() {
         {/* ref .swiper.zoom-slider-lg.mrg-lft */}
         <ZoomSliderLg className="ml-[20%] max-md:ml-0" label={studios.heading}>
           {studios.slides.map((slide) => (
-            /* ref .slider-card-e-ugdx */
-            <div
-              key={slide.title}
-              className="relative block h-[478px] w-full items-end overflow-hidden rounded-tl-[32px] rounded-br-[32px]"
-            >
-              {/* ref img.slide-card-e-image */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={slide.image.src}
-                srcSet={slide.image.srcSet}
-                sizes="(max-width: 790px) 100vw, 790px"
-                alt={slide.image.alt}
-                loading="lazy"
-                className="h-full w-full object-cover"
-              />
-
-              {/* ref .slider-card-e-atlas-2 */}
-              <div className="absolute inset-x-0 bottom-0 z-[1] flex h-1/2 flex-col items-start justify-end bg-[linear-gradient(#00263700_14%,#040404e6)] pb-[50px] pr-10 max-md:px-4 max-md:pb-6">
-                {/* ref .slide-cd-e-flex */}
-                <div className="flex w-full items-center justify-between">
-                  {/* ref .slide-cd-e-lt — a block, so as a flex item it shrinks
-                      to its text */}
-                  <div>
-                    {/* ref .slide-cd-atlas-2 */}
-                    <div className="bg-atlas-cyan px-[15px] py-2 text-[24px] font-semibold leading-none text-[#072058]">
-                      {slide.title}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <ChipSlideCard key={slide.title} slide={slide} />
           ))}
         </ZoomSliderLg>
       </div>

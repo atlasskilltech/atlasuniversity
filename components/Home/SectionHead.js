@@ -49,6 +49,37 @@ export const SUB_INNER_MRGBTM =
   'pb-14 pr-[50px] text-2xl font-light leading-[1.4] max-lg:pb-5 ' +
   'max-md:mb-5 max-md:pb-0 max-md:pt-0 max-md:pr-0 max-md:text-base max-md:leading-[1.5] max-sm:pb-5';
 
+/*
+ * The same two leads again, for the places the reference marks them up as
+ * `<h2 class="sub-heading">` rather than a `<div>`. That is not cosmetic:
+ * Webflow's base sheet gives every `h2` `margin: 20px 0 10px`, so an `<h2>`
+ * lead sits 20px lower and 10px further from what follows. Five of the eleven
+ * leads on /advantages/atlas-advantages are marked up that way.
+ *
+ * They are still rendered as `<div>`s here — the pages already have their `<h1>`
+ * and a second-level heading holding body copy is a document-outline bug, not a
+ * design property — so the margins are restated explicitly.
+ *
+ *   SUB_H2          `h2.sub-heading`          margin 20/10 at every width
+ *   SUB_H2_MRGBTM   `h2.sub-heading.mrgbtm`   + padding-bottom 56 (20 <=991),
+ *                                             and at <=767 the modifier zeroes
+ *                                             margin-top and the paddings and
+ *                                             sets margin-bottom 20
+ */
+export const SUB_H2 = `mb-2.5 mt-5 ${SUB_INNER}`;
+
+export const SUB_H2_MRGBTM =
+  'mb-2.5 mt-5 pb-14 pr-[50px] text-2xl font-light leading-[1.4] max-lg:pb-5 ' +
+  'max-md:mb-5 max-md:mt-0 max-md:pb-0 max-md:pt-0 max-md:pr-0 max-md:text-base max-md:leading-[1.5] max-sm:pb-5';
+
+/*
+ * `h2.sub-heading.mrgbtm32` — weight 400 rather than 300, padding-bottom 32
+ * (20 at <=767, 16 at <=479), and the same `<h2>` margins.
+ */
+export const SUB_H2_MRGBTM32 =
+  'mb-2.5 mt-5 pb-8 pr-[50px] text-2xl font-normal leading-[1.4] ' +
+  'max-md:pb-5 max-md:pt-5 max-md:pr-0 max-md:text-base max-md:leading-[1.5] max-sm:pb-4';
+
 /**
  * `.head-wrap.mrgbtm32 > .tt-wrap` — heading above a sub-heading.
  * `children` render as the head-wrap's second flex child, which is where the

@@ -33,13 +33,15 @@ import { CONTAINER, SECTION, H2, SUB_INNER } from '@/components/Home/SectionHead
  * two-class selector it keeps that value below 768px where the one-class rule
  * would otherwise drop the rest to 8px. Three of the eight tiles carry it.
  *
- * ── One reference behaviour not reproduced ────────────────────────────────
- * `.instagram-wrapper` is `height: 100%` + `overflow: scroll`, so the block is
- * a full viewport tall regardless of its contents: ~255px of dead space above
+ * ── A local-only artefact, not a reference behaviour ──────────────────────
+ * `.instagram-wrapper` is `height: 100%` + `overflow: scroll`. In the *local*
+ * reference that box is a full viewport tall — ~255px of dead space above
  * 768px, and a vertically scrolling 1000px window over 1561px of tiles between
- * 541 and 767px. Same stray full-height rule skipped elsewhere in this rebuild;
- * the wrapper here is as tall as its tiles and scrolls horizontally only where
- * the reference means it to.
+ * 541 and 767px — but only because the mirror parses in quirks mode, where a
+ * percentage height resolves against an auto-height ancestor. In standards
+ * mode, which is what production renders, it is `auto`. The wrapper here is as
+ * tall as its tiles and scrolls horizontally only where the reference means it
+ * to (see CLAUDE.md).
  */
 export default function HangoutZones() {
   const { hangout } = campusContent;

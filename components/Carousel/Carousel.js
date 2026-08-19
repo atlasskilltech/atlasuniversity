@@ -35,6 +35,15 @@ import { useMediaQuery } from '@/lib/useMediaQuery';
  * Snap positions are read off the laid-out cards, so this works for any card
  * width without being told what it is.
  *
+ * `bleed` is what pads the track by the container inset, and it assumes the
+ * carousel is a **sibling** of `.container`. One section in the rebuild nests
+ * its slider inside `.container` instead — "Office of International Affairs" on
+ * /advantages/atlas-internationalisation puts it inside the `.tt-wrap`, beside
+ * the heading — and there the inset would be applied twice. `bleed={false}`
+ * turns it off, and replaces it with the 24px Swiper writes as `margin-right`
+ * on *every* slide including the last: invisible where the track bleeds, but
+ * part of the measured width where the slider sizes its own parent.
+ *
  * ── Autoplay ──────────────────────────────────────────────────────────────
  * Fixed at 4000ms on request, overriding the reference's 5000ms. The
  * transition stays the browser's native smooth scroll — short and direct, not
@@ -42,6 +51,58 @@ import { useMediaQuery } from '@/lib/useMediaQuery';
  */
 
 const AUTOPLAY_MS = 4000;
+
+/**
+ * `.common-swiper-full .swiper-button-prev/-next` as
+ * /advantages/atlas-internationalisation's own `<style>` block draws them: a
+ * 46px circle (38 at <=767) in `#41418E`, pinned `top: 50%` with Swiper's
+ * `margin-top: -22px`, 6px in from the edge, `z-index: 20`.
+ *
+ * The glyph upstream is Swiper's `::after { content: 'prev' }` rendered in its
+ * bundled `swiper-icons` font, which this project does not load — so the same
+ * chevron is drawn as an inline SVG at the declared 18px/700.
+ */
+/* ref `left: 6px` / `right: 6px` — measured against `.swiper`, which spans the
+   container's content box, not the viewport. Whole literal strings, because the
+   Tailwind scanner reads source text. */
+const ARROW_INSET = {
+  prev: 'left-[calc((100%_-_min(100%,1366px))/2_+_68px)] max-lg:left-9 max-md:left-7',
+  next: 'right-[calc((100%_-_min(100%,1366px))/2_+_68px)] max-lg:right-9 max-md:right-7',
+  prevFlush: 'left-[6px]',
+  nextFlush: 'right-[6px]',
+};
+
+function CarouselArrow({ side, label, onClick, bleed }) {
+  const prev = side === 'prev';
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={label ?? (prev ? 'Previous' : 'Next')}
+      className={cx(
+        'absolute top-1/2 -mt-[22px] z-20 flex h-[46px] w-[46px] items-center justify-center',
+        'rounded-full bg-[#41418E] text-white shadow-[0_6px_16px_rgba(0,0,0,0.2)]',
+        'max-md:h-[38px] max-md:w-[38px]',
+        bleed
+          ? (prev ? ARROW_INSET.prev : ARROW_INSET.next)
+          : (prev ? ARROW_INSET.prevFlush : ARROW_INSET.nextFlush),
+      )}
+    >
+      <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+        className="h-[18px] w-[18px] max-md:h-[15px] max-md:w-[15px]"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <polyline points={prev ? '15 4 7 12 15 20' : '9 4 17 12 9 20'} />
+      </svg>
+    </button>
+  );
+}
 
 /* `.container`'s inner left edge, mirrored on both sides of the track and used
  * as the scroll-snap padding. Whole literal strings — the Tailwind scanner
@@ -73,7 +134,7 @@ function nearest(value, snaps) {
  * function prop cannot cross the server/client boundary. Each child is wrapped
  * in the `.swiper-slide` <li> here.
  */
-export default function Carousel({ children, className }) {
+export default function Carousel({ children, className, autoplay = true, arrows, bleed = true }) {
   const scrollerRef = useRef(null);
   const trackRef = useRef(null);
   const pausedRef = useRef(false);
@@ -130,11 +191,21 @@ export default function Carousel({ children, className }) {
     if (el) el.scrollTo({ left: snaps[index], behavior: 'smooth' });
   }, [snaps]);
 
+  /* ref the page-level `setupArrows` on /advantages/atlas-internationalisation:
+     one slide forward or back, exactly `swiper.slideNext()` / `slidePrev()`. */
+  const step = useCallback((dir) => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const at = nearest(el.scrollLeft, snaps);
+    const next = Math.min(Math.max(at + dir, 0), snaps.length - 1);
+    el.scrollTo({ left: snaps[next], behavior: 'smooth' });
+  }, [snaps]);
+
   /* ref autoplay — 4000ms, resumes after a drag. Skipped under
    * prefers-reduced-motion; every card stays reachable by drag, wheel,
    * keyboard and bullet. */
   useEffect(() => {
-    if (reduceMotion || snaps.length < 2) return undefined;
+    if (!autoplay || reduceMotion || snaps.length < 2) return undefined;
 
     const id = setInterval(() => {
       const el = scrollerRef.current;
@@ -148,7 +219,7 @@ export default function Carousel({ children, className }) {
     }, AUTOPLAY_MS);
 
     return () => clearInterval(id);
-  }, [reduceMotion, snaps]);
+  }, [autoplay, reduceMotion, snaps]);
 
   const onPointerDown = useCallback((event) => {
     const el = scrollerRef.current;
@@ -198,9 +269,8 @@ export default function Carousel({ children, className }) {
     event.stopPropagation();
   }, []);
 
-  return (
-    <>
-      <div
+  const scroller = (
+    <div
         ref={scrollerRef}
         onScroll={onScroll}
         onPointerDown={onPointerDown}
@@ -211,19 +281,42 @@ export default function Carousel({ children, className }) {
         onDragStart={(event) => event.preventDefault()}
         className={cx(
           'w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden overscroll-x-contain',
-          SNAP_INSET,
+          bleed && SNAP_INSET,
           HIDE_SCROLLBAR,
           className,
         )}
       >
-        {/* ref .swiper-wrapper */}
-        <ul ref={trackRef} className={cx('flex w-max list-none items-stretch gap-6', TRACK_INSET)}>
-          {Children.map(children, (child) => (
-            /* ref .swiper-slide */
-            <li className="flex-none snap-start">{child}</li>
-          ))}
-        </ul>
-      </div>
+      {/* ref .swiper-wrapper */}
+      <ul
+        ref={trackRef}
+        className={cx(
+          'flex w-max list-none items-stretch gap-6',
+          bleed ? TRACK_INSET : 'pr-6',
+        )}
+      >
+        {Children.map(children, (child) => (
+          /* ref .swiper-slide */
+          <li className="flex-none snap-start">{child}</li>
+        ))}
+      </ul>
+    </div>
+  );
+
+  return (
+    <>
+      {arrows ? (
+        /* ref `.common-swiper-full .swiper-button-prev/-next` — the buttons are
+           children of `.swiper` upstream, where it is `overflow: visible`;
+           here the scroller really does scroll, so they sit in a wrapper
+           beside it and drive it through the same snap grid. */
+        <div className="relative">
+          {scroller}
+          <CarouselArrow side="prev" label={arrows.prev} onClick={() => step(-1)} bleed={bleed} />
+          <CarouselArrow side="next" label={arrows.next} onClick={() => step(1)} bleed={bleed} />
+        </div>
+      ) : (
+        scroller
+      )}
 
       {/* ref `.common-swiper .swiper-pagination-bullets` — hidden above 568px,
           `display: block; text-align: center; margin-top: 20px` below it. */}

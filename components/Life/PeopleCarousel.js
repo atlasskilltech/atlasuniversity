@@ -23,18 +23,22 @@ import { cx } from '@/lib/cx';
  *   .cd-tye-detail             100%, centred, #000, padding-top 24
  *   .cd-tye-text               20px/1.2, padding-bottom 4
  *   .cd-tye-tx                 18px/1.5, 300
+ *
+ * `autoplay` is off on /advantages/atlas-internationalisation, whose own
+ * trailing script stops every `.common-swiper` and `.common-swiper-full` on the
+ * page a second after load.
  */
 const TONE = {
   'atlas-blue': { ring: 'bg-atlas-cyan', name: 'font-semibold' },
   mint: { ring: 'bg-atlas-mint', name: 'font-bold' },
 };
 
-export default function PeopleCarousel({ people, tone = 'atlas-blue' }) {
+export default function PeopleCarousel({ people, tone = 'atlas-blue', autoplay = true, bleed = true }) {
   const style = TONE[tone];
 
   return (
     /* ref .swiper.common-swiper */
-    <Carousel className="pt-14 max-md:pt-10">
+    <Carousel className="pt-14 max-md:pt-10" autoplay={autoplay} bleed={bleed}>
       {people.map((person) => (
         /* ref .card-type-e.swiper-slide */
         <div
