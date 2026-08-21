@@ -27,23 +27,61 @@ import { cx } from '@/lib/cx';
  * No hover, focus or active rule exists for this variant in the page's
  * stylesheet, so this component declares none.
  */
-export default function ButtonRegular({ href, external, newTab, children, className }) {
+/*
+ * ref the two `.button-regular` variants the rebuild uses.
+ *
+ *   atlas      `w-variant-58b88113…` — h54 (44 at <=767), #000 on #02b3c3,
+ *              and `.button-text` at the stylesheet's 18px (14 at <=767).
+ *              /life-at-atlas.
+ *   altas-med  `w-variant-9ad79873…` — h**44** at every width, #000 on
+ *              #5cbdca, and `font-size: 14px; font-weight: 500` on the button
+ *              itself. /programs/programs-list-integrated.
+ *
+ * On the `altas-med` page the `.button-text` really is 14px, but not because of
+ * the stylesheet — `.button-text { font-size: 18px }` would win. It is the
+ * `.code-button` script, which sets `style.fontSize = getAttribute(
+ * 'data-font-size') + 'px'` inline, and there the attribute holds a real `14`.
+ * On /life-at-atlas the same attribute is empty, so the assignment is the
+ * invalid string "px" and nothing moves. Both outcomes are static, so both are
+ * expressed as a class rather than as a DOM-walking effect.
+ */
+const VARIANTS = {
+  atlas: {
+    shell: 'h-[54px] bg-atlas-teal max-md:h-11 max-vsm:my-[18px]',
+    text: 'text-[18px] leading-[1.5] max-md:text-[14px]',
+  },
+  'altas-med': {
+    shell: 'h-11 bg-atlas-cyan text-[14px] font-medium leading-[1.5]',
+    text: 'text-[14px] leading-[1.5]',
+  },
+};
+
+export default function ButtonRegular({
+  href,
+  external,
+  newTab,
+  variant = 'atlas',
+  children,
+  className,
+}) {
+  const v = VARIANTS[variant] ?? VARIANTS.atlas;
   return (
-    /* ref a.button-regular (atlas variant) */
+    /* ref a.button-regular */
     <SmartLink
       href={href}
       external={external}
       newTab={newTab}
       className={cx(
-        'flex h-[54px] max-w-full flex-none items-center justify-center gap-2.5 rounded-[27px]',
-        'bg-atlas-teal px-5 text-black no-underline max-md:h-11 max-vsm:my-[18px]',
+        'flex max-w-full flex-none items-center justify-center gap-2.5 rounded-[27px]',
+        'px-5 text-black no-underline',
+        v.shell,
         className,
       )}
     >
       {/* ref .extra-space */}
       <div className="flex flex-none items-center justify-start gap-2.5 text-[14px] leading-[1.5]">
         {/* ref .button-text */}
-        <div className="text-[18px] leading-[1.5] max-md:text-[14px]">{children}</div>
+        <div className={v.text}>{children}</div>
       </div>
     </SmartLink>
   );

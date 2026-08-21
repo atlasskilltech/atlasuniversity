@@ -1477,3 +1477,542 @@ every other width is unchanged.
 
 **The three Admissions pages are complete.** `reference/admissions/` holds
 nothing else.
+
+## Programs — `reference/programs/`
+
+Thirteen PHP files across `programs/`, `pg/` and `ug/`, plus an **empty**
+`programs/programs/` directory.
+
+**`programs/index.php` is not a page.** All 67 bytes of it are
+`header("Location: https://atlasuniversity.edu.in/"); exit;` — a guard on the
+directory, with no markup, stylesheet, assets or interactions. Verified on both
+the mirror and production: `/programs/` answers `302` to the site root. Its port
+is the `/programs -> /` redirect in `next.config.mjs`, whose comment records why
+Next's 307 stands in for PHP's 302. Nothing in `lib/navigation.js` links to
+`/programs` itself; the menu goes straight to the three landing pages.
+
+### /programs/ug-programs-atlas — `components/Programs/`, `lib/ugProgramsContent.js`
+
+`reference/programs/ug-programs-atlas.php` (`$css =
+"…690c385d74f21f5b886067df-b6470bca6.css"` — a sheet no other page uses, though
+not a new *file*; `$body = "body atlas-page"`) in three blocks plus the FAQ:
+hero, "Find the Program That Fits Your Ambition" (six discipline cards), the
+AI-search panel, FAQ.
+
+**This reference renders end to end** — it opens no database connection, so
+unlike the three Admissions pages `curl` returns the whole document. It was
+still measured against production, because the mirror is in quirks mode and this
+hero is built out of percentage offsets.
+
+20 assets: 16 downloaded into `public/assets/images/programs/{hero,cards}/`, 4
+already local (the flower icon, the FAQ arrow, and the search panel's background
+and glyph — all shared with the homepage's four-schools section).
+
+**A hero that is *not* `InnerPageHero`.** `.inner-header-wrapper.full-ht` looks
+like the Advantages/Admissions hero and measures differently in every part: the
+scrim covers the bottom **half** rather than three quarters (and the whole frame
+below 767), its gradient ends at `#000e` at 100% rather than `#000c` at 84%, its
+padding is `0 0 56 0` rather than `0 0 64 64`, and it holds a bare `.container`
+rather than an 840px `.hero-text`. Hence `components/Programs/ProgramHero`.
+
+**A `.container` that is a flex child needs its width restating.** The hero's
+`.container.grow` sits inside `display: flex` cover, so `mx-auto max-w-[1366px]`
+alone let it shrink to fit the heading — 785px instead of 1366 — and the whole
+column drifted to the centre. Webflow's own `.container { width: 100% }` is what
+holds it open; `w-full` restates it.
+
+**The card grid has no breakpoint.** `.common-flex-16-wrap` is `flex-wrap: wrap;
+gap: 16px` over a **fixed-size** `.pg-card-ugdx` (544x745, 400x580 at <=767,
+350x690 at <=479), so the column count falls out of the arithmetic: two cards
+plus the gap need 1104px, which the container only has from 1280 up. The one
+media query is the alignment, which centres the row at <=767. The fixed *height*
+is also what lines every card's button up — `.btn-wraper` is `margin-top: auto`.
+
+**`align-items: flex-start` is why two children shrink and two do not.**
+`.pg-details-atlas` is a `flex-start` column, so `.pg-title-atlas` (231px) and
+`.btn-wraper` (252px) size to their content while `.course-txt` and `.pg-cont`
+fill the 480px inner width — their text is simply long enough to. Missing the
+`items-start` made all four fill, and cost 147px of card height because
+`margin-top: auto` then had nothing to distribute.
+
+**`.button-tx` is not styled on every sheet.** Most pages declare
+`font-size: 16px`; this page's sheet declares **no base rule**, so the label
+inherits the button's own 18px and the pill measures 20px wider. That is
+`PrimaryButton`'s new `textSize` prop (`default` | `inherit`); both sheets still
+agree on 12px at <=767.
+
+**The project pins every type size to `line-height: 1.5`, so a 1.2 must be
+restated at each breakpoint.** Three separate boxes were caught by this in one
+page: `.pg-title-atlas` (20px/1.2 at <=767), `.pg-title-sm` (14px/1.2) and — in
+the shared `Home/FAQ` — `.accordion-button` (16px/1.2), which had been wrong on
+**every** FAQ on the site since it was built. Adding `max-md:leading-[1.2]` to
+`FAQ` fixed the homepage, /about-us, /campus-atlas and the Admissions pages at
+the same time.
+
+**Reference notes, transcribed as authored:**
+- The sixth card, "Design, AI & Technology", repeats the Law & Policy card's
+  entire description *and* its third key area verbatim, and its button reads
+  "AI & Technology" while its heading reads "Design, AI & Technology".
+- Every card's key-area list ends with three **empty** `<div class="pg-list">`
+  elements. They are rendered: zero-height, but still flex children of a
+  `gap: 8px` row.
+- The card links are authored relative (`ug/ug-design-and-innovation`), so they
+  resolve against `/programs/`; written absolute here.
+- `$arrow = "law-down-arrow.svg"` is assigned before the FAQ include for the
+  fourth time in this rebuild and is never read.
+- `assets/include/more-questions.php` is included with byte-identical
+  `$chatBxVariant` and `$chatBxText` to the homepage's, so it renders through the
+  existing `components/About/SearchQuestion`, which now takes an optional `data`.
+
+**A lazy-loaded icon can fake a 12px diff.** The search panel measured 225px tall
+on the reference against 237 here — until the flower SVG loaded, at which point
+both read 237 with identical children. Scroll the reference into view and wait
+before trusting a small height difference.
+
+### /programs/pg-programs-atlas — `lib/pgProgramsContent.js`
+
+`reference/programs/pg-programs-atlas.php` (`$css =
+"…690c40856b095376f162c1b1-10a901f9d.css"`, its own sheet; `$body = "body-isme"`)
+— the same four blocks in the same order as /programs/ug-programs-atlas, with
+three discipline cards instead of six.
+
+**Nothing new was written for it.** Every component took it as data, including
+the two added for the UG page. Its `<style>` block is byte-identical to that
+page's, and so is its hero photograph — which is why the file now lives at
+`public/assets/images/programs/hero/programs-hero.png` rather than under a
+UG-specific name. Neither `$css` nor `$body` changes anything measurable:
+`<body>` computes the same 16px/24 Manrope on both, the finding /life-at-atlas
+already recorded for `body-isme`.
+
+14 assets: 6 downloaded (the three card photographs and their `-p-500` twins),
+8 already local.
+
+**Two card details the UG page never exercised**, both now handled in
+`ProgramCards`:
+
+- **A `<strong>` inside a 700-weight heading.** "Business & Management" wraps its
+  title in `<strong>`. `.pg-title-atlas` is already `font-weight: 700` and
+  Webflow's normalize gives `strong` a flat `bold`, so the reference paints 700
+  — measured. Preflight's `strong { font-weight: bolder }` resolves against the
+  700 parent and would render **900**, so `card.titleStrong` renders it with an
+  explicit `font-bold`. Fourth instance of this trap in the rebuild, after
+  /advantages/atlas-enterprenurship and `Home/AtlasSpotlight`.
+- **Authored `<br />` in both a title and a lead.** "Digital & Emerging
+  Technologies in Business" breaks in both, so `ProgramCards` runs `title` and
+  `text` through `withBreaks`. A no-op on the UG page, none of whose copy is
+  broken — the same trap `Advantages/Electives` records. The reference authors a
+  space *before* each `<br />`; it is kept in the transcription even though HTML
+  collapses it, so the data reads as the source does.
+
+**Reference notes:**
+- The card links are authored relative (`pg/pg-business-and-management`), so they
+  resolve against `/programs/`; written absolute here.
+- `$arrow = "law-down-arrow.svg"` is assigned and never read, for the fifth time.
+
+### /programs/programs-list-integrated — `lib/integratedProgramsContent.js`
+
+`reference/programs/programs-list-integrated.php` (`$css =
+"…6915c922306a4c1a22aed039-b041f4c74.css"`, its own sheet; `$body = "body-isme"`)
+— the third and last top-level Programs page. Hero, two integrated-programme
+entries, the search panel, FAQ. Its `<style>` block is byte-identical to the
+other two Programs pages'.
+
+9 assets: 4 downloaded (its own hero photograph and three `-p-` twins), 5 already
+local. `ProgramHero` is reused; everything below it is a shape neither sibling
+has — a stacked list rather than a card grid.
+
+**Two live brochure modals, and they are the reference's own third-party
+integration.** Each "Download Brochure" is authored `href="#"` with a `data-id`,
+and the foot of the page carries a hidden overlay plus a listener bound to it.
+Both fire — verified on production, clicking the Law button sets its overlay to
+`display: flex` and reveals a 580x667 panel. They are reproduced rather than
+flattened, which means the port carries an `<iframe>` to
+`crm.atlasskilltech.app` (BBA LL.B.) and a NoPaperForms widget whose
+`emwgts.js` is injected on first open (B.Tech + MBA), together with the
+reference's own `utm_*` forwarding onto the iframe src. **Those two URLs are the
+only remote ones in the Programs port**; no image, font or media travels over
+them, and nothing loads until a visitor opens a modal (verified: zero
+third-party requests on page load). If the integration is unwanted, deleting
+`BrochureModal` and rendering a plain button is the whole change.
+
+A third overlay, `#btechint-popup-overlay`, is bound to
+`[data-id="btech-integrated"]`, which matches **no element** — confirmed on
+production. Not ported, the same call every other orphaned popup got.
+
+**A control that opens a dialog is a `<button>`, not an `<a href="#">`.**
+`PrimaryButton` now renders a real button when given an `onClick`, so the
+brochure trigger never navigates and never puts a bare `#` in the status bar.
+
+**The eligibility strip is `KeyDates`' chassis but deliberately not `KeyDates`.**
+Same `.dates-fees-container-atlas > .df-container-atlas > .df-card` classes and
+the same measured values, but the lead cell here is a bare label with no value,
+the cells hold prose rather than `showDateCon()` output, and two carry
+`.df-card.top`. `KeyDates` additionally models stacked blocks, static tables,
+borderless containers and a "Closed" state. Sharing would have contorted both;
+what they have in common is a few short class strings.
+
+**Two more variants, and one more instance of the same Tailwind trap.**
+`PrimaryButton` gained `outline-medium` (`w-variant-6b63810f…` — a 44px
+transparent pill with a 1px black border and `text-align: center`, and the only
+button shape on this page) and `ButtonRegular` gained `altas-med`
+(`w-variant-9ad79873…` — h44 at every width, #000 on #5cbdca, 14px/500). And
+`.df-card.top`'s `justify-content` had to move out of the shared class string:
+`justify-around 2xl:justify-start` and `justify-start` in one list are resolved
+by **stylesheet order, not the order they are written** — the third time that
+has bitten in this rebuild, after the law table's padding and the FAQ's
+line-height.
+
+**`.button-tx` is declared on this sheet but not on /programs/ug-programs-atlas'.**
+Both drop to 12px at <=767; this one also declares the 16px base, so it takes
+`PrimaryButton`'s default `textSize` while the UG page takes `inherit`. Check
+the page's own sheet rather than assuming the sibling's.
+
+**Reference notes:**
+- Both `.btn-primary`s carry the same variant class even though one's
+  `data-wf--button-primary--variant` reads "law" and the others "outline-medium".
+  The attribute is inert; the class is what the sheet keys off.
+- "Apply Now" is authored with a trailing space, and its `.button-text` carries
+  `data-font-size="14"` — which the `.code-button` script really does apply here,
+  unlike /life-at-atlas where the attribute is empty and the assignment is the
+  invalid string "px".
+- The second entry's "Explore Program" href contains a literal `&`.
+- Both eligibility strips are word-for-word identical, so the rows are hoisted
+  into `programList.eligibilityRows`.
+
+**Result: 300/300 computed properties matched at all twelve widths.** Note the
+harness for this page checks `#faq h2` but not `.accordion-button`, so the eight
+benign Bootstrap-accordion properties every other page reports are simply not
+sampled here — the FAQ itself is the same shared component and behaves the same.
+The clean sweep covers the hero, the two entries and the search panel.
+
+### /programs/ug/ug-design-and-innovation — `lib/designInnovationContent.js`
+
+`reference/programs/ug/ug-design-and-innovation.php` (`$css =
+"…690be2baaa3f88fcc6816657-bac7acda2.css"`, its own sheet; `$body = "body
+atlas-page"`) — the first of the six children of /programs/ug-programs-atlas.
+Hero, seven B.Des entries, the search panel, FAQ. It carries no `<style>` block
+of its own beyond the popup's, unlike the three pages above it.
+
+9 assets: 4 downloaded (its own hero photograph and three `-p-` twins, all
+verified `ffd8ff`), 5 already local — the notch polygon re-proven byte-identical
+to /admissions/key-dates' by SHA-1.
+
+**Not one shape on this page is new.** `ProgramList` is reused verbatim: every
+measured value of `.program-list` is identical on the two references, and the
+screenshots of the first entry are **pixel-identical at 1440 and 390** (4
+antialiased pixels differ at 768). Only its data and two small capabilities
+changed — a section-level `brochure` (all seven buttons share one popup here,
+where the integrated page gives each entry its own) and `withBreaks` on the hero
+title, which is a no-op on the other three Programs pages.
+
+**A DB-driven FAQ, and the first with real structure.** This page's include is
+`assets/include/faq.php`, not a page-specific file: it queries
+`z_atlas_faq_master` keyed on `$domain`/`$fullUrl` and this page falls through to
+the `else`, so it renders master 1 — the ISDI set, **24 questions**. The local
+mirror has no database handle, so that include fatals and the copy is transcribed
+from production. Its answers carry `<p>`, `<ul>`, `<ol>`, `<li>` and `<strong>`,
+so `FAQ` grew an `Answer` block renderer: a plain string is still a paragraph, so
+no earlier page changed. Two of the 24 questions are the same sentence with
+different answers — the database's own duplication, transcribed as authored,
+which is why the item key is index-qualified.
+
+Measured for the lists (open item, 1440/768/390): `ul`/`ol` are `padding-left:
+40px; margin-bottom: 10px`, disc / decimal, outside; `li > p` is
+`margin-bottom: 10px`. Preflight zeroes all of it, so all of it is restated. The
+last item's bottom margin collapses out through the list's open bottom edge and
+merges with the list's own 10 — which is why a 7-item list measures 228 and not
+238, and it falls out of the same markup rather than needing a `last:` rule.
+
+**Undoing Preflight on an `<iframe>` takes two classes, not one.** Preflight
+declares `iframe { display: block; vertical-align: middle }`. `inline` alone
+restores the line box but `middle` still kills the baseline descender, so the
+brochure panel came out 690 against the reference's 696. `inline align-baseline`
+matches exactly — and the same fix takes
+/programs/programs-list-integrated's panel from 661 to its reference's 667.
+
+**Two references disagreeing about a shared component is now three cases, not
+one.** The FAQ rule ("one design site-wide, only `data` differs") already covered
+the About page's unstyled-Bootstrap fallback. This page adds two more, both
+measured across seven references and both left at the homepage's behaviour:
+
+- `.accordion-title { color: rgba(43,43,43,.8) }` is declared by every Programs
+  page's sheet and not by the homepage's, so **there the open state is invisible**
+  — the button turns `#052c65` but its text is entirely inside that span. Ours
+  turns blue, as the homepage does.
+- `.accordion-title { margin-right: 50px }`, same story on 13 of 17 pages. It
+  shrinks the title box by 50px, which at 768 is enough to wrap the question onto
+  a second line on the reference and not on ours.
+
+**And one that is a genuine open question, not a rule.** `.accordion-item`'s
+divider is `2px #eee` on **14 of 17** references and `1px #dee2e6` (Bootstrap's
+default) on the homepage, /admissions/integrated-admissions and
+/admissions/ug-admissions. The shared component was built against the homepage,
+so it renders 1px everywhere — the sole cause of the recurring 1px item-height
+delta. Changing it is one line in `components/Home/FAQ`, and it would make 14
+pages more accurate and 1 less, so it is **flagged for the user rather than
+taken unilaterally**; finished pages are not restyled without being asked.
+
+**`borderBottom*` was missing from the diff harness.** That is how a 2px-vs-1px
+divider hid on nine shipped pages behind nothing but a 1px box delta. It is in
+`PROPS` now, with a suppression for the colour of a zero-width border.
+
+**Reference notes, none reproduced:**
+- All seven brochure anchors carry `id="download-brochure"` as well as the
+  `data-id` the listener binds to — the same DOM id seven times. Only the
+  `data-id` does any work; no id is emitted.
+- The popup's `.npf_wgts` div is commented out, so the `emwgts.js` the reference
+  still fetches on click has nothing to fill. Verified on production: the request
+  really fires and paints nothing. Not reproduced — this page's popup is the
+  iframe alone.
+- There is no `utm_*` forwarding script here, unlike the integrated page's; hence
+  `BrochureModal`'s `forwardUtm` flag rather than an assumption.
+- Each entry repeats the `.code-button` script inline; it is one behaviour,
+  already folded into `ButtonRegular`'s measured 14px.
+
+**Result: every element on the page matches the reference at all twelve widths.**
+The only diffs are in the shared FAQ, and all of them are one of the three
+buckets above — the benign Bootstrap residue (`position: relative` with no
+offsets, `overflow: hidden` on a box nothing overflows, two fully-transparent
+backgrounds, an over-constrained 50px margin, `#212529` vs `#333` on a box whose
+every descendant sets its own colour), the two deliberate title divergences, and
+the divider width.
+
+### /programs/ug/programs-list-management-and-entrepreneurship — `lib/managementContent.js`
+
+`reference/programs/ug/programs-list-management-and-entrepreneurship.php`
+(`$css = "…690c3a1211f795498409636b-f36eae935.css"`, its own sheet; `$body =
+"body body-ugdx"`) — the second of the six children of
+/programs/ug-programs-atlas. Hero, four BBA Hons. entries, the search panel,
+FAQ.
+
+**A different `$css` and a different `$body`, and neither changes anything.**
+This page declares `body body-ugdx` where
+/programs/ug/ug-design-and-innovation declares `body atlas-page`, over a sheet
+no other page uses — and every measured value of the hero, the entries, the
+eligibility strip and the search panel is identical on the two references at
+1440 / 768 / 390. **Measure before assuming a new sheet means new values**, and
+equally before assuming it doesn't.
+
+4 assets, all new (its own hero photograph and three `-p-` twins, verified
+`89504e47` and SHA-1-checked against every local PNG for accidental reuse). The
+notch polygon is the same file again.
+
+**Nothing was written for this page.** `ProgramHero`, `ProgramList`,
+`SearchQuestion` and `FAQ` all took it as data. The single capability added is
+`withBreaks` on `ProgramList`'s entry title — the first entry breaks after
+"Marketing/Finance" and the other three do not, the same trap
+`Advantages/Electives` and `ProgramCards` already record. It is a no-op on the
+two pages that came before it. The programme band is **pixel-identical to the
+reference at 1440, 768 and 390** — 0 differing pixels at every one.
+
+**The FAQ include renders the ISDI set on a management page.** `faq.php` keys
+its query on `$domain` / `$fullUrl`, neither of which matches a `/programs/`
+URL, so this page falls through to the same `else` branch and serves FAQ master
+1. Its 24 questions **and all 24 answers are byte-identical** to
+/programs/ug/ug-design-and-innovation's — compared on the rendered production
+markup, SHA-1 equal — so `lib/managementContent.js` re-exports that set rather
+than duplicating it, the same call `lib/ugAdmissionsContent.js` makes for its
+testimonials.
+
+**The lazy flower can fake a 40px diff, not just 12.** `dn_measure.py` read the
+search panel at 708x368 on one page and 708x408 on the other at 768px, from
+byte-identical include parameters. The difference is entirely the
+`flower-new.svg` icon: the measure script does not scroll, the diff harness
+does. Both references are 708x408 once it has loaded, and so is the port.
+**Scroll the panel into view and wait before believing any height reading of
+it** — the diff harness is the authoritative one.
+
+**Reference notes, none reproduced:**
+- All four brochure anchors carry `id="bba-brochure"` as well as the `data-id`
+  the listener binds to — the same DOM id four times. Only the `data-id` does
+  any work; no id is emitted.
+- One shared popup for all four buttons, a CRM iframe at `height="650"` with no
+  `utm_*` forwarding, and its `.npf_wgts` div commented out — so the
+  `emwgts.js` the reference still fetches on click is again not reproduced.
+- The fourth entry's href capitalises `bba-Hons-business-psychology` where the
+  other three are lower-case. Transcribed as authored.
+
+**Result: every hero and programme-list element matches at all twelve widths.**
+The only diffs are the shared FAQ's three known buckets — the benign Bootstrap
+residue, the two deliberate `.accordion-title` divergences, and the 2px-vs-1px
+divider still flagged for the user.
+
+### /programs/ug/programs-list-commerce-finance-and-economics — `lib/commerceFinanceContent.js`
+
+`reference/programs/ug/programs-list-commerce-finance-and-economics.php`
+(`$css = "…690c3a30f41551ec9be9a6ec-b041f4c74.css"`; `$body = "body-isme"` — a
+third `<body>` class across the six UG children, and like the other two it
+changes nothing measurable) — the third child. Hero, two B.Sc. (Hons.) entries,
+the search panel, FAQ.
+
+4 assets, all new (its own hero and three `-p-` twins, `89504e47`, SHA-1-checked
+against every local PNG). Its CDN filename URL-encodes an ampersand
+(`CommerceFinance%26Economics.png`).
+
+**An eligibility cell can hold more than one value.** Every criterion here
+carries a second `.df-text-1.f18` line with a mathematics requirement, and the
+entry bar is **60%** where every other Programs page asks 50%. `ProgramList`
+now takes `values[]`, with `value` kept as the single-line shorthand the three
+earlier pages use — measured identical (18px/700, `margin-bottom: 4px`) on both
+lines at 1440 / 768 / 390. That is the only component change the page needed;
+everything else took it as data.
+
+**The popup has no NoPaperForms half at all.** Where
+/programs/ug/ug-design-and-innovation and the management page comment their
+`.npf_wgts` div out, this one never authors it and has no `#npf-container`
+wrapper either — the overlay is the iframe alone. The script still injects
+`emwgts.js` on click, so it is still dead and still not reproduced. (`npf_wgts`
+does appear once in the production HTML, inside a commented-out CSS rule for
+`#npf-popup-campus` in the shared header — not this page's popup.)
+
+**Result: every hero and programme-list element matches at all twelve widths**,
+and the programme band is **pixel-identical to the reference at 1440 and 390**
+(4 antialiased pixels at 768). The only diffs are the shared FAQ's three known
+buckets.
+
+**Reference notes, none reproduced:**
+- Both brochure anchors carry `id="bba-brochure"` as well as the `data-id` —
+  and it is the *same* `data-id` the management page uses, for a different
+  widget. Only the `data-id` does any work; no id is emitted.
+- The FAQ include renders the **ISDI** set again; the 24 questions and answers
+  are byte-identical to /programs/ug/ug-design-and-innovation's, so the set is
+  re-exported rather than duplicated.
+- The second entry's href drops "hons"
+  (`bsc-in-economics-and-data-analytics`) where the first keeps it.
+
+### /programs/ug/programs-list-cs-ai-ml-and-ds — `lib/csAiMlContent.js`
+
+`reference/programs/ug/programs-list-cs-ai-ml-and-ds.php`
+(`$css = "…690c3a5b10605173246c8369-b041f4c74.css"`; `$body = "body-isme"`) —
+the fourth child. Hero, three B.Tech entries, the search panel, FAQ.
+
+4 assets, all new (its own hero and three `-p-` twins). No new component.
+
+**An eligibility value can carry an authored `<br />`.** The A-Levels cell
+breaks its second value with `<br /><br />` — a real blank line — so
+`ProgramList` runs values through `withBreaks` as well as titles. A no-op on the
+pages before it. Every cell holds two values as on the commerce page, but the
+entry bar is back to 50% and the requirement is mathematics *and physics*.
+
+**THE POPUP SHAPE FOLLOWS WHAT THE POPUP HOLDS, AND EVERY PAGE SHIPS BOTH RULES
+WITH ONE COMMENTED OUT.** This page's brochure is a **live NoPaperForms widget**
+— its `.npf_wgts` div is really in the markup, not commented out — and its panel
+is `width: 90%; max-width: 800px; height: 80%` with scrollbars left alone, where
+every iframe popup is `width: 100%; max-width: 580px; height: auto; max-height:
+90vh` with scrollbars hidden. Read across all five popups with **CSS comments
+stripped first**, the correlation is exact and causal: the widget renders a
+700px form and needs the taller box. `BrochureModal` derives the shape from
+`kind`.
+
+That is also how **two misses in the already-shipped
+/programs/programs-list-integrated** came to light, both now fixed:
+
+- its `#npf-popup-btech` is the wide shape and was being rendered at 580 — the
+  law popup had been measured and the B.Tech one had not;
+- `#npf-close-brochure` on /programs/ug/ug-design-and-innovation is the **one**
+  close button of the five that does not declare `line-height: 1`, so it is
+  37px tall against the others' 28. That travels as `closeLeading`.
+
+All six popups in the port now match their reference on panel box, close-button
+box, contents, max-width, max-height, radius and padding.
+
+**Measure the popup you shipped, not the one next to it.** A page with two
+brochure buttons has two different popups; checking the first and assuming the
+second is the same is what hid both of the above.
+
+**Result: every hero and programme-list element matches at all twelve widths**,
+and the programme band — two-value cells and the `<br /><br />` included — is
+**pixel-identical to the reference at 1440 and 390** (4 antialiased pixels at
+768). The only diffs are the shared FAQ's three known buckets.
+
+**Reference notes, none reproduced:**
+- All three brochure anchors carry `id="btech"` as well as the `data-id`.
+- The FAQ include renders the **ISDI** set on a B.Tech page; byte-identical to
+  /programs/ug/ug-design-and-innovation's, so it is re-exported.
+- The last two "Explore Program" hrefs contain a literal `&`; the first does not.
+
+### /programs/ug/programs-list-law-and-policy — `lib/lawPolicyContent.js`
+
+`reference/programs/ug/programs-list-law-and-policy.php`
+(`$css = "…690c3a7d32aa2b65c20f8a60-b041f4c74.css"`; `$body = "body-isme"`) —
+the fifth child, and the smallest page in the set: one entry.
+
+**Zero new assets — the first page in the rebuild with an empty download list
+since /admissions/ug-admissions.** Its hero is the same CDN file
+(`lawatlasssss.png`) /programs/programs-list-integrated uses for its own hero,
+SHA-1 equal, so the file was renamed from `integrated-programs-hero.png` to the
+neutral `law-atlas-hero.png` and both pages point at it — the same call
+`programs-hero.png` already got when the UG and PG landing pages turned out to
+share one. No new component and no new capability: `withBreaks` on the
+eligibility value, added for the CS/AI page, covers this one's
+`Minimum 50% in<br />Class XII`.
+
+**This page and /programs/programs-list-integrated overlap almost completely.**
+Same programme (BBA LL.B. (Hons.)), same "Explore Program" href, same hero, and
+the same brochure — `[data-id="law"]`, a 580px iframe popup on CRM widget
+`6a3e7d3ba1fd0680c6c1ba90` at `height="621"`, with the same `utm_*` forwarding
+script. Only the eligibility strip differs: single-value cells with much longer
+copy, and the IB wording follows the integrated page's long form rather than the
+other UG children's short one.
+
+**Result: every hero and programme-list element matches at all twelve widths**,
+the programme band is **pixel-identical to the reference at 1440 and 390** (4
+antialiased pixels at 768), and all **seven** popups in the port match their
+reference on panel box, close-button box, contents and every declared property.
+
+**Reference notes, none reproduced:**
+- The brochure anchor carries `id="law"` as well as the `data-id`.
+- `faq.php` *has* a branch for `https://atlasuniversity.edu.in/schools/law/`
+  (master 4), but it tests `$fullUrl`, which here is a `/programs/` URL — so
+  even the law page falls through to `else` and renders master 1, the ISDI set.
+  Verified on production and re-exported like the other children's.
+
+### /programs/ug/programs-list-design-ai-and-technology — `lib/aiTechnologyContent.js`
+
+`reference/programs/ug/programs-list-design-ai-and-technology.php`
+(`$css = "…690c3aa511a0eea4dff18991-b041f4c74.css"`; `$body = "body-isme"`) —
+the last of the six children. Hero, two entries, the search panel, FAQ.
+
+4 assets, all new (its own hero and three `-p-` twins).
+
+**Its two entries differ in both halves — the only page in the set that does.**
+Each carries its own brochure popup *and* its own eligibility strip:
+
+| entry | brochure | strip |
+| --- | --- | --- |
+| B.Tech (IT, AI & Cybersecurity) | `[data-id="btech"]`, live NoPaperForms widget `1dd30518…` (the CS/AI page's) | two values per cell |
+| BBA (Hons) in AI & Emerging Technologies | `[data-id="bba-brochure"]`, 580px CRM iframe `6a3e788e…` (the management page's) | one value per cell |
+
+`ProgramList` already took a per-entry `brochure`; it now also takes a
+per-entry `eligibilityRows`, falling back to the section's. Every earlier page
+repeats one strip verbatim under every entry, so nothing changed there.
+**Check both strips on a multi-entry page** — reading the first and assuming the
+second is the same trap the two popups already set on
+/programs/programs-list-integrated.
+
+**Every `npf` popup declares two more rules than the iframe ones:**
+`.npf_wgts { height: 700px }` and `#npf-popup-btech iframe { height: 100% }`,
+on this page, the CS/AI page and /programs/programs-list-integrated alike.
+`BrochureModal` now pins both, so the container holds its height before the
+widget script arrives instead of collapsing to zero.
+
+**All nine brochure popups across the Programs port now match their reference**
+on panel box, close-button box, contents, widget-container box, max-width,
+max-height, radius and padding.
+
+**Result: every hero and programme-list element matches at all twelve widths**,
+and the programme band is **pixel-identical to the reference at 1440, 768 and
+390** — 0 differing pixels at every one.
+
+**Reference notes, none reproduced:**
+- Both brochure anchors carry an `id` duplicating their `data-id`.
+- The page's own heading is "AI & Technology", while the card linking here from
+  /programs/ug-programs-atlas reads "Design, AI & Technology" and the file is
+  named for the longer form. Transcribed as the page renders it.
+- The FAQ include renders the **ISDI** set; re-exported like the other
+  children's.
+- The first "Explore Program" href contains a literal `&`.
+
+**The six children of /programs/ug-programs-atlas are complete.**
+`reference/programs/ug/` holds nothing else. Three pages remain in
+`reference/programs/pg/`.

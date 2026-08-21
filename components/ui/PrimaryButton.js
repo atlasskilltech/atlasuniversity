@@ -27,7 +27,7 @@ import { cx } from '@/lib/cx';
 
 /* ref .btn-primary */
 const BASE =
-  'flex flex-none items-center gap-3 h-14 px-6 rounded-[36px] ' +
+  'flex flex-none items-center gap-3 px-6 rounded-[36px] ' +
   'text-lg font-medium leading-none no-underline';
 
 /*
@@ -40,33 +40,83 @@ const BASE =
  */
 const VARIANTS = {
   // ref .btn-primary:where(.w-variant-9df390f6-abdb-218d-e8a6-500b981692ba)
-  atlas: 'max-w-full text-black bg-atlas-teal max-md:h-10',
+  atlas: 'h-14 max-w-full text-black bg-atlas-teal max-md:h-10',
   // ref .btn-primary:where(.w-variant-edbe4a85-a762-b5b5-c583-585856b72378)
-  outline: 'max-w-full text-white bg-transparent border-2 border-white max-md:h-10',
+  outline: 'h-14 max-w-full text-white bg-transparent border-2 border-white max-md:h-10',
   // ref .btn-ca
-  'atlas-576': 'text-black bg-atlas-teal max-576:h-10',
+  'atlas-576': 'h-14 text-black bg-atlas-teal max-576:h-10',
+  /*
+   * ref .btn-primary:where(.w-variant-6b63810f-e988-0cce-bafa-92afc0c78b1c) —
+   * /programs/programs-list-integrated's only button shape. A 44px outline pill
+   * rather than the 56px filled one: transparent, 1px solid black, black text.
+   * All four instances on that page carry this class, even the one whose
+   * `data-wf--button-primary--variant` reads "law" — the attribute is inert and
+   * the class is what the sheet keys off.
+   */
+  'outline-medium':
+    'h-11 max-w-full border border-solid border-black bg-transparent text-center text-black max-md:h-10',
 };
 
-/* ref .button-tx */
-const TEXT = 'text-[16px] max-md:text-[12px]';
+/*
+ * ref .button-tx. Every page's sheet drops the label to 12px at <=767, but they
+ * do not agree on the base size: most declare `font-size: 16px`, and
+ * /programs/ug-programs-atlas' sheet declares **no base rule at all**, so the
+ * label there inherits the button's own 18px and the pill measures 20px wider.
+ * `text-[18px]` is that inherited value written explicitly.
+ */
+const TEXT = {
+  default: 'text-[16px] max-md:text-[12px]',
+  inherit: 'text-[18px] max-md:text-[12px]',
+};
 
 export default function PrimaryButton({
   href,
   external,
   newTab,
   variant = 'atlas',
+  textSize = 'default',
   icon,
   children,
   className,
+  onClick,
+  ...rest
 }) {
+  const classes = cx(BASE, VARIANTS[variant], className);
+  const label = (
+    <>
+      <div className={TEXT[textSize]}>{children}</div>
+      {/* ref .btn-pr-icon */}
+      {icon && (
+        /* eslint-disable-next-line @next/next/no-img-element */
+        <img src={icon} alt="" width={16} height={16} className="max-md:w-3" />
+      )}
+    </>
+  );
+
+  /*
+   * The reference authors every one of these as an `<a>`, but a few carry
+   * `href="#"` and exist only to open a dialog — /programs/programs-list-integrated's
+   * "Download Brochure" pair. Those render as a real `<button>`: it never
+   * navigates, so an anchor would be the wrong control and would put a bare `#`
+   * in the browser's status bar.
+   */
+  if (onClick) {
+    return (
+      <button type="button" onClick={onClick} className={classes} {...rest}>
+        {label}
+      </button>
+    );
+  }
+
   return (
     <SmartLink
       href={href}
       external={external}
       newTab={newTab}
-      className={cx(BASE, VARIANTS[variant], className)}
+      className={classes}
+      {...rest}
     >
-      <div className={TEXT}>{children}</div>
+      <div className={TEXT[textSize]}>{children}</div>
       {/* ref .btn-pr-icon */}
       {icon && (
         /* eslint-disable-next-line @next/next/no-img-element */

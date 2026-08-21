@@ -29,6 +29,8 @@ import { CONTAINER, SECTION, H2 } from '@/components/Home/SectionHead';
  *                            >=768px                     <=767px
  *   .accordion-item          border-bottom 1px #dee2e6, background #fff
  *   .accordion-button        h80, 24px/1.2, 400          16px/1.2, 600
+ *                            (the 1.2 has to be restated at the breakpoint —
+ *                             the project's type scale pins every size to 1.5)
  *     colour                 rgba(43,43,43,.8) closed,   same
  *                            #052c65 open,
  *                            rgba(43,43,43,.8) on hover  same
@@ -47,6 +49,14 @@ import { CONTAINER, SECTION, H2 } from '@/components/Home/SectionHead';
  * it stays correct when the answer reflows at a different width.
  *
  * ── Site-wide, and deliberately not skinnable ─────────────────────────────
+ * The open state is the other place the references disagree. Every Programs
+ * page's own Webflow sheet declares `.accordion-title { color: rgba(43,43,43,.8) }`,
+ * so there the question text stays grey when its panel opens and only the
+ * button — whose text is entirely inside that span — turns `#052c65`, making
+ * the open state invisible. The homepage sheet has no such rule, so the title
+ * really does turn blue. Measured on all three. The homepage behaviour is what
+ * every page here renders, by the same rule that governs the skin.
+ *
  * /about-us renders this same component with its own seven questions. It ships
  * the same Bootstrap markup but without the homepage include's `<style>` block,
  * so the raw reference falls through to Bootstrap's stock look — a heavier
@@ -54,6 +64,73 @@ import { CONTAINER, SECTION, H2 } from '@/components/Home/SectionHead';
  * reproduced: one FAQ design is the source of truth for every page, and only
  * `data` may differ. There is no `variant` prop by design.
  */
+/**
+ * An answer is an array of blocks. A plain string is a paragraph — which is
+ * every answer on every page built before /programs/ug/ug-design-and-innovation.
+ * That page's answers come out of the FAQ database rather than a hand-authored
+ * include, and they carry the CMS's own richer tree:
+ *
+ *   'text'                      ->  <p>text</p>
+ *   {strong}                    ->  <p><strong>…</strong></p>
+ *   {list: 'ul'|'ol', items[]}  ->  <ul|ol><li><p>…</p></li>…</ul|ol>
+ *
+ * Measured on the live reference with an item open (1440 / 768 / 390):
+ *   .accordion-body p       margin-bottom 10
+ *   .accordion-body ul/ol   padding-left 40, margin-bottom 10,
+ *                           list-style disc / decimal, outside
+ *   .accordion-body li      display list-item, no margin or padding of its own
+ *   .accordion-body li > p  margin-bottom 10
+ *
+ * Tailwind's Preflight zeroes list margins, padding and markers and zeroes `p`
+ * margins, so every one of those has to be restated. The last item's bottom
+ * margin collapses out through the list's open bottom edge and merges with the
+ * list's own 10 — which is why the reference's 7-item list measures 228 and not
+ * 238, and it falls out of the same markup rather than needing a `last:` rule.
+ *
+ * Every text node in this page's answers is authored inside a `<strong>`. The
+ * body is 400, so Preflight's relative `bolder` would land on 700 anyway, but
+ * the weight is stated explicitly — a `<strong>` in a 600 or 700 parent
+ * resolves to 900, which has bitten this project before.
+ */
+function Answer({ blocks }) {
+  return blocks.map((block, i) => {
+    if (typeof block === 'string') {
+      /* ref .accordion-body > p */
+      return <p key={`${i}-p`} className="mb-2.5">{block}</p>;
+    }
+
+    if (block.list) {
+      const List = block.list === 'ol' ? 'ol' : 'ul';
+      return (
+        /* ref .accordion-body ul / ol */
+        <List
+          key={`${i}-${block.list}`}
+          className={cx(
+            'mb-2.5 list-outside pl-10',
+            block.list === 'ol' ? 'list-decimal' : 'list-disc',
+          )}
+        >
+          {block.items.map((item, j) => (
+            /* ref li > p */
+            <li key={`${j}-li`}>
+              <p className="mb-2.5">
+                {typeof item === 'string' ? item : <strong className="font-bold">{item.strong}</strong>}
+              </p>
+            </li>
+          ))}
+        </List>
+      );
+    }
+
+    /* ref .accordion-body > p > strong */
+    return (
+      <p key={`${i}-strong`} className="mb-2.5">
+        <strong className="font-bold">{block.strong}</strong>
+      </p>
+    );
+  });
+}
+
 /**
  * `data` is the ONLY thing a page may vary — /about-us ships a seven-question
  * set through it. Every visual and interaction state (typography, borders,
@@ -78,7 +155,7 @@ export default function FAQ({ data = faq }) {
             const isOpen = i === open;
             return (
               /* ref .accordion-item */
-              <div key={item.q} className="border-b border-[#dee2e6] bg-white">
+              <div key={`${i}-${item.q}`} className="border-b border-[#dee2e6] bg-white">
                 {/* ref h2.accordion-header */}
                 <h3 className="m-0">
                   {/* ref button.accordion-button */}
@@ -89,12 +166,12 @@ export default function FAQ({ data = faq }) {
                     aria-controls={`faq-panel-${i}`}
                     id={`faq-button-${i}`}
                     className={cx(
-                      'flex h-20 w-full items-center gap-0 bg-transparent p-0 text-left text-2xl font-normal leading-[1.2] transition-colors hover:text-[#2b2b2bcc] max-md:text-base max-md:font-semibold',
+                      'flex h-20 w-full items-center gap-0 bg-transparent p-0 text-left text-2xl font-normal leading-[1.2] transition-colors hover:text-[#2b2b2bcc] max-md:text-base max-md:font-semibold max-md:leading-[1.2]',
                       isOpen ? 'text-[#052c65]' : 'text-[#2b2b2bcc]',
                     )}
                   >
                     {/* ref span.accordion-title */}
-                    <span className="line-clamp-2 overflow-hidden">{item.q}</span>
+                    <span className="line-clamp-2 overflow-hidden text-ellipsis">{item.q}</span>
                     {/* ref .accordion-button::after */}
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
@@ -122,11 +199,7 @@ export default function FAQ({ data = faq }) {
                   <div className="overflow-hidden">
                     {/* ref .accordion-body */}
                     <div className="pb-6 pr-6 text-base leading-[1.5] text-[#212529] max-md:text-sm">
-                      {item.a.map((paragraph) => (
-                        <p key={paragraph} className="mb-2.5 last:mb-2.5">
-                          {paragraph}
-                        </p>
-                      ))}
+                      <Answer blocks={item.a} />
                     </div>
                   </div>
                 </div>

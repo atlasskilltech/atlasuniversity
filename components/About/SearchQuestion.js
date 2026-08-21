@@ -27,8 +27,11 @@ import { fourSchools } from '@/lib/homeContent';
  * The huge 300px right padding is what keeps the input clear of the decorative
  * artwork on desktop; it collapses to 24px on mobile.
  */
-export default function SearchQuestion() {
-  const { search } = fourSchools;
+export default function SearchQuestion({ data }) {
+  /* `data` is the only thing a page varies. /programs/ug-programs-atlas
+     includes more-questions.php with byte-identical `$chatBxVariant` and
+     `$chatBxText`, and passes its own transcription of them. */
+  const search = data ?? fourSchools.search;
 
   return (
     /* ref .search-question.w-variant-35db4856-34de-b71f-0f4d-3a27b78fcc63 */
