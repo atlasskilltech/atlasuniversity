@@ -27,14 +27,24 @@ import { cx } from '@/lib/cx';
 
 /* ref .btn-primary */
 const BASE =
-  'flex flex-none items-center gap-3 h-14 max-w-full px-6 rounded-[36px] ' +
-  'text-lg font-medium leading-none no-underline max-md:h-10';
+  'flex flex-none items-center gap-3 h-14 px-6 rounded-[36px] ' +
+  'text-lg font-medium leading-none no-underline';
 
+/*
+ * `.btn-primary` is 56px tall and drops to 40 at 767. `.btn-ca` — declared only
+ * in /admissions/ug-admissions' own `<style>` block, for its hero's "Continue
+ * Application" button — is the same pill in every other respect but drops at
+ * **576** instead, and declares no `max-width`. Between 577 and 767 that leaves
+ * it 16px taller than the `.btn-primary`s beside it, which is what the
+ * reference paints.
+ */
 const VARIANTS = {
   // ref .btn-primary:where(.w-variant-9df390f6-abdb-218d-e8a6-500b981692ba)
-  atlas: 'text-black bg-atlas-teal',
+  atlas: 'max-w-full text-black bg-atlas-teal max-md:h-10',
   // ref .btn-primary:where(.w-variant-edbe4a85-a762-b5b5-c583-585856b72378)
-  outline: 'text-white bg-transparent border-2 border-white',
+  outline: 'max-w-full text-white bg-transparent border-2 border-white max-md:h-10',
+  // ref .btn-ca
+  'atlas-576': 'text-black bg-atlas-teal max-576:h-10',
 };
 
 /* ref .button-tx */

@@ -15,6 +15,12 @@ import { cx } from '@/lib/cx';
  * Three instances now, the third being
  *   /advantages/atlas-enterprenurship  `atlas-enterprenurship.php:14`  1 button
  *
+ * A fourth, /admissions/integrated-admissions (`integrated-admissions.php:107`,
+ * 3 buttons), adds the optional `.course-duration-isme.atlas` eyebrow above the
+ * title — 24px/500 white, `padding-top: 4px`, constant at every width. The
+ * three Advantages heroes author no such element, so `hero.eyebrow` is omitted
+ * there and nothing renders.
+ *
  * The photograph's class differs between them — `.header-image-inner` vs
  * `.inner-cover-image` — but both are `object-fit: cover; width: 100%;
  * height: 100%`, so it makes no difference.
@@ -74,6 +80,24 @@ const SCRIM = {
 const BUTTON_WRAP = {
   row: 'flex items-center gap-4 pt-[30px] max-lg:gap-2 max-md:flex-col '
      + 'max-md:items-start max-md:justify-start max-md:pt-6 max-sm:pt-[14px]',
+  /*
+   * /admissions/ug-admissions re-declares `.buttons-wrapper` in its own
+   * `<style>`: the gap stays 16 at every width (no drop to 8 at 991), and the
+   * row's alignment and padding change at **576** rather than 767 — though the
+   * stylesheet's own `flex-flow: column` at 767 still applies, so it stacks
+   * first and only then left-aligns. Measured, not assumed.
+   *
+   * ── Deviation: `flex-wrap` ────────────────────────────────────────────
+   * That hero has four buttons rather than three, and at exactly 768px the row
+   * is still a row while `.hero-text` is only 704px wide, so the fourth button
+   * runs 112px past the viewport and the reference really does scroll
+   * horizontally there (measured: `document.scrollWidth` 880 against a 768
+   * client width, on production as well as here). Nothing above it clips.
+   * `flex-wrap` lets the row break instead; it engages only when the buttons
+   * do not fit, so every other width is byte-identical to the reference.
+   */
+  'row-576': 'flex flex-wrap items-center gap-4 pt-[30px] max-md:flex-col '
+     + 'max-md:justify-start max-576:items-start max-576:pt-6',
   column: 'mt-8 flex max-w-full flex-col items-start justify-center gap-4',
 };
 
@@ -101,6 +125,15 @@ export default function InnerPageHero({ hero, buttonWrap = 'row', scrim = 'defau
       >
         {/* ref .hero-text */}
         <div className="max-w-[840px] max-sm:max-w-[704px]">
+          {/* ref .course-duration-isme.atlas — an eyebrow above the title, so
+              far only on the Admissions heroes; 24px/500 white at every width,
+              with the class's own 4px top padding */}
+          {hero.eyebrow && (
+            <div className="block pt-1 text-[24px] font-medium leading-[1.5] text-white">
+              {hero.eyebrow}
+            </div>
+          )}
+
           {/* ref h1.h1-tag */}
           <h1 className="m-0 text-[56px] font-normal leading-[1.2] text-white max-lg:text-[44px] max-md:text-[28px] max-md:font-semibold max-md:leading-[1.5]">
             {withBreaks(hero.title)}

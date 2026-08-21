@@ -11,6 +11,8 @@ import { CONTAINER, SECTION, H2, SUB_INNER_MRGBTM } from '@/components/Home/Sect
  *
  * A heading, a lead, a full-width video and a scale-ladder carousel of twelve
  * event cards — each a photograph with a partner's logo laid over its foot.
+ * The reference authors six distinct cards and repeats them, so six of the
+ * twelve images (and logos) recur verbatim; the repeats are reproduced.
  *
  * The carousel is the shared `components/Life/ZoomSlider` (`.swiper.zoom-slider`:
  * `slidesPerView: 'auto'`, loop, 2s autoplay, `centeredSlides`, and the
@@ -55,8 +57,10 @@ export default function CareerConnect() {
       {/* ref .swiper.zoom-slider.mrg56 */}
       <div className="mt-14 max-md:mt-10">
         <ZoomSlider label={careerConnect.heading}>
-          {careerConnect.cards.map((card) => (
-            <CardTypeF key={card.image.src} card={card} />
+          {careerConnect.cards.map((card, i) => (
+            /* the reference authors the same six cards twice, so the image path
+               is not an identity — the key is the card's position in the strip */
+            <CardTypeF key={`${i}-${card.image.src}`} card={card} />
           ))}
         </ZoomSlider>
       </div>

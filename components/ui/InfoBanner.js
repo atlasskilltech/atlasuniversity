@@ -34,61 +34,72 @@ import { cx } from '@/lib/cx';
  *
  * `.container.blue-3` adds nothing the plain `.container` does not.
  */
-export default function InfoBanner({ banner, titleClassName }) {
+export default function InfoBanner({ banner, titleClassName, fullBleed = false }) {
+  /* ref .info-banner-atlas / `.info-banner-atlas.no-radius` */
+  const band = cx(
+'relative overflow-hidden bg-atlas-footer py-[60px] max-md:py-[26px]',
+!fullBleed && 'rounded-tl-[32px] rounded-br-[32px]',
+  );
+
+  const inner = (
+<div className={band}>
+      {/* ref .container.blue-3 */}
+      <div className="relative z-[1] mx-auto max-w-[1366px] px-[62px] max-lg:px-[30px] max-md:px-[22px]">
+        {/* ref h2.info-banner-title */}
+        <h2
+          className={cx(
+            'm-0 max-w-[65%] text-[40px] font-medium leading-[1.2] text-white max-md:text-[22px]',
+            titleClassName ?? 'max-md:mb-8',
+          )}
+        >
+          {/* /admissions/pg-admissions authors a <br /> in its heading; no other
+              page's contains one, so this is a no-op everywhere else */}
+          {withBreaks(banner.heading)}
+        </h2>
+
+        {/* ref .info-banner-sub-text */}
+        <div className="w-[55%] pt-3 text-2xl font-light leading-[1.4] text-white max-lg:w-full max-md:pt-0 max-md:text-lg max-md:leading-[1.4]">
+          {withBreaks(banner.subheading ?? banner.text)}
+        </div>
+
+        {/* ref .info-banner-sub-contact — only /advantages/atlas-career-services
+            has one */}
+        {banner.contact && (
+          <div className="w-[55%] pt-8 text-[20px] font-light leading-[1.4] text-white max-md:w-3/4 max-md:pt-0 max-md:text-[18px]">
+            {banner.contact}
+          </div>
+        )}
+
+        {/* ref .info-banner-btns */}
+        <div className="flex items-center gap-4 pt-6 max-md:flex-col max-md:items-start max-md:gap-2 max-md:pt-4 max-sm:gap-2.5 max-sm:pt-2.5">
+          {banner.buttons.map((button) => (
+            <PrimaryButton key={button.label} href={button.href} variant={button.variant}>
+              {button.label}
+            </PrimaryButton>
+          ))}
+        </div>
+      </div>
+
+      {/* ref img.faq-image-blue */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={banner.image.src}
+        srcSet={banner.image.srcSet}
+        sizes={banner.image.sizes}
+        alt={banner.image.alt}
+        loading="lazy"
+        className="absolute inset-y-0 right-0 z-0 h-full w-auto max-lg:hidden"
+      />
+    </div>
+  );
+
   return (
     /* ref div.section / section.section */
     <section className={SECTION}>
-      {/* ref .container */}
-      <div className={CONTAINER}>
-        {/* ref .info-banner-atlas */}
-        <div className="relative overflow-hidden rounded-tl-[32px] rounded-br-[32px] bg-atlas-footer py-[60px] max-md:py-[26px]">
-          {/* ref .container.blue-3 */}
-          <div className="relative z-[1] mx-auto max-w-[1366px] px-[62px] max-lg:px-[30px] max-md:px-[22px]">
-            {/* ref h2.info-banner-title */}
-            <h2
-              className={cx(
-                'm-0 max-w-[65%] text-[40px] font-medium leading-[1.2] text-white max-md:text-[22px]',
-                titleClassName ?? 'max-md:mb-8',
-              )}
-            >
-              {banner.heading}
-            </h2>
-
-            {/* ref .info-banner-sub-text */}
-            <div className="w-[55%] pt-3 text-2xl font-light leading-[1.4] text-white max-lg:w-full max-md:pt-0 max-md:text-lg max-md:leading-[1.4]">
-              {withBreaks(banner.subheading ?? banner.text)}
-            </div>
-
-            {/* ref .info-banner-sub-contact — only /advantages/atlas-career-services
-                has one */}
-            {banner.contact && (
-              <div className="w-[55%] pt-8 text-[20px] font-light leading-[1.4] text-white max-md:w-3/4 max-md:pt-0 max-md:text-[18px]">
-                {banner.contact}
-              </div>
-            )}
-
-            {/* ref .info-banner-btns */}
-            <div className="flex items-center gap-4 pt-6 max-md:flex-col max-md:items-start max-md:gap-2 max-md:pt-4 max-sm:gap-2.5 max-sm:pt-2.5">
-              {banner.buttons.map((button) => (
-                <PrimaryButton key={button.label} href={button.href} variant={button.variant}>
-                  {button.label}
-                </PrimaryButton>
-              ))}
-            </div>
-          </div>
-
-          {/* ref img.faq-image-blue */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={banner.image.src}
-            srcSet={banner.image.srcSet}
-            sizes={banner.image.sizes}
-            alt={banner.image.alt}
-            loading="lazy"
-            className="absolute inset-y-0 right-0 z-0 h-full w-auto max-lg:hidden"
-          />
-        </div>
-      </div>
+      {/* the band is nested in a `.container` on every page but
+          /admissions/integrated-admissions, where it is a direct child of
+          `.section` and spans the viewport */}
+      {fullBleed ? inner : <div className={CONTAINER}>{inner}</div>}
     </section>
   );
 }

@@ -19,6 +19,12 @@ import { CONTAINER, SECTION, H2 } from '@/components/Home/SectionHead';
  * The `.sub-heading.mrgbtm` between the heading and the carousel is commented
  * out upstream, so there is no lead.
  *
+ * Three of the nine reels (poster-img-9 / -6 / -7) author the same mp4 as both
+ * of their two `<source>`s where every other post pairs an mp4 with a webm.
+ * Transcribed as authored — a repeated `<source>` is inert, the browser takes
+ * the first playable one — which is why `VideoTestimonialCard` keys them by
+ * position rather than by `src`.
+ *
  * `.customSlideItem_X91` carries no rule in any stylesheet — it is a hook the
  * page never uses. Autoplay is stopped by the page's own trailing script, and
  * the two circular arrows are wired to `slideNext()` / `slidePrev()` by it.

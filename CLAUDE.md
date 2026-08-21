@@ -1185,3 +1185,295 @@ whose href is written through PHP. Match on "no `<` between attributes"
 - At 700px the reference's chip card measures 821px inside a 656px slider and
   overflows, clipped by `.section { overflow: hidden }` — `ZoomSliderLg`'s
   existing fix.
+
+## /admissions/integrated-admissions — `components/Admissions/`, `lib/integratedAdmissionsContent.js`
+
+`reference/admissions/integrated-admissions.php` (`$css =
+"…6915ca0b61d85144edd1d44e-e809c9c17.css"`, a tenth distinct sheet; `$body =
+"body atlas-page"`) in eight sections: hero, "Find Your Path within ATLAS
+SkillTech University", "Key Dates & Deadlines", "What Makes You Stand Out",
+"Empowering Ambition Through Scholarships", "In their own words: Why ATLAS
+feels right", "Experience the ATLAS Campus in Person", FAQ. First of the three
+Admissions pages; the other two are **not** built yet.
+
+**This reference cannot be rendered locally at all — measure production.** Every
+earlier page that fatals does so at a commented-out `faq.php` include near the
+*end*, so everything above it still renders. This one fatals at **line 16**: the
+page's first statement is `new mysqli("localhost","diceapp_dice",…)` and that
+database is unreachable from this checkout, so PHP throws `mysqli_sql_exception:
+Access denied` before emitting a single byte of the body. `curl` returns
+header.php's output and the exception, nothing else. All twelve widths were
+measured against `https://atlasuniversity.edu.in/admissions/integrated-admissions`
+instead, which serves the same `$css`, starts with a doctype (`CSS1Compat`, so
+none of the mirror's quirks-mode artefacts apply) and runs the real Swiper,
+Bootstrap and Webflow tab widget.
+
+**The B.Tech key dates are a database snapshot.** `keydates/btech.php` renders
+`getAdmissionCyclesCon($conn, 4)` through `showDateCon()`. The six values are
+snapshotted from the live page into `lib/integratedAdmissionsContent.js` — the
+same treatment Thought Leadership's UAT feed gets. `showDateCon()` prints
+`<b>Closed</b>` for a null or past date, with one hard-coded exception
+(`$special_date = "2025-09-11"`), which is why "Applications Start" still reads
+11th Sep 2025.
+
+**51 assets, and only 9 were new.** 36 were already local and byte-identical by
+SHA-1 (the four school-card images from /about-us, all 26 testimonial
+photographs and the three video posters from the homepage, the quote icons, the
+watermark and the FAQ arrow); 6 more are the Parents videos, which are already
+in the repo as **Git LFS pointers** — `*.mp4` is LFS-tracked, so a 132-byte
+`version https://git-lfs.github.com/spec/v1` file is correct, not broken. Check
+`.gitattributes` before "fixing" a small media file. The 9 new ones live in
+`public/assets/images/admissions/{hero,key-dates,scholarships,banner}/`.
+
+**Five of the eight sections are existing components**, each measured on this
+reference first and each change additive and defaulted, so the origin pages are
+untouched (verified: 0 diffs on /about-us, /, /campus-atlas, /life-at-atlas and
+/advantages/atlas-career-services after the changes):
+`InnerPageHero` gained an optional `hero.eyebrow` (`.course-duration-isme.atlas`,
+24px/500 white); `About/OurSchools` became `data`-driven; `Home/Testimonials`
+gained `data` and `headingVariant`; `ui/InfoBanner` gained `fullBleed`; `FAQ`
+was already `data`-driven. Three are new and all take `data`, because
+pg-/ug-admissions.php carry the same shapes: `KeyDates`, `StandOut`,
+`Scholarships`.
+
+**Two shared components disagreed on a variant, so it had to travel as data.**
+`.secondary-btn` on the school cards is `cd63ac8f…` (16px/600) on /about-us and
+`25d04a90…` (12px/700) here, so `card.button.variant` now travels with the card
+and falls back to `SecondaryButton`'s own default. Likewise the testimonial
+heading is `.h2-tag.mrg16` on the homepage and `.h2-tag.mrg16.isdi` here.
+
+**`PrimaryButton`'s outline variant is named `outline`, not `outline-white`.**
+The reference calls it `outline-white` in its `data-wf--button-primary--variant`
+attribute and the comment in `homeContent.js` repeats that name, but the key in
+`VARIANTS` is `outline`. An unknown key silently yields no classes, so the
+button renders as unstyled text — caught only by comparing screenshots, because
+every computed property that *was* set still matched.
+
+**Only `!important` survives an inline style — check which declarations carry
+it.** The law table is authored `style="border-collapse: collapse; width:
+100.229%"`, and `@media (max-width: 1100px)` sets `border-collapse: separate
+!important; border-spacing: 0 !important; width: auto; min-width: 900px`. Only
+the first two carry `!important`, so the collapse flips but **the inline width
+keeps winning** and the table stays 100.229% at every width (verified
+1101/1100/1099 → 975/974/973, never the 900px floor). The first port moved the
+width into a custom property so the breakpoint could override it, which was
+wrong.
+
+**Two Tailwind traps this page hit.**
+- **Two padding utilities in one class list are resolved by stylesheet order,
+  not by the order you wrote them.** `cx(cell, 'p-0 …')` where `cell` already
+  held `p-3` gave the caption cell `p-3`, adding 24px of height and eating 24px
+  of width. Padding is kept out of the shared `cell` string and applied per
+  cell.
+- **Preflight does not zero the UA's `td { padding: 1px }`.** The reference
+  authors `padding: 0` inline on the caption cell; without an explicit `p-0`
+  the row is 2px too tall.
+
+**The reference nests `.df-container-atlas` inside itself** on the uGDX tab —
+the page opens one and `keydates/btech.php` opens another — so it paints two
+concentric 1px `#18429f` borders and loses 2px of inner width. The Law tab has
+one. Not reproduced; one wrapper per tab.
+
+**`max-tbl` (`max-width: 1100px`) is a sixth breakpoint**, and it belongs to
+`keydates-static/law.php`'s own `<style>`, not to Webflow — that is where
+`<br class="br">` appears and the table becomes a 900px-wide horizontal
+scroller.
+
+**Reference notes, none reproduced:**
+- `$arrow = "law-down-arrow.svg"` is assigned immediately before the FAQ
+  include, which hard-codes `atlas-down-arrow.svg` in its own `<style>` and
+  never reads `$arrow`.
+- The law table's `<style>` block is embedded twice, byte-identical — once by
+  the page and once by the include.
+- The header cell's `.header-table { background-color: #d20158 }` is overridden
+  by an inline `#CC5500`.
+- `colspan="4"` on the caption cell of a two-column table.
+- The include's trailing `<script>` recolours any `td b` matching
+  `<day><suffix> <Month> <year>` green. Deterministic over static copy, so the
+  one cell it hits carries the colour in the markup instead.
+- "Schedule a Visit" carries `id="campus-visit"` while the NoPaperForms popup
+  binds to `[data-id="campus-visit"]`, so it is the plain link it is ported as.
+
+## /admissions/pg-admissions — `lib/pgAdmissionsContent.js`
+
+`reference/admissions/pg-admissions.php` (`$css =
+"…690de083898469d22c882cab-0c046c29c.css"`, an eleventh distinct sheet; `$body =
+"body atlas-page"`) — the **same eight sections in the same order** as
+/admissions/integrated-admissions, so it introduced no new component: hero,
+Find Your Path, Key Dates & Deadlines, What Makes You Stand Out, Empowering
+Ambition Through Scholarships, In their own words, Experience the ATLAS Campus
+in Person, FAQ. Second of the three Admissions pages.
+
+It fatals locally the same way — `new mysqli(…)` on line 14, before any body
+output — so it was measured against production. Lines 649-1057 are a
+commented-out earlier FAQ block, line by line; dead markup, not ported.
+
+33 assets: 15 already local, 11 new, 6 the parent-testimonial mp4/webm pairs,
+and 1 that cannot be downloaded at all (below). New files live in
+`public/assets/images/admissions/{hero,scholarships}/`, plus three that belong
+to the shared testimonial set (`testimonials/testimonial-vector.png`,
+`testimonials/quote.svg`, `icons/play-button.svg`).
+
+**A dead asset in the reference.** The Varsha Sharma testimonial authors an
+`.mp4` and a `.webm`. The mp4 — `…IMG_5462%20%281%29-transcode.mp4` — answers
+`403 AccessDenied` from S3 under every URL spelling, and **production itself
+falls through to the webm** (verified in the browser: `currentSrc` is the webm,
+`readyState` 4, playing). The webm is what ships. Note `*.webm` is not
+LFS-tracked; `*.mp4` and `*.zip` are.
+
+**All four testimonial tabs hold the identical four cards.** 16 `.swiper-slide`s,
+4 per pane, the same four videos, quotes and names in Parents, Students,
+Industry and Global. The three copies were never given their own content
+upstream. Reproduced as authored — inventing content for three tabs would be
+worse than showing what the page shows. Three cosmetic details do differ and are
+reproduced: the `.bg-image` watermark (`vector-atlas` on Parents,
+`testimonial-vector` on the rest), the `.quote` icon (`quote-icon.svg`
+throughout Parents; `quote-icon.svg` then `quote.svg` x3 elsewhere), and a
+`.play-icon` on cards 3 and 4 of the three copies only.
+
+**The play button is a real interaction the project already had.** `a.play-icon
+> img` carries `data-video`, and `components/Footer/VideoModal` already listens
+for `[data-video]` on `document`, so rendering the anchor is all it takes. On
+the homepage and /admissions/integrated-admissions the same anchors are authored
+**empty**, which is a 0x0 box — hence `item.playIcon` is optional and those pages
+render nothing, exactly as before.
+
+**The same class can mean different things on two pages — check the include, not
+just the sheet.** Four such splits here, each now a prop or a data flag:
+- `.df-card`'s `justify-content` is `space-around`, replaced by `flex-start`
+  from `@media (min-width: 1440px)` — *except* on
+  /admissions/integrated-admissions, where `keydates/btech.php` ships its own
+  `<style>` setting `space-between`, which sits after the sheet and wins at every
+  width. `btech.php` is the only include that does this.
+- `.testimonial-video` is square here; the homepage's `56px 0` comes from
+  index.php's mis-scoped inline `<style>`. Hence `videoCorners`.
+- `.swiper.common-swiper.mrg-mob-tp-0` zeroes the carousel's 40px top padding
+  below 768px.
+- `.btn-normal-wrap` around the Scholarships button keeps it at its natural width
+  below 768px; integrated-admissions has no wrapper, so `.head-wrap.top`'s
+  `align-items: stretch` pulls its button to the full container width.
+
+**A tab can hold more than one date strip.** The ISDI pane stacks M.Des and MBA
+DMST, each with its own button, the second in
+`.dates-fees-container-atlas.mrgtp` (`padding-top: 56px; display: block`). So
+`KeyDates` takes `tab.blocks[]`, and integrated-admissions now passes a
+single-entry array.
+
+**`showDateCon()` returns a literal `<b>Closed</b>`,** and every cell on this
+page except "Application(s) Start" is one — all three cycles (master ids 6/7/8)
+are past. The one surviving date is the hard-coded `$special_date`. The `<b>`
+needs an explicit `font-bold`: `.df-text-1` is already 700 and Preflight's
+`b { font-weight: bolder }` resolves 700 to **900**.
+
+**The lead cell is a `.df-text-2.f14` like any other** and carries its
+`padding-bottom: 12px`. Missing it made every strip 12px short — on
+/admissions/integrated-admissions too, which is why that page's diff improved
+from 306/324 to 318/324 when this was fixed.
+
+**`git status` can report `M` on an LFS file whose content is unchanged.** The
+three parent-testimonial mp4s were sitting in the working tree as unsmudged
+132-byte pointers, so the videos could not play on the homepage,
+/admissions/integrated-admissions *or* this page. The real bytes were restored
+from the CDN after proving they are the exact tracked objects (SHA-256 and size
+match the pointer's `oid`/`size`). `git diff` is empty and
+`git hash-object --path=… file` equals `git rev-parse HEAD:file` for all three —
+the clean filter re-encodes them to the identical pointer, so the tracked content
+did not change. Use the blob-id comparison, not `git status`, to decide whether
+an LFS file really differs.
+
+**Reference notes:**
+- `$arrow = "law-down-arrow.svg"` is again assigned and never read.
+- The hero's policy button links to the internal `/flipbook/pg-policy/`; the
+  fliphtml5 URL integrated-admissions uses is commented out directly above it.
+- "Schedule a Visit" carries no `data-id`, so the NoPaperForms popup matches
+  nothing and the anchor is the plain link it is ported as.
+
+## /admissions/ug-admissions — `lib/ugAdmissionsContent.js`
+
+`reference/admissions/ug-admissions.php` (`$css =
+"…690dcdd80d8269c1849947a1-532aa6888.css"`, a twelfth distinct sheet; `$body =
+"body atlas-page"`) — the same eight sections in the same order as the other two
+Admissions pages. Third and last of the set. It fatals locally the same way
+(`new mysqli(…)`, line 57, before any body output), so it was measured against
+production.
+
+**No new component and no new asset.** All 54 assets it references were already
+local and byte-identical by SHA-1 — the first page in the rebuild with a
+completely empty download list. Its testimonials and its closing banner are
+byte-for-byte /admissions/integrated-admissions' (26/26 cards diffed, same lead,
+same image, same buttons), so `lib/ugAdmissionsContent.js` re-exports them
+rather than duplicating them.
+
+**This page has its own `<style>` block, ahead of the markup** (`:11-54`), and it
+is the only reason its hero differs from the other two. It re-declares
+`.buttons-wrapper` — the gap stays 16 at every width instead of dropping to 8 at
+991, and the alignment and padding turn at **576** rather than 767/479 — and
+declares `.btn-ca`, a fourth button shape. `.btn-ca` is the `.btn-primary` atlas
+pill in every respect except that it drops to 40px at 576 rather than 767, so
+between 577 and 767 it stands 16px taller than the three `.btn-primary`s beside
+it. Hence `max-576` in `tailwind.config.js`, `PrimaryButton`'s `atlas-576` and
+`InnerPageHero`'s `row-576`. **The block reaches every `.buttons-wrapper` on the
+page**, the Key Dates ones included, which is why `KeyDates` takes a
+`buttonWrap` too.
+
+**Four Key Dates tabs, and only one of them is live.** The page comments out the
+database include above each calendar and calls a hand-authored
+`keydates-static/` file instead; only uGDX still runs `btech.php`. The ISME tab
+stacks two tables. All four tables sit in a `.df-container-atlas` carrying an
+inline `border: none`, so they have no indigo frame — unlike
+integrated-admissions' law table, which keeps it. `KeyDates` therefore models a
+tab as `blocks[]`, each block declaring its own `kind` (`strip` | `table`),
+`borderless`, `spaced` and `justify`; all three Admissions pages now use that
+one shape.
+
+**Two table details the other page did not surface.** These four tables author
+`height: 461px` inline and **no** `margin`, so they keep Bootstrap's own
+`.table { margin-bottom: 1rem }`; integrated-admissions' law table authors
+`margin: 0` and cancels it. Missing that made the pane 16px short. And each
+carries commented-out rows and a commented-out "Next Cycle" column, which is why
+`colspan="3"` (4 on the law table) sits over a two-column body.
+
+**Webflow numbers only the first two tab panes, and it changes the type size.**
+`.tab-pane-tab-1` / `.tab-pane-tab-2` take `font-size: 16px` at <=767 from the
+sheet; `Tab 4` and `Tab 5` are bare `w-tab-pane` and stay at
+`.tab-content-mint`'s 18px. Every page's markup does this, the homepage
+included, and the references are not consistent about which Key Dates panes are
+numbered: integrated-admissions' two are bare, pg-admissions' two are numbered,
+ug-admissions numbers its first two and not its last two. Hence
+`tab.paneNumbered` on `KeyDates`, and an index test in `Testimonials`. Invisible
+in the testimonial cards (every line sets its own size) and very visible in the
+tables, whose cells inherit.
+
+**Three bugs in already-finished work that this page's diff surfaced**, all in
+the shared `Home/Testimonials` and all now fixed on the homepage too:
+- **`.testimonial-video` is 440px tall on every Admissions page**, not 156. The
+  156 (and the `56px 0` radius) come from index.php:1774's mis-scoped inline
+  `<style>` and are homepage-only. That is the `videoVariant` prop —
+  `home` vs `plain`.
+- **`.student-text`'s `flex: none` lands at 479, not 767.** `flex: 1` beats the
+  declared `height: 280px` until `@media (max-width: 479px)` turns it off, so
+  between 480 and 767 the box is content-height. The same trap
+  /advantages/atlas-career-services already documents for `.card-type-f`.
+- **The empty `.stname` is still a box.** It carries `padding-bottom: 5px`, and
+  where the card is content-height that is exactly 5px of card height. It is now
+  always rendered — the third time this lesson has come up, after `GridGallery`
+  and `SpeakerSlideCard`.
+
+**Reference defect, fixed rather than reproduced: real horizontal overflow at
+768px.** This hero has four buttons; at exactly 768 the row is still a row while
+`.hero-text` is only 704px wide, so the fourth runs 112px past the viewport and
+nothing above it clips. Measured `document.scrollWidth` 880 against a 768 client
+width — on production as well as in the port before the fix. `InnerPageHero`'s
+`row-576` adds `flex-wrap`, which engages only when the buttons do not fit, so
+every other width is unchanged.
+
+**Reference notes:**
+- `$arrow = "law-down-arrow.svg"` is assigned a third time and never read.
+- The B.Sc table's "Applications Opened" reads **Sep 2026** where the other three
+  read Sep 2025.
+- The B.Des and B.Sc calendars leave a cell reading "Applications Open", which
+  the include's `<script>` recolours green alongside the dates — carried as
+  `green: true` in the data rather than shipped as a DOM walk.
+
+**The three Admissions pages are complete.** `reference/admissions/` holds
+nothing else.

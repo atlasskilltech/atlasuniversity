@@ -10,6 +10,13 @@ import { CONTAINER, SECTION, H2, SUB_INNER } from '@/components/Home/SectionHead
  * Four square cards, two per row, each a full-bleed photograph with a scrim
  * carrying the school logo, its name and an "Apply Now" pill.
  *
+ * `data` is the only thing a page varies. /admissions/integrated-admissions
+ * renders the identical block as "Find Your Path within ATLAS SkillTech
+ * University" with two of the same four cards
+ * (`integrated-admissions.php:122-146`) — measured identical in the grid, the
+ * card, the scrim, the logo and the title at all twelve widths — so it passes
+ * its own `findYourPath` and everything else is shared.
+ *
  * ── Measured cascade ──────────────────────────────────────────────────────
  *                            >=768px                     <=767px
  *   .atlas-cards-grid        flex wrap, mt 42, mb 12,    same, one card per
@@ -29,8 +36,8 @@ import { CONTAINER, SECTION, H2, SUB_INNER } from '@/components/Home/SectionHead
  * around it carries its own 32px radius but `overflow: visible`, so that one
  * never paints. Both are reproduced as declared.
  */
-export default function OurSchools() {
-  const { schools } = aboutContent;
+export default function OurSchools({ data }) {
+  const schools = data ?? aboutContent.schools;
 
   return (
     /* ref div.section */
@@ -46,9 +53,9 @@ export default function OurSchools() {
         <div className="rounded-[32px]">
           {/* ref .atlas-cards-grid */}
           <div className="mb-3 mt-[42px] flex flex-wrap items-start justify-start overflow-hidden rounded-tl-[36px] rounded-br-[36px]">
-            {schools.cards.map((card) => (
+            {schools.cards.map((card, i) => (
               /* ref .atlas-square-card-a */
-              <div key={card.title} className="relative h-[499px] w-1/2 max-md:w-full">
+              <div key={`${i}-${card.title}`} className="relative h-[499px] w-1/2 max-md:w-full">
                 {/* ref .atlas-sq-image-a */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -80,8 +87,17 @@ export default function OurSchools() {
                       </div>
                     </div>
 
-                    {/* ref .atlas-sq-btn > .secondary-btn */}
-                    <SecondaryButton href={card.button.href}>{card.button.label}</SecondaryButton>
+                    {/*
+                      ref .atlas-sq-btn > .secondary-btn — the two pages do not
+                      agree on the variant: /about-us' four cards are
+                      `cd63ac8f…` (16px/600) and
+                      /admissions/integrated-admissions' two are `25d04a90…`
+                      (12px/700), so it travels with the card and falls back to
+                      SecondaryButton's own default.
+                    */}
+                    <SecondaryButton href={card.button.href} variant={card.button.variant}>
+                      {card.button.label}
+                    </SecondaryButton>
                   </div>
                 </div>
               </div>

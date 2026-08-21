@@ -96,8 +96,12 @@ export default function VideoTestimonialCard({ card, variant = 'card', width }) 
           onPause={sync}
           className="block max-h-[560px] w-full bg-black object-cover object-center max-md:h-auto max-md:object-contain"
         >
-          {card.sources.map((source) => (
-            <source key={source.src} src={source.src} type={source.type} />
+          {/* three of this page's nine reels author the SAME mp4 as both of
+              their two <source>s (the other fourteen posts pair mp4 + webm), so
+              `src` is not an identity here — a <source>'s identity is its
+              position, which is what the browser resolves them in */}
+          {card.sources.map((source, i) => (
+            <source key={`${i}-${source.src}`} src={source.src} type={source.type} />
           ))}
         </video>
 

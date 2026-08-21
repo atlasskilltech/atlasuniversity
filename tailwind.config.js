@@ -52,6 +52,13 @@ module.exports = {
       /* min-width twin of `max-mcm`: header.php scales the `.zoom-slider`
          cards from `@media (min-width: 568px)` up */
       mcm: '568px',
+      /* ug-admissions.php's own <style> block: `.btn-ca` drops to 40px and
+         `.buttons-wrapper` turns column at `@media (max-width: 576px)` */
+      'max-576': { max: '576px' },
+      /* keydates-static/law.php's own breakpoint: the admissions calendar
+         table turns into a 900px-wide horizontal scroller and its `<br class="br">`
+         line-breaks appear at `@media (max-width: 1100px)` */
+      'max-tbl': { max: '1100px' },
       'max-lg': { max: '991px' },
       'max-md': { max: '767px' },
       'max-mcm': { max: '568px' },  // header.php inline: .mobile-swiper-cm slide = 100%

@@ -7,6 +7,7 @@ import {
   InstagramGlyph,
   PlayIcon,
 } from '@/components/Home/instagramIcons';
+import altText from '@/lib/instagram/altText';
 
 /**
  * One grid card = one Instagram post. Media only, Instagram-grid style: a square
@@ -22,9 +23,7 @@ const nf = new Intl.NumberFormat('en-US');
 export default function InstagramPostTile({ post, onOpen }) {
   const cover = post.media[0];
   const isCarousel = post.media.length > 1;
-  const alt = post.caption
-    ? post.caption.replace(/\s+/g, ' ').slice(0, 150)
-    : `Instagram post from @${post.username}`;
+  const alt = altText(post);
 
   return (
     <button

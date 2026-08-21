@@ -11,6 +11,7 @@ import {
   SaveIcon,
   ShareIcon,
 } from '@/components/Home/instagramIcons';
+import altText from '@/lib/instagram/altText';
 
 /**
  * The Instagram-desktop-style post viewer.
@@ -195,9 +196,7 @@ export default function InstagramPostModal({ post, profileUrl, onClose }) {
   }, [onClose, next, previous, isCarousel]);
 
   const slide = slides[Math.min(index, slides.length - 1)];
-  const alt = post.caption
-    ? post.caption.replace(/\s+/g, ' ').slice(0, 150)
-    : `Instagram post from @${post.username}`;
+  const alt = altText(post);
   const relative = timeAgo(post.timestamp);
   const absolute = postedOn(post.timestamp);
 

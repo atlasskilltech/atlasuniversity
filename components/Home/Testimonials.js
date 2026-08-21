@@ -21,6 +21,11 @@ import { CONTAINER, SECTION, H2 } from '@/components/Home/SectionHead';
  * Parents 3, Students 10, Industry 4, Global 9. Parents are looping muted
  * background videos, the rest are photographs.
  *
+ * `data` and `headingVariant` are the only things a page varies.
+ * /admissions/integrated-admissions repeats this section with the same 26
+ * cards — diffed quote by quote against index.php, one card differs — so it
+ * derives its export from the homepage's rather than duplicating the copy.
+ *
  * ── Measured cascade ──────────────────────────────────────────────────────
  *                          >=768px                    <=767px
  *   .tabs-menu-mint        gap 24, -61/60 bleed,      gap 8, same bleed,
@@ -55,6 +60,31 @@ import { CONTAINER, SECTION, H2 } from '@/components/Home/SectionHead';
  * from that inline block is kept, because it is what the reference paints.
  */
 
+/*
+ * ref h2.h2-tag.mrg16 vs `.h2-tag.mrg16.isdi`. The homepage authors the plain
+ * class — Manrope 500, 44px dropping to 36 at 767. /admissions/integrated-
+ * admissions authors `.isdi`, which is Poppins at weight 400 and drops to 36 a
+ * breakpoint earlier, at 991. Same string ThoughtLeadership already uses.
+ */
+const HEADING = {
+  default: '',
+  isdi: 'font-poppins font-normal max-lg:text-5xl max-lg:leading-[1.2]',
+};
+
+/*
+ * ref .testimonial-video, which the references disagree on in two ways — both
+ * traceable to the same cause. index.php:1774 carries an inline `<style>`
+ * written for the campus-tour video that also matches this section, forcing
+ * `width: 100%; height: 700px` (156 below 992) and rounding it `56px 0`. None
+ * of the three Admissions pages has that block, so all three take the sheet's
+ * own `.testimonial-video { width: 325px; height: 440px }` with no radius —
+ * measured 440px tall at every width on all three.
+ */
+const VIDEO = {
+  home: 'rounded-tl-[56px] rounded-br-[56px] max-md:h-[156px]',
+  plain: 'max-md:h-[440px]',
+};
+
 /* ref .testimonial-card.bgc1.atlas */
 const CARD =
   'flex h-[440px] w-[620px] flex-none overflow-hidden rounded-tl-[32px] ' +
@@ -66,25 +96,55 @@ function CourseLine({ line }) {
   return line.atPos ? <span className="text-sm text-atlas-cyan">{text}</span> : text;
 }
 
-function Card({ item, icons, watermark, watermarkAlt }) {
+function Card({ item, icons, watermark, watermarkAlt, videoVariant }) {
   return (
     /* ref .testimonial-card */
     <article className={CARD}>
       {item.video ? (
-        /* ref .testimonial-video — muted, looping, controlless, like Webflow's
-           background video; the poster carries the first frame */
-        <video
-          className="h-full w-[325px] flex-none rounded-tl-[56px] rounded-br-[56px] object-cover max-md:h-[156px] max-md:w-full"
-          poster={item.poster}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="none"
-          aria-label={item.quote}
+        /* ref .testimonial-video — `position: relative; z-index: 10`, and the
+           box the optional play button is positioned against. The video itself
+           is muted, looping and controlless, like Webflow's background video;
+           the poster carries the first frame. */
+        <div
+          className={cx(
+            'relative z-10 h-full w-[325px] max-w-full flex-none overflow-clip max-md:w-full',
+            VIDEO[videoVariant],
+          )}
         >
-          <source src={item.video} type="video/mp4" />
-        </video>
+          <video
+            className="h-full w-full object-cover"
+            poster={item.poster}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="none"
+            aria-label={item.quote}
+          >
+            <source src={item.video} type={item.video.endsWith('.webm') ? 'video/webm' : 'video/mp4'} />
+          </video>
+
+          {/* ref a.play-icon > img — opens the shared VideoModal, which listens
+              for `[data-video]` on document */}
+          {item.playIcon && (
+            <a
+              href="#"
+              data-video={item.playIcon.video}
+              aria-label="Play video"
+              className="absolute right-6 top-6"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={item.playIcon.src}
+                alt={item.playIcon.alt}
+                width={56}
+                height={56}
+                loading="lazy"
+                className="block"
+              />
+            </a>
+          )}
+        </div>
       ) : (
         /* ref .student-image */
         // eslint-disable-next-line @next/next/no-img-element
@@ -96,8 +156,10 @@ function Card({ item, icons, watermark, watermarkAlt }) {
         />
       )}
 
-      {/* ref .student-text */}
-      <div className="relative block flex-1 px-8 py-10 text-white max-md:h-[280px] max-md:flex-none max-md:px-3 max-md:py-5">
+      {/* ref .student-text — `flex: 1` beats the declared `height: 280px`
+          until `@media (max-width: 479px)` turns it off, so between 480 and
+          767 the box is content-height and only below 480 does the 280 stand */}
+      <div className="relative block flex-1 px-8 py-10 text-white max-md:h-[280px] max-md:px-3 max-md:py-5 max-sm:flex-none">
         {/* ref .st-quote */}
         <div className="relative z-[1] p-6 max-md:w-full">
           {/* ref .st-text */}
@@ -116,10 +178,13 @@ function Card({ item, icons, watermark, watermarkAlt }) {
 
         {/* ref .st-details */}
         <div className="relative z-[1] pl-6 max-md:w-full">
-          {/* ref .stname.isdi — often empty in the markup, and then not painted */}
-          {item.name && (
-            <div className="pb-[5px] text-sm font-semibold leading-[1.5]">{item.name}</div>
-          )}
+          {/*
+            ref .stname.isdi — empty on most cards, but still a box: it carries
+            `padding-bottom: 5px`, and between 480 and 767 the card is
+            content-height, so omitting it made the card exactly 5px short.
+            Rendered always, the same call `GridGallery` and `CardTypeF` make.
+          */}
+          <div className="pb-[5px] text-sm font-semibold leading-[1.5]">{item.name}</div>
 
           {/* ref .st-course.st-name.(isdi|atlas) */}
           {item.course.length > 0 && (
@@ -166,17 +231,21 @@ function Card({ item, icons, watermark, watermarkAlt }) {
   );
 }
 
-export default function Testimonials() {
+export default function Testimonials({
+  data = testimonials,
+  headingVariant = 'default',
+  videoVariant = 'home',
+}) {
   const [active, setActive] = useState(0);
-  const { heading, subheading, tabs, quoteIcons, watermark, watermarkAlt } = testimonials;
+  const { heading, subheading, tabs, quoteIcons, watermark, watermarkAlt } = data;
 
   return (
     /* ref section.section */
     <section className={SECTION}>
       {/* ref .container */}
       <div className={CONTAINER}>
-        {/* ref h2.h2-tag.mrg16 */}
-        <h2 className={`mb-4 max-md:mb-2 ${H2}`}>{heading}</h2>
+        {/* ref h2.h2-tag.mrg16, or `.h2-tag.mrg16.isdi` on the Admissions pages */}
+        <h2 className={cx('mb-4 max-md:mb-2', HEADING[headingVariant], H2)}>{heading}</h2>
 
         {/* ref .sub-heading.mrgbtm32 — the <br> is in the reference copy */}
         <div className="pb-8 pr-[50px] text-2xl font-light leading-[1.4] text-[#333] max-md:pb-4 max-md:pr-0 max-md:text-base max-md:leading-[1.5]">
@@ -212,11 +281,18 @@ export default function Testimonials() {
         by the container's own inset. Nesting it inside `.container` would apply
         that inset twice and push the first card 62px too far right.
       */}
-      <div className="pt-[42px] max-md:pt-5">
+      {/* `.tab-content-mint` is `font-size: 18px`, which every unsized box
+          inside the card inherits */}
+      <div className="pt-[42px] text-lg max-md:pt-5">
         {tabs.map((tab, i) =>
           i === active ? (
             <div
               key={tab.label}
+              /* ref `class="tab-pane-tab-N w-tab-pane"` on the first two panes
+                 only — the numbered ones take `font-size: 16px` at <=767. Every
+                 page's markup numbers Tab 1 and Tab 2 and leaves Tab 4 and Tab 5
+                 bare, the homepage included. */
+              className={cx(i < 2 && 'max-md:text-base')}
               role="tabpanel"
               id={`testimonial-panel-${i}`}
               aria-labelledby={`testimonial-tab-${i}`}
@@ -228,8 +304,11 @@ export default function Testimonials() {
                     key={item.quote}
                     item={item}
                     icons={quoteIcons}
-                    watermark={watermark}
+                    /* ref img.bg-image — /admissions/pg-admissions uses a
+                       different watermark on three of its four tabs */
+                    watermark={tab.watermark ?? watermark}
                     watermarkAlt={watermarkAlt}
+                    videoVariant={videoVariant}
                   />
                 ))}
               </Carousel>
