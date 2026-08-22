@@ -2016,3 +2016,132 @@ and the programme band is **pixel-identical to the reference at 1440, 768 and
 **The six children of /programs/ug-programs-atlas are complete.**
 `reference/programs/ug/` holds nothing else. Three pages remain in
 `reference/programs/pg/`.
+
+### /programs/pg/pg-business-and-management — `lib/pgBusinessContent.js`
+
+`reference/programs/pg/pg-business-and-management.php`
+(`$css = "…690ca5981a1c3e64264150c0-dc966e54d.css"`; `$body = "body-isme"`) —
+the first of the three children of /programs/pg-programs-atlas. Hero, three MBA
+entries, the search panel, FAQ.
+
+**No new asset and no new component.** Its hero is byte-identical to
+/programs/ug/programs-list-management-and-entrepreneurship's — the CDN serves
+the same bytes as `designnnn.png` here and `heeeroooo.png` there, SHA-1 equal —
+so the stored file is reused. That is the second time in this set a "new" hero
+turned out to be an existing file under a different CDN name (the first was
+/programs/ug/programs-list-law-and-policy's). **Hash every hero before adding
+it.**
+
+**The eligibility strip is a single row.** No A-Levels or IB cell and no
+`.df-card.top` anywhere on the page — one long postgraduate criterion that
+stretches the value cell to 972px at 1440. All three entries repeat it verbatim,
+so it is hoisted to the section.
+
+It loads a **different webflow bundle** (`webflow.8ad64a2e…`) from the six UG
+children's `webflow.ee913841…`. Nothing depends on it; the page uses no IX2
+interaction.
+
+**Result: every hero and programme-list element matches at all twelve widths**,
+the programme band is **pixel-identical to the reference at 1440 and 390** (8
+antialiased pixels at 768), and all **ten** popups in the Programs port match
+their reference.
+
+**Reference notes, none reproduced:**
+- All three brochure anchors carry `id="mba-brochure"` as well as the `data-id`.
+- The FAQ include renders the **ISDI** set on an MBA page; re-exported.
+
+### /programs/pg/pg-digital-and-emerging-technologies-in-business — `lib/pgDigitalTechContent.js`
+
+`reference/programs/pg/pg-digital-and-emerging-technologies-in-business.php`
+(`$css = "…690ca661e0ef9a16af2bdaf2-b041f4c74.css"`; `$body = "body-isme"`, same
+`webflow.8ad64a2e…` bundle as its sibling) — the second PG child and the longest
+file in the Programs set at 451 lines, almost all of it the three popups.
+
+4 assets, all new (its own hero and three `-p-` twins). Note its `sizes` string
+is `(max-width: 1439px) 100vw, 1365.9896240234375px`, unlike every other
+Programs hero's 1366/1366.
+
+**Every entry has its own popup and its own strip.** Three separate
+NoPaperForms widgets and strips of three, one and three rows. Two of the widgets
+are shared with other pages (`20bba9a4…` with /programs/pg/pg-business-and-management,
+`1dd30518…` with the CS/AI and AI & Technology pages); `425806c8…` is this
+page's own. `ProgramList` already took both per-entry, so neither needed work.
+
+**A `.df-text-1.f18` value can be rich, and it is the fifth `<strong>` trap.**
+"Entrance Exams (MBA)" authors text, `<br>`, `<strong>`, `<br>`, `<strong>`,
+text inside one cell. `ProgramList` gained a value form that is an **array of
+runs** — a string is text, `{strong}` is bold — on top of the existing plain
+string and `values[]` forms. The `<strong>` renders with an explicit
+`font-bold`: the cell is already `font-weight: 700`, Webflow's normalize gives
+`strong` a flat `bold` so the reference paints 700 (measured on production), and
+Preflight's relative `bolder` would resolve that to **900**.
+
+**Result: every hero and programme-list element matches at all twelve widths**,
+the programme band is **pixel-identical to the reference at 1440 and 390** (4
+antialiased pixels at 768), and all **thirteen** popups in the Programs port
+match their reference.
+
+**Reference notes, none reproduced:**
+- Each brochure anchor carries an `id` duplicating its `data-id`.
+- The second entry's Undergraduate Qualification cell ends with an authored
+  `<br /><br />` the other two copies of that row do not have. Transcribed —
+  it is two real empty lines of card height.
+- The FAQ include renders the **ISDI** set; re-exported.
+- The third "Explore Program" href contains a literal `&`.
+
+### /programs/pg/pg-design-innovation — `lib/pgDesignInnovationContent.js`
+
+`reference/programs/pg/pg-design-innovation.php`
+(`$css = "…690ca68dfe1f53093ba2c9b1-b041f4c74.css"`; `$body = "body-isme"`) —
+the third PG child and the **last page of the Programs section**. Hero, one
+M.Des entry, the search panel, FAQ.
+
+**No new asset and no new component.** Its hero is byte-identical to
+/programs/ug/programs-list-cs-ai-ml-and-ds's — all four sizes SHA-1 equal,
+served as `designnnandinnovation.png` here and `aimlatlasss.png` there — so the
+file was renamed to the neutral `programs-hero-2.png` and both pages point at
+it. **That is the third shared hero in this set**, after
+/programs/ug/programs-list-law-and-policy's and
+/programs/pg/pg-business-and-management's: three of the eleven "new" heroes were
+existing files under a different CDN basename. **Hash every hero against
+`public/` before adding it** — the CDN name is no guide at all.
+
+Its brochure widget (`425806c8…`) is the one
+/programs/pg/pg-digital-and-emerging-technologies-in-business's MBA DMST entry
+uses, and its "Undergraduate Qualification" row is that page's copy word for
+word.
+
+**Result: every hero and programme-list element matches at all twelve widths**,
+and the programme band is **pixel-identical to the reference at 1440 and 390**
+(4 antialiased pixels at 768).
+
+**Reference notes, none reproduced:**
+- The brochure anchor carries `id="mdes-brochure"` as well as the `data-id`.
+- The heading authors a space before its `<br />`; kept in the transcription so
+  the data reads as the source does, though HTML collapses it.
+- The entry title uses an en dash ("M.Des – Design Futures"), not a hyphen.
+- `faq.php` would have chosen master 1 for an ISDI page through its `$domain`
+  branch anyway, but `$domain` is the site root here, so it arrives at the same
+  set through the `else` fallback every /programs/ page takes.
+
+## The Programs section is complete
+
+Twelve routes: the `/programs -> /` redirect, three landing pages, six UG
+children and three PG children. `reference/programs/` holds nothing else
+(`programs/programs/` is an empty directory).
+
+**All fourteen brochure popups match their reference** on panel box,
+close-button box, contents, widget-container box, max-width, max-height, radius
+and padding — verified together after every change, which is what caught the two
+misses on /programs/programs-list-integrated.
+
+**`ProgramList` ended up carrying five capabilities**, each added by the page
+that first needed it and each a no-op on the pages before it: `withBreaks` on
+the entry title, a section-level `brochure`, `values[]` for a multi-line
+eligibility cell, per-entry `eligibilityRows`, and a rich value that is an array
+of text/`{strong}` runs. Nothing else on any of the eleven content pages needed
+a new component.
+
+**Every Programs page's only remaining diffs are the shared FAQ's three
+buckets** — the benign Bootstrap residue, the two deliberate `.accordion-title`
+divergences, and the 2px-vs-1px divider that is still flagged for the user.

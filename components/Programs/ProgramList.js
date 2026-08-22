@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import PrimaryButton from '@/components/ui/PrimaryButton';
 import ButtonRegular from '@/components/ui/ButtonRegular';
 import BrochureModal from '@/components/Programs/BrochureModal';
@@ -60,6 +61,27 @@ import { CONTAINER, SECTION } from '@/components/Home/SectionHead';
  * the heading; below 768 the wrap turns into a block, so the row simply falls
  * under the title.
  */
+
+/*
+ * One `.df-text-1.f18` line. Most are a plain string, which may carry the
+ * reference's own `<br>`s as newlines.
+ *
+ * /programs/pg/pg-digital-and-emerging-technologies-in-business authors a value
+ * that mixes text, `<br>` and inline `<strong>`, so a value may instead be an
+ * array of runs: a string is text, `{strong}` is bold.
+ *
+ * The `<strong>` is rendered with an explicit `font-bold`. `.df-text-1.f18` is
+ * already `font-weight: 700` and Webflow's normalize gives `strong` a flat
+ * `bold`, so the reference paints 700 — measured. Preflight's `bolder` is
+ * relative and would resolve 700 to **900**, which is the trap this project has
+ * now hit five times.
+ */
+function DfValue({ value }) {
+  if (!Array.isArray(value)) return withBreaks(value);
+  return value.map((run, i) => (typeof run === 'string'
+    ? <Fragment key={`t-${i}`}>{withBreaks(run)}</Fragment>
+    : <strong key={`b-${i}`} className="font-bold">{withBreaks(run.strong)}</strong>));
+}
 
 /* ref .df-container-atlas */
 const DF_CONTAINER =
@@ -182,8 +204,8 @@ export default function ProgramList({ data }) {
                         three pages before it use.
                       */}
                       {(row.values ?? [row.value]).map((value, k) => (
-                        <div key={`${k}-${value}`} className="mb-1 text-lg font-bold leading-[1.4]">
-                          {withBreaks(value)}
+                        <div key={`value-${k}`} className="mb-1 text-lg font-bold leading-[1.4]">
+                          <DfValue value={value} />
                         </div>
                       ))}
                     </div>
