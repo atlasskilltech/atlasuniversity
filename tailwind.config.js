@@ -33,6 +33,8 @@ module.exports = {
     'max-lg:hidden',
     // --- body scroll lock ---
     'overflow-hidden',
+    // --- route-transition loader fade (components/ui/PageLoader) ---
+    'opacity-0', 'opacity-100',
   ],
 
   theme: {

@@ -1,6 +1,7 @@
 import './globals.css';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
+import PageLoader from '@/components/ui/PageLoader';
 
 export const metadata = {
   title: 'ATLAS SkillTech University in Mumbai – Explore Programs & Admissions',
@@ -57,6 +58,15 @@ export default function RootLayout({ children }) {
         {children}
 
         <Footer />
+
+        {/*
+          The route-transition overlay. A direct child of <body> on purpose:
+          it is `position: fixed; z-2000`, and every other ancestor in this tree
+          (`CONTAINER` carries `relative z-[1]`) would clamp it below the fixed
+          header bars at z-1090/1100. Last in DOM order so it also wins against
+          equal z-index siblings.
+        */}
+        <PageLoader />
       </body>
     </html>
   );

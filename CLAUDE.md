@@ -2145,3 +2145,70 @@ a new component.
 **Every Programs page's only remaining diffs are the shared FAQ's three
 buckets** — the benign Bootstrap residue, the two deliberate `.accordion-title`
 divergences, and the 2px-vs-1px divider that is still flagged for the user.
+
+## Route-transition loader — `components/ui/PageLoader.js`
+
+The ATLAS logo animation, shown while an in-app route change is in flight. One
+shared implementation, mounted once as the last child of `<body>` in
+`app/layout.js`. `reference/assets/images/loader/atlas-logo-animation.gif` is
+copied byte-for-byte (SHA-1 verified) to
+`public/assets/images/loader/atlas-logo-animation.gif` and that local path is the
+only reference to it anywhere in the source.
+
+**The GIF is 130x130, 122 frames, one loop = 4.38s, and its background is
+transparent.** That last part decides the design: the mark is teal + indigo with
+no ground of its own, so it needs a light surface to read against.
+
+**How a navigation is detected.** A single capture-phase `click` listener on
+`document`. It never touches the link, so `SmartLink` and every `<a>` on the site
+behave exactly as before — the listener only observes. It arms only for a plain
+left-click, not `defaultPrevented`, on an `a[href]` with no `target`, no
+`download` and no `rel="external"`, whose href resolves to this origin over
+http(s) and to a different path than the current one. Instagram / YouTube /
+LinkedIn / Facebook, `mailto:`, `tel:`, `href="#"`, in-page anchors,
+ctrl/meta-clicks and same-page clicks are all verified not to arm it. It hides
+when `usePathname()` reports the new route.
+
+**`usePathname` only, never `useSearchParams`** — the latter opts every route
+into dynamic rendering unless wrapped in Suspense, and this project has already
+been bitten by a client hook flipping the homepage from static to dynamic. All 26
+routes still build `○ Static`.
+
+**Two thresholds keep it from flickering.** `SHOW_DELAY` (140ms) means nothing is
+rendered until a navigation has been pending that long; `MIN_VISIBLE` (500ms)
+means once it is on screen it stays. On localhost with no throttling, four
+consecutive Home -> About Us navigations produced **0 loader mutations** — the
+overlay never mounts when it is not needed. `SAFETY_MS` (8s) takes it down if a
+navigation is abandoned.
+
+**The warmed image is held at module scope, and that is not optional.** The
+overlay only mounts once a navigation is underway, so an un-cached GIF starts
+downloading exactly when the connection is busiest — measured under a 1500ms
+latency profile, the veil painted with **no mark in it at all**
+(`naturalWidth === 0`). `public/` is served `cache-control: public, max-age=0`,
+so even a warmed-then-released image would wait on a revalidation round-trip.
+Warming on `requestIdleCallback` *and* retaining the decoder gives
+`naturalWidth === 130` at every width under the same profile.
+
+**Design.** No new colour, radius, font or spacing token. `bg-white/95` over
+`backdrop-blur-[3px]` veils the outgoing page instead of replacing it, so the
+page stays faintly readable underneath; the mark sits in a 420px radial halo of
+`atlas.teal` at 10% — the brand colour the mega menu already uses for its hover
+underline. `z-2000` is the existing overlay tier, above the fixed header bars at
+1090/1100, and being a direct child of `<body>` avoids the `CONTAINER`
+(`relative z-[1]`) stacking-context trap that portals exist to dodge elsewhere.
+The GIF is never scaled **up** — 130px, dropping to 104px below 480 — so the
+frames stay crisp and square at every width.
+
+**Scroll lock without clobbering the drawer.** `Header` holds `overflow-hidden`
+on `<body>` while its mobile drawer is open, and that drawer does **not** close
+on navigation. So the loader removes the class only if it was the one that added
+it; verified that a navigation started with the lock already held leaves it held.
+
+**A plain `<img>`, not `next/image`** — this is an animated GIF, which the
+optimiser either passes through or flattens.
+
+Verified at 1920 / 1440 / 1280 / 1024 / 768 / 390 / 360: overlay covers the
+viewport, mark square and centred to within a pixel, zero horizontal overflow,
+exactly one overlay at a time, never stuck, and no React or hydration warnings on
+any of nine pages.
