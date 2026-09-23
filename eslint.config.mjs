@@ -27,6 +27,12 @@ const eslintConfig = [
       'components/Header/NavItem.js',
       'components/Header/DrawerHeader.js',
       'components/Footer/Footer.js',
+      // the ISDI header: the same kind of SVG icons plus the ISDI x Parsons wordmark
+      'components/Schools/ISDI/Header/TopBar.js',
+      'components/Schools/ISDI/Header/LogoBar.js',
+      'components/Schools/ISDI/Header/MenuRows.js',
+      'components/Schools/ISDI/Header/DrawerHeader.js',
+      'components/Schools/ISDI/Header/ISDIHeader.js',
     ],
     rules: { '@next/next/no-img-element': 'off' },
   },

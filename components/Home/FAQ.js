@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { faq } from '@/lib/homeContent';
 import { cx } from '@/lib/cx';
 import { CONTAINER, SECTION, H2 } from '@/components/Home/SectionHead';
@@ -114,7 +114,21 @@ function Answer({ blocks }) {
             /* ref li > p */
             <li key={`${j}-li`}>
               <p className="mb-2.5">
-                {typeof item === 'string' ? item : <strong className="font-bold">{item.strong}</strong>}
+                {typeof item === 'string' ? (
+                  item
+                ) : Array.isArray(item) ? (
+                  /* a run list — text with an inline bold label, as the ISDI
+                     homepage's answers author `<b>Label:</b> text` */
+                  item.map((run, k) =>
+                    typeof run === 'string' ? (
+                      <Fragment key={k}>{run}</Fragment>
+                    ) : (
+                      <strong key={k} className="font-bold">{run.strong}</strong>
+                    ),
+                  )
+                ) : (
+                  <strong className="font-bold">{item.strong}</strong>
+                )}
               </p>
             </li>
           ))}

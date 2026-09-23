@@ -1,0 +1,11 @@
+RewriteEngine On
+RewriteBase /schools/isdi/blog/
+
+# ✅ If PHP file exists → open it
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^/]+)/?$ $1.php [L]
+
+# ✅ Otherwise → go to index.php (JSON system)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/?$ index.php [L,QSA]

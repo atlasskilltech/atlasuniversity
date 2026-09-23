@@ -104,6 +104,9 @@ module.exports = {
           ink: '#2b2b2b',       // menu link text
           panel: '#f5f5f5',     // level-2 / nav image panel
         },
+        isdi: {
+          pink: '#ec1376',      // ISDI utility bar, menu hover + underline
+        },
       },
 
       fontFamily: {
@@ -112,6 +115,9 @@ module.exports = {
         // …except `.h2-tag.isdi`, which the reference sets to Poppins. On the
         // homepage that is only the "Thought Leadership" heading.
         poppins: ['Poppins', 'sans-serif'],
+        // The ISDI school pages: Poppins with the 500/600/700 faces the
+        // reference actually renders — see the 'Poppins ISDI' note in globals.css.
+        'poppins-isdi': ['Poppins ISDI', 'sans-serif'],
       },
 
       spacing: {
@@ -131,6 +137,8 @@ module.exports = {
       boxShadow: {
         'level-1': '0 -25px 20px 2px #0003',
         'nav-image': 'inset 0 -25px 20px 2px #0000001a',
+        // ISDI ul.level-3 — the faint shade along its left edge
+        'level-3': 'inset 10px 0 20px 1px #0000000f',
       },
 
       transitionTimingFunction: {

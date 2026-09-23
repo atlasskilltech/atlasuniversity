@@ -47,12 +47,42 @@ import { cx } from '@/lib/cx';
  */
 const VARIANTS = {
   atlas: {
-    shell: 'h-[54px] bg-atlas-teal max-md:h-11 max-vsm:my-[18px]',
+    shell: 'rounded-[27px] h-[54px] bg-atlas-teal text-black max-md:h-11 max-vsm:my-[18px]',
     text: 'text-[18px] leading-[1.5] max-md:text-[14px]',
   },
   'altas-med': {
-    shell: 'h-11 bg-atlas-cyan text-[14px] font-medium leading-[1.5]',
+    shell: 'rounded-[27px] h-11 bg-atlas-cyan text-black text-[14px] font-medium leading-[1.5]',
     text: 'text-[14px] leading-[1.5]',
+  },
+  /*
+   * ref .button-regular with no variant class (`data-wf--button-regular--variant="base"`)
+   * on the ISDI sheet: the base rule, #ec1376 with white text, 54px (44 at
+   * <=767), label 18px (the `.extra-space` 14px at <=767). The ISDI homepage's
+   * "Become an ISDI-ian" beside "Beliefs that build changemakers".
+   */
+  pink: {
+    shell: 'rounded-[27px] h-[54px] bg-isdi-pink text-white max-md:h-11',
+    text: 'text-[18px] leading-[1.5] max-md:text-[14px]',
+  },
+  /*
+   * ref .button-regular:where(.w-variant-fae6c071…) (`small-icon`) — the same
+   * pill on #d20158. The ISDI homepage's "View More Student Outcomes".
+   */
+  'pink-cta': {
+    shell: 'rounded-[27px] h-[54px] bg-atlas-cta text-white max-md:h-11',
+    text: 'text-[18px] leading-[1.5] max-md:text-[14px]',
+  },
+  /*
+   * ref .button-regular:where(.w-variant-aac1b208…) — h48 (44 at <=767),
+   * transparent behind a 1px white border, radius 24 rather than the base 27.
+   * Its label measures 16px/1.5 at every width (the variant's own 14px loses to
+   * `.button-text:where(841ffd43…)`, which is the class the markup carries).
+   * The B.Des pages' Fee Structure / Admissions Policy / Education Loans /
+   * ATLAS Scholarships buttons, on the blue eligibility band.
+   */
+  'isdi-outline-white': {
+    shell: 'h-12 rounded-[24px] border border-solid border-white bg-transparent text-white max-md:h-11',
+    text: 'text-[16px] leading-[1.5]',
   },
 };
 
@@ -63,26 +93,41 @@ export default function ButtonRegular({
   variant = 'atlas',
   children,
   className,
+  onClick,
+  ...rest
 }) {
   const v = VARIANTS[variant] ?? VARIANTS.atlas;
+  /* the radius lives in each variant: two radius utilities in one class list are
+     resolved by stylesheet order, not by the order they are written */
+  const classes = cx(
+    'flex max-w-full flex-none items-center justify-center gap-2.5 px-5 no-underline',
+    v.shell,
+    className,
+  );
+  /* ref .extra-space > .button-text */
+  const label = (
+    <div className="flex flex-none items-center justify-start gap-2.5 text-[14px] leading-[1.5]">
+      <div className={v.text}>{children}</div>
+    </div>
+  );
+
+  /*
+   * A few of these are authored `href="#"` and exist only to open a dialog — the
+   * B.Des pages' "Download Curriculum". Those render as a real `<button>`, as
+   * `PrimaryButton` already does, so they never navigate.
+   */
+  if (onClick) {
+    return (
+      <button type="button" onClick={onClick} className={classes} {...rest}>
+        {label}
+      </button>
+    );
+  }
+
   return (
     /* ref a.button-regular */
-    <SmartLink
-      href={href}
-      external={external}
-      newTab={newTab}
-      className={cx(
-        'flex max-w-full flex-none items-center justify-center gap-2.5 rounded-[27px]',
-        'px-5 text-black no-underline',
-        v.shell,
-        className,
-      )}
-    >
-      {/* ref .extra-space */}
-      <div className="flex flex-none items-center justify-start gap-2.5 text-[14px] leading-[1.5]">
-        {/* ref .button-text */}
-        <div className={v.text}>{children}</div>
-      </div>
+    <SmartLink href={href} external={external} newTab={newTab} className={classes} {...rest}>
+      {label}
     </SmartLink>
   );
 }

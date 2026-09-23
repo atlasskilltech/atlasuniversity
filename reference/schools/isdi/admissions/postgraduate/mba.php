@@ -1,0 +1,350 @@
+<?php
+$title = "MBA & Postgraduate Admissions  – ATLAS SkillTech University";
+$description = "Explore MBA and postgraduate admissions, eligibility, specialisations, application steps and deadlines for management and design leadership programs.";
+$keywords = "atlas, contact";
+$css = "atlass-fantastic-site-48323a.webflow.690ca4c8ab3a51085791bf1a-ffac23949.css";
+$js = "https://cdn.prod.website-files.com/6846c77f346415bfcbb813b6/js/webflow.8ad64a2e.f0a7361c78528bfa.js";
+$htmlDataId = "690ca4c8ab3a51085791bf1a";
+$body = "body isdi-page";
+
+include "../../assets/include/header.php" ?> 
+
+<?php
+
+
+$conn = new mysqli("localhost","diceapp_dice","upetch@2017","diceapp_dice");
+
+// STATIC ID — you set manually
+//$master_id = 2;   // change to 1, 2, 3 etc. whenever needed
+
+
+
+// -------------------------------------------------------
+// FUNCTION: GET CYCLES USING STATIC ID
+// -------------------------------------------------------
+function getAdmissionCycles($conn, $master_id) {
+
+    $sql = "
+    SELECT
+        isdi_admsn_cycle.cycle_name,
+        isdi_admsn_cycle_list.cycle_app_open,
+        isdi_admsn_cycle_list.cycle_last_day_exam,
+        isdi_admsn_cycle_list.cycle_interview_date,
+        isdi_admsn_cycle_list.cycle_result,
+        isdi_admsn_cycle_list.cycle_acceptance_deadline,
+        isdi_admsn_cycle_list.cycle_sem_fee
+    FROM
+        isdi_admsn_cycle_list
+    JOIN isdi_admsn_cycle_master 
+        ON isdi_admsn_cycle_master.isdi_admsn_cycle_master_id = isdi_admsn_cycle_list.cycle_master_pk
+    JOIN isdi_admsn_cycle 
+        ON isdi_admsn_cycle.cycle_id = cycle_pk
+    WHERE
+        isdi_admsn_cycle_list.cycle_active = 1
+        AND isdi_admsn_cycle_master.isdi_admsn_cycle_master_id = $master_id
+    ORDER BY isdi_admsn_cycle.cycle_id ASC
+    ";
+
+    $result = $conn->query($sql);
+
+    if (!$result) {
+        die("SQL ERROR: " . $conn->error);
+    }
+
+    $cycles = [];
+    while ($row = $result->fetch_assoc()) {
+        $cycles[] = $row;
+    }
+
+    return $cycles;
+}
+
+
+
+// -------------------------------------------------------
+// DATE FORMAT FUNCTION (WITH SUP + CLOSED RULE)
+// -------------------------------------------------------
+function showDate($date) {
+
+    if ($date == "" || $date == NULL) {
+        return "<b>Closed</b>";
+    }
+
+    $special_date = "2025-09-11";  
+
+    $date_clean = date("Y-m-d", strtotime($date));
+    $today      = date("Y-m-d");
+
+    if ($date_clean < $today && $date_clean != $special_date) {
+        return "<b>Closed</b>";
+    }
+
+    $timestamp = strtotime($date);
+    $day = date("j", $timestamp);
+
+    if (in_array($day, [1, 21, 31])) $suffix = "st";
+    elseif (in_array($day, [2, 22])) $suffix = "nd";
+    elseif (in_array($day, [3, 23])) $suffix = "rd";
+    else $suffix = "th";
+
+    $month = date("M", $timestamp);
+    $year  = date("Y", $timestamp);
+
+    return $day . "<sup>$suffix</sup> " . $month . " " . $year;
+}
+
+// LOAD DATA USING STATIC ID
+$cyclesISDIMDES = getAdmissionCycles($conn, 6);
+$cyclesISDIMBA = getAdmissionCycles($conn, 7);
+$cyclesISMEMBA = getAdmissionCycles($conn, 8);
+
+?>
+
+<style>
+    .df-container-atlas {
+    border: 1px solid #18429f;
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
+    border-bottom-right-radius: 32px;
+    border-bottom-left-radius: 32px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+     .df-container-atlas {
+        flex-flow: column;
+        position: relative;
+        overflow: auto;
+    }
+}
+
+</style>
+
+<section class="course-cover-section">
+	<div class="course-hero-wrapper">
+		<div class="hero-text">
+			<h1 class="h1-tag">MBA Admissions</h1>
+			<div class="course-duration-isme isdi">Masters of Design | Full Time</div>
+			<div class="buttons-wrapper"><a data-id="" data-wf--button-primary--variant="pink" href="<?php echo $edudomain ?>applicationform" class="btn-primary w-inline-block">
+					<div class="button-tx">Apply for 2027 Intake</div>
+				</a></div>
+		</div>
+	</div><img src="https://cdn.prod.website-files.com/6846c77f346415bfcbb813b6/68e8e3f2f188fec5275325e8_nav-bar.png" loading="lazy" sizes="(max-width: 1366px) 100vw, 1366px" srcset="https://cdn.prod.website-files.com/6846c77f346415bfcbb813b6/68e8e3f2f188fec5275325e8_nav-bar-p-500.png 500w, https://cdn.prod.website-files.com/6846c77f346415bfcbb813b6/68e8e3f2f188fec5275325e8_nav-bar-p-800.png 800w, https://cdn.prod.website-files.com/6846c77f346415bfcbb813b6/68e8e3f2f188fec5275325e8_nav-bar-p-1080.png 1080w, https://cdn.prod.website-files.com/6846c77f346415bfcbb813b6/68e8e3f2f188fec5275325e8_nav-bar.png 1366w" alt="" class="inner-cover-image" />
+</section>
+<div class="sticky-menus"><a href="#how-to-apply" class="anchor-link">How to Apply</a><a href="#key-dates" class="anchor-link">Key Dates</a><a href="#eligibility" class="anchor-link">Eligibility</a><a href="#fee-structure" class="anchor-link">Fee Structure</a><a href="#scholarship" class="anchor-link">ATLAS Scholarships</a><a href="#education-loan" class="anchor-link">Financial Assistance</a><a href="#faq" class="anchor-link">FAQs</a></div>
+<section id="how-to-apply" class="section">
+	<div class="container">
+		<h2 class="h2-tag isdi">Here’s how to apply</h2>
+		<div class="guide-steps-wrapper-isdi">
+			<div class="gd-steps tbg1 isdi-blue-5">
+				<div class="gd-cont-wrap">
+					<div class="tb-num-mt isdi">01</div>
+					<div class="tb-title-mt isdi">Apply Online</div><a Data-id="" data-wf--button-secondary--variant="pink" href="<?php echo $edudomain ?>applicationform" class="secondary-btn">Apply for July 2027 Intake</a>
+				</div><img loading="lazy" src="https://cdn.prod.website-files.com/6846c77f346415bfcbb813b6/685f999de32a3300b7ff028f_tab-3-img-1.png" alt="" class="tb-image isdi" />
+			</div>
+			<div class="gd-steps tbg2 isdi">
+				<div class="gd-cont-wrap">
+					<div class="tb-num-mt isdi">02</div>
+					<div class="tb-title-mt isdi">ISDI Aptitude Test (DAT)</div>
+				</div><img loading="lazy" src="https://cdn.prod.website-files.com/6846c77f346415bfcbb813b6/685f9d87ede0b21a20588100_tab-3-img-2.png" alt="" class="tb-image isdi" />
+			</div>
+			<div class="gd-steps tbg2 isdi-blue-5">
+				<div class="gd-cont-wrap">
+					<div class="tb-num-mt isdi">02</div>
+					<div class="tb-title-mt isdi">Design Portfolio</div>
+				</div><img loading="lazy" src="https://cdn.prod.website-files.com/6846c77f346415bfcbb813b6/685f9d87ede0b21a20588100_tab-3-img-2.png" alt="" class="tb-image isdi" />
+			</div>
+			<div class="gd-steps tbg3 isdi">
+				<div class="gd-cont-wrap">
+					<div class="tb-num-mt isdi">04</div>
+					<div class="tb-title-mt isdi">Personal Interview</div>
+				</div><img loading="lazy" src="https://cdn.prod.website-files.com/6846c77f346415bfcbb813b6/68d3dfc00764fad15ab007a9_jigsaw.png" alt="" class="tb-image isdi" />
+			</div>
+			<div class="gd-steps tbg3">
+				<div class="gd-cont-wrap">
+					<div class="tb-num-mt isdi">05</div>
+					<div class="tb-title-mt isdi">Result Declaration</div>
+				</div><img loading="lazy" src="https://cdn.prod.website-files.com/6846c77f346415bfcbb813b6/68d3dfc00764fad15ab007a9_jigsaw.png" alt="" class="tb-image isdi" />
+			</div>
+			<div class="mob-vert-line"></div>
+		</div>
+	</div>
+</section>
+<section id="key-dates" class="section">
+	<div class="container">
+		<h2 class="h2-tag isdi">Key Dates &amp; Deadlines</h2>
+		<div class="dates-fees-container isdi">
+        	<!--<div class="df-container isdi">-->
+        	<!--	<div class="df-card blue isdi-blue">-->
+        	<!--		<div class="df-text-2 bld">Application </br>Deadline</div>-->
+        	<!--		<div class="df-txt-wrap"> <?php foreach ($cyclesISDIMBA as $c) { ?> <div class="df-text-2 f14"><?php echo showDate($c['cycle_app_open']); ?></div> <?php } ?> </div><img loading="lazy" src="https://cdn.prod.website-files.com/6846c77f346415bfcbb813b6/68e8e143b04dae2f58c2cef0_Polygon%202.png" alt="" class="image-8" />-->
+        	<!--	</div>-->
+        		<!--<div class="df-card">-->
+        		<!--	<div class="df-text-2 f14">AAT exam & <br />Work showcase</div> <?php foreach ($cyclesISDIMBA as $c) { ?> <div class="df-text-1 f18"><?php echo showDate($c['cycle_last_day_exam']); ?></div> <?php } ?>-->
+        		<!--</div>-->
+        	<!--	<div class="df-card">-->
+        	<!--		<div class="df-text-2 f14">Personal Interview</div> <?php foreach ($cyclesISDIMBA as $c) { ?> <div class="df-text-1 f18"><?php echo showDate($c['cycle_interview_date']); ?></div> <?php } ?>-->
+        	<!--	</div>-->
+        	<!--	<div class="df-card">-->
+        	<!--		<div class="df-text-2 f14">Result<br />Announcement</div> <?php foreach ($cyclesISDIMBA as $c) { ?> <div class="df-text-1 f18"><?php echo showDate($c['cycle_result']); ?></div> <?php } ?>-->
+        	<!--	</div>-->
+        	<!--	<div class="df-card">-->
+        	<!--		<div class="df-text-2 f14">Acceptance <br />Deadline</div> <?php foreach ($cyclesISDIMBA as $c) { ?> <div class="df-text-1 f18"><?php echo showDate($c['cycle_acceptance_deadline']); ?></div> <?php } ?>-->
+        	<!--	</div>-->
+        	<!--	<div class="df-card">-->
+        	<!--		<div class="df-text-2 f14">Annual Fee Payment Deadline</div> <?php foreach ($cyclesISDIMBA as $c) { ?> <div class="df-text-1 f18"><?php echo showDate($c['cycle_sem_fee']); ?></div> <?php } ?>-->
+        	<!--	</div>-->
+        	<!--</div>-->
+        	<?php
+
+                include $_SERVER['DOCUMENT_ROOT'] . "/assets/include/keydates/mba-dmst.php" 
+                
+            ?> 
+        </div>
+	</div>
+</section>
+<section id="eligibility" class="section">
+	<div class="container">
+		<div class="head-wrap mrgbtm32 isdi">
+			<div class="tt-wrap">
+				<h2 class="h2-tag mrgtbm0 isdi">Eligibility</h2>
+			</div><a Data-id="" data-wf--button-regular--variant="small-icon" href="https://atlasuniversity.edu.in/admissions-policy/" target="_blank" class="button-regular w-variant-fae6c071-65cb-b1a3-0e97-3054914f8c5a w-inline-block">
+				<div data-wf--button-space--variant="normal" class="extra-space">
+					<div data-font-size="" class="button-text">View Admission Policy</div>
+					<div class="code-button w-embed w-script">
+						<script>
+						document.addEventListener("DOMContentLoaded", function() {
+							document.querySelectorAll('.button-text').forEach(function(text) {
+								var fontsz = text.getAttribute('data-font-size');
+								text.style.fontSize = fontsz + 'px';
+							});
+						});
+						</script>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="list-text-wrap">
+			<div>
+				<div class="ln-bd-txt">Students with a <strong>minimum of 4 years in an undergraduate degree program</strong>, regardless of the field, with at least 5<strong>0% aggregate marks</strong> from <strong>any university recognised by the AIU can apply.</strong> Those in their final year of study can also apply if they maintain a minimum 50% aggregate at graduation and have no live backlogs (ATKTs).<br /><br />Scores from CEED, NIFT Entrance Exam, NID-DAT, GATE Exam are considered on case to case basis.<br />‍</div>
+				<div class="ln-bd-txt"><strong>Bachelor&#x27;s or Bachelor&#x27;s (Honours) Degree<br />﻿﻿ <br /></strong>• Minimum of <strong>160 credits﻿﻿</strong><strong> <br /></strong>• At least <strong>4 years</strong> of post-K-12 study<br />﻿﻿• <strong>Any major or discipline</strong> accepted</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="fee-structure" class="section">
+	<div class="container">
+		<div class="head-wrap top">
+			<div class="tt-wrap">
+				<h2 class="h2-tag mrg16 isdi">Fee Structure</h2>
+				<div class="sub-heading mrgbtm32">We believe in clarity &amp; Here’s a simple breakdown of our fees!</div>
+			</div><a Data-id="" data-wf--button-regular--variant="base" href="https://online.fliphtml5.com/vrcjg/xrys/#p=1" target="_blank" class="button-regular w-inline-block">
+				<div data-wf--button-space--variant="normal" class="extra-space">
+					<div data-font-size="" class="button-text">View Fee Structure</div>
+					<div class="code-button w-embed w-script">
+						<script>
+						document.addEventListener("DOMContentLoaded", function() {
+							document.querySelectorAll('.button-text').forEach(function(text) {
+								var fontsz = text.getAttribute('data-font-size');
+								text.style.fontSize = fontsz + 'px';
+							});
+						});
+						</script>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="dates-fees-container isdi">
+			<div class="df-container isdi">
+				<div class="df-card blue isdi-pink">
+					<div class="df-text-2 bld"><strong>Total Duration</strong></div>
+					<div class="df-txt-wrap">
+						<div class="df-text-1">2 years<br /></div>
+						<div class="df-text-3"><br /><strong>Total Duration</strong></div>
+					</div><img loading="lazy" src="https://cdn.prod.website-files.com/6846c77f346415bfcbb813b6/68e8e81316aa6194ba004433_Polygon-pink.png" alt="" class="image-8" />
+				</div>
+				<div class="df-card">
+					<div class="df-text-2">Application Fee</div>
+					<div class="df-text-1"><strong class="fee-dates">1500</strong></div>
+				</div>
+				<div class="df-card">
+					<div class="df-text-2">Enrollment Fee</div>
+					<div class="df-text-1"><strong>50,000</strong></div>
+				</div>
+				<div class="df-card">
+					<div class="df-text-2">Year 1</div>
+					<div class="df-text-1"><strong>5,77,500</strong></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="scholarship" class="section">
+	<div class="container">
+		<div class="head-wrap">
+			<div class="tt-wrap">
+				<h2 class="h2-tag mrg16 isdi">ATLAS Scholarships</h2>
+				<div class="sub-heading">Enabling bright minds to go further.</div>
+			</div><a Data-id="" data-wf--button-regular--variant="small-icon" href="<?php echo $ogdomain ?>scholarships-and-financial-aid" class="button-regular w-variant-fae6c071-65cb-b1a3-0e97-3054914f8c5a w-inline-block">
+				<div data-wf--button-space--variant="normal" class="extra-space">
+					<div data-font-size="" class="button-text">Know more about ATLAS Scholarship</div>
+					<div class="code-button w-embed w-script">
+						<script>
+						document.addEventListener("DOMContentLoaded", function() {
+							document.querySelectorAll('.button-text').forEach(function(text) {
+								var fontsz = text.getAttribute('data-font-size');
+								text.style.fontSize = fontsz + 'px';
+							});
+						});
+						</script>
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="scholarship-cards-wrapper">
+			<div class="scholarship-card bg1 isdi">
+				<div class="scholarship-number">#1</div>
+				<div class="scholarship-title isdi">Merit-Based and Talent Scholarships</div>
+				<p class="scholarship-description">ATLAS SkillTech University recognises and rewards exceptional talent and academic excellence through its Merit-Based and <br />Talent Scholarships. <br /><br />Whether you shine in academics, sports, entrepreneurship, or digital skills.</p>
+			</div>
+			<div class="scholarship-card bg2 isdi">
+				<div class="scholarship-number">#2</div>
+				<div class="scholarship-title isdi">Give Back to Society Scholarships</div>
+				<p class="scholarship-description">Special Category Scholarships at ATLAS SkillTech University honour the unique contributions of educators, defence personnels, and philanthropic donors across the country.<br /><br />These scholarships support the children of teachers and armed forces members, etc.</p>
+			</div>
+			<div class="scholarship-card bg3 isdi">
+				<div class="scholarship-number">#3</div>
+				<div class="scholarship-title isdi">Need-Based and Support Scholarships</div>
+				<p class="scholarship-description">Our Need-Based and Support Scholarships are committed to making quality education accessible to deserving students, regardless of their financial background.<br /><br /> ATLAS SkillTech University offers tuition fee waivers, interest-free loan support.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+	<?php
+
+                include $_SERVER['DOCUMENT_ROOT'] . "/assets/include/keydates/mba.php" 
+                
+            ?> 
+
+<section id="faq" class="section">
+	<div class="container">
+	
+		<div class="search-ques-wrap">
+			<?php 
+                $chatBxVariant = "";
+                $chatBxText = "More questions?";
+                include "../../../../assets/include/more-questions.php"
+            ?>
+		</div>
+	</div>
+</section> 
+
+
+<?php
+$arrow = "isdi-down-arrow.svg";
+include "../../../../assets/include/faq/isdi/admissions/pg-mba.php" ?>
+<?php include "../../assets/include/footer.php" ?>

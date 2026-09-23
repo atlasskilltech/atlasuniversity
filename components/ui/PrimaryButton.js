@@ -39,6 +39,19 @@ const BASE =
  * reference paints.
  */
 const VARIANTS = {
+  /*
+   * ref .btn-primary with no variant class — the sheet's base rule, #d20158
+   * with white text. The ISDI homepage's "Become an ISDI-ian" and "Apply Now"
+   * buttons (`data-wf--button-primary--variant="pink"`, an inert attribute).
+   */
+  pink: 'h-14 max-w-full text-white bg-atlas-cta max-md:h-10',
+  /*
+   * ref .btn-primary:where(.w-variant-267c9259-4ff0-8737-bb83-3058007e9369) —
+   * the ISDI homepage's "blue" pill on its pink banners: #1f4aa0 with a 600
+   * label (the variant sets the weight on `.button-tx`; here it is set on the
+   * anchor, which the label inherits, since the anchor paints no text itself).
+   */
+  blue: 'h-14 max-w-full text-white bg-[#1f4aa0] font-semibold max-md:h-10',
   // ref .btn-primary:where(.w-variant-9df390f6-abdb-218d-e8a6-500b981692ba)
   atlas: 'h-14 max-w-full text-black bg-atlas-teal max-md:h-10',
   // ref .btn-primary:where(.w-variant-edbe4a85-a762-b5b5-c583-585856b72378)
@@ -56,6 +69,16 @@ const VARIANTS = {
   'outline-medium':
     'h-11 max-w-full border border-solid border-black bg-transparent text-center text-black max-md:h-10',
 };
+
+/*
+ * The reference's own name for the `outline` variant, in every page's
+ * `data-wf--button-primary--variant` attribute. An unknown key yields no classes at
+ * all and the button renders as unstyled text — which is exactly what happened on
+ * /admissions/integrated-admissions and again on the ISDI B.Des pages, both times
+ * caught only by comparing screenshots. Accepting the reference's spelling removes
+ * the trap rather than restating it in every data file.
+ */
+VARIANTS['outline-white'] = VARIANTS.outline;
 
 /*
  * ref .button-tx. Every page's sheet drops the label to 12px at <=767, but they

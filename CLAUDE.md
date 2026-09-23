@@ -2212,3 +2212,834 @@ Verified at 1920 / 1440 / 1280 / 1024 / 768 / 390 / 360: overlay covers the
 viewport, mark square and centred to within a pixel, zero horizontal overflow,
 exactly one overlay at a time, never stuck, and no React or hydration warnings on
 any of nine pages.
+
+## Schools — `reference/schools/`
+
+Each school is a separate site upstream, with its own `assets/include/header.php`
+/ `footer.php` / `dynamic.php`. Built one school at a time, header first, then
+footer, then pages. `$domain` is `/schools/<school>/`, `$ogdomain` is `/`.
+
+**The ATLAS chrome steps aside on `/schools/*`.** `app/layout.js` wraps the
+ATLAS `Header` and `Footer` in `components/Schools/MainSiteOnly` (a
+`usePathname` guard — every route still prerenders static), and each school's
+`app/schools/<school>/layout.js` mounts its own. A route group was the
+alternative and was rejected: it meant moving every finished route.
+
+### ISDI header — `components/Schools/ISDI/Header/`, `lib/schools/isdi/navigation.js`
+
+Port of `reference/schools/isdi/assets/include/header.php` plus the header half
+of its footer.php. Mounted once in `app/schools/isdi/layout.js`, so later ISDI
+pages get it for free. `/schools/isdi/page.js` is an empty placeholder until the
+homepage step.
+
+**Measure production, not the mirror.** The mirror's `dynamic.php` points
+`$domain` at `http://localhost/atlasskilltech/…`, so every ISDI asset 404s
+locally. `https://atlasuniversity.edu.in/schools/isdi/` serves identical CSS and
+markup. It rate-limits (429) parallel Playwright runs — probe it sequentially.
+
+**Poppins is never loaded by the ISDI reference.** Its only Google Fonts request
+is `family=Inter`; the text renders in Poppins only on machines that have it
+installed (this one has Medium/SemiBold/Bold, so weight 400 renders as Medium —
+verified with CDP `getPlatformFontsForNode`) and in Arial everywhere else. The
+port self-hosts a separate family, `'Poppins ISDI'` (`font-poppins-isdi`), with
+exactly 500/600/700 faces so 400 resolves to Medium. It is a separate family
+because adding a 600 face to `'Poppins'` would move `.cr-title.isdi` on
+/advantages/atlas-advantages off the 700 face it renders today.
+
+**Same chassis as the ATLAS header, deliberately not shared.** The scroll script
+is whitespace-identical, so `useStickyHeader` is reused. Everything else differs
+somewhere (pink `#ec1376` bar with a left-pinned "ATLAS SkillTech University"
+link, `#d20158` buttons with no hover state, a third 650px menu level, a 600px
+panel, borders/shadow kept on mobile, the close icon inverted 768-991, drawer
+title 10px closer to its arrow), so it has its own styles and components.
+
+**Things only a measurement found:**
+- `.mega-menus` has one empty `.w-embed` flex child after "Contact Us" (its
+  sibling `<script>` embed makes no box). `justify-content: space-around` gives
+  it a share of the free space, which sets every gap in the nav row — hence the
+  empty `<div aria-hidden>` there.
+- `.header` is `position: static`; its `z-index: 1000` creates no stacking
+  context.
+- Rows are nested exactly as upstream (a row's child `<ul>` lives *inside* the
+  row), because the hover rules target the `<li>`: pointing into level 3 keeps
+  the level-1 and level-2 rows pink. Clicking empty space in an open level-3
+  panel closes level 3 only — verified on production, and it falls out of the
+  same nesting.
+- On scroll, header.php slides both bars away (0.5s). 24 of the 60 ISDI pages
+  (index.php and the programme pages) carry a body embed with
+  `.hide { display: none !important }`, which makes the bars vanish instantly
+  instead. Same end state; handle it in the page step if it matters.
+
+**Deviations (all documented in `ISDIHeader.js`):** one 992px viewport
+threshold (upstream sniffs the User-Agent and renders the whole menu inline under
+the logo bar at 769-991); drawers placed at y=81 but sized to the viewport
+(upstream they run 81px past the bottom); hover desktop-only (upstream's
+`min-width: 567px` hover collapses a tapped drawer row to 33px); menus close on
+route change; Escape and body scroll lock as in the ATLAS header.
+
+**Assets.** Logo SVG byte-for-byte. The five PNG panel photographs (490-627KB,
+1023px wide but shown ~2.2x upscaled) are WebP q95 (84-122KB, SSIM >= 0.99 at
+display size); the two that were already WebP are copied as-is. Only the 1023w
+candidate ships — at >= 992px a `sizes="100vw"` srcset never selects the 500/800w
+files. Icons reuse `public/assets/icons/*` (byte-identical) and the contact arrow
+reuses `images/international/think/arrow-top-rt-blk.svg`.
+
+### ISDI footer — `components/Schools/ISDI/Footer/ISDIFooter.js`, `lib/schools/isdi/footerContent.js`
+
+Port of `reference/schools/isdi/assets/include/footer.php` (identical on
+production). Mounted after `{children}` in `app/schools/isdi/layout.js`. Not the
+ATLAS footer's shape at all: a pink (#df287b) 40% contact column beside a blue
+(#1f4aa0) 60% panel painted with `footer-vector.png`, logo top-right and four
+social icons bottom-right. Stacks at <=767 (the panel becomes a centred
+`space-around` row, gap 40) and wraps at <=479 (+40px left padding). Nothing else
+changes with width — every other difference is content reflow.
+
+**Transcribed as authored, not "fixed":** the email is `<a href="#">` (no
+`mailto:`), and the four social icons are bare `<img>`s with no anchors, so they
+link nowhere. Production's Cloudflare email obfuscation is a CDN artefact of the
+same address.
+
+**`VideoModal` moved with it.** footer.php carries the same `data-video` modal as
+the ATLAS footer, and the ATLAS footer is not rendered on /schools/*, so
+`ISDIFooter` mounts the existing `components/Footer/VideoModal` unchanged — one
+modal per page on every route, verified across client navigation both ways.
+ISDI's own script embeds youtube.com; the shared helper uses youtube-nocookie.com.
+
+**Assets.** Six images, all CDN-only upstream. Four (the social icons) are
+byte-identical to `public/assets/icons/social-{x,instagram,youtube,linkedin}.svg`
+and are reused; the logo (3.5KB) and `footer-vector.png` (17KB) are small and
+alpha-transparent, so they are copied byte-for-byte to
+`public/assets/images/schools/isdi/footer/`.
+
+**Pixel-comparing an element under a fixed header:** hide the header with
+`display: none`, not `visibility: hidden` — the header's `transition-all`
+animates visibility, so a 300ms wait still captures it.
+
+**On the empty placeholder page** the footer's 56px top margin collapses through
+the zero-height header root and `<main>`, so the page starts 56px down and the
+fixed header covers the footer. Both disappear once the homepage has content.
+
+### ISDI homepage — `app/schools/isdi/page.js`, `components/Schools/ISDI/Home/`, `lib/schools/isdi/home/`
+
+`reference/schools/isdi/index.php` (+ `assets/include/pathfinder.php` and
+`assets/include/faq/isdi/homefaq.php`) in 23 top-level blocks, in order: hero,
+awards, outcomes heading, outcomes stack, The Action never stops!, Beliefs, Our
+Programs (+ PathFinder quiz), Choose Your Minor, Choose your Electives, Class of
+2025 banner, Our Halls attract the Remarkable, FAQ banner, ISDI in Motion, Why the
+industry can't get enough, figures band + logo strip, Advisory Board, Your Future
+In Action, Think International, Ready to Build, The People Who Know Us Best,
+Research & Reflections, guide panels, FAQ. Each block root carries `data-block`.
+
+**Measure production, not the mirror.** The mirror's `$domain` is broken; every
+section was dumped from `https://atlasuniversity.edu.in/schools/isdi/` at
+1440/1280/991/767/479/390 and diffed element by element. Section heights match
+within 1.5px at every dumped width except the documented deviations below.
+
+**ISDI's sheet is not the ATLAS sheet.** `.isdi-page .section` is 50px top and
+bottom at every width (header.php), the pill tabs' current colour is #d20158,
+slider dots are `inline-block` with `margin: 0 8px`, cards take a 16px radius
+from a generic `.isdi { border-radius: 16px }`. Hence ISDI-local pieces
+(`MintTabStrip`, `QuoteCard`, `PinkBanner`, …) rather than skinning shared ones.
+
+**Shared components, additive only:** `Carousel` gained `bullets="isdi"` (in-flow
+row, `.common-swiper`) and `"isdi-overlay"` (absolute, 30px under the slider,
+`.common-swiper-full`); `PrimaryButton` gained `pink`/`blue`; `ButtonRegular`
+gained `pink`/`pink-cta`; `FAQ` list items may be run arrays (`<b>Label:</b>
+text`). `Life/ZoomSlider` is reused unchanged for "ISDI in Motion" — ISDI's
+zoom-slider CSS block is byte-identical. Every existing route re-checked after.
+
+**Webflow tabs follow the current *link*, not the active pane.** "Choose Your
+Minor" marks link "Tab 5" current and pane "Tab 1" active; production opens on
+Tab 5. **ISDI's `initCommonSwiper` has no autoplay** — `autoplay={false}` on every
+ISDI carousel. **The logo strip is IX2 `a-22`** (the existing `animate-slide-wrap`).
+
+**PathFinder** is a full client port of the jQuery quiz in footer.php; its score
+tables were diffed programmatically against the source. The results for a fixed
+set of picks match production's.
+
+**Deviations (each in its component header):** Instagram grid instead of the
+cross-origin iframe (as the ATLAS homepage); 568-767px testimonial cards held to
+the container width (reference blows out to ~1014px); videos play when in view
+rather than all at once on load; `href="#home-faq"` (no such id) points at `#faq`;
+one advisory href authored `#https://…` is the video URL; the FAQ keeps the shared
+1px #dee2e6 divider where ISDI draws 2px #eee (still flagged) and ATLAS section
+padding offset by a wrapper; Manrope text (tabs, badges) uses the self-hosted
+Manrope — production loads no Manrope and falls back to the system sans-serif.
+
+**Assets.** 9 of the minor posters are soft-404s on production (HTML with 200) and
+are not shipped. The 19 minor clips were remuxed to faststart (stream copy, no
+re-encode). Re-encoding the hero videos saved <25% at SSIM 0.99 and was not
+applied. Research photos (up to 2560px, shown at 293x298) are 640px WebP q90;
+the 2.1MB drum GIF is a 900px animated WebP (1.15MB). The People Who Know Us Best
+reuses the ATLAS parent-testimonial videos (byte-identical).
+
+**Two shell traps hit here:** a bash heredoc collapses `\` and `\n` inside the
+script body, which silently corrupted generated JS and JSON twice — write scripts
+with the editor. And a Playwright `scroll_into_view_if_needed` never settles on an
+element inside a running CSS marquee; scroll its section with `scrollIntoView()`.
+
+### ISDI About — `app/schools/isdi/about-us/page.js`, `components/Schools/ISDI/About/`, `lib/schools/isdi/about/`
+
+`reference/schools/isdi/about-us/index.php` (`$css = "…68e7936f141c3283f461d766-366cfd569.css"`,
+`$body = "body isdi-page"`) — the target of the ISDI header's "About Us" menu. Seventeen blocks:
+hero (background video), three figures, the sticky anchor menu, Mission/Vision, Our Story (YouTube),
+Shaping a Viksit Bharat, Recognition (4 tabs), Leadership Team, The ATLAS Advisory Board, The ISDI
+Advisory Board, Our Management Team, In The Heart of Mumbai, Thought Leadership, ATLAS Times, Press
+Coverage, More questions?, FAQ. Measured on production (standards mode) at six widths; every block but
+the FAQ matches its production height to the pixel at all six.
+
+**Two wrappers are kept for their ids.** `#our-mission` wraps Story/Shaping/Recognition and
+`#our-leadership` wraps Leadership + both boards + Management. The menu's scroll-spy measures
+`#our-leadership` as that whole group, exactly as Webflow's `links` module does (a link is current while
+its section overlaps the middle of the viewport, so two can be current at once).
+
+**The sticky menu's position lives in ISDI header.php, not the sheet:** sticky top 156 / z 900 from 992
+up (top 0 under `body.hide-header`, via `lg:[body.hide-header_&]:top-0`), static 569-991, sticky top 80
+/ z 9 at <=568.
+
+**Reuse, all additive:** `Home/AdvisoryBoard` gained `variant="isdi-black"` (overlay-blk scrim, pink name
+label, grayscale portrait in an isolated card), `block`, and `data.playAlt` / `data.playLabel`;
+`Home/InViewVideo` gained `sources` (mp4 + webm); `Carousel` gained `bullets="isdi-light"` (header.php
+paints bullets white inside `.blue-wrapper`); the card-a markup moved out of `Home/Research` into
+`components/Schools/ISDI/CardA` (`isdi` + `type-a`), used by Research, Thought Leadership and ATLAS
+Times. The FAQ is FAQ master 1 — diffed against production and identical to
+`lib/designInnovationContent.js`'s set, so it is re-exported with the ISDI arrow.
+
+**Assets.** 188 references: 110 byte-identical files already in `public/` reused (SHA-1), 78 new under
+`public/assets/{images,videos}/schools/isdi/about/`. `NAAC-Accredited (1).png` has a `)` in its name —
+the live-scan regex truncated it; match the quoted form. `dr-shahani-video.mp4` was an unsmudged LFS
+pointer and was restored from the CDN (blob id equals HEAD). ATLAS Times ships only the <=1080w
+candidates with `sizes="450px"` (the reference asks `100vw` for a 295px card). Re-encoding the hero video
+made it larger (8.4MB vs 7.8MB), so every video ships byte-for-byte; all mp4s were already faststart.
+
+**Deviations:** the shared FAQ's known buckets (1px divider, no `.accordion-title` 50px margin — 22px
+shorter over 24 items); the YouTube iframe is `loading="lazy"`; the menu's smooth scroll is the browser's
+native one rather than Webflow's eased animation.
+
+### ISDI Undergraduate Programs — `app/schools/isdi/programs/undergraduate/page.js`, `components/Schools/ISDI/ProgramsUg/`, `lib/schools/isdi/programs-ug/`
+
+`reference/schools/isdi/programs/undergraduate/index.php` (`$css =
+"…68d31171d52107256a18f4d5-1c2f7c659.css"`, `$body = "body isdi-page"`) — the ISDI header's
+"Programs > Undergraduate Degree > Overview". Ten blocks: the four-slide hero, the pathfinder
+include, "Why Design At ISDI?" + #1 Industry Leaders, #2 Where India Does Business, #3 Launch
+Before They Graduate, the startup logo strip, #4 The World at their Fingertips, #5
+Multidisciplinary, "More questions?", FAQ. Measured on production at six widths; every block but
+the FAQ matches its production height to the pixel at all six.
+
+**Block 1 is `assets/include/pathfinder.php` — the file the homepage already ports.** The homepage
+renders it inside its Undergraduate tab, this page includes it bare in a `section.section >
+.container`, so `Home/Programs` exports `UndergraduatePane` and the page reuses it with
+`isdiPrograms.ug` + `isdiPathfinder` unchanged (heading, seven programme cards, PathFinder card and
+quiz — including the card links to the not-yet-built B.Des pages).
+
+**Reuse, all additive:** the `.instagram-wrapper > .grid-gallery-flex` wall moved out of
+`Home/FutureInAction` into `components/Schools/ISDI/PhotoGallery` (badge / caption / logo all
+optional) and serves #3 and #4; `Home/Electives` exports `ElectiveCard` for the two `.isdi-elective`
+cards #5 closes with; `Home/MintTabStrip`, `Carousel`, `ButtonRegular`, `About/MoreQuestions` and the
+site-wide `FAQ` are used as they are. The hero is its own component — the same progress-ring Swiper
+as the homepage's, but photographs with an eyebrow and no buttons, on a 10s delay with 68px rings.
+`.port-card-m-wrap.isdi` is **not** `components/ui/PortCardM` (that is `-atlas`: 295x520, `32px 0`,
+indigo); this one is 295x480, r16, with a pink/blue bar and a notch.
+
+**`.black-desc-text.mrgbtm.isdi` keeps 24px below 768** — a compound selector (0,3,0) beating the
+`@media … .black-desc-text { font-size: 18px }`, while the plain `.black-desc-text.isdi` under #1 does
+drop. Fourth instance of that trap in the rebuild; it was worth 96-224px of section height.
+
+**Two authored `height` attributes in the logo strip** (50 and 150) are cancelled by Preflight's
+`img { height: auto }` and are restated inline — without them the strip is 119px tall instead of 210.
+The strip authors its seven logos twice, so its React key carries the index.
+
+**One minor card is authored with no image.** The fifth card of "Human-Centered and Social Design"
+has only a caption, so the reference paints a 298 x 0 slide; rendering the card imageless reproduces
+that (and `card.image` is optional, which is what stopped it throwing).
+
+**Assets.** 88 references: 20 already local (the homepage's eight "Your Future, In Action"
+photographs among them, by CDN URL), 68 new under
+`public/assets/images/schools/isdi/programs-ug/<section>/`. 47 of them are WebP conversions at
+SSIM >= 0.999 (13MB -> 2.9MB; the four hero photographs alone were 7.7MB), the other 4 kept their
+original encoding because WebP saved too little.
+
+**Deviations:** the shared FAQ's known divider bucket (7 items, ~5px); and the two `.isdi-elective`
+cards ride the standard ISDI carousel, which aligns its track to the container inset, where the
+reference's Swiper centres that one row (3px at 1440, 18px at 390).
+
+### ISDI B.Des in Accessory Design & Craft — `app/schools/isdi/programs/undergraduate/b-des/accessory-design-&-craft/page.js`, `components/Schools/ISDI/ProgramDetail/`, `lib/schools/isdi/programs-bdes/accessory/`
+
+`reference/schools/isdi/programs/undergraduate/b-des/accessory-design-&-craft.php` — the first of
+the twelve B.Des programme pages, the target of the ISDI header's "Programs > Undergraduate Degree >
+B.Des". Twelve blocks: hero (a 3-slide ring carousel), the three figures, the programme tab set +
+"Our Globally Benchmarked Curriculum" (one `section.section.extraspace`), "Admissions — The Design
+Way", Eligibility, "Why Accessory Design & Craft at ISDI x Parsons" (a 5-card sticky stack), "Where
+concepts meet execution", "Student Projects in Motion", "Student Voices", the closing band, "More
+questions?", FAQ. Measured on production at 1440/1280/991/767/479/390; every block matches to the
+pixel at 1440 except the FAQ, and the only other deltas at any width are the four deviations below.
+
+**`$body` is plain `body`, so the ISDI 50px section padding does NOT apply here** — this page's
+sections take their padding from the sheet, and the two sections that differ (`.section.extraspace`,
+the blue `.section.blue-bg` with its 60px bottom margin) carry it themselves.
+
+**The elective dropdowns are Webflow dropdowns, not Bootstrap accordions.** `DROPDOWN_OPEN` runs
+IX2 `a-20` (height -> auto, icon 180deg, 100ms) and `DROPDOWN_CLOSE` runs `a-21` (height -> 32px).
+a-20's first group is the initial state and declares **32px** — but production writes an inline
+`height: 80px` at load, so a closed dropdown there shows the first elective's title and half a line
+of its description clipped mid-glyph, and settles at 32px after one open/close. The authored intent
+is unambiguous, so the port renders 32px closed. That is worth **-96px** on the programme block at
+every width below 1440 (two dropdowns x 48px), and nothing at 1440, where the semester row's height
+comes from the video column instead.
+
+**`flex: 3 auto` plus `width: 100%` is not the same as `flex: 3 auto`.** `.comp-table-wrap` declares
+both, and the `width` is what sets its flex base to 100% of the row; without it the comparison card
+took half the width, the panels shrank and the text gained two lines. Its sibling
+`.comp-control-wrap` is sized by the heading's **authored `<br>`s** — drop them and the max-content
+base goes from 615 to 965 and the whole card re-proportions. **A `<br>` can be layout, not just a
+line break.**
+
+**`.comp-table-wrap` is authored twice, one inside the other, and that is not inert:** each carries
+`margin-top: 10px` at <=479, so the pair really is 10px taller than a single wrapper. Reproduced.
+
+**Four extraction bugs this page surfaced, all of them in how text was read:**
+- **A source newline is a space; only `<br>` is a line break.** The transcriber was emitting `\n`
+  for both, so every multi-line source paragraph gained real breaks — worth 24px per false break in
+  the eligibility list alone.
+- **`get_text()` flattens `<br>`**, which is how the comparison headings lost the breaks that size
+  their column.
+- **A `.sub-portion` is not an `li`.** The elective dropdowns' contents were selected as
+  `li, .drop-list-item, .desc-text-1` and came back empty — 47 electives silently missing.
+- **A section can have a whole column nobody selected.** The eligibility block's right-hand
+  Application Fee / Fee Structure / Loans column was never extracted, because the query stopped at
+  `.elig-point-wrap`. **Diff the rendered block against the reference early** — the height diff is
+  what found it.
+
+**The stylesheet paints six backgrounds this page needs and the markup names none of them**
+(`pro-bg-1/2` on the stack panels, `Vector--0/--d` on the execution cards, `comp-vector(-2)` on the
+comparison card). They are enumerated off the live DOM by `scratchpad/bdes/cssbg.py` and folded into
+the URL manifest by `extract.py` itself, so a re-run cannot drop them again.
+
+**Do not re-run the asset downloader after the optimisers.** `assets.py` writes the original bytes,
+`optimise.py`/`optimise_video.py` replace them in place — so any later `assets.py` run silently
+restores the unoptimised originals (it happened twice here, once putting 62MB of video back).
+Download first, optimise last, and check `du` before calling it done.
+
+**Assets.** 168 paths: 5.0MB of images and 38MB of video under
+`public/assets/{images,videos}/schools/isdi/programs/b-des/accessory-design-craft/`. The four Student
+Voices clips are re-encoded (100MB -> 38MB, SSIM 0.982-0.989); everything smaller ships as
+downloaded. 15 poster URLs are soft-404s on production (HTML with status 200) and are not shipped —
+those clips render without one, exactly as the reference paints them. Four of the six CSS-painted
+files turned out byte-identical to the About page's and are reused.
+
+**Shared components, all additive and all re-verified on their origin pages:**
+`components/Schools/ISDI/PersonCard` (the ISDI `.card-type-d`, extracted from `Home/AdvisoryBoard`
+so the Success Stories tab can render it in a carousel); `MintTabStrip` gained `spacing="wide"` (the
+bare `.tabs-menu-mint`: gap 48, -73 bleed, 70 padding, and the asymmetric -41/-73 the sheet really
+declares at 767); `PhotoGallery` gained the `isdi-2` caption (no plate, a 6px #ec1376 rule, 20px in);
+`InViewVideo` gained Webflow's own play/pause control; `SectionHead` gained `SUB_INNER_MRGBTM32`;
+`SecondaryButton` gained `isdi-pink` and `ButtonRegular` `isdi-outline-white`.
+
+**`PrimaryButton` now accepts `outline-white`, the reference's own name for `outline`.** An unknown
+variant key yields no classes at all, so the button renders as unstyled text — the same silent
+failure /admissions/integrated-admissions hit. It is an alias now, not a trap.
+
+**Two shared components had their base class string split per variant** (`ButtonRegular`'s radius,
+`SecondaryButton`'s colour) because a variant needed a different value: two utilities of the same
+kind in one class list are resolved by **stylesheet order, not by the order they are written**.
+
+**Deviations (each recorded in its component):** the elective dropdown's 32px closed height
+(above); the shared FAQ's known divider/`.accordion-title` buckets; `.career-sup-card` and
+`.testimonial-card` held to the container width between 568 and 767 where the reference blows out to
+1989px and 802px (+89.5 and +24 there); and the stack descriptions use the self-hosted Manrope where
+production declares Manrope without loading it, which costs one wrapped line on the first card at
+479px.
+
+### ISDI B.Des in Animation, VFX & Gaming — `app/schools/isdi/programs/undergraduate/b-des/b-des-in-animation-&-vfx-&-gaming/page.js`, `lib/schools/isdi/programs-bdes/animation/`
+
+`reference/schools/isdi/programs/undergraduate/b-des/b-des-in-animation-&-vfx-&-gaming.php` —
+the second of the twelve B.Des programme pages, the next item in the header's own B.Des list. The
+**same twelve blocks in the same order** as the Accessory Design & Craft page, so every component
+in `components/Schools/ISDI/ProgramDetail/` took it as data and nothing new was written for it.
+Measured on production at 1440/1280/991/767/479/390; every block matches to the pixel at 1440 and
+1280 except the four deviations the Accessory page already documents.
+
+**Confirm the template before assuming it.** The block list, the tab sets, the year tabs and the
+popups are identical, but four things differ and all four are content:
+four years of **two** semesters each with electives only in Year 1 (the Accessory page's Year 4 has
+four); 7 / 6 / 12 cards and 6 people in the tab panes; 4 and 6 execution cards; **one** Student
+Voices card; nine FAQ items.
+
+**Three shared-component gaps this page found, two of them latent bugs on the page before it:**
+- **"Download Curriculum" is a brochure trigger, not a link.** It is authored `href="#"` with
+  `data-id="download-brochure"` on **both** B.Des pages — the Accessory port shipped it as a dead
+  link because only its `href` was read. `Curriculum` now takes `brochures`, `BrochureButton` takes
+  a `shape` (the `.button-regular` pill as well as the `.btn-primary` one), and `ButtonRegular`
+  renders a real `<button>` when given an `onClick`, exactly as `PrimaryButton` already did. Fixed
+  on the Accessory page too. **Read `data-id` on every `href="#"`.**
+- **The stack card titles carry authored `<br>`s.** All five here, none on the Accessory page, so
+  `WhyStack` now runs them through `withBreaks` — the fourth section to hit that trap.
+- **This page's "More questions?" block has an `h2` above the panel.** The include is
+  byte-identical; the *section* adds `h2.h2-tag.mrg16.isdi` ("Questions? We can read your mind",
+  the FAQ's heading again), which is 68.8px the Accessory page does not have. `MoreQuestions` takes
+  an optional `data.heading`.
+
+**An element the reference omits is not an element the reference leaves empty.** This page's single
+Student Voices card has no `.st-course` at all, where every other card on the site authors one (the
+ISDI homepage's first card authors an **empty** `.stname`, which must still render for its 5px). So
+`QuoteCard` renders the cohort line only when the data carries one — the mirror image of the
+"an empty element is still a box" rule, and both are live in the same component.
+
+**Assets.** 137 paths: 119 new under
+`public/assets/{images,videos}/schools/isdi/programs/b-des/animation-vfx-gaming/` (3.4MB of images,
+31MB of video) and 18 reused — the Accessory page's admissions icons, both comparison washes and one
+stack photograph among them. Four clips were re-encoded (76MB -> 31MB, SSIM 0.979-0.990); no poster
+is a soft-404 on this page, unlike the Accessory page's fifteen. Every deduped file was re-fetched
+and compared: 17 byte-identical, and the eighteenth is the same photograph at the same dimensions
+through its WebP conversion (RMSE 2.07).
+
+**Deviations:** the same four as the Accessory page — the elective dropdown's authored 32px closed
+height (-96px on the programme block below 1440, -88 at 991), the shared FAQ's buckets, the
+568-767px card blow-out held to the container width (+89.5 and +24 at 767), and the self-hosted
+Manrope in the stack descriptions (+25.8 at 479).
+
+### ISDI B.Des in Communication Design & New Media — `app/schools/isdi/programs/undergraduate/b-des/b-des-in-communication-design-&-new-media/page.js`, `lib/schools/isdi/programs-bdes/communication/`
+
+`reference/schools/isdi/programs/undergraduate/b-des/b-des-in-communication-design-&-new-media.php`
+— the third of the twelve B.Des programme pages. The same twelve blocks in the same order as the
+other two, the same two brochure widgets, no new component. Measured on production at six widths;
+every block matches to the pixel except the four deviations the set already documents.
+
+**Three more places where one page's copy is line-broken and the others' is not.** The template is
+identical, the *content* is not, and each of these was worth 20-54px:
+- the Overview pane's text carries an authored `<br><br>` (a real blank line), so `ProgramTabs`
+  runs it through `withBreaks` — 54px, and the fifth component in the rebuild to need it;
+- the admissions lead carries `.sub-heading.mrgbtm-0`, which zeroes its bottom padding **only at
+  <=479** — hence `data.subFlush` on `Admissions`, +20px at 479 and 390;
+- all five stack titles break (as on the Animation page).
+
+**Check the modifier classes on a shared include, not just its text.** The eligibility band,
+"More questions?" panel and banner are byte-identical to the Accessory page's, but the admissions
+lead differs by one modifier — a difference no text diff would have shown.
+
+**Assets.** 178 paths, and only **51** are new (1.1MB of images, 20MB of video under
+`…/b-des/communication-design-new-media/`). **118 are already on disk under
+`…/b-des/accessory-design-craft/`** — the Accessory page cites this programme's own URLs for its
+Faculty, Success Stories, projects and Student Voices, so those files were downloaded under its
+folder first and are shared rather than duplicated. The folder name is therefore not a reliable
+guide to which page an ISDI B.Des asset belongs to; the manifest is. Eight semester posters are
+soft-404s and are not shipped, and `optimise_video.py` correctly declined to re-encode the shared
+clips a second time (they are already under its 40% gate).
+
+### ISDI B.Des in Fashion Brand Management — `app/schools/isdi/programs/undergraduate/b-des/fashion-brand-management/page.js`, `lib/schools/isdi/programs-bdes/fashion-brand/`
+
+`reference/schools/isdi/programs/undergraduate/b-des/fashion-brand-management.php` — the fourth of
+the twelve B.Des programme pages. The same twelve blocks, the same two brochure widgets, **no new
+component and no component change**: the first of the set to need nothing but data. Measured on
+production at six widths; every block matches except the four deviations the set documents (and the
+programme block matches exactly at 1440, where the semester row's height comes from its video).
+
+**A soft-404 can be a video source, not just a poster.** Eight of this page's semester clips author
+a `.webm` production does not have — it answers HTML with status 200 — so the browser falls through
+to the `.mp4`, which is what plays there. `gen_data.py`'s `V()` now drops an unfetchable **source**
+the same way it drops an unfetchable poster, and treats a clip that loses *every* source as an
+error rather than a silent empty `<video>`. Twenty-three of this page's media URLs are soft-404s in
+total. (The same fall-through the /admissions/pg-admissions testimonial already documents, from the
+other side: there the mp4 was the dead one.)
+
+**Two upstream copy-pastes, transcribed as authored:** the sticky stack's heading reads "Why Design
+Engineering at ISDI x Parsons" on a Fashion Brand Management page, and the meta description is the
+Communication Design page's word for word.
+
+**Assets.** 163 paths and only **36** new (1.2MB of images, 15MB of video); 118 were already on
+disk under `…/b-des/accessory-design-craft/` and 9 elsewhere. That folder now holds the shared
+imagery for four B.Des pages — **read the manifest, not the folder name**, to tell which page an
+ISDI B.Des asset belongs to.
+
+### ISDI B.Des in Fashion Communication & Styling — `app/schools/isdi/programs/undergraduate/b-des/b-des-in-fashion-communication-&-styling/page.js`, `lib/schools/isdi/programs-bdes/fashion-communication/`
+
+`reference/schools/isdi/programs/undergraduate/b-des/b-des-in-fashion-communication-&-styling.php`
+— the fifth of the twelve B.Des programme pages. The same twelve blocks and the same two brochure
+widgets, but the first one whose **sticky stack is built differently**, so `WhyStack` grew two
+capabilities. Measured on production at six widths; every block matches except the four deviations
+the set documents.
+
+**The stack is nested inside the heading's `.container` here, and a sibling of it on the other
+four.** That is not cosmetic: nested, the cards take the container inset twice and measure 297px
+at 390 rather than 341. `WhyStack` takes `data.nested`, and the extractor decides it by asking
+whether `.page-wrapper-stack` is a descendant of a `.container`.
+
+**Two palettes paint that stack, and they differ in more than colour.** The other pages use
+`.outcome-content.pro-bg-1..4` (a colour under a stylesheet-painted vector); this one uses the ISDI
+homepage's `.isdi-1..3` — flat #d20158 / #0038b1 / #ec1376 with **no wash at all** — and each
+variant carries its own gap (21 / 40 / 30, 40 from 1440) and its own mobile padding (26/25 against
+26/20). The panel therefore travels as a named variant plus its colour, and the generator falls
+back to `pro-bg-1` only when a card names neither palette.
+
+**A quality gate has to be calibrated against the source, not a constant.** `semester-5` is a
+1080p 82-second moving aerial shot: it scores SSIM 0.93 against a **near-lossless** re-encode
+(CRF 24, native resolution), so the flat 0.95 gate could never pass it however carefully it was
+encoded, and it would have shipped 83MB of video for a card that renders 418px wide. Frames pulled
+from both at display size are indistinguishable — the score is the clip's own grain and motion.
+`optimise_video.py` now measures that ceiling when a clip fails, and where the ceiling is itself
+below the gate it accepts anything within 0.02 of it. That one clip went 83MB -> 11.5MB, and the
+page's video from 122MB to 54MB.
+
+**A URL split across two source lines survives a careless retarget.** `interact.py`'s URL is
+written as `'…/b-des/'` + `'<slug>'`, so cloning the harness for a new page replaced nothing and
+the suite silently re-tested the *previous* page — it reported 41/41 against the wrong URL. Every
+page's harness now names its own slug, and the Fashion Brand Management run was repeated against
+its own page (41/41). **Check what a cloned harness is actually pointing at.**
+
+**Assets.** 164 paths, 150 new (4.0MB of images, 54MB of video) and 14 reused. One poster is a
+soft-404. Its "More questions?" block carries the `h2` heading, as the Animation page's does.
+
+### ISDI B.Des in Fashion Design & Technology — `app/schools/isdi/programs/undergraduate/b-des/b-des-in-fashion-design-&-technology/page.js`, `lib/schools/isdi/programs-bdes/fashion-design/`
+
+`reference/schools/isdi/programs/undergraduate/b-des/b-des-in-fashion-design-&-technology.php` —
+the sixth of the twelve B.Des programme pages. The same twelve blocks, the same two brochure
+widgets, the `pro-bg-*` stack palette and the bare "More questions?" include, so every structural
+capability the set already has covered it. Measured on production at six widths; every block
+matches except the four documented deviations.
+
+**One more `withBreaks` gap, and it is the sixth.** This page breaks several `.career-sup-card`
+titles ("Sensorium-Graduate<br>Fashion Show"), which `Execution` was printing as one line — worth
+23px per wrapped card and −23.4px on the section at 479. Its descriptions now run through
+`withBreaks` too. **Assume every piece of copy on an ISDI page may be line-broken**; the components
+that print raw text are the ones to check first when a section is exactly one line short.
+
+**`.career-sup-card.isdi` adds `border-radius: 16px; overflow: hidden`** where the plain card has
+neither — but the image and the caption panel carry their own 16px corners, so the two render
+identically and the port needs no variant.
+
+**Assets.** 191 paths, 171 new (4.5MB of images, 31MB of video) and 19 reused; one poster is a
+soft-404. Four Student Voices clips re-encoded (28MB -> 5.5MB, SSIM 0.984-0.989).
+
+### ISDI B.Des in Health & Care Design — `app/schools/isdi/programs/undergraduate/b-des/health-care-design/page.js`, `lib/schools/isdi/programs-bdes/health-care/`
+
+`reference/schools/isdi/programs/undergraduate/b-des/health-care-design.php` — the seventh of the
+**twelve** B.Des programme pages. (`reference/.../b-des/` holds thirteen files; the header menu
+lists twelve of them — `behavioural-design-&-ai.php` is not linked from anywhere in the menu.)
+
+Nothing new: the same twelve blocks, the same two brochure widgets, the `pro-bg-*` stack palette,
+the bare "More questions?" include, no component change. Measured on production at six widths;
+every block matches except the four documented deviations, and the programme block matches exactly
+at 1440.
+
+**Two more upstream copy-pastes, transcribed as authored:** its sticky-stack heading is the
+Accessory page's ("Why Design Engineering at ISDI x Parsons") and its meta description is the
+Communication Design page's. Its `<title>` is also the odd one of the set — the programme name run
+straight into its tagline ("Health & Care Design Designing Innovations That Reach Patients") with
+no " – ATLAS ISDI" suffix.
+
+**Assets.** 170 paths, 43 new (1.1MB of images, 24MB of video) and 127 reused — the Student Voices
+clips, Faculty and Success Stories are the Accessory page's files again. Fifteen posters are
+soft-404s.
+
+**A cloned interaction harness carries the previous page's counts.** This page has four Student
+Voices cards where the one before it had three, so the suite failed two assertions until they were
+updated — the counts are per page and are the point of the check, so they are worth re-reading
+rather than copying blind.
+
+### ISDI B.Des in Interior Design & Built Environment — `app/schools/isdi/programs/undergraduate/b-des/b-des-in-interior-design-&-built-environment/page.js`, `lib/schools/isdi/programs-bdes/interior-design/`
+
+`reference/schools/isdi/programs/undergraduate/b-des/b-des-in-interior-design-&-built-environment.php`
+— the eighth of the twelve B.Des programme pages. The same twelve blocks, the same two brochure
+widgets, the bare "More questions?" include, six FAQ items and two Student Voices cards. Measured on
+production at 1440 / 1280 / 991 / 767 / 479 / 390; every block matches except the four documented
+deviations, and 41/41 interactions pass.
+
+**Assets.** 158 paths, 75 new and 83 reused; no soft-404 posters on this page. Four Student Voices
+clips re-encoded (16.6MB saved, SSIM 0.989-0.991).
+
+**`.swiper-wrapper { align-items: center }`, and a slide that is shorter than its neighbour.** The
+Webflow sheet declares it on every page of the site (over Swiper's own `display: flex`), so a slide
+shorter than the tallest in the track is **centred** against it, not stretched. Every carousel in the
+rebuild until now has had slides of one height, which is why `Carousel`'s `items-stretch` never
+showed — this page's "Where concepts meet execution" cards are content-height with copy of different
+lengths (521-566px at 390), so the first card sat 33px too high and the block scored a 29.3 mean
+pixel diff against a *matching* height. It is `Carousel`'s new `align="center"`, opt-in so no
+finished page moves, and passed to `Execution` — which took every B.Des page's execution block from
+2.5-5.4 to the same range (a no-op where the slides are equal) and this one to 2.2.
+
+**A screenshot diff can be the only thing that catches this.** Every computed property, the block
+height and the card's own box all matched; only the pixels differed. Compare images, not just
+measurements — the third time in this rebuild that rule has paid (after `Carousel`'s bleed and
+`PrimaryButton`'s unknown variant key).
+
+**Two different source files can clean to the same local filename — and the reuse path hid it.**
+`id-stu-work-2-7.png` / `id-stu-work-2--7.png` and two programmes' `benchmarked-curriculum/year-4/
+semester-8/1.mp4` are genuinely different bytes under one cleaned name, so whichever was written
+second replaced the first and a page showed another page's asset. Three bugs had to be fixed
+together in `scratchpad/*/assets.py`, and all three are worth knowing:
+
+- **Disambiguate against an owner, not against the bytes on disk.** The first guard compared the
+  file already at that path — which matched each image's own optimised `.webp` twin — and fired on
+  ~166 innocent files. The fix is a `claimed = {rel: url}` map seeded from every earlier manifest:
+  rename only when a **different** URL already owns the name.
+- **A reuse owns its path too.** The guard only ran in the new-file branch, so a URL that reused an
+  existing file never recorded a claim and the next URL wrote straight over it. Every reuse branch
+  now calls `claimed.setdefault(...)`.
+- **An overwrite makes the SHA-1 index stale.** `pub` is built by hashing `public/` once at start;
+  after copying new bytes over a path, the old hash still pointed there, so a later URL "reused" a
+  path whose content it had never matched. That is exactly how the two semester-8 clips became one
+  file. Drop a path from `pub` when you overwrite it.
+
+**`optimise.py` only rewrites the entries under its own page's folder.** A page that reuses an
+earlier page's image therefore keeps the pre-optimisation `.png` path in its map, and regenerating
+its data silently ships a path that no longer exists. `scratchpad/reconcile.py` repoints any entry
+whose file is gone but whose `.webp` twin is present, and must run between the optimisers and
+`gen_data.py`. So the pipeline is: **`assets.py` → `optimise.py` → `optimise_video.py` →
+`reconcile.py` → `gen_data.py`**, and `assets.py` is never re-run after the optimisers.
+
+**Audit the maps, not just one page.** `scratchpad/dupaudit.py` re-fetches every URL that shares a
+local path across all eleven ISDI manifests and compares SHA-1 (3 shared paths, all genuinely
+identical), and `scratchpad/orphans.py` lists any file under the B.Des folders that no manifest
+claims and no source references (0).
+
+**`net::ERR_ABORTED` on a semester clip is expected.** `InViewVideo` is `preload="none"` and pauses
+off screen, so Chromium cancels an in-flight media fetch whenever the clip scrolls past. The file
+itself serves 200; the validator ignores aborted media and YouTube's own telemetry beacons.
+
+**A missing key on a fragment, found by the site-wide sweep.** `ProgramsUg/Hero` mapped its slides
+into a bare `<>`, so /schools/isdi/programs/undergraduate logged React's duplicate-key warning on
+every server render. It is a keyed `<Fragment>` now, as the B.Des hero already was.
+`scratchpad/regress.py` runs all 37 routes at two widths for console errors, page errors, failed
+requests, broken images, remote hosts and horizontal overflow — 0 findings after the fix.
+
+### ISDI B.Des in Luxury Brand Strategy — `app/schools/isdi/programs/undergraduate/b-des/luxury-brand-strategy-&-experience-design/page.js`, `lib/schools/isdi/programs-bdes/luxury-brand/`
+
+`reference/schools/isdi/programs/undergraduate/b-des/luxury-brand-strategy-&-experience-design.php`
+— the ninth of the twelve B.Des programme pages. The same twelve blocks, the same two brochure
+widgets, the `pro-bg-*` stack palette and the bare "More questions?" include; **no new component and
+no component change**. Measured on production at six widths; every block matches except the four
+documented deviations, and the programme block matches exactly at 1440 / 1280 / 991.
+
+Content that differs: Year 4 has **four** semesters (electives in Year 1 only, so the closed
+dropdown costs -48px rather than -96), 6 / 6 / 31 cards and 14 people in the tab panes, 9 and 9
+execution cards, four Student Voices cards and seven FAQ items. Two more upstream copy-pastes,
+transcribed as authored: the stack heading is the Accessory page's ("Why Design Engineering at ISDI
+x Parsons") and the meta description is the Communication Design page's.
+
+**Assets.** 188 references, 187 mapped (one semester poster is a soft-404) and only **54 new**
+(1.7MB of images, 21MB of video). 118 were already on disk under `…/b-des/accessory-design-craft/`
+and 6 under `…/fashion-brand-management/`: this page's Faculty and Success Stories are the
+Communication Design page's files and its **Curriculum Highlights clips belong to the B.Tech Design
+Engineering programme**. 23 images converted to WebP (8.8MB saved); no clip was large enough to
+re-encode.
+
+**A page can cite another *degree's* assets, and that broke the folder rule.** `folder()` anchored
+its path regex on `…/undergraduate/b-des/<programme>/`, so the six B.Tech clips — every one of them
+named `1.png` / `1.mp4` — lost their folder and collided on a single name. The collision guard
+caught all ten and renamed them with hashes, which is correct but unreadable; the real fix is to
+match **any** programme folder under `undergraduate/`, which restores
+`curriculum/<year>-<semester>/1.png`. **A guard firing ten times is a signal that the naming rule is
+wrong, not that the guard is working.**
+
+**Two traps in the cloned harness, both silent.** `cssbg.py` still pointed at the *Communication
+Design* page (its URL is split across two source lines, the same shape that misdirected page 5's
+interaction suite), and `gen_data.py` still emitted `isdiBdesInterior*` export names. Neither fails
+loudly. `bdes9/retarget.py` now rewrites the slug in every script and then greps for the old one,
+and it reports any `'…/b-des/'` line that ends mid-URL so a split literal cannot hide again.
+
+**Unloading a `<video>` collapses the row it sizes.** `shots.py`'s freeze used to strip every clip's
+sources for determinism, which drops the element to the UA's 300x150 default — on this page that
+shortened the curriculum block by 777px in the screenshot while the live measurement said the two
+sides matched to the pixel. `--keep-video` pauses and rewinds instead, and the block then diffs at
+1.04. **A screenshot harness can introduce the very difference it is meant to find.**
+
+### ISDI B.Des in Product Design — `app/schools/isdi/programs/undergraduate/b-des/b-des-in-product-design/page.js`, `lib/schools/isdi/programs-bdes/product-design/`
+
+`reference/schools/isdi/programs/undergraduate/b-des/b-des-in-product-design.php` — the tenth of
+the twelve B.Des programme pages, and the one whose short slug really is its own page (the other
+short slugs the ISDI pathfinder links to land on a generic fallback upstream). The same twelve
+blocks, the same two brochure widgets, the `pro-bg-*` stack palette and the bare "More questions?"
+include. Measured on production at six widths; every block matches except the four documented
+deviations, and the `why` block matches exactly at 1440 / 1280 / 991.
+
+Content that differs: electives in **both** Year 1 semesters (so the closed dropdown costs the full
+-96px), 8 / 7 / 18 cards and 21 people in the tab panes, 9 and 6 execution cards, three Student
+Voices cards and seven FAQ items. Its stack heading is its own rather than one of the set's
+copy-pastes, and its `<title>` carries a **single** space before the dash where most of the set
+carries two.
+
+**Assets.** 187 references, 179 mapped (eight semester posters are soft-404s) and **156 new**
+(4.6MB of images, 28MB of video) — the first page since the Accessory page to download more than it
+reuses. 55 images converted to WebP (13.5MB saved), 5 clips re-encoded (17.7MB saved, SSIM
+0.987-0.992).
+
+**The sticky stack's SECTION heading can be line-broken too.** `WhyStack` ran the five card titles
+through `withBreaks` (added on the Animation page) but printed `data.heading` raw, and this page
+authors a `<br>` after "Creative" — four lines on the reference at 479, three without it, and 43px
+of block height. Fixing it also took the **Communication Design** page's `why` block from -69.9 to
+-26.7 at 390, which had been sitting inside the Manrope bucket as if it were a font-metrics
+difference. **When a component prints one field through `withBreaks`, check every other field it
+prints**; this is the seventh section in the rebuild to need it, and the second time a missing break
+hid behind a deviation that was already documented.
+
+**`compute-pressure is not allowed in this document` is YouTube's, not ours.** The embedded player
+requests that permission and its iframe's allow-list does not grant it, so Chromium logs a policy
+violation from inside the cross-origin frame — on whichever embed happens to load first, which is
+why it moved between /about-us and /campus-atlas on consecutive sweeps. `scratchpad/regress.py`
+filters it alongside YouTube's telemetry beacons; all 39 routes are otherwise clean at both widths.
+
+### ISDI B.Des in Service & Experience Design — `app/schools/isdi/programs/undergraduate/b-des/service-&-experience-design/page.js`, `lib/schools/isdi/programs-bdes/service-experience/`
+
+`reference/schools/isdi/programs/undergraduate/b-des/service-&-experience-design.php` — the
+eleventh of the twelve B.Des programme pages. The same twelve blocks, the same two brochure
+widgets, the `pro-bg-*` stack palette and the bare "More questions?" include; **no new component
+and no component change**. Measured on production at six widths; every block matches except the
+four documented deviations, and at 1440 every block but the hero carousel and the FAQ diffs at
+1.2-4.0 mean pixels — the programme block included.
+
+Content: four years whose last has four semesters, electives in both Year 1 semesters (the full
+-96px from the two closed dropdowns), 6 / 6 / 31 cards and 14 people in the tab panes, 9 and 9
+execution cards, four Student Voices cards and seven FAQ items. Its stack heading is the Accessory
+page's and its meta description the Communication Design page's — two more upstream copy-pastes.
+
+**Assets.** 188 references, 187 mapped (one semester poster is a soft-404) and only **12 new**
+(892KB of images, no video of its own). Its Curriculum Highlights, Faculty, Success Stories,
+projects and Student Voices are all files earlier pages of the set already downloaded — the
+smallest download list of any B.Des page.
+
+**A retarget can collapse two different names into one.** `retarget.py` rewrites PAGE, then DIR,
+then OUT; on this page DIR (`service-experience-design`) and OUT (`service-experience`) differ, but
+the page before it had them *identical* (`product-design`), so the DIR rewrite also caught
+`gen_data.py`'s OUT path and the content landed in `programs-bdes/service-experience-design/` while
+the index imported `programs-bdes/service-experience/`. Turbopack then answered **500 on every
+route**, not just the new one, because an unresolved import fails the whole compilation — so a
+sudden 500 on a finished page after adding a new one is a module-resolution error, not a regression
+in that page.
+
+### ISDI B.Des in Strategic Design & Innovation Management — `app/schools/isdi/programs/undergraduate/b-des/b-des-in-strategic-design-&-innovation-management/page.js`, `lib/schools/isdi/programs-bdes/strategic-design/`
+
+`reference/schools/isdi/programs/undergraduate/b-des/b-des-in-strategic-design-&-innovation-management.php`
+— the twelfth and **last** of the B.Des programme pages. The same twelve blocks, the same two
+brochure widgets, the `pro-bg-*` stack palette and the bare "More questions?" include. Measured on
+production at six widths; every block matches except the four documented deviations.
+
+Content: four years of two semesters with electives in both Year 1 semesters, 6 / 8 / 23 cards and
+12 people in the tab panes, 8 and 6 execution cards, **eight** project photographs where the rest of
+the set has sixteen (so its projects block is 948px at 1440 rather than ~1678), three Student Voices
+cards and seven FAQ items. Its stack heading is its own, and its `<title>` names the programme
+"Strategic Design Management" where the menu says "Strategic Design & Innovation Management".
+
+**Assets.** 157 references, 147 mapped and 127 new (3.3MB of images, 28MB of video). 49 images
+converted to WebP (9.0MB saved) and 4 clips re-encoded (22.1MB saved). Six semester posters are
+soft-404s, and **two Student Voices mp4s answer 403 from the CDN** — the same dead-asset shape
+/admissions/pg-admissions documents — so those two clips ship `.webm` only, which is what production
+falls through to and plays.
+
+**The one page of the set whose cards have neither control.** Every other B.Des page authors
+`a.youtubeicon` and Webflow's play/pause button on each Student Voices card; this one authors
+neither. `Voices` was rendering both regardless: `controls={{pauseIcon: null, playIcon: null}}` is a
+**truthy object**, so `InViewVideo` painted three buttons with an empty `src`, and the YouTube
+anchor wrapped a source-less `<img>`. Both are conditional now. **An optional sub-component guarded
+by an object literal is never guarded** — test the field, not the wrapper. Verified a no-op
+elsewhere: the other eleven pages have a non-null icon and link on all 35 of their cards.
+
+**The B.Des set is complete — twelve pages.** `reference/.../b-des/` holds thirteen files;
+`behavioural-design-&-ai.php` is the one the header menu never links to. Across the twelve, only the
+four documented deviations remain (the elective dropdown's authored 32px closed height, the shared
+FAQ's divider/`.accordion-title` buckets, the 568-767px card blow-out held to container width, and
+the self-hosted Manrope in the stack descriptions), every page passes 41/41 interactions and a clean
+12-width validation, and `scratchpad/regress.py` sweeps all 41 routes with 0 findings.
+
+## ISDI B.Tech — `reference/schools/isdi/programs/undergraduate/btech/`
+
+Three PHP files; the header menu links **two** of them
+(`btech-design-engineering`, `btech-ai-integrated-design`).
+`systems-design-&-intelligent-manufacturing.php` is the unlinked third, exactly as
+`behavioural-design-&-ai.php` is in the B.Des set.
+
+### ISDI B.Tech in Design Engineering — `app/schools/isdi/programs/undergraduate/btech/btech-design-engineering/page.js`, `lib/schools/isdi/programs-btech/design-engineering/`
+
+The B.Des twelve-block template again, in the same order, so every component was reused. Measured
+on production at six widths; every block matches except the four documented deviations, and at 1440
+the figures band, admissions, eligibility and the closing panels are **pixel-identical** (0.00).
+
+Content: four years of two semesters (electives in Year 1 sem 1 only, so the closed dropdown costs
+-48px), 6 / 6 / 31 cards and 14 people in the tab panes, 9 and 9 execution cards, four Student
+Voices cards, seven FAQ items, and an admissions band headed "Admissions — The **Technical** Way"
+with **four** steps. Its `$title` and `$description` are both the bare string "Design Engineering" —
+no " – ATLAS ISDI" suffix and no sentence, transcribed rather than invented.
+
+**Assets.** 188 references, 187 mapped (one soft-404) and only **12 new** (1012KB of images, no
+video of its own): its Curriculum Highlights clips are the ones the Luxury Brand Strategy page
+already pulled from this very programme, and the rest of its media is the B.Des set's.
+
+**Four shared-component gaps this page found — three of them latent bugs on the twelve B.Des
+pages.** All four are additive and all twelve B.Des pages were re-measured afterwards (admissions
+and eligibility exact at 1440 and 390, `why` unchanged, 41/41 interactions on two of them):
+
+- **A popup's label is not its trigger's label.** `BrochureButton` printed `brochure.label`, which
+  is right only while a popup has one trigger — true on every B.Des page. Here "Download Brochure"
+  and "Talk to an Admissions Counsellor" carry the **same** `data-id`, so the second button rendered
+  the first one's text. It takes a `label` prop now; `Curriculum` had already worked around this by
+  spreading a replacement label into the brochure object, and now passes the prop instead.
+- **A third popup kind.** This page's one live popup is neither of the B.Des shapes: it embeds a CRM
+  widget as `<script src=".../6a9e61ba36bae5bdae0bd52d/embed.js" data-atlas-height="650" async>`
+  *inside* the 580px panel. React will not execute a `<script>` it renders, so the node is appended
+  on first open and only once — the widget appends its own iframe to that host. Its second popup
+  (`#npf-popup-overlay-brochure-1`) is commented out line by line **while its listener is left
+  live**, so it is an orphan and is not ported.
+- **A stack card's height can be pinned by a duplicate rule.** The sheet declares
+  `.stack_card.first.isdi-programs { height: 400px }` a second time, *after* its own
+  `@media (max-width: 991px)` rule — equal specificity, later wins, and a media query adds none — so
+  cards 1 and 2 are 400px at **every** width while 3-5 keep the 330 / 600 / auto ladder. That is
+  the page's value, so it travels as data: `scratchpad/btech1/stackheights.py` measures each card at
+  1440 / 991 / 390 and only a card whose height is identical at all three is pinned. `WhyStack` then
+  sets it inline and drops the ladder classes rather than shipping two heights in one class list.
+- **A step's colour belongs to its classes, not its index.** `Admissions` coloured the band by
+  position, which matched only because every B.Des page ships the same five
+  `.tbgN(.isdi|.isdi-blue-5)` cards in the same order. This page has four and omits
+  `tbg2.isdi-blue-5`, so its last step came out navy instead of `#1a53ef`.
+  `scratchpad/btech1/steptones.py` measured the class→colour map on three pages (unambiguous), the
+  generator emits the measured `tone`, and the index remains only as the fallback.
+
+**An eligibility group can have several `.el-subdesc` lines.** The IB group here authors **four**
+with `<br>`s between them where the B.Des pages author one, and `select_one` took only the first —
+worth most of the block's height. The extractor now records the group's body as an ordered run list
+(a string is a paragraph, `None` is the break) and `Eligibility` renders it, with `subdesc` kept as
+the single-line shorthand. Eligibility then matched the reference exactly at all six widths.
+
+**Lazy images make a reference dump read short.** `dump.py` waited a fixed 900ms after scrolling a
+block into view, and the projects wall measured 402 against its real 1677 at 1440 while matching at
+1280 — a race, not a difference. It now waits for that block's own images to report `complete`
+before measuring, and the wall, the search panel and every other block match at every width.
+
+### ISDI B.Tech in AI Integrated Design — `app/schools/isdi/programs/undergraduate/btech/btech-ai-integrated-design/page.js`, `lib/schools/isdi/programs-btech/ai-integrated-design/`
+
+`reference/schools/isdi/programs/undergraduate/btech/btech-ai-integrated-design.php` — the second
+and last menu-linked B.Tech page, on the same twelve-block template. **No new component and no
+component change.** Measured on production at six widths; the programme, admissions and eligibility
+blocks match **exactly at all six**, and at 1440 every block but the hero carousel and the FAQ diffs
+at 0.0-4.0 mean pixels.
+
+Content: Year 4 has three semesters, the tab panes hold 6 / 5 / 31 cards and 14 people, and it
+shares the Design Engineering page's "Admissions — The Technical Way" band and three-group
+eligibility. `$title` and `$description` are again the bare programme name — here "AI Engineering &
+Intelligent products", which is not what the menu calls it. Transcribed as authored.
+
+**The only page in the ISDI port with no electives at all.** Not one semester authors a dropdown,
+so the set's -48/-96px closed-dropdown deviation simply does not arise and the programme block
+matches the reference to the pixel at every width. Its interaction suite checks that we render
+**no** dropdown rather than an empty one, and tabs through all four years — 38/38.
+
+**Assets.** 187 references, 186 mapped (one soft-404) and 47 new (2.0MB of images, no video of its
+own). Its second popup (`#npf-popup-overlay-brochure-1`, a real `.npf_wgts` widget) **is** in the
+DOM here rather than commented out as on the Design Engineering page — but no element carries
+`data-id="download-brochure-1"`, so it is still an orphan and still not ported. Every trigger opens
+the same CRM script widget.
+
+**A URL can carry a character `urllib` will not encode for you.** This page's
+`career-pathways/human–ai-interaction-designer.png` has an **en dash** in its filename, and the
+downloader — which escaped only spaces — raised `UnicodeEncodeError` rather than 404ing, so the
+asset was silently skipped. It now percent-encodes every non-ASCII byte
+(`urllib.parse.quote(u, safe="…")`), and the file fetches 200 with PNG magic bytes.
+
+**`google is not defined` is the Maps embed's, not ours.** The Google Maps iframe's own
+`init_embed.js` sometimes references its bundle before it has loaded; every frame in the stack is
+`maps.gstatic.com`, and it lands on whichever page's map loads first — /admissions/integrated-admissions
+on one sweep, a Programs page on the next. `scratchpad/regress.py` filters it alongside the
+compute-pressure violation and YouTube's telemetry beacons; all 43 routes are otherwise clean.
+
+**The ISDI Undergraduate programme pages are complete** — twelve B.Des and two B.Tech, plus the
+Overview. The two unlinked references (`b-des/behavioural-design-&-ai.php`,
+`btech/systems-design-&-intelligent-manufacturing.php`) stay unbuilt: nothing in the header menu,
+the pathfinder or any page body links to either.

@@ -2,6 +2,7 @@ import './globals.css';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import PageLoader from '@/components/ui/PageLoader';
+import MainSiteOnly from '@/components/Schools/MainSiteOnly';
 
 export const metadata = {
   title: 'ATLAS SkillTech University in Mumbai – Explore Programs & Admissions',
@@ -47,7 +48,10 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="font-sans antialiased overflow-x-hidden">
-        <Header />
+        {/* Schools mount their own header and footer — see MainSiteOnly. */}
+        <MainSiteOnly>
+          <Header />
+        </MainSiteOnly>
 
         {/*
           No spacer here on purpose. The header bars are position:fixed, and the
@@ -57,7 +61,9 @@ export default function RootLayout({ children }) {
         */}
         {children}
 
-        <Footer />
+        <MainSiteOnly>
+          <Footer />
+        </MainSiteOnly>
 
         {/*
           The route-transition overlay. A direct child of <body> on purpose:

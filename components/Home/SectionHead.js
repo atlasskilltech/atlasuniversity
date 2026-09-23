@@ -50,6 +50,15 @@ export const SUB_INNER_MRGBTM =
   'max-md:mb-5 max-md:pb-0 max-md:pt-0 max-md:pr-0 max-md:text-base max-md:leading-[1.5] max-sm:pb-5';
 
 /*
+ * `.sub-heading.mrgbtm32` — the `<div>` form of the modifier below: padding-bottom
+ * 32 (20 at <=767, 16 at <=479) and weight 400 rather than 300. The ISDI B.Des
+ * programme pages' "Where concepts meet execution" and "Student Projects in Motion".
+ */
+export const SUB_INNER_MRGBTM32 =
+  'pb-8 pr-[50px] text-2xl font-normal leading-[1.4] ' +
+  'max-md:py-5 max-md:pr-0 max-md:text-base max-md:leading-[1.5] max-sm:pb-4';
+
+/*
  * The same two leads again, for the places the reference marks them up as
  * `<h2 class="sub-heading">` rather than a `<div>`. That is not cosmetic:
  * Webflow's base sheet gives every `h2` `margin: 20px 0 10px`, so an `<h2>`

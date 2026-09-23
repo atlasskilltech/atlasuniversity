@@ -24,15 +24,24 @@ import { cx } from '@/lib/cx';
  */
 
 /* ref .secondary-btn */
+/* the colour lives in each variant: two background utilities in one class list are
+   resolved by stylesheet order, not by the order they are written */
 const BASE =
-  'block flex-none rounded-3xl bg-atlas-cyan px-4 py-2.5 text-black no-underline ' +
+  'block flex-none rounded-3xl px-4 py-2.5 no-underline ' +
   'max-md:flex max-md:h-auto max-md:items-center max-md:justify-center max-md:text-left max-md:text-sm';
 
 const VARIANTS = {
   /* ref :where(.w-variant-25d04a90-3822-0d33-318d-11d2b1182066) */
-  atlas: 'text-xs font-bold',
+  atlas: 'bg-atlas-cyan text-xs font-bold text-black',
   /* ref :where(.w-variant-cd63ac8f-e9d1-28e5-65be-c92638a85e3d) */
-  'ugdx-med': 'text-base font-semibold',
+  'ugdx-med': 'bg-atlas-cyan text-base font-semibold text-black',
+  /*
+   * ref the bare `.secondary-btn` on the ISDI sheet (`…--variant="pink"`, which
+   * carries no variant class of its own): #d20158 with white text, 12px/600 and
+   * 14px at <=767 like every other. The B.Des pages' "Apply for July 2027 Intake",
+   * inside the first admissions step.
+   */
+  'isdi-pink': 'bg-atlas-cta text-xs font-semibold text-white',
 };
 
 export default function SecondaryButton({ href, variant = 'ugdx-med', className, children }) {

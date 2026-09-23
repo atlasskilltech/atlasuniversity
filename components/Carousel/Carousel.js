@@ -134,7 +134,28 @@ function nearest(value, snaps) {
  * function prop cannot cross the server/client boundary. Each child is wrapped
  * in the `.swiper-slide` <li> here.
  */
-export default function Carousel({ children, className, autoplay = true, arrows, bleed = true }) {
+/*
+ * `bullets="isdi"` — the ISDI homepage's Swiper paints its bullets as
+ * `inline-block` 8px dots with `margin: 0 8px` in a `text-align: center` block
+ * whose line box (the surrounding type) sets its height, so the dots sit on the
+ * text baseline. That is `.common-swiper`'s in-flow row (`margin-top: 20px`).
+ * `bullets="isdi-overlay"` is the same row as `.common-swiper-full` places it:
+ * absolutely positioned 30px below the slider's bottom edge, taking no space.
+ * `bullets="isdi-light"` is the in-flow row inside ISDI's `.blue-wrapper`, where
+ * header.php paints every bullet white (`.blue-wrapper .swiper-pagination-bullet
+ * { background: #fff; opacity: .4 }`, the active one at opacity 1).
+ * All are opt-in; every existing caller keeps the default row.
+ *
+ * `align="center"` — the Webflow sheet declares `.swiper-wrapper { align-items:
+ * center }` (over Swiper's own `display: flex`), so a slide shorter than the
+ * tallest one in the track is centred against it rather than stretched. It is
+ * invisible wherever the slides are the same height, which is every carousel in
+ * this rebuild until the B.Des "Where concepts meet execution" cards, whose copy
+ * differs enough to give slides of 521-566px. Opt-in so no finished page moves.
+ */
+export default function Carousel({
+  children, className, autoplay = true, arrows, bleed = true, bullets = 'default', align = 'stretch',
+}) {
   const scrollerRef = useRef(null);
   const trackRef = useRef(null);
   const pausedRef = useRef(false);
@@ -290,7 +311,8 @@ export default function Carousel({ children, className, autoplay = true, arrows,
       <ul
         ref={trackRef}
         className={cx(
-          'flex w-max list-none items-stretch gap-6',
+          'flex w-max list-none gap-6',
+          align === 'center' ? 'items-center' : 'items-stretch',
           bleed ? TRACK_INSET : 'pr-6',
         )}
       >
@@ -302,9 +324,40 @@ export default function Carousel({ children, className, autoplay = true, arrows,
     </div>
   );
 
+  /* ref ISDI `.swiper-pagination-bullets` (see `bullets` above) */
+  const isdiBullets = snaps.length > 1 && (
+    <div
+      className={cx(
+        'hidden text-center max-mcm:block',
+        bullets === 'isdi-overlay' ? 'absolute inset-x-0 -bottom-[30px] z-10' : 'mt-5',
+      )}
+    >
+      {snaps.map((snap, i) => (
+        <button
+          key={snap}
+          type="button"
+          onClick={() => goTo(i)}
+          aria-label={`Go to slide ${i + 1}`}
+          aria-current={i === active}
+          className={cx(
+            'mx-2 inline-block h-2 w-2 rounded-full p-0 align-baseline',
+            bullets === 'isdi-light'
+              ? cx('bg-white', i !== active && 'opacity-40')
+              : i === active ? 'bg-[#007aff]' : 'bg-black opacity-20',
+          )}
+        />
+      ))}
+    </div>
+  );
+
   return (
     <>
-      {arrows ? (
+      {bullets === 'isdi-overlay' ? (
+        <div className="relative">
+          {scroller}
+          {isdiBullets}
+        </div>
+      ) : arrows ? (
         /* ref `.common-swiper-full .swiper-button-prev/-next` — the buttons are
            children of `.swiper` upstream, where it is `overflow: visible`;
            here the scroller really does scroll, so they sit in a wrapper
@@ -320,7 +373,8 @@ export default function Carousel({ children, className, autoplay = true, arrows,
 
       {/* ref `.common-swiper .swiper-pagination-bullets` — hidden above 568px,
           `display: block; text-align: center; margin-top: 20px` below it. */}
-      {snaps.length > 1 && (
+      {(bullets === 'isdi' || bullets === 'isdi-light') && isdiBullets}
+      {snaps.length > 1 && !bullets.startsWith('isdi') && (
         <div className="mt-5 hidden justify-center gap-2 max-mcm:flex">
           {snaps.map((snap, i) => (
             <button
