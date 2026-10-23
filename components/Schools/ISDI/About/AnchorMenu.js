@@ -9,7 +9,9 @@ import { cx } from '@/lib/cx';
  *
  * Measured on production:
  *   bar       flex, gap 12, p 18/24, white, shadow 0 2 5 #0003, horizontal scroll
- *             with the scrollbar hidden; centred, left-aligned at <=767
+ *             with the scrollbar hidden; centred where the reference carries
+ *             `.center` (the About page) and left-aligned where it does not
+ *             (the Admissions pages), and left-aligned at <=767 either way
  *   position  >=992   sticky, top 156, z 900, `transition: top .3s ease`; top 0
  *                     while the header is retracted (`body.hide-header`)
  *             569-991 static, z 100
@@ -25,7 +27,7 @@ import { cx } from '@/lib/cx';
  * does (the header's own click listener still sees the click and holds the bars
  * back while it runs). "Faculty" is authored `.hide-link` (display: none).
  */
-export default function AnchorMenu({ links }) {
+export default function AnchorMenu({ links, centered = true }) {
   const [current, setCurrent] = useState([]);
   const frame = useRef(0);
 
@@ -68,11 +70,13 @@ export default function AnchorMenu({ links }) {
   };
 
   return (
-    /* ref .sticky-menus.center */
+    /* ref .sticky-menus(.center) — the About page carries `.center`, the Admissions pages
+       the bare class, which is left-aligned */
     <div
       data-block="menu"
       className={cx(
-        'z-[100] flex items-center justify-center gap-3 overflow-auto bg-white px-6 py-[18px] text-white shadow-[0_2px_5px_#0003] transition-all duration-300',
+        'z-[100] flex items-center gap-3 overflow-auto bg-white px-6 py-[18px] text-white shadow-[0_2px_5px_#0003] transition-all duration-300',
+        centered ? 'justify-center' : 'justify-start',
         '[scrollbar-width:none] [&::-webkit-scrollbar]:hidden max-md:justify-start',
         'lg:sticky lg:top-[156px] lg:z-[900] lg:w-full lg:transition-[top] lg:ease-[ease] lg:[body.hide-header_&]:top-0',
         'max-mcm:sticky max-mcm:top-20 max-mcm:z-[9]'

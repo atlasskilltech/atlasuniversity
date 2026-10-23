@@ -273,7 +273,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/assets/include/keydates/mdes.php"
 				</div>
 				<div class="df-card">
 					<div class="df-text-2">Year 1</div>
-					<div class="df-text-1"><strong class="fee-dates">5,77,500</strong></div>
+					<div class="df-text-1"><strong class="fee-dates">6,06,400</strong></div>
 				</div>
 			</div>
 		</div>

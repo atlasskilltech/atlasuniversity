@@ -171,13 +171,32 @@ function Semester({ semester }) {
             </div>
           </div>
 
-          {/* ref .video-auto > video[autoplay loop muted playsinline] */}
+          {/* ref .video-auto > video[autoplay loop muted playsinline] — the undergraduate
+              pages put a looping clip beside each semester; the M.Des page puts a still
+              image in the same slot, so render whichever the row actually carries */}
           <div>
-            <InViewVideo
-              sources={semester.video.sources}
-              poster={semester.video.poster}
-              className="w-full object-contain"
-            />
+            {semester.video ? (
+              <InViewVideo
+                sources={semester.video.sources}
+                poster={semester.video.poster}
+                className="w-full object-contain"
+              />
+            ) : (
+              semester.image && (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img
+                  src={semester.image.src}
+                  width={semester.image.width}
+                  height={semester.image.height}
+                  alt={semester.image.alt}
+                  loading="lazy"
+                  decoding="async"
+                  /* ref img.semister-image — `width: 100%; height: auto`, so each row is as
+                     tall as its own photograph; at <=767 it becomes a 200px `cover` band */
+                  className="h-auto w-full max-w-full align-middle max-md:h-[200px] max-md:object-cover"
+                />
+              )
+            )}
           </div>
         </div>
       </div>

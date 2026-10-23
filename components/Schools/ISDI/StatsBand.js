@@ -1,4 +1,5 @@
 import { cx } from '@/lib/cx';
+import withBreaks from '@/lib/withBreaks';
 
 /**
  * The three figures under an ISDI page's hero — `.top-cards-wrapper > 3 x
@@ -42,7 +43,7 @@ export default function StatsBand({ data }) {
           {stat.note && (
             /* ref .s-text */
             <div className="pt-4 text-base font-light leading-[1.2] max-md:text-[14px] max-md:leading-[1.2]">
-              {stat.note}
+              {withBreaks(stat.note)}
             </div>
           )}
         </div>

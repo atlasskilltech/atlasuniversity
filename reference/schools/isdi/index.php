@@ -1661,127 +1661,140 @@ a,
 		</div>
 	</div>
 </div>
-<section id="explore-program" class="section">
-	<div class="container">
-		<h2 class="h2-tag mrg32 isdi">Our Programs</h2>
-		<div data-current="Tab 1" data-easing="ease" data-duration-in="300" data-duration-out="100" class="primary-tabs w-tabs">
-			<div class="primary-tabs-menu w-tab-menu"><a data-w-tab="Tab 1" class="primary-tabs-link-tab-1 isdi-fw w-inline-block w-tab-link w--current">
-					<div class="tab-text">Undergraduate</div>
-				</a><a data-w-tab="Tab 2" class="primary-tabs-link-tab-2 isdi-fw w-inline-block w-tab-link">
-					<div class="tab-text">Postgraduate</div>
-				</a></div>
-			<div class="primary-tabs-content w-tab-content">
-				<div data-w-tab="Tab 1" class="primary-tab-pane-tab-1 w-tab-pane w--tab-active">
-				  <?php include "assets/include/pathfinder.php"  ?> 
-				</div>
-				<div data-w-tab="Tab 2" class="primary-tab-pane-tab-2 w-tab-pane">
-					<div class="pg-program-wrapper">
-						<div data-bg-color="#DF287B" class="program-card vertical-space1 bg-5">
-							<h3 class="h3-tag vertical-space1-2">M.Des<br />Design Futures</h3>
-							<div class="duration-wrap vertical-space1-3">
-								<div class="du-text vertical-space1-6">2 Year</div>
-								<div class="du-text vertical-space1-6">|</div>
-								<div class="du-text vertical-space1-6">Full time</div>
-								<div class="du-text vertical-space1-6">|</div>
-								<div class="du-text vertical-space1-6">Postgraduate Program</div>
-							</div>
-							<div class="prog-details vertical-space1-7">
-								<div class="program-cont vertical-space1-8">
-									<div class="prgm-title vertical-space1-9">Career Pathways</div>
-									<div class="prgm-list vertical-space1-10">UX Researcher<br />UX Writer<br />Design Manager<br />Design Director<br />Prompt Engineer<br />Product Designer<br />Service Designer<br />Visual Designer<br />Product Manager<br />System DesignerDesign Researcher<br />Retail Designer<br />UX Strategist</div>
-								</div><img loading="lazy" src="<?php echo $domain ?>assets/images/main/programs/ug/program-simg-5.png" alt="Person with digital design tools" class="program-image luminos vertical-space1-11" />
-							</div>
-							<div class="icon-slot vertical-space1-12">
-							    <a 
-							        data-btn-bg="#FF4197" 
-							        data-wf--icon-button--variant="light-pink" 
-							        href="<?php echo $domain ?>programs/postgraduate/m-des-in-design-futures" 
-							        class="icon-button w-variant-355da353-4151-8f7b-a580-88506e9445b9 w-inline-block"
-							        aria-label="ISDI Home" >
+<!--<section id="explore-program" class="section">-->
+<!--	<div class="container">-->
+<!--		<h2 class="h2-tag mrg32 isdi">Our Programs</h2>-->
+<!--		<div data-current="Tab 1" data-easing="ease" data-duration-in="300" data-duration-out="100" class="primary-tabs w-tabs">-->
+<!--			<div class="primary-tabs-menu w-tab-menu"><a data-w-tab="Tab 1" class="primary-tabs-link-tab-1 isdi-fw w-inline-block w-tab-link w--current">-->
+<!--					<div class="tab-text">Undergraduate</div>-->
+<!--				</a><a data-w-tab="Tab 2" class="primary-tabs-link-tab-2 isdi-fw w-inline-block w-tab-link">-->
+<!--					<div class="tab-text">Postgraduate</div>-->
+<!--				</a></div>-->
+<!--			<div class="primary-tabs-content w-tab-content">-->
+<!--				<div data-w-tab="Tab 1" class="primary-tab-pane-tab-1 w-tab-pane w--tab-active">-->
+<!--				  <?php include "assets/include/pathfinder.php"  ?> -->
+<!--				</div>-->
+<!--				<div data-w-tab="Tab 2" class="primary-tab-pane-tab-2 w-tab-pane">-->
+<!--					<div class="pg-program-wrapper">-->
+<!--						<div data-bg-color="#DF287B" class="program-card vertical-space1 bg-5">-->
+<!--							<h3 class="h3-tag vertical-space1-2">M.Des<br />Design Futures</h3>-->
+<!--							<div class="duration-wrap vertical-space1-3">-->
+<!--								<div class="du-text vertical-space1-6">2 Year</div>-->
+<!--								<div class="du-text vertical-space1-6">|</div>-->
+<!--								<div class="du-text vertical-space1-6">Full time</div>-->
+<!--								<div class="du-text vertical-space1-6">|</div>-->
+<!--								<div class="du-text vertical-space1-6">Postgraduate Program</div>-->
+<!--							</div>-->
+<!--							<div class="prog-details vertical-space1-7">-->
+<!--								<div class="program-cont vertical-space1-8">-->
+<!--									<div class="prgm-title vertical-space1-9">Career Pathways</div>-->
+<!--									<div class="prgm-list vertical-space1-10">UX Researcher<br />UX Writer<br />Design Manager<br />Design Director<br />Prompt Engineer<br />Product Designer<br />Service Designer<br />Visual Designer<br />Product Manager<br />System DesignerDesign Researcher<br />Retail Designer<br />UX Strategist</div>-->
+<!--								</div><img loading="lazy" src="<?php echo $domain ?>assets/images/main/programs/ug/program-simg-5.png" alt="Person with digital design tools" class="program-image luminos vertical-space1-11" />-->
+<!--							</div>-->
+<!--							<div class="icon-slot vertical-space1-12">-->
+<!--							    <a -->
+<!--							        data-btn-bg="#FF4197" -->
+<!--							        data-wf--icon-button--variant="light-pink" -->
+<!--							        href="<?php echo $domain ?>programs/postgraduate/m-des-in-design-futures" -->
+<!--							        class="icon-button w-variant-355da353-4151-8f7b-a580-88506e9445b9 w-inline-block"-->
+<!--							        aria-label="ISDI Home" >-->
 							        
-							        <img 
-							            src="<?php echo $domain ?>assets/images/icon/arrow-downward.svg" 
-							            loading="lazy" 
-							            alt="" 
-							            class="bt-icon" />
-    									<div class="icon-button-css w-embed w-script">
-    										<script>
-    										document.addEventListener("DOMContentLoaded", function() {
-    											document.querySelectorAll('.icon-button').forEach(function(box) {
-    												var bgColorBtn = box.getAttribute('data-btn-bg');
-    												box.style.backgroundColor = bgColorBtn;
-    											});
-    										});
-    										</script>
-    									</div>
-								    </a>
-							    </div>
-							<div class="bg-color-code vertical-space1-13 w-embed w-script">
-								<script>
-								document.addEventListener("DOMContentLoaded", function() {
-									document.querySelectorAll('.program-card').forEach(function(box) {
-										var bgColor = box.getAttribute('data-bg-color');
-										box.style.backgroundColor = bgColor;
-									});
-								});
-								</script>
-							</div>
-						</div>
-						<div data-bg-color="#DF287B" class="program-card bg-1 isdi">
-							<h3 class="h3-tag vertical-space1-2">MBA<br />Design Management <br />&amp; Strategic Thinking</h3>
-							<div class="duration-wrap vertical-space1-3">
-								<div class="du-text vertical-space1-6">2 Year</div>
-								<div class="du-text vertical-space1-6">|</div>
-								<div class="du-text vertical-space1-6">Full time</div>
-							</div>
-							<div class="prog-details vertical-space1-7">
-								<div class="program-cont vertical-space1-8">
-									<div class="prgm-title vertical-space1-9">Career Pathways</div>
-									<div class="prgm-list vertical-space1-10">Social Impact Entrepreneurship<br />Brand Manager<br />Marketing Manager<br />Brand Designer<br />Product Manager<br />Service Design Manager<br />Strategic Planner<br />Research Analyst<br />Design Management<br />UX Marketer<br />Business Analyst<br />Experience Design Manager<br />Design Strategist</div>
-								</div><img loading="lazy" src="<?php echo $domain ?>assets/images/main/programs/ug/program-simg-1.png" alt="Hand holding a 3D printed geometric structure for product design" class="program-image luminos vertical-space1-11" />
-							</div>
-							<div class="icon-slot vertical-space1-12">
-							    <a 
-							        data-btn-bg="#FF4197" 
-							        data-wf--icon-button--variant="white-fade-big" 
-							        href="<?php echo $domain ?>programs/postgraduate/mba-in-design-management-strategic-thinking" 
-							        class="icon-button w-variant-c1daf409-d922-a3a0-16e1-f5c6e0c997f3 w-inline-block"
-							        aria-label="View Undergraduate Program Details">
+<!--							        <img -->
+<!--							            src="<?php echo $domain ?>assets/images/icon/arrow-downward.svg" -->
+<!--							            loading="lazy" -->
+<!--							            alt="" -->
+<!--							            class="bt-icon" />-->
+<!--    									<div class="icon-button-css w-embed w-script">-->
+<!--    										<script>-->
+<!--    										document.addEventListener("DOMContentLoaded", function() {-->
+<!--    											document.querySelectorAll('.icon-button').forEach(function(box) {-->
+<!--    												var bgColorBtn = box.getAttribute('data-btn-bg');-->
+<!--    												box.style.backgroundColor = bgColorBtn;-->
+<!--    											});-->
+<!--    										});-->
+<!--    										</script>-->
+<!--    									</div>-->
+<!--								    </a>-->
+<!--							    </div>-->
+<!--							<div class="bg-color-code vertical-space1-13 w-embed w-script">-->
+<!--								<script>-->
+<!--								document.addEventListener("DOMContentLoaded", function() {-->
+<!--									document.querySelectorAll('.program-card').forEach(function(box) {-->
+<!--										var bgColor = box.getAttribute('data-bg-color');-->
+<!--										box.style.backgroundColor = bgColor;-->
+<!--									});-->
+<!--								});-->
+<!--								</script>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--						<div data-bg-color="#DF287B" class="program-card bg-1 isdi">-->
+<!--							<h3 class="h3-tag vertical-space1-2">MBA<br />Design Management <br />&amp; Strategic Thinking</h3>-->
+<!--							<div class="duration-wrap vertical-space1-3">-->
+<!--								<div class="du-text vertical-space1-6">2 Year</div>-->
+<!--								<div class="du-text vertical-space1-6">|</div>-->
+<!--								<div class="du-text vertical-space1-6">Full time</div>-->
+<!--							</div>-->
+<!--							<div class="prog-details vertical-space1-7">-->
+<!--								<div class="program-cont vertical-space1-8">-->
+<!--									<div class="prgm-title vertical-space1-9">Career Pathways</div>-->
+<!--									<div class="prgm-list vertical-space1-10">Social Impact Entrepreneurship<br />Brand Manager<br />Marketing Manager<br />Brand Designer<br />Product Manager<br />Service Design Manager<br />Strategic Planner<br />Research Analyst<br />Design Management<br />UX Marketer<br />Business Analyst<br />Experience Design Manager<br />Design Strategist</div>-->
+<!--								</div><img loading="lazy" src="<?php echo $domain ?>assets/images/main/programs/ug/program-simg-1.png" alt="Hand holding a 3D printed geometric structure for product design" class="program-image luminos vertical-space1-11" />-->
+<!--							</div>-->
+<!--							<div class="icon-slot vertical-space1-12">-->
+<!--							    <a -->
+<!--							        data-btn-bg="#FF4197" -->
+<!--							        data-wf--icon-button--variant="white-fade-big" -->
+<!--							        href="<?php echo $domain ?>programs/postgraduate/mba-in-design-management-strategic-thinking" -->
+<!--							        class="icon-button w-variant-c1daf409-d922-a3a0-16e1-f5c6e0c997f3 w-inline-block"-->
+<!--							        aria-label="View Undergraduate Program Details">-->
 							        
-							        <img 
-							            src="<?php echo $domain ?>assets/images/icon/arrow-downward.svg" 
-							            loading="lazy" 
-							            alt="" 
-							            class="bt-icon" />
-									<div class="icon-button-css w-embed w-script">
-										<script>
-										document.addEventListener("DOMContentLoaded", function() {
-											document.querySelectorAll('.icon-button').forEach(function(box) {
-												var bgColorBtn = box.getAttribute('data-btn-bg');
-												box.style.backgroundColor = bgColorBtn;
-											});
-										});
-										</script>
-									</div>
-								</a>
-							</div>
-							<div class="bg-color-code vertical-space1-13 w-embed w-script">
-								<script>
-								document.addEventListener("DOMContentLoaded", function() {
-									document.querySelectorAll('.program-card').forEach(function(box) {
-										var bgColor = box.getAttribute('data-bg-color');
-										box.style.backgroundColor = bgColor;
-									});
-								});
-								</script>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+<!--							        <img -->
+<!--							            src="<?php echo $domain ?>assets/images/icon/arrow-downward.svg" -->
+<!--							            loading="lazy" -->
+<!--							            alt="" -->
+<!--							            class="bt-icon" />-->
+<!--									<div class="icon-button-css w-embed w-script">-->
+<!--										<script>-->
+<!--										document.addEventListener("DOMContentLoaded", function() {-->
+<!--											document.querySelectorAll('.icon-button').forEach(function(box) {-->
+<!--												var bgColorBtn = box.getAttribute('data-btn-bg');-->
+<!--												box.style.backgroundColor = bgColorBtn;-->
+<!--											});-->
+<!--										});-->
+<!--										</script>-->
+<!--									</div>-->
+<!--								</a>-->
+<!--							</div>-->
+<!--							<div class="bg-color-code vertical-space1-13 w-embed w-script">-->
+<!--								<script>-->
+<!--								document.addEventListener("DOMContentLoaded", function() {-->
+<!--									document.querySelectorAll('.program-card').forEach(function(box) {-->
+<!--										var bgColor = box.getAttribute('data-bg-color');-->
+<!--										box.style.backgroundColor = bgColor;-->
+<!--									});-->
+<!--								});-->
+<!--								</script>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--	</div>-->
+<!--</section>-->
+
+
+
+	  <?php include "assets/include/19-programmesv2.php"  ?> 
+
+
+
+
+
+
+
+
+
 <section class="section">
 	<div class="container">
 		<h2 class="h2-tag mrg16 isdi">Choose Your Minor</h2>

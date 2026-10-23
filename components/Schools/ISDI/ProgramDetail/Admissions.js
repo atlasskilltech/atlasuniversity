@@ -38,25 +38,36 @@ import { CONTAINER, H2, H2_MB, SECTION, SUB } from '../Home/ui';
 const STEP_TONE = ['bg-[#173a87]', 'bg-[#0a46ca]', 'bg-[#193e90]', 'bg-[#0f2d6f]', 'bg-[#1a53ef]'];
 
 export default function Admissions({ data }) {
+  /* the reference's bare form: a heading with its own 56px margin and nothing beside it */
+  const bare = !data.sub && !data.button;
   return (
-    <section data-block="admissions" className={SECTION}>
+    /* the ISDI Admissions pages give the band an id for their anchor menu */
+    <section data-block="admissions" id={data.id} className={SECTION}>
       <div className={CONTAINER}>
-        {/* ref .head-wrap */}
-        <div className="flex items-end justify-between max-md:flex-col max-md:items-stretch">
+        {/* ref .head-wrap — the ISDI Admissions pages author the heading BARE, with no
+            `.head-wrap` around it and no lead or button, so the row and the mobile margins
+            its `.tt-wrap` carries would both be invented there */}
+        <div className={cx(bare ? '' : 'flex items-end justify-between max-md:flex-col max-md:items-stretch')}>
           {/* ref .tt-wrap */}
-          <div className="max-md:mb-5 max-sm:mb-5 max-sm:mr-5">
-            <h2 className={cx(H2, H2_MB.mrg16)}>{data.heading}</h2>
+          <div className={cx(!bare && 'max-md:mb-5 max-sm:mb-5 max-sm:mr-5')}>
+            {/* `.h2-tag.mrg16` where the band has a lead; the ISDI Admissions pages author
+                it bare with the section's own 56px margin and no lead at all */}
+            <h2 className={cx(H2, data.sub ? H2_MB.mrg16 : H2_MB.base)}>{data.heading}</h2>
             {/* `.sub-heading.mrgbtm-0` (the Communication Design page) drops the lead's
                 bottom padding at <=479 */}
-            <div className={cx(SUB, data.subFlush && 'max-sm:pb-0')}>{data.sub}</div>
+            {data.sub && <div className={cx(SUB, data.subFlush && 'max-sm:pb-0')}>{data.sub}</div>}
           </div>
-          <ButtonRegular href={data.button.href} variant="pink-cta">
-            {data.button.label}
-          </ButtonRegular>
+          {data.button && (
+            <ButtonRegular href={data.button.href} variant="pink-cta">
+              {data.button.label}
+            </ButtonRegular>
+          )}
         </div>
 
-        {/* ref .isdi-guide-wrapper */}
-        <div className="pt-[60px] max-md:pt-0">
+        {/* ref .isdi-guide-wrapper — the programme pages wrap the band in it and take its
+            60px of top padding; the Admissions pages put the band straight under the heading,
+            whose own 56px margin is the whole gap */}
+        <div className={cx(!bare && 'pt-[60px] max-md:pt-0')}>
           {/* ref .guide-steps-wrapper-isdi */}
           <div className="relative flex overflow-hidden rounded-2xl max-md:mt-10 max-md:flex-col max-md:gap-8 max-sm:mt-5">
             {data.steps.map((step, i) => (

@@ -2357,7 +2357,7 @@ include "../../../assets/include/header.php" ?>
 				<div class="application-points mrgbt-32">
 					<div class="el-title isdi">Fee Structure</div>
 					<div class="el-desc">We believe in clarity. Here’s a simple year-on-year breakdown of our fees!</div>
-					<div class="el-btn-wrap"><a Data-id="" data-wf--button-regular--variant="white-outline" href="https://online.fliphtml5.com/vrcjg/luhy/#p=1" target="_blank" class="button-regular w-variant-aac1b208-f57d-788b-18ea-d1f5d310d50c w-inline-block">
+					<div class="el-btn-wrap"><a Data-id="" data-wf--button-regular--variant="white-outline" href="https://atlasuniversity.edu.in/fee-structure/isdi-btech/" target="_blank" class="button-regular w-variant-aac1b208-f57d-788b-18ea-d1f5d310d50c w-inline-block">
 							<div data-wf--button-space--variant="normal" class="extra-space">
 								<div data-font-size="16" class="button-text">Fee Structure</div>
 								<div class="code-button w-embed w-script">

@@ -1,3 +1,4 @@
+import { cx } from '@/lib/cx';
 import withBreaks from '@/lib/withBreaks';
 import ButtonRegular from '@/components/ui/ButtonRegular';
 import PhotoGallery from '../PhotoGallery';
@@ -30,7 +31,15 @@ export default function World({ data }) {
       <div className="bg-[#173a87] pb-14 font-light text-white max-md:pb-10">
         <div className={CONTAINER}>
           {/* ref .blue-desc-wrap */}
-          <div className="flex items-start justify-between py-14 max-md:pt-10 max-sm:flex-col max-sm:gap-2">
+          {/* ref .blue-desc-wrap — the Undergraduate Overview's sheet gives it 56px top AND
+              bottom; the Postgraduate Overview's gives it 56/0 for the same class, so the
+              bottom travels as a flag rather than being baked in. */}
+          <div
+            className={cx(
+              'flex items-start justify-between pt-14 max-md:pt-10 max-sm:flex-col max-sm:gap-2',
+              !data.descFlush && 'pb-14'
+            )}
+          >
             {/* ref .blue-desc-text.wid80 */}
             <div className="max-w-[80%] flex-1 text-[24px] leading-[1.5] max-md:max-w-full max-md:text-[18px] max-md:leading-[1.5]">
               {withBreaks(data.text)}

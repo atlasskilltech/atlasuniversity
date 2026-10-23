@@ -1513,8 +1513,8 @@ include "../../assets/include/header.php" ?>
 			</div>
 			<div class="appl-cont">
 				<div class="application-points mrgbt-32">
-					<div class="el-title isdi">Application Fee: ₹3,500</div>
-					<div class="el-desc">After selection, the enrolment fee of ₹75,000 to secure your seat is refundable!</div>
+					<div class="el-title isdi">Application Fee: ₹1500</div>
+					<div class="el-desc">After selection, the enrolment fee of ₹50,000 to secure your seat is Nonrefundable!</div>
 				</div>
 				<div class="application-points mrgbt-32">
 					<div class="el-title isdi">Fee Structure</div>

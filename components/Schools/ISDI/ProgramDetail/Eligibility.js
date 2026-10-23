@@ -48,7 +48,21 @@ export default function Eligibility({ data }) {
               <div key={group.title} className="mb-5">
                 {/* ref .el-sub-title */}
                 <div className="text-base font-medium leading-[1.5] max-md:text-[14px] max-md:leading-[1.5]">
-                  {group.title}
+                  {/* the undergraduate pages' titles are plain text; the M.Des page wraps parts
+                      of its first one in <strong>, which is what makes it wrap to a second line.
+                      The parent is 500 and the reference paints the run at 700, so it carries an
+                      explicit `font-bold` — Preflight's `bolder` is relative. */}
+                  {group.titleRuns
+                    ? group.titleRuns.map((run, i) =>
+                        typeof run === 'string' ? (
+                          <span key={`${i}-${run.slice(0, 16)}`}>{run}</span>
+                        ) : (
+                          <strong key={`${i}-${run.strong.slice(0, 16)}`} className="font-bold">
+                            {run.strong}
+                          </strong>
+                        )
+                      )
+                    : group.title}
                 </div>
                 {/* ref .el-subdesc — a second title line on the IB group. The B.Des pages
                     author one; the B.Tech pages author four with `<br>`s between them, and a

@@ -332,7 +332,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/assets/include/keydates/bdes.php"
 			<div class="tt-wrap">
 				<h2 class="h2-tag mrg16 isdi">Fee Structure</h2>
 				<div class="sub-heading mrgbtm32">We believe in clarity &amp; Here’s a simple breakdown of our fees!</div>
-			</div><a Data-id="" data-wf--button-regular--variant="base" href="https://online.fliphtml5.com/vrcjg/luhy/#p=1" target="_blank" class="button-regular w-inline-block">
+			</div><a Data-id="" data-wf--button-regular--variant="base" href="https://atlasuniversity.edu.in/fee-structure/bdes/" target="_blank" class="button-regular w-inline-block">
 				<div data-wf--button-space--variant="normal" class="extra-space">
 					<div data-font-size="" class="button-text">View Fee Structure</div>
 					<div class="code-button w-embed w-script">
@@ -367,7 +367,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/assets/include/keydates/bdes.php"
 				</div>
 				<div class="df-card">
 					<div class="df-text-2">Year 1</div>
-					<div class="df-text-1"><strong class="fee-dates">7,03,500</strong></div>
+					<div class="df-text-1"><strong class="fee-dates">7,35,000</strong></div>
 				</div>
 			</div>
 		</div>

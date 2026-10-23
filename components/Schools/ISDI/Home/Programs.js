@@ -107,7 +107,7 @@ export function UndergraduatePane({ data, pathfinder }) {
   );
 }
 
-function PostgraduatePane({ cards }) {
+export function PostgraduatePane({ cards }) {
   return (
     /* ref .pg-program-wrapper */
     <div className="mt-[52px] flex gap-6 max-md:flex-col max-sm:flex-row max-sm:flex-wrap">

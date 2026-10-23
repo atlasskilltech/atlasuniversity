@@ -42,6 +42,8 @@ export const H2_PLAIN = 'relative m-0 text-[44px] font-medium leading-[1.2] text
 export const H2_MB = {
   base: 'mb-14 max-md:mb-8',
   mrg16: 'mb-4 max-md:mb-2',
+  /* `.h2-tag.mrg24` — 24px at every width, measured on the Postgraduate Overview */
+  mrg24: 'mb-6',
   mrg32: 'mb-8',
   mrgtbm0: 'mb-0 max-md:mb-5',
 };

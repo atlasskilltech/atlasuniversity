@@ -35,23 +35,32 @@ import ButtonRegular from '@/components/ui/ButtonRegular';
  *
  * Measured off the page's own `<style>`:
  *   overlay   fixed inset 0, z 9999, rgba(0,0,0,.7), flex centred
- *   panel     #fff, r8, p20; the iframe popup is 100% wide / max 580 / auto tall /
- *             max 90vh with its scrollbar hidden, the widget popup 90% wide /
- *             max 800 / 80% tall with `.npf_wgts { height: 700px }`
- *   close     absolute 10/15, #fff on #000, 18px/1, p 5/10, r4
+ *   panel     #fff, r8, p20, 100% wide / max 580 / auto tall / max 90vh, scrollbar
+ *             hidden — the SAME box for both popups, widget included
+ *   close     absolute 10/15, #fff on #000, 18px, p 5/10, r4; 35x37 where the page
+ *             declares no line-height and 35x28 where it declares `line-height: 1`
  */
 
 const OVERLAY = 'fixed inset-0 z-[9999] flex items-center justify-center bg-black/70';
-const PANEL = {
-  iframe:
-    'relative h-auto max-h-[90vh] w-full max-w-[580px] overflow-y-auto rounded-lg bg-white p-5 '
-    + '[scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden',
-  npf: 'relative h-4/5 w-[90%] max-w-[800px] overflow-y-auto rounded-lg bg-white p-5',
-};
-/* the script kind sits in the iframe panel — the reference's own `#npf-popup-brochure` rule */
-PANEL.script = PANEL.iframe;
-const CLOSE =
-  'absolute right-[15px] top-[10px] z-10 cursor-pointer rounded border-0 bg-black px-2.5 py-[5px] text-[18px] leading-none text-white';
+/*
+ * Every ISDI programme page authors ONE panel shape for both of its popups — the narrow
+ * 580px box — including the one that holds a `.npf_wgts` widget. Measured with both open on
+ * production across the set: 580 wide, r8, p20, `overflow-y: auto`, scrollbar hidden, and the
+ * widget itself 540x700 inside it. The wide `90% / max 800 / 80%` shape the ATLAS Programs
+ * pages use for a widget is never authored here, so the panel is not keyed on the kind.
+ */
+const PANEL =
+  'relative h-auto max-h-[90vh] w-full max-w-[580px] overflow-y-auto rounded-lg bg-white p-5 '
+  + '[scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden';
+/*
+ * The close button splits, and it is the page's own `<style>` that decides: the B.Des, B.Tech
+ * and Event & Experience Design pages declare no `line-height`, so the 18px glyph sits on a
+ * 27px line box and the button is 35x37; M.Des Design Futures and MBA Design Management
+ * declare `line-height: 1` and theirs is 35x28. Measured on production with each popup open.
+ */
+const CLOSE_BASE =
+  'absolute right-[15px] top-[10px] z-10 cursor-pointer rounded border-0 bg-black px-2.5 py-[5px] text-[18px] text-white';
+const CLOSE = { normal: `${CLOSE_BASE} leading-normal`, tight: `${CLOSE_BASE} leading-none` };
 const NPF_SCRIPT = 'https://widgets.in5.nopaperforms.com/emwgts.js';
 
 /*
@@ -72,6 +81,8 @@ export default function BrochureButton({
   shape = 'btn-primary',
   className,
 }) {
+  /* `closeLeading: 'tight'` only where the page declares `line-height: 1` — see CLOSE */
+  const closeClass = CLOSE[brochure.closeLeading] ?? CLOSE.normal;
   const Button = SHAPES[shape] ?? PrimaryButton;
   const [open, setOpen] = useState(false);
   const closeRef = useRef(null);
@@ -150,8 +161,8 @@ export default function BrochureButton({
             }}
           >
             {/* ref #npf-popup-brochure(-1) */}
-            <div className={cx(PANEL[brochure.kind] ?? PANEL.iframe)}>
-              <button ref={closeRef} type="button" onClick={close} className={CLOSE} aria-label="Close">
+            <div className={PANEL}>
+              <button ref={closeRef} type="button" onClick={close} className={closeClass} aria-label="Close">
                 ✕
               </button>
 
@@ -171,8 +182,10 @@ export default function BrochureButton({
                   className="inline max-w-full border-0 align-baseline"
                 />
               ) : (
-                /* ref .npf_wgts[data-w] + `.npf_wgts { height: 700px }` */
-                <div className="npf_wgts h-[700px] [&>iframe]:h-full" data-w={brochure.widget} />
+                /* ref .npf_wgts[data-w] + `.npf_wgts { height: 700px }` and
+                   `.npf_wgts iframe { height: 650px }` — the frame is a fixed 650 here, not
+                   the container's own height; measured 540x700 holding a 650px iframe */
+                <div className="npf_wgts h-[700px] [&>iframe]:h-[650px]" data-w={brochure.widget} />
               )}
             </div>
           </div>,

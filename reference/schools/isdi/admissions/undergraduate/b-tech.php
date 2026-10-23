@@ -110,7 +110,7 @@ $cyclesLLB = getAdmissionCycles($conn, 5);
 	<div class="course-hero-wrapper">
 		<div class="hero-text">
 			<h1 class="h1-tag">B.Tech <br />Admissions</h1>
-			<div class="course-duration-isme isdi">Bachelors of Design | Full Time</div>
+			<div class="course-duration-isme isdi">Bachelors of Technology | Full Time</div>
 			<div class="buttons-wrapper"><a data-id="" data-wf--button-primary--variant="pink" href="<?php echo $edudomain ?>applicationform" class="btn-primary w-inline-block">
 					<div class="button-tx">Apply for 2027 Intake</div>
 				</a></div>
@@ -125,33 +125,33 @@ $cyclesLLB = getAdmissionCycles($conn, 5);
 			<div class="gd-steps tbg1 isdi-blue-5">
 				<div class="gd-cont-wrap">
 					<div class="tb-num-mt isdi">01</div>
-					<div class="tb-title-mt isdi">Submit the Application Form</div><a Data-id="" data-wf--button-secondary--variant="pink" href="<?php echo $edudomain ?>applicationform" class="secondary-btn">Apply for July 2027 Intake</a>
+					<div class="tb-title-mt isdi">Submit the application form</div><a Data-id="" data-wf--button-secondary--variant="pink" href="<?php echo $edudomain ?>applicationform" class="secondary-btn">Apply for July 2027 Intake</a>
 				</div><img loading="lazy" src="https://cdn.prod.website-files.com/6846c77f346415bfcbb813b6/685f999de32a3300b7ff028f_tab-3-img-1.png" alt="" class="tb-image isdi" />
 			</div>
 			<div class="gd-steps tbg2 isdi">
 				<div class="gd-cont-wrap">
 					<div class="tb-num-mt isdi">02</div>
-					<div class="tb-title-mt isdi">Design Aptitude Test</div>
+					<div class="tb-title-mt isdi">Technical Aptitude Test</div>
 				</div><img loading="lazy" src="https://cdn.prod.website-files.com/6846c77f346415bfcbb813b6/685f9d87ede0b21a20588100_tab-3-img-2.png" alt="" class="tb-image isdi" />
 			</div>
 			<div class="gd-steps tbg2 isdi-blue-5">
 				<div class="gd-cont-wrap">
 					<div class="tb-num-mt isdi">03</div>
-					<div class="tb-title-mt isdi">Portfolio<br />Review</div>
+					<div class="tb-title-mt isdi">Personal Interview</div>
 				</div><img loading="lazy" src="https://cdn.prod.website-files.com/6846c77f346415bfcbb813b6/685f9d87ede0b21a20588100_tab-3-img-2.png" alt="" class="tb-image isdi" />
 			</div>
 			<div class="gd-steps tbg3">
 				<div class="gd-cont-wrap">
 					<div class="tb-num-mt isdi">04</div>
-					<div class="tb-title-mt isdi">Personal Interview</div>
+					<div class="tb-title-mt isdi">Final Selection & Offer Letter</div>
 				</div><img loading="lazy" src="https://cdn.prod.website-files.com/6846c77f346415bfcbb813b6/685f9d87ede0b21a20588100_tab-3-img-2.png" alt="" class="tb-image isdi" />
 			</div>
-			<div class="gd-steps tbg3 isdi">
-				<div class="gd-cont-wrap">
-					<div class="tb-num-mt isdi">05</div>
-					<div class="tb-title-mt isdi">Final Selection &amp; Offer Letter</div>
-				</div><img loading="lazy" src="https://cdn.prod.website-files.com/6846c77f346415bfcbb813b6/68d3dfc00764fad15ab007a9_jigsaw.png" alt="" class="tb-image isdi" />
-			</div>
+			<!--<div class="gd-steps tbg3 isdi">-->
+			<!--	<div class="gd-cont-wrap">-->
+			<!--		<div class="tb-num-mt isdi">05</div>-->
+			<!--		<div class="tb-title-mt isdi">Final Selection &amp; Offer Letter</div>-->
+			<!--	</div><img loading="lazy" src="https://cdn.prod.website-files.com/6846c77f346415bfcbb813b6/68d3dfc00764fad15ab007a9_jigsaw.png" alt="" class="tb-image isdi" />-->
+			<!--</div>-->
 			<div class="mob-vert-line"></div>
 		</div>
 	</div>
@@ -257,7 +257,7 @@ $cyclesLLB = getAdmissionCycles($conn, 5);
 
 <?php
 
-include $_SERVER['DOCUMENT_ROOT'] . "/assets/include/keydates/keydates-static/bdes.php" 
+include $_SERVER['DOCUMENT_ROOT'] . "/assets/include/keydates/bdes-btech.php" 
 
 
 ?> 
@@ -368,9 +368,9 @@ include $_SERVER['DOCUMENT_ROOT'] . "/assets/include/keydates/keydates-static/bd
 				</div>
 			</a>
 		</div>
-		<div class="list-text-wrap">
-			<div class="ln-bd-txt"><strong>Class XII:</strong> Current Students &amp; Pass-outs (2023 Onwards)</div>
-		</div>
+		<!--<div class="list-text-wrap">-->
+		<!--	<div class="ln-bd-txt"><strong>Class XII:</strong> Current Students &amp; Pass-outs (2023 Onwards)</div>-->
+		<!--</div>-->
 		<div data-hover="false" data-delay="0" data-w-id="2f663270-7b27-1550-9cc9-886f58abae0f" style="height:80px" class="accordion-item-blue-fill w-dropdown">
 			<div class="accordion-toggle-blue-fill isdi w-dropdown-toggle">
 				<div class="accordion-title-blue-fill">Indian Boards (ISC / CBSE / State Boards)</div>
@@ -378,7 +378,13 @@ include $_SERVER['DOCUMENT_ROOT'] . "/assets/include/keydates/keydates-static/bd
 			</div>
 			<nav class="accordion-content-blue-fill w-dropdown-list">
 				<div class="content-blue-fill w-richtext">
-					<p>An aggregate of 50% marks in Grade XII in any discipline. </p>
+					<!--<p>An aggregate of 50% marks in Grade XII in any discipline. </p>-->
+					<p>
+					    Minimum 50% in class 12. Mathematics and Physics are mandatory along with
+any one of Chemistry/ Computer Science/Electronics/Information Technology/
+Biology/ Informatics Practices/ Biotechnology/ Technical Vocational subject/
+Agriculture/ Engineering Graphics/ Business Studies/ Entrepreneurship
+					</p>
 				</div>
 			</nav>
 		</div>
@@ -389,7 +395,23 @@ include $_SERVER['DOCUMENT_ROOT'] . "/assets/include/keydates/keydates-static/bd
 			</div>
 			<nav class="accordion-content-blue-fill w-dropdown-list">
 				<div class="content-blue-fill w-richtext">
-					<p>GSCE/IGCSE Examinations of the approved British Examination Bodies, with minimum 5 (Five) subjects in A, B, C, D and E grades, including English at Ordinary &#x27;O&#x27; Level and 2 subjects at Advanced &#x27;A&#x27; Level, has been equated with +2 stage qualification.</p>
+					<!--<p>-->
+					<!--    GSCE/IGCSE Examinations of the approved British Examination Bodies, with minimum 5 (Five) subjects in A, B, C, D and E grades,-->
+					<!--    including English at Ordinary &#x27;O&#x27; Level and 2 subjects at Advanced &#x27;A&#x27; Level, has been equated with +2 -->
+					<!--    stage qualification.-->
+					<!-- </p>-->
+					
+					<p>
+					    GCSE/IGCSE Examinations of the approved British Examination
+Bodies, with minimum 5 (Five) subjects in A, B, C, D and E
+grades, including English at Ordinary 'O' Level and 3 subjects
+at Advanced ("A") Level has been equated with +2 qualification
+with Mathematics and Physics as a mandatory subject. Along with
+any one subject of Chemistry/ Computer Science /Electronics /Information
+Technology / Biology /Informatics Practices / Biotechnology /
+Technical Vocational subject / Agriculture/ Engineering Graphics/
+Business Studies/ Entrepreneurship
+					</p>
 				</div>
 			</nav>
 		</div>
@@ -399,20 +421,57 @@ include $_SERVER['DOCUMENT_ROOT'] . "/assets/include/keydates/keydates-static/bd
 				<div class="accordion-icon white w-icon-dropdown-toggle"></div>
 			</div>
 			<nav class="accordion-content-blue-fill w-dropdown-list">
+				<!--<div class="content-blue-fill w-richtext">-->
+				<!--	<p><strong>IB Diploma Program</strong></p>-->
+				<!--	<ul role="list">-->
+				<!--		<li>3 HL, 3 SL with a minimum of 24 credit points.</li>-->
+				<!--	</ul>-->
+				<!--	<p><strong>IB Diploma Course (i.e. Certificate) Programme</strong>‍</p>-->
+				<!--	<ul role="list">-->
+				<!--		<li>3 HL, 3 SL with a minimum of 24 credit points.</li>-->
+				<!--	</ul>-->
+				<!--	<p><strong>IB career Related Study Programmes</strong></p>-->
+				<!--	<ul role="list">-->
+				<!--		<li>02 DP subjects with at ;east 01 subject at HL Level and minimum 3 points in each DP subject.</li>-->
+				<!--		<li>Career Related Study (CRS) with at least 03 subjects.</li>-->
+				<!--		<li>IBCP Equivalence for General Strand (Design, Science, B. Sc Finance): International Baccalaureate Career Related Study (IBCP) qualification with core components requirement awarded by International Baccalaureate (IB).</li>-->
+				<!--	</ul>-->
+				<!--</div>-->
 				<div class="content-blue-fill w-richtext">
 					<p><strong>IB Diploma Program</strong></p>
 					<ul role="list">
-						<li>3 HL, 3 SL with a minimum of 24 credit points.</li>
+						<li>
+						    IB Diploma Program-3 HL and 3 SL subjects with a minimum of 24 credit points.
+(Physics and Math are mandatory subjects, and one subject is mandatory from
+the below i.e Chemistry/ Computer Science/Electronics/Information Technology/ Biology/
+Informatics Practices/ Biotechnology/ Technical Vocational subject/ Agriculture/
+Engineering Graphics/ Business Studies/ Entrepreneurship)
+						</li>
 					</ul>
 					<p><strong>IB Diploma Course (i.e. Certificate) Programme</strong>‍</p>
 					<ul role="list">
-						<li>3 HL, 3 SL with a minimum of 24 credit points.</li>
+						<li>
+						    IB Diploma Course (i.e. Certificate) Program-3 HL and 3 SL subjects with a minimum of 24 credit points.
+(Physics and Math are mandatory subjects, and one subject is mandatory
+from the below i.e Chemistry/ Computer Science/Electronics/Information
+Technology/ Biology/ Informatics Practices/ Biotechnology/ Technical
+Vocational subject/ Agriculture/ Engineering Graphics/ Business Studies/
+Entrepreneurship)
+						</li>
 					</ul>
-					<p><strong>IB career Related Study Programmes</strong></p>
+					<p><strong>IBCRSP(IBCP)</strong></p>
 					<ul role="list">
-						<li>02 DP subjects with at ;east 01 subject at HL Level and minimum 3 points in each DP subject.</li>
-						<li>Career Related Study (CRS) with at least 03 subjects.</li>
-						<li>IBCP Equivalence for General Strand (Design, Science, B. Sc Finance): International Baccalaureate Career Related Study (IBCP) qualification with core components requirement awarded by International Baccalaureate (IB).</li>
+						<li>Students graduating with 03 DP Subjects (Maths’s, Physics,
+Chemistry, Biology or other similar subject) with at least
+01 subjects at HL Level and minimum 3 points in each DP
+subject.</li>
+						<li>Career Related Study (CRS) with at least 03 Subjects.</li>
+						<li>
+						   International Baccalaureate Career Related Study(IBCP)
+qualification with core components requirement awarded by
+International Baccalaureate(IB).
+						    
+						    </li>
 					</ul>
 				</div>
 			</nav>
@@ -425,7 +484,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/assets/include/keydates/keydates-static/bd
 			<div class="tt-wrap">
 				<h2 class="h2-tag mrg16 isdi">Fee Structure</h2>
 				<div class="sub-heading mrgbtm32">We believe in clarity &amp; Here’s a simple breakdown of our fees!</div>
-			</div><a Data-id="" data-wf--button-regular--variant="base" href="https://online.fliphtml5.com/vrcjg/luhy/#p=1" target="_blank" class="button-regular w-inline-block">
+			</div><a Data-id="" data-wf--button-regular--variant="base" href="https://atlasuniversity.edu.in/fee-structure/isdi-btech/" target="_blank" class="button-regular w-inline-block">
 				<div data-wf--button-space--variant="normal" class="extra-space">
 					<div data-font-size="" class="button-text">View Fee Structure</div>
 					<div class="code-button w-embed w-script">
@@ -460,7 +519,7 @@ include $_SERVER['DOCUMENT_ROOT'] . "/assets/include/keydates/keydates-static/bd
 				</div>
 				<div class="df-card">
 					<div class="df-text-2">Year 1</div>
-					<div class="df-text-1"><strong class="fee-dates">7,03,500</strong></div>
+					<div class="df-text-1"><strong class="fee-dates">7,35,000</strong></div>
 				</div>
 			</div>
 		</div>

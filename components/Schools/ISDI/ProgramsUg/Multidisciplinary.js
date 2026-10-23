@@ -97,17 +97,30 @@ export default function Multidisciplinary({ data }) {
           </div>
         </div>
 
-        <MintTabStrip
-          tabs={data.tabs.map((tab) => tab.label)}
-          active={active}
-          onChange={select}
-          label={data.title}
-          idPrefix="isdi-ug-minor"
-        />
+        {/* ref .skills-electives-wrapper — only the Postgraduate Overview wraps the tabs in
+            it, and it is 56px of top padding (24 at <=767). The wrapper has no bottom
+            padding and the panel is its last child, so carrying it on the strip is the
+            same spacing. */}
+        <div className={data.grid ? 'pt-14 max-md:pt-6' : undefined}>
+          <MintTabStrip
+            tabs={data.tabs.map((tab) => tab.label)}
+            active={active}
+            onChange={select}
+            label={data.title}
+            idPrefix="isdi-ug-minor"
+          />
+        </div>
       </div>
 
-      {/* ref .tab-content-mint */}
-      <div className="relative pt-14 text-[18px] leading-[1.5] max-md:pt-10 max-md:text-base max-md:leading-[1.5]">
+      {/* ref .tab-content-mint — the Undergraduate Overview leaves it OUTSIDE `.container`
+          so its carousel can bleed; the Postgraduate Overview keeps it inside, and its
+          `.padtp32` is 32px of top padding rather than 56. */}
+      <div
+        className={cx(
+          'relative text-[18px] leading-[1.5] max-md:text-base max-md:leading-[1.5]',
+          data.grid ? cx(CONTAINER, 'pt-8') : 'pt-14 max-md:pt-10'
+        )}
+      >
         {data.tabs.map((tab, i) =>
           i === shown ? (
             <div
@@ -120,17 +133,34 @@ export default function Multidisciplinary({ data }) {
                 visible ? 'opacity-100 duration-300' : 'opacity-0 duration-100'
               )}
             >
-              <Carousel autoplay={false} bullets="isdi">
-                {tab.cards.map((card) => (
-                  <MinorCard key={card.title} card={card} />
-                ))}
-              </Carousel>
+              {/* The Undergraduate Overview makes each pane a `.swiper.common-swiper`; the
+                  Postgraduate Overview makes it a `.electives-card-wrapper` — a plain
+                  wrapping row with a 16px gap and no slider at all, which becomes a
+                  two-column grid at <=767. Same cards, different container, so the layout
+                  travels as data. */}
+              {data.grid ? (
+                /* ref .electives-card-wrapper */
+                <div className="flex flex-wrap gap-4 max-md:grid max-md:grid-cols-2">
+                  {tab.cards.map((card) => (
+                    <MinorCard key={card.title} card={card} />
+                  ))}
+                </div>
+              ) : (
+                <Carousel autoplay={false} bullets="isdi">
+                  {tab.cards.map((card) => (
+                    <MinorCard key={card.title} card={card} />
+                  ))}
+                </Carousel>
+              )}
             </div>
           ) : null
         )}
       </div>
 
-      {/* ref .common-wrapper.center > .why-isdi-wrapper > .swiper.common-swiper.mrgtp0 */}
+      {/* ref .common-wrapper.center > .why-isdi-wrapper > .swiper.common-swiper.mrgtp0 —
+          the Postgraduate Overview closes the section with the tabs and authors no
+          `.isdi-elective` cards at all */}
+      {data.electives?.length > 0 && (
       <div className="pt-[50px]">
         <Carousel autoplay={false} bullets="isdi">
           {data.electives.map((card) => (
@@ -138,6 +168,7 @@ export default function Multidisciplinary({ data }) {
           ))}
         </Carousel>
       </div>
+      )}
     </div>
   );
 }

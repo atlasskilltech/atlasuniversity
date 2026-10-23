@@ -725,16 +725,18 @@ src="https://www.facebook.com/tr?id=445297888537892&ev=PageView&noscript=1"
 
 
 <body class="body isdi-page">
-     <script type="text/javascript">
-                    var npf_d='https://admissions.atlasuniversity.edu.in';
-                    var npf_c='5473';
-                    var npf_m='1';
-                    var s=document.createElement("script");
-                    s.type="text/javascript";
-                    s.async=true;
-                    s.src="https://track.nopaperforms.com/js/track.js";
-                    document.body.appendChild(s);
-         </script>
+     <!--<script type="text/javascript">-->
+     <!--               var npf_d='https://admissions.atlasuniversity.edu.in';-->
+     <!--               var npf_c='5473';-->
+     <!--               var npf_m='1';-->
+     <!--               var s=document.createElement("script");-->
+     <!--               s.type="text/javascript";-->
+     <!--               s.async=true;-->
+     <!--               s.src="https://track.nopaperforms.com/js/track.js";-->
+     <!--               document.body.appendChild(s);-->
+     <!--    </script>-->
+     
+     <script src="https://crm.atlasskilltech.app/track.js" async></script>
 	<div class="main-wrapper">
 		<div data-wf--header-isdi--variant="default" class="header">
 			<div id="topbar" class="topnavbar">
@@ -932,8 +934,8 @@ src="https://www.facebook.com/tr?id=445297888537892&ev=PageView&noscript=1"
 															<li class="level-3-item"><a href="<?php echo $domain ?>programs/undergraduate/btech/btech-design-engineering" class="level-3-link w-inline-block">
 																	<div class="text-lnk">B.Tech in Design Engineering </div><img src="<?php echo $domain ?>assets/images/icon/arrow-downward.svg" loading="lazy" alt="" class="link-arrow" />
 																</a></li>
-															<li class="level-3-item"><a href="<?php echo $domain ?>programs/undergraduate/btech/btech-ai-integrated-design" class="level-3-link w-inline-block">
-																	<div class="text-lnk">B.Tech in AI Integrated Design</div><img src="<?php echo $domain ?>assets/images/icon/arrow-downward.svg" loading="lazy" alt="" class="link-arrow" />
+															<li class="level-3-item"><a href="<?php echo $domain ?>programs/undergraduate/btech/ai-engineering-&-intelligent-products" class="level-3-link w-inline-block">
+																	<div class="text-lnk">AI Engineering & Intelligent products</div><img src="<?php echo $domain ?>assets/images/icon/arrow-downward.svg" loading="lazy" alt="" class="link-arrow" />
 																</a></li>
 														
 														</ul>

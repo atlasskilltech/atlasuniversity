@@ -42,9 +42,11 @@ export default function Voices({ data }) {
       {/* ref .swiper.common-swiper-full */}
       <div className="pt-14 max-md:pt-5">
         <Carousel autoplay={false} bullets="isdi-overlay">
-          {data.cards.map((card) => (
+          {data.cards.map((card, i) => (
             <QuoteCard
-              key={card.quote}
+              /* the M.Des page authors the same quote on two cards, so the key carries the
+                 index — the same fix `GridGallery`, `LogoGrid` and the FAQ already use */
+              key={`${i}-${card.quote}`}
               /* `.stname` holds the name and `.st-course` the cohort — QuoteCard's
                  two detail lines */
               card={{ text: card.quote, name: card.name, role: card.course }}

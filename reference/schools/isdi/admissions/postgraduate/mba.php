@@ -127,7 +127,7 @@ $cyclesISMEMBA = getAdmissionCycles($conn, 8);
 	<div class="course-hero-wrapper">
 		<div class="hero-text">
 			<h1 class="h1-tag">MBA Admissions</h1>
-			<div class="course-duration-isme isdi">Masters of Design | Full Time</div>
+			<div class="course-duration-isme isdi">Master of Business Administration | Full Time</div>
 			<div class="buttons-wrapper"><a data-id="" data-wf--button-primary--variant="pink" href="<?php echo $edudomain ?>applicationform" class="btn-primary w-inline-block">
 					<div class="button-tx">Apply for 2027 Intake</div>
 				</a></div>
@@ -276,7 +276,7 @@ $cyclesISMEMBA = getAdmissionCycles($conn, 8);
 				</div>
 				<div class="df-card">
 					<div class="df-text-2">Year 1</div>
-					<div class="df-text-1"><strong>5,77,500</strong></div>
+					<div class="df-text-1"><strong>6,06,400</strong></div>
 				</div>
 			</div>
 		</div>

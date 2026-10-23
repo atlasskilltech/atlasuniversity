@@ -38,11 +38,11 @@ import { CONTAINER, H2, H2_MB } from '../Home/ui';
  *   .outcome-header    24px/1.1 500 white, mb8 (Poppins, via `.isdi`)
  *   .why-content-…     max-width 324, mt24 (14 at <=479), 16px/2 -> 14px/1.86
  *
- * The SECTION heading is run through `withBreaks` too — the Product Design page authors a
- * `<br>` after "Creative", which is four lines on the reference at 479 and three without it.
- * The headers are run through `withBreaks`: the Animation page breaks all five of its
- * titles and the Accessory page breaks none, the same trap `Advantages/Electives` and
- * `ProgramCards` already record.
+ * The heading, the headers AND the descriptions are all run through `withBreaks`. The
+ * Animation page breaks all five of its titles and the Accessory page breaks none; the
+ * Product Design page authors a `<br>` after "Creative" in the section heading; and the MBA
+ * page breaks two of its five descriptions twice each. Every field a component prints has
+ * to be checked — the same trap `Advantages/Electives` and `ProgramCards` record.
  *
  * The second card's header is wrapped in `<strong>`; the parent is already 500, so
  * Preflight's relative `bolder` would render it 700 where the reference paints
@@ -163,8 +163,11 @@ export default function WhyStack({ data }) {
                       {/* ref .why-content-wrapper > .why-content-desc */}
                       <div className="mt-6 max-w-[324px] text-white max-sm:mt-3.5">
                         <div className="text-base leading-[32px] max-sm:text-[14px] max-sm:leading-[26px]">
+                          {/* the descriptions carry authored `<br>`s too — two of the MBA
+                              page's five break twice each, which is 26px of card height
+                              apiece */}
                           {card.body.map((paragraph, i) => (
-                            <span key={i}>{paragraph}</span>
+                            <span key={i}>{withBreaks(paragraph)}</span>
                           ))}
                         </div>
                       </div>

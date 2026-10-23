@@ -108,7 +108,11 @@ export default function ProgramCard({ card }) {
       <div className="absolute right-10 top-10 max-md:right-[15px] max-md:top-[15px]">
         <SmartLink
           href={card.href}
-          aria-label={card.ariaLabel || 'View Undergraduate Program Details'}
+          /* the reference authors an `aria-label` on exactly one card (the homepage's
+             M.Des, reading "ISDI Home"), so the rest need a name of our own. It is
+             built from the card's own title: the previous fallback said
+             "Undergraduate" on every card, which is wrong on a postgraduate one. */
+          aria-label={card.ariaLabel || `View ${String(card.title).replace(/\s+/g, ' ').trim()} programme details`}
           className="flex h-[54px] w-[54px] items-center justify-center rounded-[30px] max-md:h-11 max-md:w-11"
           style={{ backgroundColor: card.button }}
         >
