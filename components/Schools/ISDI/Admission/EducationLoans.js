@@ -59,8 +59,13 @@ const COL = [
   /* c6 — the frame's right edge */ 'border-r border-r-[#18429f]',
 ];
 
-/* the cells turn into centred columns at <=767 */
-const CELL = 'flex items-center justify-start max-md:flex-col max-md:items-center max-md:justify-start';
+/*
+ * ref `.w-layout-cell` — a column at EVERY width, cross-axis centred. `justify-content` is
+ * deliberately NOT in here: the logo cell centres and the other five start, and two justify
+ * utilities in one class list are resolved by stylesheet order rather than by the order they
+ * are written, so an appended `justify-center` silently lost to this string's `justify-start`.
+ */
+const CELL = 'flex flex-col items-center';
 /* `.amount-head` and `.contact-head` are Manrope */
 const HEAD = 'text-left font-sans text-base leading-[1.5]';
 /* every value line is Manrope 14/700 left-aligned */
@@ -91,11 +96,20 @@ export default function EducationLoans({ data }) {
           {/* ref .w-layout-layout.quick-stack.isdi-curve */}
           {/* the six columns hold at EVERY width — the grid never stacks; it is the wrap
               around it that scrolls */}
-          {/* ref `.quick-stack { width: 100%; justify-content: left }` — the tracks are
-              `minmax(auto, 1fr)`, so below 768 their min-content floors sum past the
-              container and the wrap scrolls. `.quick-stack.isdi-curve` turns the clip off
-              at <=479, which is why each corner cell carries its own radius too. */}
-          <div className="grid w-full justify-start gap-0 overflow-hidden rounded-2xl [grid-template-columns:repeat(6,minmax(auto,1fr))] max-sm:overflow-visible">
+          {/*
+            The tracks are `minmax(auto, 1fr)`, so their min-content floors sum past the
+            container well before 768 (926px against 708 at exactly 768) and the grid
+            overflows its own box. WHERE that overflow goes is the point:
+            `.w-layout-layout` declares `justify-content: center`, so above 767 the row
+            hangs off BOTH sides equally — the first cell starts at x -79 at 768 — and
+            `.quick-stack` replaces it with `left` only at <=767, where the wrap scrolls
+            instead. Rendering it left-aligned at every width put the whole row ~105px
+            right of the reference between 768 and about 1100; the block heights matched
+            throughout, so only the screenshots showed it.
+            `.quick-stack.isdi-curve` turns the clip off at <=479, which is why each corner
+            cell carries its own radius too.
+          */}
+          <div className="grid w-full justify-center gap-0 overflow-hidden rounded-2xl [grid-template-columns:repeat(6,minmax(auto,1fr))] max-md:justify-start max-sm:overflow-visible">
             {data.rows.map((row, r) => (
               /* each row is six sibling cells in the same grid — a React fragment keeps
                  them as direct grid children, which a wrapper would not */
@@ -115,26 +129,29 @@ function Row({ row, r, last }) {
     (r === 0 || r === 1) && 'border-t border-t-[#18429f]',
     r >= 1 && 'border-b border-b-[#18429f]'
   );
-  const cell = (i, extra) =>
-    cx(CELL, COL[i], edge,
+  const cell = (i) =>
+    cx(CELL,
+       /* ref `.cell-N` — the logo column is `justify-content: center`, the rest `flex-start` */
+       i === 0 ? 'justify-center' : 'justify-start',
+       COL[i], edge,
        r === 0 && i === 0 && 'rounded-tl-2xl',
        r === 0 && i === 5 && 'rounded-tr-2xl',
        r === last && i === 0 && 'rounded-bl-2xl',
        r === last && i === 5 && 'rounded-br-2xl',
        /* the reference's last row paints THIS cell's bottom border black rather than
           indigo — an upstream slip in `.cell-12`, 1px and reproduced as authored */
-       r === last && i === 2 && 'border-b border-b-black',
-       extra);
+       r === last && i === 2 && 'border-b border-b-black');
 
   return (
     <>
       {/* ref .w-layout-cell.cell.loan-cell-pad */}
-      <div className={cell(0, 'justify-center')}>
+      <div className={cell(0)}>
+        {/* the reference authors NO width/height attributes on these logos, so each one
+            paints at 200 x (160 x its own ratio) under `max-width`. Carrying an invented
+            `width` made the two narrower marks render 184 and 193 wide. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={row.logo.src}
-          width={row.logo.width}
-          height={row.logo.height}
           alt={row.logo.alt}
           loading="lazy"
           decoding="async"

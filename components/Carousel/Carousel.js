@@ -144,6 +144,9 @@ function nearest(value, snaps) {
  * `bullets="isdi-light"` is the in-flow row inside ISDI's `.blue-wrapper`, where
  * header.php paints every bullet white (`.blue-wrapper .swiper-pagination-bullet
  * { background: #fff; opacity: .4 }`, the active one at opacity 1).
+ * `bullets="isdi-overlay-light"` is both at once, which /atlas-isdi-advantage's
+ * "Multidisciplinary Learning" needs: a `.common-swiper-full` INSIDE a
+ * `.blue-wrapper`, so the row is absolutely placed and the dots are white.
  * All are opt-in; every existing caller keeps the default row.
  *
  * `align="center"` — the Webflow sheet declares `.swiper-wrapper { align-items:
@@ -329,7 +332,7 @@ export default function Carousel({
     <div
       className={cx(
         'hidden text-center max-mcm:block',
-        bullets === 'isdi-overlay' ? 'absolute inset-x-0 -bottom-[30px] z-10' : 'mt-5',
+        bullets.startsWith('isdi-overlay') ? 'absolute inset-x-0 -bottom-[30px] z-10' : 'mt-5',
       )}
     >
       {snaps.map((snap, i) => (
@@ -341,7 +344,7 @@ export default function Carousel({
           aria-current={i === active}
           className={cx(
             'mx-2 inline-block h-2 w-2 rounded-full p-0 align-baseline',
-            bullets === 'isdi-light'
+            bullets === 'isdi-light' || bullets === 'isdi-overlay-light'
               ? cx('bg-white', i !== active && 'opacity-40')
               : i === active ? 'bg-[#007aff]' : 'bg-black opacity-20',
           )}
@@ -352,7 +355,7 @@ export default function Carousel({
 
   return (
     <>
-      {bullets === 'isdi-overlay' ? (
+      {bullets.startsWith('isdi-overlay') ? (
         <div className="relative">
           {scroller}
           {isdiBullets}

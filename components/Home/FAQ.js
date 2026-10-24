@@ -27,7 +27,8 @@ import { CONTAINER, SECTION, H2 } from '@/components/Home/SectionHead';
  *
  * ── Measured cascade ──────────────────────────────────────────────────────
  *                            >=768px                     <=767px
- *   .accordion-item          border-bottom 1px #dee2e6, background #fff
+ *   .accordion-item          border-bottom 2px #eee, background #fff; the LAST
+ *                            item draws none (`.accordion-flush`)
  *   .accordion-button        h80, 24px/1.2, 400          16px/1.2, 600
  *                            (the 1.2 has to be restated at the breakpoint —
  *                             the project's type scale pins every size to 1.5)
@@ -56,6 +57,21 @@ import { CONTAINER, SECTION, H2 } from '@/components/Home/SectionHead';
  * the open state invisible. The homepage sheet has no such rule, so the title
  * really does turn blue. Measured on all three. The homepage behaviour is what
  * every page here renders, by the same rule that governs the skin.
+ *
+ * The item divider was the longest-standing of those disagreements and is now
+ * resolved the same way. Measured on production across 22 pages: 2px #eee on
+ * every one except four — the ATLAS homepage, /admissions/integrated-admissions,
+ * /admissions/ug-admissions and /schools/isdi/admissions/pre-university-summer-school
+ * — which draw Bootstrap's stock 1px #dee2e6 because their include ships no
+ * `<style>` for `.accordion-item` at all. 2px #eee is therefore both the large
+ * majority and the authored intent, and the 1px is the same unstyled fallback
+ * /about-us's heavier question and chevron already come from. It is what every
+ * page renders here.
+ *
+ * That measurement also turned up a defect nobody had catalogued: on all 22,
+ * the LAST item's `border-bottom` computes to **0px** — `.accordion-flush`
+ * drops it — and this component was drawing one under every item. Every FAQ on
+ * the site was one divider too tall.
  *
  * /about-us renders this same component with its own seven questions. It ships
  * the same Bootstrap markup but without the homepage include's `<style>` block,
@@ -169,7 +185,18 @@ export default function FAQ({ data = faq }) {
             const isOpen = i === open;
             return (
               /* ref .accordion-item */
-              <div key={`${i}-${item.q}`} className="border-b border-[#dee2e6] bg-white">
+              <div
+                key={`${i}-${item.q}`}
+                className={cx(
+                  'bg-white',
+                  /* ref .accordion-item — `.accordion-flush` drops the LAST item's
+                     bottom border on every reference on the site, the Bootstrap-default
+                     ones included (measured: last item `border-bottom: 0px` on all of
+                     them). Drawing it under the last item too made every FAQ on the
+                     site one divider too tall. */
+                  i < items.length - 1 && 'border-b-2 border-[#eee]',
+                )}
+              >
                 {/* ref h2.accordion-header */}
                 <h3 className="m-0">
                   {/* ref button.accordion-button */}

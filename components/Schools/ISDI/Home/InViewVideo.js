@@ -27,8 +27,21 @@ import { cx } from '@/lib/cx';
  * which ships both icons with the inactive one hidden. Only the B.Des programme
  * pages' Student Voices cards author it; without it this renders the bare `<video>`
  * it always has.
+ *
+ * `fit` ('cover' | 'contain') is the element's `object-fit`, and it is a PROP rather
+ * than something a caller passes in `className` because two utilities of the same kind
+ * in one class list are resolved by stylesheet order, not by the order they are written.
+ * `ProgramDetail/Curriculum` passed `object-contain` for the semester clips, which the
+ * base string's `object-cover` silently beat on all sixteen programme pages — the sixth
+ * time that trap has been recorded here, after `ButtonRegular`'s radius and
+ * `SecondaryButton`'s colour. It is inert on those pages today, because `.video-auto`
+ * is `height: auto` so the box always already matches the clip's own ratio and the two
+ * values paint identically; it is still the wrong computed value, and it crops the
+ * moment a box is constrained.
  */
-export default function InViewVideo({ src, type = 'video/mp4', sources, poster, loop = true, controls, className }) {
+const FIT = { cover: 'object-cover', contain: 'object-contain' };
+
+export default function InViewVideo({ src, type = 'video/mp4', sources, poster, loop = true, controls, fit = 'cover', className }) {
   const ref = useRef(null);
   const [paused, setPaused] = useState(false);
   const pausedRef = useRef(false);
@@ -81,7 +94,7 @@ export default function InViewVideo({ src, type = 'video/mp4', sources, poster, 
       playsInline
       preload="none"
       aria-hidden="true"
-      className={cx('bg-cover bg-center object-cover', className)}
+      className={cx('bg-cover bg-center', FIT[fit], className)}
       style={poster ? { backgroundImage: `url(${poster})` } : undefined}
     >
       {sources ? (

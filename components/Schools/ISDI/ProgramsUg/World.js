@@ -3,7 +3,7 @@ import withBreaks from '@/lib/withBreaks';
 import ButtonRegular from '@/components/ui/ButtonRegular';
 import PhotoGallery from '../PhotoGallery';
 import { CONTAINER, SECTION } from '../Home/ui';
-import IconHeading from './IconHeading';
+import IconHeading from '../IconHeading';
 
 /**
  * #4 "ATLAS Students Have The World at their Fingertips" — port of

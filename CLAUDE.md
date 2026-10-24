@@ -1743,14 +1743,32 @@ measured across seven references and both left at the homepage's behaviour:
   shrinks the title box by 50px, which at 768 is enough to wrap the question onto
   a second line on the reference and not on ours.
 
-**And one that is a genuine open question, not a rule.** `.accordion-item`'s
-divider is `2px #eee` on **14 of 17** references and `1px #dee2e6` (Bootstrap's
-default) on the homepage, /admissions/integrated-admissions and
-/admissions/ug-admissions. The shared component was built against the homepage,
-so it renders 1px everywhere — the sole cause of the recurring 1px item-height
-delta. Changing it is one line in `components/Home/FAQ`, and it would make 14
-pages more accurate and 1 less, so it is **flagged for the user rather than
-taken unilaterally**; finished pages are not restyled without being asked.
+**And one that was a genuine open question, not a rule — now RESOLVED.**
+`.accordion-item`'s divider is `2px #eee` on **14 of 17** references and
+`1px #dee2e6` (Bootstrap's default) on the homepage,
+/admissions/integrated-admissions and /admissions/ug-admissions. The shared
+component was built against the homepage, so it rendered 1px everywhere — the
+sole cause of the recurring 1px item-height delta. It was flagged rather than
+taken unilaterally, and **the user approved the change on 2026-10-24**:
+`components/Home/FAQ` now draws **2px #eee**.
+
+Re-measured on production across 22 pages before the change: 2px #eee on every
+one except four — the ATLAS homepage, /admissions/integrated-admissions,
+/admissions/ug-admissions and
+/schools/isdi/admissions/pre-university-summer-school — which draw Bootstrap's
+stock 1px because their include ships no `<style>` for `.accordion-item`. The
+majority and the authored intent agree, and the 1px is the same unstyled
+fallback /about-us's heavier question and chevron already come from.
+
+**That measurement also turned up a defect nobody had catalogued: the LAST item
+draws no divider.** On all 22 references the last `.accordion-item`'s
+`border-bottom` computes to **0px** — `.accordion-flush` drops it — and the
+component was drawing one under every item, so every FAQ on the site was one
+divider too tall. Both halves are fixed, and the item heights now match
+production exactly (verified: a 24-item FAQ sums to 1966 on both sides, a
+7-item one to 572, an 8-item one to 654). What remains of the FAQ bucket on an
+ISDI page is only `SectionHead.SECTION`'s 60/40 padding against an ISDI
+section's 50 — a clean +20 above 768 / −20 below.
 
 **`borderBottom*` was missing from the diff harness.** That is how a 2px-vs-1px
 divider hid on nine shipped pages behind nothing but a 1px box delta. It is in
@@ -1834,8 +1852,8 @@ it** — the diff harness is the authoritative one.
 
 **Result: every hero and programme-list element matches at all twelve widths.**
 The only diffs are the shared FAQ's three known buckets — the benign Bootstrap
-residue, the two deliberate `.accordion-title` divergences, and the 2px-vs-1px
-divider still flagged for the user.
+residue and the two deliberate `.accordion-title` divergences. (The 2px-vs-1px
+divider that used to sit here was resolved on 2026-10-24 — see the note above.)
 
 ### /programs/ug/programs-list-commerce-finance-and-economics — `lib/commerceFinanceContent.js`
 
@@ -2144,7 +2162,8 @@ a new component.
 
 **Every Programs page's only remaining diffs are the shared FAQ's three
 buckets** — the benign Bootstrap residue, the two deliberate `.accordion-title`
-divergences, and the 2px-vs-1px divider that is still flagged for the user.
+divergences. (The 2px-vs-1px divider that used to sit here was resolved on
+2026-10-24 — see /programs/ug/ug-design-and-innovation.)
 
 ## Route-transition loader — `components/ui/PageLoader.js`
 
@@ -2362,7 +2381,8 @@ cross-origin iframe (as the ATLAS homepage); 568-767px testimonial cards held to
 the container width (reference blows out to ~1014px); videos play when in view
 rather than all at once on load; `href="#home-faq"` (no such id) points at `#faq`;
 one advisory href authored `#https://…` is the video URL; the FAQ keeps the shared
-1px #dee2e6 divider where ISDI draws 2px #eee (still flagged) and ATLAS section
+2px #eee divider the ISDI sheet draws, which this component now renders site-wide
+(resolved 2026-10-24), and ATLAS section
 padding offset by a wrapper; Manrope text (tabs, badges) uses the self-hosted
 Manrope — production loads no Manrope and falls back to the system sans-serif.
 
@@ -3530,24 +3550,23 @@ them; its fifth Postgraduate entry, "Interior Styling & Spatial Curation (1 Year
 A **third ISDI template**, and the first Admissions page. Ten blocks: a `.course-cover-section`
 hero, the About page's sticky anchor menu, then six sections each carrying the `id` that menu
 scrolls to (How to Apply, Key Dates & Deadlines, Eligibility, Fee Structure, ATLAS Scholarships,
-Education Loans), the "More questions?" panel and the FAQ. No carousel, no video, no brochure
-popup.
+Education Loans — the menu labels that last one **"Financial Assistance"**), the "More
+questions?" panel and the FAQ. No carousel, no video, no brochure popup.
 
-**Every block matches its production height at 1440 and 1280** except the three residues below,
-and the screenshots diff at 0.0-2.3 mean pixels on six of the ten blocks.
+**Nine of the ten blocks match their production height to the pixel at all twelve widths**
+(1920 / 1440 / 1280 / 1100 / 992 / 900 / 768 / 700 / 568 / 479 / 390 / 360). The tenth is the
+shared FAQ, whose two known divergences are listed at the end.
 
 **Four of the ten are existing components** driven by this page's data, each re-verified on its
 origin page afterwards:
 - `About/AnchorMenu` — gained `centered`. The About page's bar is `.sticky-menus.center`; this
-  one is the bare class and is **left-aligned**. Verified byte-identical on /schools/isdi/about-us
-  at 1440 and 390 after the change.
+  one is the bare class and is **left-aligned**.
 - `ProgramDetail/Admissions` — the `.gd-steps` band. This page authors the heading **bare**, with
   no lead, no button and no `.isdi-guide-wrapper` padding, so `data.sub` and `data.button` are
   optional now and their absence selects that form; it also takes an `id` for the anchor menu.
-  The Accessory page's band measures 542.4 / 1253.4 exactly as before.
 - `About/MoreQuestions` and the site-wide `FAQ`.
 
-Five components are this page's own, under `components/Schools/ISDI/Admission/`: `Hero`,
+Seven components are this page's own, under `components/Schools/ISDI/Admission/`: `Hero`,
 `HeadWrap` (the `.head-wrap > .tt-wrap + .button-regular` row three sections share), `KeyDates`,
 `Eligibility`, `FeeStructure`, `Scholarships` and `EducationLoans`.
 
@@ -3555,66 +3574,1049 @@ Five components are this page's own, under `components/Schools/ISDI/Admission/`:
 quarters, ending `#000c`) nor `Programs/ProgramHero` (a half, ending `#000e`): it is a half
 ending at **`#0006`**, a much lighter wash, over a photograph.
 
+#### The reference is a moving target — measure production, not only the mirror
+
+**The mirrored copy of this page is already out of date, and the drift is content.** The mirror
+was refreshed from upstream part-way through this work, and four values on this page had
+changed since it was first ported: the Year 1 fee (`7,03,500` -> **`7,35,000`**), the Fee
+Structure button's href (fliphtml5 -> `https://atlasuniversity.edu.in/fee-structure/bdes/`), and
+— invisible in the mirror entirely — **a fifth education-loan lender** and a second bold group in
+the Key Dates table. Two of those four exist only on production. **Diff the rendered production
+markup against the data, not just the PHP against the data.**
+
+**`assets/include/loans/education-loans.php` ships four lenders; production serves five.**
+Avanse sits between Tata Capital and HDFC and is the one cell on the page with **two** contacts.
+Its logo is not in the mirror either. Nothing in the local reference hints at it.
+
+**Cloudflare's e-mail obfuscation is reversible, and that is how Avanse's addresses were read.**
+Production renders every lender address as "[email protected]" with the real value in a
+`data-cfemail` hex attribute (first byte is the XOR key). Decoding all seven on the page returned
+the four the include carries in clear, byte for byte — which validates the decode — plus Avanse's
+two and the ISDI footer's. **Validate a decoder against the values you already know before
+trusting the ones you don't.**
+
 #### What this page's measurements turned up
 
 **A `<tr>`'s inline `height` is a minimum, and it is the whole explanation.** Two rows of the
 key-dates table are 65px where every other is 50, and nothing in their content accounts for it —
 both cells' text is one 23px line. The rows carry `style="height: 64px"` (the others carry 33,
-which is below their content height and therefore inert). Chasing this through `<sup>`,
-`line-height` and `border-collapse` first was wasted effort: **read the row's own attributes
-before modelling its content.**
+which is below their content height and therefore inert). **Read the row's own attributes before
+modelling its content.**
 
-**`<br class="br">` is a breakpoint, not a break.** The left cells' `<br>`s are `display: none`
-above 1100 and `block` below, which is what turns those rows into two lines once the table is at
-its 900px scrolling width. Rendering them unconditionally made the desktop table 97px too tall.
-The project already had `max-tbl` (1100) from /admissions/integrated-admissions' law table —
-the same include, the same class.
+**Most of the Key Dates table's design is in the page's own inline `<style>`, not in `$css`.**
+Reading only the Webflow sheet and Bootstrap gets the border model, the padding and the wrapping
+wrong. That block declares, unconditionally, `.table-responsive > .table-bordered { border: 2px
+solid rgba(0,0,0,.15) }`, `.table-bordered td { border: 1px solid #dee2e6 }` and `.table td
+{ padding: .75rem; vertical-align: middle; white-space: nowrap; overflow: hidden; text-overflow:
+ellipsis }` — and inside `@media (max-width: 1100px)` it moves the scroller, the 900px floor,
+the `<br class="br">` and `border-collapse: separate !important; border-spacing: 0 !important`.
+**That last pair is worth 1px on every row**: under `collapse` two touching cells share one
+border, under `separate` each draws its own. Reproducing it took the table from 8 rows that were
+each 1px short to a row-for-row match at 1440 and at 390.
 
-**`leading-normal` is 1.5 in this config, not `normal`.** Restoring a `<sup>`'s browser-default
-line box needs `[line-height:normal]`. (In the end the reference's own `<sup>` is neutralised by
-Webflow's normalize exactly as Preflight neutralises ours, so no override was needed at all — but
-the Tailwind trap is worth recording.)
+**`max-tbl` (1100) is the breakpoint for this whole table, not 767.** The scroller, the 900px
+minimum, the two-line left cells and the collapse flip all turn there. Using `max-md` for the
+scroller and the 900px width was wrong in both directions.
 
-**The buttons live inside the table's frame, and the include's `<br><br>` is 48px of real
-height.** `.table-responsive` is 611px tall against a 461px table: 16 of Bootstrap's own table
-margin, 86 of button row, and 48 of the two `<br>`s the include authors after it.
+**A `<sup>` must be left alone.** Webflow's normalize gives it `font-size: 75%; line-height: 0;
+vertical-align: baseline; position: relative` — which is Preflight's rule exactly, measured
+identical on both sides. An earlier note here said `leading-normal` is 1.5 in this config so a
+browser-default line box needs `[line-height:normal]`; that is true of the Tailwind token and
+irrelevant here, because the reference does not want the browser default. Restoring it raised
+the line box and made every date row 1.41px tall. **Measure the element before "restoring" what
+Preflight took away.**
 
-**A `1fr` track is `minmax(auto, 1fr)`, and that is what sizes the loans grid.** The Education
-Loans block is a six-column Webflow quick-stack whose declared `repeat(6, 1fr)` resolves to
-uneven tracks (202 / 179 / 179 / 179 / 179 / 323 at 1440) because each column's min-content floor
-wins. Transcribing the `minmax` took that block from -233 to within 30px. Its per-field top
-margins are also individual — `.loan-type-desc` 16, `.amount-type` / `.interest-type` /
-`.tenure-type` **53**, `.contact-name` 29 over a 9px bottom margin — and they are what set each
-cell's height.
+**Two padding utilities in one class list are resolved by stylesheet order.** The header cell is
+authored `padding: 0` inline; appending `p-0` to a shared cell string that already held `p-3`
+gave it `p-3` and 22.5px of extra row height. Padding is kept out of the shared string and
+applied per cell — the third time this trap has been recorded, after the ATLAS law table and
+the FAQ's line-height.
 
-**The lender e-mails are not readable from production.** Cloudflare obfuscates them to
-"[email protected]". They are read from `reference/assets/include/loans/education-loans.php` by the
-generator itself, so a re-run cannot silently reintroduce the placeholder.
+**`.buttons-wrapper` declares no `justify-content`, so the row is left-aligned**, and its top
+padding steps 30 -> 24 (767) -> 14 (479) while its gap steps 16 -> 8 (991). Centring it and
+holding 30px at every width was worth 16px at 390 and put the button in the wrong place at all
+of them — a difference no height diff above 768 could see.
 
-**The date colours are resolved at build time.** The include's trailing `<script>` recolours every
-`td b`: grey for "Closed", green for "Applications Open" and for any
-`<day><suffix> <Month> <year>`. It is deterministic over static copy, so the tone is carried in
-the data — the same call the ATLAS Admissions pages' `KeyDates` records.
+**`.head-wrap.mrgbtm32` keeps its 32px bottom margin at every width.** The `@media (max-width:
+767px)` rule for the same compound sets only `justify-content` and `align-items`; it is
+`.head-wrap.mrgbtm` — a different class, not used here — that drops to 20. Reading the wrong
+one cost 12px on Eligibility below 768. **A compound selector beats a media query**, for the
+fifth time in this rebuild.
 
-**Assets.** 14 references, all mapped: 6 new (the hero photograph and its three `-p-` twins, the
-four lender logos and the fee card's polygon) and 8 reused — the apply-step images and both
-scholarship washes were already on disk from the B.Des programme pages. One image converted to
-WebP (1.1MB saved). **Registering only `src` misses the `-p-` twins**: `img()` now registers every
-srcset candidate too.
+**Two breakpoints in the Scholarships block disagree.** The row stacks and the card loses its
+`max-width` at **767**, but the wrapper's 56px top padding and the card's 56/40 padding both
+turn at **479**. Dropping them at 767 cost 36px between 480 and 767 and inset the copy 20px too
+early at every width in that band.
+
+**`.df-container` carries a 1px `#18429f` frame** (the base rule, not an `.isdi` one), and
+`.dates-fees-container.isdi` adds `padding-top: 32px` at <=479. The first was a flat 2px on the
+Fee Structure block at every width; the second 32 more at <=479.
+
+**A `1fr` track is `minmax(auto, 1fr)`, and that is what sizes the loans grid.** The declared
+`repeat(6, 1fr)` resolves to uneven tracks (202 / 179.3 x 4 / 322.7 at 1440) because each
+column's min-content floor wins.
+
+**Every loans cell draws its own borders, and the pattern is regular** — columns: 1 indigo both
+sides, 2 indigo-faint right, 3 none, 4 faint both sides, 5 faint right, 6 indigo right; rows:
+first top only, second top and bottom, every later row bottom only (upstream reuses one class
+for every row after the second). All 30 cells match the reference's four borders and four radii,
+including the upstream slip that paints one cell's bottom border black rather than indigo.
+
+**Where an overflowing grid's overflow GOES is a declaration, and it is not the one the
+page sheet names.** The loans tracks sum to 926px against a 708px box at 768, and
+`.w-layout-layout` — Webflow's own quick-stack base, in the shared sheet — declares
+`justify-content: center`, so above 767 the whole row hangs off both sides equally (the first
+cell starts at x -79). `.quick-stack` replaces it with `left` only at <=767, where the wrap
+scrolls instead. Grepping the page sheet finds only the `left`, and rendering that at every
+width put the row ~105px right of the reference from 768 up to about 1100. Every block height
+still matched. **Grep the shared sheet for the base class as well as the page sheet for the
+modifier.**
+
+**A Webflow quick-stack cell is a COLUMN at every width.** `.w-layout-cell` is
+`flex-direction: column; align-items: center`, and only the logo column adds
+`justify-content: center` — the other five start. The port had it as a row above 767 that
+became a column below, which is invisible in a height diff (the grid row sets the height) and
+very visible in a screenshot: at 390 every logo sat at the top of its 233px cell where the
+reference centres it. **Found only by comparing images** — the fourth time in this rebuild that
+rule has paid, after `Carousel`'s bleed, `PrimaryButton`'s unknown variant key and
+`Carousel`'s `align="center"`.
+
+**The contact-details line has no CSS rule at all.** `.contact-deets` is undeclared and the
+other four are bare `<div>`s, so the line inherits the page's Poppins 16px/24 — not the Manrope
+14/700 every other value in the grid uses. At 16px it wraps to two lines, which is 6px of row
+height per lender.
+
+**`.loan-image-logo` is `max-width: 200px; padding: 0 20px` over `box-sizing: border-box`, and
+the reference authors NO `width`/`height` attributes on those images.** Every logo therefore
+paints at exactly 200 x (160 x its own ratio). Carrying invented `width`/`height` attributes in
+the data made two of the five render 184 and 193 wide. **Transcribe the attributes the reference
+has — and only those.** (This is the mirror image of the /success-stories finding, where seven
+images really do author a `height` that Preflight cancels.)
+
+**The date colours are resolved at build time.** The include's trailing `<script>` recolours
+every `td b`: grey for "Closed", green for "Applications Open" and for any
+`<day><suffix> <Month> <year>`. It tests **each `<b>` on its own text**, which is why the
+"Applications Opened" cell has one plain group and one green one.
+
+**A duplicate `id` makes an anchor ambiguous.** `Home/FAQ` renders its own `id="faq"`, and the
+page wrapper had been given it too, so the document held two `#faq` elements and the menu's
+"FAQs" link was ambiguous. The wrapper now carries only `data-block`.
+
+**Assets.** 16 references, all mapped and all local: **10 downloaded for this page** (the hero
+photograph and its three `-p-` twins, the five lender logos and the fee card's polygon, under
+`public/assets/images/schools/isdi/programs/admissions/b-des/`) and **6 reused** — the three
+apply-step images from the B.Des Accessory programme page, both scholarship washes (one from
+the About page's beliefs band, one from the Summer School highlights) and the FAQ arrow. Avanse's logo is 1683x658 and paints at 160px wide, so it ships as a 360px WebP (68KB ->
+8.2KB, RMSE 1.39 at display size, alpha preserved); the size was chosen so that
+`160 x h / w` rounds to the 63px the reference paints rather than 62. 230KB for the page.
+**Registering only `src` misses the `-p-` twins**: `img()` registers every srcset candidate too.
 
 **Reference notes:**
 - The "Learn More About B.Des Admissions" href repeats the site path
-  (`…/schools/isdi/schools/isdi/admissions/undergraduate/b-des`). Production answers **200** on it
-  and it points at this very page, so the port links to the page's own route rather than
-  reproducing a path that would 404 here.
-- Both the "More questions?" panel and the FAQ are given `id="faq"`. Only the FAQ keeps it, so the
-  menu's "FAQs" link scrolls to the accordion.
+  (`…/schools/isdi/schools/isdi/admissions/undergraduate/b-des`). Production answers **200** on
+  it — **with the ATLAS homepage**, not this page: a catch-all soft-404, verified (the body is
+  the homepage's apart from its echoed canonical, and contains no "Key Dates"). So upstream the
+  button promises B.Des admissions and delivers the homepage. The doubled prefix is an authoring
+  slip — an absolute URL typed into a field the template already prefixes with `$domain` — so the
+  authored intent is this page, and that is what the port links to. **Not** reproduced, and not
+  silently: the destination is recorded beside the href.
+- Both the "More questions?" panel and the FAQ are given `id="faq"`. Only the FAQ keeps it.
+- At <=1100 the include also gives `tr:nth-child(2)/(3) td:first-child`
+  `background-color: white; font-weight: bold`. Both cells are already white and their text is
+  inside a `<b>`, so neither declaration paints anything; not reproduced.
+- Four rows carry a commented-out third column reading "To be announced", and the first row a
+  commented-out duplicate of its own caption. Dead markup, not ported.
 
-**Known gaps, all measured and none cosmetic-blind:** the Education Loans grid is 29px short at
-1440 and 169px tall at ≤767, because its mobile column tracks resolve narrower here than the
-reference's (202 / 113 / 97 / 100 / 92 / 323), which makes the contact cell wrap more; the
-eligibility section is 12px short below 768 and the fee strip 34px at ≤479; the scholarship band
-is 36px short at exactly 767; and the shared FAQ carries its usual divider bucket (+15 / -25).
-25/25 interactions pass at 1440 and 26/26 at 390, `validate.py` is clean at all twelve widths
-(0 overflow, 0 console, 0 broken images, **0 failed requests**), and `regress.py` sweeps all 51
-routes.
+#### Verified
+
+Measured against `https://atlasuniversity.edu.in/schools/isdi/admissions/undergraduate/b-des`
+at **1920 / 1440 / 1280 / 1100 / 992 / 900 / 768 / 700 / 568 / 479 / 390 / 360**:
+
+- **Block heights — nine of the ten match the reference to the pixel at all twelve widths.**
+  The tenth is the shared FAQ (below).
+- **Per-block screenshots — `menu`, `how-to-apply` and `search` are pixel-identical at every
+  width** (0.00-0.02 mean), `key-dates` is 0.00 from 992 down, and no block outside the FAQ
+  exceeds **6.71** mean. The residue is `education-loan` between 768 and 992, where each
+  middle column's min-content floor resolves ~2px wider here than on production — the
+  self-hosted Poppins against the reference's unloaded one, which is the font deviation this
+  port already documents site-wide.
+- **Interactions — 75/75 at 1440 and 390**: the ten blocks in order, the seven anchor links
+  resolving to real single ids and scrolling, the three eligibility dropdowns (closed on load,
+  each opening with a body, single-open), the key-dates table and its button's href and
+  variant, the three head-row buttons' hrefs and targets, four fee cards, three scholarship
+  cards, the 30-cell loans grid with five loaded logos, the search panel, and the FAQ
+  (closed on load, opens, single-open).
+- **`validate.py` is clean at all twelve widths**: 0 horizontal overflow, 0 console errors,
+  0 page errors, 0 failed requests, 0 broken images and **0 requests off this origin**.
+- `npx eslint .` and `npm run build` both exit **0**; the route builds `○ Static`.
+- Nothing shared changed in the final pass — every edited file is this page's own — and the
+  site-wide sweep of all built routes at 1440 and 390 is clean.
+
+**Two harness lessons, both of which produced false failures first.**
+- **An element screenshot captures whatever is painted over it.** Production runs a fixed
+  "UNIAI" chat widget across a third of the viewport (more the narrower it gets) that the port
+  does not have, and after a settling scroll the two headers sit in different states. The
+  first screenshot pass reported 35-158 mean on every block, including blocks whose heights
+  matched exactly. Stripping every `position: fixed` box and pinning `sticky` to `static` on
+  **both** sides took the same page to 0.00-6.71. **When a screenshot harness says everything
+  differs, suspect the capture before the page** — the second time this rebuild has learned
+  that, after the `<noscript>` block-indexing slip.
+- **A lazy image that is scrolled past never settles.** Walking the page starts lazy loads but
+  returning to the top leaves off-screen ones unresolved, and `img.complete` then reports true
+  for an image that never began. The search panel read 12px short on the reference because of
+  it — the same flower icon /programs/ug-programs-atlas records. Forcing every
+  `loading="lazy"` image to `eager` before waiting fixed it.
+
+**Known divergences (one, and it is the shared FAQ):** the FAQ block measures **+15px above
+768 and -25px below**, and the arithmetic is exact — `components/Home/FAQ` uses the ATLAS
+`SectionHead.SECTION` (60px of vertical padding, 40 below 768) where an ISDI section is 50 at
+every width (+20 / -20), and the shared component draws a divider under all seven items where
+Bootstrap's `.accordion-flush` drops the first item's top and the last item's bottom (-5). The
+page wrapper's `-my-2.5 max-md:my-2.5` already cancels the padding half of that in the flow, so
+the **gap to its neighbours is right and only the block's own box differs**. The FAQ is one
+design site-wide and only its `data` differs, so it is left alone and flagged — the same call
+every earlier page made.
+
+**Not reproduced, and recorded rather than silently inherited:** the Key Dates button's
+doubled-path href (above). **Still open for the user:** the four sibling Admissions routes the
+ISDI menu links — `undergraduate/b-tech`, `postgraduate/m-des`, `postgraduate/mba` and
+`pre-university-summer-school` — 404 until they are built, and the menu has linked them since
+the header was ported.
+
+#### Regression check on the two pages that share components with this one
+
+Nothing shared changed in this session — every edited file is this page's own — but both origin
+pages were re-measured against production anyway, block by block, at 1440 and 390.
+
+- **/schools/isdi/about-us: 12/12 blocks, and the only difference is its FAQ** (-2 at 1440,
+  -42 at 390), which is that page's already-recorded bucket. `About/AnchorMenu`'s `centered`
+  prop is a no-op there, as intended.
+- **/schools/isdi/programs/undergraduate/b-des/accessory-design-&-craft: clean at 1440** apart
+  from the shared FAQ (+15) and +8 on the programme block. **At 390 its programme block read
+  +369.1**, explained at the time as one semester clip rendering 615.1px tall here against
+  production's 150px.
+
+  **CORRECTION (2026-10-24). That was a measurement race, not a defect.** The reference's
+  `.video-auto` is `width: 100%; height: auto`, so a `<video>` whose metadata has not
+  arrived yet lays out at the UA's default 300x150 — which is the "150px" that was
+  measured. Given long enough to load, production renders the clip at its own ratio and so
+  do we: re-measured with the clip at `readyState 4` on both sides, the semester boxes are
+  **418 x 743.1 at 1440 and 346 x 615.1 at 390, identical**. Wait for `readyState` before
+  comparing a `height: auto` video.
+
+  One real defect was underneath it, though, and it is now fixed. `Curriculum` passed
+  `object-contain` and `InViewVideo`'s base string carried `object-cover`: **two utilities
+  of the same kind in one class list are resolved by stylesheet order**, so `cover` won on
+  all sixteen programme pages. `InViewVideo` takes a `fit` prop now. It is inert today —
+  `height: auto` means the box already matches the clip's ratio, so the two values paint
+  the same — but it was the wrong computed value and it crops the moment a box is
+  constrained.
+
+Site-wide, all 52 built routes were swept at 1440 and 390: **0 with horizontal overflow, page
+errors, failed requests or broken images.** Two non-content routes log one console message each
+— `/_not-found` (its own 404) and `/api/instagram/media/[id]` (a route *pattern*, which answers
+400). Requests off-origin occur only on routes carrying a YouTube player or a Google Map and
+are those embeds' own (fonts.gstatic, i.ytimg, maps.googleapis); this page makes none.
+
+## The ISDI reference is a moving target — re-check a built page before trusting it
+
+`reference/schools/isdi` was refreshed from upstream on 2026-10-23 and the refresh changed
+**content on pages that were already finished**. A full audit of all 61 ISDI reference pages
+lives in `MIGRATION-ISDI.md` (status per page, verified differences, next action). Two habits
+follow from it:
+
+- **Diff the rendered production markup against the shipped data, not just the PHP against the
+  data.** Two of the four changed values exist only on production: the mirrored
+  `loans/education-loans.php` still lists four lenders where production serves five, and the
+  Key Dates table's second `<b>` group is not in the mirror at all.
+- **Check each page against ITS OWN reference.** Upstream updated most pages and left three on
+  the old copy, so a blanket find-and-replace would have been wrong three times. The clearest
+  case: `mba-in-design-management-strategic-thinking.php` still reads "refundable", so the port
+  that reads "refundable" there is **correct** and must not be "fixed".
+
+### The data-only correction pass (2026-10-23)
+
+Nineteen built programme pages were each re-derived from their own current reference and
+**19/19 now match** (`scratchpad/audit/verify.py` asserts the rendered href and wording against
+the reference per route):
+
+- **16 Fee Structure hrefs** moved off the single fliphtml5 brochure to the per-programme URLs
+  upstream now uses — `/fee-structure/bdes/` (12 B.Des), `/fee-structure/isdi-btech/` (2 B.Tech),
+  `/fee-structure/mdes/`, `/fee-structure/dmst/`. **The URL differs by programme**; do not
+  assume `bdes`.
+- **7 enrolment-wording fixes**, "refundable" -> "Nonrefundable". Only seven: the other five
+  B.Des ports were transcribed from production after upstream had already changed it, and
+  `programs-mba/design-management` is deliberately left alone.
+- Fee *amounts* were checked too (application ₹3,500/₹1500, enrolment ₹50,000) and all 19 pages
+  already matched — no change needed.
+
+**A renamed programme needs a redirect, not just a rename.** Upstream renamed
+`btech/btech-ai-integrated-design.php` to `btech/ai-engineering-&-intelligent-products.php` —
+a true rename, the two files differ in exactly four lines. The route folder, the nav `href` and
+**the nav label** ("B.Tech in AI Integrated Design" -> "AI Engineering & Intelligent products")
+all moved, and `next.config.mjs` gained a **308** from the old path, because that path was the
+live URL before the rename. `lib/schools/isdi/programs-btech/ai-integrated-design/` keeps its
+folder name: it is internal and not a URL.
+
+**Three traps in the verification harness itself, all of which produced false failures:**
+- **Next repeats every href inside its embedded JSON payload**, where the closing quote is
+  escaped — so a URL regex ending in `[^"]*` also matches the same URL with a trailing
+  backslash and every page "fails". Strip it, or stop the class at a backslash.
+- **`&amp;` in a crawled href is not a 404.** A link checker that tests the raw attribute
+  instead of the decoded URL reported every `&`-bearing B.Des route broken.
+- **A substring class-name filter eats real blocks.** Dropping any element whose class
+  *contains* "header" also drops `.inner-header-wrapper`, which is a HERO — it shifted every
+  later block by one and made /schools/isdi/about-us look entirely broken. Match whole class
+  tokens.
+
+### ISDI B.Tech Admissions — `app/schools/isdi/admissions/undergraduate/b-tech/page.js`, `lib/schools/isdi/admissions-isdi/b-tech/`
+
+`reference/schools/isdi/admissions/undergraduate/b-tech.php` — the second of the five ISDI
+Admissions pages, on the same ten-block template as B.Des (`$css` and `$body` identical).
+**No new component and no new asset**; the page is data plus two additive capabilities.
+
+**It fatals locally like the ATLAS Admissions pages** — `new mysqli(…)` on line 15, before a
+byte of body output — so every value is read from production.
+
+**Four of the ten blocks are the B.Des page's, re-exported rather than transcribed twice.**
+The anchor menu, the scholarship band, Education Loans and the FAQ are byte-identical on both
+references (verified run by run, not assumed): the loans and "More questions?" come from the
+same shared includes, and the FAQ is the same `faq/isdi/admissions/ug.php` — which is why a
+B.Tech page carries seven questions written about **B.Des**. Transcribed as authored.
+
+**Zero assets.** The hero photograph is the *same CDN file* as the B.Des Admissions hero
+(`68e8e3f2f188fec5275325e8_nav-bar.png`), and the apply-step images, fee polygon, scholarship
+washes, lender logos and FAQ arrow were all already on disk. The only other image the file
+names, `Polygon 2.png`, appears solely inside commented-out markup. **Hash the hero before
+adding it** — the fourth page in this rebuild whose "new" hero was an existing file.
+
+#### What this page turned up
+
+**The include it needs is not in the mirror.** `b-tech.php` includes
+`/assets/include/keydates/bdes-btech.php`, which does not exist in `reference/` at all —
+only `bdes.php`, `btech.php` and their siblings do. The Key Dates table is therefore read
+entirely from production, and so is the one structural difference it carries:
+
+**`keydates/bdes-btech.php` authors no trailing `<br><br>`** where `keydates/bdes.php` does
+(verified: 2 `<br>` after the button row on B.Des, 0 on B.Tech). That is a flat **48px** of
+block height at every width — the single largest delta on the page before it was fixed.
+`KeyDates` takes `data.trailingBreaks`, defaulting to rendering them so the B.Des data needs
+no change.
+
+**Four apply steps, not five, and the tone belongs to the classes.** The reference comments
+out its fifth `.gd-steps` card line by line and re-labels the rest, so "Final Selection &
+Offer Letter" is step **04** on the `tbg3` tone here where it is step 05 on `tbg3 isdi` on
+B.Des. The colours were measured on this reference rather than taken from B.Des by position —
+`tbg1 isdi-blue-5` #173a87, `tbg2 isdi` #0a46ca, `tbg2 isdi-blue-5` #193e90, `tbg3` #0f2d6f.
+The same trap `/advantages`' `Admissions` band already records.
+
+**The eligibility bodies carry LISTS, a first for this template.** All three groups are
+B.Tech's own, and the IB group is `<p>` + `<ul>` three times over. `Eligibility`'s body is now
+an ordered block list — a plain string is a paragraph, `{ list, items }` is a list — the same
+shape `components/Home/FAQ` uses. Measured with every dropdown forced open:
+`.content-blue-fill` is `padding: 24px`, each `<p>` is 16px/24 with `margin-bottom: 10px`, each
+`<ul>` is `margin-bottom: 10px; padding-left: 40px` disc/outside, and the `<li>`s carry no
+margin and **no inner `<p>`** (unlike the FAQ's). Preflight zeroes all of it, so all of it is
+restated.
+
+**That discovery is also a gap on the finished B.Des Admissions page.** Its IB dropdown has
+`<li>` items in the reference that the port never transcribed — invisible in every earlier
+measurement because the dropdowns start **closed**, so the block's height matched at all
+twelve widths regardless. **A closed disclosure hides a content gap from a height diff**;
+open it before trusting the match. Flagged for the user rather than fixed here.
+
+**Content differences from B.Des, transcribed as authored:** the hero names B.Tech; step 01
+lower-cases "Submit the application form"; the Key Dates caption is authored with a **leading
+space** inside its `<strong>`; its fourth row reads "Technical Aptitude Test" with **no**
+`<br class="br">`, so that row stays one line at every width; the Fee Structure brochure is
+`/fee-structure/isdi-btech/`; and the Key Dates button's label spells the programme
+"**B.tech**". Every fee figure (4 Years, 3500, 50,000, 7,35,000) is the B.Des page's.
+
+**Reference notes, not reproduced:**
+- The Key Dates button's href repeats the site path
+  (`…/schools/isdi/schools/isdi/admissions/undergraduate/b-tech`). Production answers 200 on
+  it with the ATLAS **homepage** — the same catch-all soft-404 the B.Des button hits — so the
+  port links to the page's own route, recorded beside the href.
+- `$description` still promises "portfolio tips" and a "design career" on a page whose
+  admissions band now reads "Technical Aptitude Test" and has no portfolio step at all.
+  Transcribed as authored.
+
+#### Verified
+
+Measured against production at **1920 / 1440 / 1280 / 1100 / 992 / 900 / 768 / 700 / 568 /
+479 / 390 / 360**:
+
+- **Nine of the ten blocks match the reference height to the pixel at all twelve widths.**
+  The tenth is the shared FAQ's known bucket (+15 above 768, −25 below).
+- **Per-block screenshots**: `menu`, `how-to-apply` and `search` are pixel-identical at every
+  width (0.00–0.02), `key-dates` is 0.00 from 992 down, and no block outside the FAQ exceeds
+  **6.71** mean — the `education-loan` font-metric track variance the B.Des page already
+  documents.
+- **Text content** compared run by run against production: every block identical. The two
+  apparent differences are a closed disclosure (our dropdown bodies mount on open) and
+  Cloudflare splitting each lender e-mail into its own node.
+- **79/79 interactions** at 1440 and 390, including the four numbered steps and the IB
+  dropdown's 1/1/3 lists.
+- `validate.py` clean at all twelve widths: 0 overflow, console, page errors, failed requests,
+  broken images, **0 requests off this origin**.
+- `npx eslint .` and `npm run build` both exit 0; the route builds `○ Static`.
+
+### ISDI M.Des Admissions — `app/schools/isdi/admissions/postgraduate/m-des/page.js`, `lib/schools/isdi/admissions-isdi/m-des/`
+
+`reference/schools/isdi/admissions/postgraduate/m-des.php` (`$css =
+"…690ca47b295c3cd130e0a8a2-4738d5664.css"` — the first of the three Admissions pages with a
+sheet of its own; `$body = "body isdi-page"`) — the third ISDI Admissions page and the
+header's "Admissions > Postgraduate Degree > M.Des". The same ten blocks in the same order
+as B.Des and B.Tech, so `components/Schools/ISDI/Admission/` carried it.
+
+**It fatals locally the same way** — `new mysqli(…)` before any body output — so every
+value was read from production, including the six Key Dates figures
+(`getAdmissionCyclesCon($conn, 6)` through `showDateCon()`, which is why "Acceptance
+Deadline" reads a literal `Closed`).
+
+**Three of the ten blocks are a different SHAPE, not different copy**, which is what the
+page's own `$css` buys:
+
+- **Key Dates is a date STRIP**, not the Bootstrap table `keydates/bdes*.php` renders —
+  `.dates-fees-container.isdi > .df-container-atlas > 6 x .df-card`, and with no button
+  under it. `KeyDates` grew a second form for it.
+- **Eligibility is two `.ln-bd-txt` rich-text blocks with no dropdowns at all**, so the
+  component's `text` form (runs: a string, or `{strong}`) renders it.
+- **The FAQ is its own nine-question M.Des set** (`faq/isdi/admissions/pg-mdes.php`), not
+  the undergraduate pages' shared include.
+
+The anchor menu, the scholarship band and Education Loans are byte-identical to the B.Des
+page's and are re-exported rather than transcribed twice.
+
+**This page adds no asset.** Its hero, apply-step images and fee polygon are all already on
+disk, and the strip's `Polygon-atlas.png` is SHA-1-identical to the ATLAS Admissions pages'.
+
+#### Three findings, two of them latent bugs on the two finished undergraduate pages
+
+**The date strip has a breakpoint of its own, and it is 768 INCLUSIVE.** `.df-container-atlas`
+is declared in exactly one place — `keydates/mdes.php`'s own `<style>` — and it turns the row
+into a column at `@media (max-width: 768px)`, one pixel wider than the `@media (max-width:
+767px)` rules the Webflow sheet gives the cards inside it. So at exactly 768 the container is
+already a column while every card still has its desktop padding and width. Reading the sheet
+and assuming Webflow's 767 left the block **499px short at 768**. Hence `max-768` in
+`tailwind.config.js`, beside `max-md`.
+
+**`.mrg-mo-top` is not on every page, and assuming it cost 20px below 768.** The fee strip's
+`.df-container.isdi` carries `.mrg-mo-top` (20px of top margin at <=767) on
+`…/undergraduate/b-des` and `…/b-tech` and **not** here — verified by grepping the rendered
+class attribute on all three productions. It travels as `data.mrgMoTop`, defaulting to
+carrying it so the two undergraduate pages are untouched.
+
+**`.df-card` has a left border and a justify ladder the first port of it missed.** The base
+rule is `border-left: 1px solid rgba(0,0,0,.1)` (its `border-right: 1px #0000001a` omits
+`border-style`, so it paints nothing — the trap `.port-card-m-posi-atlas` already records),
+`align-items: flex-start`, `flex: 1` (basis **0%**, so `flex-1` alone, not `flex-1 basis-0`)
+and `justify-content: space-around` replaced by `flex-start` from `@media (min-width:
+1440px)`. That last pair is one class string, `justify-around 2xl:justify-start`, because two
+`justify-*` utilities in one list are resolved by stylesheet order rather than by the order
+they are written — the same call `Admissions/FeeStructure` already makes.
+
+**An invisible character is not a difference, and a stray `<strong>` is.** The eligibility
+copy differs from production's only by U+FEFF zero-width no-break spaces in the CMS text
+(including one line made of nothing else), which paint no height — the block measures
+identical at all twelve widths. The five bold runs, the **empty** fifth one included, match
+production's text, weight and width exactly.
+
+#### Verified
+
+- **9 of 10 blocks match production's height to the pixel at all twelve widths**
+  (1920 / 1440 / 1280 / 1100 / 992 / 900 / 768 / 700 / 568 / 479 / 390 / 360). The one
+  exception is the FAQ's usual bucket (+13 above 768 / −27 below, over nine items).
+- **CORRECTION, found while porting the MBA Admissions page.** This section first recorded
+  a `key-dates` delta of **+15.4 at 1280** and explained it as font metrics — the
+  self-hosted `Poppins ISDI` being ~4% wider than the Poppins production resolves to on
+  this machine, wrapping "25th Nov 2026" one line early in a 126.2px cell. That reasoning
+  was wrong. The real cause was that **`showDateCon()` wraps every ordinal in a `<sup>` and
+  the port was flattening it**: "25<sup>th</sup>" renders ~4px narrower than "25th" at
+  18px/700, which is exactly the margin that decided the wrap. With the `<sup>` runs
+  restored the block matches at 1280 too. The lesson is the general one — **a width
+  difference between two renderings of "the same" string is a markup difference until
+  proved otherwise**; comparing `textContent` hides a `<sup>`, a `<b>` and every other
+  inline tag.
+- **Text content identical to production, run by run**, block by block, with the FAQ opened:
+  all ten blocks, apart from the U+FEFF characters above. All 12 links match in label, target
+  and `target="_blank"`.
+- **113/113 interactions** at 1440 and 390 — the menu's seven links and their scroll
+  behaviour, the strip's six cards and its twelve date strings, the absence of a table, a
+  button and any dropdown, the three head-row buttons, the four fee figures, the five lender
+  logos and the nine-item single-open FAQ.
+- Screenshots at 1440 / 1280 / 768 / 479 / 390: every block but the FAQ at **0.00-6.71 mean
+  pixels** (the hero holds a playing background video; `education-loan` 6.71 at 768 is the
+  figure the B.Des page already carries).
+- `validate.py` clean at all twelve widths: 0 overflow, console, page errors, failed
+  requests, broken images, **0 requests off this origin**.
+- **The two finished Admissions pages were re-measured after every shared-component change**
+  and are unchanged: B.Des and B.Tech both show the FAQ bucket alone at all twelve widths.
+- `npx eslint .` exits 0 and `npx next build` succeeds from a cleared `.next`; the route
+  builds `○ Static`. `regress.py` sweeps all 54 built routes at two widths with no console
+  errors, page errors, failed requests, broken images or horizontal overflow — the only
+  entries are `/_not-found` answering 404 and the `[id]` placeholder of the Instagram media
+  route answering 400, and the only off-origin requests are the Google Maps and YouTube
+  embeds' own sub-resources.
+
+### ISDI MBA Admissions — `app/schools/isdi/admissions/postgraduate/mba/page.js`, `lib/schools/isdi/admissions-isdi/mba/`
+
+`reference/schools/isdi/admissions/postgraduate/mba.php` (`$css =
+"…690ca4c8ab3a51085791bf1a-ffac23949.css"`, its own sheet; `$body = "body isdi-page"`) —
+the fourth of the five ISDI Admissions pages and the header's "Admissions > Postgraduate
+Degree > MBA". **No new component**; three existing ones took it with additive props.
+
+**It fatals locally the same way** — `new mysqli(…)` on line 15, before a byte of body
+output — so every value is read from production, including the **twelve** date figures
+across its two strips (`getAdmissionCyclesCon($conn, 7)` and `(…, 8)` through
+`showDateCon()`).
+
+**It is m-des.php with four blocks changed — but the BLOCK LIST is not the same.** The two
+files differ by 128 diff lines and it is tempting to treat this as a copy with new copy. It
+is not:
+
+- Key Dates includes `keydates/mba-dmst.php` (cycle 7) rather than `keydates/mdes.php`
+  (cycle 6);
+- **where the M.Des page includes `loans/education-loans.php`, this page includes a SECOND
+  date strip**, `keydates/mba.php` (cycle 8);
+- so **there is no Education Loans grid on this page at all**, while the sticky menu still
+  links "Financial Assistance" to `#education-loan`. Verified on production: that id occurs
+  **zero** times in the document. The orphaned anchor is transcribed as authored;
+- the FAQ is `faq/isdi/admissions/pg-mba.php`, **eight** MBA-specific questions (M.Des has
+  nine, and the two sets share no question).
+
+**A block can be authored with no section, no container and no id.** That second strip is a
+`.df-container-atlas` placed directly in `.main-wrapper`, so it is **full-bleed** — 1440px
+wide at a 1440px viewport, against the first strip's 1242 — and it keeps its own 32px radius
+rather than being clipped to 16 by the `.dates-fees-container.isdi` every other strip sits
+in. `KeyDates` gained a `bare` form for it (and a `block` prop, since it cannot be a second
+`#key-dates`).
+
+**Four more per-page differences behind identical class names**, each measured rather than
+inherited from the M.Des port:
+
+- `.list-text-wrap` wraps the eligibility copy here and not on the M.Des page — `display:
+  flex; gap: 16px; align-items: center; margin-bottom: 32px`, so 32px of block height. It
+  is `data.listWrap`.
+- **The same eligibility sentence is marked up differently.** Eight `<strong>` runs here
+  against the M.Des page's five: the first bolds "minimum of 4 years in an undergraduate
+  degree program" *without* the trailing ", regardless of the field,", and the second block
+  bolds "160 credits", "4 years" and "Any major or discipline" that the M.Des page leaves
+  plain. A text diff would not have shown it.
+- **Every one of the four fee cards is marked up differently** while the figures are
+  identical. The lead value is `2 years` with **no `<strong>` at all** (lower-case "years");
+  its `.df-text-3` note prints the card's own title a second time ("Total Duration") where
+  M.Des reads "*Indicative & subject to change"; and `.fee-dates` is on "1500" **only**, so
+  50,000 and 6,06,400 are bare `<strong>`s at a flat 700 where M.Des gives all three the
+  class and 600. Hence `FeeStructure`'s run form — a string is plain text, `{ strong }` is a
+  bare `<strong>` (700) and `{ strong, feeDates: true }` is 600.
+- the fee brochure is still the shared fliphtml5 booklet, **not** the per-programme
+  `/fee-structure/…` URL the other three were moved to.
+
+**The reference numbers its five apply steps 01 / 02 / 02 / 04 / 05** — "02" twice and no
+"03". Transcribed as authored, and it surfaced a latent bug: `ProgramDetail/Admissions`
+keyed each step on `step.num`, which is a **duplicate React key** here. Index-qualified now
+— the fifth place in this rebuild to need it.
+
+#### Two latent bugs in already-finished pages that this page surfaced
+
+**`showDateCon()` wraps every ordinal in a `<sup>`, and the M.Des strip was flattening it.**
+`22<sup>nd</sup> Nov 2026` was shipping as the plain string "22nd Nov 2026", which renders
+~4px wider at 18px/700 — enough to wrap one cell a line early. A strip value is a run list
+now (`['25', { sup: 'th' }, ' Nov 2026']`), reusing the `Runs` renderer the table form
+already had, with `{ bold }` added for `showDateCon()`'s literal `<b>Closed</b>` (its parent
+is 700, so Preflight's relative `bolder` would make it 900). **That is what the M.Des
+page's documented "+15.4 at 1280 font-metrics delta" really was**; the correction is
+recorded in that section, and M.Des now matches at 1280 as well.
+
+**`.image-8` is `display: none` below 768, and all three polygons were being painted.** The
+rule is on the bare class, so it reaches the fee card's polygon as well as the key-dates
+one — on B.Des, B.Tech and M.Des too. Both components now carry `max-md:hidden`. The
+element is absolutely positioned at `right: -16px` inside an `overflow: hidden` container,
+so nothing moved on any page; the computed style was simply wrong. Verified all three
+polygons `block` at 1440 and `none` at 390 on both sides.
+
+**This page adds no asset.** All fourteen URLs it paints were already on disk (SHA-1 against
+`public/`): the hero is the same CDN file every ISDI Admissions hero uses, the apply-step
+images are the B.Des programme page's, and both polygons, the two scholarship washes, the
+flower, the search glyph and the FAQ arrow were already local. The four that the hash scan
+called "new" are the hero PNGs, which ship as their WebP conversions.
+
+#### Verified
+
+Measured against `https://atlasuniversity.edu.in/schools/isdi/admissions/postgraduate/mba`
+at **1920 / 1440 / 1280 / 1100 / 992 / 900 / 768 / 700 / 568 / 479 / 390 / 360**:
+
+- **9 of 10 blocks match the reference height to the pixel at all twelve widths** — both
+  date strips, the full-bleed one included, on the first run. The tenth is the shared FAQ's
+  known bucket (+14 above 768 / −26 below, over eight items).
+- **Per-block screenshots at 1440 / 1280 / 768 / 479 / 390**: `menu`, `how-to-apply`,
+  `key-dates`, `eligibility` and `search` are **pixel-identical (0.00)** at every width, the
+  bare strip is 0.00-0.99, and no block outside the FAQ exceeds **5.53** mean (the hero,
+  which holds a photograph under a scrim).
+- **Text identical to production, run by run**, all ten blocks with the FAQ opened, apart
+  from the U+FEFF zero-width characters in the eligibility CMS copy. All 12 links match in
+  label, target and `target="_blank"`.
+- **175/175 interactions** at 1440 and 390 — the ten blocks in order, the six menu links
+  that resolve *and* the one that deliberately does not, the apply band's 01/02/02/04/05,
+  the first strip's six cards with their five `<sup>` ordinals and its `<b>Closed</b>` at a
+  flat 700, the second strip's six cards and its measured full-bleed box, the absence of any
+  dropdown, table, button or Education Loans content, the eight eligibility bold runs, the
+  four fee figures with 1500 at 600 against 50,000 / 6,06,400 at 700, and the eight-item
+  single-open FAQ.
+- `validate.py` clean at all twelve widths: 0 overflow, console, page errors, failed
+  requests, broken images, **0 requests off this origin**.
+- **The three finished Admissions pages were re-measured after every shared-component
+  change**: B.Des, B.Tech and M.Des all show the FAQ bucket alone at all twelve widths, and
+  M.Des's 1280 `key-dates` delta is now gone.
+- `npx eslint .` exits 0 and `npx next build` succeeds from a cleared `.next`; the route
+  builds `○ Static`. `regress.py` sweeps all 55 built routes at two widths with 0 overflow,
+  0 page errors, 0 failed requests and 0 broken images — the only console entries remain
+  `/_not-found` answering 404 and the `[id]` placeholder of the Instagram media route
+  answering 400.
+
+**Still open, unchanged by this page:** the shared FAQ's `.accordion-title` bucket.
+(The divider, the `ProgramDetail/Curriculum` video question and the five PathFinder
+short-slug links were all resolved on 2026-10-24 on the user's approval — see the
+ATLAS ISDI Advantage section.)
+
+### ISDI Pre-University Summer School Admissions — `app/schools/isdi/admissions/pre-university-summer-school/page.js`, `components/Schools/ISDI/SummerSchool/`, `lib/schools/isdi/admissions-isdi/summer-school/`
+
+`reference/schools/isdi/admissions/pre-university-summer-school.php` (`$css =
+"…68e8ec9420dff9b7215ce475-506de4974.css"`, its own sheet; `$body = "body-isme"`, **not**
+`body isdi-page`) — the fifth and last ISDI Admissions page.
+
+**It is not the Admissions template at all**, and assuming it was would have been the one
+expensive mistake here. No `.course-cover-section` hero, no sticky anchor menu, no Key
+Dates, Eligibility, Fee Structure, Scholarships, Education Loans or "More questions?"
+panel. It is the Summer School **programme** page
+(`/schools/isdi/programs/pre-university-summer-school`) with four blocks added — and
+**it opens no database connection at all**: no `mysqli`, no `getAdmissionCycles`, no
+`showDate`. Nothing on this page is a snapshot. It was still measured against production,
+because the local mirror renders in quirks mode and its ISDI `$domain` is broken.
+
+Twelve top-level blocks; eleven render:
+
+|  | block | |
+| --- | --- | --- |
+| 1 | hero | `.inner-header-wrapper`, 658px, background video, **two** buttons |
+| 2 | four figures | `.top-cards-wrapper.padbtm0` |
+| 3-4 | What is… / Your Creative Journey | **identical to the programme page** |
+| 5 | **A Day in the Life** | the week grid — NEW |
+| 6-8 | Hear from Our Young Creators / Why Join / Highlights | **identical** |
+| 9 | **Dates & Registration** | a four-step `.gd-steps` band — NEW |
+| 10 | **`#smr-form`** | a live NoPaperForms enquiry widget — NEW |
+| 11 | the brochure popup | a 0-height `w-embed`; `BrochureButton` owns it |
+| 12 | **FAQ** | nine Summer School questions — NEW |
+
+**Five of the eleven are byte-identical to the programme page** — compared on production
+block by block, line by line and image by image, and each measures the same height to the
+pixel — so all five are re-exported from `programsSummerSchoolContent` rather than
+transcribed twice. The hero differs in exactly two ways: the lead reads **Grades 8-12**
+where the programme page reads 9-12, and the "Download Brochure" button is **live** here
+and commented out line by line there.
+
+#### The week grid
+
+Seven 164px flex columns (`gap: 15`), each a `space-between` column with a 16px gap, 725px
+tall at 1440 — and at <=767 the wrapper bleeds 21px either side, pads 20 back in and
+becomes a horizontal scroller. There is no repeating card shape: the stylesheet names
+**sixteen** cells individually, so the cells travel as a `kind` plus their copy and
+`SummerSchool/WeekGrid` holds one measured class string per kind. Several cells carry a
+`background-blend-mode` (`overlay`, `soft-light`, `screen`) that is the whole reason they
+read as they do, and two `.isdi` modifiers cancel the base rule's artwork — reading the
+sheet without checking the computed value gets both wrong.
+
+**An empty element is still a FLEX CHILD.** The Monday column opens with a `.w-embed`
+holding only the page's inline `<style>`. It is 0x0 and paints nothing, but it is a child
+of a `justify-content: space-between` column with a 16px gap, so it consumes a gap *and* a
+distribution slot: leaving it out moved every Monday cell up to **13.5px**. Rendering an
+empty `<div>` closes it exactly. This is the "an empty element is still a box" rule one
+step further out — the box can be zero in both dimensions and still move its siblings.
+
+**Six `<img class="grid-hover-img">` are authored and not one ever paints.**
+`.grid-hover-img` is `display: none`, and the only rule that would reveal one is the page's
+own inline `.mon-cell-1:hover .hover-img { display: block }` — `.hover-img` is a class no
+element on the page carries. Verified on production: all six compute `display: none` at
+every width. They are not rendered and **their six files are not shipped**.
+
+#### Two latent bugs in already-finished pages that this page surfaced
+
+**`min-w-0` on a four-card stat band is wrong, and it was wrong on the programme page too.**
+`SummerSchool/Stats` had copied `ui/StatBand`'s `min-w-0`, which that component genuinely
+needs because its **six**-card band overflows 768. `.head-top-card` is `flex: 1 1 0` with
+the default `min-width: auto`, so each card floors at its own longest word and the row
+distributes unevenly — 169.5 / 207.2 / 156.5 / 234.8 at 768 here. `min-w-0` let these four
+shrink past that floor and gave 172 / 212 / 172 / 212. Four cards fit, so the floor stands.
+Removing it took both Summer School bands to an exact match at 768 and the band's
+screenshot from 8.57 to **0.00**.
+
+**`About/Hero` hard-coded the desktop button row.** `.buttons-wrapper` is gap 16 /
+padding-top 30, gap 8 from 991, and at <=767 a left-aligned **column** with padding-top 24,
+then 14 at <=479. The component rendered `flex items-center gap-4 pt-[30px]` at every
+width. Only this page has two buttons, so the column itself never showed on the About or
+programme-page heroes — but **their padding-top was wrong at every width below 768 and no
+height diff could see it**, because the hero is a fixed-height box and nothing inside it
+changes that height. Found by diffing the hero's own geometry against production, not the
+block. After the fix the programme page's hero, stats band and every block height match
+production exactly at 1440 / 768 / 390.
+
+A third, smaller one: `CreativeJourney` printed `card.title` raw while the data carried the
+authored `<br>` in "Experiment & <br>Collaborate". Same height, different break — caught by
+the text diff, not the height diff. The **eighth** field in this rebuild to need
+`withBreaks`.
+
+#### Reuse
+
+Eight existing components carried eleven of the twelve blocks. Two are new and both are
+this page's own shape: `SummerSchool/WeekGrid` and `SummerSchool/EnquiryForm`. Three
+components changed, all additively:
+
+- `About/Hero` takes an optional `brochure`, so a button authored `href="#"` with a
+  `data-id` renders through `BrochureButton` instead of `PrimaryButton` — a control that
+  opens a dialog is a `<button>`, which is why the port has 2 links where the reference has
+  3;
+- `ProgramDetail/Admissions` needed nothing: its lead-and-button form, with the
+  `.isdi-guide-wrapper`'s 60px of top padding, is exactly what "Dates & Registration" is;
+- `SUB_1_MRGBTM` (`.sub-heading-1.mrgbtm`, 18px/1.8) moved from `CreativeJourney` into
+  `Home/ui`, because the week grid's lead uses it too.
+
+**The enquiry form is a live third-party embed, and that is the reference's own.** The page
+injects `widgets.in5.nopaperforms.com/emwgts.js` **inline**, not behind a click as the
+brochure popups do, so the port loads it when the block mounts. That makes this the **only
+page in the ISDI port that contacts a remote host on load** — a deliberate reproduction,
+flagged rather than silently dropped. On localhost the widget answers **403** to its own
+`/register` call (a referrer check), so the right half of the panel is empty here and
+painted on production; `.npf_wgts` is pinned to its measured 700px so the box holds either
+way.
+
+**Assets: 13 new, 856KB before optimisation.** All thirteen are week-grid backgrounds
+painted only by the stylesheet, under
+`public/assets/images/schools/isdi/programs/admissions/summer-school/week/`. Twelve are
+authored at the cell's own 164px width and ship byte-for-byte; `tue-ideation.png` is
+899x783 for a 164x192 `cover` cell and is a 441px WebP (530KB -> 23KB, SSIM 0.9957 at
+display size). Everything else the page paints — the hero video and poster, the six
+"What is" photographs, both `.isdi-application` washes, the four step images, the two stat
+vectors, the quote icons and the FAQ arrow — was already on disk.
+
+#### Verified
+
+Measured against `https://atlasuniversity.edu.in/schools/isdi/admissions/pre-university-summer-school`
+at **1920 / 1440 / 1280 / 1100 / 992 / 900 / 768 / 700 / 568 / 479 / 390 / 360**:
+
+- **10 of 11 blocks match the reference height to the pixel at all twelve widths**,
+  including the week grid, Dates & Registration and the form block. The eleventh is the
+  shared FAQ's known bucket (+21 above 768 / −19 below, over nine items). The one other
+  delta anywhere is `voices` **+24 at 700**, the container-width fix `Home/PeopleVoices`
+  already carries.
+- **Text identical to production — 0 diffs across all eleven blocks**, with the FAQ opened.
+- **The week grid diffs cell by cell to 9 of 34 cells at 1440 and 390**, and every one of
+  the nine is a non-diff: seven are the day labels, ~1px wider in the self-hosted Manrope
+  (production loads none and falls back to the system sans-serif), and two are paint
+  properties the reference declares on boxes whose `.isdi` modifier sets
+  `background-image: none`, so they paint nothing. **Every cell's box geometry matches.**
+- **Per-block screenshots at 1440 / 1280 / 768 / 479 / 390**: `stats`, `highlights` and
+  `admissions` are **0.00**, and every block outside `hero`, `form` and the FAQ is at or
+  below **5.5** mean.
+- **The `hero` and `form` screenshot deltas are the video and the widget, proven not
+  assumed.** With the `<video>` and the `.npf_wgts` hidden on both sides, both blocks are
+  **pixel-identical (0.00-0.11) at 1440 / 768 / 390 with 0 differing nodes**.
+- **142/142 interactions** at 1440 and 390: the eleven blocks in order, the absence of all
+  seven pieces of Admissions furniture, the hero's 658px and its one link, the brochure
+  dialog opening into the measured 580px panel with the CRM script inside and closing on
+  Escape, the week grid's seven columns and their upstream day spellings, its nine CLASS
+  cells, its Manrope, its mobile scroller, both carousels, the "Know more" scroll to
+  `#smr-form`, the widget host's `data-w` / 700px and its single injected loader, and the
+  nine-item single-open FAQ.
+- `validate.py` at all twelve widths: **0 horizontal overflow, 0 page errors, 0 failed
+  requests, 0 broken images**. One console entry per width and two off-origin requests per
+  width, both the NoPaperForms widget described above.
+- **The four other Admissions pages and both pages sharing the changed components were
+  re-measured**: B.Des, B.Tech, M.Des and MBA show the FAQ bucket alone at all twelve
+  widths; `/schools/isdi/programs/pre-university-summer-school` is **0 diffs** on block
+  heights, hero geometry and stat-card geometry at 1440 / 768 / 390; `/schools/isdi/about-us`
+  shows only its own documented FAQ bucket.
+- `npx eslint .` exits 0 and `npx next build` succeeds from a cleared `.next`; the route
+  builds `○ Static`. `regress.py` sweeps all 56 built routes at two widths with **0
+  overflow, 0 page errors, 0 failed requests and 0 broken images**.
+
+**Deviations (three, all shared with the set):** the FAQ's divider / `.accordion-title`
+buckets; `QuoteCard` held to the container width between 568 and 767 (+24 at 700); and the
+self-hosted Manrope, which here costs ~1px on each of the seven week-grid day labels.
+
+**The ISDI Admissions section is complete — five pages.**
+`reference/schools/isdi/admissions/` holds nothing else.
+
+## ISDI ATLAS Advantage — `reference/schools/isdi/atlas-isdi-advantage/`
+
+Four pages: `the-isdi-advantage/index.php`, `internationalisation/index.php`,
+`industry-centric-approach.php` and `global-pathway/index.php`. The header menu links
+the first three; `global-pathway` is the unlinked fourth.
+
+### ISDI The ISDI Advantage — `app/schools/isdi/atlas-isdi-advantage/the-isdi-advantage/page.js`, `components/Schools/ISDI/Advantage/`, `lib/schools/isdi/advantage/`
+
+`reference/schools/isdi/atlas-isdi-advantage/the-isdi-advantage/index.php` (`$css =
+"…68e627c41ec6f0a16902d5e6-59120e946.css"`, its own sheet; `$body = "body isdi-page"`)
+— the first of the ISDI menu's "ATLAS ISDI Advantage" column, and a **fourth ISDI
+template**: a photographic hero, the About page's sticky anchor menu, an overview pair,
+nine numbered `.icon-heading` sections, a publications carousel, "More questions?" and
+the FAQ. Fifteen blocks.
+
+**It opens no database connection at all** — no `mysqli`, no `getAdmissionCycles`, no
+`showDate` — so nothing on it is a snapshot. It was still measured against production,
+because the local mirror renders in quirks mode and its ISDI `$domain` is broken.
+
+**The mirror is current for this page.** Its rendered text was diffed node by node
+against production and is identical. That is worth stating, because the page pulls two
+of its three includes from the **ATLAS reference root** rather than ISDI's own —
+`../../../../assets/include/more-questions.php` and
+`../../../../assets/include/faq/isdi/advantage/isdi-advantage.php` — and those files
+predate the October ISDI refresh. **Resolve an include's `../` path before assuming
+which tree it comes from.**
+
+**Production answers 301 on the slashless path** and serves the page at the trailing
+slash; Next normalises the other way, and both of the header menu's spellings resolve.
+Fetching the slashless URL returns a 332-byte redirect stub.
+
+#### Read all three stylesheets, and the page's own `<style>` as well
+
+The page loads a shared sheet, its own `$css`, and a **third from the Webflow CDN**, and
+they are served cross-origin so `document.styleSheets` cannot be enumerated from the
+page. `scratchpad/adv1/css.py` fetches all three by URL and prints every rule for a
+class with its `@media` condition; it resolved four of the five layout deltas in one
+pass, where probing the DOM had only shown the symptom.
+
+And the page's own inline `<style>` carries
+`.isdi-page .common-wrapper { padding-top: 50px }` and
+`.isdi-page .common-wrapper-lg { padding-top: 100px }`, which beat the sheet's 56/120
+AND its `@media (max-width: 767px)` 40/80 — **a compound selector beating a media
+query**, for the nth time in this rebuild.
+
+#### What the sheet settled that measurement alone did not
+
+- **`.abt-cont` is `width: 30%` and `.about-image-rect` is `width: calc(70% - 40px)`,
+  both `flex: none`.** The row is `align-items: stretch`, so the photograph takes the
+  text column's height and `object-fit: cover` crops it. Letting the image size itself
+  was **+584px at 1440**: the text column collapsed to its min-content and the
+  photograph painted at its natural 1238x734. At <=767 the row wraps, the column goes
+  full width and the image takes `width: auto` with `margin-top: 40px`.
+- **`.w-background-video` is a fixed `height: 500px`.** The infrastructure clip is the
+  only self-hosted video on the page; sizing it from its own 1280x720 ratio was
+  **+198.6px at 1440**.
+- **`.sub-heading.isdi-blue-text` is 18px/1.7, not a recoloured 24px/1.4** — and being a
+  compound selector it survives the `<=767` rule that takes a plain `.sub-heading` to
+  16px. Worth +37.6px above 768 and -138.9 below.
+- **`.patent-card-content` keeps `height: 377px` at every width**; the `<=767` rule
+  overrides its *width* only. `max-md:h-auto` was -86.4px from 700 down.
+- **The tertiary tab link is the box, not the label.** `a.tertiary-green-tabs-link-tab-1`
+  carries Webflow's own `.w-tab-link { padding: 9px 30px }` and the current one's 8px
+  white rule; `.tr-tab-text` inside it is 24px/1 600 with `padding-bottom: 10px` and
+  `margin-bottom: -4px`. Rendering the label as the link was 18px short.
+- **`.zoom-slider-wrap` is `padding-top: 56px` at every width**, where the plain
+  `.swiper.common-swiper` beside it drops to 40 at <=767.
+- **`.blue-desc-wrap` becomes a column at <=479, not <=767.**
+- Only `.center-image-full-wrap.mrgtp.isdi` is rounded; the three instances without
+  `.isdi` are square.
+
+#### Reuse
+
+Fifteen blocks and **not one new card shape of its own** beyond two small ones. Eight
+existing components took it as data and six more were extracted for it — each measured
+on both references first and each origin page re-verified afterwards:
+
+| extracted | from | now shared with |
+| --- | --- | --- |
+| `Schools/ISDI/IconHeading` | `ProgramsUg/IconHeading` (moved) | UG + PG Overview |
+| `Schools/ISDI/CoreCards` | `SummerSchool/WhatIs` | both Summer School pages |
+| `Schools/ISDI/FacultyCard` | `ProgramsUg/WhyDesign` | UG Overview |
+| `Schools/ISDI/CardTypeE` | `About/ManagementTeam` | ISDI About |
+| `Schools/ISDI/MinorCard` | `ProgramsUg/Multidisciplinary` | UG + PG Overview |
+| `ui/PatentCard` | `Success/Patents` | /success-stories-atlas |
+
+`IconHeading` gained `size` (`.icon-num` is 96px/600 here against `.icon-num-sm`'s
+64px/500 on the Undergraduate Overview) and `titleId`; `About/Hero` gained an **image**
+form and `data.id`; `StatsBand` made its `.large-text` figure optional and lost its
+`min-w-0`; `Home/StatsStrip` gained `bare`; `ui/CardTypeF` gained the `base` variant
+(16px corners, no logo); `Carousel` gained `bullets="isdi-overlay-light"`.
+
+**`.port-card-i-wrap` and the vision cards are the only genuinely new shapes**, in
+`Advantage/ui.js` and `Advantage/Vision.js`.
+
+#### Three carousels were nested inside `.container`, and only a screenshot showed it
+
+`Carousel` and `ZoomSliderLg` pad their own track by the container inset, because the
+reference's `.swiper` is `overflow: visible` and bleeds past `.container`'s right edge.
+Rendering one INSIDE `.container` therefore applies the inset twice: Global Exposure's
+two sliders, Student Welfare's three and the Multidisciplinary Learning row all started
+their first card at **x=161 against the reference's 99** — exactly 62px, the container
+padding, too far right.
+
+**Every height still matched to the pixel**, because the error is purely horizontal, and
+the text diff was clean. It took a per-block screenshot (and then a probe of the first
+slide's `getBoundingClientRect().x`) to find it. Fifth time that rule has paid in this
+rebuild, after `Carousel`'s original bleed, `PrimaryButton`'s unknown variant key,
+`Carousel`'s `align="center"` and the quick-stack cell's column direction. The heading
+pair stays in `.container`; the slider is a sibling of it.
+
+#### A latent bug in the shared stat band
+
+`StatsBand` carried `min-w-0`, copied from `ui/StatBand` — which genuinely needs it
+because ITS six-card band overflows 768. `.head-top-card` is `flex: 1 1 0` with the
+default `min-width: auto`, so a card whose longest word needs more than its equal share
+takes it and the rest shrink; that is exactly what this page's three Parsons cards do
+(466.66 / 506.67 / 466.67 at 1440). It was a **no-op** on all four pages that already
+render the band — verified against production before it was removed — and wrong on the
+fifth. The third time this exact trap has appeared, after `SummerSchool/Stats`.
+
+#### Reference notes, transcribed as authored
+
+- **`$title` and `$description` are the ISDI template's unedited placeholders** —
+  "ATLAS SkillTech University" and "Get in touch with Atlas Skilltech." Neither mentions
+  the page. The same pair the Summer School Admissions page carries.
+- **All six "Our Vision & Approach" cards are placeholder copy**: every one reads
+  "Transformative Learning" over the same sentence.
+- **Core cards #8 and #9 share one photograph.**
+- **Two ids are authored twice** — `student-welfare` and `global-exposure-isdi`, each on
+  a section AND on its own `.icon-main-title`. Kept on the section only. The three title
+  ids that are not duplicates (`Infrastructure-isdi`, `graduate-attributes`,
+  `tailored-pathways`) are rendered, and two of them are what the header menu's
+  "Graduate Attributes" and "Tailored Pathways" entries point at.
+- The page's own sticky menu and the header menu disagree about the column: the sticky
+  bar lists Parsons Collaboration and Future Skills, which the header does not, and the
+  header lists Entrepreneurship and Graduate Attributes, which the bar does not.
+- **Six of the eight "Publications & Research Papers" cards link to the same Medium
+  article**; only three distinct hrefs exist on the page. Transcribed as authored.
+- **Two dead scripts, neither reproduced.** Every `.slider-card-wrapper` carries
+  `data-slider-card-a-bg` and the page ships the listener for it, but the listener
+  targets `.slider-card-a` — the same dead script /life-at-atlas documents — and all
+  five cards carry the same value anyway; what paints is the authored
+  `img.slide-image-a`. And every publications `.card` carries a `.card-embed-code`
+  script that writes its own `bg-color` attribute to `style.backgroundColor`; all eight
+  author `bg-color=""`.
+- **The two videos are embedded two different ways**: #1 is an **embedly** wrapper
+  around a YouTube id, #4 a direct YouTube embed. Both take their frame height from an
+  inline `padding-top` percentage, and #1's is 56.17%, not 16:9.
+
+#### Assets
+
+202 references, all mapped: **150 new** and **52 reused from elsewhere in `public/`**.
+The new ones are 148 images (3.9MB — 101 WebP, 46 PNG, 1 JPEG) under
+`public/assets/images/schools/isdi/advantage/<section>/` and the two encodings of one
+clip under `public/assets/videos/schools/isdi/advantage/`. 96 of the images were
+converted to WebP at SSIM >= 0.9996, taking the folder from 20MB to 3.9MB.
+
+The hero photograph is one of the 52 reuses and is **byte-identical to
+/advantages/atlas-advantages'** — re-fetched from the CDN and compared by SHA-1 rather
+than assumed, the audit /advantages/atlas-industry-centric-approach's mondelez slip
+made mandatory.
+
+The infrastructure clip is 1280x720 and 2m35s: the mp4 ships re-encoded (39.1 ->
+22.7MB, SSIM 0.988) and the webm byte-for-byte, because re-encoding it saved only 15%
+against a 40% gate. **69MB for one background video is a hosting consideration**, like
+the 320MB of /advantages/atlas-internationalisation testimonials — flagged, not solved.
+
+**Two downloader bugs this page surfaced**, both now fixed in `scratchpad/adv1/download.py`:
+`data[:3] == b'\xff\xd8'` compares three bytes against a two-byte literal, so four real
+JPEGs were reported as soft-404s and silently skipped; and the scanner read `img`,
+`srcset` and computed backgrounds but **not `<source>`**, so the infrastructure clip was
+missing from the manifest entirely. A `url()` regex that is not anchored on the quoted
+form truncates at the literal `)` inside `Vector (1).png` — the trap
+/advantages/atlas-advantages already records, hit again here on three vectors.
+
+#### Verified
+
+Measured against
+`https://atlasuniversity.edu.in/schools/isdi/atlas-isdi-advantage/the-isdi-advantage/`
+at **1920 / 1440 / 1280 / 1100 / 992 / 900 / 768 / 700 / 568 / 479 / 390 / 360**:
+
+- **14 of the 15 blocks match the reference height to the pixel at all twelve widths.**
+  The fifteenth is the shared FAQ, and its bucket is now a clean **+20 above 768 /
+  −20 below** — exactly `components/Home/FAQ`'s ATLAS `SECTION` padding (60 / 40)
+  against an ISDI section's 50. The divider half of that bucket is gone, because the
+  divider itself was fixed in this task.
+- **Text identical to production in 14 of the 15 blocks.** The fifteenth is
+  `welfare`, where the same two strings appear in a different order because the
+  `.zoom-slider-lg` is on a different slide — it autoplays on both sides. The only
+  nodes production has and the port does not are the inactive tab panes: the reference
+  ships all three Industry Connect panes and all four Choose Your Minor panes in the
+  DOM under `display: none`, and both tab widgets mount only the current one, as every
+  tab set in this rebuild does. The link lists differ by the seven Webflow tab anchors
+  (`<a href="#w-tabs-…">`), which the port renders as `<button>`s — a control that does
+  not navigate is a button, the rule `PrimaryButton` already follows.
+- **Off-origin requests: 53, and every one of them is inside an iframe.** The top frame
+  makes none. They are the embedly document, the YouTube player it wraps and that
+  player's own subresources (googlevideo, ytimg, doubleclick, gstatic fonts) — the
+  reference's own two video embeds, the same status quo as every ATLAS page carrying a
+  YouTube player. Two console entries per width, both
+  "picture-in-picture is not allowed in this document", logged from inside those frames;
+  `scratchpad/adm1/regress.py` filters them alongside the compute-pressure violation.
+- **99/99 interactions** at 1440 and 390: the fifteen blocks in order, every id the
+  menu and the header point at resolving exactly once (including the two the reference
+  authors twice and the three title ids that are not duplicates), the menu's ten links
+  and its scroll, the nine core cards and six vision cards, the embedly wrapper, the
+  three figure cards with no figure, the three Industry Connect tabs at 8 / 8 / 6 cards,
+  the infrastructure clip's mp4-then-webm pair, its five space cards and two library
+  cards, the six welfare people and the three slide titles that carry the 12px bar, the
+  four minor tabs at five cards each, the two closing electives, the five patent cards
+  in their `isdi` colour, the eight publication links and the six-item single-open FAQ
+  with its 2px divider and its borderless last item.
+- `validate.py` at all twelve widths: **0 horizontal overflow, 0 page errors, 0 failed
+  requests, 0 broken images.**
+- **Per-block screenshots at 1440 / 1280 / 768 / 479 / 390.** `hero`, `menu`,
+  `location`, `publications` and `search` are **0.00-0.23**; `overview`, `pathway`,
+  `research`, `future` and `infra` are at or below **4.5**. Four blocks sit higher and
+  each is accounted for: `parsons` (11.6-13.5) holds the **embedly iframe**, `global`
+  (7.2-19.0) the **YouTube embed**, `welfare` (8.1-13.2) the `.zoom-slider-lg`, which
+  **autoplays on a 2s timer on both sides** so the two land on different slides, and
+  `faq` (9.1-20.4) is the 20px size difference above. Those four are verified by their
+  heights (exact at all twelve widths), their text and their geometry instead — the
+  same call the B.Des hero carousel already carries.
+- **All 52 deduped assets proved by bytes**: every URL this page reuses from elsewhere
+  in `public/` was re-fetched and compared by SHA-1 — 52 identical, 0 mismatches.
+- `npx eslint .` exits 0 and `npx next build` succeeds from a cleared `.next`; the route
+  builds `○ Static`. `regress.py` sweeps all **57** built routes at two widths with
+  **0 overflow, 0 page errors, 0 failed requests and 0 broken images**; the only console
+  entries anywhere are `/_not-found`'s own 404, the Instagram media route's 400 and the
+  Summer School Admissions page's NoPaperForms 403, all three already documented.
+
+#### Regression across every page whose components changed
+
+This task touched an unusually wide surface — the shared FAQ, `About/Hero`,
+`IconHeading`, `StatsBand`, `StatsStrip`, `InViewVideo`, `Curriculum`, `CardTypeF`,
+`ZoomSliderLg`, `Carousel` and four extractions — so each origin page was re-measured
+against production at 1440 / 768 / 390.
+
+- **`/schools/isdi/about-us`, both programme overviews, `/admissions/undergraduate/b-des`
+  and `/admissions/postgraduate/mba` show the FAQ bucket and nothing else.**
+- **`/schools/isdi/programs/pre-university-summer-school` is clean at all three widths.**
+- `/schools/isdi/admissions/pre-university-summer-school` moved from +21/−19 to
+  **+28/−12** — its reference is one of the four that draw Bootstrap's 1px, so the 2px
+  divider costs it ~7px. That is the cost side of the trade, and it was accepted.
+- The two programme pages show only their already-documented deviations: the elective
+  dropdown's authored 32px closed height (−96 / −48) and the Manrope stack line (+26).
+  The Accessory page's `+369.1 at 390` is the **video-metadata race**, not a difference —
+  the generic harness waits for images but not for `readyState`, and with the clips
+  loaded both sides measure 418 x 743.1 and 346 x 615.1.
+
+**Production rate-limited the ATLAS half of that run**, so its three real risks were
+measured one at a time instead, which is better evidence than a whole-page diff anyway:
+
+- `.zoom-slider-lg`'s pagination row is **24px, `display: block`, `margin-top: 20px`** on
+  /campus-atlas, /life-at-atlas and /advantages/atlas-career-services, and the port now
+  matches all three.
+- `.patent-card` on /success-stories-atlas is **exact at 1440 and 390** — card 801x478 /
+  340x657, plate 352x377 / 280x377. Pinning the plate's height did not merely avoid a
+  regression there; **that page had been rendering a content-height plate below 768** and
+  is now right.
+- `.card-type-f` on /advantages/atlas-industry-centric-approach: **49 cards, identical
+  distinct geometries on both sides.**
+
+**Worth a look, not changed here:** `Carousel`'s DEFAULT bullet row (the non-ISDI one) is
+a flex row whose height is its 8px dot, where both `ZoomSliderLg`'s and `Carousel`'s own
+ISDI rows are blocks whose height is their 24px line box. That inconsistency is internal
+to the component and belongs with whichever ATLAS page is next measured below 568.
+
+**Deviations (one):** the shared FAQ's section-padding bucket, above. It is
+`components/Home/FAQ` using the ATLAS section rhythm on an ISDI page — one line to
+change, affecting every page that renders the component, and so **flagged rather than
+taken unilaterally**, the same call the five ISDI Admissions pages made.

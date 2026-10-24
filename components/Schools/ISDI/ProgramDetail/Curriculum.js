@@ -179,7 +179,8 @@ function Semester({ semester }) {
               <InViewVideo
                 sources={semester.video.sources}
                 poster={semester.video.poster}
-                className="w-full object-contain"
+                fit="contain"
+                className="w-full"
               />
             ) : (
               semester.image && (

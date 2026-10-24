@@ -34,6 +34,27 @@ const nextConfig = {
        * which are separate reference files and are not built yet.
        */
       { source: '/programs', destination: '/', permanent: false },
+
+      /*
+       * The ISDI B.Tech AI programme was renamed upstream: the reference file
+       * `programs/undergraduate/btech/btech-ai-integrated-design.php` became
+       * `…/ai-engineering-&-intelligent-products.php` and the header menu's
+       * label changed with it ("B.Tech in AI Integrated Design" ->
+       * "AI Engineering & Intelligent products"). The two files differ in
+       * exactly four lines — the enrolment wording and the Fee Structure href —
+       * so this is a rename, not a new page.
+       *
+       * The old path was the live URL before the rename, so anything already
+       * pointing at it (a bookmark, an external link, a search result) is kept
+       * working rather than 404'd. `permanent: true` emits **308**, which is
+       * what a rename warrants.
+       */
+      {
+        source: '/schools/isdi/programs/undergraduate/btech/btech-ai-integrated-design',
+        destination:
+          '/schools/isdi/programs/undergraduate/btech/ai-engineering-&-intelligent-products',
+        permanent: true,
+      },
     ];
   },
 };

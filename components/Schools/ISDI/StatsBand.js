@@ -20,17 +20,25 @@ import withBreaks from '@/lib/withBreaks';
  *   label             24px/1.2 white, pb16               18px
  *   value             32px/1.2 500 white                 22px
  *   note (`.s-text`)  16px/1.2 300 white, pt16           14px/1.2
+ *
+ * NO `min-w-0`. `.head-top-card` is `flex: 1 1 0` with the default `min-width: auto`,
+ * so a card whose longest word needs more than its equal share takes it and the rest
+ * shrink — which is exactly what /atlas-isdi-advantage's three Parsons cards do
+ * (466.66 / 506.67 / 466.67 at 1440). It had been copied from `ui/StatBand`, which
+ * genuinely needs it because ITS six-card band overflows 768; here it was a no-op on
+ * all four pages that already render this band (verified against production at every
+ * width) and wrong on the fifth. Same trap as `SummerSchool/Stats`.
  */
 export default function StatsBand({ data }) {
   return (
     /* ref .top-cards-wrapper.mrgbtm0 */
     <div data-block="stats" className="flex items-start justify-between max-md:flex-col max-md:items-stretch">
-      {data.map((stat) => (
+      {data.map((stat, i) => (
         /* ref .head-top-card */
         <div
-          key={stat.label}
+          key={`${i}-${stat.label}`}
           className={cx(
-            'flex h-52 min-w-0 flex-1 basis-0 flex-col items-start justify-center bg-contain bg-[position:100%_50%] bg-no-repeat pl-16 text-white',
+            'flex h-52 flex-1 basis-0 flex-col items-start justify-center bg-contain bg-[position:100%_50%] bg-no-repeat pl-16 text-white',
             'max-md:h-auto max-md:flex-none max-md:py-6 max-md:pl-[22px] max-md:pr-6',
             stat.padRight && 'pr-10 max-md:pr-10'
           )}
@@ -38,8 +46,11 @@ export default function StatsBand({ data }) {
         >
           {/* ref .sm-text-isme.isdi */}
           <div className="pb-4 text-[24px] leading-[1.2] text-white max-md:text-[18px]">{stat.label}</div>
-          {/* ref .large-text */}
-          <div className="text-[32px] font-medium leading-[1.2] max-md:text-[22px]">{stat.value}</div>
+          {stat.value !== undefined && (
+            /* ref .large-text — /atlas-isdi-advantage's Parsons band authors no
+               `.large-text` child at all, so there is no empty box to render */
+            <div className="text-[32px] font-medium leading-[1.2] max-md:text-[22px]">{stat.value}</div>
+          )}
           {stat.note && (
             /* ref .s-text */
             <div className="pt-4 text-base font-light leading-[1.2] max-md:text-[14px] max-md:leading-[1.2]">

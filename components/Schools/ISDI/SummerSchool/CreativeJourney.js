@@ -1,7 +1,7 @@
 import Carousel from '@/components/Carousel/Carousel';
 import { cx } from '@/lib/cx';
 import withBreaks from '@/lib/withBreaks';
-import { CONTAINER, H2, H2_MB, SECTION } from '../Home/ui';
+import { CONTAINER, H2, H2_MB, SECTION, SUB_1_MRGBTM } from '../Home/ui';
 
 /**
  * "Your Creative Journey at ISDI" —
@@ -10,7 +10,8 @@ import { CONTAINER, H2, H2_MB, SECTION } from '../Home/ui';
  *     .swiper.common-swiper.mrgtp0 > 4 x .creative-jor-card)
  *
  * The lead is `.sub-heading-1`, NOT `.sub-heading`: 18px/1.8 rather than 24px/1.4, and it
- * drops to 1.5 at <=767 where `.sub-heading` drops to 16px. Only this section uses it.
+ * drops to 1.5 at <=767 where `.sub-heading` drops to 16px. The Admissions Summer School
+ * page's "A Day in the Life" uses it too, so the token lives in `../Home/ui`.
  *
  * Measured at 1440 / 1280 / 991 / 767 / 479 / 390:
  *                     >=768px                              <=767px
@@ -23,7 +24,7 @@ import { CONTAINER, H2, H2_MB, SECTION } from '../Home/ui';
  *   title             18px/1.5 500 white
  *   description       pt8, px16, 16px/1.5 white, with authored `<br>`s
  */
-const SUB_1 = 'pb-14 pr-[50px] text-[18px] font-light leading-[1.8] max-md:pr-0 max-md:leading-[1.5]';
+
 
 export default function CreativeJourney({ data }) {
   return (
@@ -31,7 +32,7 @@ export default function CreativeJourney({ data }) {
       <div className={CONTAINER}>
         <h2 className={cx(H2, H2_MB.mrg16)}>{data.heading}</h2>
         {/* ref .sub-heading-1.mrgbtm */}
-        <div className={SUB_1}>{data.sub}</div>
+        <div className={SUB_1_MRGBTM}>{data.sub}</div>
       </div>
 
       {/* ref .swiper.common-swiper.mrgtp0 */}
@@ -47,8 +48,11 @@ export default function CreativeJourney({ data }) {
             <div className="flex items-center justify-start gap-2">
               {/* ref .creative-jor-num */}
               <div className="bg-[#df287b] px-4 py-2 font-bold text-white">{card.number}</div>
-              {/* ref .creative-jor-title */}
-              <div className="text-[18px] font-medium text-white">{card.title}</div>
+              {/* ref .creative-jor-title — card #2 authors a `<br>` ("Experiment & <br>
+                  Collaborate"); printing the title raw let it wrap on its own instead,
+                  which is the same height and a different break. The eighth field in this
+                  rebuild to need `withBreaks`. */}
+              <div className="text-[18px] font-medium text-white">{withBreaks(card.title)}</div>
             </div>
             {/* ref .creative-jor-subs */}
             <div className="px-4 pt-2 text-white">{withBreaks(card.text)}</div>

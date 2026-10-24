@@ -1,5 +1,6 @@
 import { cx } from '@/lib/cx';
 import Carousel from '@/components/Carousel/Carousel';
+import CardTypeE from '../CardTypeE';
 import { CONTAINER, H2, H2_MB, SECTION } from '../Home/ui';
 
 /**
@@ -42,31 +43,10 @@ export default function ManagementTeam({ data }) {
       <div className="pt-14 max-md:pt-10">
         <Carousel autoplay={false} bullets="isdi">
           {data.people.map((person) => (
-            /* ref .card-type-e.swiper-slide */
-            <div
-              key={person.name}
-              className="relative h-[360px] w-[242px] overflow-hidden rounded-2xl font-light text-white"
-            >
-              {/* ref .cd-tye-image-wrap */}
-              <div className="h-[242px] w-full overflow-hidden rounded-[100%] bg-[#ec1376] leading-none">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={person.image.src}
-                  width={person.image.width}
-                  height={person.image.height}
-                  alt={person.image.alt}
-                  loading="lazy"
-                  decoding="async"
-                  className="inline-block h-full w-full max-w-full object-cover align-middle"
-                />
-              </div>
-              {/* ref .cd-tye-detail */}
-              <div className="w-full pt-6 text-center text-black">
-                <div className="pb-1 text-[20px] font-semibold leading-[1.2]">{person.name}</div>
-                {/* ref .img-logo-wrap — empty in the reference */}
-                <div className="w-full" />
-              </div>
-            </div>
+            /* ref .card-type-e.swiper-slide — the card is `../CardTypeE`, shared with
+               /atlas-isdi-advantage's "Meet your campus family"; this page's cards
+               author no role line, so none is rendered */
+            <CardTypeE key={person.name} person={person} />
           ))}
         </Carousel>
       </div>

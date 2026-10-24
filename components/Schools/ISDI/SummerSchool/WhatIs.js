@@ -1,7 +1,7 @@
 import { cx } from '@/lib/cx';
-import withBreaks from '@/lib/withBreaks';
 import { SUB_H2_MRGBTM } from '@/components/Home/SectionHead';
 import { CONTAINER, H2, H2_MB } from '../Home/ui';
+import CoreCards from '../CoreCards';
 
 /**
  * "What is ISDI Summer School?" —
@@ -39,33 +39,9 @@ export default function WhatIs({ data }) {
         */}
         <div className={SUB_H2_MRGBTM}>{data.sub}</div>
 
-        {/* ref .common-flex */}
-        <div className="flex flex-wrap items-center justify-start gap-6 text-white">
-          {data.cards.map((card, i) => (
-            /* ref .new-core-card */
-            <div key={`${i}-${card.title}`} className="relative h-[355px] w-full max-w-[396px] overflow-hidden rounded-2xl">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={card.image.src}
-                srcSet={card.image.srcSet}
-                sizes={card.image.sizes}
-                width={card.image.width}
-                height={card.image.height}
-                alt={card.image.alt}
-                loading="lazy"
-                decoding="async"
-                className="inline-block h-full w-full max-w-full align-middle max-sm:object-cover"
-              />
-              {/* ref .core-text-wrapper */}
-              <div className="absolute inset-x-0 bottom-0 px-8 pb-7">
-                {/* ref .n-core-num */}
-                <div className="text-[24px] font-semibold text-white">{card.number}</div>
-                {/* ref .n-core-title */}
-                <div className="text-[24px] text-white">{withBreaks(card.title)}</div>
-              </div>
-            </div>
-          ))}
-        </div>
+        {/* ref .common-flex > 6 x .new-core-card — the row /atlas-isdi-advantage
+            opens with too, so it lives in `../CoreCards` and both pages render it */}
+        <CoreCards cards={data.cards} />
       </div>
     </section>
   );

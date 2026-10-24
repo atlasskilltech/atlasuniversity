@@ -73,7 +73,10 @@ export default function Admissions({ data }) {
             {data.steps.map((step, i) => (
               /* ref .gd-steps */
               <div
-                key={step.num}
+                /* index-qualified: /schools/isdi/admissions/postgraduate/mba numbers its
+                   five steps 01 / 02 / 02 / 04 / 05, so `step.num` alone is a duplicate
+                   React key — the fifth place in this rebuild to need the index */
+                key={`${i}-${step.num}`}
                 style={step.tone ? { backgroundColor: step.tone } : undefined}
                 className={cx(
                   'relative flex-1 overflow-hidden p-8 text-[24px] leading-[1.5] text-white max-md:flex-none',

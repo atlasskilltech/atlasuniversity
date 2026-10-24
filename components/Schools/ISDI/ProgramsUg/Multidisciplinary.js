@@ -7,7 +7,8 @@ import Carousel from '@/components/Carousel/Carousel';
 import MintTabStrip from '../Home/MintTabStrip';
 import { ElectiveCard } from '../Home/Electives';
 import { CONTAINER, SECTION } from '../Home/ui';
-import IconHeading from './IconHeading';
+import IconHeading from '../IconHeading';
+import MinorCard from '../MinorCard';
 
 /**
  * #5 "ATLAS Students Lead with a Multidisciplinary Approach" — port of
@@ -20,51 +21,14 @@ import IconHeading from './IconHeading';
  *       .common-wrapper.center > .why-isdi-wrapper > .swiper.common-swiper.mrgtp0
  *         > 2 x .isdi-elective))
  *
- * The strip is the homepage's `MintTabStrip` and the two closing cards are its
+ * The strip is the homepage's `MintTabStrip`, the two closing cards are its
  * `ElectiveCard` (measured identical here: 600 x 300 / 295, r24, same paddings and
- * breakpoints). The minor card is the *image* variant of `.card-type-electives`
- * — the homepage's "Choose Your Minor" uses the video variant of the same class —
- * so it is drawn here:
- *
- *                     >=768px                    <=767px          <=479px
- *   card              298 x 232, r16, clipped
- *   caption wrap      bottom half, flat #00000063, p24, centred    p12
- *   title             20px/1.5 white             18px/1.5         12px/1.5
+ * breakpoints) and the minor card is `../MinorCard`, shared with
+ * /atlas-isdi-advantage.
  *
  * Tab switches fade like the Webflow widget (out 100ms, then in 300ms), and the
  * sliders are ISDI's `initCommonSwiper`, which sets no autoplay.
  */
-function MinorCard({ card }) {
-  return (
-    /* ref .card-type-electives.isdi */
-    <div className="relative w-[298px] overflow-hidden rounded-2xl text-white max-md:w-auto">
-      {/* ref .cd-txt-wrap-3.isme-149 */}
-      <div className="absolute inset-x-0 bottom-0 z-[1] flex h-1/2 items-center bg-[linear-gradient(#00000063,#00000063)] p-6 max-md:p-3">
-        {/* ref .cd-ta-text.isme-34 */}
-        <div className="text-[20px] leading-[1.5] max-md:text-[18px] max-md:leading-[1.5] max-sm:text-[12px] max-sm:leading-[1.5]">
-          {withBreaks(card.title)}
-        </div>
-      </div>
-      {/* ref img.cd-ta-image.isme-143 — the fifth card of "Human-Centered and Social
-          Design" is authored without one, so the reference paints a 298 x 0 slide
-          (its caption is `height: 50%` of nothing, clipped away); rendering the card
-          imageless reproduces that */}
-      {card.image && (
-        /* eslint-disable-next-line @next/next/no-img-element */
-        <img
-          src={card.image.src}
-          width={card.image.width}
-          height={card.image.height}
-          alt={card.image.alt}
-          loading="lazy"
-          decoding="async"
-          className="inline-block h-full w-full max-w-full object-cover align-middle"
-        />
-      )}
-    </div>
-  );
-}
-
 export default function Multidisciplinary({ data }) {
   const [active, setActive] = useState(0);
   const [shown, setShown] = useState(0);

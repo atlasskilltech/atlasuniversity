@@ -22,14 +22,25 @@ import { H2, H2_MB, SUB } from '../Home/ui';
 const ALIGN = {
   /* ref .head-wrap */
   base: 'items-end',
-  /* ref .head-wrap.mrgbtm32 */
-  mrgbtm32: 'mb-8 items-end max-md:mb-5 max-md:flex-col max-md:items-stretch max-md:justify-start',
+  /*
+   * ref .head-wrap.mrgbtm32 — the 32px bottom margin is on a COMPOUND selector (0,2,0), and
+   * the `@media (max-width: 767px)` rule for the same compound sets only `justify-content`
+   * and `align-items`. So the margin survives at every width. It is `.head-wrap.mrgbtm`
+   * (a different class, not used here) that drops to 20 — reading that rule instead cost
+   * 12px below 768.
+   */
+  mrgbtm32: 'mb-8 items-end max-md:flex-col max-md:items-stretch max-md:justify-start',
   /* ref .head-wrap.top — `align-items: flex-start` and no margin above 768; the 16px gap
      and `margin-bottom: 16px` belong to its <=767 rule only */
   top: 'items-start max-md:mb-4 max-md:flex-col max-md:items-stretch max-md:gap-4',
 };
 
 const SUB_SPACING = {
+  /* ref the bare `.sub-heading` — no modifier, so it keeps the 20px bottom padding its
+     <=767 rule gives it, including below 480. Named explicitly rather than relying on an
+     unknown key falling through to '': that silent-default shape has bitten this project
+     before (`PrimaryButton`'s `outline-white`). */
+  base: '',
   /* ref .sub-heading.mrgbtm32 — 32, then the `.sub-heading` mobile padding of 20/0/20
      and 20/0/16 at <=479 */
   mrgbtm32: 'pb-8 max-md:pb-5 max-sm:pb-4',

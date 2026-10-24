@@ -33,9 +33,17 @@ const BAND =
   "bg-[url('/assets/images/schools/isdi/home/stats/building-bg-2.png'),url('/assets/images/schools/isdi/home/stats/building-bg.png')] " +
   'bg-[position:100%_100%,0px_100%] max-lg:py-10 max-md:bg-cover max-md:bg-center max-md:py-5';
 
-export default function StatsStrip({ data }) {
-  return (
-    <div data-block="stats" className={SECTION}>
+/**
+ * `bare` drops the `.section` wrapper: /atlas-isdi-advantage renders the same band
+ * and the same logo strip INSIDE its "Strongly Industry Oriented" section rather
+ * than as a section of its own, and the two building photographs it paints are
+ * byte-identical to the homepage's (SHA-1), so the measured class string — which
+ * must stay a class, because an inline `background-position` would beat the
+ * `<=767` `cover`/`center` rule — is reused exactly as it is.
+ */
+export default function StatsStrip({ data, bare = false }) {
+  const band = (
+    <>
       <div className={BAND}>
         {/* ref .strip-content */}
         <div className="flex items-center justify-center max-lg:flex-col max-lg:gap-5">
@@ -72,6 +80,13 @@ export default function StatsStrip({ data }) {
           />
         ))}
       </div>
+    </>
+  );
+
+  if (bare) return band;
+  return (
+    <div data-block="stats" className={SECTION}>
+      {band}
     </div>
   );
 }

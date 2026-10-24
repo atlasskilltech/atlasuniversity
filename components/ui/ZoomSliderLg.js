@@ -123,9 +123,17 @@ export default function ZoomSliderLg({ children, className, label }) {
         </div>
       </div>
 
-      {/* ref `.zoom-slider-lg .swiper-pagination-bullets` — hidden above 568px,
-          `display: block; text-align: center; margin-top: 20px` below */}
-      <div className="mt-5 hidden justify-center gap-2 max-mcm:flex">
+      {/*
+        ref `.zoom-slider-lg .swiper-pagination-bullets` — hidden above 568px;
+        below it, `display: block; text-align: center; margin-top: 20px` with
+        `inline-block` 8px dots `margin: 0 8px` apart.
+        It is a BLOCK with inline-block dots, not a flex row: the row's height is
+        its LINE BOX (16px x 1.5 = 24), not the 8px dot. As a flex row it measured
+        8px, which was 16px short of the reference on every page that renders this
+        slider below 568 — the same row `components/Carousel` already draws
+        correctly.
+      */}
+      <div className="mt-5 hidden text-center max-mcm:block">
         {slides.map((slide, i) => (
           <button
             key={slide.key ?? i}
@@ -134,7 +142,7 @@ export default function ZoomSliderLg({ children, className, label }) {
             aria-label={`Go to slide ${i + 1}`}
             aria-current={i === active}
             className={cx(
-              'h-2 w-2 rounded-full transition-opacity',
+              'mx-2 inline-block h-2 w-2 rounded-full p-0 align-baseline transition-opacity',
               i === active ? 'bg-[#007aff]' : 'bg-black/20',
             )}
           />

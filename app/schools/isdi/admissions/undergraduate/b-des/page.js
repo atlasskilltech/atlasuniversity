@@ -88,7 +88,10 @@ export default function ISDIAdmissionsBdesPage() {
 
       {/* `MoreQuestions` carries its own `data-block="search"` */}
       <MoreQuestions data={isdiAboutSearch} />
-      <div data-block="faq" id="faq" className="-my-2.5 max-md:my-2.5">
+      {/* `Home/FAQ` renders its own `id="faq"` on the <section> it owns, so this wrapper
+          carries only the block marker — giving it the id too put two `#faq` elements in
+          the document and made the menu's "FAQs" link ambiguous */}
+      <div data-block="faq" className="-my-2.5 max-md:my-2.5">
         <FAQ data={isdiAdmBdesFaq} />
       </div>
     </main>

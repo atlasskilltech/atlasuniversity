@@ -47,7 +47,7 @@ export const metadata = {
   description: DESCRIPTION,
   alternates: {
     canonical:
-      'https://atlasuniversity.edu.in/schools/isdi/programs/undergraduate/btech/btech-ai-integrated-design',
+      'https://atlasuniversity.edu.in/schools/isdi/programs/undergraduate/btech/ai-engineering-&-intelligent-products',
   },
   openGraph: {
     siteName: 'ATLAS SKILLTECH UNIVERSITY',
@@ -64,7 +64,7 @@ export const metadata = {
 };
 
 /**
- * /schools/isdi/programs/undergraduate/btech/btech-ai-integrated-design —
+ * /schools/isdi/programs/undergraduate/btech/ai-engineering-&-intelligent-products —
  * the ISDI header's "Programs > Undergraduate Degree > B.Des > B.Des in Service &
  * Experience Design", and the eleventh of the twelve B.Des programme pages.
  *

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { cx } from '@/lib/cx';
 import withBreaks from '@/lib/withBreaks';
 import { CONTAINER, SECTION } from '../Home/ui';
@@ -24,9 +24,15 @@ import HeadWrap from './HeadWrap';
  *   title             18px/1.5 700 white, pr40             16px
  *   icon              absolute, 24px white, inset 28/20
  *   body              `.content-blue-fill` p24; its `<p>`s are 16px/1.5 with
- *                     `margin-bottom: 10px` (Webflow's own, which Preflight zeroes). The
- *                     copy travels as an array of paragraphs, as every other rich block in
- *                     this project does — never as raw HTML.
+ *                     `margin-bottom: 10px` (Webflow's own, which Preflight zeroes), and a
+ *                     `<ul>`/`<ol>` is `margin-bottom: 10px; padding-left: 40px`,
+ *                     disc/decimal outside, with `<li>`s that carry no margin and no inner
+ *                     `<p>`. Measured on the B.Tech reference with every dropdown forced
+ *                     open — all of it is zeroed by Preflight, so all of it is restated.
+ *
+ * The copy travels as an ordered list of blocks — a plain string is a paragraph,
+ * `{ list, items }` is a list — never as raw HTML, the same shape `components/Home/FAQ`
+ * uses for its answers. A page whose bodies are all paragraphs (B.Des) is unaffected.
  */
 const CHEVRON = (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden className="h-6 w-6">
@@ -34,8 +40,95 @@ const CHEVRON = (
   </svg>
 );
 
+/* a dropdown's contents: a plain string is a paragraph, `{ list, items }` is a list */
+function Body({ blocks }) {
+  return blocks.map((block, i) =>
+    typeof block === 'string' ? (
+      /* ref .content-blue-fill > p — Webflow's own `margin-bottom: 10px`, which
+         Preflight zeroes, so it is restated */
+      <p key={`${i}-p`} className="mb-2.5 last:mb-0">
+        {withBreaks(block)}
+      </p>
+    ) : (
+      /* ref .content-blue-fill > ul / ol — `margin-bottom: 10px; padding-left: 40px`,
+         disc or decimal, outside. The `<li>`s carry no margin of their own. */
+      <ListTag
+        key={`${i}-${block.list}`}
+        tag={block.list}
+        className={cx(
+          'mb-2.5 list-outside pl-10 last:mb-0',
+          block.list === 'ol' ? 'list-decimal' : 'list-disc'
+        )}
+      >
+        {block.items.map((li, j) => (
+          <li key={`${j}-li`}>{withBreaks(li)}</li>
+        ))}
+      </ListTag>
+    )
+  );
+}
+
+function ListTag({ tag, children, ...rest }) {
+  const Tag = tag === 'ol' ? 'ol' : 'ul';
+  return <Tag {...rest}>{children}</Tag>;
+}
+
+/*
+ * The second shape this block takes. B.Des and B.Tech author three dropdowns; the M.Des
+ * Admissions page authors no dropdown at all — just two `.ln-bd-txt` paragraphs under the
+ * same `.head-wrap.mrgbtm32`.
+ *
+ * `.ln-bd-txt` declares nothing of its own that differs from the page: measured 16px/24,
+ * weight 400, Poppins, #333, no margin and no padding — the ISDI body type. Its `<strong>`
+ * runs are bold, and it carries authored `<br>`s and `•` bullet characters.
+ */
+function RichText({ blocks }) {
+  return blocks.map((runs, i) => (
+    /* ref .ln-bd-txt */
+    <div key={`${i}-t`}>
+      {runs.map((run, j) =>
+        typeof run === 'string' ? (
+          <Fragment key={`${j}-s`}>{withBreaks(run)}</Fragment>
+        ) : (
+          /* the parent is 400, so Preflight's relative `bolder` would land on 700 anyway —
+             stated explicitly, as every other `<strong>` in this project is */
+          <strong key={`${j}-b`} className="font-bold">
+            {withBreaks(run.strong)}
+          </strong>
+        )
+      )}
+    </div>
+  ));
+}
+
 export default function Eligibility({ data }) {
   const [open, setOpen] = useState(null);
+
+  if (data.text) {
+    const body = (
+      <div>
+        <RichText blocks={data.text} />
+      </div>
+    );
+    return (
+      <section data-block="eligibility" id="eligibility" className={cx(SECTION, 'overflow-hidden')}>
+        <div className={CONTAINER}>
+          <HeadWrap heading={data.heading} button={data.button} align="mrgbtm32" />
+          {/*
+            ref .list-text-wrap — `display: flex; gap: 16px; justify-content: flex-start;
+            align-items: center; margin-bottom: 32px`, around a single `<div>` that holds
+            both `.ln-bd-txt` blocks. The MBA Admissions page authors it and the M.Des page
+            does not, so it travels with the data — it is 32px of block height.
+          */}
+          {data.listWrap ? (
+            <div className="mb-8 flex items-center justify-start gap-4">{body}</div>
+          ) : (
+            body
+          )}
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section data-block="eligibility" id="eligibility" className={cx(SECTION, 'overflow-hidden')}>
@@ -72,13 +165,7 @@ export default function Eligibility({ data }) {
               {open === i && (
                 /* ref nav.accordion-content-blue-fill > .content-blue-fill.w-richtext */
                 <div className="p-6">
-                  {item.body.map((para, j) => (
-                    /* ref .content-blue-fill > p — Webflow's own `margin-bottom: 10px`,
-                       which Preflight zeroes, so it is restated */
-                    <p key={`${j}-p`} className="mb-2.5 last:mb-0">
-                      {withBreaks(para)}
-                    </p>
-                  ))}
+                  <Body blocks={item.body} />
                 </div>
               )}
             </div>

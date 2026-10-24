@@ -2,7 +2,7 @@ import withBreaks from '@/lib/withBreaks';
 import ButtonRegular from '@/components/ui/ButtonRegular';
 import PhotoGallery from '../PhotoGallery';
 import { CONTAINER, SECTION } from '../Home/ui';
-import IconHeading from './IconHeading';
+import IconHeading from '../IconHeading';
 
 /**
  * #3 "ATLAS Students Launch Before They Graduate" — port of

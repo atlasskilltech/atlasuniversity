@@ -62,6 +62,10 @@ module.exports = {
          line-breaks appear at `@media (max-width: 1100px)` */
       'max-tbl': { max: '1100px' },
       'max-lg': { max: '991px' },
+      /* `keydates/mdes.php`'s own <style> block turns `.df-container-atlas`
+         into a column at `@media (max-width: 768px)` — INCLUSIVE of 768, one
+         pixel wider than Webflow's own 767 rules for the cards inside it */
+      'max-768': { max: '768px' },
       'max-md': { max: '767px' },
       'max-mcm': { max: '568px' },  // header.php inline: .mobile-swiper-cm slide = 100%
       'max-vsm': { max: '540px' },  // video-modal close-button reposition

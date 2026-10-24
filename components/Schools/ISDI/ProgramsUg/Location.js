@@ -1,6 +1,6 @@
 import { cx } from '@/lib/cx';
 import { CONTAINER, SECTION } from '../Home/ui';
-import IconHeading from './IconHeading';
+import IconHeading from '../IconHeading';
 
 /**
  * #2 "ATLAS Students Study Where India Does Business" — port of

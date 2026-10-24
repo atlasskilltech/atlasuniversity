@@ -35,7 +35,16 @@ export default function Stats({ data }) {
         <div
           key={card.lines.map((l) => l.text).join('|')}
           className={cx(
-            'flex h-52 min-w-0 flex-1 basis-0 flex-col items-start justify-center bg-contain bg-[position:100%_50%] bg-no-repeat pl-16 text-white',
+            /*
+             * NO `min-w-0` here. `.head-top-card` is `flex: 1 1 0` with the default
+             * `min-width: auto`, so each card floors at its own longest word and the row
+             * distributes unevenly at 768 (169.5 / 207.2 / 156.5 / 234.8 on the
+             * Admissions page). `min-w-0` — which `ui/StatBand` needs, because ITS
+             * six-card band really does overflow 768 — let these four shrink past that
+             * floor and made them 172 / 212 / 172 / 212. Four cards fit, so the floor
+             * stands. This was wrong on the programme page too.
+             */
+            'flex h-52 flex-1 basis-0 flex-col items-start justify-center bg-contain bg-[position:100%_50%] bg-no-repeat pl-16 text-white',
             'max-md:h-auto max-md:flex-none max-md:py-6 max-md:pl-[22px] max-md:pr-6',
             card.padRight && 'pr-10 max-md:pr-10'
           )}
