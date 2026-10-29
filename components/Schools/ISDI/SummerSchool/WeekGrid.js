@@ -57,11 +57,22 @@ function paint(cell) {
     if (cell.blend) style.backgroundBlendMode = cell.blend;
   }
   if (cell.h) style.height = `${cell.h}px`;
+  /* five cells on /schools/isdi/life@atlas-isdi set their own type ON THE CELL —
+     Thursday's and Saturday's are 18px/27 where the column is 16/24, and two of
+     them are white — and the copy inside them inherits it. The same class names
+     carry different values on the Summer School sheet, so it travels as data. */
+  if (cell.fontSize) {
+    style.fontSize = cell.fontSize;
+    style.lineHeight = cell.lineHeight ?? 'normal';
+  }
+  if (cell.color) style.color = cell.color;
   return style;
 }
 
-/* every cell is 164 wide and takes the generic `.isdi { border-radius: 16px }` */
-const BOX = 'w-[164px] shrink-0 rounded-2xl';
+/* every cell is 164 wide and takes the generic `.isdi { border-radius: 16px }`.
+   It does NOT get `shrink-0`: the reference's cells are ordinary flex items with
+   `flex-shrink: 1`, and the column is auto-height so nothing ever shrinks. */
+const BOX = 'w-[164px] rounded-2xl';
 
 function Cell({ cell }) {
   switch (cell.kind) {
@@ -242,43 +253,62 @@ function Cell({ cell }) {
   }
 }
 
-export default function WeekGrid({ data }) {
+/**
+ * The seven-column strip on its own, without the section or the heading above it.
+ *
+ * Exported because /schools/isdi/life@atlas-isdi renders the SAME grid — same cell
+ * classes, same heights, same artwork, same blend modes, different copy — under an
+ * `.icon-heading` rather than this page's `h2` + `.sub-heading-1`. The strip is the
+ * shared part; the furniture above it is not.
+ */
+export function WeekStrip({ days }) {
   return (
-    <section data-block="week" className={SECTION}>
-      <div className={CONTAINER}>
-        <h2 className={cx(H2, H2_MB.mrg16)}>{data.heading}</h2>
-        <div className={SUB_1_MRGBTM}>{data.sub}</div>
-
-        {/*
+    <>
+      {/*
           ref .main-week-wrapper — a flex row with a 15px gap that turns into a horizontal
           scroller at <=767 by bleeding 21px either side and padding 20px back in. The
           columns keep their 164px there, so the strip really does scroll.
         */}
-        <div className="flex gap-[15px] font-sans max-md:-mx-[21px] max-md:overflow-auto max-md:px-5">
-          {data.days.map((col) => (
+      <div className="flex gap-[15px] max-md:-mx-[21px] max-md:overflow-auto max-md:px-5">
+        {days.map((col) => (
             /* ref .week-grid-main */
             <div
               key={col.day}
-              className="flex w-full max-w-[164px] flex-col items-center justify-between gap-4"
+              /* ref .week-grid-main — Manrope is declared HERE, on the column, not
+                 on `.main-week-wrapper`, which inherits the page's own family */
+              className="flex w-full max-w-[164px] flex-col items-center justify-between gap-4 font-sans"
             >
-              {/* ref .week-block — `order: -9999`, so it leads whatever the source order */}
-              <div className="order-[-9999] shrink-0 text-base font-bold leading-[1.5] text-[#333]">
-                {col.day}
-              </div>
               {/*
                 ref the Monday column's `.w-embed`, which holds only the page's inline
                 `<style>`. It is 0x0 and paints nothing — but it is still a FLEX CHILD of a
                 `justify-content: space-between` column with a 16px gap, so it consumes a
                 gap and a distribution slot. Leaving it out moved every Monday cell up to
                 13.5px. An empty element is still a box; here it is still a flex child.
+                It is authored BEFORE the day label, which `order: -9999` then pulls back
+                to the top — so the DOM order is embed first, exactly as upstream.
               */}
               {col.embed && <div />}
+              {/* ref .week-block — `order: -9999`, so it leads whatever the source order */}
+              <div className="order-[-9999] text-base font-bold leading-[1.5] text-[#333]">
+                {col.day}
+              </div>
               {col.cells.map((cell, i) => (
                 <Cell key={`${i}-${cell.kind}`} cell={cell} />
               ))}
             </div>
-          ))}
-        </div>
+        ))}
+      </div>
+    </>
+  );
+}
+
+export default function WeekGrid({ data }) {
+  return (
+    <section data-block="week" className={SECTION}>
+      <div className={CONTAINER}>
+        <h2 className={cx(H2, H2_MB.mrg16)}>{data.heading}</h2>
+        <div className={SUB_1_MRGBTM}>{data.sub}</div>
+        <WeekStrip days={data.days} />
       </div>
     </section>
   );

@@ -1,3 +1,5 @@
+import { cx } from '@/lib/cx';
+
 /**
  * `.slider-card-e-ugdx > .slider-card-e-cont` — the wide speaker card carried
  * by `ZoomSliderLg`: a photograph with the speaker's name and organisation over
@@ -33,10 +35,19 @@
  * (`.slider-card-e-atlas-2` + `.slide-cd-atlas-2`) is a different card and
  * lives in `components/ui/ChipSlideCard`.
  */
-export default function SpeakerSlideCard({ slide }) {
+/*
+ * ref .slider-card-e-ugdx (`32px 0`) against `.slider-card-e.isdi` (a plain 16px).
+ * /schools/isdi/atlas-isdi-advantage/industry-centric-approach authors the ISDI
+ * class, and the radius is the ONLY measured difference between the two — box,
+ * gradient, padding, title and description all match. Its `.slide-cd-e-flex` /
+ * `.slide-cd-e-lt` wrappers each hold one child and are inert.
+ */
+const RADIUS = { ugdx: 'rounded-tl-[32px] rounded-br-[32px]', isdi: 'rounded-2xl' };
+
+export default function SpeakerSlideCard({ slide, radius = 'ugdx' }) {
   return (
-    /* ref .slider-card-e-ugdx */
-    <div className="relative block h-[478px] w-full items-end overflow-hidden rounded-tl-[32px] rounded-br-[32px]">
+    /* ref .slider-card-e-ugdx / .slider-card-e.isdi */
+    <div className={cx('relative block h-[478px] w-full items-end overflow-hidden', RADIUS[radius] ?? RADIUS.ugdx)}>
       {/* ref img.slide-card-e-image */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img

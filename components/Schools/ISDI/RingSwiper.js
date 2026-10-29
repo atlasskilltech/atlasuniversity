@@ -28,7 +28,10 @@ import { cx } from '@/lib/cx';
 const SPEED = 300;
 const RING = 62.8;
 
-export default function RingSwiper({ slides, delay = 10000, label = 'Hero' }) {
+export default function RingSwiper({
+  slides, delay = 10000, label = 'Hero', ringSize = 68,
+  mobileBottom = '[@media(max-width:768px)]:bottom-[2%]',
+}) {
   const count = slides.length;
   const [index, setIndex] = useState(0);
   const [drag, setDrag] = useState(0);
@@ -125,7 +128,7 @@ export default function RingSwiper({ slides, delay = 10000, label = 'Hero' }) {
       </div>
 
       {/* ref .custom-pagination */}
-      <div className="absolute right-20 top-1/2 z-10 flex -translate-y-1/2 flex-col gap-5 [@media(max-width:768px)]:bottom-[2%] [@media(max-width:768px)]:left-1/2 [@media(max-width:768px)]:right-auto [@media(max-width:768px)]:top-auto [@media(max-width:768px)]:-translate-x-1/2 [@media(max-width:768px)]:translate-y-0 [@media(max-width:768px)]:flex-row">
+      <div className={cx('absolute right-20 top-1/2 z-10 flex -translate-y-1/2 flex-col gap-5 [@media(max-width:768px)]:left-1/2 [@media(max-width:768px)]:right-auto [@media(max-width:768px)]:top-auto [@media(max-width:768px)]:-translate-x-1/2 [@media(max-width:768px)]:translate-y-0 [@media(max-width:768px)]:flex-row', mobileBottom)}>
         {slides.map((slide, i) => (
           /* ref .progress-circle */
           <button
@@ -134,7 +137,8 @@ export default function RingSwiper({ slides, delay = 10000, label = 'Hero' }) {
             onClick={() => goTo(i)}
             aria-label={`${label}: show slide ${i + 1}`}
             aria-current={i === index}
-            className="relative flex h-[68px] w-[68px] cursor-pointer items-center justify-center rounded-full border-0 bg-transparent p-0 before:absolute before:h-2 before:w-2 before:rounded-full before:bg-white before:content-['']"
+            style={{ width: `${ringSize}px`, height: `${ringSize}px` }}
+            className="relative flex cursor-pointer items-center justify-center rounded-full border-0 bg-transparent p-0 before:absolute before:h-2 before:w-2 before:rounded-full before:bg-white before:content-['']"
           >
             <svg viewBox="0 0 24 24" aria-hidden="true" className="absolute h-full w-full -rotate-90">
               <circle

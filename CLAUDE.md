@@ -4620,3 +4620,2382 @@ to the component and belongs with whichever ATLAS page is next measured below 56
 `components/Home/FAQ` using the ATLAS section rhythm on an ISDI page — one line to
 change, affecting every page that renders the component, and so **flagged rather than
 taken unilaterally**, the same call the five ISDI Admissions pages made.
+
+### ISDI Internationalisation — `app/schools/isdi/atlas-isdi-advantage/internationalisation/page.js`, `components/Schools/ISDI/International/`, `lib/schools/isdi/internationalisation/`
+
+`reference/schools/isdi/atlas-isdi-advantage/internationalisation/index.php` (`$css =
+"…68e35e01ba04d34559eadbe7-a3a278ffa.css"`, its own sheet; `$body = "body isdi-page"`)
+— the second entry in the ISDI menu's "ATLAS ISDI Advantage" column. Fifteen blocks: a
+photographic hero, a three-figure band, the seven-link sticky menu, the Parsons panel,
+"With ATLAS Pathway…", "Our Global Partnerships" (five logo tabs), five
+`.icon-heading` sections (`#international-events`, `#summer-school`,
+`#global-immersion`, `#isdi-master-prog`, `#global-education-fair`) plus `#ged-isdi`, a
+logo marquee, "More questions?" and the FAQ.
+
+**It opens no database connection** — no `mysqli`, no `getAdmissionCycles`, no
+`showDate`, and no trailing `<script>` — so nothing here is a snapshot. The mirror is
+current: its rendered text was diffed node by node against production and is identical
+apart from the `$chatBxText` the splice does not substitute and the chatbot embed. It
+was still measured against production, because the local mirror renders in quirks mode
+and its ISDI `$domain` is broken.
+
+**No new card shape.** Ten section components, all this page's own composition, over
+components that already existed: `About/Hero`, `About/AnchorMenu`, `About/IconSection`,
+`About/MoreQuestions`, `Schools/ISDI/StatsBand`, `Home/MintTabStrip`,
+`Home/QuoteCard` + `Home/InViewVideo`, `Schools/ISDI/PhotoGallery`,
+`Schools/ISDI/MinorCard`, `ui/CardTypeF`, `ui/LogoGrid`, `Carousel` and the site-wide
+`FAQ`. The only new markup is the transfer card and the figures strip in
+`International/Masters`, which nothing else on the site has.
+
+#### What this page's measurements turned up
+
+**A media query adds no specificity — and the page's own `<style>` comes last.** The
+Webflow sheet gives `.grid-img-wrap` `width: 150px; height: auto` at `<=767`; this
+page's inline `<style>` re-declares the plain `.grid-img-wrap` at 215x85 **after** it,
+with its own `@media (max-width: 576px)`. So the cell keeps 215x85 down to 577 and only
+drops at 576. Reading the sheet alone cost 53px of panel height at 700 and put every
+logo in the wrong column. Hence `LogoGrid`'s `size="sm576"`.
+
+**`justify-content` on `.logos-grid` is `normal` here, not `center`.** Every ATLAS page
+that renders the grid gets `center` from `.w-layout-layout`, so an overflowing grid
+hangs off both sides; this page measures `normal` at every width and its four 215px
+tracks overflow a 708px container to the **right only**. Centring them put the first
+logo 76px left of the reference's at 768 and 102px at 700 — and **every block height
+still matched**, so only the screenshot caught it. The fifth time in this rebuild that
+comparing images rather than measurements has paid.
+
+**A carousel that is not aligned to the container.** `#summer-school` holds no
+`.container` at all, so Swiper lays its track out from the viewport edge: the first card
+starts at **x=0** where every other carousel on the page starts at 99. `Carousel`'s
+`bleed={false}` drops the container inset and keeps the 24px Swiper writes as
+`margin-right` on every slide. Measured on production; again invisible in the heights
+and obvious in the screenshot (24.3 mean before, 0.97 after).
+
+**`.tt-wrap`'s two margins turn at different widths.** `margin-bottom: 20px` from 767
+down, `margin-right: 20px` only from **479** down. Missing the bottom one cost 20px of
+block height everywhere below 768; carrying the right one up to 767 narrowed the lead
+by 20px between 480 and 767 and rewrapped a line on the Masters block at 568.
+
+**An element the reference omits is not an element it leaves empty — three times on one
+page.** Fourteen `.card-type-electives.isdi` in "Global Immersion" author **no**
+`.cd-txt-wrap-3`, so rendering `MinorCard`'s caption would paint a flat `#00000063` scrim
+over the lower half of every photograph; and one Shenzhen slide authors no image at all,
+which the reference paints as a 298 x 0 slide. Against that, six `.cell-company`s in the
+logo tabs *are* authored empty and are rendered — a white grid cell is visible.
+
+**CORRECTION (2026-10-26).** This list used to carry a third case — "three of the five
+transfer cards author no `img.transf-un-logo`" — and that was a **port defect written
+down as a finding**. All five cards author a mark; three of them author it as a bare
+`<img>` with no class at all, and the extractor selected `img.transf-un-logo`, so those
+three shipped with no logo. See the correction under /schools/isdi/success-stories/
+placements, which is where the shared-component sweep found it. **An element with the
+wrong class is not an element the reference omits** — the mirror image of the rule this
+paragraph states, and the reason `card_logo()` now reads the last `<img>` in
+`.transfer-card-content` whatever class it carries.
+
+**Two cells put the mark straight in the cell.** Pane 1 cell 28 and pane 2 cell 1 have no
+`.grid-img-wrap`, which drops that grid row from 133px to the image's own height.
+`LogoGrid` takes `logo.bare` for them.
+
+**`text()` must not strip inside a `<strong>`.** The Parsons lead authors its sentence
+space *inside* the bold run (`…institutions. </strong>This collaboration…`), so stripping
+joined "institutions.This" and the paragraph lost a line at 1280. A `<br>` is a line
+break and a source newline is a space, but a trailing space inside an inline tag is
+content.
+
+**Webflow numbers only the first two tab panes, and it changes the type size.**
+`#global-immersion`'s panes 1 and 2 are `.tab-pane-tab-1` / `.tab-pane-tab-2`, which the
+sheet takes to 16px at `<=767` while the bare panes keep `.tab-content-mint`'s 18px.
+That is 3px of pagination line box at 390 — the same trap /admissions/ug-admissions
+records for its Key Dates tables.
+
+**Two pill-tab skins neither of which is `.isdi`.** "Our Global Partnerships" uses
+`.tab-roundmint-tab-1.atlas` (#000 on #5cbdca when current) and "Global Immersion"
+`.tab-roundmint-tab-1.white.isdi` — white when idle and **#000 on #d20158** when current,
+because `.white.w--current` and `.isdi.w--current` are both (0,3,0) and the `.white` rule
+comes later. Hence `MintTabStrip`'s `skin`.
+
+**`.view-more-faq` is `display: none`.** The reference authors a "View More" row with a
+plus glyph above the search panel and the stylesheet hides it. Not ported.
+
+**Two sections share a heading and a lead.** `#international-events` and
+`#global-immersion` are both headed "World Class Design Education" over the identical
+"Our internationalization isn't limited to travel…" paragraph, and take the same
+`location.svg` plate. Transcribed as authored. `id="animate"` is authored on three
+`h2`s and nothing reads it, so it is not rendered.
+
+#### A latent bug in a shared component, fixed because this page needed it
+
+**`StatsBand`'s `max-md:pr-6` was beating `max-md:pr-10`.** `.head-top-card.bg7`'s
+`padding-right: 40px` is a compound selector, so it survives the `<=767` rule that pads
+every card 24. Both utilities sat in one class list and **stylesheet order decided**, so
+the middle card measured 24 below 768 — 20px of lost text width, and a rewrapped line
+worth −28.8px on this page's Summer School band at 360. The right padding is now kept out
+of the shared string and applied per card. That is a **correction to the four other
+pages** that render the band with a `padRight` card; all were re-measured afterwards.
+
+#### Assets
+
+162 URLs, all mapped: **93 new** under
+`public/assets/{images,videos}/schools/isdi/internationalisation/` (2.8MB of images after
+47 WebP conversions at SSIM ≈ 1.0, from 11MB, plus 26MB for the two testimonial clips in
+both encodings) and **69 reused** from the homepage, the About page, The ISDI Advantage
+and /success-stories-atlas. Every reused path was re-fetched and compared: **107
+byte-identical, 47 our own WebP conversions, 0 mismatches.**
+
+#### Verified
+
+Measured against
+`https://atlasuniversity.edu.in/schools/isdi/atlas-isdi-advantage/internationalisation/`
+at **1920 / 1440 / 1280 / 1100 / 992 / 900 / 768 / 700 / 568 / 479 / 390 / 360**:
+
+- **14 of the 15 blocks match the reference height to the pixel at all twelve widths.**
+  The fifteenth is the shared FAQ's known bucket (+20 above 768 / −20 below). The one
+  other delta anywhere is `events` **+24 at 700**, the container-width fix `QuoteCard`
+  already carries for the 568-767 blow-out.
+- **Text identical to production — 0 diffs across all fifteen blocks**, with the FAQ
+  opened. The link lists differ only by origin and by the ten Webflow tab anchors
+  (`<a href="#w-tabs-…">`), which the port renders as `<button>`s.
+- **Per-block screenshots at 1440 / 768 / 390** (media frozen on both sides): `stats`,
+  `menu`, `parsons`, `pathway`, `ged-fair` and `search` are **0.00**, and every block
+  outside `logos` and the FAQ is at or below **6.4** — residue from this page's WebP
+  conversions. `logos` (13.7-19.2) is the marquee's animation phase: the same ten marks
+  in the same order at a different offset, because IX2 keeps re-applying its transform
+  on the reference while ours is frozen at 0. `menu` reads 8.8 at 768 only, where the
+  reference's Webflow scroll-spy had not marked a link current after the settle walk and
+  ours had — the same rule, a different moment; both are 0.00 at 1440 and 390.
+- **128/128 interactions** at 1440 and 390: the fifteen blocks in order, the hero's 658px
+  and its `id="overview"` on the image, the three figure cards with their 24px label and
+  400-weight figure and the single 40px right pad, the seven menu links resolving to one
+  element each and scrolling to it, the three YouTube embeds, the Parsons `<strong>` and
+  its trailing space, the five partnership tabs at 32/16/8/4/8 cells with the UK pane's
+  three empty white cells and its 2-column rule at 576, three testimonial slides of which
+  two are videos, nine summer cards, five immersion tabs at 3/2/3/2/4 with Shenzhen's
+  imageless card and no caption scrim anywhere, five transfer cards at 282x388 of which
+  two carry a logo, the four-figure strip, five education-fair cards with their logos, the
+  ten-mark 5000px marquee with nine spaced, the absent "View More" row, the search form
+  and the nine-item single-open FAQ.
+- `validate.py` at all twelve widths: **0 horizontal overflow, 0 console errors, 0 page
+  errors, 0 failed requests, 0 broken images.** Every off-origin request belongs to the
+  three YouTube players the reference itself embeds (youtube.com, ytimg, googlevideo,
+  doubleclick, gstatic fonts); the top frame makes none.
+- `npx eslint .` exits 0 and `npx next build` succeeds from a cleared `.next`; the route
+  builds `○ Static`. `regress.py` sweeps all **58** built routes at two widths with
+  **0 horizontal overflow, 0 page errors, 0 failed requests and 0 broken images**; the
+  only console entries anywhere are the three already documented — `/_not-found`'s own
+  404, the Instagram media route's 400 placeholder and the Summer School Admissions
+  page's NoPaperForms 403.
+
+**Deviations (three):** the shared FAQ's section-padding bucket; `QuoteCard` held to the
+container width between 568 and 767 where the reference blows out (+24 at 700); and the
+three YouTube iframes carry `loading="lazy"`, as the About page's does.
+
+#### Regression across every page whose component changed
+
+`About/Hero`, `About/IconSection`, `Home/MintTabStrip`, `Schools/ISDI/StatsBand`,
+`Schools/ISDI/MinorCard` and `ui/LogoGrid` were all touched, so every page that renders
+one was re-measured against production at 1440 / 390 (and the logo grids at 768 too):
+
+- **/schools/isdi/about-us, /atlas-isdi-advantage/the-isdi-advantage,
+  /programs/undergraduate and the B.Des Accessory page show the shared FAQ's ±20 bucket
+  and nothing else.** /schools/isdi/programs/pre-university-summer-school is **0 diffs**
+  at both widths, and /schools/isdi/admissions/pre-university-summer-school keeps its
+  already-recorded +28 / −12. The Accessory page's `+369.1 at 390` is the
+  **video-metadata race** the generic harness has always shown, not a difference.
+- **`LogoGrid` is byte-for-byte unmoved on its four ATLAS pages.** Every visible grid on
+  /success-stories-atlas, /advantages/atlas-internationalisation,
+  /advantages/atlas-career-services and /advantages/atlas-industry-centric-approach
+  matches production on box, `justify-content`, track widths, the first cell's offset
+  (including the negative −46 / −146 overflow) and the wrap size, at 1440 / 768 / 390.
+  The only reported difference is that the reference ships every inactive tab pane in
+  the DOM at 0x0 while the port mounts the current one, as every tab set here does.
+
+**Still open, flagged rather than taken:** `components/Schools/ISDI/SummerSchool/Stats`
+carries the identical `max-md:pr-6` / `max-md:pr-10` collision that was fixed in
+`StatsBand` here. It is a different component on a page this task did not touch, so it
+is recorded rather than changed; the fix is the same one line.
+
+### ISDI Industry-Centric Approach — `app/schools/isdi/atlas-isdi-advantage/industry-centric-approach/page.js`, `components/Schools/ISDI/Industry/`, `lib/schools/isdi/industry-approach/`
+
+`reference/schools/isdi/atlas-isdi-advantage/industry-centric-approach.php` (`$css =
+"…68e38d03f5c8b3970ccb2a48-2c34df14f.css"`; `$body = "body isdi-page"`) — the third
+entry in the ISDI menu's "ATLAS ISDI Advantage" column. Sixteen blocks: a
+photographic hero, three figures, "Built Around You", "Alliances that Power our
+Future", a pink figures band with its logo marquee, the Advisory Board, "Big Names.
+Bigger Learnings.", the ATLAS HR Conclave band, six `.icon-heading` sections
+(Curriculum, Masterclasses, Projects, Visits, Career Services, Certifications),
+"More questions?" and the FAQ. It opens no database connection.
+
+**15 of the 16 blocks match production's height to the pixel at all twelve widths.**
+The sixteenth is the shared FAQ's known section-padding bucket (+20 above 768 / −20
+below). 130/130 interactions pass at 1440 and 390, `validate.py` is clean at all
+twelve widths (0 overflow, 0 console, 0 page errors, 0 failed requests, 0 broken
+images, **0 requests off this origin**), and the text diff is identical in 14 of 16
+blocks.
+
+**It is a flat `.php` file, so it is served at the SLASHLESS url.** Production answers
+**200** on `…/industry-centric-approach` and **500** on the trailing slash — the
+opposite of its two siblings in the column, which are directories with an
+`index.php` and 301 *to* the slash. Fetch the spelling the menu links.
+
+**`._100vh` is 78vh.** `About/Hero` now takes a `height` modifier name rather than a
+boolean, because this page's hero is neither 658px nor 100vh despite what its class
+is called. Reading the name instead of measuring was −198px.
+
+**`.white-wrapper > .container` holds SEVEN sibling wrappers, not one.** The events
+band opens with the HR Conclave in a `.common-wrapper` and continues with six more
+events in `.common-wrapper-lg`s — Creative Catalyst, What Design Can Do, the ATLAS
+International Design Conference, Creative Capital, Transforming Roles in Design and
+ConServ — each the same head over one of four bodies (three zone cards, a single
+image, a photo wall, or nothing at all). Porting only the first was **6,487px**
+short. The same lesson section 8 of the ATLAS homepage already records, one level
+down: **check every sibling inside a wrapper, not just the first.**
+
+**`.instagram-wrapper` and `.grid-gallery-flex` can be the SAME element.** Six of the
+page's photo walls nest them; Creative Catalyst's puts both classes on one div, and
+below 540 that is the whole difference between a one-row horizontal scroller (nested)
+and a wrapping grid that stacks (merged) — 1696px against 911 at 390. Hence
+`PhotoGallery`'s `variant="merged"`.
+
+**An image with NO class paints at its intrinsic width.** The two conclave
+photographs carry no Webflow class at all, so only Preflight's `img { max-width: 100% }`
+applies and they measure 1240 and 1239 inside a 1242 frame. Forcing `w-full` on them
+was 0.8 and 1.3px of extra height — small, and the kind of thing that only ever
+resolves by reading the class attribute.
+
+**A slider inside `.common-wrapper` does not bleed, and its top margin turns at 991.**
+Both zoom carousels here sit inside the wrapper rather than beside `.container`, and
+`.zoom-slider-lg.mrgtp` is `margin-top: 20px` from **991** down where
+`.zoom-slider.mrg56` holds 40 until 767.
+
+**`.css-content-wrapper`'s `<=479` inset is declared on the B.Des classes.** The
+career cards' 20px narrow padding comes from `.css-content-wrapper.bg1.isdi` /
+`.bg1.isdi-2`; this page's panels are `.isdi-bg1/2/3`, which that selector never
+matches, so the 35px holds at every width — `CareerCard`'s `narrowPad={false}`. Its
+heading button is `.button-regular` in the `pink-cta` tone (#d20158, 54 → 44px),
+not the outline-white one the sibling pages use.
+
+#### Three things a block-height diff could not see, and how each was caught
+
+All three were found AFTER the heights already matched at all twelve widths and
+the interaction suite was green. Each hid in the same place: a box whose height
+the stylesheet declares.
+
+**`.sub-inner-hd` is an unstyled wrapper around TWO elements** — `.sub-inner-num.isdi`
+(56px/1 500) over `.sub-hd-text` (44px/1.2 400, 28px/1.5 at <=767). The first port
+flattened it to one 44px string, and **nothing in a height diff could show it**: the
+banner it sits in is a fixed 446px. The *text* diff found it (two lines against one),
+and `geom.py` — which measures the contents of this page's two declared-height boxes
+against their own ancestor — confirms all eleven probes match at all twelve widths.
+
+**The advisory board was rendering the wrong card variant.** The reference authors
+`data-wf--card-type-d--variant="isdi"` — a colour portrait under a gradient scrim —
+and the port passed `variant="isdi-black"`, the ISDI *About* page's card: grayscale
+under `overlay-blk.png`, with the name in a pink plate. Every block height was exact,
+every line of text identical and 120/120 interactions passed. **Only a screenshot
+caught it**, which is the sixth time that rule has paid in this rebuild (after
+`Carousel`'s bleed, `PrimaryButton`'s unknown variant key, `Carousel`'s
+`align="center"`, the quick-stack cell's column direction and `GridGallery`'s
+`place-items`). The interaction suite now asserts the portrait's `filter`, the name's
+background and the scrim's gradient, so a variant cannot pass silently again.
+
+**`.journey-year` is 700, and the sheet's 500 is a different selector.** The HR
+Conclave zone cards carry the bare class; `.journey-year.isdi` is the 500 one and
+nothing here is on it — the `.isdi-N` modifier sits on the panel, not on the year.
+`.journey-content` is a declared 261px, so the wrong weight cost no height
+anywhere. It was caught by `zone.py`, which walks those three cards child by child
+rather than measuring the band.
+
+**A screenshot harness has to freeze BOTH sides, not just the reference.** The
+advisory band is a Swiper upstream and an `impact-marquee` keyframe here, so the two
+can never land on the same offset: it scored 39-48 mean pixels while matching in
+every measured property. `shots.py`'s `MEDIA=hide` mode now rewinds **every** element
+whose computed `animationName` is not `none`, on both sides, and the band drops to
+**0.17-0.47**. The three autoplaying zoom carousels need the mirror of that —
+`frozen.py` stops the reference's Swiper with its own API and neutralises
+`setInterval` in an init script on the port, before React mounts — and at 390 they
+fall from 16-47 to **1.3-2.0**. At 1440 they stay at 13-23 because Swiper's loop fills
+the neighbour slots from its duplicates in a different order; the current card, the
+slide boxes (340x480 and 800x478) and the 0.8/0.88/1 and 0.65/1 ladders are identical.
+
+#### Reuse
+
+Eleven local section components over existing ones; **two shapes were extracted** and
+five shared components gained defaulted props. Each extraction was measured on both
+references first:
+
+| extracted | from | now shared with |
+| --- | --- | --- |
+| `Schools/ISDI/CareerCard` | `ProgramDetail/Execution` | all nineteen programme pages |
+| `Schools/ISDI/TransferCard` | `International/Masters` | /atlas-isdi-advantage/internationalisation |
+
+**`.career-sup-card.isdi` is per CARD, not per page.** It is the modifier that
+declares `border-radius: 16px`, and all six cards here carry it while **seventeen
+of the eighteen** on each B.Des page do not — so the radius is `CareerCard`'s
+`rounded` prop, defaulting off, rather than part of the base string. (Both render
+the same, because the photo frame and the caption panel carry their own 16px
+corners; it is the computed value that differs.) Checking one card and assuming the
+rest is the trap /programs/programs-list-integrated's two popups already set.
+
+`About/Hero` gained the `HEIGHT` map and an optional `data.eyebrow` (`.top-sub-text`,
+18px/1.5 white, pb12); `About/IconSection` gained `headingAfter` (two of this page's
+headings close the row with a `.button-regular`); `Home/StatsStrip` gained `block`,
+because this page renders that band as its *figures* block with a separate `stats`
+band above it; `ISDI/PhotoGallery` gained the `details` caption (the `.grid-details`
+plate on eight of the sixteen "Big Names" cards, whose `.cd-tyd-posi` rule is **empty
+and still 33px of card height**) and `variant="merged"`; `ui/SpeakerSlideCard` gained
+`radius`, because `.slider-card-e.isdi` is a plain 16px where `.slider-card-e-ugdx` is
+`32px 0` and that is the only measured difference between them.
+
+#### Assets
+
+261 distinct urls, **260 mapped** — the 261st is the dead
+`data-slider-card-a-bg="Paste image url"` attribute every `.slider-card-wrapper`
+carries, read by a script that targets `.slider-card-a`, a class nothing here has
+(the same dead script /life-at-atlas records). 164 new under
+`public/assets/images/schools/isdi/industry-approach/<section>/` and 96 reused. 83
+images converted to WebP (18.5MB saved; the folder is 6.5MB). `dedupe.py` re-fetched
+every reused path and compared bytes: **159 byte-identical, 101 our own WebP
+conversions, 0 mismatches.**
+
+**Two bugs in the local optimiser, both Windows-specific.** Pillow opens an image
+lazily, so `os.remove(src)` after a conversion raised `PermissionError` with the
+handle still open — `with Image.open(p) as im: im.load(); im = im.copy()` closes it.
+And two manifest urls can map to one local path, which on a case-insensitive
+filesystem then converts twice and deletes a file that is already gone; the converter
+keys its `handled` set on the lower-cased path. `reconcile.py` repoints any manifest
+entry whose file became a `.webp` twin and runs between the optimisers and
+`gen_data.py`, as the ISDI pipeline already requires.
+
+**Reference notes, transcribed as authored:** `$title` and `$description` are the ISDI
+template's unedited placeholders again ("ATLAS SkillTech University" / "Get in touch
+with Atlas Skilltech."); ten of the fourteen advisors author `a.play-icon` with no
+`<img>` inside, which is a 0x0 box and is not rendered; and both `.code-button`
+scripts are inlined into their anchor's text upstream, so the reference's link labels
+read "Know more document.addEventListener(…)" where the port's read "Know more".
+
+#### Verified
+
+Measured against
+`https://atlasuniversity.edu.in/schools/isdi/atlas-isdi-advantage/industry-centric-approach`
+at **1920 / 1440 / 1280 / 1100 / 992 / 900 / 768 / 700 / 568 / 479 / 390 / 360**:
+
+- **15 of the 16 blocks match the reference height to the pixel at all twelve
+  widths**; the sixteenth is the shared FAQ's ±20 bucket.
+- **`geom.py` — the contents of the 78vh hero and the 446px banner — is 0 diffs at
+  all twelve widths**, and `zone.py` (the three HR Conclave cards, child by child)
+  and `card.py` (the advisory card) are 0 at 1440 / 768 / 390.
+- **Text identical to production in 14 of 16 blocks.** The two exceptions are the
+  advisory band, where `MarqueeTrack` renders the authored set twice as Swiper's
+  loop does, and one zoom carousel sitting on a different slide. The only links
+  production has and the port does not are the six Webflow tab anchors (rendered as
+  `<button>`s) and the ten empty `a.play-icon` boxes.
+- **Per-block screenshots at 1440 / 1280 / 768 / 479 / 390**: every block outside the
+  three autoplaying carousels and the FAQ is at or below **5.1** mean, the hero is
+  0.00-0.12, and `advisory` is 0.17-0.47 once both marquees are frozen.
+- **130/130 interactions** at 1440 and 390, including the banner heading's two
+  elements, the advisory card's colour portrait / plateless name / gradient scrim,
+  the three zone years at 700 and the six career cards at r16.
+- `validate.py` clean at all twelve widths: 0 overflow, 0 console, 0 page errors, 0
+  failed requests, 0 broken images, **0 requests off this origin**.
+- `npx eslint .` exits 0 and `npx next build` succeeds from a cleared `.next`; the
+  route builds `○ Static`. `regress.py` sweeps all **59** built routes at two widths
+  with 0 overflow, 0 page errors, 0 failed requests and 0 broken images.
+- **The pages sharing every changed component were re-measured against production**
+  and show their own documented buckets and nothing else: /schools/isdi/about-us,
+  the-isdi-advantage, internationalisation, both programme overviews and the
+  Accessory B.Des page show only the FAQ's ±20; /programs/pre-university-summer-school
+  is 0 diffs; /admissions/pre-university-summer-school keeps its +28/−12. The two
+  ATLAS pages that render `ui/SpeakerSlideCard` and the B.Des `CareerCard` were
+  compared property by property instead of by block list (their reference has no
+  `.main-wrapper`), and differ only in the transform-scaled bounding box and two
+  properties the reference declares on boxes where they are inert.
+
+**Deviations (two):** the shared FAQ's section-padding bucket (±20, the same one every
+ISDI page carries); and `PersonCard`'s scrim declares `z-index: 1` where the reference
+computes `auto` — inert, because an absolutely-positioned box paints above a static
+sibling whatever the DOM order, and **pre-existing on the three pages that already
+render that card**, so it is flagged rather than changed here.
+
+## ISDI Success Stories — `reference/schools/isdi/success-stories/`
+
+Four pages: `success-snapshot/index.php`, `placements.php`, `startups.php` and
+`masters-progression.php`. The header menu links all four — the Snapshot as the
+column's "Overview", with seven in-page anchors under it.
+
+### ISDI Success Snapshot — `app/schools/isdi/success-stories/success-snapshot/page.js`, `components/Schools/ISDI/Success/`, `lib/schools/isdi/success-snapshot/`
+
+`reference/schools/isdi/success-stories/success-snapshot/index.php` (`$css =
+"…68e8b62472359d9d1380fd5f-e1d906893.css"`, its own sheet; `$body = "body isdi-page"`)
+— the first entry in the ISDI menu's "Success Stories" column and the target of eight
+of its links. Nineteen blocks: a photographic hero, three figures, the six-link sticky
+menu, "Beliefs that power our success", "The 4-Year Journey to Success", "Placements &
+Internships", "Industry Internships", "Top Recruiters @ ATLAS ISDI", "Master's
+Progressions", "Our students at universities around the world", "Global University
+Collaborations" (five logo tabs), "Startups", "Startups founded by ATLAS ISDI Alumni",
+"Impact Driven Research & Innovation", "Awards & Recognitions", "Our Support System",
+"Our Career Support Services", "More questions?" and the FAQ.
+
+**18 of the 19 blocks match production's height to the pixel at all twelve widths.**
+The nineteenth is the shared FAQ's known section-padding bucket (+20 above 768 / −20
+below). 181/181 interactions pass at 1440 and 390, the text is identical to production
+in 18 of 19 blocks, `validate.py` is clean at all twelve widths, and **the top frame
+makes no off-origin request at all** (the 37 that exist belong to the YouTube player
+the reference itself embeds).
+
+**It opens no database connection, and the mirror is current for it.** Its rendered
+text and its media urls were diffed node by node against production before anything was
+transcribed (`scratchpad/ss1/mirror.py`): identical apart from the commented-out popup
+markup. It was still measured against production, because the local mirror renders in
+quirks mode and its ISDI `$domain` is broken. It is a directory with an `index.php`, so
+production 301s the slashless path to the trailing slash; the menu links the slashless
+form and Next normalises the other way.
+
+#### `.isdi-page .common-wrapper` is in header.php, not in a page's own `<style>`
+
+`.common-wrapper` is **pt50 at every width** — measured 50 at 1440 / 768 / 390. The
+sheet says 56 / 40 (<=767) and `assets/include/header.php`, which every ISDI page
+includes, carries `.isdi-page .common-wrapper { padding-top: 50px }` in its inline
+`<style>`: (0,2,0), so it beats both. The industry-centric-approach notes attributed
+that rule to *that page's* own block; it is the school's, and reading the sheet instead
+cost +6px on two blocks here before the measurement caught it.
+
+#### Six things a class name would have got wrong
+
+- **`.h2-tag` on a GALLERY is not decorative.** "Our students at universities around
+  the world" carries `.grid-gallery.h2-tag`, and the two are both (0,1,0), so source
+  order decides each property: the heading class's `margin-top: 0` wins above 768 (the
+  gallery's 40 wins below), its 56px bottom margin wins where the gallery declares
+  none, and the gallery's `column-count` wins over the heading's `auto`. Measured mt0 /
+  mb56 at 1440 and 768, mt40 / mb32 at 390 — **112px at 1440** against reading it as a
+  plain wall. Hence `GridGallery`'s `margin` prop: two `mt-*` utilities in one class
+  list are resolved by stylesheet order, not by the order they are written.
+- **`.blue-desc-text` declares no line-height, so it inherits one — and that is two
+  values.** The class sets only `font-size`, so inside `.blue-desc-wrap` it takes the
+  page's unitless 1.5 (36px) and inside Placements' `.sub-heading` it takes that
+  class's 1.4 (33.6px). A `text-2xl` pins 1.5 in both — 12px on that lead. The
+  arbitrary `text-[24px]` sets no line-height at all, which is the point.
+- **`.transf-un-logo` is 140x36 on one page's sheet and declared on none of this
+  page's three**, so the same markup paints at the logo's own intrinsic size here (58 /
+  63 / 140 / 67 / 67 across the five Master's cards). `TransferCard`'s `logoKind` names
+  the class the page authors — `sized`, `big` (`.big-logo`, which is `width: 100%;
+  max-width: 60%`) or `bare` — rather than inferring it from the markup.
+- **`.tab-content-mint` is `padding-top: 56px` (40 at <=767) and `font-size: 18px`.**
+  Rendering the panel bare was 56px short on the Collaborations block.
+- **`.journey-year.isdi` is weight 500** where the bare class the ATLAS HR Conclave
+  uses is 700 — and `.journey-content` is a declared 261px, so the difference costs no
+  height anywhere. It travels as `ZoneCard`'s `yearWeight`.
+- **`.card-title-big.isdi` (28px/400) and `.p-card-name.isdi` (28px)** are compound
+  selectors, so both survive the `<=767` rules that take their base classes to 34px/600
+  and 22px. The nth and (n+1)th instances of that trap in this rebuild.
+
+#### Two blocks are not what their first wrapper says
+
+- **The research band's `.blue-wrapper` closes after the patents.** The two figures and
+  the whole publications carousel are its SIBLINGS, which is why the publications
+  heading is `#1a1a1a` on white rather than the band's white on #173a87. Rendering them
+  inside it recolours both and moves 1,100px of band; the same "check every sibling"
+  lesson section 8 of the ATLAS homepage records.
+- **`.startup-bg-block.isdi` has no `<img>`**: its photograph is a stylesheet
+  background (`polish-me-pretty.png`) at its own size, 602px tall and `cover` at
+  `-125px 0` below 768.
+
+#### The hero's button and dialog are a third-party widget, reproduced as markup
+
+The reference drops a `<script src="crm.atlasskilltech.app/widgets/<id>/embed.js"
+data-atlas-mode="popup" data-atlas-button="Download ISDI Outcomes Book">` between the
+`h1` and `.inner-cover-text`; `embed.js` injects a `button.atlas-embed-launch` in its
+place and builds its own `.atlas-embed-overlay` on click. The page ALSO ships an
+`.atlas-popup` dialog of its own, commented out line by line — which makes its trailing
+`<script>` inert (`if (!popup) return`) and its 14-line `<style>` paint nothing.
+
+`Success/OutcomesBook` reproduces both halves as markup, measured with the real dialog
+open on production: the pink 248.7 x 42.5 pill (the page's own `<style>` supplies the
+colour and the radius, the widget's CSS the system-ui 15px/700), a fixed
+`rgba(15,23,42,.55)` overlay, a 300 x 620 white card at radius 14 under
+`0 24px 60px rgba(2,6,23,.35)`, and a 32px round close button at 8/8. So **nothing off
+this origin is requested until a visitor opens it** — the property every ISDI page in
+this port holds. The widget's own src carries three first-touch analytics parameters
+(`atlas_ft_landing`, `atlas_ft_at`, `atlas_visits`) it keeps in storage; those are its,
+not the page's, so the port requests the plain `/embed` URL rather than fabricating a
+timestamp and a visit count.
+
+`About/Hero` takes it through a `widget` slot, which renders as a THIRD flex child of
+`.container.btm-flext`: the row is `space-between` with a 100px gap, so folding the
+button into the heading's wrapper would spread two children where the reference spreads
+three.
+
+#### Four defects a height diff could not see
+
+Every block height already matched at all twelve widths when each of these was found.
+
+- **`max-w-full` and `max-w-[60%]` in one class list.** `TransferCard`'s shared string
+  carried the first and `.big-logo` the second, and two utilities of the same kind are
+  resolved by **stylesheet order** — so the Industry Internships logos rendered 232px
+  against the reference's 139. Caught by a screenshot (10.18 mean), fixed by keeping
+  the max-width out of the shared string.
+- **The Master's logos were pinned to 140x36** by `logoSized`, a rule this page's
+  sheets never declare (above). Also a screenshot (5.14), also invisible in the heights
+  because the card is a fixed 388px.
+- **`.tab-content-mint`'s 56px** — this one DID show, as a −56 on the Collaborations
+  block, and is listed here because the panel is otherwise a bare div.
+- **The beliefs slide hugged its card.** `.common-swiper-full .swiper-slide` is
+  `width: 100%` of the slider from 568 down (header.php's own `max-mcm` block) while
+  the card inside keeps its 391 max-width, so the next slide starts 44px further right
+  than ours did and a sliver of it showed at 479 (9.61 mean, 0.00 after). The card
+  wrapper takes `max-mcm:w-[calc(100vw-44px)]`, exactly as `Home/Electives` already
+  does.
+
+#### Reuse
+
+Fifteen local section components over existing ones; **two shapes were extracted**, one
+moved, and five shared components gained defaulted props. Each extraction was measured
+on both references first and its origin page re-measured afterwards:
+
+| extracted / moved | from | now shared with |
+| --- | --- | --- |
+| `Schools/ISDI/ZoneCard` | `Industry/Conclave` | industry-centric-approach |
+| `Schools/ISDI/SliderCardD` | `Industry/Visits` | industry-centric-approach |
+| `Schools/ISDI/LogoStrip` | `Industry/ui` (which re-exports it) | industry-centric-approach |
+
+`About/Hero` gained `widget`; `TransferCard` gained `logoKind`; `ui/GridGallery` gained
+run-list captions (three award names are authored inside a `<strong>`, and
+`.grid-card-name` is already 700, so Preflight's relative `bolder` would render them
+900), the `.grid-txt-wrapper2` row caption with its location pin, `round16` and
+`margin`. `ui/PatentCard`, `ISDI/CardA`, `ISDI/CareerCard`, `ISDI/StatsBand`,
+`About/IconSection`, `About/AnchorMenu`, `Home/MintTabStrip`, `ui/LogoGrid`,
+`ui/ZoomSliderLg`, `Carousel`, `About/MoreQuestions` and the site-wide `FAQ` took it
+unchanged.
+
+**The six Career Support cards are industry-centric-approach's own** — same titles,
+same copy, the same six photographs and the same three measured
+`.css-content-wrapper.isdi-bg1/2/3` washes, compared field by field
+(`scratchpad/ss1/careercmp.py`) — so `lib/schools/isdi/success-snapshot/career.js`
+re-exports that page's module and carries only this page's head.
+
+#### Assets
+
+221 distinct urls, **220 mapped** — the 221st is the dead
+`data-slider-card-a-bg="Paste image url"` attribute, the same dead script
+/life-at-atlas records. 75 new under
+`public/assets/images/schools/isdi/success-snapshot/<section>/` (2.6MB after 54 WebP
+conversions saving 11.6MB) and 145 reused.
+
+**A WebP an earlier page already made cannot be deduped by the bytes you fetch.**
+`download.py` matches a download against `public/` by SHA-1, so a photograph the
+industry-centric-approach page has since converted looks new: the original PNG is gone
+and the page ships a second copy. Thirteen files here — six Career Services cards and
+seven Industry Internships portraits — were exactly that.
+`scratchpad/ss1/dedup_webp.py` runs after the optimisers and collapses any WebP that is
+byte-identical to one outside this page's folder onto the older path (both conversions
+come from the same source through the same encoder, so the twins really are identical).
+The pipeline is `download.py → optimise.py → reconcile.py → dedup_webp.py →
+gen_data.py`.
+
+#### Verified
+
+Measured against
+`https://atlasuniversity.edu.in/schools/isdi/success-stories/success-snapshot/` at
+**1920 / 1440 / 1280 / 1100 / 992 / 900 / 768 / 700 / 568 / 479 / 390 / 360**:
+
+- **18 of the 19 blocks match the reference height to the pixel at all twelve widths**;
+  the nineteenth is the shared FAQ's ±20 bucket.
+- **Text identical to production in 18 of 19 blocks.** The nineteenth is `support`,
+  where the same two lines appear in a different order because the `.zoom-slider-lg`
+  autoplays on both sides. The only links production has and the port does not are the
+  five Webflow tab anchors, which the port renders as `<button>`s.
+- **Per-block screenshots at 1440 / 1280 / 768 / 479 / 390**: `stats`, `menu` and
+  `search` are **0.00**, and every block outside the two marquees, the zoom slider and
+  the FAQ is at or below **4.7** mean.
+- **The two marquees are proved by geometry instead** (`scratchpad/ss1/marquee.py`):
+  `.slide-wrap` is Webflow's `a-22` on the reference — an inline transform re-applied
+  every frame, which no freeze can rewind — and `animate-slide-wrap` here, so the two
+  can never land on the same offset. With the offset taken out, **both tracks' boxes,
+  padding and all 26 + 8 marks' sizes and positions are identical** at 1440 and 390.
+- **The pre-placement zoom slider likewise** (`scratchpad/ss1/zoom.py`): with Swiper
+  pinned on the reference and the port's timer neutralised before React mounts, the
+  block diffs at **0.61 at 390**; at 1440 the residue is Swiper's loop translate, which
+  places its active card 24px left of the authored container inset — the deviation
+  `ZoomSliderLg` already documents. Both sides' slides measure 800x478 with the same
+  1 / 0.65 ladder.
+- **181/181 interactions** at 1440 and 390, including the widget dialog's measured box,
+  the `.big-logo` 139px, the five intrinsic Master's logos, `.tab-content-mint`'s
+  padding, the two line-heights of `.blue-desc-text`, the publications heading's colour
+  outside the blue band, and the three award names at 700.
+- `validate.py` clean at all twelve widths: 0 overflow, 0 console, 0 page errors, 0
+  failed requests, 0 broken images, and **0 off-origin requests from the top frame**.
+- `npx eslint .` exits 0 and `npx next build` succeeds from a cleared `.next`; the route
+  builds `○ Static`. `regress.py` sweeps all **60** built routes at two widths with 0
+  overflow, 0 page errors, 0 failed requests and 0 broken images — the only console
+  entries anywhere are the three already documented (`/_not-found`'s own 404, the
+  Instagram media route's 400 placeholder and the Summer School Admissions page's
+  NoPaperForms 403).
+- **Every page sharing a changed component was re-measured against production**: the six
+  ISDI routes show their own documented FAQ bucket and nothing else
+  (`/programs/pre-university-summer-school` is 0 diffs,
+  `/admissions/pre-university-summer-school` keeps its +28/−12, and the Accessory B.Des
+  page's +369.1 at 390 is the video-metadata race). `ui/GridGallery`'s five ATLAS pages
+  have no `.main-wrapper`, so the component itself was compared instead
+  (`scratchpad/ss1/galleries.py`): **seven galleries, every box, margin, column count
+  and card identical at 1440 and 390 — 0 diffs.**
+
+**Reference notes, transcribed as authored:** the hero lead runs three words together
+("shape industries andinspirechange") and the 4th-year card's does the same ("ventures
+acrossindustries"); the second publication's href ends in a bare `?utm`; two FAQ
+questions are near-duplicates of each other; one universities card nests a second
+`.title-txt-grid3` holding a `<strong>` inside the first (both inert at 700, and
+reproducing the `<strong>` would render 900); two award cards author a second, EMPTY
+`.grid-txt-wrapper`, which is absolutely positioned and paints nothing; and three
+`#w-node-…` ids carry `grid-template-columns` on block boxes, so no id is emitted.
+
+
+#### A fifth defect, found later and fixed 2026-10-27 — the card radius
+
+`.grid-image-card.isdi` is `border-radius: 16px`, and **all 24 of this page's gallery
+images carry `.isdi`** (verified in the reference markup and on production). Only
+`Success/Universities` was passing `ui/GridGallery`'s `round16`, so the eight cards of
+"Startups founded by ATLAS ISDI Alumni" and the eight of "Awards & Recognitions"
+rendered square corners. The fix is that one prop on each of `Success/Alumni` and
+`Success/Awards`; the shared component needed no change.
+
+**Four separate checks passed over it**, and the reason each did is worth keeping:
+
+- the **block-height diff** — the cards are a declared height in both galleries, so a
+  radius moves nothing;
+- the **text diff** — a radius is not text;
+- the **per-block screenshot** — at 1440 the alumni wall means 2.84 with the corners
+  right and 3.12 with them square, both inside this page's documented "at or below 4.7"
+  band. `scratchpad/st1/radius.py` isolates it by compositing only four 24x24 squares
+  per image: **corner-only means go from 0.10-0.55 to 0.00-0.03** at 1440 / 768 / 390,
+  with the universities wall as the control (0.02-0.04 before and after);
+- the **interaction suite**, which did assert it — as
+  `walls['uni']['r16'] == '16px'`, the FIRST card of ONE wall standing in for all 24
+  images. It passed for as long as the defect existed. That is the same shape as the
+  internationalisation "two of them carry a university logo" assertion, and the lesson
+  is the same one: **write the assertion against every instance the reference has, not
+  the one that happens to be at hand.** It now collects all 24 radii.
+
+What finally caught it was the SHARED check, not the page's: `scratchpad/st1/galleries.py`
+started reporting each gallery image's radius beside its box while regressing
+`ui/GridGallery` for /schools/isdi/success-stories/startups, and reported 16 diffs here
+at each of three widths. **A new assertion is worth adding to the shared check, not only
+to the page that prompted it.**
+
+**Deviations (two):** the shared FAQ's section-padding bucket (±20, the same one every
+ISDI page carries); and `ZoomSliderLg`'s active card sits at its authored container
+inset where Swiper's loop translate puts the reference's 24px to the left of it — the
+deviation that component already carries.
+
+### ISDI Placements and Internships — `app/schools/isdi/success-stories/placements/page.js`, `components/Schools/ISDI/StudentWall.js`, `lib/schools/isdi/placements/`
+
+`reference/schools/isdi/success-stories/placements.php` (`$css =
+"…68f1f89e15d0a283b7396386-534dbd59c.css"`, its own sheet; `$body = "body isdi-page"`)
+— the second entry in the ISDI menu's "Success Stories" column and **the smallest
+page of the whole rebuild**: 258 lines of PHP whose body is 21 repeats of one card,
+and three top-level blocks.
+
+| | block | |
+| --- | --- | --- |
+| 1 | `.inner-header-wrapper.full-ht` | a photographic hero, 100vh |
+| 2 | `.top-cards-wrapper` | three figures — **bare**, so its own `padding-bottom: 60px` stands |
+| 3 | `div.section` | "From ATLAS ISDI to the World's Best Companies" over a 21-card `.transfer-card-wrapper` |
+
+No sticky anchor menu, no carousel, no tab set, no brochure popup, no "More
+questions?" panel and **no FAQ** — so it is the first ISDI page in this port with no
+shared-FAQ bucket to carry, and the first whose verification is clean end to end:
+**all three blocks match production's height to the pixel at all twelve widths**,
+text is identical to production in all three, 516/516 interactions pass at twelve
+widths, the per-block screenshots are 0.00–0.68 mean, and `validate.py` reports 0
+overflow, 0 console, 0 page errors, 0 failed requests, 0 broken images and **0
+requests off this origin**.
+
+**It opens no database connection and the mirror is current.** Its text nodes and
+media urls were diffed one by one against production across all three content blocks
+before anything was transcribed (`scratchpad/pl1/mirror2.py`) — 51/51 and 51/51,
+identical. It was still measured against production, because the local mirror renders
+in quirks mode and its ISDI `$domain` is broken.
+
+**It is a flat `.php`, so production serves it at the SLASHLESS url** — the trailing
+slash answers **500**, the opposite of its sibling `success-stories/success-snapshot/`,
+which is a directory with an `index.php` and 301s the other way. Two spellings, two
+behaviours, in one column: fetch the one the menu links.
+
+**`mirror.py`'s whole-host comparison does not work on this page.** The script filters
+production down to `.main-wrapper`, which on the Success Snapshot was the content; here
+`.main-wrapper` also holds the header, the footer and the chatbot, so the diff drowned
+in 165 lines of menu copy and reported nothing useful. `mirror2.py` compares the three
+content blocks by selector instead. **Check what the host selector actually contains
+before trusting a "no differences" result.**
+
+#### Not one shape on this page is new
+
+`About/Hero` (the image form), `Schools/ISDI/StatsBand` and the shared
+`Schools/ISDI/TransferCard` carried it; the only new file is
+`Placements/StudentWall`, which is the heading and the wall. The card is
+`.transfer-card.isdi` — the same 282x388 r17 box, the same 55%/90% scrim, the same
+26/25 content inset and the same two lines that `International/Masters`,
+`Industry/Career`, `Success/Internships` and `Success/Masters` already render.
+
+**The logo is a bare `<img>` with no class**, and this page's three sheets declare
+neither `.transf-un-logo` (140x36 on internationalisation's sheet) nor `.big-logo`
+(`width: 100%; max-width: 60%`) — so every mark paints at its own intrinsic size:
+104x50 on thirteen of the 21, 175x50 on seven and 50x50 on EY, all well inside the
+content box's 232px. That is `logoKind="bare"`, the third page to need it and the
+reason the kind travels as a named class rather than being inferred from the markup.
+
+`.transfer-card-wrapper` is authored inline here and in `International/Masters` —
+`flex flex-wrap items-center justify-center gap-8 font-medium`, measured identical on
+both references. One short class string is not a shape, so it stays in both rather
+than becoming a shared component that would touch a finished page for no measured
+gain, the call `KeyDates` and the integrated-programmes eligibility strip already
+record.
+
+#### Two latent wrong computed values in shared code, both found here and both inert
+
+The block-height diff was clean on its first run and so was the text diff. Both of
+these came out of `scratchpad/pl1/pair.py`, which measures ~50 computed properties on
+every element of all three blocks on BOTH sides. Neither moved a pixel; both read back
+wrong, and both were wrong on every page that renders them.
+
+- **`.transfer-card-content` declares no colour at all.** The white is on
+  `.transt-cd-name` and `.transf-cd-degre`, each of which sets `color: #fff`, and the
+  rule under the detail line is an explicit `1px solid #fff` rather than
+  `currentColor`. `TransferCard` held `text-white` on the wrapper, which painted the
+  same — nothing else in the box is text — but made the logo `<img>` inherit white
+  where the reference leaves it at the page's #333. The utility moved onto the two
+  lines.
+- **`img.header-image-inner` declares `display: block`**, where `globals.css` restores
+  Webflow's own `img { display: inline-block }` for every other image on the site.
+  `About/Hero`'s image branch now restates it. Inert, because the frame has a declared
+  height and clips.
+
+Both were re-measured on every page that renders them —
+`/atlas-isdi-advantage/the-isdi-advantage`, `/atlas-isdi-advantage/internationalisation`,
+`/atlas-isdi-advantage/industry-centric-approach` and
+`/schools/isdi/success-stories/success-snapshot` — with `scratchpad/pl1/comp.py`, which
+finds a transfer card by SHAPE (a relative 282x388 box with three children whose last
+holds two lines and an `<img>`) so one script serves both documents. **0 diffs on all
+four, at 1440 and 390**, and the block-height sweep over all seven pages touching
+either component shows each page's own documented FAQ bucket and nothing else.
+
+#### A defect on a finished page that this regression run found — FIXED 2026-10-26
+
+`comp.py` reported **5 cards on production and 2 in the port** for
+/atlas-isdi-advantage/internationalisation's "Master's Progression Support".
+Cards 3, 4 and 5 author their partner mark as a bare `<img>` with no class, and that
+page's extractor looked for `img.transf-un-logo` only, so three entries in
+`lib/schools/isdi/internationalisation/masters.js` carried `logo: null`. The card is a
+declared 282x388, so the gap cost no block height — which is why that page's twelve-
+width height diff, its text diff and its interaction suite all passed, **the suite
+having asserted "two of them carry a university logo" and so baked the gap in as a
+requirement**.
+
+It was flagged rather than fixed with the page itself (a different page, outside that
+task's scope) and fixed in the next task on the user's instruction. **No asset was
+missing**: the downloader scans every `<img src>` off the live DOM, so all three files
+were already in `public/` and in the page's manifest, and only the extractor dropped
+them (re-fetched and SHA-1-compared before use). `scratchpad/intl/extract.py` gained a
+`card_logo()` that takes the LAST `<img>` in `.transfer-card-content` whatever class it
+carries and names the kind from that class (`transf-un-logo` → sized, `big-logo` → big,
+none → bare); `masters.js` was regenerated, and `International/Masters` now passes
+`person.logoKind` through to `TransferCard` the way `Success/Masters` already did. The
+three paint at 118x42 / 119x37 / 119x37, and that block's screenshot went from
+2.65 / 3.26 / 5.41 to **0.38 / 0.46 / 1.34** mean at 1440 / 768 / 390 — residue that
+had been sitting inside the page's documented "at or below 6.4" band.
+
+Three lessons, and the second is the expensive one:
+
+- **Read the element that owns the asset, not the class you expect it to carry.** The
+  Success Snapshot's `logoKind` paid for this from the other side (a class the page's
+  sheet does not declare); here it is a class the markup does not carry.
+- **An interaction suite written from the PORT rather than from the reference will
+  assert the bug.** "Two of them carry a university logo" passed for as long as the
+  defect existed and would have passed forever. An assertion is worth writing from the
+  measurement, not from what the implementation happens to render — the suite now names
+  each card's own file and the size it paints at.
+- **A declared-size card hides a missing child from every aggregate check.** Height
+  diff, text diff and screenshot mean all absorbed it; what found it was a per-element
+  comparison that enumerated the card's children on both sides.
+
+#### Assets
+
+51 distinct urls, all mapped: **49 new** under
+`public/assets/images/schools/isdi/placements/{hero,students,logos}/` and 2 reused (the
+two stat vectors, which are the About page's files by SHA-1). The folder is **3.4MB**
+after 22 WebP conversions saving 3.8MB.
+
+The hero is the one oversized file: the CDN's own ladder (500/800/1080/1600/2000/2600/
+3200w) is already efficient at 41KB–687KB and ships byte-for-byte as JPEG, while the
+**3648w original is 3.3MB** and ships as a 730KB WebP at SSIM 0.9999 — so the srcset
+mixes extensions, which is valid and is what the width descriptors are for. The 21
+student photographs are authored at exactly 282x388, the size the card paints them, and
+convert at SSIM ≥ 0.999; the 20 distinct logos are all under 40KB and keep their JPEG.
+
+`sizes="100vw"` is transcribed as authored and is correct for a full-bleed frame — the
+browser picks `-p-1600` at 1440, `-p-800` at 768 and `-p-500` at 390, exactly as
+production does. **Assert that in a fresh browser context per width**: sweeping widths
+in one context lets Chrome reuse a larger candidate it already has cached rather than
+fetch the smaller one, which is the browser's own behaviour and not a page difference —
+it produced the suite's one false failure.
+
+#### Reference notes, transcribed as authored
+
+- `$title` and `$description` are the ISDI template's **unedited placeholders** again —
+  "ATLAS SkillTech University" and "Get in touch with Atlas Skilltech." Neither mentions
+  the page. The same pair The ISDI Advantage and industry-centric-approach carry.
+- "kaustub pingali" is the only one of the 21 names in lower case, and "Diva Ghanshani "
+  is authored with a trailing space (HTML collapses it, so it is stored trimmed).
+- Two students are placed at the same company, so `tira.jpg` is cited twice. The React
+  key is index-qualified anyway.
+- Only the first 7 of the 21 cards give their two `<img>`s an `alt=""`; the other 14
+  carry no `alt` attribute at all. All 42 are decorative, so all of them ship `alt=""`.
+- The 21 cards are plain `<div>`s, not anchors — the page has **no link in its content
+  at all**, which is what the text diff's "ref 0 / port 0 links" line records.
+
+#### Verified
+
+Measured against `https://atlasuniversity.edu.in/schools/isdi/success-stories/placements`
+at **1920 / 1440 / 1280 / 1100 / 992 / 900 / 768 / 700 / 568 / 479 / 390 / 360**:
+
+- **All 3 blocks match the reference height to the pixel at all twelve widths**, against
+  the dev server and again against a clean production build. No bucket of any kind.
+- **Text identical to production in all three blocks**, and both link lists are empty.
+- **Element-by-element (`pair.py`): 0 diffs at all twelve widths** across ~50 computed
+  properties per node — the hero and its contents (a fixed-height box, so invisible to a
+  height diff), the three figures and their two lines each, and all 21 cards with their
+  scrim, content box, two lines and logo. Four buckets are suppressed with their reason:
+  Preflight's zero-width `border-style: solid`, flex properties and `min-width: auto` on
+  a child of a block box, `background-position/size/repeat` where the image is `none`,
+  and the CDN object-id prefix that the local file names drop.
+- **Per-block screenshots at 1440 / 1280 / 768 / 479 / 390**: `stats` is **0.00 at every
+  width**, `hero` 0.00–0.12, and `wall` 0.43–0.68 — the WebP residue on the 21
+  photographs. Nothing on the page exceeds 0.7.
+- **516/516 interactions** at all twelve widths, including the hero's 100vh frame and
+  its scrim ladder, the eight srcset candidates and the one the browser picks, the band's
+  own 60px of bottom padding and the middle card's 40px right pad, the absence of every
+  piece of furniture the page does not have, the 21 names in order, the scrim's two
+  heights, the content box's inherited #333, the single 1px bottom rule, and each of the
+  21 logos at its own measured intrinsic width.
+- `validate.py` clean at all twelve widths: 0 overflow, 0 console, 0 page errors, 0
+  failed requests, 0 broken images, **0 requests off this origin**.
+- `npx eslint .` exits 0 and `npx next build` succeeds from a cleared `.next`; **61
+  routes**, the new one `○ Static`. `regress.py` sweeps all 61 at two widths against the
+  production build with **0 overflow, 0 page errors, 0 failed requests and 0 broken
+  images** — the only console entries anywhere remain the three already documented
+  (`/_not-found`'s own 404, the Instagram media route's 400 placeholder and the Summer
+  School Admissions page's NoPaperForms 403).
+
+**Deviations: none.** This is the first page in the ISDI port with nothing to record.
+
+### ISDI Startups — `app/schools/isdi/success-stories/startups/page.js`, `components/Schools/ISDI/{Startups/,StoryPair.js}`, `lib/schools/isdi/startups/`
+
+`reference/schools/isdi/success-stories/startups.php` (`$css =
+"…68f1f6c379bf20774656f8aa-9495693a8.css"`, its own sheet; `$body = "body isdi-page"`)
+— the third entry in the ISDI menu's "Success Stories" column, and the second-smallest
+page of the rebuild: 252 lines of PHP in **six** blocks.
+
+| | block | |
+| --- | --- | --- |
+| 1 | `.inner-header-wrapper.full-ht` | a photographic hero, 100vh |
+| 2 | `.top-cards-wrapper` | three figures — **bare**, so its own `padding-bottom: 60px` stands |
+| 3 | `section.section` | "Startups that shape the future" — the 30 / calc(70% − 40px) story pair |
+| 4 | `div.section` | "Spotlighting student startups", an 18-card `.grid-gallery` |
+| 5 | `div.section.nopad` | the 18-mark `.slide-wrap` marquee |
+| 6 | `section#faq.section` | three questions |
+
+No sticky anchor menu, no carousel, no tab set, no "More questions?" panel and no
+brochure popup. **Five of the six blocks match production's height to the pixel at
+all twelve widths**; the sixth is the shared FAQ (below). 2196/2196 interactions pass
+at all twelve widths, the text is identical to production in all six blocks, and
+`validate.py` reports 0 overflow, 0 console, 0 page errors, 0 failed requests, 0
+broken images and **0 requests off this origin**.
+
+**It opens no database connection and the mirror is current.** Its text nodes and
+media urls were diffed one by one against production across all six content blocks —
+the FAQ include among them — before anything was transcribed
+(`scratchpad/st1/mirror2.py`): identical. It was still measured against production,
+because the local mirror renders in quirks mode and its ISDI `$domain` is broken.
+
+It is a flat `.php`, so production serves it at the **slashless** url and answers
+**500** on the trailing slash — exactly as `success-stories/placements` does and the
+opposite of `success-stories/success-snapshot/`, which is a directory with an
+`index.php`. Two spellings, two behaviours, three pages in one column.
+
+**Its FAQ include comes from the ATLAS reference root.**
+`../../../assets/include/faq/isdi/startup.php` resolves to `reference/assets/include/…`,
+not ISDI's own tree — the same place The ISDI Advantage takes both of its includes
+from. **Resolve an include's `../` before assuming which tree it is in.**
+
+#### Only two of this page's six size modifiers are declared
+
+The gallery cards are authored `g-card-1` and `g-card-3` … `g-card-8`, and it is
+tempting to read the 163 / 364 / 319px heights off the sheet for them. Those rules
+are on `.grid-card-3` … `-8` — **a different set of class names**. What this page's
+three sheets declare is `.grid-card.g-card-1` and `.grid-card.g-card-6`, both
+`height: 520px`, and nothing else.
+
+So twelve of the eighteen cards are `height: auto`, and `place-items: start` then
+sizes each to its own photograph: every one is authored at exactly **282 x 388**,
+which is what they measure. The two 520px modifiers are clamped to the 298.5px column
+instead, because `fit-content` cannot exceed the space available. `ui/GridGallery`'s
+size map already falls back to `h-auto` for a modifier it does not know, so nothing
+was added for the five that paint nothing — but **grep the modifier, do not pattern-match
+the prefix**: `g-card-5` and `grid-card-5` are 357px apart.
+
+#### `.title-txt-grid` holds a MARK, not a line
+
+Every other page that renders this gallery puts text in that box. Here each card
+closes with the founder's company logo, authored as a bare `<img>` with no class and
+no `width`/`height` attribute, so it paints at its intrinsic size — 50x50, 104x50 or
+175x50, measured — and the caption's line box grows from 32px to the mark's 50. That
+is `GridGallery`'s new `card.captionImage`, a no-op on every other page.
+
+The eighteen marks are cited **twice**: once per card and once in the marquee, in
+alphabetical order rather than the gallery's. The downloader therefore decides the
+`student/` vs `logo/` folder from the url, not from the block.
+
+#### Two wrong computed values in the shared gallery, one of them visible
+
+Both came out of `scratchpad/st1/pair.py`, which measures ~55 computed properties on
+every element of all six blocks on BOTH sides. The block-height diff was already exact
+and the text diff already clean.
+
+- **`.grid-txt-wrapper` declares `font-family: Manrope, sans-serif`, and
+  `GridGallery` carried it on its `row` caption wrap only.** On the five ATLAS pages
+  that is a no-op — their `<body>` is already Manrope — and on an ISDI page, whose body
+  is Poppins, it is not: the card names and captions rendered in the wrong family, and
+  at 768 a long name wrapped to a second line the reference keeps on one. The utility
+  moved out of the `row` branch into the shared string, which **also fixes the Success
+  Snapshot's alumni and awards walls**. Re-verified: the four ATLAS pages that render a
+  gallery are 0 diffs at 1440 / 768 / 390 after it, and the ISDI page's captions now
+  read Manrope on both sides.
+- **`.grid-image-card` declares `overflow: hidden`**, where Chrome's own UA sheet gives
+  a replaced element `overflow: clip`. Inert — an `<img>` cannot overflow itself — but
+  it was the wrong computed value on every page that renders this gallery.
+
+After both, `pair.py` is **0 diffs at 1440 / 1280 / 991 / 479 / 390** and 37 at 768,
+and all 37 are the font: `scratchpad/st1/fontcheck.py` forces the caption family to the
+same generic `sans-serif` on BOTH sides and **0 of 18 cards differ**. Production loads
+no Manrope at all on this page — the word does not occur in its HTML, its only Google
+Fonts request is `family=Inter`, and it ships no `@font-face` — so it falls back to the
+system sans-serif while the port self-hosts the real face. That is the deviation the
+ISDI port already carries site-wide; here it costs 0.28px of line box on six marks and
+flips two names at a 125px wrap boundary. Every card BOX is identical, which is why the
+block heights are exact at 768 too.
+
+**`margin: auto`'s resolved value is not stable, and it can fake a diff.** The same
+`pair.py` run reported `.spotContainer.marginLeft ref=0px imp=37px` at 1440 while the
+two boxes measured [x 37, w 1366] on both sides. `scratchpad/st1/margins.py` asked the
+reference three times in a row and got **37px / 0px / 37px** for that one element with
+the box unchanged every time. The box is the ground truth and is compared on every
+node, so the pair is skipped only where `geo` is identical. (The same shape appeared
+once on the placements page and did not reproduce there — now it has an explanation.)
+
+**A box offset is inert on a `position: static` box.** `.grid-card-name` and
+`.title-txt-grid` both declare `position: static; inset: auto auto 0% 0%`, so the
+reference computes `bottom: 0%; left: 0%` on boxes those values can never move — the
+same class of declaration the harness's flex and background buckets already suppress.
+
+#### Nothing shrinks in this marquee
+
+`LogoStrip`'s header records the Industry page's marks being squeezed to 186x43 by the
+5000px flex row. On this page all eighteen paint at their **intrinsic** width, so the
+2136px of marks plus 3600px of margin overflow the track and are clipped: a replaced
+flex item's automatic minimum size is its own intrinsic width, and nothing here clamps
+it. That falls out of the same markup, which is why the component pins no size.
+
+**The marquee is proved by geometry, not by a screenshot.** `.slide-wrap` is Webflow
+interaction `a-22` on the reference — an inline transform re-applied every frame, which
+no freeze can rewind — and `animate-slide-wrap` here, so the band screenshots at 14-33
+mean pixels however it is frozen. `scratchpad/st1/marquee.py` takes the offset out and
+compares the band's box, the track's box and padding, and every mark's file, natural
+size, painted size, margin and position **relative to the first mark**: 18 marks,
+**0 diffs at 1440 / 768 / 390**. The same call the Success Snapshot's two marquees and
+internationalisation's `logos` band already make.
+
+#### Reuse
+
+Five existing components carried five of the six blocks — `About/Hero` (the image form
+at `height: '100vh'`), `ISDI/StatsBand` (`label="isme-2"`, whose
+`.sm-text-isme-2.isdi` stays **24px at every width** where placements'
+`.sm-text-isme.isdi` drops to 18, plus `padBottom`), `ui/GridGallery`,
+`ISDI/LogoStrip` and the site-wide `FAQ`. Three small local sections are this page's
+own: `Startups/{Story, Spotlight, LogoBand}`.
+
+**The story pair was NOT extracted.** `Advantage/Location` renders the same
+`.about-story-wrapper` arithmetic — `.abt-cont` `flex: none` at 30%, the photograph at
+`calc(70% - 40px)` under `align-items: stretch`, wrapping at <=767 with the image at
+`width: auto` and `margin-top: 40` — but it wraps the row in a `.common-wrapper` under
+an `.icon-heading` and titles it with a `.about-title.isdi-blue` rather than an
+`h2.h2-tag.mrg32.isdi`. What the two have in common is three short class strings, which
+is not a shape; the row stays authored in both, the call `Placements/StudentWall`
+already makes for `.transfer-card-wrapper`.
+
+**`.abt-cont` declares `text-align: left`**, which the port inherits as `start`. The
+same value in LTR and a different computed one, so it is restated — `Advantage/Location`
+has the identical gap and is recorded, not changed, because that is a different page.
+
+#### Assets
+
+45 distinct urls, all mapped: **43 new** under
+`public/assets/images/schools/isdi/startups/{hero,story,students,logos}/` and 2 reused
+(the two stat vectors, which are the About page's files — re-fetched and SHA-1-compared,
+identical). No soft-404, no collision, no orphan, and every path the data names exists.
+
+The folder is **1.1MB** after 22 WebP conversions saving 3.0MB. The whole hero ladder
+converted (the 1368w original alone went 1.8MB -> 166KB at SSIM 0.9993), so unlike the
+placements hero this srcset is homogeneous. The eighteen student photographs are
+authored at exactly 282x388 — the size the card paints them — and convert at SSIM
+>= 0.9994. The twenty logos are all under 15KB and keep their JPEG.
+
+#### Reference notes, transcribed as authored
+
+- `$title` and `$description` are the ISDI template's **unedited placeholders** again —
+  "ATLAS SkillTech University" and "Get in touch with Atlas Skilltech." Neither mentions
+  the page. `$keywords` is "atlas, contact".
+- **Two of the three FAQ questions are near-twins of two in FAQ master 1** — the set
+  /programs/ug/ug-design-and-innovation and the ISDI About page render. "Does ISDI
+  provide support for aspiring entrepreneurs?" is word for word and "Can ATLAS ISDI
+  students start their ventures after graduation?" differs only by the "ATLAS". Their
+  ANSWERS are different copy with different list items, and master 1 authors every text
+  node inside a `<strong>` where this include authors none — so nothing is re-exported.
+  The third question is a third rewording of the first.
+- the gallery cards are plain `<div>`s and the marquee marks bare `<img>`s, so **the
+  page has no link in its content at all** (ref 0 / port 0, as on placements).
+- the 18 card photographs carry no `alt` attribute and the marks carry `alt=""`; all 36
+  are decorative, so all of them ship `alt=""`.
+
+#### Verified
+
+Measured against `https://atlasuniversity.edu.in/schools/isdi/success-stories/startups`
+at **1920 / 1440 / 1280 / 1100 / 992 / 900 / 768 / 700 / 568 / 479 / 390 / 360**:
+
+- **5 of the 6 blocks match the reference height to the pixel at all twelve widths**,
+  against the dev server and again against a clean production build.
+- **Text identical to production in all six blocks**, with the FAQ opened, and both
+  link lists empty.
+- **Element-by-element (`pair.py`): 0 diffs at 1440 / 1280 / 991 / 479 / 390** across
+  ~55 computed properties per node; 37 at 768, every one of them proved to be the
+  self-hosted Manrope by `fontcheck.py`.
+- **Per-block screenshots at 1440 / 1280 / 768 / 479 / 390** (MEDIA=hide): `stats` and
+  `story` are **0.00 at every width**, `hero` 1.15-1.57 and `spotlight` 1.11-1.89 — WebP
+  residue on the photographs. `marquee` (14.5-33.3) is the animation offset and is
+  proved by geometry instead; `faq` (9.1-19.5) is the size difference below.
+- **2196/2196 interactions at all twelve widths**, including the hero's 100vh frame and
+  its scrim ladder, the four srcset candidates and the one the browser picks, the band's
+  own 60px of bottom padding and its 24px labels, the story row's two percentage widths
+  and its left alignment, the gallery's column count / bleed / `place-items`, all 18
+  cards with their size modifier, Manrope caption wrapper and own mark at its intrinsic
+  width, the marquee's 18 marks in alphabetical order at 200px (80 at <=767) with none
+  shrunk, and the FAQ closed on load, single-open, with its ISDI arrow rotating and its
+  last item drawing no divider.
+- `validate.py` clean at all twelve widths: 0 overflow, 0 console, 0 page errors, 0
+  failed requests, 0 broken images, **0 requests off this origin**.
+- `npx eslint .` exits 0 and `npx next build` succeeds from a cleared `.next`; **62
+  routes**, the new one `○ Static`. `regress.py` sweeps all 62 at two widths against the
+  production build with **0 overflow, 0 page errors, 0 failed requests and 0 broken
+  images** — the only console entries anywhere remain the three already documented
+  (`/_not-found`'s own 404, the Instagram media route's 400 placeholder and the Summer
+  School Admissions page's NoPaperForms 403).
+- **Every page that renders the changed component was re-measured against production.**
+  `galleries.py`: /success-stories-atlas, /advantages/atlas-advantages,
+  /advantages/atlas-career-services, /advantages/atlas-enterprenurship and
+  /advantages/atlas-industry-centric-approach are **0 diffs at 1440 / 768 / 390**.
+  /schools/isdi/success-stories/success-snapshot shows the FAQ bucket alone on its block
+  list and its captions now read Manrope on both sides — but that run turned up a
+  pre-existing defect of its own, below. /schools/isdi/success-stories/placements is
+  0 diffs at all three widths.
+
+**Deviations (one):** the shared FAQ's bucket, and here it is **+22 above 768 / −18
+below**. ±20 of that is `components/Home/FAQ` using the ATLAS `SectionHead.SECTION`
+rhythm (60 / 40) on a 50px ISDI section; the other 2px is the divider. **This page's
+include is a FIFTH reference that ships no `<style>` for `.accordion-item`**, after the
+ATLAS homepage, /admissions/integrated-admissions, /admissions/ug-admissions and
+/schools/isdi/admissions/pre-university-summer-school — so it draws Bootstrap's stock
+1px #dee2e6 where the component draws the authored 2px #eee, over its two non-last
+items. That is the cost side of the 2026-10-24 trade and it was accepted then.
+
+**Found here, fixed on the next page — sixteen square card images on
+/schools/isdi/success-stories/success-snapshot.** All 24 of that page's
+`img.grid-image-card` carry `.isdi`, which is `border-radius: 16px`, and only
+`Success/Universities` was passing `GridGallery`'s `round16` — so the eight alumni cards
+and the eight awards cards rendered square corners. It was flagged here rather than
+changed (a different page, outside this task's scope) and **fixed on 2026-10-27 on the
+user's instruction**; see the note under the Success Snapshot above. **A new assertion
+is worth adding to the shared check, not only to the page**: this one was found because
+`galleries.py` started reporting each image's radius.
+
+### ISDI Masters Progression — `app/schools/isdi/success-stories/masters-progression/page.js`, `components/Schools/ISDI/{StoryPair,StudentWall}.js`, `lib/schools/isdi/masters-progression/`
+
+`reference/schools/isdi/success-stories/masters-progression.php` (`$css =
+"…68e7910cfd354f81f55224f6-5020c8a92.css"`; `$body = "body isdi-page"`) — the fourth
+and last entry in the ISDI menu's "Success Stories" column. Four blocks:
+
+| | block | |
+| --- | --- | --- |
+| 1 | `.inner-header-wrapper.full-ht` | a photographic hero, 100vh, with **no `.inner-cover-text`** |
+| 2 | `.top-cards-wrapper` | three figures — bare, so its own `padding-bottom: 60px` stands |
+| 3 | `section.section` | "Guiding you to Masters Success" — the shared `StoryPair` |
+| 4 | `div.section` | "From ATLAS ISDI to the World's Best Universities", 23 `.transfer-card.isdi` |
+
+**All four blocks match production's height to the pixel at all twelve widths, and
+the element-by-element diff is 0 at 1440 / 1280 / 991 / 768 / 479 / 390** across ~55
+computed properties per node. 2544/2544 interactions pass at all twelve widths, the
+text is identical in all four blocks, and `validate.py` reports 0 overflow, 0
+console, 0 page errors, 0 failed requests, 0 broken images and **0 requests off this
+origin**. Like `placements`, it has no FAQ, so it carries **no bucket of any kind**.
+
+**Not one shape on it is new.** `About/Hero`, `ISDI/StatsBand`, `ISDI/StoryPair` and
+`ISDI/StudentWall` took it as data; the last two were page-local and became shared
+for it (below). `$css` is the only one in the ISDI port that names the CDN sheet the
+other pages load as their *third* stylesheet, so the page loads that file twice and
+has no third sheet of its own — it changes nothing measurable.
+
+It is a flat `.php`, so production serves it at the **slashless** url and 500s on the
+trailing slash. Three of this column's four pages do that; only
+`success-snapshot/` is a directory and 301s the other way.
+
+#### An editorial note in the markup, and two cards that are not there
+
+The card list carries `<!-- ...continues same pattern for all 21 -->` between its
+third and fourth cards. That reads exactly like a **truncated mirror**, and it was
+the first thing to check — a mirror cut short would have shipped a third of the wall.
+It is not: production serves the same note byte for byte, along with the same two
+cards commented out line by line (Divya Das and Shreya Shrivastava, both "MS in
+Public Health"). So the note is upstream's own leftover, it is wrong twice over (the
+list holds 23 live cards, not 21, and it interrupts a list written out in full), and
+**23 of the 25 authored cards render on both sides**.
+
+Neither commented card is ported and neither photograph is shipped. BeautifulSoup
+parses `<!-- -->` as Comment nodes, so `select('.transfer-card')` returns the live 23
+and the extractor needed no special case — unlike
+/atlas-isdi-advantage/internationalisation, whose dead markup is commented **line by
+line** inside otherwise-live blocks. **Count the live cards on production before
+transcribing a list that contains a comment.**
+
+#### Two components moved, because a second page needed them
+
+Both were written for a sibling page in this column and both turned out to be this
+page's shape exactly. Each was measured on both references at 1440 / 768 / 390
+before it was shared, and each origin page was re-verified afterwards — the call
+`LogoStrip` already records.
+
+| moved to | from | now shared with |
+| --- | --- | --- |
+| `Schools/ISDI/StoryPair` | `Startups/Story` | startups, masters-progression |
+| `Schools/ISDI/StudentWall` | `Placements/StudentWall` | placements, masters-progression |
+
+`StoryPair` needed no change at all: same `.about-story-wrapper`, same 30% /
+`calc(70% - 40px)` pair under `align-items: stretch`, same `h2.h2-tag.mrg32.isdi`
+over a bare `.abt-text`. Only the copy and the photograph differ. (`Advantage/Location`
+renders the same arithmetic and still keeps its own copy — it wraps the row in a
+`.common-wrapper` under an `.icon-heading` and titles it with a
+`.about-title.isdi-blue`.)
+
+`StudentWall` gained two optional props, both defaulting to the placements form so
+that page is untouched: `headingMargin` (`.h2-tag.isdi` mb56/32 there,
+`.h2-tag.mrg16.isdi` mb16/8 here) and `data.lead`, the `.sub-heading.mrgbtm` this
+page adds — **pb56, 20 from 991, then pb0 + mb20 at <=767 and pb20 again at <=479**,
+which is exactly `SUB_MRGBTM`, measured at all twelve widths.
+
+The `Placements/` folder is now gone; `Startups/` keeps its own `Spotlight` and
+`LogoBand`.
+
+#### The logo class is authored and still means nothing
+
+Every one of the 23 cards authors `img.transf-un-logo` — and **that class occurs 0
+times in all three of this page's stylesheets and its inline `<style>`**, so every
+mark paints at its intrinsic size (104x50 on seven, 175x50 on sixteen) and the wall
+passes `logoKind="bare"`. Only /atlas-isdi-advantage/internationalisation's own sheet
+fixes the class at 140x36.
+
+That makes three distinct routes to `bare` across the four pages that render this
+card, and it is worth stating as the rule: **the page's sheet decides what a class
+means, not the markup.** placements authors no class at all; this page authors the
+class and the sheet declares nothing for it; the Success Snapshot authors the class
+on five of its cards and its sheets likewise declare nothing. `logoKind` names the
+class so the decision stays visible in the data instead of being inferred.
+
+#### A wrong computed value the element diff caught, and what is still open
+
+`pair.py` reported all 23 card photographs at `border-radius: 0` against the
+reference's **16px** — 69 diffs at each of three widths, and the only category.
+
+The radius does **not** come from a `.transfer-card-img.isdi` rule; no such rule
+exists. It comes from ISDI's **generic** `.isdi { border-radius: 16px }`, which any
+element carrying the token picks up unless something cancels it (`.transt-cd-name.isdi`
+explicitly resets it to 0, which is why the name has none). And the references author
+the token **per card**, not per page:
+
+| page | card images carrying `.isdi` |
+| --- | --- |
+| masters-progression | 23 of 23 |
+| success-snapshot | 5 of 12 |
+| internationalisation | 2 of 5 |
+| placements | 0 of 21 |
+| industry-centric-approach | 0 of 8 |
+
+So `TransferCard` gained `person.imageRounded`, set from the image's own class by the
+extractor. With it the element diff is **0 at all six widths**.
+
+**Seven cards on two finished pages are still square** — the five on the Success
+Snapshot and the two on internationalisation. The flag is opt-in and absent from
+their data, so they are unchanged today; they are recorded in `MIGRATION-ISDI.md`
+under OPEN rather than fixed here, because they are different pages. The card clips
+at r17 with `overflow: hidden`, so the visible difference is within a pixel of the
+same curve — which is why no height diff, text diff, screenshot mean or interaction
+suite on either page ever caught it. **A radius inside a clipping parent is only ever
+found by comparing the computed value.**
+
+#### Assets
+
+49 distinct urls, all mapped: **47 new** under
+`public/assets/images/schools/isdi/masters-progression/{hero,story,students,logos}/`
+and 2 reused (the two stat vectors, the About page's files — re-fetched and
+SHA-1-compared, identical). No soft-404, no collision, no orphan, and every path the
+data names exists.
+
+The folder is **1.2MB** after 26 WebP conversions saving 2.2MB. The hero ships
+byte-for-byte: its four candidates are already `.webp` upstream, which is why that
+block screenshots at 0.00-0.12. The 23 student photographs convert at SSIM >= 0.9993
+and the 20 university marks are all small enough to keep their JPEG.
+
+#### Reference notes, transcribed as authored
+
+- **`$title` and `$description` are another page's copy** — "Design & Innovation
+  Programs in Mumbai – ATLAS ISDI" and a sentence about product, communication,
+  fashion and interior design UG programmes, on a Masters Progression page. The two
+  siblings in this column carry the ISDI template's *unedited placeholders*; this one
+  carries edited copy that belongs somewhere else, which is a different kind of wrong
+  and just as faithfully transcribed.
+- **Card 6 pairs the wrong photograph with its name**: the image is
+  `student/mishka-kavarana.jpg` and the name reads "Rahul Nayak". The reference
+  renders Mishka Kavarana's portrait over that name, and so does the port.
+- the `h1` ends with an authored `<br />`. A trailing `<br>` before the end of a
+  block generates no extra line box — the heading measures one line (67.2px at 1440)
+  on production — so it is stored trimmed, and the suite asserts the one-line height.
+- six marks are cited by more than one card: `ual-central-saint-martins.jpg` by
+  three, `royal-college-of-art.jpg` by three, `the-glasgow-school-of-art.jpg` and
+  `parsons-the-new-school.jpg` by two each.
+- all 46 images are decorative and **none carries an `alt` attribute**, so all of
+  them ship `alt=""`.
+- the cards are plain `<div>`s, so the page has **no link in its content at all** —
+  ref 0 / port 0, as on `placements` and `startups`.
+
+#### Verified
+
+Measured against
+`https://atlasuniversity.edu.in/schools/isdi/success-stories/masters-progression` at
+**1920 / 1440 / 1280 / 1100 / 992 / 900 / 768 / 700 / 568 / 479 / 390 / 360**:
+
+- **All 4 blocks match the reference height to the pixel at all twelve widths**,
+  against the dev server and again against a clean production build.
+- **Element-by-element: 0 diffs at 1440 / 1280 / 991 / 768 / 479 / 390** — the hero
+  and its contents (a fixed-height box, invisible to a height diff), the three
+  figures, the story pair and all 23 cards with their scrim, content box, two lines
+  and mark.
+- **Text identical to production in all four blocks**, and both link lists empty.
+- **Per-block screenshots at 1440 / 1280 / 768 / 479 / 390**: `stats` **0.00 at every
+  width**, `hero` 0.00-0.12, `wall` 0.45-0.69 and `story` 0.75-1.34 — WebP residue on
+  the photographs. Nothing on the page exceeds 1.34.
+- **2544/2544 interactions at all twelve widths**, including the hero's 100vh frame,
+  its scrim ladder and its ONE-child row (no `.inner-cover-text` authored or
+  rendered), the four srcset candidates and the one the browser picks, the one-line
+  heading despite its trailing `<br>`, the band's 60px of bottom padding and its
+  `.sm-text-isme` label dropping to 18 at <=767, the story row's two percentage
+  widths, the lead's four-step `.mrgbtm` ladder, the absence of every piece of
+  furniture the page does not have, all 23 cards at 282x388 r17 with a r16
+  photograph, the scrim's two heights, the content box's inherited #333, the single
+  1px bottom rule, each mark at its own intrinsic width, and the authored
+  photograph/name mismatch on card 6.
+- `validate.py` clean at all twelve widths: 0 overflow, 0 console, 0 page errors, 0
+  failed requests, 0 broken images, **0 requests off this origin**.
+- `npx eslint .` exits 0 and `npx next build` succeeds from a cleared `.next`; **63
+  routes**, the new one `○ Static`.
+- **Every page that renders a touched component was re-measured against production**
+  at 1440 / 390 and shows its own documented bucket and nothing else: `startups`
+  +22/−18, `placements` **0 diffs**, `success-snapshot` ±20, `internationalisation`
+  ±20, `industry-centric-approach` ±20.
+
+**Deviations: none.** The second page in the ISDI port with nothing to record, after
+`placements`.
+
+**The ISDI Success Stories column is complete — four pages.**
+`reference/schools/isdi/success-stories/` holds nothing else.
+
+## ISDI Life@ATLAS — `app/schools/isdi/life@atlas-isdi/page.js`, `components/Schools/ISDI/Life/`, `lib/schools/isdi/life-at-isdi/`
+
+`reference/schools/isdi/life@atlas-isdi/index.php` (`$css =
+"…68e778e2154fcb3a9f455274-f6f67c525.css"`, `$body = "body isdi-page"`) — the ISDI
+header's "Life@ATLAS ISDI", and the longest page in the ISDI port at **21 blocks**:
+a four-column marquee hero, the sticky anchor menu, Student Clubs, two motion
+bands, Intercollegiate Events, Sports, Student Council, two `.card-type-e`
+carousels, By students for students, Student Welfare, Wellness, Student housing,
+Life in Mumbai, Student favourites, A week in the life, Our moto, the closing
+banner, "More questions?" and an eight-item FAQ.
+
+**20 of the 21 blocks match production's height to the pixel at all twelve widths**
+(1920 / 1440 / 1280 / 1100 / 992 / 900 / 768 / 700 / 568 / 479 / 390 / 360). The
+twenty-first is the shared FAQ's known section-padding bucket (+20 above 768 / −20
+below). 430/430 interactions pass at 1440 and 390, `validate.py` is clean at all
+twelve widths, and **the top frame makes no off-origin request** — the 35 that exist
+belong to the YouTube player the housing block embeds, exactly as the reference does.
+
+It opens no database connection, and the mirror is current: all 21 blocks were
+diffed node by node against production before anything was transcribed. It is a
+DIRECTORY with an `index.php`, so production serves it at the trailing slash and
+301s the slashless path; **the route segment contains a literal `@`**, which Next
+serves (a parallel-route slot is `@folder`, where the `@` LEADS the segment) while
+the percent-encoded spelling 404s — the same global behaviour the fourteen `&`
+routes already carry.
+
+### THE HOST THROTTLES THIS PAGE, AND A THROTTLE LOOKS EXACTLY LIKE A PORT DEFECT
+
+This page cites **336 images**. Chromium fetching them all at once gets cut off:
+run after run, 200+ reported `naturalWidth: 0`, and on one run the page's own
+`$css` and `webflow.js` answered `net::ERR_TIMED_OUT` as well. Five blocks whose
+height is set by an image then measured hundreds of pixels short — clubs 550
+against 1012, council 525 against 1082, wellness 1198 against 1817, mumbai 505
+against 1117, moto 430 against 936 — and four consecutive runs with three
+different wait strategies agreed on the short set, which is precisely what a real
+difference looks like. The same urls answer 200 in under 0.1s over curl, one at a
+time.
+
+`scratchpad/lf1/refcache.py` is the fix: a disk cache that fetches the
+reference's own bytes **sequentially, with retries**, and reuses them across runs
+and widths. Nothing is substituted — the HTML, the three stylesheets, webflow.js,
+swiper and every image are the reference's, fetched from its own origin; the only
+thing that changes is when. With it the five blocks came back tall on the first
+run and stayed there. Every harness on this page installs it on the reference side.
+
+Two rules fall out of it:
+
+- **Four agreeing runs are not evidence when they share a cause.** The agreement
+  was the throttle, not the page. What settled it was counting: 128 of 336 images
+  loaded, and the page's own stylesheet timing out.
+- **`complete` is not loaded.** With `wait_until='domcontentloaded'` — which this
+  page forces, because its autoplaying YouTube embed means `load` never fires — an
+  image that has not STARTED also reports `complete: true`. Every settle on this
+  page requires `complete && naturalWidth > 0`.
+
+`block_player()` aborts youtube / ytimg / googlevideo / doubleclick / play.google
+on both sides so the page can settle at all; it changes no geometry, because the
+iframe's box is a padding-top percentage rather than its content.
+
+### What the measurements found
+
+Eleven of the thirteen defects below were invisible to a block-height diff until
+the block they sat in was looked at child by child, and four were invisible to
+heights, text AND screenshots.
+
+**Four leads were missing their row.** `.blue-desc-wrap` and `.white-desc-wrap` are
+`display: flex; justify-content: space-between; align-items: flex-start` with
+`padding-top: 56px`, and intercollegiate, sports, council and welfare each author
+one. Rendering the lead bare cost 56px a block. Their breakpoints are **not** the
+same pair: the blue wrap goes to 40px of top padding at ≤767 and becomes an 8px-gap
+column at ≤479, while the white one goes to **20px** AND becomes a 10px-gap column
+at ≤767, tightening to 8px at ≤479. The lead inside is `flex: 1; max-width: 100%`,
+without which it sizes to max-content and wraps differently.
+
+**`.blue-desc-text.f18` declares its own `line-height: 1.8`** where the base class
+inherits the page's 1.5 — and being a compound selector it also keeps 18px below
+768, where the base drops to 18 anyway. That 5.4px a line was 26.5px on the Student
+Council lead alone.
+
+**A heading's gap is its own margin, not the lead's padding.** `.h3-tag` and
+`.h3-tag-mint` are `margin-bottom: 32px`, and the margin collapses out of the
+`.common-wrapper` they sit in. Rendering it as 24px of top padding on the lead was
+8px short. Both drop to **22px** at ≤767, not the 24 a `text-2xl` would give.
+
+**`.h3-tag-mint.isdi` is WHITE.** The base class is the mint
+`--primary-color-isme`; `.isdi` recolours it and leaves the weight at 500. The port
+had it mint and 400.
+
+**`.center-image-full-wrap.mrgtp` carries a 5px bottom margin at every width**, its
+top margin is 56 → **40** at ≤767 (not 20), and the wrapper is `position:
+relative`. Its `<img>` is `.center-image-full.isdi` — `width: 100%; display: block;
+position: relative`, 16px corners, and `object-fit: contain; height: auto` at ≤767.
+Three blocks use it (council, the housing embed, moto), and the moto one is the odd
+wrapper: no `.isdi`, so the wrapper is square and only the image is rounded.
+
+**A class the sheet never declares leaves the image at its intrinsic width.**
+`.sq-image-a` appears in the Student Clubs markup and in none of the three
+stylesheets, so the photograph is the project's own `inline-block; max-width: 100%`
+reset at its own **611px** inside a 612px card. `w-full` scaled it 612/611 and made
+the whole carousel 0.8px tall.
+
+**`.port-card-el-wrap` is a declared 398 x 622 flex column** (`flex: 0 auto` —
+grow 0 and shrink **1**, not `flex: none`), its plate pads **22/32** rather than 32,
+its title is 32px/1.2 weight **300** rather than 24px/500, and its `.port-card-el-desc`
+is weight 400 with its own 14px of top padding. `.coll-fest-cards-wrap` holds them
+with `padding-top: 56px` (40 at ≤767), not a margin. The two plate tones are #193e90
+and #ec1376 under two stylesheet-painted washes, one of them spelt `.sdi-bg-1`
+without its leading `i` upstream.
+
+**Wellness is one section holding three things, inside ONE container.** The port had
+the YourDOST story pair as a full-bleed row beside the container; the reference nests
+it in a `.common-wrapper` (pt50) inside it, with `.about-story-wrapper.mrgbtm`. Its
+three `.pro-card`s are a declared 390 x 280 padded **32 / 42 / 64 / 24**, WHITE on
+#193e90 under their own washes, with `.proc-no` at 24px/24 **700 white** (the port
+had 48px/500 pink on a pale blue card), and a 20px #193e90 `.top-line` rule sits
+**behind** them at `top: 10%` (`z-index: -2`), turning into a 20px vertical rule at
+`left: 49%` below 768.
+
+**The search panel was rendering empty, under a heading the page does not have.**
+`MoreQuestions` was being handed `{ heading: 'More questions?' }` and nothing else,
+so the flower, the label, the sub-text, the form action and the placeholder were all
+`undefined` — and the `h2` it did render is not in the reference at all, where
+`.search-ques-wrap` is the only child of its `.container`. The include is the ATLAS
+root's and is byte-identical to the About page's, so that module is re-exported.
+**A component whose props are all optional fails silently**; the only reason the
+block was within 25px is that the missing content and the invented heading nearly
+cancelled.
+
+**A shared card's prop names are a contract.** `SliderCardD` names its two plates
+`name` / `role` (it was extracted from a people carousel) and this block's data
+carries `title` / `subtitle`, so **all three Intercollegiate cards rendered with no
+caption at all** — six lines of copy missing. Found by the text diff, not by heights:
+the card is a declared 478px.
+
+**The banner is the BASE `.info-banner-blue`.** Every earlier ISDI page authors
+`.bg1.isdi`, which repaints it #de297b; this one authors the bare class, which is
+**#193e90** — and its sub-text carries an authored `<br>` the component was printing
+raw, worth 33.6px at 992 and 900.
+
+**A NAMED responsive size cancels an arbitrary line-height.** This project pins its
+font scale to 1.5, so `max-md:text-2xl` after `leading-[1.2]` replaces the ratio —
+7.2px a line on the By-students titles, and the same trap on the welfare slide's
+`leading-[0.5]`. An *arbitrary* size like `max-md:text-[22px]` sets no line-height
+and is safe. Restate the ratio at the breakpoint whenever the size is a named token.
+
+### Three harness bugs, each of which produced a false result first
+
+- **A block taller than the viewport is captured by SCROLLING, and this page moves
+  while it scrolls.** ISDI's header.php slides both bars away on scroll, which lifts
+  everything under them ~50px mid-capture on the reference: eleven blocks scored
+  30-80 mean pixels at 1440 while matching to the pixel in height, and the same
+  blocks scored 0.00 at 390, where they fit the viewport. Capturing in a tall
+  viewport (`VH=2600`) removes the stitching and took council, members, moto and
+  housing to **0.00**. **When wide widths differ and narrow ones do not, suspect the
+  capture.**
+- **`MEDIA=hide` matched Webflow's YouTube placeholder by CLASS**, which exists only
+  on the reference, so the grey SVG was cleared there and left painted here — 37
+  mean pixels of pure harness on the housing block. Matching on the painted url
+  finds it on both sides, and the block then diffs at **0.00**.
+- **The generator wrote `background-repeat` inverted.** `weekmerge.py` stored
+  `repeat = computed != 'repeat'` and the component reads the flag as "does it
+  tile", so six week-grid cells tiled where the reference does not and vice versa.
+  A boolean that is wrong in both directions is not visible in a height diff.
+
+### Reuse
+
+Twelve of the twenty-one blocks are existing components taking this page as data —
+`About/Hero` is not among them, because this hero is ISDI-local (four CSS-marquee
+columns of eight photographs under a scrim that covers the bottom half). One
+component was extracted and five gained defaulted props; every consumer was
+re-measured against production afterwards.
+
+| changed | what | consumers re-measured |
+| --- | --- | --- |
+| `Schools/ISDI/MotionCard` | **extracted** from `Home/Motion`, which now renders through it | /schools/isdi — motion section identical at 1440 and 390 |
+| `Home/ReadyToBuild` | `tone` (defaults to the pink every earlier page measures) and `withBreaks(data.sub)` | /schools/isdi and the 19 programme pages; provably a no-op — every other banner's `sub` is null |
+| `SummerSchool/WeekGrid` | `WeekStrip` split out, and four corrections below | /schools/isdi/admissions/pre-university-summer-school — 10/11 blocks exact, FAQ bucket only |
+| `ui/TertiaryTabs` | `sizes` comes from the pane's own image when it has one | /advantages/atlas-advantages, /life-at-atlas |
+| `ui/PhotoMosaic` | a third `rounded` value, `wrapper-16` | /campus-atlas, /life-at-atlas, /advantages/atlas-advantages — 0 diffs on box, all four radii, margin, rows and every cell radius |
+| `Home/ui` | a bare `SUB_1` beside `SUB_1_MRGBTM` | new export; nothing else reads it |
+
+**The week grid is the same grid under a different sheet, and four of its values
+move.** Manrope is declared on `.week-grid-main` — the COLUMN — not on
+`.main-week-wrapper`, which inherits the page's Poppins; the cells are ordinary flex
+items (`flex-shrink: 1`, not `shrink-0`); five cells set 18px/27 and two of them
+white **on the cell**, which the copy inside then inherits; and the empty
+`.w-embed` is authored BEFORE the day label, which `order: -9999` pulls back to the
+top. The per-cell type travels as data for exactly the reason the class names do
+not: the Summer School sheet gives the same classes different values.
+
+**`ui/TertiaryTabs`' hard-coded `sizes` was selecting the wrong candidate.** The string
+`(max-width: 1279px) 100vw, 1238px` was /advantages' value; this page's reference
+authors `…95vw, 939.982666015625px`, which selects the `-p-1080` (1080x502) where
+1238px selects the 1238x576 original — two candidates of the same photograph that
+are **not the same ratio**, worth 0.6px of pane height. It now reads
+`pane.image.sizes` and falls back to the measured string. On
+/advantages/atlas-advantages, whose data really does carry `sizes` on three panes,
+the change makes all three load the candidate production loads (two of them `100vw`
+→ 1440x669, where the hard-coded string took the 1238); /life-at-atlas carries none
+and is byte-for-byte unchanged.
+
+### Assets
+
+187 urls, all mapped: **87 new** under
+`public/assets/images/schools/isdi/life-at-isdi/` (3.4MB after 68 WebP conversions,
+from 15MB) and **100 reused** from the homepage, the About page, /campus-atlas and
+the two Summer School pages — the whole eight-cell housing mosaic, all thirteen
+week-grid washes, both `.port-card-el-txt-wrap` vectors and Webflow's own
+`youtube-placeholder.svg` among them. Five twins collapsed onto The ISDI Advantage's
+files. No soft-404, no collision, no orphan, and every path the data names exists.
+
+### Reference notes, transcribed as authored
+
+- `$title` and `$description` are the ISDI template's **unedited placeholders**
+  ("ATLAS SkillTech University" / "Get in touch with Atlas Skilltech.") — the same
+  pair placements, startups and the two Advantage pages carry.
+- **Neither motion carousel repeats cleanly.** "Vibes that go viral" authors its six
+  cards twice (12 slides); "Service learning and SSR" authors its first six twice and
+  then seven more (19 slides). Every authored slide travels, in order.
+- two of the twelve "Vibes" subtitles hold only a zero-width non-joiner.
+- the week grid misspells Thursday as **"Thrusday"**, and the last Student Clubs card
+  ("Bookmarked", The Book Club) is given FINTEREST's mark.
+- the housing block opens with an EMPTY `.common-wrapper`, still a 50px box.
+- the Monday column opens with a `.w-embed` holding only the page's inline `<style>`:
+  0x0, painting nothing, and still a flex child of a `space-between` column with a
+  16px gap. Its `<style>` declares `.mon-cell-1:hover .hover-img { display: block }`
+  and **no element on the page carries `.hover-img`**, so the five `.grid-hover-img`
+  images never paint — not rendered, and their files are not shipped.
+- the "Life in Mumbai" tab set authors EIGHT tabs and its last two panes hold the
+  SAME map; the seventh is labelled "Hospitals".
+- `.icon-image.isdi` and `.icon-image.isdi-blue-5` are both #173a87, so the two tones
+  the markup distinguishes render identically.
+- every `.slider-card-wrapper` carries `data-slider-card-a-bg` read by a script
+  targeting `.slider-card-a`, a class nothing here has — the dead script
+  /life-at-atlas records.
+
+### Verified
+
+Measured against `https://atlasuniversity.edu.in/schools/isdi/life@atlas-isdi/`:
+
+- **Block heights — 20 of 21 exact at all twelve widths**, against the dev server
+  and again against a clean production build. The twenty-first is the FAQ bucket.
+- **Element-by-element (`pair.py`, ~55 computed properties on every node of every
+  block, at 1440 and 390)**: outside the shared FAQ and the five autoplaying
+  carousels, what remains is six inert computed values, each recorded under
+  Deviations.
+- **Text identical to production in 17 of 21 blocks, and all 21 hold the same SET
+  of lines.** The four exceptions are `fest`, `intercollegiate`, `welfare` and
+  `community` — the autoplaying carousels, whose strings appear in a different order
+  because both sides are mid-rotation; compared as sets, every block matches line for
+  line. The only links production has and the port does not are the eleven Webflow tab
+  anchors, which the port renders as `<button>`s.
+- **Per-block screenshots at 1440 / 768 / 390** (media frozen, captured in a tall
+  viewport): **15 of 21 blocks are at or below 3.0 mean at all three widths**, seven of
+  them 0.00 at 1440. The six
+  above it are the five autoplaying carousels — the hero's four marquee columns, both
+  `.zoom-slider`s and both `.zoom-slider-lg`s, which can never land on the same offset
+  — and the FAQ's 20px size difference. All six are verified by their heights (exact
+  at twelve widths), their text and their element geometry instead, the same call the
+  B.Des hero carousel and The ISDI Advantage's sliders already carry.
+- **430/430 interactions** at 1440 and 390 against the production build: the 21 blocks
+  in order and every id the menu points at resolving exactly once, the menu's twelve
+  links, the eleven icon headings, every carousel's authored slide count (7 / 12 / 3 /
+  4 / 5 / 3 / 6 / 19 / 5), the seven club cards with their marks at measured intrinsic
+  widths and the Stage card's authored `<br>`, the three Intercollegiate captions on
+  their two plates, the four sports cards and their alternating plate, the three
+  by-students cards at 398x622 with 22px padding and a 300-weight 32px title, the three
+  welfare slides at 800x475 r24 under the full-card scrim, the wellness tab set and its
+  three steps at 390x280 with a white 24px number over #193e90 and the rule behind them,
+  the eight Mumbai maps, the YouTube src and the eight mosaic cells, the seven week
+  columns including "Thrusday", the five favourites, the banner's colour / authored
+  break / three buttons, the search panel's five fields and the absence of a heading,
+  and the eight-item FAQ closed on load, single-open, 2px divider, last item borderless.
+- `validate.py` at all twelve widths: **0 horizontal overflow, 0 console errors, 0 page
+  errors, 0 failed requests, 0 broken images**, and **0 off-origin requests from the top
+  frame**.
+- `npx eslint .` exits 0 and `npx next build` succeeds from a cleared `.next`; the route
+  builds `○ Static` and the build's route table grows from 64 entries to **65**.
+- `regress.py` sweeps **all 64 routes at two widths against the production build** with
+  0 overflow, 0 page errors, 0 failed requests and 0 broken images. The only console
+  entries anywhere remain the three already documented — `/_not-found`'s own 404, the
+  Instagram media route's 400 placeholder and the Summer School Admissions page's
+  NoPaperForms 403.
+
+**Deviations (seven, six of them inert):**
+1. the shared FAQ's section-padding bucket (+20 above 768 / −20 below), the same one
+   every ISDI page carries;
+2. the five autoplaying carousels' screenshots, above;
+3. the self-hosted Manrope — production declares it and loads none, so its fallback
+   is narrower: ~1-2px on each week-grid day label, 5px on a `<br>`'s em box, and one
+   wrapped line in Monday's "Sustainable systems" cell;
+4. `.cards-inner-camp.img-1`'s 10px flex gap below 768, which /advantages already
+   records as a reference defect not reproduced;
+5. `.w-layout-layout`'s `row-gap`/`column-gap` compute `0px` upstream and `normal`
+   here, and its `flex-shrink` 0 against 1 — identical used values on a grid and on a
+   full-size box, in the shared `PhotoMosaic`;
+6. `.swiper.zoom-slider` computes `z-index: 1` from Swiper's own CSS where
+   `Life/ZoomSlider` computes `auto`, and `ZoomSliderLg` renders its pagination as a
+   SIBLING of the slider where the reference nests it inside — both pre-existing in
+   shared components, and neither moves a block;
+7. `.w-input` computes `vertical-align: middle` upstream and `baseline` here, on a
+   `display: block` input where the property does nothing, and `img.faq-image-blue`'s
+   offsets serialise as `0%` upstream against our `0px` — the same used value.
+
+**Found here, not fixed — a pre-existing gap on /life-at-atlas.** Its Wellness tab
+panes carry no `sizes` in `lib/lifeContent.js`, and production's third pane asks
+`100vw`, so that page loads the 1238x576 candidate where production loads 1440x669.
+It is a different page's data and outside this task's scope; recorded in
+`MIGRATION-ISDI.md` under OPEN.
+
+## ISDI Events — `reference/schools/isdi/events/`
+
+Six pages, all six linked from the header menu's "Events" column, in this order:
+`immersions-&-experiences`, `skill-&-tech-innovations`, `creative-showcases`,
+`industry-and-mentorship`, `community-and-culture`, `the-edit`.
+
+### ISDI Immersions & Experiences — `app/schools/isdi/events/immersions-&-experiences/page.js`, `components/Schools/ISDI/Events/`, `lib/schools/isdi/events-immersions/`
+
+`reference/schools/isdi/events/immersions-&-experiences.php` (`$css =
+"…68ed0022e440b8cbb807e9b6-ac55dac18.css"` — a sheet no earlier ISDI page loads
+— over the shared sheet and the same CDN third sheet life@atlas-isdi uses;
+`$body = "body isdi-page"`) — the first of the six.
+
+**A FIFTH ISDI template, and the first page in the port with only THREE top-level
+blocks**: a `.swiperprogress` hero of four photographs, the sticky anchor menu,
+and ONE `.white-wrapper` whose `.container` holds all five content sections as
+`.common-wrapper-lg` children plus a sixth, empty one. A top-level height diff
+would have said almost nothing, so the harness measures the three blocks AND the
+six sections — nine boxes.
+
+**All nine match production's height to the pixel at all twelve widths**
+(1920 / 1440 / 1280 / 1100 / 992 / 900 / 768 / 700 / 568 / 479 / 390 / 360),
+against the dev server and again against a clean production build. 218/218
+interactions pass at 1440 and 390, the text is identical to production in all
+three blocks, and `validate.py` reports **0 overflow, 0 console errors, 0 page
+errors, 0 failed requests, 0 broken images and 0 requests off this origin** at
+every width — this page embeds no player and no third-party widget at all.
+
+It opens no database connection and **the mirror is current**: all three blocks
+were diffed against production node by node (28 text nodes, 70 media urls) before
+anything was transcribed. It is a flat `.php`, so production serves it at the
+**slashless** url and answers 500 on the trailing slash — as the three flat pages
+in Success Stories do. Its segment carries a literal `&`, which Next serves and
+whose percent-encoded spelling 404s: the documented global behaviour of the
+fourteen other `&` routes.
+
+#### Almost nothing here is new
+
+Nine existing components carried it, and the page's own code is one hero and five
+section wrappers. The reuse is close enough that the only genuinely new card shape
+turned out not to be new either:
+
+| the reference authors | the port renders |
+| --- | --- |
+| `.swiperprogress` + `.custom-pagination` | `ISDI/RingSwiper`, unchanged — the embed is byte-identical to the programmes pages' |
+| `.sticky-menus.center` | `About/AnchorMenu`, unchanged |
+| `.rounded-tabs-mint` + `.tab-roundmint-tab-1.isdi` | `Home/MintTabStrip` on its `isdi` skin |
+| `.swiper.common-swiper.mrgtp0` | `Carousel` with `bleed={false}` |
+| `.card-type-electives.isdi` | `ISDI/MinorCard`, unchanged |
+| `.swiper.zoom-slider.mrg56` | `Life/ZoomSlider`, unchanged |
+| `.motion-card.swiper-slide.width-motion` | `ISDI/MotionCard` |
+| `.instagram-wrapper > .grid-gallery-flex` | `ISDI/PhotoGallery` |
+| `.swiper.zoom-slider-lg.mrgtp` | `ui/ZoomSliderLg`, unchanged |
+| `.slider-card-b.isdi` | `ISDI/SliderCardD` |
+
+**`.slider-card-b` is `.slider-card-d` under another name.** Both declare 800 x
+478, `display: block`, clipped, fluid at <=767, over a `width: 100%; height: 100%`
+cover image. The only differences are that this one has no caption — which
+`SliderCardD` already renders conditionally — and that its 16px radius sits on the
+CARD while the image stays square, which is the new `imageRounded` prop. Measure
+the box before writing a second component for a second class name.
+
+**Its "Global Immersions" is /atlas-isdi-advantage/internationalisation's "Global
+Immersion" again**, down to the five city tabs, the `Tab 1, 2, 4, 5, 6` ids and
+the Shenzhen pane's imageless third card — but on a white page, so the strip is
+the `isdi` skin (#d20158 current) rather than that page's `white` one, and the
+bullets are `isdi` rather than the light pair a blue band needs. The photographs
+are different CDN objects, so nothing deduplicated.
+
+#### What the measurements found
+
+**The page root was missing the ISDI body type, and it cost a line of copy at
+three widths.** `<main>` carries `font-poppins-isdi text-base text-[#333]` on
+every ISDI page — the layout does not set it — and without it the whole page
+rendered in Manrope. The sub-headings then wrapped one line FEWER than the
+reference at 900, 768 and 700 (−33.6 and −24 a section), and every anchor link
+was ~14px narrower. **A font difference does not announce itself as a font
+difference**: it arrives as a handful of sections that are one line short at some
+widths and exact at others, which reads like a padding bug.
+
+**`.grid-gallery-flex.mrgtp` is `margin-top: 0` at <=767.** The wall's 56px gap
+is authored on the ROW, not on the wrapper (`.instagram-wrapper.mobile-vert-scroll
+.mar-0` zeroes the wrapper's own 56/32), and it disappears below 768 — so the wall
+sits straight under its lead there. Carrying 56 at every width was +56px on all
+five widths below 768. Hence `PhotoGallery`'s new `rowClassName`: the modifier the
+reference puts on the row rather than on the wrapper.
+
+**`.isdi-page .common-wrapper-lg` is 100px at EVERY width** where the sheet says
+120 (80 at <=767) — (0,2,0) against (0,1,0), from ISDI's own header.php, the same
+trap `.common-wrapper`'s 50px already records. Five sections at 20px each.
+
+**`.inner-header-cover.padd` is not the Undergraduate Overview's cover.** The
+`.padd` modifier adds 62px either side AND makes the scrim **85% tall from 991
+down**, where that page's stays at 50%; its inner box is `.hero-text` (max-width
+840, 704 at <=479) rather than a `.container.grow`; and its copy is a
+`div.h1-tag` over a `.course-desc-isme.big-txt` LEAD rather than an eyebrow over
+an `h1`. Same widget, same stage, different composition — hence `Events/Hero`
+over the shared `RingSwiper` rather than a variant of `ProgramsUg/Hero`.
+
+**The hero wrapper is `position: static`.** `.section.nopad` declares nothing;
+`RingSwiper` positions its own stage, and a `relative` on the outer box is a
+stacking context the reference does not have.
+
+#### Assets
+
+61 urls, all mapped, **all 61 new** — this page shares no photograph with any
+earlier one, which is why nothing deduplicated. 20MB → **3.9MB** after 61 WebP
+conversions at SSIM 0.9994-0.9998 (the four hero photographs with their `-p-`
+ladders alone were 8.3MB). No soft-404, no collision, no orphan, and every path
+the data names exists.
+
+#### Reference notes, transcribed as authored
+
+- `$title` and `$description` are the ISDI template's **unedited placeholders**
+  ("ATLAS SkillTech University" / "Get in touch with Atlas Skilltech."), the same
+  pair life@atlas-isdi, placements, startups and the two Advantage pages carry.
+- **all four hero slides carry the same heading and the same lead**; only the
+  photograph changes.
+- the Global Immersions tab ids run **Tab 1, 2, 4, 5, 6** — Webflow's numbering
+  skips "Tab 3", as the homepage testimonials' does — and the Shenzhen pane's
+  third card is authored with no image at all, which the reference paints as a
+  298 x 0 slide.
+- **Field Visits and Animate & Appreciate share one lead**, word for word, and it
+  describes the latter. An upstream copy-paste.
+- the id the menu's last link points at, `#animate`, is on the **h2**, not on its
+  section — the authoring the-isdi-advantage's three title ids already record.
+- all thirteen `.motion-card`s author an EMPTY `.mc-text-wrap`: a bare photograph
+  with the wrap still in the DOM, so `MotionCard`'s plate is now conditional.
+- each `.slider-card-b` carries `data-slider-card-a-bg="Paste image url"`, read by
+  a script targeting `.slider-card-a`, a class nothing here has — the dead script
+  /life-at-atlas records. Not reproduced.
+- the page ends with an EMPTY `.common-wrapper` (50px of top padding). There is no
+  "More questions?" panel and no FAQ, so this is the first ISDI content page since
+  `placements` with no shared-FAQ bucket to carry.
+
+#### Verified
+
+Measured against
+`https://atlasuniversity.edu.in/schools/isdi/events/immersions-&-experiences`:
+
+- **Heights — all nine boxes exact at all twelve widths**, against the dev server
+  and again against a clean production build. No bucket of any kind.
+- **Element-by-element (`pair.py`, ~55 computed properties per node, at 1440 /
+  1280 / 991 / 768 / 479 / 390): exactly three nodes differ, identically at every
+  width**, and all three are pre-existing shared-component residue listed under
+  Deviations.
+- **Text identical to production in all three blocks.** The only links production
+  has and the port does not are the five Webflow tab anchors, which the port
+  renders as `<button>`s.
+- **Per-block and per-section screenshots at 1440 / 768 / 390** (media frozen, tall
+  viewport): `menu` and the empty tail are **0.00**, `hero` 1.3-6.9,
+  `global-immersions` 1.3-1.8 and `local-immersion` 1.1-1.8. The three above that
+  — `culture-immersions`, `field-visit` and `animate`, and the `white-wrapper`
+  that contains them — are the autoplaying carousels, which can never land on the
+  same offset; compared side by side the heading, the lead, the card boxes and the
+  scale ladder are identical and only the current slide differs. They are verified
+  by their heights (exact at twelve widths), their text and their element geometry
+  instead, the same call every earlier page's zoom sliders carry.
+- **218/218 interactions** at 1440 and 390 against the production build: the three
+  blocks and six sections in order with their 100px/50px padding and their ids
+  (including `#animate` on the h2 and every menu target resolving exactly once),
+  the hero's 100vh stage / four slides / four rings / 62px cover inset / 85%
+  scrim below 992 / `<div>` heading / 300-weight lead, the menu's five links and
+  its centring, all five tabs with their 3/2/3/2/4 cards and 3/2/2/2/4 images, the
+  zero top padding the panes' swipers take, the 298x232 r16 caption-less elective
+  card, the #d20158 current tab, both motion walls at 7 and 6 cards with a 340x480
+  r16 card and an EMPTY text wrap, the wall's four columns and eight r16 cover
+  photographs with the row margin that disappears below 768, the four 800x478 r16
+  slider cards whose images are square, the absence of a FAQ / search panel /
+  closing banner, the lead the last two sections share, and the menu's scroll.
+- `validate.py` at all twelve widths: **0 horizontal overflow, 0 console errors, 0
+  page errors, 0 failed requests, 0 broken images, 0 off-origin requests.**
+- `npx eslint .` exits 0 and `npx next build` succeeds from a cleared `.next`; the
+  route builds `○ Static` and the build's route table grows from 65 entries to
+  **66**.
+- `regress.py` sweeps **all 65 routes at two widths against the production build**
+  with 0 overflow, 0 page errors, 0 failed requests and 0 broken images; this page
+  reports nothing at all, which in that harness means it makes no off-origin
+  request either. The only console entries anywhere remain the three already
+  documented — `/_not-found`'s own 404, the Instagram media route's 400 placeholder
+  and the Summer School Admissions page's NoPaperForms 403.
+- **Every page that renders a touched component was re-measured against
+  production** at 1440 and 390: /schools/isdi/life@atlas-isdi, both programme
+  overviews, /atlas-isdi-advantage/internationalisation,
+  /atlas-isdi-advantage/industry-centric-approach and
+  /success-stories/success-snapshot each show the shared FAQ's ±20 bucket on their
+  last block **and nothing else**. The ISDI homepage's block list cannot be walked
+  by the generic harness (its reference groups 14 blocks against our 23), so
+  `MotionCard` was compared there component by component: 17 cards, the section
+  identical at both widths, the card 340x480 / 305x430 at r16, and the pink plate
+  still rendered.
+
+**Deviations (three, all inert and all pre-existing in shared components):**
+1. `.swiper.zoom-slider` computes `position: relative; z-index: 1; inset: 0` from
+   Swiper's own CSS where `Life/ZoomSlider`'s root is static — six properties on
+   each of the two walls, and none of them moves anything. Recorded on
+   /schools/isdi/life@atlas-isdi for the z-index half; this page sees all six.
+2. `ZoomSliderLg` renders its `<=568` pagination as a SIBLING of the slider where
+   the reference nests it inside the `.swiper`, so that node measures 522 against
+   478 at 390 while the section height is exact.
+3. `.instagram-wrapper` is `overflow: scroll` upstream and `max-vsm:overflow-x-auto`
+   here — the deviation `Campus/HangoutZones` already carries so the wall paints no
+   idle scrollbars above 540. Because our wrapper is then not a block formatting
+   context above 540, the row's 56px top margin collapses out of it: the wrapper
+   measures 56px shorter than the reference's and the SECTION is exact.
+
+### ISDI Skill & Tech Innovations — `app/schools/isdi/events/skill-&-tech-innovations/page.js`, `lib/schools/isdi/events-skill-tech/`
+
+`reference/schools/isdi/events/skill-&-tech-innovations.php` (`$css =
+"…68edfd4bbb15da9c1d5debe1-b3dcdbb22.css"` — its own sheet — over the shared sheet
+and the same CDN third sheet the other Events pages load; `$body = "body
+isdi-page"`) — the **second** of the ISDI header's six Events pages, and the SAME
+fifth-template as the first (`events/immersions-&-experiences`) with the
+Global-Immersions tab set dropped. Three top-level blocks: the `.swiperprogress`
+hero (3 slides), the `.sticky-menus.center` anchor bar, and one `.white-wrapper >
+.container` holding six `.common-wrapper-lg` sections plus a trailing empty
+`.common-wrapper`.
+
+**It opens no database connection and the mirror is current.** It is a flat `.php`,
+so production serves it at the SLASHLESS url and 500s on the trailing slash — like
+immersions and the three flat Success Stories pages. The route segment carries a
+literal `&` (served by Next; the percent-encoded spelling 404s — the documented
+global `&`-route behaviour).
+
+**No new component — and the previous session had already downloaded the 67 raw
+PNGs** into `public/assets/images/schools/isdi/events/skill-tech/` (untracked) but
+built nothing else, so the page was genuinely NOT STARTED beyond that. Every
+section maps to a component the immersions page already exports from
+`components/Schools/ISDI/Events/Sections.js`: three PhotoWall (`.instagram-wrapper`
+grid — `design-hackathon`, `hands-of-heritage`, `ink---imagination`), two MotionWall
+(`.zoom-slider` motion cards — `hands-on-workshop`, `abcd`) and one WideSlider
+(`.zoom-slider-lg` `.slider-card-b` — `tech-exploratorium`). Unlike immersions
+(which puts `#animate` on its WideSlider's H2), `#tech-exploratorium` is on the
+SECTION, so WideSlider takes `id`, not `headingId`.
+
+**`Events/Hero` gained an additive `label` prop.** It was hard-coding
+`label="Immersions & Experiences"` into `RingSwiper`; it now takes `label` and
+defaults to `data.slides[0].title`, which for immersions is that exact string — so
+immersions is a provable no-op (re-verified: 0 block-height diffs vs production at
+1440/390). skill-&-tech passes "Skill & Tech Innovation".
+
+**Reference notes, transcribed as authored:** `$title`/`$description` are the ISDI
+template's unedited placeholders; all three hero slides carry the same title and
+lead, and the lead is an upstream copy-paste that begins with the title run
+straight into the sentence ("Skill & Tech InnovationHands-on workshops…"); the
+`abcd` wall authors nine motion cards and repeats all nine (18 slides), each
+transcribed in order; every `.motion-card` authors an EMPTY `.mc-text-wrap`; each
+`.slider-card-b` carries the dead `data-slider-card-a-bg` script the other Events
+pages record (not reproduced); the page ends with an empty `.common-wrapper` and
+has no "More questions?" panel and no FAQ.
+
+**Assets.** 67 CDN PNGs → 67 WebP (20.15MB → **4.81MB** at q95). These source
+photographs are grainier than the immersions set, so even a near-lossless q95 WebP
+caps around **SSIM 0.986-0.997** — the encoder's achievable ceiling for THIS source,
+the same "calibrate the gate against the source, not a flat constant" situation
+CLAUDE.md records for the grainy luxury-brand clip — so the conversion is decided on
+the ~76% saving at the q95 ceiling and **confirmed faithful by the screenshot diff
+against production** (which serves the PNGs): the three static PhotoWall grids and
+the menu diff at **0.0-1.6 mean** at 1440 and 390 once their lazy images are loaded.
+
+**Verified** against
+`https://atlasuniversity.edu.in/schools/isdi/events/skill-&-tech-innovations` at
+**1920 / 1440 / 1280 / 1100 / 992 / 900 / 768 / 700 / 568 / 479 / 390 / 360**:
+
+- **All 9 measured boxes exact at all 12 widths** — the hero (100vh stage), the
+  anchor menu, the six sections and the white wrapper — against the dev server and
+  again against a clean production build. No bucket of any kind (no FAQ).
+- **Text identical to production run by run** in every section and the hero.
+- **Per-block screenshots**: `menu` 0.00, the three static grids 0.68-1.64 mean at
+  1440/390 (WebP residue). The hero and the three autoplaying carousels (two
+  `.zoom-slider`, one `.zoom-slider-lg`) are 40-46 mean because they can never land
+  on one frame — verified by their exact heights and identical text instead, the
+  same call every earlier ISDI carousel carries. **A wide-viewport grid measured
+  mid-lazy-load reads short (364 vs 1000); the two widest widths of a sweep are the
+  ones to re-run** — re-measured, all 12 are exact.
+- `validate` clean at all 12 widths: **0 console errors, 0 page errors, 0 failed
+  requests, 0 broken images, 0 horizontal overflow, 0 requests off this origin.**
+  (A settle that forces `loading="lazy"→eager` BEFORE React hydration settles fakes
+  a hydration-mismatch console warning — on the verified immersions page too; wait
+  for `networkidle` first.)
+- `npx eslint .` 0 and a clean `npx next build` (from a cleared `.next`); the route
+  builds **○ Static**. The immersions sibling was re-measured after the shared
+  `Events/Hero` change and is unchanged (0 diffs at 1440/390, 0 console errors).
+
+**Deviations: none.** The second Events page, after immersions, with nothing to
+record.
+
+### ISDI Creative Showcases — `app/schools/isdi/events/creative-showcases/page.js`, `lib/schools/isdi/events-creative-showcases/`
+
+`reference/schools/isdi/events/creative-showcases.php` (`$css =
+"…68ee2166dcb0ec405538bf17-0ac23f5ef.css"` — its own LOCAL sheet; `$body = "body
+isdi-page"`) — the **third** of the six Events pages, the same fifth-template with
+only THREE sections and no trailing empty `.common-wrapper`: hero (`.swiperprogress`,
+3 slides), `.sticky-menus.center` (3 links), and `.white-wrapper > .container` with
+Studio Day (grid), Sensorium – Fashion Show (11 `.zoom-slider` motion cards) and
+Graduate Showcase – Design Odyssey (grid).
+
+**It opens no database connection and the mirror is current.** Flat `.php`, so
+production serves it at the SLASHLESS url and 500s on the trailing slash. No `&` in
+the route.
+
+**THE TWO GRIDS ARE A THIRD PhotoGallery CASE — `plain`.** They are authored
+`.duplicate-grid-wrapper > .grid-gallery-flex.mrgtp`, NOT the
+`.instagram-wrapper.mobile-vert-scroll.mar-0` immersions/skill-tech use.
+`.duplicate-grid-wrapper` has **no CSS rule** in the page sheet (inert), and the
+sheet's only grid breakpoints are 991/767/479 — there is no ≤540 rule for the bare
+grid, so it keeps its ≤767 form all the way down: two 48% columns that wrap, never a
+horizontal scroller. (The same `.duplicate-grid-wrapper` on the completed
+/atlas-isdi-advantage/industry-centric-approach wraps the MERGED element — all three
+classes on one div — which is the different `merged` case.) `PhotoGallery` gained
+`variant="plain"`, passed through `PhotoWall`'s `galleryVariant`, dropping every
+`max-vsm:` scroller class from the row, the column and the card.
+
+**`.img-wrap { width: 320px }` at ≤479 is a GLOBAL rule, not scroller-only.** The
+first `plain` cut dropped it with the scroller classes and the images collapsed to
+their 48% column (166px at 390) where production renders them 300px wide in a 320px
+wrap, overflowing the column — a −627px grid-height miss found by the height diff and
+pinned down by a computed-style probe (`.img-wrap` width 320 / `img` width 300 /
+column 166). So the Card keeps `max-sm:w-[320px]` for every variant and gates only
+the `.mobile-vert-scroll` `height:400px` + ≤540 `min-width:320px` on `scroller`. With
+that, `plain`'s photos sit at natural height (the grids are 1787/1896px tall at 390,
+exact), while nested/merged still clip to the 400px scroller card. **A width that
+looks scroller-specific may be a global `.img-wrap` rule — grep the bare class.**
+
+**Graduate Showcase reuses immersions' own `local` photographs** — the same eight
+`immersions-and-experiences-swiper2*` files in the same column order — so its data
+points at the existing `/assets/images/schools/isdi/events/immersions/local/*.webp`
+rather than duplicating them.
+
+**Reference notes, transcribed as authored:** `$title`/`$description` are the ISDI
+template's unedited placeholders; all three hero slides carry the same title and
+lead; the lead carries two authored `<br/>` (kept as `\n` for `withBreaks` — read
+with a `<br>`-preserving walk, since `get_text()` flattens it); the hero `sizes` is
+`(max-width: 1439px) 100vw, 1365.9765625px`, not the 1366px of the two earlier Events
+heroes; every `.motion-card` authors an EMPTY `.mc-text-wrap`; the grids and motion
+cards carry `.isdi` (r16).
+
+**Assets.** 31 new CDN PNGs → 31 WebP under
+public/assets/images/schools/isdi/events/creative-showcases/ (10.49MB → **2.18MB** at
+q95; grainy source caps ~SSIM 0.985-0.997, the encoder's ceiling, confirmed by the
+screenshot diff), plus 8 reused from immersions' `local`.
+
+**Verified** against
+`https://atlasuniversity.edu.in/schools/isdi/events/creative-showcases` at
+**1920 / 1440 / 1280 / 1100 / 992 / 900 / 768 / 700 / 568 / 479 / 390 / 360**:
+
+- **All 6 measured boxes exact at all 12 widths** (hero, menu, the 3 sections, the
+  wrapper), dev server and clean production build. No bucket (no FAQ).
+- **Text identical to production** run by run.
+- **Per-block screenshots**: menu 0.00; the two static `plain` grids 1.5-2.3 mean at
+  1440/390 (WebP residue — Graduate Showcase slightly higher because it reuses
+  immersions' earlier WebP conversion). Sensorium (`.zoom-slider`) autoplays (14-22
+  mean) and is verified by its exact height + identical text.
+- `validate` clean at 12 widths: **0 console / page errors / failed / broken / overflow
+  / off-origin.** The grids overflow their 48% columns at ≤479 exactly as production,
+  and the `.white-wrapper`'s `overflow: hidden` clips it, so the PAGE has 0 horizontal
+  overflow.
+- `npx eslint .` 0, clean `npx next build` (**68 static pages**), route **○ Static**.
+- **Shared `PhotoGallery` change re-verified** on every page that renders it: immersions
+  and skill-tech (nested) and industry-centric-approach (merged) are 0 diffs vs
+  production at 1440/390, and a site-wide sweep of the PhotoGallery/Events routes on the
+  production build is clean (0 console / broken / overflow). The `nested`/`merged` class
+  strings are byte-identical to before (the change is additive).
+
+**Deviations: none.**
+
+### ISDI Industry & Mentorship — `app/schools/isdi/events/industry-and-mentorship/page.js`, `lib/schools/isdi/events-industry-mentorship/`
+
+`reference/schools/isdi/events/industry-and-mentorship.php` (`$css =
+"…68ee34c185f7babff368afda-c1d564dad.css"` — its own sheet; `$body = "body isdi-page"`) —
+the **fourth** of the six Events pages and the **largest** (702 lines, fourteen content
+sections). The same fifth template as the other three Events pages, with the Global-
+Immersions tab set dropped and two new section kinds added. Three top-level blocks: hero
+(`.swiperprogress`, 3 slides), the anchor menu, and one `.white-wrapper` holding the
+fourteen sections plus a trailing empty `.common-wrapper`.
+
+**All 16 measured boxes match production's height to the pixel at all 12 widths**
+(1920/1440/1280/1100/992/900/768/700/568/479/390/360) — hero, menu, Creative Catalyst,
+the 12 wrapper-id sections, the mentor marquee and the white-wrapper aggregate — on the
+dev server and a clean production build. Text identical run by run; `validate` clean at 12
+widths (0 console / pageerr / failed / broken / overflow / **0 off-origin**: the page
+embeds no player or widget). No FAQ, so no shared-FAQ bucket.
+
+**The menu is the BARE `.sticky-menus`, not `.center`.** The three earlier Events pages
+(and community-and-culture) author `.sticky-menus.center`; this one authors the bare class,
+which is **left-aligned** — `AnchorMenu centered={false}`. Check the class, don't assume the
+column is uniform.
+
+**Almost nothing here is new — the AIDC mentors marquee is the homepage advisory board
+again.** `.swiper.marquee-swiper > 14 x .card-type-d` is a DIRECT child of `.white-wrapper`
+(full-bleed, outside any `.container`), rendered through the shared `Home/MarqueeTrack` +
+`Schools/ISDI/PersonCard`. The eleven mentors, their roles and ten of their eleven logos
+are the ISDI homepage advisory board's (`lib/schools/isdi/home/advisory.js`) **exactly** —
+the 10 shared logo files are byte-identical (SHA-1-proven, `dedupe.py`) so they are reused
+from `/assets/images/schools/isdi/home/advisory-board/`; only Neeta Lulla's logo (image-5,
+a 55×29 PNG kept lossless like the others) is new. **`.cd-tyd-logo-img` is `display: block`
+only, so each logo paints at its intrinsic size** — the homepage data's logo width/heights
+ARE those natural sizes and were reused.
+
+**EVERY `a.play-icon` is authored empty on this page**, so — unlike the homepage board,
+where four cards carry a video — no mentor card here gets a play button. `person.video` is
+absent on all 14, so `PersonCard` renders no icon: the "read the icon out of the anchor that
+owns it; an empty `a.play-icon` is a 0×0 box" rule the industry-centric-approach advisors
+already record.
+
+**`Events/Sections.js` gained two section kinds, both additive.** `Heading` is a bare
+`h2.h2-tag.mrg16.isdi` + `.sub-heading.mrgbtm` (`SUB_MRGBTM`) — the AIDC block, whose body
+is the marquee that follows it. `MentorMarquee` is the bleed `MarqueeTrack` of `PersonCard`s.
+And `PhotoWall` gained `headingId`: **`#Creative-catalyst`'s anchor id is authored on its
+`<h2>`**, where every other section authors its id on the `.common-wrapper-lg` wrapper — the
+same split `WideSlider`'s `headingId` already handles. `#Masterclasses` is a section the menu
+does NOT link (its "Global Masterclasses" points at `#Global-masterclasses`). WDCD is the
+bare `.duplicate-grid-wrapper` (`galleryVariant="plain"`).
+
+**This page's white-wrapper nesting is the OPPOSITE of creative-showcases'.** Here it is
+`white-wrapper > common-wrapper-lg(id, FULL width) > container > content`; creative-
+showcases/immersions/skill-tech nest `white-wrapper > ONE container > common-wrapper-lg(id)`.
+The existing `PhotoWall`/`MotionWall`/`WideSlider` render no container of their own (the page
+provides it), so the port wraps the sections in CONTAINER groups and **splits the container
+around the bleed marquee** (group 1: Creative Catalyst, ATLAS RTC, AIDC heading; the marquee;
+group 2: the remaining ten). The result is visually identical to the reference (content
+centred at max-w-1366 with the same padding, marquee full-bleed) and every height is exact —
+but it means **`#id` is a full-width box on prod and a container-width box on the port**. That
+is invisible to a height diff (identical) and to the anchor menu (scroll-spy uses top+height,
+both the same), and it only trips an element-screenshot harness that captures `#id` on both
+sides. Capture the container-aligned region instead, or a full-viewport strip.
+
+**Screenshot verification and its harness traps.** menu 0.0 and the AIDC heading 0.0 (via a
+full-page crop to each section's viewport-width strip); the eight photo grids 0.4-1.5 mean
+(WebP residue) at 390 and at the shallower widths. The three DEEPEST grids read ~50 at 1440
+in the full-page-crop harness and ~43 in an element-screenshot harness — **both artifacts, not
+port diffs**: the full-page screenshot develops a progressive vertical tiling drift (~65px by
+y≈10750 on a ~14000px page) and the element shot has the `#id`-box-width mismatch above. The
+three were confirmed content-identical by **directly viewing the prod/port crops** (same
+photos, same layout, only shifted). When a screenshot harness says a block differs while its
+height and text are exact, suspect the capture — the Nth time this rebuild has learned that.
+
+**Assets.** 159 references: **148 new** CDN PNGs → WebP under
+`public/assets/images/schools/isdi/events/industry-mentorship/<section>/` (36.79MB → 8.21MB
+at q95; these grainy event photos cap ~SSIM 0.977-0.998, the encoder's ceiling for this
+source, confirmed by the static-grid screenshot diff), with Neeta's logo kept PNG; **11
+reuses** — the 10 shared mentor logos (homepage board) and one immersions `local` photo that
+Friends of Figma borrows. ConSERV authors grid-6-004 twice (grid-6-005 absent); the two
+MotionWalls author 7 and 8 cards twice (Co Elev8 14, Parsons Week 16); every `.motion-card`
+authors an EMPTY `.mc-text-wrap`; each `.slider-card-b` carries the dead
+`data-slider-card-a-bg` script the other Events pages record. `$title`/`$description` are the
+ISDI template's unedited placeholders. Served at the SLASHLESS url (500 on the trailing slash).
+
+Interactions: 12 menu links resolve and scroll to top (once images settle — a settle race
+otherwise leaves the smooth-scroll target short), 14 mentor cards ×2 copies, 0 play anchors,
+26 shared logos + 2 image-5, WDCD plain. The `Events/Sections.js` change is a re-verified
+no-op: immersions, skill-tech and creative-showcases are 0-diff vs production at 1440/390, and
+`MarqueeTrack`/`PersonCard`/`PhotoGallery` were not modified. `npx eslint .` exits 0 and a
+clean `npx next build` succeeds (69 static pages); the route builds `○ Static`.
+
+**Deviations: none.**
+
+### ISDI Community & Culture — `app/schools/isdi/events/community-and-culture/page.js`, `lib/schools/isdi/events-community-culture/`
+
+`reference/schools/isdi/events/community-and-culture.php` (`$css =
+"…6904c918c961f1d5bd41d227-166c34d6d.css"` — its own sheet; `$body = "body isdi-page"`)
+— the **fifth** of the six Events pages, and the **exact template and nesting of
+creative-showcases**: hero (`.swiperprogress`) + `.sticky-menus.center` (3 links) + one
+`.white-wrapper > .container` with three `.common-wrapper-lg` sections and no trailing
+empty wrapper. Three sections: Community & Cultural Engagement Initiatives (grid 8),
+Parent Meetups & Open Campus Days (10 `.zoom-slider` motion cards), Cultural Festivals
+(grid 8).
+
+**All 6 measured boxes match production's height to the pixel at all 12 widths** (hero,
+menu, the 3 sections, the white-wrapper aggregate), on the dev server and a clean
+production build; text identical run by run; `validate` clean at 12 widths (0 console /
+pageerr / failed / broken / overflow / **0 off-origin**). No FAQ, so no shared-FAQ bucket.
+It opens no database connection (mirror current) and is served at the SLASHLESS url.
+
+**No new component and no component change — pure reuse.** `Events/Hero`, `About/AnchorMenu`,
+`PhotoWall` (nested, the default) and `MotionWall` carry the whole page. The two grids are
+the `.instagram-wrapper.mobile-vert-scroll` NESTED variant, where creative-showcases' two
+grids were the bare `.duplicate-grid-wrapper` plain variant — same markup family, different
+wrapper. Because this page nests `white-wrapper > ONE container > sections` (like creative-
+showcases, not like industry-and-mentorship), `#id` is a container-width box on both sides,
+so the plain `#id` screenshot harness aligns directly (menu 0.0, grids 0.8-1.8 WebP residue;
+Parent Meetups is the autoplaying zoom-slider, verified by exact height + text).
+
+**Heavy asset reuse of creative-showcases, proven by identical CDN object ids.** The hero's
+first slide (`hero-image`, object 6904c943…) IS creative-showcases' hero slide 3, and the
+**whole Cultural Festivals grid** (`creativeshowcase-grid-1-*`, objects 6903740…) IS
+creative-showcases' Studio Day grid — both reused from the webps already on disk under
+`events/creative-showcases/`. So only 30 of the 42 image references are new; 12 are byte-
+identical reuses. **Check the object id before downloading a "new" grid** — a whole section
+here was already on disk.
+
+**The hero is a 4-slide upstream copy-paste.** Slide 1 is "Community & Culture" (its own
+lead, no `<br/>`); **slides 2-4 are Creative Showcases** — the same title, the same lead
+(with two authored `<br/>`), and the three `hero-section-1/2/3` photographs — transcribed as
+authored. Every `.motion-card` authors an EMPTY `.mc-text-wrap`; `$title`/`$description` are
+the ISDI template's unedited placeholders; the hero `sizes` is `(max-width: 1366px) 100vw,
+1366px`.
+
+**Assets.** 42 references: **30 new** CDN PNGs → WebP under
+`public/assets/images/schools/isdi/events/community-culture/` (10.69MB → 2.47MB at q95;
+grainy event photos cap ~SSIM 0.984-0.996, confirmed by the static-grid screenshot diff) +
+**12 reuses** from creative-showcases. Interactions: 3 menu links resolve, scroll to top and
+set the hash (centred, left-aligned at ≤767), hero 4 slides, grids 8/8, motion 10 cards.
+`npx eslint .` exits 0 and a clean `npx next build` succeeds (70 static pages); the route
+builds `○ Static`, and a site-wide sweep of the Events routes on the production build is
+clean (the homepage's one failed request is its own pre-existing hero video).
+
+**Deviations: none.**
+
+### ISDI The Edit — `app/schools/isdi/events/the-edit/page.js`, `lib/schools/isdi/eventsTheEditContent.js`
+
+`reference/schools/isdi/events/the-edit.php` (`$css =
+"…68edfd4bbb15da9c1d5debe1-b3dcdbb22.css"`, `$body = "body isdi-page"`) — the **sixth and
+last** ISDI Events page, and **the only one that is NOT the Events fifth-template**. It is
+a bespoke page the reference authors with the **Tailwind Play CDN**
+(`<script src="https://cdn.tailwindcss.com">`): an autoplay desktop/mobile hero video under
+a neon overlay band ("Curated Conversations | Distinct Perspectives | Design in Dialogue"),
+two intro SVGs, an SVG section header, a schedule of **eight sessions / 29 speakers** rendered
+from a PHP `$sections` array, and two closing SVG banners linking to registration. No header
+sticky-menu, no white-wrapper, no ISDI template pieces at all.
+
+**The hero matches production to the pixel at all 12 widths and the four section SVG banners
+match exactly.** The two intro SVGs (section-1) are within ~12px (`w-auto` intrinsic-render
+variance), and the schedule section's height differs by the site-wide Poppins font deviation
+(below). `validate` is clean at 12 widths (0 console / pageerr / failed / broken / overflow /
+**0 off-origin** — the registration links are external but load only on click). Text is
+identical to production except the one en-dash below.
+
+**Reproducing a Tailwind-Play-CDN page with the project's compiled Tailwind — two traps.**
+- **Breakpoints.** The Play CDN uses stock defaults, where `sm` = 640px; this project's config
+  redefines `sm` = 480px. So the reference's `sm:` cannot be copied. AND — **this project's
+  `min-[Npx]:` / `max-[Npx]:` SHORTHAND arbitrary variants do not compile at all** (verified:
+  no `min-[640px]:*` / `max-[639px]:*` rule is emitted), while the **full
+  `[@media(max-width:Npx)]:` form DOES** (the codebase already uses it, e.g. `RingSwiper`). So
+  the page is written **DESKTOP-FIRST**: the base class is the reference's `>=640` value and a
+  `[@media(max-width:639px)]:` override carries the `<640` value. `md` (768) and `xl` (1280)
+  match the config and are used as-is.
+- **Font scale.** The Play CDN's stock `fontSize` tokens carry different line-heights than this
+  config's 1.5-pinned ones, so each text size is written as an arbitrary `text-[Npx]
+  leading-[Npx]` taken from production's computed values (title 24/32, time 14/20, desc 12/16,
+  overlay 20/28 -> 18/28 below 640, speaker name 12/16 -> 14/1.5 below 640). The page renders
+  in **Poppins** — `body.isdi-page` overrides the Play CDN Preflight's html font — verified on
+  production.
+
+**The schedule's height is text-driven, so the font deviation shows there.** Each session row
+is a `flex-row` of LEFT (title block) / RIGHT (a `grid-cols-3` of speaker cards) / BUTTON whose
+widths resolve by flex **min-content**, and each speaker's photo and logo are `w-full` (they
+fill their grid cell). So the cell width — and therefore the image sizes and the row height —
+is driven by the speaker-name/role **text width**. The port renders the self-hosted
+`Poppins ISDI`; production serves Poppins unloaded (CLAUDE.md's ISDI header note) and falls
+back to a narrower sans-serif, so production's columns are narrower and its rows shorter. The
+schedule section therefore measures +20..+197 above 640 and -131..-216 below — the same
+site-wide font deviation every ISDI page carries, here amplified by the flex-min-content layout.
+**Confirmed** by forcing the fallback font on the port, which moves its schedule height toward
+production's. The port is faithful to the authored Poppins (it matches what production renders
+on a machine that has Poppins).
+
+**Assets.** 73 production assets, all under `/schools/isdi/assets/images/the-edits/` (the ISDI
+site's own host, not the Webflow CDN), downloaded byte-for-byte into
+`public/assets/images/schools/isdi/events/the-edit/`: 2 mp4 + 2 webm (12s hero loops, ~13MB),
+10 png (box-1 speaker photos/logos + the `speakers.png` label, 3-25KB each) and 59 svg (the
+section banners and boxes 2-8's speaker photos/logos — vector). The commented-out
+`stripdesktop.png` is dead and not shipped. One box-8 speaker file has a space in its name
+(`Yogendra-Yogi Solanki.svg`), transcribed as authored. The schedule `$sections` array is read
+as **cp1252** so its en-dashes decode. **No shared component was touched** — the page is a
+self-contained server component; `eventsTheEditContent.js` holds the overlay labels and the
+eight sessions.
+
+**DEVIATION (content):** sessions[1]'s title/desc carry an en-dash that **production serves as
+the U+FFFD replacement character** ("Human<FFFD>AI Future", "human<FFFD>machine") — an upstream
+cp1252/UTF-8 encoding bug. The port ships the intended en-dash ("Human-AI"), the one text
+difference from production. Everything else transcribed as authored (the registration link
+`…/registration/program/101067` on all 8 "Request an Invite" buttons and the two closing
+banners; the overlay's third label is the live "Design in Dialogue", not the commented-out
+"Design Discourse").
+
+`npx eslint .` exits 0 and a clean `npx next build` succeeds (71 static pages); the route builds
+`○ Static`, and a site-wide sweep of the Events routes on the production build is clean (the
+homepage's one failed request is its own pre-existing hero video).
+
+**The ISDI Events column is complete — six pages.** `reference/schools/isdi/events/` holds
+nothing else. (`the-edits.php` at the ISDI root — plural, not linked from the menu — remains
+NOT STARTED, flagged for the user to confirm scope.)
+
+## ISDI Campus Experience — `app/schools/isdi/campus/page.js`, `components/Schools/ISDI/Campus/`, `lib/schools/isdi/campusContent.js`
+
+`reference/schools/isdi/campus/index.php` (`$css =
+"…68c2b8bc9b88bae0a309e080-b33771897.css"`, its own sheet; `$body = "body isdi-page"`) — the
+ISDI header's "Campus" column,
+whose five entries point at anchors on this one page. Thirteen blocks: a four-slide
+background-VIDEO ring hero, a two-figure stat band, the sticky anchor menu, "Beyond campus,
+within reach" (7 map tabs), "A campus built to learn, live & thrive" (6-photo column grid),
+"From brainstorms to chill zones / Smart Learning Spaces…" (`#campus-spaces`, 4 ContentCardB
+cards, 2 YouTube embeds), "Hangout zones" (8 photos), "Food on Campus" (5 PortCardH cards),
+"Stay where you belong" (`#campus-housing`, YouTube + 8-cell mosaic), "Powered by purpose…"
+(`#campus-green`, 4 ContentCardB cards, 1 embed + 1 video), the "Ready to live the ISDI
+life?" banner, "More questions?" and the FAQ.
+
+**Almost nothing on it is new.** Measured on production at the twelve widths; after the fixes
+below, **seven of the twelve blocks are 0 at all twelve widths** (hero, stats, menu,
+`#campus-location`, `#campus-learn`, `#campus-housing`, banner) and the rest are the three
+documented deviations. It opens no database connection and the mirror is current (text and
+media diffed node by node). It is a directory with an `index.php`, so production serves it at
+the trailing slash and 301s the slashless path; the menu links the slashless form.
+
+**It is the Undergraduate-Overview chassis plus Life/Campus pieces, driven by data.**
+`Campus/Hero` is the shared `RingSwiper` with background-VIDEO slides (`ringSize={56}`);
+`StatsBand` (`value="normal"`), `About/AnchorMenu`, `Home/MintTabStrip` (`skin="white"`),
+`ui/PhotoColumns` (`rounded="isdi"`), `ui/ContentCardB`, `PhotoGallery`, `Life/Favourites`,
+`Life/Housing`, `Home/ReadyToBuild`, `About/MoreQuestions` and the site-wide `FAQ` carry the
+rest. Only `Campus/Hero` and `Campus/Sections` (Location/Learn/Spaces/Green/Hangout) are this
+page's own, and those are thin compositions.
+
+**Three real bugs the measurements caught — none of them font, all found by refusing to
+rubber-stamp a diff as "deviation":**
+
+- **A shared card renders the location line from `card.note`, not `card.distance`.** The food
+  data named the `.port-card-h-distance` line `distance` ("Building 1", "Building 2", …), so
+  `Favourites`/`PortCardH` rendered it empty — the `TXT[food]` diff showed at **every** width
+  (including the ones where the fixed-height card hid any height change), and the mobile height
+  grew to −107. The page maps `note: c.distance` into `Favourites`. **Read the component's
+  own prop contract before handing it data** — `Favourites` names the line `note`,
+  `ui/PortCardH` names it `place`; the same line, two names.
+
+- **`#campus-green`'s lead carried a `mb-14` the reference does not have, and its card
+  wrapper used the ATLAS `.common-wrapper` padding.** The reference green `.white-desc-wrap`
+  has **no `.mrgbtm`** (margin-bottom 0) — the lead→cards gap is entirely the
+  `.common-wrapper`'s own top padding — and on an ISDI page that padding is **50**, not the
+  56 the shared `ContentCardB` `COMMON_WRAPPER` const encodes. The port had `WHITE_DESC_WRAP_MB`
+  (mb 56) **plus** `COMMON_WRAPPER` (pt 56) = 112px of gap against prod's 50, a constant
+  **+62** at every desktop width that read nothing like a font wrap. Fixed with a local
+  `ISDI_COMMON = 'pt-[50px]'` (ref `.isdi-page .common-wrapper { padding-top: 50px }`, 0,2,0,
+  so it beats the sheet's 56 and its ≤767 40 at every width) and plain `WHITE_DESC_WRAP`. The
+  shared `COMMON_WRAPPER` const (56) is ATLAS-calibrated and used by 37 files, so it is left
+  alone and ISDI uses the local 50. The same +6 offset was hiding inside `#campus-spaces`'s
+  font diff (its outer wrapper is `.common-wrapper` too) and is now gone — spaces is **0 at
+  ≥1100**.
+
+- **The campus food carousel's top padding is not life's.** `Life/Favourites` hardcoded
+  `pt-14 max-md:pt-10` (56 → 40 at ≤767), which is exactly what the life page's
+  `.swiper.common-swiper` measures and why life matches. Campus's food carousel measures **56
+  down to 768 and 60 at ≤479** (its `.card-type-h-wrapper` has pt 0; the gap is a fixed
+  margin that does not drop at ≤767 — it *rises* to 60 at ≤479). So `Favourites` gained an
+  optional `carouselClassName` (default = life's value, so the life page is untouched —
+  re-measured 0 at every mobile width) and campus passes `pt-14 max-sm:pt-[60px]`. Food is
+  now 0 at 1440/992/768/479/390 and −4 at 700/568 (sub font-wrap).
+
+**`campus-spaces`/`campus-green` are the documented self-hosted-Poppins font deviation, and
+the direction is the reverse of the usual one here.** This machine has real **Poppins**
+installed, so the headless Chromium hitting production renders `.card-content-b` /
+`.black-desc-text` in a Poppins that is *wider* than the port's self-hosted `Poppins ISDI`
+face — same `copyW` (434), `bodyW` (242), `font-size` (18px) and `line-height` (27px) on both
+sides, only `font-family` differs, and the same copy wraps to **fewer** lines on the port. So
+the port is *shorter* (spaces up to −189 at 768; green ±8..30). On a visitor machine without
+Poppins, production falls back to a narrower face again, so the self-hosted Poppins is the
+faithful render and the delta is this measuring machine's installed Poppins. Confirmed by
+measuring the copy column on both sides.
+
+**The `measure()` bullet-render timing flake is real at ≤568.** `Carousel`'s ISDI bullets
+render only once the client `measure()` finds `snaps.length > 1`, and a short settle sometimes
+misses it — the food block read −48 at 568 and −43 at 360 in the 12-width run, but with a
+solid settle (scroll + resize + ~1s) the carousel renders its 5 bullets and food measures 834
+at 568 (−4) and ~862 at 360. The small-width food/▸carousel deltas in the table are that
+artifact, not a defect — verified across three trials.
+
+**Verified.** 12-width block measure vs production: hero, stats, menu, `#campus-location`,
+`#campus-learn`, `#campus-housing`, banner **0 at all twelve**; `food` 0 except −4 at 700/568
+(sub font-wrap) and a bullet-timing artifact at 360; `hangout` **+4** at every mobile width
+(the `PhotoGallery` `.instagram-wrapper` overflow/scroll-margin collapse already documented);
+`#campus-spaces`/`#campus-green` the self-hosted-Poppins font-wrap above; `faq` the known ISDI
+section-padding bucket (+20 above 768 / −20 below) — its 24 questions are **identical** to
+production's (FAQ master 1, re-exported), the `TXT[faq]` diff is only the shared accordion
+surfacing answer text in `innerText`. Interactions **0 fails at 1440 and 390** (menu 5 links +
+scroll, hero 4 videos / 4 rings @56px, stats 2, location 7 tabs + switch, learn 6, spaces 2
+embeds, green 1 embed + 1 video, hangout 8, food 5, housing 8 mosaic + 1 YouTube, faq 24).
+`npx eslint .` exits 0; `npx next build` from a cleared `.next` succeeds and the route builds
+`○ Static` (71 static routes + the pre-existing Instagram media API dynamic route).
+`regress.py`/the sweep across the new page and every shared-component consumer (immersions,
+programs/undergraduate, b-des/accessory, campus-atlas, enterprenurship, life@atlas-isdi, the
+ISDI homepage) is clean — 0 console, 0 page errors, 0 broken images, 0 horizontal overflow,
+0 off-origin; the only `requestfailed` entries are the YouTube player's own telemetry beacons
+on the two YouTube-embed pages (campus, campus-atlas), all confirmed `www.youtube.com`
+stats/ptracking aborts.
+
+**Shared-component changes (all additive, all defaulted, origin pages re-verified):**
+`Life/Favourites` gained `carouselClassName` (default life's `pt-14 max-md:pt-10`);
+`Campus/Sections` uses a local `ISDI_COMMON` (`pt-[50px]`) rather than the ATLAS
+`COMMON_WRAPPER`. (The `RingSwiper` `ringSize`/`mobileBottom`, `ui/PhotoColumns` `rounded` and
+`Life/Sections` Housing `id`/`block` props were added earlier in the same task, also additive
+and defaulted.)
+
+**Deviations (three, all shared with the ISDI set):** the FAQ's ±20 section-padding bucket;
+the `PhotoGallery` hangout wall's +4 at mobile; and the self-hosted-Poppins font-wrap on the
+two ContentCardB stacks (largest at `#campus-spaces`, up to −189 at 768, where this machine's
+installed Poppins wraps the card copy wider than the port's self-hosted face).
+
+## ISDI Thought Leadership — `app/schools/isdi/thought-leaderships/page.js`, `components/Schools/ISDI/ThoughtLeadership/BlogSection.js`, `lib/schools/isdi/thoughtLeadershipsContent.js`
+
+`reference/schools/isdi/thought-leaderships/index.php` (`$css = "…68e7936f141c3283f461d766-366cfd569.css"`
+— the **About page's sheet**, reused here; `$body = "body isdi-page"`) — the ISDI header's
+"About Us > Thought Leadership", and one of the simplest pages in the port: two blocks, a 658px
+image hero and a static 44-card blog grid. No carousel, no tab panel, no video, no FAQ, no
+third-party widget.
+
+**It is a per-request API snapshot, the same treatment the ATLAS homepage Thought Leadership
+section gets.** index.php curls `uat-dashboard.atlasskilltech.app/api/atlas-blogs/by-school/isdi`
+and renders one `.card` (card-a, variant `type-b-responsive`) per published ISDI blog. The feed
+is UAT, so the 44 cards are snapshotted into `lib/schools/isdi/thoughtLeadershipsContent.js`.
+**Re-run the snapshot to refresh** — it was re-verified field-for-field against the LIVE feed
+on 2026-10-29 (feed `count: 44`, and **0 mismatches** on title / date_label / link / alt_text /
+image-map across all 44), which is exactly what production renders.
+
+**Both blocks match production to the pixel at all 12 widths** (1920 / 1440 / 1280 / 1100 / 992 /
+900 / 768 / 700 / 568 / 479 / 390 / 360), on the dev server and a clean production build; 414/414
+interactions at 1440; `validate` clean at all 12 widths (0 overflow / console / page errors /
+failed / broken / **0 off-origin**). Served at the trailing-slash url (a directory with an
+index.php; production 301s the slashless form the menu links).
+
+**The hero is `About/Hero` (image form), and it surfaced a real bug invisible to the height diff.**
+`.inner-header-wrapper.mrgbtm` is 658px with a 50% scrim ending `#000000e6` (full-height ≤767),
+pb56, and an `h1.h1-tag` "Thought Leadership" — all of which `About/Hero`'s image branch already
+produces. The hero's `.mrgbtm` margin-bottom (56 / 40 ≤767) is carried as `BlogSection`'s top
+margin. BUT: this page reuses the About sheet, whose `.h1-tag` has a **44px step at ≤991** — and
+the page's own inline `<style>` redefines `.h1-tag` (56px, no 44px step) and, being later in the
+document, **wins**. So production holds the heading at **56px from 992 down to 768**, then 28px at
+≤767, where `About/Hero`'s shared `max-lg:text-[44px]` was dropping the port to 44px at 768-991.
+**The hero is a fixed 658px, so this never moved a block height** — it was caught by the hero
+screenshot (768 mean 6.44, concentrated on the heading band). Fixed with an additive, defaulted
+`data.midHeading` prop on `About/Hero`: `midHeading === false` drops the 44px step; every other
+hero keeps the ladder, so it is a **no-op for all 10 other consumers** (each re-measured locally,
+h1 ladder still 56/44/28, including the About page).
+
+**The blog grid is local `ThoughtLeadership/BlogSection`**, because `.card.type-b-responsive` is
+this page's own shape and its classes are all defined in the page's own inline `<style>`:
+`.card` #f2f2f2, radius **0** (the variant overrides the base's 16px), 285×517 (w-full / h-auto
+≤767), clipped; `.c-image` 298px on #8facec; `.c-title` clamped to 50px/600; `.c-date` pt12/pb44;
+and a `.button-tertiary` (variant mint) "Read now" pill — **#EC1376 with BLACK text** and an
+**inverted** arrow (`filter: invert()`). The grid is `.common-flex-16-wrap` (flex wrap, gap 16,
+start; center ≤767) and the five school tabs (`.blog-tab`, ISDI active = #EC1376 white) are a
+horizontal scroller ≤767. The tabs and card links keep their absolute production URLs (the ISDI
+blog is not ported).
+
+**Assets.** 48 files: 44 card PNGs (mirrored in `reference/.../thought-leaderships/assets/images/
+<month>/N.png`) → WebP under `public/assets/images/schools/isdi/thought-leaderships/<month>/`, and
+the hero `publication-image` + its three `-p-500/-800/-1080` twins, which are the CDN webps
+**byte-for-byte** (verified identical). The calendar (`atlas-news/calendar-icon.svg`) and arrow
+(`icons/arrow-downward.svg`) icons are reused and proven **byte-identical to the CDN originals**.
+No new asset downloaded for this page beyond what the previous run had already mirrored.
+
+**Verified** against `https://atlasuniversity.edu.in/schools/isdi/thought-leaderships/` at the 12
+widths: hero and `#blog-section` **0 height diff at all twelve**; per-block screenshots hero 0.00
+@1440, blog ~1 mean (WebP residue), and the hero's 768/390 residual is the heading's self-hosted
+`Poppins ISDI` vs production's unloaded-Poppins fallback — **confirmed by forcing a common font on
+both sides (6.44 → 2.83 @768)**, the site-wide ISDI deviation. 414/414 interactions (5 tabs with
+correct labels/hrefs and the ISDI active state, 44 cards each with a loaded image, the feed's
+title/date/link, a black-on-pink "Read now", and a 285×517 r0 #f2f2f2 box). `npx eslint .` 0, a
+clean `npx next build` from a cleared `.next` (route `○ Static`). `regress.py` across all 71 built
+routes at two widths found nothing on this page; its other entries are all pre-existing and
+unrelated to the change (none of those pages render `About/Hero`): the ATLAS testimonial-video
+`requestfailed`s, `networkidle` timeouts on the heavy media pages (which load clean under a gentler
+wait), the Summer School Admissions NoPaperForms 403, and **one genuine pre-existing defect on the
+uncommitted `events/industry-and-mentorship` page — `mentors.js` points `image-5.png` at a file that
+is now `image-5.webp` on disk** (recorded in `MIGRATION-ISDI.md` under OPEN, flagged not fixed).
+
+**Deviation (one):** the self-hosted-Poppins heading on the hero (the site-wide ISDI font
+deviation). No FAQ, so no FAQ bucket; the blog grid's only residue is WebP.

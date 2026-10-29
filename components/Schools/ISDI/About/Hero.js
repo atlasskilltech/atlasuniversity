@@ -43,9 +43,27 @@ import { CONTAINER } from '../Home/ui';
  * screen (it always is on load) with the poster painted until then.
  *
  * `data.id` is the wrapper's own id. Only The ISDI Advantage authors one
- * (`id="overview"`), and its sticky menu's first link points at it.
+ * (`id="overview"`), and its sticky menu's first link points at it. Its sibling
+ * /atlas-isdi-advantage/internationalisation authors the SAME id on the
+ * `img.header-image-inner` instead — hence `data.imageId`, which keeps the anchor
+ * where the reference puts it.
+ *
+ * `widget` is an optional third flex child of that row — see the comment at its
+ * call site. Only /schools/isdi/success-stories/success-snapshot has one.
+ *
+ * `.inner-cover-text` is CONDITIONAL. That page authors no lead beside the heading
+ * at all, and the box is not inert: it is a 430px flex item in a `gap: 100` row, so
+ * rendering it empty would push the heading 530px left of where the reference puts it.
  */
-export default function Hero({ data, brochure }) {
+/*
+ * ref .inner-header-wrapper's height modifiers. The base is 658px and `.full-ht`
+ * is 100vh — but `._100vh`, which
+ * /atlas-isdi-advantage/industry-centric-approach carries, is **78vh** despite its
+ * name. `data.height` names the modifier; `data.fullHeight` stays the older flag.
+ */
+const HEIGHT = { '78vh': 'h-[78vh]', '658': 'h-[658px]', '100vh': 'h-screen' };
+
+export default function Hero({ data, brochure, widget }) {
   return (
     /* ref .inner-header-wrapper(.full-ht) */
     <div
@@ -53,7 +71,7 @@ export default function Hero({ data, brochure }) {
       data-block="hero"
       className={cx(
         'relative w-full overflow-hidden',
-        data.fullHeight === false ? 'h-[658px]' : 'h-screen'
+        HEIGHT[data.height] ?? (data.fullHeight === false ? 'h-[658px]' : 'h-screen')
       )}
     >
       {/* ref .inner-header-cover */}
@@ -65,8 +83,26 @@ export default function Hero({ data, brochure }) {
           {/* ref .hd-wrap — an unstyled div, authored only where the hero has buttons;
               The ISDI Advantage puts its h1 straight in the container */}
           <div>
-            {/* ref h1.h1-tag */}
-            <h1 className="m-0 text-[56px] font-normal leading-[1.2] text-white max-lg:text-[44px] max-md:text-[28px] max-md:font-semibold max-md:leading-[1.5]">
+            {data.eyebrow && (
+              /* ref .top-sub-text — 18px/1.5 white with 12px of bottom padding, on
+                 the industry-centric-approach hero only */
+              <div className="pb-3 text-[18px] leading-[1.5] text-white">{data.eyebrow}</div>
+            )}
+            {/* ref h1.h1-tag.
+               The 44px step at <=991 is the shared About/Programs sheet's rule. One
+               page — /schools/isdi/thought-leaderships — reuses that sheet but its own
+               inline <style> redefines .h1-tag (56px, no 44px) and, being later in the
+               document, wins: production holds 56px from 992 down to 767, then 28px.
+               `data.midHeading === false` drops the 44px step for it; every other hero
+               keeps the ladder, so the flag is a no-op where it is absent. (The heading
+               box is a fixed-height hero, so this never shows in a block-height diff.) */}
+            <h1
+              className={cx(
+                'm-0 text-[56px] font-normal leading-[1.2] text-white',
+                data.midHeading === false ? '' : 'max-lg:text-[44px]',
+                'max-md:text-[28px] max-md:font-semibold max-md:leading-[1.5]'
+              )}
+            >
               {withBreaks(data.title)}
             </h1>
             {data.buttons?.length > 0 && (
@@ -100,8 +136,18 @@ export default function Hero({ data, brochure }) {
               </div>
             )}
           </div>
-          {/* ref .inner-cover-text */}
-          <div className="w-[430px] text-[18px] font-light leading-[1.6] text-white max-md:w-full">{data.text}</div>
+          {/* a third flex child between the heading and the lead — the Success
+              Snapshot hero's CRM widget drops its button there, so it is a SIBLING
+              of the `h1`, not part of its wrapper: the row is `space-between` with a
+              100px gap, and folding the button into the heading's div would spread
+              two children where the reference spreads three. */}
+          {widget}
+          {data.text && (
+            /* ref .inner-cover-text */
+            <div className="w-[430px] text-[18px] font-light leading-[1.6] text-white max-md:w-full">
+              {data.text}
+            </div>
+          )}
         </div>
       </div>
 
@@ -117,14 +163,19 @@ export default function Hero({ data, brochure }) {
       ) : (
         /* ref img.header-image-inner — The ISDI Advantage fills the same frame with a
            photograph rather than a looping clip; measured 1440x900 / 390x900, i.e. the
-           wrapper's own box, so it is `object-cover` over `h-full w-full` */
+           wrapper's own box, so it is `object-cover` over `h-full w-full`.
+           The class declares `display: block`, where `globals.css` restores Webflow's
+           `img { display: inline-block }` for every other image — so it is restated
+           here. Inert (the frame has a declared height and clips), but the computed
+           value was wrong on all three pages that render this form. */
         /* eslint-disable-next-line @next/next/no-img-element */
         <img
+          id={data.imageId || undefined}
           src={data.image.src}
           srcSet={data.image.srcSet}
           sizes={data.image.sizes}
           alt={data.image.alt}
-          className="h-full w-full max-w-full object-cover align-middle"
+          className="block h-full w-full max-w-full object-cover align-middle"
         />
       )}
     </div>

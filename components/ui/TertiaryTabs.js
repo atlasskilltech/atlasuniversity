@@ -76,7 +76,15 @@ export default function TertiaryTabs({ tabs, label, idPrefix, rounded = true }) 
             <img
               src={pane.image.src}
               srcSet={pane.image.srcSet}
-              sizes="(max-width: 1279px) 100vw, 1238px"
+              /* The `sizes` string decides which srcset candidate loads, and two
+                 candidates of the same photograph are not the same ratio — the
+                 Life@ATLAS ISDI reference authors
+                 `…95vw, 939.982666015625px`, which selects the `-p-1080`
+                 (1080x502) where the hard-coded 1238px selects the 1238x576
+                 original, and the pane then measured 0.6px tall. It travels with
+                 the pane; the pages that came first author none and keep the
+                 string they were measured with. */
+              sizes={pane.image.sizes ?? '(max-width: 1279px) 100vw, 1238px'}
               alt={pane.image.alt}
               loading="lazy"
               className={cx(

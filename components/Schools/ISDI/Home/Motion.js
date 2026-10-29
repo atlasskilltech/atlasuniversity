@@ -1,5 +1,6 @@
 import { cx } from '@/lib/cx';
 import ZoomSlider from '@/components/Life/ZoomSlider';
+import MotionCard from '../MotionCard';
 import { CONTAINER, H2, H2_MB, SECTION, SUB } from './ui';
 
 /**
@@ -34,29 +35,16 @@ export default function Motion({ data }) {
       <div className="mt-14 max-md:mt-5">
         <ZoomSlider label={data.heading}>
           {data.cards.map((card, i) => (
-            /* ref .motion-card.swiper-slide.width-motion (isdi variant) */
-            <div
+            /* ref .motion-card.swiper-slide.width-motion (isdi variant) — the
+               shared `../MotionCard` since /schools/isdi/life@atlas-isdi renders
+               the same card twice. This page's data is flat (`image` is a string
+               and there is no subtitle), so it is adapted here rather than
+               rewriting `lib/schools/isdi/home/`. */
+            <MotionCard
               key={i}
-              className="relative h-[480px] w-[340px] overflow-hidden rounded-2xl leading-[0] max-md:h-[430px] max-md:w-[305px]"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={card.image}
-                width={340}
-                height={480}
-                alt={card.alt}
-                loading="lazy"
-                decoding="async"
-                className="inline-block h-full w-full max-w-full object-cover align-middle"
-              />
-              {/* ref .mc-text-wrap */}
-              <div className="absolute inset-x-0 bottom-0 p-8">
-                {/* ref .card-text (isdi variant) */}
-                <div className="inline-block bg-[#ec1376] px-2.5 py-1 text-[24px] font-medium leading-[1.2] text-white">
-                  {card.title}
-                </div>
-              </div>
-            </div>
+              card={{ image: { src: card.image, alt: card.alt, width: 340, height: 480 },
+                      title: card.title }}
+            />
           ))}
         </ZoomSlider>
       </div>

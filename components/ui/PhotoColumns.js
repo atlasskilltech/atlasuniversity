@@ -1,3 +1,4 @@
+import { cx } from '@/lib/cx';
 /**
  * `.grid-gallery-flex.sm.atlas > .grid-column.sm > .inst-img-wrap` — a clipped
  * `32px 0` frame of photographs laid out in columns, each captioned over a
@@ -33,12 +34,15 @@
  * Several captions are empty (`<div class="inst-cont"></div>`), which paints
  * only the scrim — rendered as authored.
  */
-export default function PhotoColumns({ columns }) {
+export default function PhotoColumns({ columns, rounded = 'atlas' }) {
   return (
-    /* ref .grid-gallery-flex.sm.atlas */
+    /* ref .grid-gallery-flex.sm.atlas (32px 0 corners) | .sm.isdi (16px, measured on
+       /schools/isdi/campus's "A campus built to learn") */
     <div
-      className="flex items-start gap-[2px] overflow-hidden rounded-tl-[32px] rounded-br-[32px]
-                 max-md:flex-wrap max-md:justify-between"
+      className={cx(
+        'flex items-start gap-[2px] overflow-hidden max-md:flex-wrap max-md:justify-between',
+        rounded === 'isdi' ? 'rounded-2xl' : 'rounded-tl-[32px] rounded-br-[32px]',
+      )}
     >
       {columns.map((column, index) => (
         /* ref .grid-column.sm */

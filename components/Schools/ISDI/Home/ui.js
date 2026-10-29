@@ -44,8 +44,9 @@ export const H2_PLAIN = 'relative m-0 text-[44px] font-medium leading-[1.2] text
  * 1.5 at <=767 where `.sub-heading` drops to 16px instead. Two Summer School sections use
  * it: "Your Creative Journey at ISDI" and, on the Admissions page, "A Day in the Life".
  */
-export const SUB_1_MRGBTM =
-  'pb-14 pr-[50px] text-[18px] font-light leading-[1.8] max-md:pr-0 max-md:leading-[1.5]';
+export const SUB_1 =
+  'pr-[50px] text-[18px] font-light leading-[1.8] max-md:pr-0 max-md:leading-[1.5]';
+export const SUB_1_MRGBTM = `pb-14 ${SUB_1}`;
 
 export const H2_MB = {
   base: 'mb-14 max-md:mb-8',

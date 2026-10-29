@@ -20,9 +20,19 @@ import { SECTION } from '../Home/ui';
  *   .blue-wrapper     #173a87, white, 300, pb56          pb40
  *   .white-wrapper    black, clipped, no padding
  *
- * `children` is the wrapper's content; `tone` picks the wrapper.
+ * `children` is the wrapper's content; `tone` picks the wrapper, and
+ * `headingAfter` is an optional third child of the `.icon-heading` row.
+ *
+ * `tone="none"` renders NO wrapper at all. Two of
+ * /atlas-isdi-advantage/internationalisation's five banded sections author their
+ * content as direct siblings of the `.icon-heading` — `#summer-school`
+ * (`.common-wrapper` + a bleeding carousel) and `#isdi-master-prog` (`.container` +
+ * a full-bleed `.strip-container`). `.white-wrapper` is not that box: it carries
+ * `overflow: hidden`, which would clip the strip.
  */
-export default function IconSection({ id, block, icon, title, tone = 'blue', children, after }) {
+export default function IconSection({
+  id, block, icon, title, tone = 'blue', children, after, headingAfter,
+}) {
   return (
     <section id={id} data-block={block} className={SECTION}>
       {/* ref .icon-heading */}
@@ -43,16 +53,23 @@ export default function IconSection({ id, block, icon, title, tone = 'blue', chi
             {title}
           </div>
         </div>
+        {/* two of /atlas-isdi-advantage/industry-centric-approach's headings close
+            the row with an `a.button-regular`; every other instance has none */}
+        {headingAfter}
       </div>
 
-      {/* ref .blue-wrapper.isdi-blue-5 / .white-wrapper */}
-      <div
-        className={cx(
-          tone === 'blue' ? 'bg-[#173a87] pb-14 font-light text-white max-md:pb-10' : 'overflow-hidden text-black'
-        )}
-      >
-        {children}
-      </div>
+      {tone === 'none' ? (
+        children
+      ) : (
+        /* ref .blue-wrapper.isdi-blue-5 / .white-wrapper */
+        <div
+          className={cx(
+            tone === 'blue' ? 'bg-[#173a87] pb-14 font-light text-white max-md:pb-10' : 'overflow-hidden text-black'
+          )}
+        >
+          {children}
+        </div>
+      )}
       {after}
     </section>
   );

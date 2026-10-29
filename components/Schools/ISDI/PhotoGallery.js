@@ -27,10 +27,15 @@ import withBreaks from '@/lib/withBreaks';
  * the programmes page (`strong`). `logo` is `.grid-logo`, pinned 20px from the
  * card's bottom-left corner.
  */
-function Card({ card }) {
+function Card({ card, scroller = true }) {
   return (
-    /* ref .img-wrap */
-    <div className="relative max-vsm:h-[400px] max-vsm:min-w-[320px] max-sm:w-[320px]">
+    /* ref .img-wrap. `width: 320px` at <=479 is a GLOBAL `.img-wrap` rule (it
+       applies to every variant, so the bare `plain` grid's img is 300px wide in a
+       320px wrap there too — it overflows its 48% column, exactly as production
+       renders it). The fixed `height: 400px` and the <=540 `min-width: 320px` are
+       the `.mobile-vert-scroll` horizontal-scroller form ONLY (nested / merged);
+       `plain` keeps its img-wrap auto-height, so its photos sit at natural height. */
+    <div className={cx('relative max-sm:w-[320px]', scroller && 'max-vsm:h-[400px] max-vsm:min-w-[320px]')}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={card.image.src}
@@ -87,6 +92,41 @@ function Card({ card }) {
         </div>
       )}
 
+      {card.details && (
+        /*
+         * ref .grid-details — the caption /atlas-isdi-advantage/industry-centric-
+         * approach puts on eight of its sixteen "Big Names" cards (the other eight
+         * are bare photographs). Measured on production at 1440 / 768 / 390:
+         *   .grid-details      absolute at the card's foot, full width, p 0/20/20
+         *   .cd-tyd-text       20px/1.5 600 white, pb4
+         *   .cd-tyd-tx         14px/1.5 white
+         *   .cd-tyd-posi       EMPTY, and still a box: a 40%-wide 1px white rule
+         *                      with `margin: 16px 0`, so it is 33px of card height
+         *   img.cd-tyd-logo-img  block, intrinsic size — one of the eight omits it
+         */
+        <div className="absolute inset-x-0 bottom-0 flex-none px-5 pb-5 text-white">
+          {/* ref .cd-tyd-text */}
+          <div className="pb-1 text-[20px] font-semibold leading-[1.5]">{card.details.name}</div>
+          {/* ref .cd-tyd-tx */}
+          <div className="text-[14px] leading-[1.5]">{card.details.role}</div>
+          {/* ref .cd-tyd-posi — authored empty on every card and still a 1px rule */}
+          <div className="my-4 flex h-px w-2/5 items-start justify-between border-0 border-t border-solid border-white bg-white pt-0" />
+          {card.details.logo && (
+            /* ref img.cd-tyd-logo-img */
+            /* eslint-disable-next-line @next/next/no-img-element */
+            <img
+              src={card.details.logo.src}
+              width={card.details.logo.width}
+              height={card.details.logo.height}
+              alt={card.details.logo.alt}
+              loading="lazy"
+              decoding="async"
+              className="block max-w-full"
+            />
+          )}
+        </div>
+      )}
+
       {card.logo && (
         /* ref img.grid-logo */
         /* eslint-disable-next-line @next/next/no-img-element */
@@ -104,26 +144,75 @@ function Card({ card }) {
   );
 }
 
-export default function PhotoGallery({ columns, className }) {
-  return (
-    /* ref .instagram-wrapper.mobile-vert-scroll — `overflow: scroll` upstream; it
-       only has anything to scroll at <=540, so (as in Campus/HangoutZones) it
-       scrolls there and paints no idle scrollbars above it */
-    <div className={cx('max-vsm:overflow-x-auto', className)}>
-      {/* ref .grid-gallery-flex */}
-      <div className="flex items-start gap-6 max-md:flex-wrap max-md:justify-between max-md:gap-0 max-vsm:flex-nowrap max-vsm:items-stretch max-vsm:gap-x-6">
+/**
+ * `merged` is the one wrapper that puts `.instagram-wrapper` and
+ * `.grid-gallery-flex` on the SAME element rather than nesting them —
+ * /atlas-isdi-advantage/industry-centric-approach's "Creative Catalyst". It
+ * matters below 540: nested, `.grid-gallery-flex` turns `flex-nowrap` and the
+ * outer wrapper scrolls one row; merged, there is no outer wrapper, so the row
+ * keeps the `<=767` `flex-wrap: wrap` and each column stacks and overflows on its
+ * own (measured 1696px at 390 against the nested form's 911).
+ */
+const ROW = {
+  nested:
+    'flex items-start gap-6 max-md:flex-wrap max-md:justify-between max-md:gap-0 '
+    + 'max-vsm:flex-nowrap max-vsm:items-stretch max-vsm:gap-x-6',
+  merged:
+    'flex items-start gap-6 max-md:flex-wrap max-md:justify-between max-md:gap-0 '
+    + 'max-vsm:items-stretch',
+  /*
+   * `plain` is the bare `.grid-gallery-flex` inside an INERT `.duplicate-grid-wrapper`
+   * (no `.instagram-wrapper`, no `.mobile-vert-scroll`) — /schools/isdi/events/
+   * creative-showcases' Studio Day and Graduate Showcase grids. The page sheet has
+   * no ≤540 rule for it, so it simply keeps its ≤767 form all the way down: the row
+   * wraps two 48% columns and never becomes a horizontal scroller. Reproduced by
+   * dropping every `max-vsm:` scroller class from the row, the column and the card.
+   */
+  plain:
+    'flex items-start gap-6 max-md:flex-wrap max-md:justify-between max-md:gap-0',
+};
+
+/* the column's `max-vsm:` pieces turn it into a scroller row below 540; the `plain`
+   variant omits them so the column stays a 48% stacked column (margin-top 24 at
+   ≤479, which `max-sm:mt-6` keeps) */
+const COL = {
+  scroller:
+    'flex flex-col items-start justify-between gap-6 max-md:w-[48%] max-md:gap-x-0 '
+    + 'max-vsm:w-auto max-vsm:flex-row max-sm:mt-6',
+  plain:
+    'flex flex-col items-start justify-between gap-6 max-md:w-[48%] max-md:gap-x-0 max-sm:mt-6',
+};
+
+/*
+ * `rowClassName` is the modifier the REFERENCE puts on `.grid-gallery-flex`
+ * rather than on `.instagram-wrapper` — /schools/isdi/events/immersions-&-
+ * experiences authors `.mar-0` on the wrapper (zeroing its own 56px top margin)
+ * and `.mrgtp` on the row. The gap is the same either way; the boxes are not.
+ */
+export default function PhotoGallery({ columns, className, rowClassName, variant = 'nested' }) {
+  const scroller = variant !== 'plain';
+  const row = (
+    /* ref .grid-gallery-flex */
+    <div className={cx(ROW[variant] ?? ROW.nested, rowClassName, variant !== 'nested' && className)}>
         {columns.map((column, i) => (
           /* ref .grid-column */
           <div
             key={column[0]?.image.src ?? i}
-            className="flex flex-col items-start justify-between gap-6 max-md:w-[48%] max-md:gap-x-0 max-vsm:w-auto max-vsm:flex-row max-sm:mt-6"
+            className={scroller ? COL.scroller : COL.plain}
           >
-            {column.map((card) => (
-              <Card key={card.image.src} card={card} />
+            {column.map((card, j) => (
+              <Card key={`${j}-${card.image.src}`} card={card} scroller={scroller} />
             ))}
           </div>
         ))}
-      </div>
     </div>
+  );
+
+  if (variant === 'merged' || variant === 'plain') return row;
+  return (
+    /* ref .instagram-wrapper.mobile-vert-scroll — `overflow: scroll` upstream; it
+       only has anything to scroll at <=540, so (as in Campus/HangoutZones) it
+       scrolls there and paints no idle scrollbars above it */
+    <div className={cx('max-vsm:overflow-x-auto', className)}>{row}</div>
   );
 }

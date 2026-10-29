@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { cx } from '@/lib/cx';
 import withBreaks from '@/lib/withBreaks';
 import Carousel from '@/components/Carousel/Carousel';
+import CareerCard from '../CareerCard';
 import MintTabStrip from '../Home/MintTabStrip';
 import { CONTAINER, H2, H2_MB, SECTION, SUB_MRGBTM32 } from '../Home/ui';
 
@@ -45,46 +46,6 @@ import { CONTAINER, H2, H2_MB, SECTION, SUB_MRGBTM32 } from '../Home/ui';
  * viewport and the row runs far past the viewport. The container width is used
  * there instead — the same fix `TestimonialCard` and `ZoomSliderLg` already carry.
  */
-function ExecutionCard({ card }) {
-  return (
-    /* ref .career-sup-card */
-    <div className="flex h-[622px] w-[398px] flex-none flex-col items-stretch gap-0 overflow-hidden max-md:h-auto max-md:w-[calc(100vw-44px)]">
-      {/* ref .career-sup-img */}
-      <div className="relative h-[340px] w-auto overflow-hidden max-md:h-[240px]">
-        {/* ref img.csservice-card-main-img.isdi */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={card.image.src}
-          width={card.image.width}
-          height={card.image.height}
-          alt={card.image.alt}
-          loading="lazy"
-          decoding="async"
-          className="block h-[101%] w-full max-w-none rounded-t-2xl object-cover align-middle max-md:object-[50%_76%]"
-        />
-      </div>
-
-      {/* ref .css-content-wrapper.bg1.isdi / .isdi-2 */}
-      <div
-        className="flex-1 rounded-b-2xl bg-contain bg-[position:100%_100%] bg-no-repeat px-[35px] pb-2 pt-5 max-md:pb-5 max-sm:px-5"
-        style={{
-          backgroundColor: card.panel.background,
-          backgroundImage: `url(${card.panel.image})`,
-        }}
-      >
-        {/* ref .cr-title.isdi — the Fashion Design page breaks several of its titles */}
-        <div className="text-[20px] font-semibold leading-[1.3] text-white max-lg:text-[18px] max-lg:leading-[1.3]">
-          {withBreaks(card.title)}
-        </div>
-        {/* ref .cr-sub-desc.mt16 */}
-        <div className="mt-4 text-base leading-[1.3] text-white max-lg:text-[14px] max-lg:leading-[1.3] max-md:text-base max-md:leading-[1.4]">
-          {withBreaks(card.text)}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function Execution({ data }) {
   const [active, setActive] = useState(0);
 
@@ -120,7 +81,7 @@ export default function Execution({ data }) {
             center }` centres the short ones against the tallest */}
         <Carousel key={active} autoplay={false} bullets="isdi-overlay" align="center">
           {data.panes[active].map((card, i) => (
-            <ExecutionCard key={`${i}-${card.title}`} card={card} />
+            <CareerCard key={`${i}-${card.title}`} card={card} />
           ))}
         </Carousel>
       </div>

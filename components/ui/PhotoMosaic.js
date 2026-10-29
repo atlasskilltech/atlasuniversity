@@ -29,6 +29,10 @@ import { cx } from '@/lib/cx';
  *              rounds the whole eight-cell block, cells square.
  *   'cell'     /advantages — each `.cards-inner-camp.img-N.atlas` and
  *              `.bl-cards-camp.img-N.atlas` rounds itself, wrapper square.
+ *   'wrapper-16' /schools/isdi/life@atlas-isdi — `.bl-card-wrapper-isme.isdi`
+ *              takes ISDI's generic `.isdi { border-radius: 16px }` on ALL FOUR
+ *              corners, where `.atlas` rounds two of them at 32. Same markup,
+ *              different skin; measured on production.
  *
  * Every photograph is painted by the stylesheet, never by markup, so the cells
  * travel as data. `background-size` is per-cell AND per-breakpoint (`img-3` is
@@ -39,13 +43,14 @@ import { cx } from '@/lib/cx';
 export default function PhotoMosaic({ cells, rounded = 'wrapper', className }) {
   const [ac, security, meals, lounges, gym, study, coffee, housekeeping] = cells;
   const cell = rounded === 'cell' ? 'rounded-tl-[32px] rounded-br-[32px]' : '';
+  const wrap = { wrapper: 'rounded-tl-[32px] rounded-br-[32px]', 'wrapper-16': 'rounded-2xl' };
 
   return (
     /* ref .bl-card-wrapper-isme(.atlas) */
     <div
       className={cx(
         'mt-14 overflow-hidden max-md:mt-10',
-        rounded === 'wrapper' && 'rounded-tl-[32px] rounded-br-[32px]',
+        wrap[rounded],
         className,
       )}
     >

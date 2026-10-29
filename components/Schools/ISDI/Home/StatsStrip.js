@@ -34,6 +34,10 @@ const BAND =
   'bg-[position:100%_100%,0px_100%] max-lg:py-10 max-md:bg-cover max-md:bg-center max-md:py-5';
 
 /**
+ * `block` names the root's `data-block`, because
+ * /atlas-isdi-advantage/industry-centric-approach renders this band as its
+ * `figures` block with a separate `stats` band above it.
+ *
  * `bare` drops the `.section` wrapper: /atlas-isdi-advantage renders the same band
  * and the same logo strip INSIDE its "Strongly Industry Oriented" section rather
  * than as a section of its own, and the two building photographs it paints are
@@ -41,7 +45,7 @@ const BAND =
  * must stay a class, because an inline `background-position` would beat the
  * `<=767` `cover`/`center` rule — is reused exactly as it is.
  */
-export default function StatsStrip({ data, bare = false }) {
+export default function StatsStrip({ data, bare = false, block = 'stats' }) {
   const band = (
     <>
       <div className={BAND}>
@@ -85,7 +89,7 @@ export default function StatsStrip({ data, bare = false }) {
 
   if (bare) return band;
   return (
-    <div data-block="stats" className={SECTION}>
+    <div data-block={block} className={SECTION}>
       {band}
     </div>
   );

@@ -1,3 +1,4 @@
+import { cx } from '@/lib/cx';
 import withBreaks from '@/lib/withBreaks';
 import PrimaryButton from '@/components/ui/PrimaryButton';
 import { CONTAINER, SECTION } from './ui';
@@ -24,11 +25,16 @@ import { CONTAINER, SECTION } from './ui';
  *                                                               pt16 (10/10 <=479)
  *   photo             right edge, full height  display: none
  */
-export default function ReadyToBuild({ data, renderButton }) {
+/* ref `.info-banner-blue` — the base class is #193e90 and `.bg1.isdi` repaints it
+   #de297b. Every page that came first authors the pink modifier;
+   /schools/isdi/life@atlas-isdi authors the BARE class, so the tone travels. */
+const TONE = { pink: 'bg-[#de297b]', blue: 'bg-[#193e90]' };
+
+export default function ReadyToBuild({ data, renderButton, tone = 'pink' }) {
   return (
     <div data-block="ready-to-build" className={SECTION}>
-      {/* ref .info-banner-blue.bg1.isdi */}
-      <div className="relative bg-[#de297b] py-[60px] max-md:py-[26px]">
+      {/* ref .info-banner-blue(.bg1.isdi) */}
+      <div className={cx('relative py-[60px] max-md:py-[26px]', TONE[tone] ?? TONE.pink)}>
         {/* ref .container.blue-3 */}
         <div className={CONTAINER}>
           <h2 className="m-0 max-w-[65%] text-[40px] font-medium leading-[1.2] text-white max-md:mb-8 max-md:text-[22px] max-md:leading-[1.2]">
@@ -37,7 +43,7 @@ export default function ReadyToBuild({ data, renderButton }) {
           {data.sub && (
             /* ref .info-banner-sub-text — the B.Des pages' banner authors none */
             <div className="w-[55%] pt-3 text-2xl font-light leading-[1.4] text-white max-lg:w-full max-md:pt-0 max-md:text-lg max-md:leading-[1.4]">
-              {data.sub}
+              {withBreaks(data.sub)}
             </div>
           )}
           <div className="flex items-center gap-4 pt-6 max-md:flex-col max-md:items-start max-md:gap-2 max-md:pt-4 max-sm:gap-2.5 max-sm:pt-2.5">

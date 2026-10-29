@@ -74,15 +74,42 @@ const SIZE_ATLAS = {
   'grid-card-8': 'h-[319px] max-md:h-auto',
 };
 
-export default function GridGallery({ cards, variant = 'plain', className, name, caption }) {
+/**
+ * A caption half can be a string or a list of runs — /schools/isdi/success-stories/
+ * success-snapshot authors three of its award names inside a `<strong>`, and
+ * `.grid-card-name` is already 700, so Preflight's RELATIVE `bolder` would render
+ * them 900 where the reference paints 700. The run carries an explicit `font-bold`.
+ */
+function Runs({ value }) {
+  if (value == null) return null;
+  if (!Array.isArray(value)) return value;
+  return value.map((run, i) =>
+    run && typeof run === 'object'
+      ? <strong key={i} className="font-bold">{run.strong}</strong>
+      : <span key={i}>{run}</span>
+  );
+}
+
+export default function GridGallery({
+  cards, variant = 'plain', className, name, caption, wrap = 'column', round16 = false,
+  /*
+   * The gallery's own margins, so a page that overrides them does not end up with
+   * two `mt-*` utilities in one class list — those are resolved by STYLESHEET order,
+   * not by the order they are written. /schools/isdi/success-stories/success-snapshot
+   * carries `.h2-tag` on one of its three walls, which zeroes the top margin and adds
+   * a 56px bottom one.
+   */
+  margin = 'mt-14 max-md:mt-10',
+}) {
   const atlas = variant === 'atlas';
 
   return (
     /* ref .grid-gallery */
     <div
       className={cx(
-        'mt-14 place-items-start [column-count:4] [column-gap:16px] [row-gap:16px]',
-        'max-md:-mx-[22px] max-md:mt-10 max-md:px-5 max-md:[column-count:2]',
+        'place-items-start [column-count:4] [column-gap:16px] [row-gap:16px]',
+        'max-md:-mx-[22px] max-md:px-5 max-md:[column-count:2]',
+        margin,
         'max-vsm:flex max-vsm:overflow-auto',
         className,
       )}
@@ -117,9 +144,15 @@ export default function GridGallery({ cards, variant = 'plain', className, name,
             alt={card.image.alt}
             loading="lazy"
             className={cx(
-              'relative block h-full object-cover max-md:h-[300px] max-md:w-full',
+              /* `.grid-image-card` declares `overflow: hidden`, where Chrome's own
+                 UA sheet gives a replaced element `overflow: clip`. Inert — an
+                 `<img>` cannot overflow itself — but it was the wrong computed
+                 value on every page that renders this gallery. */
+              'relative block h-full overflow-hidden object-cover max-md:h-[300px] max-md:w-full',
               !atlas && 'max-vsm:object-top',
               card.rounded && 'rounded-tl-[32px] rounded-br-[32px]',
+              /* ref .grid-image-card.isdi */
+              round16 && 'rounded-2xl',
             )}
           />
 
@@ -131,9 +164,54 @@ export default function GridGallery({ cards, variant = 'plain', className, name,
               although it paints nothing it is still a flex child, so the
               wrapper's 4px gap applies and the name sits 4px higher. Cards
               with no caption element at all omit it. */}
-          <div className="absolute inset-x-5 bottom-4 flex flex-col gap-1 max-md:inset-x-6 max-md:bottom-6">
-            {card.name && <div className={name}>{card.name}</div>}
-            {card.caption !== undefined && <div className={caption}>{card.caption}</div>}
+          {/* `.grid-txt-wrapper` is the column; `.grid-txt-wrapper2` is a ROW with
+              a location pin beside the caption, 8px apart, 16px in on both sides and
+              10px of right padding — and it has no `align-items`, so the pin is
+              STRETCHED to the wrapper's height (19 x 54 at 1440). That is the
+              reference's own paint and it travels as the `row` wrap. */}
+          <div
+            className={cx(
+              'absolute flex',
+              /* `.grid-txt-wrapper` declares `font-family: Manrope, sans-serif`,
+                 which is why BOTH wraps carry `font-sans`. It is a no-op on the
+                 five ATLAS pages, whose `<body>` is already Manrope — and it is
+                 not on an ISDI page, where the body is Poppins: without it the
+                 ISDI card names and captions rendered in the wrong family, and a
+                 long name wrapped to a second line that the reference keeps on
+                 one. Found on /schools/isdi/success-stories/startups; the Success
+                 Snapshot's alumni wall had been carrying it too. */
+              'font-sans',
+              wrap === 'row'
+                ? 'inset-x-4 bottom-4 flex-row gap-2 pr-2.5'
+                : 'inset-x-5 bottom-4 flex-col gap-1 max-md:inset-x-6 max-md:bottom-6',
+            )}
+          >
+            {card.icon && (
+              /* ref img.location-img */
+              /* eslint-disable-next-line @next/next/no-img-element */
+              <img src={card.icon.src} alt={card.icon.alt} loading="lazy" className="block max-w-full" />
+            )}
+            {card.name && <div className={name}><Runs value={card.name} /></div>}
+            {(card.caption !== undefined || card.captionImage) && (
+              /* `.title-txt-grid` holds a line of text on every page but
+                 /schools/isdi/success-stories/startups, where each card closes with
+                 the founder's company MARK instead. It carries no class and no
+                 width/height attribute, so it paints at its intrinsic size (50x50 /
+                 104x50 / 175x50 measured) and the caption's line box grows to it. */
+              <div className={caption}>
+                <Runs value={card.caption} />
+                {card.captionImage && (
+                  /* eslint-disable-next-line @next/next/no-img-element */
+                  <img
+                    src={card.captionImage.src}
+                    alt={card.captionImage.alt}
+                    loading="lazy"
+                    decoding="async"
+                    className="inline-block max-w-full align-middle"
+                  />
+                )}
+              </div>
+            )}
           </div>
         </div>
       ))}
