@@ -1,5 +1,6 @@
 import ISDIHeader from '@/components/Schools/ISDI/Header/ISDIHeader';
 import ISDIFooter from '@/components/Schools/ISDI/Footer/ISDIFooter';
+import ISDIChromeOnly from '@/components/Schools/ISDI/ISDIChromeOnly';
 
 // ref reference/schools/isdi/index.php — $title / $description
 export const metadata = {
@@ -16,9 +17,9 @@ export const metadata = {
 export default function ISDILayout({ children }) {
   return (
     <>
-      <ISDIHeader />
+      <ISDIChromeOnly><ISDIHeader /></ISDIChromeOnly>
       {children}
-      <ISDIFooter />
+      <ISDIChromeOnly><ISDIFooter /></ISDIChromeOnly>
     </>
   );
 }

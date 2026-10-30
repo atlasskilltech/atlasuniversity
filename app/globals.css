@@ -291,3 +291,817 @@
 .lp-bs .mx-5{margin-left:3rem;margin-right:3rem}
 .lp-bs .my-5{margin-top:3rem;margin-bottom:3rem}
 .lp-bs .gap-5{gap:3rem}
+
+/* =========================================================================
+   ISDI homepage "19 programmes. Five worlds." section (+ PathFinder quiz) —
+   reference/schools/isdi/assets/include/19-programmesv2.php. The reference
+   ships this section as a self-contained widget with 801 lines of PLAIN CSS,
+   every selector scoped to #isdi-programmes-section so it cannot leak into or
+   be affected by the rest of the page. Converting ~800 lines of keyframes,
+   pseudo-elements and responsive rules to Tailwind would be large and
+   error-prone; the faithful, self-contained choice is to lift the authored CSS
+   verbatim (the same call the `.lp-bs` Bootstrap-collision block already makes).
+   The React component in components/Schools/ISDI/Home/ProgrammesV2 renders the
+   reference's own `.isdi-*` markup against these rules.
+   ========================================================================= */
+		/* ---------- tokens + local reset (scoped) ---------- */
+		#isdi-programmes-section {
+			--isdi-blue: #193e90;
+			--isdi-pink: #ec1376;
+			--isdi-text: #2b2b2b;
+			--isdi-muted: #5f5b5d;
+			--isdi-white: #fff;
+			--isdi-quiz-bg: #fceaf2;
+			--isdi-quiz-border: #f8b4d2;
+			--isdi-quiz-divider: #fad4e6;
+			--isdi-card-radius: 12px;
+			--isdi-card-color: #193e90;
+
+			background-color: #fff;
+			color: var(--isdi-text);
+			font-family: Poppins, sans-serif;
+			font-size: 16px;
+			font-weight: 400;
+			line-height: 1.5;
+			display: block;
+			padding-top: 60px;
+			padding-bottom: 60px;
+			overflow-x: clip;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+
+		#isdi-programmes-section *,
+		#isdi-programmes-section *::before,
+		#isdi-programmes-section *::after {
+			box-sizing: border-box;
+		}
+
+		#isdi-programmes-section .isdi-is-hidden {
+			display: none !important;
+		}
+
+		/* ---------- container (never uses the site / Bootstrap .container) ---------- */
+		#isdi-programmes-section .isdi-container {
+			position: relative;
+			width: 100%;
+			max-width: 1366px;
+			margin-left: auto;
+			margin-right: auto;
+			padding-left: 22px;
+			padding-right: 22px;
+		}
+
+		/* ---------- heading ---------- */
+		#isdi-programmes-section .isdi-eyebrow {
+			margin: 0;
+			color: var(--isdi-pink);
+			font-size: 13px;
+			font-weight: 600;
+			line-height: 20px;
+			letter-spacing: .04em;
+			text-transform: uppercase;
+		}
+
+		#isdi-programmes-section .isdi-title {
+			margin: 24px 0 0;
+			color: var(--isdi-blue);
+			font-family: Poppins, sans-serif;
+			font-size: 36px;
+			font-weight: 700;
+			line-height: 1.1;
+			letter-spacing: -.01em;
+		}
+
+		#isdi-programmes-section .isdi-description {
+			margin: 24px 0 0;
+			max-width: 980px;
+			color: var(--isdi-text);
+			font-size: 16px;
+			font-weight: 400;
+			line-height: 26px;
+		}
+
+		/* ---------- world card grid ---------- */
+		#isdi-programmes-section .isdi-worlds {
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+			margin-top: 32px;
+		}
+
+		#isdi-programmes-section .isdi-worlds-row {
+			display: grid;
+			grid-template-columns: 1fr;
+			column-gap: 24px;
+			row-gap: 16px;
+		}
+
+		/* ---------- world card ---------- */
+		#isdi-programmes-section .isdi-world-card {
+			position: relative;
+			overflow: hidden;
+			border-radius: var(--isdi-card-radius);
+			background-color: var(--isdi-card-color);
+			padding: 20px 20px 12px;
+			color: var(--isdi-white);
+		}
+
+		#isdi-programmes-section .isdi-world-number {
+			position: absolute;
+			top: 3px;
+			right: 9px;
+			color: rgba(255, 255, 255, .15);
+			font-size: 72px;
+			font-weight: 700;
+			line-height: 1;
+			letter-spacing: -.02em;
+			pointer-events: none;
+			-webkit-user-select: none;
+			user-select: none;
+		}
+
+		#isdi-programmes-section .isdi-world-body {
+			position: relative;
+		}
+
+		#isdi-programmes-section .isdi-world-meta {
+			margin: 0;
+			color: rgba(255, 255, 255, .8);
+			font-size: 11px;
+			font-weight: 500;
+			line-height: 16px;
+			letter-spacing: .03em;
+			text-transform: uppercase;
+		}
+
+		#isdi-programmes-section .isdi-world-title {
+			margin: 5px 0 0;
+			color: var(--isdi-white);
+			font-family: Poppins, sans-serif;
+			font-size: 20px;
+			font-weight: 700;
+			line-height: 26px;
+		}
+
+		#isdi-programmes-section .isdi-world-description {
+			margin: 4px 0 0;
+			color: rgba(255, 255, 255, .9);
+			font-size: 11.5px;
+			font-weight: 400;
+			line-height: 15px;
+		}
+
+		/* ---------- programme list inside a card ---------- */
+		#isdi-programmes-section .isdi-programme-columns {
+			display: flex;
+			flex-direction: column;
+			margin-top: 12px;
+		}
+
+		#isdi-programmes-section .isdi-programme-list {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			min-width: 0;
+			flex: 1 1 0%;
+		}
+
+		#isdi-programmes-section .isdi-programme-list--second {
+			border-top: 1px solid rgba(255, 255, 255, .2);
+		}
+
+		#isdi-programmes-section .isdi-programme-item {
+			margin: 0;
+			padding: 0;
+			border-bottom: 1px solid rgba(255, 255, 255, .2);
+		}
+
+		#isdi-programmes-section .isdi-programme-item:last-child {
+			border-bottom: 0;
+		}
+
+		#isdi-programmes-section .isdi-programme-link {
+			display: block;
+			padding: 8px 0;
+			color: var(--isdi-white);
+			text-decoration: none;
+			background-color: transparent;
+		}
+
+		#isdi-programmes-section .isdi-programme-link:hover,
+		#isdi-programmes-section .isdi-programme-link:focus {
+			color: var(--isdi-white);
+		}
+
+		#isdi-programmes-section .isdi-programme-link:focus-visible {
+			outline: 2px solid var(--isdi-white);
+			outline-offset: 2px;
+			border-radius: 4px;
+		}
+
+		#isdi-programmes-section .isdi-programme-top {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 8px;
+		}
+
+		#isdi-programmes-section .isdi-programme-name {
+			min-width: 0;
+			color: var(--isdi-white);
+			font-size: 14.5px;
+			font-weight: 600;
+			line-height: 20px;
+			overflow-wrap: break-word;
+		}
+
+		#isdi-programmes-section .isdi-programme-link:hover .isdi-programme-name {
+			text-decoration: underline;
+			text-underline-offset: 2px;
+		}
+
+		#isdi-programmes-section .isdi-programme-arrow {
+			display: flex;
+			align-items: center;
+			flex: none;
+			margin-right: 3px;
+			color: var(--isdi-white);
+			transition: transform .2s ease;
+		}
+
+		#isdi-programmes-section .isdi-programme-link:hover .isdi-programme-arrow {
+			transform: translateX(4px);
+		}
+
+		#isdi-programmes-section .isdi-arrow-sm {
+			display: block;
+			width: 12px;
+			height: 8px;
+			flex: none;
+		}
+
+		#isdi-programmes-section .isdi-programme-detail {
+			display: block;
+			margin-top: 4px;
+			color: rgba(255, 255, 255, .7);
+			font-size: 10px;
+			font-weight: 500;
+			line-height: 14px;
+			letter-spacing: .04em;
+			text-transform: uppercase;
+		}
+
+		#isdi-programmes-section .isdi-dot {
+			margin: 0 6px;
+		}
+
+		/* ---------- pathfinder shell ---------- */
+		#isdi-programmes-section .isdi-pathfinder {
+			margin-top: 48px;
+			scroll-margin-top: 24px;
+			border: 2px solid var(--isdi-quiz-border);
+			border-radius: 24px;
+			background-color: var(--isdi-quiz-bg);
+			padding: 28px 20px 24px;
+		}
+
+		#isdi-programmes-section .isdi-pathfinder-head {
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+			border-bottom: 2px solid var(--isdi-quiz-divider);
+			padding-bottom: 20px;
+		}
+
+		#isdi-programmes-section .isdi-pathfinder-title {
+			margin: 0;
+			color: var(--isdi-pink);
+			font-family: Poppins, sans-serif;
+			font-size: 24px;
+			font-weight: 600;
+			line-height: 1.25;
+		}
+
+		#isdi-programmes-section .isdi-pathfinder-intro {
+			flex: none;
+		}
+
+		#isdi-programmes-section .isdi-pathfinder-intro-title {
+			margin: 0;
+			color: var(--isdi-text);
+			font-size: 19px;
+			font-weight: 700;
+			line-height: 28px;
+		}
+
+		#isdi-programmes-section .isdi-pathfinder-intro-text {
+			margin: 0;
+			color: var(--isdi-muted);
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 20px;
+		}
+
+		/* ---------- quiz steps ---------- */
+		#isdi-programmes-section .isdi-quiz-step {
+			padding-top: 18px;
+		}
+
+		#isdi-programmes-section .isdi-quiz-question {
+			margin: 0;
+			color: var(--isdi-text);
+			font-family: Poppins, sans-serif;
+			font-size: 18px;
+			font-weight: 600;
+			line-height: 28px;
+		}
+
+		#isdi-programmes-section .isdi-quiz-options {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 10px;
+			max-width: 940px;
+			margin-top: 12px;
+		}
+
+		/* ---------- selection pills ---------- */
+		#isdi-programmes-section .isdi-quiz-option {
+			display: block;
+			max-width: 100%;
+			margin: 0;
+			cursor: pointer;
+		}
+
+		#isdi-programmes-section .isdi-quiz-option-input {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			margin: 0;
+			padding: 0;
+			border: 0;
+			overflow: hidden;
+			white-space: nowrap;
+			clip: rect(0 0 0 0);
+			clip-path: inset(50%);
+		}
+
+		#isdi-programmes-section .isdi-quiz-option-label {
+			display: block;
+			border: 1px solid var(--isdi-blue);
+			border-radius: 999px;
+			background-color: transparent;
+			padding: 10px 16px;
+			color: var(--isdi-blue);
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 20px;
+			text-align: center;
+			-webkit-user-select: none;
+			user-select: none;
+			transition: background-color .15s ease, color .15s ease;
+		}
+
+		#isdi-programmes-section .isdi-quiz-option-label:hover {
+			background-color: rgba(25, 62, 144, .06);
+		}
+
+		#isdi-programmes-section .isdi-quiz-option-input:checked + .isdi-quiz-option-label,
+		#isdi-programmes-section .isdi-quiz-option-input:checked + .isdi-quiz-option-label:hover {
+			background-color: var(--isdi-blue);
+			color: var(--isdi-white);
+		}
+
+		#isdi-programmes-section .isdi-quiz-option-input:disabled + .isdi-quiz-option-label {
+			cursor: not-allowed;
+			opacity: .6;
+		}
+
+		#isdi-programmes-section .isdi-quiz-option-input:disabled + .isdi-quiz-option-label:hover {
+			background-color: transparent;
+		}
+
+		#isdi-programmes-section .isdi-quiz-option-input:focus-visible + .isdi-quiz-option-label {
+			outline: 2px solid var(--isdi-pink);
+			outline-offset: 2px;
+		}
+
+		/* ---------- quiz navigation ---------- */
+		#isdi-programmes-section .isdi-quiz-actions {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			flex-wrap: wrap;
+			gap: 12px;
+			margin-top: 20px;
+		}
+
+		#isdi-programmes-section .isdi-quiz-icon-button,
+		#isdi-programmes-section .isdi-quiz-button {
+			font-family: Poppins, sans-serif;
+			cursor: pointer;
+			transition: background-color .15s ease, color .15s ease, filter .15s ease;
+		}
+
+		#isdi-programmes-section .isdi-quiz-icon-button {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex: none;
+			width: 48px;
+			height: 48px;
+			border: 0;
+			border-radius: 999px;
+			background-color: var(--isdi-pink);
+			color: var(--isdi-white);
+			padding: 0;
+		}
+
+		#isdi-programmes-section .isdi-quiz-icon-button:hover {
+			filter: brightness(1.1);
+		}
+
+		#isdi-programmes-section .isdi-quiz-icon-button--ghost {
+			border: 2px solid var(--isdi-pink);
+			background-color: transparent;
+			color: var(--isdi-pink);
+		}
+
+		#isdi-programmes-section .isdi-quiz-icon-button--ghost:hover {
+			background-color: var(--isdi-pink);
+			color: var(--isdi-white);
+			filter: none;
+		}
+
+		#isdi-programmes-section .isdi-quiz-button {
+			min-height: 48px;
+			border: 0;
+			border-radius: 999px;
+			background-color: var(--isdi-pink);
+			padding: 12px 20px;
+			color: var(--isdi-white);
+			font-size: 15px;
+			font-weight: 600;
+			line-height: 20px;
+		}
+
+		#isdi-programmes-section .isdi-quiz-button:hover {
+			filter: brightness(1.1);
+		}
+
+		#isdi-programmes-section .isdi-quiz-button--ghost {
+			border: 2px solid var(--isdi-pink);
+			background-color: transparent;
+			color: var(--isdi-pink);
+		}
+
+		#isdi-programmes-section .isdi-quiz-button--ghost:hover {
+			background-color: var(--isdi-pink);
+			color: var(--isdi-white);
+			filter: none;
+		}
+
+		/* disabled buttons: no hover feedback, clearly not clickable */
+		#isdi-programmes-section .isdi-quiz-icon-button:disabled,
+		#isdi-programmes-section .isdi-quiz-button:disabled,
+		#isdi-programmes-section .isdi-quiz-icon-button:disabled:hover,
+		#isdi-programmes-section .isdi-quiz-button:disabled:hover {
+			cursor: not-allowed;
+			opacity: .6;
+			background-color: var(--isdi-pink);
+			color: var(--isdi-white);
+			filter: none;
+		}
+
+		#isdi-programmes-section .isdi-quiz-icon-button:focus-visible,
+		#isdi-programmes-section .isdi-quiz-button:focus-visible {
+			outline: 2px solid var(--isdi-blue);
+			outline-offset: 2px;
+		}
+
+		#isdi-programmes-section .isdi-arrow-lg {
+			display: block;
+			width: 18px;
+			height: 12px;
+		}
+
+		#isdi-programmes-section .isdi-arrow-lg--back {
+			transform: rotate(180deg);
+		}
+
+		/* ---------- loading / drumroll ---------- */
+		#isdi-programmes-section .isdi-quiz-loading {
+			padding: 24px 0;
+			text-align: center;
+		}
+
+		#isdi-programmes-section .isdi-quiz-loading-text {
+			margin: 0;
+			color: var(--isdi-text);
+			font-size: 17px;
+			line-height: 28px;
+		}
+
+		#isdi-programmes-section .isdi-quiz-loading-image {
+			display: block;
+			width: 450px;
+			max-width: 100%;
+			height: auto;
+			aspect-ratio: 1 / 1;
+			object-fit: contain;
+			margin: 16px auto 0;
+		}
+
+		/* ---------- results ---------- */
+		#isdi-programmes-section .isdi-quiz-results {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 16px;
+			margin-top: 16px;
+		}
+
+		#isdi-programmes-section .isdi-result-card {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			gap: 24px;
+			overflow: hidden;
+			min-height: 160px;
+			border-radius: var(--isdi-card-radius);
+			background-color: var(--isdi-card-color);
+			padding: 20px;
+			color: var(--isdi-white);
+			text-decoration: none;
+			transition: transform .15s ease;
+		}
+
+		#isdi-programmes-section .isdi-result-card:hover {
+			transform: translateY(-2px);
+			color: var(--isdi-white);
+		}
+
+		#isdi-programmes-section .isdi-result-card:focus-visible {
+			outline: 2px solid var(--isdi-blue);
+			outline-offset: 2px;
+		}
+
+		#isdi-programmes-section .isdi-result-top {
+			display: flex;
+			align-items: flex-start;
+			justify-content: space-between;
+			gap: 16px;
+		}
+
+		#isdi-programmes-section .isdi-result-meta {
+			color: rgba(255, 255, 255, .8);
+			font-size: 11px;
+			font-weight: 500;
+			line-height: 16px;
+			letter-spacing: .03em;
+			text-transform: uppercase;
+		}
+
+		#isdi-programmes-section .isdi-result-arrow {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex: none;
+			width: 36px;
+			height: 36px;
+			border-radius: 999px;
+			background-color: rgba(255, 255, 255, .15);
+			transition: background-color .15s ease;
+		}
+
+		#isdi-programmes-section .isdi-result-card:hover .isdi-result-arrow {
+			background-color: rgba(255, 255, 255, .25);
+		}
+
+		#isdi-programmes-section .isdi-result-name {
+			font-size: 22px;
+			font-weight: 700;
+			line-height: 28px;
+			overflow-wrap: break-word;
+		}
+
+		/* =========================================================
+		   TABLET AND UP (mirrors the site 767px breakpoint)
+		   ========================================================= */
+		@media screen and (min-width: 768px) {
+			#isdi-programmes-section .isdi-container {
+				padding-left: 30px;
+				padding-right: 30px;
+			}
+
+			#isdi-programmes-section .isdi-eyebrow {
+				font-size: 14px;
+			}
+
+			#isdi-programmes-section .isdi-title {
+				margin-top: 40px;
+				font-size: 46px;
+			}
+
+			#isdi-programmes-section .isdi-description {
+				margin-top: 32px;
+				font-size: 20px;
+				line-height: 28px;
+			}
+
+			#isdi-programmes-section .isdi-worlds {
+				margin-top: 42px;
+			}
+
+			/* World 01 + 03 share a row, World 02 spans the full width */
+			#isdi-programmes-section .isdi-worlds-row--one {
+				grid-template-columns: 1fr 1fr;
+				grid-auto-flow: row dense;
+			}
+
+			#isdi-programmes-section .isdi-world-card--wide {
+				grid-column: span 2;
+			}
+
+			/* two programme columns inside a card */
+			#isdi-programmes-section .isdi-programme-columns--split {
+				flex-direction: row;
+			}
+
+			#isdi-programmes-section .isdi-programme-columns--split .isdi-programme-list--first {
+				padding-right: 18px;
+			}
+
+			#isdi-programmes-section .isdi-programme-columns--split .isdi-programme-list--second {
+				border-top: 0;
+				border-left: 1px solid rgba(255, 255, 255, .2);
+				padding-left: 18px;
+			}
+
+			#isdi-programmes-section .isdi-world-description--narrow {
+				max-width: 215px;
+			}
+
+			#isdi-programmes-section .isdi-pathfinder {
+				margin-top: 56px;
+				padding: 40px 32px 32px;
+			}
+
+			#isdi-programmes-section .isdi-pathfinder-title {
+				font-size: 32px;
+				line-height: 44px;
+			}
+
+			#isdi-programmes-section .isdi-pathfinder-intro-title {
+				font-size: 24px;
+				line-height: 34px;
+			}
+
+			#isdi-programmes-section .isdi-pathfinder-intro-text {
+				font-size: 15px;
+				line-height: 22px;
+			}
+
+			#isdi-programmes-section .isdi-quiz-question {
+				font-size: 20px;
+			}
+
+			#isdi-programmes-section .isdi-quiz-options {
+				gap: 13px 14px;
+			}
+
+			#isdi-programmes-section .isdi-quiz-option-label {
+				padding: 14px 20px;
+				font-size: 15px;
+			}
+
+			#isdi-programmes-section .isdi-quiz-actions {
+				gap: 16px;
+				margin-top: 15px;
+			}
+
+			#isdi-programmes-section .isdi-quiz-button {
+				padding: 12px 24px;
+				font-size: 17px;
+			}
+
+			#isdi-programmes-section .isdi-quiz-loading-text {
+				font-size: 20px;
+			}
+		}
+
+		/* =========================================================
+		   SMALL DESKTOP AND UP (mirrors the site 991px breakpoint)
+		   ========================================================= */
+		@media screen and (min-width: 992px) {
+			#isdi-programmes-section {
+				padding-top: 80px;
+				padding-bottom: 80px;
+			}
+
+			#isdi-programmes-section .isdi-container {
+				padding-left: 62px;
+				padding-right: 62px;
+			}
+
+			#isdi-programmes-section .isdi-title {
+				font-size: 54px;
+				line-height: 60px;
+			}
+
+			#isdi-programmes-section .isdi-description {
+				margin-top: 41px;
+			}
+
+			#isdi-programmes-section .isdi-pathfinder {
+				padding: 46px 47px 35px;
+			}
+
+			#isdi-programmes-section .isdi-pathfinder-head {
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-between;
+				gap: 32px;
+				padding-bottom: 15px;
+			}
+
+			#isdi-programmes-section .isdi-quiz-results {
+				grid-template-columns: repeat(3, 1fr);
+				gap: 24px;
+			}
+
+			#isdi-programmes-section .isdi-result-card {
+				min-height: 220px;
+				padding: 24px;
+			}
+
+			#isdi-programmes-section .isdi-result-name {
+				font-size: 24px;
+				line-height: 30px;
+			}
+		}
+
+		/* =========================================================
+		   FULL DESKTOP - the card layout from the design
+		   Row 1 = 01 | 02 | 03      Row 2 = 04 | 05
+		   ========================================================= */
+		@media screen and (min-width: 1280px) {
+			#isdi-programmes-section .isdi-worlds-row--one {
+				grid-template-columns: 380fr 500fr 320fr;
+			}
+
+			#isdi-programmes-section .isdi-worlds-row--two {
+				grid-template-columns: 390fr 834fr;
+			}
+
+			#isdi-programmes-section .isdi-world-card--wide {
+				grid-column: span 1;
+			}
+
+			#isdi-programmes-section .isdi-pathfinder {
+				margin-top: 62px;
+				margin-left: 5px;
+				margin-right: 5px;
+			}
+		}
+
+		/* =========================================================
+		   SMALL PHONES (mirrors the site 479px breakpoint)
+		   ========================================================= */
+		@media screen and (max-width: 479px) {
+			#isdi-programmes-section .isdi-title {
+				font-size: 30px;
+			}
+
+			#isdi-programmes-section .isdi-world-number {
+				font-size: 58px;
+			}
+
+			#isdi-programmes-section .isdi-world-title {
+				font-size: 18px;
+				line-height: 24px;
+			}
+
+			#isdi-programmes-section .isdi-quiz-option {
+				width: 100%;
+			}
+
+			#isdi-programmes-section .isdi-quiz-button {
+				width: 100%;
+			}
+
+			#isdi-programmes-section .isdi-quiz-actions {
+				justify-content: flex-start;
+			}
+		}
+
+		/* ---------- reduced motion ---------- */
+		@media (prefers-reduced-motion: reduce) {
+			#isdi-programmes-section .isdi-programme-arrow,
+			#isdi-programmes-section .isdi-result-card,
+			#isdi-programmes-section .isdi-quiz-option-label,
+			#isdi-programmes-section .isdi-quiz-button,
+			#isdi-programmes-section .isdi-quiz-icon-button {
+				transition: none;
+			}
+		}

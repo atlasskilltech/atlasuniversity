@@ -15,7 +15,10 @@ import { cx } from '@/lib/cx';
  * arrow chrome.
  *
  *   slides   array of nodes (each becomes one slide)
- *   perView  { base, sm, lg } slides visible below 640 / 640-1023 / >=1024
+ *   perView  { base, sm, lg } slides visible below smMin / smMin-1023 / >=1024
+ *   smMin    min-width at which `sm` engages (default 640 — the reference's own
+ *            `breakpoints: { 640: … }`; ual-lp.php's who-for swiper breaks at 768,
+ *            so it passes smMin={768})
  *   gap      px gap between slides (spaceBetween: 16)
  *   arrows   render prev/next buttons (hidden below md, as the reference does)
  *   bullets  'mobile' (md:hidden) | 'always' | false
@@ -23,6 +26,7 @@ import { cx } from '@/lib/cx';
 export default function LpCarousel({
   slides,
   perView = { base: 1, sm: 1, lg: 1 },
+  smMin = 640,
   gap = 16,
   arrows = false,
   bullets = 'mobile',
@@ -36,13 +40,13 @@ export default function LpCarousel({
     const compute = () => {
       const w = window.innerWidth;
       if (w >= 1024) setPv(perView.lg);
-      else if (w >= 640) setPv(perView.sm);
+      else if (w >= smMin) setPv(perView.sm);
       else setPv(perView.base);
     };
     compute();
     window.addEventListener('resize', compute);
     return () => window.removeEventListener('resize', compute);
-  }, [perView.base, perView.sm, perView.lg]);
+  }, [perView.base, perView.sm, perView.lg, smMin]);
 
   const pages = Math.max(1, slides.length - pv + 1);
   // clamp at render time (perView can shrink `pages` below the stored index)

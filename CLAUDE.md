@@ -2349,6 +2349,29 @@ industry can't get enough, figures band + logo strip, Advisory Board, Your Futur
 In Action, Think International, Ready to Build, The People Who Know Us Best,
 Research & Reflections, guide panels, FAQ. Each block root carries `data-block`.
 
+**Block 7 is now the 19-programmesv2 section, not the old "Our Programs" tabs.**
+Upstream commented out the old tab section (the UG PathFinder pane + two PG cards)
+line by line and replaced it with `assets/include/19-programmesv2.php` — the
+**"19 programmes. Five worlds."** section + its own PathFinder quiz, a self-contained
+vanilla-JS widget. Ported as `components/Schools/ISDI/Home/ProgrammesV2.js` (client)
+over `lib/schools/isdi/home/programmesV2Data.js` (5 worlds, 19 programmes, 16
+interests, 10 dreams, interest/dream score matrices, a two-step 3+3 weighted scoring
+→ top-3 result cards). It renders the reference's own `.isdi-*` markup, so the
+**801 lines of scoped CSS lifted into `app/globals.css` — every rule under
+`#isdi-programmes-section`, verified 0 unscoped selectors and 0 keyframes, so it
+cannot leak into any other block** — style it unchanged; `drum-animation.webp` is the
+homepage's already-local WebP (no CSS animation). All copy/worlds/programmes/quiz
+options are transcribed verbatim (the 5 world titles "Design + Product and
+Technology" … "Design + Business and Entrepreneurship" match the reference's own
+rendered strings byte-for-byte). **The section matches production to the pixel:
+`#isdi-programmes-section` 1779px vs 1779 at 1440, 3445px vs 3445 at 390.** `page.js`
+swaps `<Programs>`→`<ProgrammesV2>`; `Home/Programs` stays exported because the UG and
+PG Overview pages still render it. Because the CSS is fully scoped and the page edit is
+a one-line section swap, the rest of the homepage is provably unchanged (its own
+documented deviations below are unaffected). Quiz verified headless end-to-end (step
+transitions, the 3-selection cap, the drumroll, three result cards, start-over) with 0
+console errors and 0 horizontal overflow.
+
 **Measure production, not the mirror.** The mirror's `$domain` is broken; every
 section was dumped from `https://atlasuniversity.edu.in/schools/isdi/` at
 1440/1280/991/767/479/390 and diffed element by element. Section heights match
@@ -7501,4 +7524,271 @@ and stack-card 1 is the parsons scroll-con/1 (= nyfa's intro image). The chevron
 
 **Deviations (two):** the `LpCarousel`-vs-Swiper pagination −8 on the two mobile carousels; and the
 disclaimer's justified-text micro-reflow at mobile (same height as production). **Still open:** the final
-two Tailwind-CDN LPs (`ual-lp`, `victoria-university-of-wellington`) stay NOT STARTED.
+Tailwind-CDN LP (`victoria-university-of-wellington`) stays NOT STARTED.
+
+### ISDI UAL LP (partner-university landing page) — `app/schools/isdi/ual-lp/page.js`, `lib/schools/isdi/ualLpContent.js`
+
+`reference/schools/isdi/ual-lp.php` (shared LP sheet `…68e75059…`; `$body = "body isdi-page"`) — the
+**fifth** of the six Tailwind-CDN university LPs, a flat `.php` served at the **SLASHLESS** url (the
+trailing slash 500s — like nyfa/scad, unlike parsons/leeds which are directories). **Eleven sections** of
+its own composition (NOT the leeds/parsons shape): hero (**with the UAL logo inline in the h1**, like
+scad; desktop 500px / mobile 400px), four-panel strip, intro, four sticky stack-cards, a **"Learn More
+about BA (Hons)…"** band (mint `#00F5B4` CTA + full-width image — unique to this page), a bordered-text
+**"Who Can Apply"**, a four-card **why-choose GRID with NO mobile carousel**, a six-card
+**"Who Is This Pathway For"** carousel (breakpoints 0/768/1024 → 1/2/4, autoplay+loop, pagination always,
+**NO arrows**), About London College of Communication, the CTA, and a **PLAIN disclaimer** (not the
+styled card parsons/leeds use).
+
+**11/11 block heights match production to the pixel at all 12 widths** (1920 / 1440 / 1280 / 1100 / 992 /
+900 / 768 / 700 / 568 / 479 / 390 / 360) except the documented `LpCarousel`-vs-Swiper pagination −8 on the
+who-for carousel at every width. **Text identical in all 11 sections.** validate clean at all 12 widths
+(0 overflow / console / page errors / failed / broken / **0 off-origin** — the page embeds no video, map
+or widget). Interactions pass (hero logo present; 4 strip panels; 4 stack cards; why is a 4-card grid with
+no carousel; who-for 6 bullets at 390 / 3 at 1440, advances on bullet click, **no arrows** as the
+reference; CTA apply `/applicationform`, visit absolute campusvisit, learn-more → arts.ac.uk illustration,
+about Know More → arts.ac.uk LCC).
+
+**Four causes investigated and matched to production rather than accepted as deviations:**
+- **The `text-2xl md:text-4xl` headings (Learn More, Who Can Apply) render Play CDN's 36px/40px at
+  ≥768**, where the project's own `text-4xl` is 32px — so they are written as arbitrary px with explicit
+  line-heights. Below 768 they split: Learn More has `leading-tight` → **24px/30px**, Who Can Apply has
+  none → **24px/32px** (Play CDN `text-2xl`'s bundled 2rem). Probed on production before writing.
+- **Bootstrap reboot does NOT reach bare `<p>` on production** — Tailwind Play CDN Preflight wins the
+  element selectors, so the about/disclaimer paragraphs carry `margin:0` (the `.lp-bs` collision is only
+  on the numbered utility classes). The bare paragraphs are left bare and match; **this resolved the
+  worry that about/disclaimer would need explicit margins.**
+- **The why `text-xl` h3 needed `text-[20px] leading-[28px]`** — the project's `text-xl` bundles
+  line-height 1.5 (30px) vs Play CDN's 28px, which accumulated ~2px/line across the stacked cards.
+- **A stray `mt-4` on the About "Know More" button** (not in the reference) made the about section +24 at
+  ≤1100 where the text column drives its height; removed.
+
+It reuses the parsons/leeds LP fixes up front (the H2 formula `n640:leading-[36px]`, the stack rendered
+content-height with a generic `sans-serif` wrapper — Manrope is not loaded on production), so the only
+new investigation was the four points above.
+
+**One additive, defaulted shared-infra change, re-verified a no-op on the other LP pages:**
+`components/Schools/ISDI/PartnerLP/LpCarousel` gained an `smMin` prop (default **640** — the template's
+own `breakpoints: { 640: … }`, so nyfa/parsons/leeds are untouched). ual passes `smMin={768}` because its
+who-for swiper breaks at **768**, not 640 (confirmed on production: 1 card at 700, 2 at 768). The
+site-wide regression swept nyfa/scad/parsons-lp/leeds/global-pathway — all CLEAN.
+
+**Assets.** 16 new files under `public/assets/images/schools/isdi/ual-lp/` (15 WebP photos + the UAL logo
+as PNG — kept lossless for crisp edges; 2.8MB). Reused by SHA-1/path: the strip's eligible-bg-1/-3, the
+about icon and the CTA background are nyfa's files, and the strip's eligible-bg-2 is the homepage
+`mission-bg.png`; the chevron watermark on the why cards reuses the local `about/beliefs/vector-d.png`.
+The stack-card srcSet's `…/1.png/500.png 500w` candidate is a Webflow-ism that doesn't exist (the file is
+`1.png`), so a single `src` ships. The reference's `logo/3.png` alt is authored "SCAD" on a UAL logo (a
+copy-paste defect) — transcribed as authored.
+
+**Screenshots** (per-section, UNIAI chat widget + fixed header hidden on both sides): static sections
+0–5.5 mean at 1440/390. The `stack@390` 29 is production's **own** stack images failing to load during
+its capture (blank on prod, filled on port — a prod-side artifact; layout/text/heights all match); the
+`why@390` 9 is the reused-vs-CDN chevron PNG + heading antialiasing (content pixel-identical, verified by
+viewing the pair); `whofor` is the autoplaying Swiper vs the static `LpCarousel` landing on a different
+slide (the documented LP carousel deviation).
+
+`npx eslint .` exits 0 and `npx next build` succeeds from a cleared `.next`; the route builds `○ Static`.
+**Site-wide regression: all 79 routes at 1440/390 (four memory-conscious batches, per-route output
+against `next start`), ual-lp CLEAN, 0 new findings** — only the pre-existing/documented entries (the
+OPEN `industry-and-mentorship` image-5 defect, the ATLAS testimonial/campus-video `requestfailed`s, the
+`/schools/isdi` + `/campus-atlas` networkidle timeouts that load clean under a gentler wait, and the
+Summer School NoPaperForms 403). All LP shared-infra consumers CLEAN.
+
+**Deviations (one):** the `LpCarousel`-vs-Swiper pagination −8 on the who-for carousel at every width.
+
+### ISDI Victoria University of Wellington LP (partner-university landing page) — `app/schools/isdi/victoria-university-of-wellington/page.js`, `lib/schools/isdi/victoriaLpContent.js`
+
+`reference/schools/isdi/victoria-university-of-wellington/index.php` (shared LP sheet `…68e75059…`;
+`$body = "body isdi-page"`) — the **sixth and LAST** of the six Tailwind-CDN university LPs, a directory
+served at the **TRAILING-SLASH** url (slashless 301s to it, like parsons/leeds). **Eleven sections**,
+structurally the closest to leeds: hero (**NO logo**; desktop 600px / mobile 500px), four-panel strip,
+intro, four sticky stack-cards, "Who Can Apply" (bg-#1E3A8A heading+text + full-width `n1024:h-screen`
+image), an **"Academic Pathways" MAPPING table**, a four-card why-choose (grid / mobile carousel), a
+**five-card** "Who Is This Program For" carousel (perView 1/2/4 at 640/1024, arrows + mobile bullets),
+About Victoria University of Wellington, the CTA, and a styled disclaimer card. It has **no Eligibility
+section** (leeds had one) and no logo (scad/ual had one).
+
+**The "Academic Pathways" mapping table is this page's own shape** — 5 anchor rows, each an ISDI major →
+a VUW Bachelor of Design Innovation specialisation, linking to `wgtn.ac.nz/explore/degrees/…?major=…`
+(target=_blank). Desktop is a `grid-cols-[1fr_auto_1.6fr]` three-column grid (ISDI major / arrow circle /
+VUW degree) with column labels above; mobile stacks each row with its own "ISDI"/"VUW" labels and the
+arrow rotated 90°. Two rows share the major "Animation & VFX" (→ Visual Effects, → Game Design), so the
+React key is index-qualified.
+
+**NO new component and NO shared-file change** — reuses `LpCarousel`, `.lp-bs`, `n640`/`n1024`,
+`isdi.blue`/`.pink`, and every parsons/leeds LP fix (the H2 formula, the stack rendered content-height
+with a generic `sans-serif` wrapper). **11/11 block heights match production to the pixel at 1920–768 on
+the first pass.** **Text identical in all 11 sections.** validate clean at all 12 widths (0 overflow /
+console / page errors / failed / broken / **0 off-origin** — no video/widget). Interactions pass (4 strip
+panels; 4 stack cards; 5 academic rows → wgtn.ac.nz `?major=` + target=_blank; why grid 4 desktop + mobile
+carousel; who-for 5 cards, arrows advance at 1440 over 2 pages, 5 bullets at 390; CTA/About hrefs).
+
+**One defect found by screenshot + computed style, and fixed: the disclaimer's authored
+`border-l-4 border-l-isdi-pink` is overridden on production.** Bootstrap's `.border` shorthand (loading
+after Tailwind — the same collision family the `.lp-bs` block reproduces for spacing) resets the card to a
+plain **1px #dee2e6 on all sides**, so production shows no pink left border. Verified by computed style
+(`borderLeftColor: rgb(222,226,230)`, `borderLeftWidth: 1px`) and the screenshot. Reproduced here with a
+uniform gray border, page-local — `.lp-bs` and the other LP pages were left untouched. The academic rows
+render the same #dee2e6 (and matched at 0.06 with `border-gray-200`). **The border collision is thus a
+second face of the Bootstrap-vs-Tailwind override the nyfa page first documented for spacing** — it is
+visible only where an element authors a border COLOUR or non-1px WIDTH that Bootstrap's `.border`
+overrides. **Flagged, not changed (out of scope): parsons/leeds render the pink disclaimer border in their
+ports, which production likewise overrides to gray** — a small cosmetic fidelity gap on those two approved
+pages.
+
+**Deviations:** the `LpCarousel`-vs-Swiper pagination −8 on the why-choose and who-for mobile carousels;
+and the disclaimer +21 at 360 only (a single-width justified-text wrap edge — text identical, matches at
+all other 11 widths).
+
+**Assets.** 16 new WebP under `public/assets/images/schools/isdi/victoria-university-of-wellington/`
+(3.3MB). Reused by SHA-1/path: the strip's eligible-bg-1/-3, the about icon and the CTA background are
+nyfa's files; the strip's eligible-bg-2 is the homepage `mission-bg.png`; stack-card 1's photograph is the
+parsons scroll-con/1 (= nyfa's intro image; the reference even cites `parsons-lp/scroll-con/1` for it).
+The stack srcSet's `/500.png 500w, /759.png 759w` candidates both exist here (unlike ual's single file).
+
+`npx eslint .` exits 0 and `npx next build` succeeds from a cleared `.next`; the route builds `○ Static`.
+**Site-wide regression: all 80 routes at 1440/390, victoria CLEAN, 0 new findings** (only the
+pre-existing/documented entries); all LP shared-infra consumers (nyfa, scad, parsons-lp, leeds,
+global-pathway, ual-lp) CLEAN.
+
+**The six Tailwind-CDN partner-university LPs are complete** — nyfa, scad, parsons-lp, leeds, ual-lp and
+victoria — alongside the global-pathway hub (a standard ISDI Webflow page). All share the `.lp-bs`
+Bootstrap-collision block, the `n640`/`n1024` screens and `LpCarousel`.
+
+### ISDI Celebrating 13 Years (standalone banner) — `app/schools/isdi/celebrating-13-years-isdi-and-parsons/page.js`
+
+`reference/schools/isdi/celebrating-13-years-isdi-and-parsons/index.php` is **not an ISDI-chrome page at
+all** — it is a self-contained `<!doctype html>` document that loads only Bootstrap and renders ONE
+full-width SVG (`<img class="img-fluid w-100">`), with no `include header.php`. Production serves it
+exactly that way (verified: the served HTML has no mega-menu / nav / ISDI header markers). Not linked from
+the header menu, the pathfinder or any page body; built on the user's scope decision to finish every
+remaining ISDI reference page.
+
+**A bare route under the ISDI layout needs the chrome stepped aside.** `app/schools/isdi/layout.js` mounts
+`ISDIHeader` + `ISDIFooter` for every `/schools/isdi/*` route, so the new
+`components/Schools/ISDI/ISDIChromeOnly` guard — the mirror of `components/Schools/MainSiteOnly`, a client
+component using `usePathname` only (so every route still prerenders static) — wraps the header and footer
+and returns `null` for this one pathname. It is a **verified no-op on every other ISDI page** (nyfa still
+renders its header, 0 console, 0 overflow; the full-site regression confirms the rest). The page itself is
+a one-line server component rendering the SVG at `w-full h-auto`.
+
+**The SVG is ~38MB and is copied byte-for-byte** (`isdi-the-new-school-parsons.svg`, a tall ISDI × The New
+School/Parsons "13 years" celebration poster — 540×2625 viewBox, 75 embedded rasters). The asset rule is
+to preserve originals byte-for-byte and not re-encode; the size is a hosting consideration, like the
+project's testimonial videos. Verified at 1440/390: 0 overflow / broken / console / page errors /
+off-origin, the SVG fills the viewport width with aspect preserved, and the top-viewport screenshot is
+**0.18 mean vs production**. eslint 0, clean build `○ Static`.
+
+### ISDI The Edits (standalone Tailwind-CDN page) — `app/schools/isdi/the-edits/page.js`
+
+`reference/schools/isdi/the-edits.php` — the **PLURAL** "the-edits" at the ISDI root, distinct from the
+built `events/the-edit` (the SVG schedule). A Tailwind-Play-CDN page WITH the ISDI chrome (it includes
+header.php + footer.php), a flat `.php` served at the SLASHLESS url (the slash 500s). Three sections: a
+hero (a herobanner image + a strip image stacked), a two-column image section, and a section with a
+full-width image, one hand-coded **event card** (a time badge, "Designing Technology for Humans in an AI
+World", three speaker cards and a Register button), and a closing image. Not linked from the header menu;
+built on the user's scope decision to finish every remaining ISDI reference page.
+
+**Three Play-CDN facts, each verified against production and reproduced:**
+- **`sm:` is Play CDN's stock 640**, not the project's 480 — and the project already carries an `n640`
+  (min-width 640) screen from the LP work, so `sm:` maps **1:1 to `n640:`** here (cleaner than the
+  arbitrary `[@media(max-width:639px)]:` the `events/the-edit` page used). `md:` (768) and `xl:` (1280)
+  match the project.
+- **No `.font-sans` wrapper.** Unlike the LP pages (whose reference wraps everything in a `.font-sans`
+  div → system-ui), the-edits has no wrapper, so its text inherits the ISDI body **Poppins** (verified
+  computed `font-family: Poppins`). Rendered with `font-poppins-isdi`, the site-wide ISDI face. (Wrapping
+  it in the LP `font-sans` by habit rendered Manrope and threw a hydration mismatch; both went away with
+  `font-poppins-isdi`.)
+- **The Bootstrap-vs-Tailwind collision applies** (the ISDI header loads Bootstrap), so the **shared
+  `.lp-bs` block must be on this page too** — without it, production's Bootstrap `px-2` beats the authored
+  `xl:px-5` (container 1264, not 1240) and `mb-5`/`mt-5` paint 48px (not Tailwind's 20), which was the
+  whole of a −52/−84px section-height gap. With `.lp-bs` all three sections match to within ≤4px at all 12
+  widths.
+
+**A reference defect reproduced, not fixed: horizontal overflow of 37px at 700.** The event card's three
+flex children are authored `w-1/2 + w-1/2 + w-1/4` (125%), so the row overflows its container at ~700px —
+**identical on production (`scrollWidth` overflow 37 on both)**. Validate is otherwise clean at all 12
+widths under networkidle (0 console / failed / broken / off-origin). The third speaker card authors the
+name "Saurabh Gupta" a second time (on the Capgemini card) — an upstream duplicate, transcribed as
+authored. 6 new WebP (140KB); the speakers strip, three speaker photos and three logos are byte-identical
+to the `events/the-edit` box-1 PNGs and are reused. eslint 0, clean build `○ Static`.
+
+### ISDI B.Des in Behavioural Design & AI — `app/schools/isdi/programs/undergraduate/b-des/behavioural-design-&-ai/page.js`, `lib/schools/isdi/programs-bdes/behavioural/`
+
+`reference/schools/isdi/programs/undergraduate/b-des/behavioural-design-&-ai.php` — the **13th** B.Des
+programme page, the one the header menu never links (alongside the already-skipped
+`btech/systems-design-&-intelligent-manufacturing`). Built on the user's scope decision to finish every
+ISDI reference page. The full twelve-block programme-detail template, so every `ProgramDetail` component
+took it as data.
+
+**Rebuilt the extraction from scratch — the prior sessions' B.Des harness (`extract.py`, `gen_data.py`,
+`optimise.py`, `cssbg.py`, the video re-encoder, the measure/interact/shots scripts) lived in an
+ephemeral scratchpad and is gone.** The approach that worked: parse the **production-rendered HTML** with
+BeautifulSoup (no PHP/DB to interpret), model the content against the existing accessory modules' shapes,
+download assets (images → WebP, **videos byte-for-byte**), and let the 6-width measurement harness catch
+extraction errors. Two it caught, both fixed:
+- **A per-year comparison needs `leftImage`/`rightImage`** (the `comp-vector` decorative backgrounds). I
+  extracted the comparison points but not these CSS-painted vectors, so `Curriculum` rendered
+  `bg-[url(undefined)]` and the page logged a 404 on a literal `…/b-des/undefined`. They are shared and
+  reused from the accessory page. **A `bg-[url(undefined)]` is the tell for a missing image field.**
+- **`el.decode()` keeps `&amp;`; the asset map used `&`.** The semester video URLs captured via a regex
+  over `el.decode()` carried `behavioural-design-&amp;-ai`, while the download map keyed on `&`, so
+  `video` came out `null` and the semester clips did not render (the curriculum read ~1,300px short at
+  mobile until the generator normalised `&amp;`↔`&` before the lookup).
+
+**Behavioural is mostly other pages' content, each verified byte-equivalent to production before
+re-export** (confirmed by matching titles/headings/widget-ids, then by the text diff showing nothing
+missing): the sticky "Why" stack, eligibility, closing banner and both brochure popups are the
+**Accessory** page's; execution, projects, voices and the FAQ are the **Communication Design** page's
+(the execution cards say "For CD 3rd Year", the FAQ asks "communication design" questions — upstream
+copy-pastes). Only the hero, the three figures, the programme tab set and the curriculum are the page's
+own. **Check a programme page for copy-paste before extracting it** — half of this one was re-exports.
+
+**The stats copy-paste "4-Year Degree - B.Tech." on a B.Des page** is transcribed as authored, like the
+other upstream slips in the set. **Total page height matches production within 119px at 1440**; the
+curriculum matches within the set's documented −96 (the elective dropdown's 32px closed height) once the
+semester videos load — the same **video-metadata race** `/schools/isdi/programs/undergraduate/b-des/
+accessory-design-&-craft` documents (a `height: auto` `<video>` lays out at 300×150 until its metadata
+arrives, so a measurement that waits only for images reads the curriculum ~1,300px short at mobile). Wait
+for `readyState` before trusting a curriculum height. validate clean at all 6 widths (0 overflow /
+console / page errors / failed / broken / off-origin); eslint 0, clean build `○ Static`.
+
+**Assets: 21 MB of video** — the 8 semester + 5 curriculum-highlights clips, mp4 **and** webm, shipped
+**byte-for-byte** (no re-encode, per the asset rule and the user's instruction not to compress videos;
+the download over-fetched the re-exported communication voices into a `misc/` folder, which was removed)
+— **plus 2.2 MB of images** (69 new WebP) and ~108 reused by SHA-1. The 21 MB is a hosting
+consideration, like the set's other programme-page video. **Site-wide regression: all 83 routes at
+1440/390, behavioural CLEAN, 0 new findings**; all shared-module consumers CLEAN.
+
+**`%26` in the route 404s in the port; the literal `&` resolves** — the same global routing behaviour the
+MBA Event page records. Drive the port with the literal `&` (a browser following the menu sends the
+literal `&`, so it resolves end to end); only the percent-encoded spelling 404s.
+
+### ISDI B.Tech in Systems Design & Intelligent Manufacturing — `app/schools/isdi/programs/undergraduate/btech/systems-design-&-intelligent-manufacturing/page.js`, `lib/schools/isdi/programs-btech/systems/`
+
+`reference/schools/isdi/programs/undergraduate/btech/systems-design-&-intelligent-manufacturing.php` —
+the **3rd B.Tech** file, the one the header menu never links (alongside the B.Des `behavioural-design-&-ai`,
+both built on the user's scope decision). The full twelve-block programme-detail template, built with
+behavioural's rebuilt production-HTML extractor (one sed over the folder/prefix, plus a why-module
+generator).
+
+**Its "Why" stack is systems-specific, so it does NOT re-export accessory's** (the only structural
+difference from behavioural): five `.stack_card.isdi-programs` panels headed "Why Systems Design &
+Intelligent Manufacturing at ISDI". The stack reuses the shared `program-cd-1..5` photographs and the
+B.Des pro-bg palette (positions, panels, image dimensions copied from the accessory stack); only the copy
+is systems-specific, and `titleStrong` is on card 2 exactly as the markup authors it (verified by probing
+`.outcome-header strong`). Everything else is behavioural's pattern: eligibility re-exports the **B.Tech
+Design Engineering** page's, execution/projects/voices/FAQ the **Communication Design** page's, banner and
+brochures the **Accessory** page's — each verified byte-equivalent to production before re-export.
+
+Total height matches production within 138px at 1440; the curriculum matches within **−48** (one elective
+dropdown's 32px closed height) once the semester videos load. validate clean at all 6 widths; text diff
+shows nothing missing; eslint 0, clean build `○ Static`. **Assets: 25 MB of video (26 own clips, mp4+webm,
+byte-for-byte, no re-encode) + 1.7 MB of images (32 new WebP); ~149 reused by SHA-1.** The video folder
+sits under `programs/b-des/systems-design-intelligent-manufacturing/` (the download script mirrored the
+B.Des pipeline) — cosmetically odd for a B.Tech page but internally consistent (the content references
+match). **Site-wide regression: all 84 routes at 1440/390, systems CLEAN, 0 new findings.**
+
+**The ISDI Undergraduate programme set is now complete to the last reference file** — twelve menu-linked
+B.Des + the unlinked `behavioural-design-&-ai`, two menu-linked B.Tech + the unlinked
+`systems-design-&-intelligent-manufacturing`, plus the two overviews.

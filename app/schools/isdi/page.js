@@ -3,7 +3,7 @@ import Awards from '@/components/Schools/ISDI/Home/Awards';
 import Outcomes from '@/components/Schools/ISDI/Home/Outcomes';
 import ActionNeverStops from '@/components/Schools/ISDI/Home/ActionNeverStops';
 import Beliefs from '@/components/Schools/ISDI/Home/Beliefs';
-import Programs from '@/components/Schools/ISDI/Home/Programs';
+import ProgrammesV2 from '@/components/Schools/ISDI/Home/ProgrammesV2';
 import ChooseMinor from '@/components/Schools/ISDI/Home/ChooseMinor';
 import Electives from '@/components/Schools/ISDI/Home/Electives';
 import PinkBanner from '@/components/Schools/ISDI/Home/PinkBanner';
@@ -25,8 +25,6 @@ import {
   isdiOutcomes,
   isdiAction,
   isdiBeliefs,
-  isdiPrograms,
-  isdiPathfinder,
   isdiMinors,
   isdiElectives,
   isdiClassOf2025,
@@ -98,7 +96,10 @@ export default function ISDIHomePage() {
       <Outcomes data={isdiOutcomes} />
       <ActionNeverStops data={isdiAction} />
       <Beliefs data={isdiBeliefs} />
-      <Programs data={isdiPrograms} pathfinder={isdiPathfinder} />
+      {/* ref: upstream commented out the old "Our Programs" tab section and replaced it with the
+          assets/include/19-programmesv2.php include — the "19 programmes. Five worlds." section + its
+          own PathFinder quiz. (Home/Programs stays exported; the UG/PG Overview pages still use it.) */}
+      <ProgrammesV2 />
       <ChooseMinor data={isdiMinors} />
       <Electives data={isdiElectives} />
       <PinkBanner block="class-of-2025" data={isdiClassOf2025} />
