@@ -4,7 +4,7 @@ Audit of `reference/schools/isdi` against the Next.js port. Generated during the
 
 Statuses: COMPLETE (verified against the updated reference) · NEEDS UPDATE (implemented but outdated) · PARTIAL (sections missing) · NOT STARTED · BLOCKED (cannot verify or upstream incomplete).
 
-## COMPLETE (58)
+## COMPLETE (61)
 
 | reference | target route | verified differences | next action |
 | --- | --- | --- | --- |
@@ -66,6 +66,9 @@ Statuses: COMPLETE (verified against the updated reference) · NEEDS UPDATE (imp
 | `programs/undergraduate/b-des/behavioural-design-&-ai.php` | `/schools/isdi/programs/undergraduate/b-des/behavioural-design-&-ai` | **none outside the B.Des set's documented deviations.** The 13th B.Des programme page (NOT header-linked), the full twelve-block programme-detail template, so every `ProgramDetail` component took it as data. **Total page height matches production within 119px at 1440** (residual: the B.Des set's documented elective-dropdown 32px-closed deviation, −96, plus the shared FAQ bucket); admissions / execution / projects / voices / FAQ match to within ≤24px, and the curriculum matches within −96 once the semester videos load (the documented video-metadata race). **Heavy upstream copy-paste, each verified byte-equivalent to production before re-export:** the sticky "Why" stack, eligibility, closing banner and the two brochure popups (CRM `6a3e5980…` + npf `42f152a6…`) are the **Accessory** page's; execution ("For CD 3rd Year"), projects, voices and the "communication design" FAQ are the **Communication Design** page's (transcribed as authored). Only the hero, the three figures (whose "Duration" reads "4-Year Degree - B.Tech." on a B.Des page — an upstream copy-paste), the programme tab set (Overview / 5 Curriculum-Highlights video cards / 5 Career / 31 Faculty / 14 Success people) and the curriculum (4 years × 2 semesters with course portions + the ATLAS-Elective dropdown and a per-year ISDI-vs-others comparison card) are behavioural-specific; admissions is a 4-step band (tones from `tbgN·isdi/isdi-blue-5`). Extracted from the production-rendered HTML (the prior harness is gone); the measurement harness caught & fixed two extraction bugs — the per-year comparison's `leftImage`/`rightImage` comp-vectors (reused from accessory; otherwise `bg-[url(undefined)]` 404'd) and the semester video URLs' `&amp;`-vs-`&` mismatch. Validate clean at all 6 widths (0 overflow / console / page errors / failed / broken / off-origin — the brochure widgets load only on click). eslint 0, clean build `○ Static`. **Assets: 21 MB video (26 own clips, mp4+webm, byte-for-byte — no re-encode, per the asset rule) + 2.2 MB images (69 new WebP); ~108 reused by SHA-1.** The 21 MB is a hosting consideration. **Site-wide regression: all 83 routes at 1440/390, behavioural CLEAN, 0 new findings**; all shared-module consumers CLEAN. | none |
 | `programs/undergraduate/btech/systems-design-&-intelligent-manufacturing.php` | `/schools/isdi/programs/undergraduate/btech/systems-design-&-intelligent-manufacturing` | **none outside the B.Tech set's documented deviations.** The 3rd (unlinked) B.Tech programme page, the full twelve-block programme-detail template, built with behavioural's rebuilt extractor. **Total height matches production within 138px at 1440** (the curriculum matches within −48, the single-elective-dropdown closed-height deviation, once the semester videos load — the documented video-metadata race); all other blocks match. Validate clean at all 6 widths (0 overflow / console / page errors / failed / broken / off-origin), text diff shows nothing missing. **Re-exports, each verified byte-equivalent to production:** eligibility from the **B.Tech Design Engineering** page; execution, projects, voices and FAQ from **Communication Design**; banner and brochures from **Accessory**. The hero, three figures (whose "Duration" copy-pastes "B.Tech." correctly here), programme tab set (Overview / 6 Curriculum-Highlights clips / 5 Career / 31 Faculty / 14 Success), curriculum (4 years × 2 semesters) and the sticky "**Why Systems Design & Intelligent Manufacturing at ISDI**" stack are systems-specific — the stack reuses the shared `program-cd` photographs and the B.Des pro-bg palette, only the copy differs (titleStrong on card 2, as the markup authors). Admissions is a 4-step "The Design Way" band. eslint 0, clean build `○ Static`. **Assets: 25 MB video (26 own clips, mp4+webm, byte-for-byte) + 1.7 MB images (32 new WebP); ~149 reused by SHA-1.** **Site-wide regression: all 84 routes at 1440/390, systems CLEAN, 0 new findings**; all shared-module consumers CLEAN. | none |
 | `index.php` (19-programmesv2 section) | `/schools/isdi` | **none outside the ISDI homepage's own already-documented deviations** (the rest of the homepage was already COMPLETE). The last PARTIAL: upstream commented out the old "Our Programs" tab section line-by-line and replaced it with `assets/include/19-programmesv2.php` — the **"19 programmes. Five worlds."** section + its own PathFinder quiz. Ported as `components/Schools/ISDI/Home/ProgrammesV2.js` (client), driven by `lib/schools/isdi/home/programmesV2Data.js` (5 worlds, 19 programmes, 16 interests, 10 dreams, interest/dream score matrices, 3+3 weighted scoring → top-3). The reference is a self-contained vanilla-JS widget; the port renders its own `.isdi-*` markup and the **801-line scoped CSS lifted into `app/globals.css` (every rule under `#isdi-programmes-section` — verified: 0 unscoped selectors, 0 keyframes, so it cannot leak into any other block)**. All copy/worlds/programmes/quiz options transcribed verbatim (the 5 world titles — "Design + Product and Technology" … "Design + Business and Entrepreneurship" — match the reference's own rendered strings byte-for-byte). **The new section matches production to the pixel: `#isdi-programmes-section` = 1779px vs 1779 at 1440, 3445px vs 3445 at 390 (d=0 both).** `page.js` swaps `<Programs>`→`<ProgrammesV2>` (Home/Programs stays exported — the UG/PG Overview pages still use it) and drops the now-unused `isdiPrograms`/`isdiPathfinder` imports. Because the CSS is fully scoped and the edit is a one-line section swap, the rest of the homepage is provably unchanged. Quiz verified end-to-end headless (step1→step2, 3-interest cap, drumroll, 3 result cards, start-over) with **0 console errors, 0 horizontal overflow at 1440**. `drum-animation.webp` is the homepage's already-local WebP. eslint 0, clean build `○ Static` (85 routes: 84 static + the Instagram `[id]` dynamic API). **Site-wide regression: all 84 page routes at 1440/390, `/schools/isdi` CLEAN (0 errors / 0 overflow / 0 broken), 0 new findings** (only the pre-existing lazy-video aborts, Instagram-media aborts, Google-Maps/YouTube embeds, the Summer-School NoPaperForms 403 and the already-OPEN industry-and-mentorship image-5). | none |
+| `blog/index.php` | `/schools/isdi/blog/[slug]` (+ `/schools/isdi/blog`) | **none.** The reference is a blog DETAIL template (the listing is `/schools/isdi/thought-leaderships`), not a listing — it reads the slug from the clean URL and curls `atlas-blogs/by-slug/{slug}`, rendering a single published ISDI blog. Built **live against that same API** (no new endpoint, no new infrastructure): `lib/schools/isdi/blog/api.js` (`server-only`, `getBlogBySlug`, revalidate 900, 10s timeout, validation mirroring the PHP — HTTP 200 + `success` + `data.school === 'isdi'` + `status === 'published'`), `app/schools/isdi/blog/[slug]/page.js` (async server component, four states: **valid** → `BlogArticle`; **not found** → "Blog not found" screen for unknown/unpublished/wrong-school; **error** → "Something went wrong" for API-unreachable/malformed; **loading** → `loading.js` skeleton while it streams), `components/Schools/ISDI/Blog/BlogArticle.js` (hero desktop/mobile swap, breadcrumb, 38/28 title, author·date with the ISDI #EC1376 dot, sticky desktop-only "Jump to", sections of paragraph/heading/list/faq blocks reproducing the PHP block loop), and `app/schools/isdi/blog/page.js` (the bare index: `?slug=` → **308** to the clean URL as the reference's 301 intends; no slug → the Thought Leadership listing). `generateMetadata` builds title/description/keywords/canonical from `blog.meta`; `schema_data` (article/faq/howto) is emitted as JSON-LD. **A hydration mismatch was found & fixed:** some posts embed a block `<ul>` inside a paragraph part, invalid inside a `<p>` (the browser lifts it out), so paragraph/faq-answer raw HTML renders in a `<div class="mb-3">` (identical under Preflight) — the reference is plain PHP so it never hit this. Verified live at 1440/390 on two real slugs: 0 console errors, 0 overflow, 8/3 sections, sidebar desktop-only, hero swap, embedded `<ul>` rendered raw, 0 broken; not-found/`?slug=`(308)/bare(307) all correct. **The blog's own hero/inline images are served from the CMS at runtime** (stable, public, token-free Atlas-domain URLs) — the one deliberate runtime-remote-image exception in the port, because this is the single live, API-driven page and pre-downloading arbitrary posts' images would be the "unnecessary infrastructure" the brief rules out. Route builds `ƒ Dynamic`; eslint 0, clean build exit 0. | none |
+| `programs/postgraduate/m-des-in-design-futures.php` | **308 → `/schools/isdi/programs/postgraduate/mdes/design-futures-2-years`** | **Resolved by redirect (2026-10-30), not built as a second page.** The duplicate of the menu-linked canonical M.Des. Compared against production: the two are the SAME programme (identical `$title`/`$description`/`$css`/`$js`, the same sixteen-node page, the same three hero slides) and differ only in editorial wording — the canonical's hero reads "Design Futures" (old: "Master of Design (M.Des) Design Futures"), its ATLAS-Elective dropdowns are live (old: commented out), its enrolment line is "Nonrefundable" + `/fee-structure/mdes/` (old: "refundable" + a fliphtml5 link), and its "ISDI vs others" comparison table carries refreshed copy (old: the "Broad Exploration / Hands-On / Future-Ready" wording). The canonical is the fuller, current, menu-linked page and is **missing nothing** the old has, so a `permanent: true` (308) redirect in `next.config.mjs` resolves the old route to it — which also makes the Postgraduate Overview card (which links the old slug) resolve. Verified in dev: old URL → 308 → canonical, canonical 200, the Overview card link follows one redirect to the canonical (HTTP 200). The old URL's distinct comparison/hero wording is recorded in the RESOLVED note below in case that specific copy must be preserved. | none (see divergence note below) |
+| `programs/postgraduate/mba/mba-design-led-strategy-&-transformation.php` | `/schools/isdi/programs/postgraduate/mba/mba-design-led-strategy-&-transformation` | **Built on the user's instruction, with the upstream curriculum discrepancy transcribed as authored and flagged for confirmation — NOT corrected or invented.** The twelve-block programme-detail template. Diffed line-by-line against production AND against the already-built B.Tech Design Engineering page: the reference is a **96%-identical half-finished copy** of Design Engineering (3296/3378 lines), so it carries B.Tech content under an MBA title — Duration "4-Year Degree - B.Tech.", a FOUR-year / eight-semester curriculum, Class-XII/Maths eligibility, a curriculum intro reading "The B.Tech Design Engineering program…", and a "Why" heading "Why our Year 4 outpaces every other design school?". **⚠ CURRICULUM DISCREPANCY (requires confirmation): an MBA is two years, but this page's duration, curriculum and eligibility are the four-year B.Tech programme's.** Built page-specific from MT's production: hero (title "Design Management and Strategy", own 3 photographs, live "Application Deadline: October 25", the Accessory brochure set — CRM iframe 6a3e5980 + NoPaperForms 42f152a6), the middle stats figure ("60% in Class XII"), "Admissions — The Design Way" (4 steps), the short-form eligibility (3 groups, ₹1500 fee, `/fee-structure/dmst/`), and the "Why" stack (own copy, default un-pinned heights). Re-exported byte-identical from Design Engineering (verified: no diff in these blocks): the programme tabs + curriculum (one-word intro aside), execution, projects, voices, banner, FAQ. **Verified:** 0 console errors, 0 overflow at 1440/390; every SHARED block matches the production-verified Design Engineering port exactly (d=0), and the page-specific blocks differ only as their content dictates; the route builds `○ Static`; the M.Des/blog/MBA routes and the full 87-route regression are clean. 12 new hero WebP assets + 1 admissions image; everything else reused. **Nav:** the header menu's "Design Management and Strategy (2 Years)" still points at the populated twin `mba-in-design-management-strategic-thinking` (prior decision — it carries complete 2-year MBA content), so this half-finished page is reachable by URL but not surfaced in nav; repointing is the user's call. | **confirm the curriculum/duration/eligibility (4-year B.Tech content on a 2-year MBA) with upstream; decide whether the menu should point here or stay on the populated twin.** |
 
 ## NEEDS UPDATE (0)
 
@@ -78,43 +81,85 @@ Statuses: COMPLETE (verified against the updated reference) · NEEDS UPDATE (imp
 | --- | --- | --- | --- |
 | *(none — the last PARTIAL, `/schools/isdi`'s 19-programmesv2 section, was ported and verified; see the COMPLETE table)* | | | |
 
-## BLOCKED (3)
+## BLOCKED (0)
 
 | reference | target route | verified differences | next action |
 | --- | --- | --- | --- |
-| `blog/index.php` | `/schools/isdi/blog` | Dynamic: a `?slug=` redirect for individual posts plus a post list `curl`'d from `uat-dashboard.atlasskilltech.app/api/atlas-blogs` — **the same UAT feed the already-built `/schools/isdi/thought-leaderships` page snapshots** (reassessed 2026-10-30). No data source lives in this checkout; the feed is UAT. | **user decision needed (data source).** Recommendation: snapshot the `api/atlas-blogs` feed into a `lib/` content module exactly as `thought-leaderships` does (listing cards + images downloaded into `public/`), and resolve `?slug=` either by snapshotting each post body or by pointing post links at the live site. Not startable without the user choosing snapshot-vs-live and confirming the UAT feed is the intended source. |
-| `programs/postgraduate/m-des-in-design-futures.php` | `/schools/isdi/programs/postgraduate/m-des-in-design-futures` | Duplicate of the built mdes/design-futures-2-years.php. The two have now DIVERGED: the menu-linked copy we built carries the refreshed wording and /fee-structure/mdes/, this one still has the old "refundable" + fliphtml5. The Postgraduate Overview card (`lib/schools/isdi/home/programs.js:186`) links here, so that card points at a route we do not have (it 404s). | **user decision needed (safe alias investigated 2026-10-30).** A **308 redirect** in `next.config.mjs` from `/schools/isdi/programs/postgraduate/m-des-in-design-futures` → `…/postgraduate/mdes/design-futures-2-years` is safe and recommended: both are the same M.Des programme, the built target carries the refreshed wording + `/fee-structure/mdes/`, and the stale duplicate would only serve the old "refundable"/fliphtml5 copy. This is the exact precedent of the AI-integrated rename's 308. NOT applied — it is an outward-facing routing change, so it waits on the user's explicit go (the alternative, repointing the Overview card to the built route, is equivalent and also needs the user's choice). No content invented either way. |
-| `programs/postgraduate/mba/mba-design-led-strategy-&-transformation.php` | `/schools/isdi/programs/postgraduate/mba/mba-design-led-strategy-&-transformation` | The header menu links this as "Design Management and Strategy (2 Years)", but upstream it still carries FOUR years of curriculum (an MBA is two). Half-finished upstream. The populated twin, mba-in-design-management-strategic-thinking.php, is built and the menu was repointed to it on your decision. | **stays BLOCKED (reassessed 2026-10-30).** Upstream is genuinely half-finished (4 years of curriculum on a 2-year MBA); building it would mean inventing the correct content, which the brief forbids. Leave unbuilt until upstream populates it. No port action available. |
+| *(none — all three former BLOCKED entries were resolved on 2026-10-30)* | | | |
 
-**BLOCKED reassessment (2026-10-30).** All three are genuine external dependencies, not
-unfinished port work: the **blog** needs the user to choose a data source (the UAT
-`api/atlas-blogs` feed is identified and snapshot-able the way thought-leaderships is, but
-snapshot-vs-live and the `?slug=` post-detail handling are the user's call); the **M.Des
-duplicate** needs the user to approve a safe 308 alias (recommended above) or repoint the
-Overview card — an outward-facing routing decision; and the **MBA Transformation** page is
-half-finished upstream, so building it would require inventing content and must stay BLOCKED.
-None can be completed without the user's input, and none is being forced.
+**BLOCKED reassessment (2026-10-30), all three resolved on the user's approval.**
+The **blog** is **COMPLETE** — built live against the existing `api/atlas-blogs/by-slug`
+endpoint (see the COMPLETE table). The **M.Des duplicate** is **resolved by a 308 redirect**
+to the menu-linked canonical (COMPLETE table + the RESOLVED note below). **MBA
+"Design Led Strategy & Transformation"** is now **BUILT** (COMPLETE table): the page exists and
+renders cleanly, with the upstream curriculum discrepancy (4-year B.Tech content on a nominally
+2-year MBA) transcribed as authored and flagged for confirmation — nothing invented or
+silently corrected. **Two items remain for the user, neither blocking the port:** confirm the
+MBA curriculum/duration/eligibility with upstream, and decide whether the header menu's
+"Design Management and Strategy (2 Years)" should point at this page or stay on the populated
+twin (it currently stays on the twin, which carries complete 2-year content).
 
 ## NOT STARTED (0)
 
 | reference | target route | verified differences | next action |
 | --- | --- | --- | --- |
-| *(none — every reference page is now built except the three BLOCKED entries above)* | | | |
+| *(none — every reference page is now built except the BLOCKED entries above)* | | | |
 
 ## Totals
 
 | status | pages |
 | --- | --- |
-| COMPLETE | 58 |
+| COMPLETE | 61 |
 | NEEDS UPDATE | 0 |
 | PARTIAL | 0 |
-| BLOCKED | 3 |
+| BLOCKED | 0 |
 | NOT STARTED | 0 |
 | **TOTAL** | **61** |
 
-**Every feasible ISDI reference page is now built.** The three remaining BLOCKED entries are
-genuine external dependencies (a data source, and two upstream-authoring decisions) that need
-the user's input — see the reassessment note below the BLOCKED table.
+**Every ISDI reference page is now built — 0 BLOCKED, 0 NOT STARTED.** On 2026-10-30 all three
+former BLOCKED entries were resolved: the blog was built (live `api/atlas-blogs` API), the M.Des
+duplicate was resolved by a 308 redirect to the canonical, and the MBA "Design Led Strategy &
+Transformation" page was built (its upstream 4-year-curriculum-on-a-2-year-MBA discrepancy
+transcribed as authored and flagged for confirmation). Two non-blocking follow-ups remain for the
+user — see the reassessment note below the BLOCKED table.
+
+## RESOLVED (2026-10-30) — M.Des in Design Futures duplicate route
+
+**Status: 308 redirect applied on the user's explicit approval.** The reference ships the
+M.Des Design Futures programme at two live URLs:
+
+- `programs/postgraduate/mdes/design-futures-2-years.php` — the **header-menu** link, built
+  as the canonical page `/schools/isdi/programs/postgraduate/mdes/design-futures-2-years`.
+- `programs/postgraduate/m-des-in-design-futures.php` — the older duplicate, which the
+  **Postgraduate Overview card** links.
+
+Both are the **same programme** — identical `$title` ("Design Futures Program in Mumbai –
+ATLAS ISDI"), `$description`, `$css`, `$js`, the same sixteen-node page and the same three
+hero slides. Verified line-by-line against production (both answer 200). They differ ONLY in
+editorial wording, and in every case the canonical is the fuller / current version:
+
+| | canonical (menu-linked, built) | old duplicate |
+| --- | --- | --- |
+| hero `h3-tag` | "Design Futures" | "Master of Design (M.Des) Design Futures" |
+| ATLAS-Elective dropdowns | **live** | commented out (dead markup) |
+| enrolment line | "…₹50,000 … is **Nonrefundable**!" | "…**refundable**!" |
+| Fee Structure link | `/fee-structure/mdes/` | `online.fliphtml5.com/vrcjg/wyyr/` |
+| "ISDI vs others" comparison | "Management course taught by Designers / Unique industry requested course / Teaching Design Concepts via Management / Minimal Cross-Disciplinary / Theory–Practice Gap …" | "Broad Exploration / Hands-On, Experiential Learning / Future-Ready Skills / Narrow Focus / Theory-Heavy …" |
+
+The canonical is **missing nothing** the old page has — it is a complete, refreshed version of
+the same programme — so the old route is redirected to it (`permanent: true` → **308** in
+`next.config.mjs`) rather than built as a second, duplicate page. That also makes the
+Postgraduate Overview card resolve. Verified: old URL → 308 → canonical, canonical 200, and
+the card link follows one redirect to a 200.
+
+**Divergence recorded for a possible recheck, no content invented.** The one genuine
+content difference is the "ISDI vs others" comparison table (and the hero-title prefix): the
+old URL's comparison is worded for a design curriculum (Critical Design, XR, AI, System
+Design), while the canonical's reads management-flavoured ("…taught by Designers / via
+Management"). **This is upstream's own divergence** — production serves both as shown, and the
+canonical is the one the site navigates to — so it is reproduced as-is, not "corrected." If the
+design-worded comparison is the intended copy for this programme, the fix is an upstream content
+change that would then flow into the canonical; flag it if so.
 
 ## RESOLVED (2026-10-24) — five Pathfinder / programme-card links
 

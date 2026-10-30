@@ -3155,7 +3155,16 @@ The header menu links `postgraduate/mdes/design-futures-2-years`; the Overview c
 — diffed block by block, the only difference is the hero eyebrow, "Master of Design (M.Des)",
 which the card's copy carries and the menu's does not. The menu is the navigation of record, so
 that is the one built; the Overview card is transcribed as authored and therefore points at a
-route this port does not have. **Flagged, not decided.**
+route this port does not have. **RESOLVED (2026-10-30, on the user's approval): a 308 redirect
+in `next.config.mjs` sends `postgraduate/m-des-in-design-futures` → the canonical
+`postgraduate/mdes/design-futures-2-years`, which also makes the Overview card resolve.** A
+closer production diff than the eyebrow-only note above: the two are the same programme but the
+canonical is the fuller/current version — its ATLAS-Elective dropdowns are live where the old
+commits them out, its enrolment line is "Nonrefundable" + `/fee-structure/mdes/` (old:
+"refundable" + fliphtml5), and its "ISDI vs others" comparison carries different (management-
+flavoured) copy from the old URL's design-worded one. The canonical is missing nothing, so the
+redirect — not a second duplicate page — is the resolution; the comparison-wording divergence is
+upstream's own and is recorded in `MIGRATION-ISDI.md` for a possible recheck, not "corrected."
 
 ### ISDI M.Des in Design Futures — `app/schools/isdi/programs/postgraduate/mdes/design-futures-2-years/page.js`, `lib/schools/isdi/programs-mdes/design-futures/`
 
@@ -3365,6 +3374,47 @@ bucket; and `.career-sup-card` / `.testimonial-card` held to the container width
 767 (+89.5 and +24 at 767). 43/43 interactions pass at 1440 and 390, `validate.py` is clean at all
 twelve widths (0 overflow, 0 console, 0 broken images, no external host), and `regress.py` sweeps
 all 47 routes.
+
+### ISDI MBA Design Led Strategy & Transformation — `app/schools/isdi/programs/postgraduate/mba/mba-design-led-strategy-&-transformation/page.js`, `lib/schools/isdi/programs-mba/transformation/`
+
+`reference/.../postgraduate/mba/mba-design-led-strategy-&-transformation.php` — the MBA the header
+menu labels "Design Management and Strategy (2 Years)". Built on the user's instruction (2026-10-30).
+
+**⚠ It is a half-finished upstream copy of the B.Tech Design Engineering page — 96% identical
+(3296/3378 lines) — so it carries B.Tech content under an MBA title.** Diffed line-by-line against
+`programs/undergraduate/btech/btech-design-engineering.php` and against production (which serves
+exactly this). **The curriculum/duration/eligibility discrepancy is transcribed AS AUTHORED and
+flagged for confirmation in `MIGRATION-ISDI.md` — nothing invented or silently corrected:** the
+Duration reads "4-Year Degree - B.Tech.", the curriculum is FOUR years / eight semesters, the
+eligibility is Class-XII/Maths-based, the curriculum intro says "The B.Tech Design Engineering
+program…", and the "Why" heading says "Why our Year 4 outpaces every other design school?" — all on
+a nominally two-year MBA.
+
+**Build strategy — clone the verified page, apply the enumerated diffs, let a cross-check validate.**
+Because the reference is a near-exact copy of the already-built, production-verified Design
+Engineering page, the reliable path was to re-use DE's modules and build page-specific files only
+for the blocks the diff showed differing. Page-specific (`lib/schools/isdi/programs-mba/transformation/`):
+`hero` (title "Design Management and Strategy", its own three photographs, a live "Application
+Deadline: October 25", and the **Accessory** brochure set — CRM iframe `6a3e5980` + NoPaperForms
+`42f152a6`, which is what this page authors), `stats` (only the middle Eligibility figure differs —
+"60% in Class XII"), `admissions` ("The Design Way", four steps, one new `online-meeting.png`),
+`eligibility` (the short three-group form, ₹1500 fee, `/fee-structure/dmst/`), and `why` (its own
+five-card copy, and **all heights `null`** because this page does NOT ship DE's
+`.stack_card.first/second { height: 400px }` rule). The content barrel re-exports the
+byte-identical blocks from Design Engineering — the programme tabs + curriculum (with a one-word
+`.replace` so the Overview intro reads "The B.Tech Design Engineering program…"), execution,
+projects, voices, banner, FAQ — and the Accessory brochures.
+
+**Validated by a cross-check against the Design Engineering PORT, not just production** (production
+has no `data-block` markers, and its curriculum clips hit the documented video-metadata race). At
+1440/390: MT has **0 console errors and 0 horizontal overflow**, every SHARED block
+(`program`/`execution`/`projects`/`voices`/`faq`/`ready-to-build`/`search`) matches the
+production-verified DE port **exactly (d=0)**, and the page-specific blocks differ only as their
+content dictates (eligibility much shorter, `why` unpinned). The route builds `○ Static`; eslint 0;
+the full 87-route regression is clean (0 new findings). 12 new hero WebP + 1 admissions PNG; every
+other asset reused. **Nav:** the menu still points "Design Management and Strategy (2 Years)" at the
+populated twin `mba-in-design-management-strategic-thinking` (prior decision — complete 2-year
+content), so this page is reachable by URL but not menu-surfaced; repointing is the user's call.
 
 ## ISDI Postgraduate Diploma — `reference/schools/isdi/programs/postgraduate-diploma/`
 
@@ -7022,6 +7072,62 @@ is now `image-5.webp` on disk** (recorded in `MIGRATION-ISDI.md` under OPEN, fla
 
 **Deviation (one):** the self-hosted-Poppins heading on the hero (the site-wide ISDI font
 deviation). No FAQ, so no FAQ bucket; the blog grid's only residue is WebP.
+
+## ISDI Blog (detail) — `app/schools/isdi/blog/[slug]/page.js`, `components/Schools/ISDI/Blog/BlogArticle.js`, `lib/schools/isdi/blog/api.js`
+
+`reference/schools/isdi/blog/index.php` is a **blog DETAIL template, not a listing** — the
+listing is `/schools/isdi/thought-leaderships`. It reads the slug from the clean URL
+(`$slug = end($parts)`), curls `atlas-blogs/by-slug/{slug}`, validates the blog is this
+school's and published, and renders one article. **Built live against that same endpoint** —
+the same `uat-dashboard.atlasskilltech.app/api/atlas-blogs` the thought-leaderships listing and
+the ATLAS homepage Thought Leadership section already draw from. No new API, no snapshot.
+
+**The route is `/schools/isdi/blog/[slug]`** (the thought-leaderships cards link
+`…/schools/isdi/blog/{slug}`). `lib/schools/isdi/blog/api.js` (`server-only`) is
+`getBlogBySlug`: `fetch` with `Accept: application/json`, a 10s `AbortController` timeout (ref
+`CURLOPT_TIMEOUT 10`), and `next: { revalidate: 900 }` so the detail stays fresh without
+freezing into the build and without going `no-store` (which would refetch every hit). Its
+validation mirrors the PHP exactly — HTTP 200, `success === true`, non-empty `data`,
+`data.school === 'isdi'`, `data.status === 'published'` — returning `{status:'ok'|'notfound'|'error'}`.
+
+**Four states, as the brief required.** `app/schools/isdi/blog/[slug]/page.js` renders: **valid**
+→ `BlogArticle`; **not found** (unknown/unpublished/wrong-school) → a "Blog not found" screen with
+`robots:{index:false}`; **error** (network/timeout/malformed) → a "Something went wrong" screen;
+**loading** → `app/schools/isdi/blog/[slug]/loading.js`, a skeleton Next streams while the server
+component fetches. `generateMetadata` builds title/description/keywords/canonical from `blog.meta`
+(fetch is deduped with the page's within the request), and `schema_data` (article/faq/howto) is
+emitted as JSON-LD. The bare `/schools/isdi/blog` (`app/schools/isdi/blog/page.js`) reproduces the
+reference's SEO guard: `?slug=X` → a **308** to `/schools/isdi/blog/X` (the reference's permanent
+301 intent), and no slug → the Thought Leadership listing (more useful than the reference's bare
+"No blog selected", and the page that actually lists the blogs).
+
+**`BlogArticle`** reproduces the PHP markup — hero desktop/mobile swap (`hidden md:block` /
+`block md:hidden`), breadcrumb, a 38/28px title, the author·date row with the ISDI `#EC1376` dot,
+a sticky desktop-only "Jump to" sidebar, and sections of paragraph/heading/list/faq blocks whose
+renderers match the PHP block loop one-for-one (paragraph parts: raw text, wrapped in
+`<b class='text-gray-700'>` if `bold` then `<a class='text-blue-600 underline'>` if `link`, in that
+order). The project's `md` (768) equals the reference's, so the Play-CDN `md:` classes map directly.
+
+**A hydration mismatch, found and fixed — and worth remembering for any raw-CMS-HTML port.** Some
+posts embed a block `<ul>` inside a paragraph part. A `<ul>` is **invalid inside a `<p>`**, so the
+browser auto-closes the `<p>` and lifts the list out — the client DOM then differs from the server
+HTML string and React hydration fails. The reference never hit this (plain PHP). Fix: render the
+paragraph and the faq answer's raw HTML in a **`<div class="mb-3">`**, not a `<p>` — identical under
+Preflight (which zeroes `<p>` margins) but a valid parent for embedded block content.
+
+**The blog's own images are served from the CMS at runtime** — the hero and any inline images are
+stable, public, token-free Atlas-domain URLs returned by the API, referenced directly. This is the
+**one deliberate runtime-remote-image exception** in the port: the blog is the single live,
+API-driven page, and pre-downloading every possible post's images would be exactly the "unnecessary
+infrastructure" the brief rules out (unlike the Instagram media route, these URLs don't expire and
+carry no token, so a proxy would buy nothing). The static reference sections' "no runtime remote
+URLs" rule is unchanged; this is scoped to dynamic blog content.
+
+**Verified** live at 1440/390 on two real slugs: 0 console errors, 0 horizontal overflow, the
+section count matches the feed (8 and 3), the sidebar is desktop-only, the hero swaps, embedded
+`<ul>` renders as real HTML (not escaped), 0 broken images; not-found renders its screen,
+`?slug=` → 308, bare → 307. Both routes build `ƒ Dynamic`; `npx eslint .` 0, clean `next build` 0.
+**No shared component changed** (all new files), so no site-wide regression was required for this page.
 
 ## ISDI Parents Corner — `app/schools/isdi/parents-corner/page.js`, `components/Schools/ISDI/ParentsCorner/`, `lib/schools/isdi/parentsCornerContent.js`
 

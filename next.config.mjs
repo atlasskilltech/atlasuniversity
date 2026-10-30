@@ -55,6 +55,29 @@ const nextConfig = {
           '/schools/isdi/programs/undergraduate/btech/ai-engineering-&-intelligent-products',
         permanent: true,
       },
+      /*
+       * M.Des in Design Futures duplicate (2026-10-30). The reference ships this
+       * programme at two live URLs: `postgraduate/mdes/design-futures-2-years.php`
+       * (the header-menu link, built as the canonical page) and the older
+       * `postgraduate/m-des-in-design-futures.php` (which the Postgraduate Overview
+       * card links). Both are the SAME programme (identical $title/$description/$css,
+       * the same sixteen-node page, the same hero slides). Verified against production:
+       * the two differ only in editorial wording — the canonical's hero reads
+       * "Design Futures" (the old one "Master of Design (M.Des) Design Futures"), its
+       * ATLAS-Elective dropdowns are live where the old one comments them out, its
+       * enrolment line reads "Nonrefundable" with a `/fee-structure/mdes/` link (the old
+       * one "refundable" + a fliphtml5 link), and its "ISDI vs others" comparison table
+       * carries the refreshed copy. The canonical is the fuller, current, menu-linked
+       * version and is missing nothing the old page has, so the old route is redirected
+       * to it (308) rather than built as a second page — which also makes the Overview
+       * card resolve. The old URL's distinct comparison/hero wording is recorded in
+       * MIGRATION-ISDI.md so it can be revisited if that specific copy must be preserved.
+       */
+      {
+        source: '/schools/isdi/programs/postgraduate/m-des-in-design-futures',
+        destination: '/schools/isdi/programs/postgraduate/mdes/design-futures-2-years',
+        permanent: true,
+      },
     ];
   },
 };
