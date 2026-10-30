@@ -215,3 +215,79 @@
     border: 0;
   }
 }
+
+/* ATLAS ISDI Advantage partner-university landing pages (nyfa.php etc.) load BOTH
+   Tailwind Play CDN and Bootstrap (the shared ISDI header pulls Bootstrap in for
+   the FAQ). Bootstrap's spacing utilities (.p-*, .m-*, .gap-* for 0-5) carry a
+   DIFFERENT scale than Tailwind's (bs 3=1rem, 4=1.5rem, 5=3rem) and, loading after,
+   override the LP author's intended Tailwind spacing AT ALL WIDTHS (a base .py-4
+   beats even a responsive .md:py-8). Production therefore renders the LP with this
+   collided spacing. These rules reproduce it: scoped to `.lp-bs` (the LP <main>),
+   at (0,2,0) specificity so they win over Tailwind's base AND responsive utilities,
+   exactly as Bootstrap does on production. Not loaded anywhere else. */
+.lp-bs .p-0{padding:0}
+.lp-bs .pt-0{padding-top:0}
+.lp-bs .pb-0{padding-bottom:0}
+.lp-bs .m-0{margin:0}
+.lp-bs .mt-0{margin-top:0}
+.lp-bs .mb-0{margin-bottom:0}
+.lp-bs .px-0{padding-left:0;padding-right:0}
+.lp-bs .py-0{padding-top:0;padding-bottom:0}
+.lp-bs .mx-0{margin-left:0;margin-right:0}
+.lp-bs .my-0{margin-top:0;margin-bottom:0}
+.lp-bs .gap-0{gap:0}
+.lp-bs .p-1{padding:0.25rem}
+.lp-bs .pt-1{padding-top:0.25rem}
+.lp-bs .pb-1{padding-bottom:0.25rem}
+.lp-bs .m-1{margin:0.25rem}
+.lp-bs .mt-1{margin-top:0.25rem}
+.lp-bs .mb-1{margin-bottom:0.25rem}
+.lp-bs .px-1{padding-left:0.25rem;padding-right:0.25rem}
+.lp-bs .py-1{padding-top:0.25rem;padding-bottom:0.25rem}
+.lp-bs .mx-1{margin-left:0.25rem;margin-right:0.25rem}
+.lp-bs .my-1{margin-top:0.25rem;margin-bottom:0.25rem}
+.lp-bs .gap-1{gap:0.25rem}
+.lp-bs .p-2{padding:0.5rem}
+.lp-bs .pt-2{padding-top:0.5rem}
+.lp-bs .pb-2{padding-bottom:0.5rem}
+.lp-bs .m-2{margin:0.5rem}
+.lp-bs .mt-2{margin-top:0.5rem}
+.lp-bs .mb-2{margin-bottom:0.5rem}
+.lp-bs .px-2{padding-left:0.5rem;padding-right:0.5rem}
+.lp-bs .py-2{padding-top:0.5rem;padding-bottom:0.5rem}
+.lp-bs .mx-2{margin-left:0.5rem;margin-right:0.5rem}
+.lp-bs .my-2{margin-top:0.5rem;margin-bottom:0.5rem}
+.lp-bs .gap-2{gap:0.5rem}
+.lp-bs .p-3{padding:1rem}
+.lp-bs .pt-3{padding-top:1rem}
+.lp-bs .pb-3{padding-bottom:1rem}
+.lp-bs .m-3{margin:1rem}
+.lp-bs .mt-3{margin-top:1rem}
+.lp-bs .mb-3{margin-bottom:1rem}
+.lp-bs .px-3{padding-left:1rem;padding-right:1rem}
+.lp-bs .py-3{padding-top:1rem;padding-bottom:1rem}
+.lp-bs .mx-3{margin-left:1rem;margin-right:1rem}
+.lp-bs .my-3{margin-top:1rem;margin-bottom:1rem}
+.lp-bs .gap-3{gap:1rem}
+.lp-bs .p-4{padding:1.5rem}
+.lp-bs .pt-4{padding-top:1.5rem}
+.lp-bs .pb-4{padding-bottom:1.5rem}
+.lp-bs .m-4{margin:1.5rem}
+.lp-bs .mt-4{margin-top:1.5rem}
+.lp-bs .mb-4{margin-bottom:1.5rem}
+.lp-bs .px-4{padding-left:1.5rem;padding-right:1.5rem}
+.lp-bs .py-4{padding-top:1.5rem;padding-bottom:1.5rem}
+.lp-bs .mx-4{margin-left:1.5rem;margin-right:1.5rem}
+.lp-bs .my-4{margin-top:1.5rem;margin-bottom:1.5rem}
+.lp-bs .gap-4{gap:1.5rem}
+.lp-bs .p-5{padding:3rem}
+.lp-bs .pt-5{padding-top:3rem}
+.lp-bs .pb-5{padding-bottom:3rem}
+.lp-bs .m-5{margin:3rem}
+.lp-bs .mt-5{margin-top:3rem}
+.lp-bs .mb-5{margin-bottom:3rem}
+.lp-bs .px-5{padding-left:3rem;padding-right:3rem}
+.lp-bs .py-5{padding-top:3rem;padding-bottom:3rem}
+.lp-bs .mx-5{margin-left:3rem;margin-right:3rem}
+.lp-bs .my-5{margin-top:3rem;margin-bottom:3rem}
+.lp-bs .gap-5{gap:3rem}

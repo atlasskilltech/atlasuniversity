@@ -46,8 +46,16 @@ module.exports = {
      */
     screens: {
       sm: '480px',
+      /* The ATLAS ISDI Advantage partner-university landing pages (nyfa.php etc.)
+         are Tailwind-Play-CDN pages whose `sm`/`lg` are the STOCK Tailwind defaults
+         (640 / 1024), which differ from this project's 480 / 992. Min-width screens
+         must be listed in ASCENDING order here — Tailwind emits their `@media` rules
+         in config order, so a later-listed smaller screen would wrongly win the
+         cascade at large widths. `n640` sits before `md`, `n1024` between `lg`/`xl`. */
+      n640: '640px',
       md: '768px',
       lg: '992px',
+      n1024: '1024px',
       xl: '1280px',
       '2xl': '1440px',
       '3xl': '1920px',
@@ -110,6 +118,7 @@ module.exports = {
         },
         isdi: {
           pink: '#ec1376',      // ISDI utility bar, menu hover + underline
+          blue: '#1e3a8a',      // ATLAS ISDI Advantage partner-LP template brand blue
         },
       },
 

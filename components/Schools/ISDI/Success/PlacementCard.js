@@ -60,16 +60,21 @@ export default function PlacementCard({ card }) {
         <div className="flex items-center justify-between">
           {/* ref .p-card-name(.isdi) */}
           <div className="text-[28px] font-medium leading-[1.5]">{card.name}</div>
-          <a href={card.linkedin.href} target="_blank" rel="noreferrer" className="inline-block max-w-full">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={card.linkedin.icon.src}
-              alt={card.linkedin.icon.alt}
-              loading="lazy"
-              decoding="async"
-              className="inline-block max-w-full align-middle"
-            />
-          </a>
+          {/* the LinkedIn mark is optional — /schools/isdi/parents-corner's
+              "Strong Careers" cards author `.txt-block-linkedin` with only the
+              name and no anchor */}
+          {card.linkedin && (
+            <a href={card.linkedin.href} target="_blank" rel="noreferrer" className="inline-block max-w-full">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={card.linkedin.icon.src}
+                alt={card.linkedin.icon.alt}
+                loading="lazy"
+                decoding="async"
+                className="inline-block max-w-full align-middle"
+              />
+            </a>
+          )}
         </div>
         {/* ref .placement-course */}
         <div className="text-[18px] max-md:text-base">{withBreaks(card.course)}</div>

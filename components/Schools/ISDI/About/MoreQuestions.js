@@ -32,13 +32,16 @@ import { CONTAINER, H2, H2_MB, SECTION } from '../Home/ui';
  * panel — "Questions? We can read your mind", the FAQ's heading again. The pages that
  * include the panel bare author no heading at all, so it is optional.
  */
-export default function MoreQuestions({ data }) {
-  return (
-    <section data-block="search" className={SECTION}>
-      <div className={CONTAINER}>
-        {data.heading && <h2 className={cx(H2, H2_MB.mrg16)}>{data.heading}</h2>}
-        {/* ref .search-ques-wrap */}
-        <div className="pt-10">
+export default function MoreQuestions({ data, inline = false }) {
+  /*
+   * `inline` renders only the `.search-ques-wrap` panel, with no section or
+   * container wrapper — used by `ParentsCorner/Faq`, whose reference nests this
+   * panel inside the FAQ's own `section.section > .container` right after the
+   * accordion. Every other caller renders it as its own section (default).
+   */
+  /* ref .search-ques-wrap */
+  const Panel = (
+    <div className="pt-10">
           {/* ref .search-question */}
           <div
             className="rounded-2xl border-0 border-b border-solid border-white bg-[#de297b] bg-auto bg-[position:100%] bg-no-repeat py-14 pl-14 pr-[300px] text-white max-md:px-6 max-md:py-10"
@@ -88,6 +91,15 @@ export default function MoreQuestions({ data }) {
             </form>
           </div>
         </div>
+  );
+
+  if (inline) return Panel;
+
+  return (
+    <section data-block="search" className={SECTION}>
+      <div className={CONTAINER}>
+        {data.heading && <h2 className={cx(H2, H2_MB.mrg16)}>{data.heading}</h2>}
+        {Panel}
       </div>
     </section>
   );

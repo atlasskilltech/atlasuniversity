@@ -29,6 +29,13 @@ export default function PinkBanner({ data, block }) {
           <h2 className="relative m-0 text-[40px] font-medium leading-[1.2] text-white max-md:text-[18px] max-md:leading-[1.4]">
             {withBreaks(data.heading)}
           </h2>
+          {data.sub && (
+            /* ref .faq-sub-text — 24px/1.4 300 white, pt12 (16px <=767); the
+               parents-corner banner has it, the homepage's two do not */
+            <div className="relative pt-3 text-[24px] font-light leading-[1.4] text-white max-md:text-[16px]">
+              {withBreaks(data.sub)}
+            </div>
+          )}
           {/* ref .btn-wraper.padt24 > .faq-btn-slot */}
           <div className="mt-auto inline-block pt-6">
             <div>

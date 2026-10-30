@@ -6999,3 +6999,506 @@ is now `image-5.webp` on disk** (recorded in `MIGRATION-ISDI.md` under OPEN, fla
 
 **Deviation (one):** the self-hosted-Poppins heading on the hero (the site-wide ISDI font
 deviation). No FAQ, so no FAQ bucket; the blog grid's only residue is WebP.
+
+## ISDI Parents Corner — `app/schools/isdi/parents-corner/page.js`, `components/Schools/ISDI/ParentsCorner/`, `lib/schools/isdi/parentsCornerContent.js`
+
+`reference/schools/isdi/parents-corner.php` (`$body = "body isdi-page"`) — the **first link in the
+ISDI header's top utility bar**, and the **largest page in the ISDI port**: 1252 lines, sixteen
+rendered blocks (the seventeenth, "Wellness & Support", is `.hide` → `display: none`, not ported).
+Hero, three figures, Academic Approach (vision cards), Guiding Growth, Meet your campus family,
+Right in the heart of the action (map tabs + Corporate & Design District slider), Eats & Hangouts,
+Culture & Heritage, Leisure & Lifestyle, Connected & Convenient, Upgrad Spaces, Cost of living,
+Strong Careers, the recruiter marquee, In their own words, the pink banner, and the FAQ. Served at
+the **slashless** url (a flat `.php`; the trailing slash 500s).
+
+**The reference is a moving target — production's sheet hash differs from the mirror's.** The
+mirror's PHP declares `$css = …68e75e7b…` but production now serves `…68e7910c…` (a newer publish).
+`isdi-vision-card` / `port-card-j` / `slider-card-wrapper-2` are not in production's served `.css`
+cut — yet production **computes them exactly as the mirror's `68e75e7b` sheet defines** (verified
+live: vision-card 391×215 #2a60d9 r16 pad32, port-card-j 398×622 r16, slider 773×459 r24). So the
+mirror sheet is complete and correct; it was used as the CSS reference and every value cross-checked
+against production's computed styles. **When production's served CSS seems to be missing a class the
+markup uses, measure the live computed style before concluding it is unstyled.**
+
+**Three new card shapes, the rest reuse.** `ParentsCorner/PortCardJ` (the 398×622 portrait, two
+variants: `.isdi` = solid #173a87 panel behind the photo with the text on top, `overlay` = the photo
+under a `#fff0 22% → #072058 51%` gradient — Guiding Growth is the first, Upgrad the second with an
+extra `.port-card-j-text-1-2` subtitle), `ParentsCorner/SliderCardA2` (the `.slider-card-wrapper-2`
+zoom-slider-lg card: 800×475 r24, gradient scrim, a 32px title with a 12px `#ec1376` bottom rule and
+`line-height: 0.5`), and `ParentsCorner/Faq` (a **single-open Webflow-dropdown accordion**, NOT the
+shared Bootstrap `Home/FAQ`: 16 items, closed 80px, 2px `#eee` divider, title `rgba(43,43,43,.8)`
+24px, a pink chevron drawn as an inline SVG because `webflow-icons` is not loaded). **The FAQ's
+filter buttons (`.faq-button-wrap`) and "View More" row (`.view-more-faq`) are both `display: none`
+upstream, so neither is rendered** — the filtering feared at first does not exist. Two of the 16 FAQ
+answers are `<p>` + `<ul>` + `<p>`, so the answer travels as a block array (string = paragraph,
+`{list, items}` = list) and renders the list with `pl-10 list-disc` (the closed-height match hid the
+run-on until the text diff caught it — a closed disclosure hides a structured answer).
+
+**`Advantage/Vision` IS "Academic Approach".** The section is that component's exact structure
+(`.vision-wrapper` of three `.isdi-vision-card` over `.vision-wrap-2` of three `.isdi-vision-card-2`),
+with the same six stylesheet-painted vectors (reused from `advantage/overview`), so it is reused with
+this page's data. `StatsBand` (figures, `padBottom`), `CardTypeE`, `Carousel`, `MintTabStrip`,
+`ui/ZoomSliderLg`, `Life/ZoomSlider`+`MotionCard`, `Success/PlacementCard`, `LogoStrip`,
+`Home/PeopleVoices`, `Home/PinkBanner` and `About/MoreQuestions` carry the rest.
+
+**Four shared components gained additive, defaulted props — each a verified no-op on its consumers:**
+`PeopleVoices` (`sources` passed to `InViewVideo`, and an **index-qualified key** because this page
+repeats one Varsha Sharma quote across three cards — the homepage's texts are unique, so unchanged),
+`PinkBanner` (optional `data.sub` = `.faq-sub-text`; the homepage's two banners have none),
+`MoreQuestions` (`inline` renders only the `.search-ques-wrap` panel, so the FAQ can nest it inside
+its own container — the reference puts the panel in the FAQ's `section > .container` after the
+accordion), and `PlacementCard` (optional `card.linkedin` — "Strong Careers" authors
+`.txt-block-linkedin` with only the name, no anchor).
+
+**Several layout values measured, not assumed:**
+- `.top-cards-wrapper` has `padding-bottom: 60px` — `StatsBand`'s `padBottom`.
+- **`.container-15.w-container` is 940px, not 1366** (Webflow's `.w-container` max-width — 940, 728 at
+  ≤991, 100% at ≤767 — wins over `.container-15`). Only family and cost carry it, and their carousel
+  is CONTAINED in the 940 column (first card at the column's left inset, bleeding right), so `CONTAINER_W`
+  holds the heading AND the carousel with `bleed={false}`. cost's h2 wraps to two lines there, which a
+  1366 column hides.
+- **`.sub-heading.mrgbtm`'s pb ladder is 56 → 20 at ≤991 → 0+mb20 at ≤767 → 20+mb20 at ≤479** (not
+  the 767 breakpoint it looks like). Written as a standalone class string so the two `padding-bottom`
+  utilities do not collide.
+- **`.head-wrap.top` is a COLUMN at ≤767** (it inherits `flex-flow: column` from the base `.head-wrap`;
+  `.top` only re-sets justify/align), with `align-items: stretch`, and its `.tt-wrap` carries
+  `margin-bottom: 20` (≤767) and `margin-right: 20` (≤479) — so the heading column is 20px narrower
+  than the stretched button and the gap to the button is 16+20=36. Found by measuring, after a first
+  pass that kept it a row (off +60 at 390) overcorrected to a column (−47) — the residual was the
+  tt-wrap margins, not font.
+- The zoom-slider-lg sections use `.mrgtp` = mt56 → mt20 at ≤991; the zoom-slider (motion) sections
+  carry NO `.mrg56`, so no top margin.
+
+**One residual that is NOT font, confirmed by Arial-forcing.** The heart section was +36 at ≤991
+and read like the Poppins deviation; forcing a common font on both sides did NOT close it, which
+sent the investigation to the real cause — the `.sub-heading.mrgbtm` pb breakpoint above. **The task's
+"investigate, don't assume font" paid off here.** The one genuine font residual (the hero/heart
+sub-heading wrapping) is minimal and inside the documented self-hosted-`Poppins ISDI` deviation.
+
+**Assets.** 192 references: 6.3MB of images (after WebP conversion at SSIM ≥ 0.985) under
+`public/assets/images/schools/isdi/parents-corner/` and 22MB of testimonial video (re-encoded from
+98MB, H.264/VP9 capped at 640px — the cards display ~325px). The three figure/vision vectors, the
+seven Mumbai map tabs (reused from `life-at-isdi`), the placement and recruiter logos, and two of the
+six parent-testimonial videos (byte-identical to the homepage's `parents-2/3`) are reused. The six
+CSS-painted vision/figure backgrounds were invisible to the markup scan and came off the live DOM's
+computed `background-image` (the documented trap). One placement logo is an `.avif` the first regex
+(png/jpg/webp/svg) missed — **add `avif` to the media-url pattern**.
+
+**Verified** against `https://atlasuniversity.edu.in/schools/isdi/parents-corner` at
+1920 / 1440 / 1280 / 1100 / 992 / 900 / 768 / 700 / 568 / 479 / 390 / 360: **all 17 blocks match to
+the pixel at all twelve widths except testimonials +24 at 700** (the QuoteCard 568-767 container-width
+fix `PeopleVoices` already carries site-wide). 9/9 interactions; validate clean at all twelve widths
+(0 overflow / console / page errors / failed / broken; the only off-origin is the Upgrad YouTube
+embed, the reference's own); per-block screenshots: static blocks 0-8 mean, the carousels differ only
+by which slide is current (verified by height + text + interactions), and `PortCardJ`/`SliderCardA2`
+render correctly on inspection. `npx eslint .` 0, clean `npx next build` (`○ Static`), `regress.py`
+across all 72 built routes found only the pre-existing entries (testimonial-video `requestfailed`,
+`networkidle` timeouts that load clean under a gentler wait, the Summer School 403, the uncommitted
+`industry-and-mentorship` image-5 defect) — nothing on this page or its shared-component consumers.
+
+**Deviations (two):** testimonials +24 at 700 (QuoteCard container-width, site-wide); and the
+self-hosted-`Poppins ISDI` sub-heading wrapping (the site-wide ISDI font deviation). The FAQ chevron
+is an inline SVG because the Webflow icon font is not loaded.
+
+## ISDI For Outstation — `app/schools/isdi/isdi-for-outstation/page.js`, `components/Schools/ISDI/Outstation/`, `lib/schools/isdi/isdiOutstationContent.js`
+
+`reference/schools/isdi/isdi-for-outstation.php` (`$body = "body isdi-page"`) — the **second link in
+the ISDI header's top utility bar** (after Parents Corner), served at the **slashless** url (a flat
+`.php`; the trailing slash 500s). Fourteen blocks: a 100vh image hero, Right in the heart of the
+action (7 map tabs + Corporate & Design District slider), Eats & Hangouts, Culture & Heritage,
+Leisure & Lifestyle, Connected & Convenient, Survive and Thrive (a core-isdi-card marquee), Where
+students become a community (a 4-column photo grid), Upgrad Spaces, Cost of living, A glimpse into
+your ISDI life (the 7-column week grid), the blue banner, Through the eyes of outstation students,
+and the FAQ.
+
+**It is largely Parents Corner's page with four blocks swapped** — the two pages share the Mumbai /
+student-living sections (heart, eats, culture, leisure, connected, upgrad, cost, testimonials, FAQ)
+verbatim in structure, so `ParentsCorner/Sections` (`HeartOfAction`, `MotionSection`,
+`SliderSection`, `Upgrad`, `CardTypeECarousel`), `ParentsCorner/Faq`, `About/Hero`,
+`Home/PeopleVoices` and `SummerSchool/WeekGrid`'s `WeekStrip` carry ten of the fourteen blocks as
+data. Only four shapes are this page's own: `Outstation/{SurviveThrive, Community, Glimpse, Banner}`.
+
+**Block heights match production to the pixel at all 12 widths** (1920 / 1440 / 1280 / 1100 / 992 /
+900 / 768 / 700 / 568 / 479 / 390 / 360) except the three deviations below. 14/14 blocks render in
+order; FAQ is 16-item single-open; 4 testimonial videos; 7 heart map tabs. `validate` is clean at
+all 12 widths (0 overflow / console / page errors / failed / broken; the only off-origin is the
+Upgrad section's own YouTube embed). The single console entry the validate harness reports is the
+documented `lazy→eager`-before-hydration artifact — a natural `networkidle` load is 0 errors / 0
+warnings.
+
+**`SurviveThrive` is a core-isdi-card marquee**, title and description both weight 700, the three
+`#cd0e5d` / `#df287b` / `#0a46ca` panel tones with the Beliefs "ABCD" watermark vectors behind them
+(reused), over `Home/MarqueeTrack`. **`Community` is a 4-column photo grid**
+(`.instagram-wrapper > .grid-gallery-flex > .grid-column > img.insta-image-rect.isdi`), NOT
+`PhotoGallery` (that is `.insta-image` with captions, two photos a column). **`Glimpse` is the week
+grid** — the shared `WeekStrip`, same cell shapes / heights / artwork / blend modes as
+`life@atlas-isdi` and the Summer School pages, with this page's own design-studio schedule; its
+`days[]` were read off production's **live DOM** because the cell backgrounds are CSS-painted, and
+the "Thrusday" typo is preserved as authored. **`Banner` is the blue `#193e90` `faq-banner-2`** with
+a `btn-primary-2` pink pill + arrow and the faq-vector watermark.
+
+**`.insta-image-rect` is a fixed `width: 300px` at ≤767** (capped to the column by `max-width: 100%`,
+object-cover pinned top-left) — not `w-full` and not its natural width. A first pass with `w-full`
+was +134 at 700; reading it as natural was −61 (an overcorrection); the measured 300px matches. **The
+column above 768 is `align-items: flex-start`**, so the photo fills the ~294px column there.
+
+**One shared component gained an additive, defaulted prop, re-verified a no-op on its consumers.**
+`Home/PeopleVoices` took `subVariant`: this page's testimonials lead is `.sub-heading-3`, which lacks
+the ≤767 `padding-top: 20` the default `.sub-heading` (`SUB`) carries, so it measured +20 at 390.
+**That was NOT font** — confirmed by an Arial-forcing test that left the +20 in place, which sent the
+fix to the real cause (the sub class) rather than the Poppins deviation. `data.subVariant === 'sub3'`
+selects the `.sub-heading-3` string; every other consumer (ISDI homepage, parents-corner,
+summer-school) passes nothing and keeps `SUB` — re-verified rendering clean with their own card /
+video counts (4 / 6 / 4) and 0 errors.
+
+**Assets.** 84 WebP conversions collapsed onto paths earlier ISDI pages already hold — only **28 new
+image files (0.7MB)** and **3.4MB of video** are this page's own. The heart map tabs, the Beliefs
+watermark vectors, the testimonial videos and most student-living imagery are Parents Corner's files,
+reused.
+
+**Deviations (three):** **(1)** faq −24 at every width — the reference has a stray `<<?php` typo
+(an extra `<`) that renders a literal `<` text node (~24px line) before the search panel on
+production; a junk-character upstream bug, NOT reproduced. **(2)** testimonials +24 at 700 — the
+QuoteCard 568-767 container-width fix `PeopleVoices` carries site-wide. **(3)** community +2-4 at
+768-1440 — WebP residue on the photographs.
+
+**Verified.** Block heights at 12 widths (above); 14/14 interactions; `validate` clean at 12 widths;
+per-block screenshots of the four new sections confirm correct rendering (survive marquee, community
+masonry, 7-column week grid with the DND door-hanger cutout, blue banner with pink CTA). `npx eslint
+.` exits 0; a clean `npx next build` from a cleared `.next` succeeds and the route builds `○ Static`
+(the build's route table grows from 72 to 73). `regress.py` sweeps all 73 built routes at two widths
+with only the pre-existing entries (the ATLAS testimonial-video `requestfailed`s, the `networkidle`
+timeouts on heavy-media pages that load clean under a gentler wait, the Summer School NoPaperForms
+403, and the already-OPEN uncommitted `industry-and-mentorship` image-5 defect) — **nothing on this
+page or its shared-component consumers.**
+
+## ISDI partner-university landing pages — `reference/schools/isdi/`
+
+Seven pages the ISDI header navigation does NOT link, built on the user's scope decision (every
+menu-linked ISDI page was COMPLETE): `atlas-isdi-advantage/global-pathway/index.php` (the hub) and
+six Tailwind-Play-CDN-authored university LPs — `nyfa`, `scad`, `parsons-lp`, `leeds-arts-university`,
+`ual-lp`, `victoria-university-of-wellington`. **None is linked by any `href` anywhere in the ISDI
+reference** (header, footer or page body — verified by a definitive grep; the only in-reference
+references are logo image filenames like `nyfa.png`/`scad.png`). **The six university LPs are bespoke
+Tailwind-CDN pages** (the-edit-style: `cdn.tailwindcss.com`, hand-written `max-w-[1366px]` markup) —
+a distinct from-scratch sub-effort. **global-pathway is a standard ISDI Webflow page** sharing
+internationalisation's stylesheet, so it was built first.
+
+### ISDI Global Pathway — `app/schools/isdi/atlas-isdi-advantage/global-pathway/page.js`, `lib/schools/isdi/globalPathwayContent.js`
+
+`reference/schools/isdi/atlas-isdi-advantage/global-pathway/index.php` (`$css = "…68e35e01…"` — the
+SAME sheet as /atlas-isdi-advantage/internationalisation; `$body = "body isdi-page"`). **It is
+internationalisation's page remixed**: the same fifteen blocks in the same order over the same
+component set (`Hero`, `StatsBand`, `AnchorMenu`, `Parsons`, `Pathway`, `Partnerships`, `Events`,
+`Summer`, `Immersion`, `Masters`, `GedFair`, `Ged`, `LogoBand`, `MoreQuestions`, `FAQ`), so **no new
+component was written** — the page imports the International components and its content module
+re-exports internationalisation's data for the matching blocks.
+
+**14 of the 15 blocks match production's height to the pixel at all twelve widths** (1920 / 1440 /
+1280 / 1100 / 992 / 900 / 768 / 700 / 568 / 479 / 390 / 360), and **all 15 blocks' text is identical
+to production**. The only deviations are the two every ISDI page carries: the shared FAQ's ±20
+section-padding bucket, and events +24 at 700 (the QuoteCard 568-767 container-width fix). Served at
+the trailing-slash url (301 from slashless). Measured against production, because the local mirror
+renders in quirks mode.
+
+**Only six blocks differ from internationalisation and are page-specific** (the rest re-export
+`internationalisationContent` verbatim — menu, parsons, partnerships, immersion, ged, gedFair, logos,
+search, and the Masters strip, Events desc/video/columns, Summer heading/sub/stats):
+- hero — its own ("ISDI Global Design Pathway / From Mumbai to the World's Top Design Hubs."). Its
+  `<img src>` (`hero-img`) and `srcSet` (its own `hero-image-isme-internationalization-*` copies) are
+  genuinely different files, transcribed as authored.
+- stats — internationalisation's backgrounds/images (rgb(0,56,177)/rgb(10,70,202), pro-bg-1/vector-0)
+  with this page's three figures (Global Master Progressors 140+, Across Countries 10+, Total Master
+  Progressors 400+).
+- pathway — internationalisation's heading/sub, this page's own `background.webp`.
+- events — internationalisation's desc/video/columns/icon, this page's heading ("International
+  Expertise. ISDI Experience.") and three testimonials: the first two ARE internationalisation's
+  faculty videos (Simone Varotto / Dr. Sabah Boustila, deduped to its files), the third (Amy Williams)
+  is a photo card, not a video.
+- summer — internationalisation's heading/sub/stats, this page's seven gallery images.
+- masters — internationalisation's heading/sub/strip/icon, this page's four progressor cards (Hukhta
+  Patel carries the SCAD logo; the other three carry none — `logoKind: "bare"`).
+
+**The FAQ was found by the 12-width production measurement, not the local struct.** `faq.php`
+(line 851) is the generic DB-backed FAQ include; it **fatals on the missing DB locally** (so the local
+mirror shows only 14 blocks) but renders on production. It keys on $domain/$fullUrl and, for a
+/schools/isdi/ URL, falls through to **FAQ master 1, the 24-question ISDI set** — verified against
+production (24 items, "Questions? We can read your mind") and identical to the set
+`lib/designInnovationContent` holds and /about-us re-exports, so it is re-used with the ISDI arrow,
+exactly as `about/faq.js` does. **When a block is missing locally, measure production before concluding
+the page omits it** — a DB-backed include renders nothing in the mirror but is live upstream.
+
+**Assets.** 157 URLs, **107 SHA-1-deduped** onto existing files (internationalisation's partner logos,
+faculty videos, immersion/ged photos) and **50 new** (all PNG, 13.3MB → 3.6MB as WebP q92) under
+`public/assets/images/schools/isdi/global-pathway/`. The basename dedup matched only 1 because the CDN
+URLs carry Webflow object-id prefixes while internationalisation renamed to clean names — content
+(SHA-1) dedup is the only reliable one here.
+
+**Verified.** Block heights (above); text identical (all 15 blocks, incl. the 606-token FAQ);
+interactions pass (2 tabstrips, partnership tabs switch to [29,14,8,4,7] logos, immersion 5 tabs, FAQ
+24-item single-open, 2 testimonial videos / 3 YouTube iframes); per-block screenshots of the six
+overridden blocks render correctly. `validate` clean at all twelve widths (0 overflow / console / page
+errors / broken / off-origin; the 6-7 failed requests are the three YouTube embeds' own telemetry
+beacons). `npx eslint .` exits 0; a clean `npx next build` from a cleared `.next` succeeds and the route
+builds `○ Static` (route table grows from 73 to 74). `regress.py` sweeps all 74 built routes at two
+widths with only the pre-existing entries (the ATLAS testimonial-video `requestfailed`s, the
+`networkidle` timeouts on heavy-media pages, the Summer School NoPaperForms 403, and the already-OPEN
+uncommitted `industry-and-mentorship` image-5 defect) — **nothing on this page, on internationalisation,
+or on /about-us** (the pages its content re-exports from; a one-way import, so they are untouched by
+construction).
+
+**Deviations (two, both shared with the set):** the FAQ's ±20 section-padding bucket, and events +24 at
+700 (QuoteCard container-width). **Still open:** the six Tailwind-CDN university LPs (`nyfa`, `scad`,
+`parsons-lp`, `leeds-arts-university`, `ual-lp`, `victoria-university-of-wellington`) remain NOT STARTED.
+
+### ISDI NYFA (partner-university LP) — `app/schools/isdi/nyfa/page.js`, `components/Schools/ISDI/PartnerLP/LpCarousel.js`, `lib/schools/isdi/nyfaContent.js`
+
+`reference/schools/isdi/nyfa/index.php` (`$css = "…68e75059…"`, the shared sheet for all six university
+LPs; `$body = "body isdi-page"`) — the first of the **six Tailwind-Play-CDN university landing pages**
+(`nyfa`, `scad`, `parsons-lp`, `leeds-arts-university`, `ual-lp`, `victoria-university-of-wellington`;
+`global-pathway` is the seventh LP but is a standard Webflow page). Unlike every other ISDI page, these
+load `cdn.tailwindcss.com` + `swiper@11` and are authored in hand-written Tailwind utility markup (the
+same family as `events/the-edit`). They include the ISDI header/footer (mounted by the layout). Served at
+the trailing-slash url (301 from slashless). **Measured against production** (the local mirror is quirks
+mode).
+
+Twelve sections: hero (desktop/mobile split), a four-panel strip, intro, "How This Pathway Works" (three
+sticky `.stack-card`s), eligibility checklist, "Skills Developed" (11-course icon grid), "Who Can Apply",
+"Why Choose This Pathway?" (desktop grid / mobile carousel), "Who Is This Program For" (a 1/2/4-per-view
+carousel with arrows), "About NYFA", the CTA, and the disclaimer. **Block heights match production within
+≤8px at all 12 widths** (who-can-apply +6; pathway-works ±36 at 992/900 only), and **text is identical in
+all 12 sections.** `validate` clean at all 12 widths (0 overflow / console / page errors / failed /
+broken / **0 off-origin** — the page has no video or embed). Carousels work (arrows advance, bullet
+counts correct). `LpCarousel` reproduces Swiper's index carousel (responsive perView at the reference's
+own 640/1024, loop, bullets, arrows).
+
+**THE BIG FIND — production's LP renders with a Bootstrap-vs-Tailwind CSS collision.** The ISDI header
+pulls **Bootstrap** in (for the FAQ accordion). Bootstrap defines the same utility names as Tailwind
+(`.p-*`, `.m-*`, `.gap-*` for 0-5) with a DIFFERENT scale (bs 3=1rem, 4=1.5rem, 5=3rem vs Tailwind's
+0.75/1/1.25rem) and, loading after, **overrides the page author's intended Tailwind spacing at ALL widths**
+— a base `.py-4` (24px) beats even a responsive `.md:py-8`. So production's LP spacing is larger than the
+authored Tailwind. (Bootstrap uses `ps/pe/ms/me` for left/right and has no `gap-x/gap-y`, so `pl/pr/ml/mr`
+and `gap-x/-y` do NOT collide; `.5` and `6+` values don't either.) **On the user's "match production
+exactly" decision**, this is reproduced with a scoped `.lp-bs` block in `app/globals.css` (0,2,0
+specificity so it beats Tailwind's base AND responsive utilities, exactly as Bootstrap does), applied to
+the LP `<main>`. The JSX keeps the clean authored Tailwind classes; the block is reusable for all six LP
+pages and is scoped so it touches nothing else (regress across all 75 routes is clean). **To diagnose a
+mystery padding diff on a Play-CDN page, check which same-origin stylesheet defines the colliding utility
+class** — here `document.styleSheets` showed two `.py-4` rules, one `1.5rem` (Bootstrap) winning over
+`1rem` (Tailwind).
+
+**Two more root causes, both config/cascade subtleties:**
+- **Tailwind emits `@media` rules in config order, not sorted by min-width.** The LP template's `sm`/`lg`
+  are the STOCK Tailwind defaults (640/1024), which differ from this project's 480/992, so two screens
+  `n640`/`n1024` were added to `tailwind.config.js` — and they MUST be listed in ascending min-width order
+  (n640 before md, n1024 between lg and xl), or a later-listed smaller screen wins the cascade and `md:`
+  loses to `n640:` (the skills grid stayed 2-col at 1440, every heading stayed 28px).
+- **A named text-size's line-height leaks through its responsive variant.** The reference heading
+  `text-2xl sm:text-3xl md:text-[40px] leading-tight` renders line-height **36px** on production, because
+  Play CDN's `text-3xl` carries `line-height: 2.25rem` and that `@media(640)` rule beats the base
+  `leading-tight`. Reproduced by converting the sizes to arbitrary px (so the project's 1.5 line-height
+  pin doesn't apply) and adding `n640:leading-[36px]`.
+
+**Other notes:** the stack-cards declare `font-['Manrope']` but production doesn't load Manrope, so they
+fall back to the same system sans the rest of the LP uses (reproduced by inheriting the wrapper's
+system-font stack — the LP's `font-sans` is Play CDN's system-ui, NOT the project's Manrope); their
+`md:h-[500px]` behaves as a MINIMUM on production (content grows past it), so `md:min-h-[500px]`. The
+`#logoTrack` marquee script is a no-op on nyfa (shared-template script; no such element). 22 assets, 20
+new WebP (2.3MB) under `public/assets/images/schools/isdi/nyfa/`, 2 reused (chevron watermark →
+`beliefs/vector-d.png`; the strip's `eligible-bg-2` → `mission/mission-bg.png`, byte-identical). `isdi.blue`
+(#1e3a8a) added to the config's `isdi` color. eslint 0, clean build `○ Static` (76 routes), regress across
+all 75 built routes clean — the config, `isdi.blue`, the two new screens and the scoped `.lp-bs` block
+break no other page.
+
+**Deviations (small, ≤8px):** who-can-apply +6; the two mobile carousels (why-choose/who-for) −8 in the
+pagination area (`LpCarousel` vs Swiper, the card/image/heading themselves match exactly); pathway-works
+±36 at 992/900 (stack-card content-height font metrics near the md breakpoint). **Still open:** the other
+five Tailwind-CDN university LPs remain NOT STARTED.
+
+### ISDI SCAD (partner-university LP) — `app/schools/isdi/scad/page.js`, `lib/schools/isdi/scadContent.js`
+
+`reference/schools/isdi/scad.php` (shared LP sheet `…68e75059…`; `$body = "body isdi-page"`) — the second
+of the six Tailwind-CDN university LPs, and **the largest** (1248 lines, 14 sections). Served at the
+SLASHLESS url (a flat `.php`; the trailing slash 500s — so point the measurement harness at the slashless
+URL, not nyfa's trailing-slash one). It **reuses the nyfa LP template verbatim in structure** (hero with
+an inline SCAD logo in the `<h1>`, four-panel strip, intro, sticky stack-cards, why-choose grid/mobile-
+carousel, who-is-this-for grid/mobile-carousel, about, CTA, disclaimer) and adds **five bespoke sections**:
+SCAD Pro (a 2-col grid + Google/BMW/Chanel brand logos), "Experience the SCAD Creative Ecosystem" (two
+bg-image bullet panels), "Learn Within a Globally Influential Creative Network" (a four-card influencer
+grid + a 17-logo marquee), pricing (bg-isdi-blue cost cards + included/not-included) and "Additional U.S.
+Visa Advantage" (a bg-isdi-pink card). Built **standalone** (no refactor of the approved nyfa page), so the
+shared pieces are copied JSX with scad's content.
+
+**NO new component and NO shared-file change.** It reuses `components/Schools/ISDI/PartnerLP/LpCarousel`
+(the two mobile carousels are bullets-only, no arrows — `bullets="always"`, `perView: 1`), the `.lp-bs`
+Bootstrap-collision block, the `n640`/`n1024` screens and the `awards-marquee` keyframe (for the
+`#logoTrack` marquee — logos duplicated ×2 and translated 0→-50%, which nyfa's no-op marquee script
+referenced but nyfa had no such element). The nyfa heading/line-height/font patterns carried over directly
+(arbitrary sizes + Play-CDN line-heights, `n640:leading-[36px]`, the system-font stack-cards with
+`md:min-h-[500px]`).
+
+**Block heights match production within ≤30px at all 12 widths**, and **text is identical in all 14
+sections** — every heading, grid, the marquee and every list matched on the first measurement. The small
+residuals are scattered spacing/font metrics in the bespoke sections: intro −20 (the reference authors a
+nested `<p><p>…</p></p>`; the browser renders an empty outer `<p>` that in the port collapses its margins,
+so the +20px gap production shows cannot be cheaply reproduced — an empty React `<p>` has collapsing
+margins), pricing/visa/ecosystem +6-30 (port slightly taller), pathway −8 at mobile (the carousel
+pagination, as on nyfa). validate clean at all 12 widths (0 overflow / console / page errors / failed /
+broken / **0 off-origin** — no video/embed). Both mobile carousels advance and the marquee animates.
+
+**A content-accuracy save worth repeating: the text diff caught a fabricated line.** The 4th influencer
+card (Kayli Carter) was cut off in the reference read, and its role/desc had been INVENTED; the per-section
+text diff against production flagged it (`actress/alumna/godless/maisel` vs production's `actor/film/
+performer`), and it was corrected to the real copy. **Never invent copy for a card you didn't read — the
+text diff is the backstop, so run it.** Two image collisions were also fixed: the intro image
+(isme internationalisation `section-2/1.png`) and the CTA bg (isme `ready-to-begin/1.png`) both cleaned to
+`scad/1.webp` and overwrote each other (the documented "two sources, one filename" trap) — re-downloaded as
+`intro-image.webp` / `cta-bg.webp`; and the SCAD Pro Unsplash placeholder (the one remote URL) was localised
+to `scad-pro-studio.webp`. 51 assets, mostly new WebP (0.38MB — most watermarks deduped to existing
+`comp-vector`/`faq-vector`/`vector`/`vector-d` files).
+
+eslint 0, clean build `○ Static`. **Site-wide regression COMPLETE across all 76 routes at 1440/390** — the
+first attempt was killed by the OS memory reaper mid-sweep (it prints findings only at the end, so the
+~70 routes it reached were NOT conclusively verified), so it was re-run in three ~25-route batches with
+**per-route output** against the already-running `:3000` server (reused, no restart — memory was ~1.9 GB
+free). scad CLEAN; 0 new findings; only the 9 pre-existing/documented entries (the ATLAS testimonial-video
+`requestfailed`s, two `networkidle` timeouts on heavy-media pages, the Summer School NoPaperForms 403, and
+the OPEN `industry-and-mentorship` image-5 defect). All LP shared-config/style consumers clean (nyfa,
+global-pathway, internationalisation, the-isdi-advantage, outstation, parents-corner). **When a regression
+is reaped, don't trust a dot count as coverage** — a harness that batches its findings to the end proves
+nothing on a partial run; re-run with per-route output in small batches so each route's result is
+conclusive and the sweep survives memory pressure. **Deviations:** the ≤30px spacing/font-metric residuals
+above. **Still open:** the other three Tailwind-CDN university LPs (`leeds-arts-university`,
+`ual-lp`, `victoria-university-of-wellington`) remain NOT STARTED.
+
+### ISDI Parsons LP (partner-university landing page) — `app/schools/isdi/parsons-lp/page.js`, `lib/schools/isdi/parsonsLpContent.js`
+
+`reference/schools/isdi/parsons-lp/index.php` (shared LP sheet `…68e75059…`; `$body = "body isdi-page"`)
+— the **third** of the six Tailwind-CDN university LPs, and the first served at the **TRAILING-SLASH**
+url (a directory with index.php; the slashless path 301s to it — unlike nyfa/scad, which are flat `.php`
+and 500 on the trailing slash). Eleven sections: hero (desktop/mobile split, NO logo), the four-panel
+strip, intro, the four sticky stack-cards, "Academic Pathways", "Who Can Apply", "Why Choose This
+Pathway?", "Who Is This Pathway For?", "About Parsons", CTA, a styled disclaimer card. **No logo marquee,
+SCAD-Pro, ecosystem, influencer, pricing or visa sections.**
+
+**Almost entirely reuse — NO new component and NO shared-file change.** It reuses `LpCarousel`, the `.lp-bs`
+Bootstrap-collision block, the `n640`/`n1024` screens and the `isdi.blue`/`isdi.pink` colours, all already
+in place from nyfa/scad. Only **two sections are its own shape**: "Academic Pathways" (a numbered
+discipline grid, `n640`/`n1024` columns, group-hover badge) and "Who Can Apply" (a `bg-isdi-blue` banner
+over a full-width `n1024:h-screen` image). "Who Is This Pathway For?" is a **single** `LpCarousel`
+(`perView {base:1, sm:2, lg:4}`, arrows + mobile bullets) — the reference's own `.pathway-for-swiper` with
+`breakpoints:{640:2,1024:4}` — not a desktop-grid + mobile-carousel pair like scad's.
+
+**Four font/layout causes investigated and fixed to match production (not assumed):**
+- **Heading line-height is 36px at ≥640, not `leading-tight`'s 50px.** The reference authors
+  `text-2xl sm:text-3xl md:text-[40px] … leading-tight`, but Play CDN's `sm:text-3xl` carries a bundled
+  `line-height:2.25rem` (36px) that survives the arbitrary `md:text-[40px]` font-size override and wins
+  over `leading-tight` from 640 up. The nyfa/scad `H2` formula (`leading-tight n640:leading-[36px]`)
+  reproduces it; a plain `leading-tight` was +14px per one-line heading. **Use the shared H2 formula —
+  the reference's own `leading-tight` is a red herring under Play CDN's cascade.**
+- **`text-base` body paragraphs render 24px at md, not `leading-relaxed`'s 26px.** Same cascade: the
+  academic-intro and who-can-apply paragraphs are `md:text-base … leading-relaxed`; prod uses text-base's
+  bundled 24px at md (and leading-relaxed's 22.75px at base, which arbitrary sizes already give). Added
+  `md:leading-[24px]`.
+- **The stack cards render CONTENT-HEIGHT on production, not the `md:h-[500px]` the markup implies.** Prod
+  cards are 560px at 1440 and 747/693/972 at 768 — the `md:h-[500px]` never takes effect there (and the
+  fixed height even clipped content: scroll 584 vs 500). Removed the height; the 45% text column drives it,
+  matching prod to the pixel.
+- **The stack's `font-['Manrope']` falls back to generic `sans-serif` (Arial), NOT system-ui and NOT the
+  project's loaded Manrope.** Verified `document.fonts` on production: **Manrope is not loaded** (only
+  Inter/webflow-icons/swiper-icons, all unloaded), so the reference's `Manrope, sans-serif` resolves to the
+  OS default sans-serif. The LP body is Play CDN `font-sans` (system-ui, which the `<main>` reproduces via
+  `SANS`), but the stack must be generic `sans-serif` — using system-ui wrapped stack cards 0 and 3 one
+  line short at 1100 (Segoe UI vs Arial metrics). Forced `fontFamily:'sans-serif'` on the stack wrapper
+  (the project loads Manrope globally, so naming "Manrope" would wrongly use the real face). This is the
+  precise form of the font note scad records loosely as "system sans".
+
+**Verified** against `https://atlasuniversity.edu.in/schools/isdi/parsons-lp/` at
+1920/1440/1280/1100/992/900/768/700/568/479/390/360: **all 11 block heights match to the pixel at every
+width except** why/pathway **−8 at mobile** (the documented `LpCarousel`-vs-Swiper pagination delta — the
+heading/card/padding match exactly) and **disclaimer +22 at 700 only** (a single-width wrap edge: the body
+measures 3px narrower, 599 vs 602, tipping one line at 700 alone — 768 matches 8/8 lines exactly). **Text
+identical to production in all 11 sections.** `validate` clean at all 12 widths (0 overflow / console /
+page errors / failed / broken / **0 off-origin** — the page embeds no video, map or widget). Interactions
+pass (why carousel 4 bullets + advance, who-for carousel 6 bullets + desktop arrow advance, 5 academic
+badges 01–05, 4 strip panels, 4 stack cards; CTA apply `/applicationform` + visit the absolute campusvisit
+URL, About `newschool.edu/parsons`). **Per-section screenshots** with the production **UNIAI chat widget**
+and fixed header hidden on both sides: ≤3 mean at 1440 and ≤2.5 at 390 for every static section — the raw
+numbers (hero 190, cta 162 at mobile) were entirely that chat-widget overlay (**"a screenshot captures
+whatever is painted over it"**; pathway/why/disclaimer keep a small residue from the carousel offset and
+the justified-text micro-reflow). `npx eslint .` exits 0 and a clean `npx next build` succeeds (79 static
+routes); the route builds `○ Static`. `regress.py` sweeps **all 77 routes** at two widths with parsons-lp
+CLEAN and **0 new findings** — only the pre-existing/documented entries (the ATLAS testimonial-video
+requestfails, the campus/`/schools/isdi` networkidle timeouts that load clean under a gentler wait, the
+Summer School NoPaperForms 403, and the OPEN `industry-and-mentorship` image-5 defect). All LP shared-infra
+consumers (nyfa, scad, global-pathway, the-isdi-advantage, internationalisation, outstation,
+parents-corner) CLEAN.
+
+**Assets.** 27 references, all mapped: **17 new** WebP under `public/assets/images/schools/isdi/parsons-lp/`
+(the two hero banners, about-parsons, about/1, who-can-apply, the six who-for cards and the three
+scroll-con 2/3/4 pairs) and **10 reused** by SHA-1 — the strip's eligible-bg-1/-3, the about icon and the
+CTA background are nyfa's files, the strip's eligible-bg-2 is the homepage `mission-bg.png`, and
+**stack-card 1's photograph is byte-identical to nyfa's intro image** (`nyfa/500.webp`/`759.webp`). The
+chevron watermark on the Why-Choose cards reuses the local `about/beliefs/vector-d.png`. No download, no
+soft-404.
+
+**Deviations (three, all small and explained):** the `LpCarousel`-vs-Swiper pagination −8 on the two
+mobile carousels; the disclaimer's single-width (+22 @700) wrap edge; and the stack rendering in generic
+`sans-serif` to reproduce production's unloaded-Manrope fallback. **Still open:** the remaining two
+Tailwind-CDN LPs (`ual-lp`, `victoria-university-of-wellington`) stay NOT STARTED.
+
+### ISDI Leeds Arts University LP (partner-university landing page) — `app/schools/isdi/leeds-arts-university/page.js`, `lib/schools/isdi/leedsArtsContent.js`
+
+`reference/schools/isdi/leeds-arts-university/index.php` (shared LP sheet `…68e75059…`; `$body = "body
+isdi-page"`) — the **fourth** of the six Tailwind-CDN university LPs, served at the **TRAILING-SLASH** url
+(a directory; slashless 301s to it, like parsons). **Twelve** sections: hero (no logo), four-panel strip,
+intro, the four sticky stack-cards, **"Academic Experience"**, **"Eligibility Requirements"**, "Who Can
+Apply", "Why Choose This Pathway?", "Who Is This Program For", "About Leeds", CTA, disclaimer card.
+
+**Built on the parsons/nyfa/scad template with NO new component and NO shared-file change** — reuses
+`LpCarousel`, `.lp-bs`, `n640`/`n1024`, `isdi.blue`/`.pink`, the chevron watermark and (crucially) **every
+font/layout fix parsons established**: the H2 formula (`leading-tight n640:leading-[36px]` — prod renders
+36px at ≥640), `md:leading-[24px]` on the `text-base` body paragraphs, the stack cards at **content-height**
+(prod's `md:h-[500px]` never takes effect) rendered in generic **`sans-serif`** (Manrope not loaded on
+prod). Applying those up front, **all 12 sections matched production to the pixel on the first measurement
+pass** at every width except the documented mobile carousel delta — this page needed no new investigation,
+only the two new section shapes.
+
+**Two sections are its own.** **"Academic Experience"** is on a `bg-isdi-blue` ground (white heading with a
+`#D20158` "Experience" accent), a `grid-cols-1 n640:grid-cols-2` of **anchor cards** — each a numbered
+`#D20158` badge beside an area + its Leeds BA (Hons) degree, linking to `leeds-art.ac.uk/courses/…` — closed
+by an italic availability disclaimer (`md:text-sm`, matched with `md:leading-[20px]`). **"Eligibility
+Requirements"** is a two-panel card: a navy `md:w-[38%]` heading panel beside a white `md:w-[62%]` checklist
+of seven items, each a pink-circle tick + text with a hairline divider between. The stack's card 4 authors
+an **empty intro** `<p>` (rendered as the reference does), and its photographs differ from parsons' — only
+**card 1 reuses** parsons' scroll-con/1 (= nyfa's intro image).
+
+**Verified** against `https://atlasuniversity.edu.in/schools/isdi/leeds-arts-university/` at
+1920/1440/1280/1100/992/900/768/700/568/479/390/360: **all 12 block heights match to the pixel at every
+width except** why/pathway **−8 at mobile** (the documented `LpCarousel`-vs-Swiper pagination delta — both
+new sections and all ten others match exactly, at every width). **Text identical in all 12 sections.**
+`validate` clean at all 12 widths (0 overflow / console / page errors / failed / broken / **0 off-origin** —
+no video, map or widget). Interactions pass: why carousel 4 bullets + advance; the who-for carousel 4
+bullets at mobile, arrows advance at 768 (perView 2, 3 pages) and **correctly do not advance at 1440** (4
+cards / perView 4 = one page, as production fills the row); 4 academic anchor cards 01–04 all linking to
+`leeds-art.ac.uk`; 7 eligibility ticks; CTA apply `/applicationform` + visit the absolute campusvisit URL;
+About `leeds-art.ac.uk`. **Per-section screenshots** with production's UNIAI chat widget + fixed header
+hidden on both sides: ≤3.3 mean @1440 and ≤3.5 @390 for every static section (why @390 is 23 — the Next dev
+"1 Issue" badge overlay + the −8 carousel offset; the card content is pixel-identical, verified by viewing
+the pair; disclaimer keeps a small justified-text micro-reflow residue). `npx eslint .` exits 0 and a clean
+`npx next build` succeeds (80 static routes); the route builds `○ Static`. `regress.py` sweeps **all 78
+routes** at two widths with leeds CLEAN and **0 new findings** — only the pre-existing/documented entries
+(testimonial-video requestfails, campus/`/schools/isdi` networkidle timeouts clean under a gentler wait,
+Summer School 403, the OPEN `industry-and-mentorship` image-5). All LP shared-infra consumers (nyfa, scad,
+parsons-lp, global-pathway, the-isdi-advantage, internationalisation, outstation, parents-corner) CLEAN.
+
+**Assets.** 20 references, all mapped: **15 new** WebP under
+`public/assets/images/schools/isdi/leeds-arts-university/` (the two hero banners, section/1-3, the three
+scroll-con 2/3/4 pairs and the four slide-con cards) and **5 reused** by SHA-1 — the strip's eligible-bg-1/-3,
+the about icon and the CTA background are nyfa's, the strip's eligible-bg-2 is the homepage `mission-bg.png`,
+and stack-card 1 is the parsons scroll-con/1 (= nyfa's intro image). The chevron watermark reuses the local
+`about/beliefs/vector-d.png`. No download, no soft-404.
+
+**Deviations (two):** the `LpCarousel`-vs-Swiper pagination −8 on the two mobile carousels; and the
+disclaimer's justified-text micro-reflow at mobile (same height as production). **Still open:** the final
+two Tailwind-CDN LPs (`ual-lp`, `victoria-university-of-wellington`) stay NOT STARTED.
