@@ -2186,6 +2186,33 @@ buckets** — the benign Bootstrap residue, the two deliberate `.accordion-title
 divergences. (The 2px-vs-1px divider that used to sit here was resolved on
 2026-10-24 — see /programs/ug/ug-design-and-innovation.)
 
+## /search — ATLAS AI Search — `components/Search/`, `lib/search/`, `app/api/search/route.js`
+
+Port of `reference/search.php` + `reference/chat/*.php` (2026-11-05). Reached from every "More
+questions?" panel (`/search?query=…`); production's header search input is commented out upstream, so
+the header gets none. Measured on production: its `.container` is **Bootstrap's** (search.php re-links
+bootstrap.min.css after the Webflow sheet), hence `BS_CONTAINER`. **Arbitrary media variants are
+emitted out of min-width order** — `[@media(min-width:576px)]:max-w-[540px]` beat the 1400px rule and
+clamped the page to 540; write non-overlapping ranges.
+
+- **No MySQL, no lead form.** The legacy name/mobile/email/course modal and `save_user.php` are gone.
+  Lead capture is the ATLAS CRM popup (`crmWidget.js`): `embed.js` loaded once per document with
+  `data-atlas-trigger="[data-atlas-enquire]"`, so it injects no launcher and our "Enquire Now" buttons
+  open it. It opens on the first visit, at most once per 24h after a dismissal.
+- **It is a deliberately bypassable SOFT gate** (approved 2026-11-05). The CRM's only success signal is
+  an unauthenticated `postMessage({atlasWidget:'conversion'})` with no lead identity, so nothing can
+  verify a submission server-side, and nothing here claims one. Continue / × / Escape / backdrop /
+  searching all open search. The CRM form redirects `window.top` to atlasuniversity.edu.in 3s after a
+  successful submit (its default, no redirect configured) — CRM-side behaviour.
+- **Server:** `POST /api/search` → OpenAI Chat Completions (`OPENAI_API_KEY`, `OPENAI_MODEL`=gpt-4o,
+  1024 tokens, 0.7, 30s), prompt in `lib/search/prompt.js` (legacy prompt, empty-link entries dropped,
+  stale slugs replaced by routes verified against this app). Same-origin check, 4KB body, 3-256 chars,
+  in-memory per-IP limit 8/min + 40/h (per instance; trusts X-Forwarded-For from the proxy). A
+  placeholder key counts as unset → 503 `not_configured`.
+- **Browser:** history (10, case-insensitive repeat answered without an API call) and the gate
+  timestamp in localStorage via `useSyncExternalStore`. Answers render through `AiAnswer` — React
+  elements only, links restricted to atlasuniversity.edu.in (+ mailto/tel).
+
 ## Route-transition loader — `components/ui/PageLoader.js`
 
 The ATLAS logo animation, shown while an in-app route change is in flight. One
