@@ -113,6 +113,27 @@ re-encode).
 
 4-7 all live in `components/Programs/`.
 
+**Sections 4-7 now come from `assets/include/home-card.php` (synced 2026-11-05).**
+index.php:248 includes it and comments out its own four carousels, so the line
+numbers above are historical. The include changed content only — same card
+markup and CSS — so `lib/homeContent.js` carries the new data and nothing was
+restyled: 9 / 14 / 6 / 10 cards (the design block now includes the two ISDI
+B.Tech programmes), images from `newindex/programsv6/` copied byte-for-byte to
+`public/assets/images/programs/home/` (same sub-path), and the industry block's
+desktop-only AI-Driven banner + mobile-only card replaced by two banners shown
+at every width (BBA LL.B. → `/schools/law/program-page-law`, Hackathon 2026 →
+production URL), each an art-directed `<picture>` (6:1 above 768, square at and
+below). Several card `alt`s and both banner `alt`s upstream describe a different
+programme; transcribed as authored, while `name` (the aria-label) follows the
+card's image and link. Three industry cards link `#`. The ISDI "AI Engineering"
+card links the pre-rename B.Tech URL upstream and points at the redirect target
+here.
+
+**Syncing assets from a partial checkout: always scope it.** With only some of
+`public/assets/` on disk, a bare `npm run assets:sync` drops every absent file
+from the manifest (8,255 entries here). Use
+`npm run assets:sync -- --only=images/programs/home`.
+
 **Note on section 8 — a section can span more than one top-level block.** The
 heading lives in `div.section > section.blueprints` (`index.php:1499-1551`)
 next to an `.outcome-wrap` the stylesheet sets `display: none` on, so its three

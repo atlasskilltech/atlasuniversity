@@ -3,7 +3,8 @@ import ProgramSlider from '@/components/Programs/ProgramSlider';
 /**
  * The shell shared by all four programme carousels on the homepage — port of
  * `section.section > .container > (.head-wrap.mrgbtm32, .swiper.common-swiper)`
- * (reference/index.php:248, 623, 952, 1146; the four blocks are byte-identical
+ * (reference/assets/include/home-card.php:4, 418, 1312, 1601 — included at
+ * index.php:248; the four blocks are byte-identical
  * apart from their copy, accent and cards).
  *
  * ── The responsive cascade, measured off the reference ────────────────────
