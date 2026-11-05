@@ -1,0 +1,1024 @@
+{
+ "path": "bba-hons/bba-hons-digital-branding-advertising",
+ "meta": {
+  "title": "BBA Digital Branding & Advertising in Mumbai – ATLAS ISME",
+  "description": "Want to master digital branding? Learn ads, media, strategy, content and build a creative business career.",
+  "keywords": null
+ },
+ "brochure": {
+  "ids": [
+   "bba-brochure",
+   "campus-visit"
+  ],
+  "scripts": [
+   {
+    "src": "https://crm.atlasskilltech.app/widgets/6a3e788ea1fd0680c6c15cad/embed.js",
+    "height": 650
+   }
+  ]
+ },
+ "order": [
+  "hero",
+  "stats",
+  "program",
+  "why",
+  "execution",
+  "voices",
+  "admissions",
+  "eligibility",
+  "banner",
+  "search",
+  "faq"
+ ],
+ "blocks": {
+  "hero": {
+   "title": "BBA / BBA (Hons.) Digital\nBranding & Advertising",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/course-header-img.webp",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/course-header-img-p-500.webp 500w, /assets/images/schools/isme/bba/course-header-img-p-800.webp 800w, /assets/images/schools/isme/bba/course-header-img-p-1080.webp 1080w, /assets/images/schools/isme/bba/course-header-img.webp 1366w",
+    "sizes": "(max-width: 1366px) 100vw, 1366px"
+   },
+   "buttons": [
+    {
+     "label": "Apply forJuly 2027 Intake",
+     "variant": "mint",
+     "href": "https://atlasuniversity.edu.in/applicationform"
+    },
+    {
+     "label": "Download Brochure",
+     "variant": "outline-white",
+     "brochure": "bba-brochure"
+    }
+   ],
+   "narrow": true,
+   "lead": "For tomorrow’s marketers, creatives, and digital leaders who want to launch campaigns, build brands, and lead in a fast-moving, content-first world."
+  },
+  "program": {
+   "panes": [
+    {
+     "label": "Overview",
+     "kind": "text",
+     "text": [
+      "The BBA (Hons.) in Digital Branding & Advertising at ATLAS ISME is built for the next generation of ",
+      {
+       "strong": "brand storytellers, creative strategists, and digital disruptors."
+      },
+      " Whether you’re dreaming of",
+      {
+       "strong": "building iconic brands, running viral campaigns, or shaping consumer culture"
+      },
+      " — this program gives you the platform to make it real.\n\nYou’ll learn how to blend creativity with",
+      {
+       "strong": "data, strategy with storytelling, and insight with innovation."
+      },
+      " From social media strategy to digital ad campaigns, content creation to brand identity design — every module is taught in the context of the real-world marketing ecosystem.\n\nLed by",
+      {
+       "strong": "industry mentors, advertising veterans, and digital creators, you’ll graduate with the tools, experience, and portfolio to thrive in agencies, brands, platforms — or your own startup."
+      }
+     ],
+     "paneClass": "tab-pane-tab-1"
+    },
+    {
+     "label": "Curriculum Highlights",
+     "kind": "cards",
+     "cards": [
+      {
+       "num": "#1",
+       "title": "Brand Identity & Storytelling"
+      },
+      {
+       "num": "#2",
+       "title": "Digital & Social Media Strategy"
+      },
+      {
+       "num": "#3",
+       "title": "Content Creation & Video Marketing"
+      },
+      {
+       "num": "#4",
+       "title": "Paid Media: Search, Social & Display"
+      },
+      {
+       "num": "#5",
+       "title": "Campaign Design &\nArt Direction"
+      },
+      {
+       "num": "#6",
+       "title": "Consumer Behaviour & Psychology"
+      },
+      {
+       "num": "#7",
+       "title": "Advertising Tech & Martech Tools"
+      },
+      {
+       "num": "#8",
+       "title": "Advertising Tech & Martech Tools"
+      },
+      {
+       "num": "#9",
+       "title": "Creative Strategy & Communications Planning"
+      }
+     ],
+     "paneClass": "tab-pane-tab-2"
+    },
+    {
+     "label": "Learning Outcomes",
+     "kind": "cards",
+     "cards": [
+      {
+       "num": "#1",
+       "title": "Craft compelling brand stories that connect with digital-first audiences"
+      },
+      {
+       "num": "#2",
+       "title": "Design and execute omnichannel ad campaigns with\nreal-world impact"
+      },
+      {
+       "num": "#3",
+       "title": "Master tools for performance marketing, and campaign tracking"
+      },
+      {
+       "num": null,
+       "title": "Blend design thinking with marketing analytics for creative problem-solving"
+      },
+      {
+       "num": "#5",
+       "title": "Build and present a strong portfolio to impress agencies and recruiters"
+      },
+      {
+       "num": "#6",
+       "title": "Operate across platformsfrom Meta to YouTube, Google to TikTok"
+      }
+     ],
+     "paneClass": "tab-pane-tab-3"
+    },
+    {
+     "label": "Career Pathways",
+     "kind": "textCards",
+     "cards": [
+      {
+       "title": "Digital\nMarketer"
+      },
+      {
+       "title": "Brand\nStrategist"
+      },
+      {
+       "title": "Content\nCreator"
+      },
+      {
+       "title": "Media\nPlanner"
+      },
+      {
+       "title": "Social Media\nManager"
+      },
+      {
+       "title": "Influencer Marketing\nCoordinator"
+      },
+      {
+       "title": "SEO & SEM\nSpecialist"
+      }
+     ],
+     "paneClass": null
+    }
+   ],
+   "current": 0,
+   "years": [
+    {
+     "label": "Year 1",
+     "semesters": [
+      {
+       "title": "Semester 1",
+       "text": "This semester builds digital branding foundations through creativity, marketing analytics, and leadership-driven, effective communication skills.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Applied Marketing in the Digital World"
+          }
+         ],
+         "text": "Introduces digital-first marketing strategies using online consumer journeys and real-time data to drive brand growth."
+        },
+        {
+         "title": [
+          {
+           "strong": "Principles of Management"
+          }
+         ],
+         "text": "Builds foundational leadership and organizational skills through planning, decision-making, and people management practices."
+        },
+        {
+         "title": [
+          {
+           "strong": "The Art of Business Communication"
+          }
+         ],
+         "text": "Enhances verbal and written communication for professional influence, clarity, and structured business messaging."
+        },
+        {
+         "title": "Atlas Elective",
+         "text": "Provides interdisciplinary learning opportunities, integrating analytical thinking with diverse management domains."
+        },
+        {
+         "title": "Visual Thinking & Digital Creativity",
+         "text": "Develop creative problem-solving through visuals. Apply digital tools to express ideas and innovation."
+        },
+        {
+         "title": [
+          {
+           "strong": "AI Tools for Branding"
+          }
+         ],
+         "text": "Applies artificial intelligence to automate brand analysis, personalization, content optimization, and audience insights."
+        },
+        {
+         "title": [
+          {
+           "strong": "IKS (Indian Behavioural Psychology)"
+          }
+         ],
+         "text": "Explores behavioral patterns shaped by Indian cultural values to inform brand positioning and customer engagement."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our semester 1 curriculum outpaces every other business school",
+         "text": "ATLAS connects cultural psychology, AI experimentation, and strategic design to help students create impactful and innovative brand experiences.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Applied Marketing in the Digital World",
+           "Hands-on campaigns with digital metrics and platform execution.",
+           "Heavy theory; practical digital exposure may be delayed."
+          ],
+          [
+           "Principles of Management",
+           "Early leadership application through business simulations and teamwork.",
+           "Mostly textbook-based introduction."
+          ],
+          [
+           "The Art of Business Communication",
+           "Industry-aligned communication practice for branding contexts.",
+           "Generic communication skills without brand focus."
+          ],
+          [
+           "Visual Thinking & Digital Creativity",
+           "Design tools and content creation integrated with brand storytelling.",
+           "Treated as a basic computer skill, not linked to decision-making."
+          ],
+          [
+           "AI Tools for Branding",
+           "Practical AI-based targeting, automation, and sentiment analytics.",
+           "AI introduced later or not aligned to branding."
+          ],
+          [
+           "IKS (Indian Behavioural Psychology)",
+           "Contextual customer insights rooted in Indian cultural behavior.",
+           "Rarely offered; psychology taught from Western lens."
+          ],
+          [
+           "ATLAS Elective",
+           "Encourages autonomy in learning with cross-disciplinary value.",
+           "Electives often rigid and less innovative."
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Semester 2",
+       "text": "Students advance core marketing and communication strategy while building analytical and cultural literacy for brand decision-making.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Digital Marketing Fundamentals"
+          }
+         ],
+         "text": "Covers core digital channels, metrics, and integrated online strategies for customer acquisition and brand visibility."
+        },
+        {
+         "title": [
+          {
+           "strong": "Advertising: Evolution & Transformation"
+          }
+         ],
+         "text": "Traces the shift from traditional media to tech-driven, immersive brand storytelling in the digital age."
+        },
+        {
+         "title": [
+          {
+           "strong": "Semiotics in Communication"
+          }
+         ],
+         "text": "Explores symbols, cultural meanings, and visual cues that shape how audiences interpret brand messages."
+        },
+        {
+         "title": [
+          {
+           "strong": "Excel for Decision Making"
+          }
+         ],
+         "text": "Strengthens business logic and data manipulation to support analytical decision-making in marketing tasks."
+        },
+        {
+         "title": [
+          {
+           "strong": "Indian Constitution"
+          }
+         ],
+         "text": "Introduces legal structures and governance concepts influencing ethical business and media practices in India."
+        },
+        {
+         "title": [
+          {
+           "strong": "Objects as History — Compulsory MOOC"
+          }
+         ],
+         "text": "Examines cultural narratives and brand heritage through objects, linking consumer behavior with historical context."
+        },
+        {
+         "title": [
+          {
+           "strong": "ATLAS Elective"
+          }
+         ],
+         "text": "Expands multidisciplinary learning through personalized course selection aligned to student interests."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our semester 2 curriculum outpaces every other business school",
+         "text": "ATLAS integrates legal awareness, symbolic communication, and digital experimentation to strengthen ethical and innovative brand leadership.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Digital Marketing Fundamentals",
+           "Industry tools and live digital execution.",
+           "Mostly theoretical marketing frameworks."
+          ],
+          [
+           "Advertising: Evolution & Transformation",
+           "Focus on emerging tech and brand content trends.",
+           "Traditional advertising heavily emphasized."
+          ],
+          [
+           "Semiotics in Communication",
+           "Branding lens on cultural meaning-making and visuals.",
+           "Often confined to basic communication theory."
+          ],
+          [
+           "Excel for Decision Making",
+           "Applied analytics tied to marketing performance insights.",
+           "Generic spreadsheet skills without marketing context."
+          ],
+          [
+           "Indian Constitution",
+           "Taught with ethical implications for brand accountability.",
+           "General civics learning with limited business application."
+          ],
+          [
+           "Objects as History (MOOC)",
+           "Interdisciplinary exposure to consumption and culture.",
+           "Rare or absent in core curriculum."
+          ],
+          [
+           "ATLAS Elective",
+           "Choice-based learning to broaden skills early on.",
+           "No electives offered in\nearly semesters."
+          ]
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Year 2",
+     "semesters": [
+      {
+       "title": "Semester 3",
+       "text": "Focused on shaping digital-first branding skills combining content creation, research, analytics, and creative storytelling.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Social Media and Content Marketing"
+          }
+         ],
+         "text": "Teaches strategic content creation and audience engagement across social platforms to build strong digital brand presence."
+        },
+        {
+         "title": [
+          {
+           "strong": "Marketing Research"
+          }
+         ],
+         "text": "Covers practical market insight gathering and data interpretation to support evidence-based branding decisions."
+        },
+        {
+         "title": [
+          {
+           "strong": "Creative Foundation using Canva"
+          }
+         ],
+         "text": "Develops brand-focused visual design skills using accessible industry tools for fast and effective content creation."
+        },
+        {
+         "title": [
+          {
+           "strong": "Storytelling Through Data (Power BI & Tableau)"
+          }
+         ],
+         "text": "Builds ability to convert data into compelling brand stories through visualizations that influence decision-making."
+        },
+        {
+         "title": [
+          {
+           "strong": "IKS (Indian Art & Culture)"
+          }
+         ],
+         "text": "Explores India’s cultural roots and behavioral influences to enhance authenticity and emotional depth in brand messaging."
+        },
+        {
+         "title": [
+          {
+           "strong": "History of Communication (MOOC)"
+          }
+         ],
+         "text": "Examines evolution of media and communication to understand how brand narratives adapt with technological shifts."
+        },
+        {
+         "title": [
+          {
+           "strong": "Internship"
+          }
+         ],
+         "text": "Provides real-world exposure with measurable branding outcomes, applying campaign strategy, content, and analytics in industry settings."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our semester 3 curriculum outpaces every other business school",
+         "text": "ATLAS strengthens brand decision-making by merging creative execution, communication history, and real-world campaign experience to build confident digital brand professionals.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Social Media and Content Marketing",
+           "Strategic brand-led content design with platform-specific insights.",
+           "Generic social media posting and campaign basics."
+          ],
+          [
+           "Marketing Research",
+           "Practical, data-driven tools for real brand decisions.",
+           "Theory-heavy without hands-on application."
+          ],
+          [
+           "Creative Foundation using Canva",
+           "Rapid industry-standard design workflows and brand identity building.",
+           "Basic graphic tasks without brand context."
+          ],
+          [
+           "Storytelling Through Data (Power BI & Tableau)",
+           "Visual analytics + narrative communication for branding.",
+           "Data charts taught without brand storytelling."
+          ],
+          [
+           "IKS (Indian Art & Culture)",
+           "Cultural relevance for branding in the Indian market.",
+           "Limited cultural integration with branding."
+          ],
+          [
+           "History of Communication (MOOC)",
+           "Structured evolution of media shaping branding today.",
+           "Broader history with less marketing focus."
+          ],
+          [
+           "Internship",
+           "Real creative project delivery with measurable brand KPIs.",
+           "General work exposure without domain specialization."
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Semester 4",
+       "text": "This semester strengthens digital brand performance by combining data-driven marketing, strategic communication, and collaborative design skills with real industry exposure.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": "Search and Performance Marketing",
+         "text": "Focuses on paid digital channels to optimize conversions and measure ROI through analytics-driven decisions."
+        },
+        {
+         "title": "PR and Corporate Communication",
+         "text": "Develops communication strategies to manage brand reputation and stakeholder trust across media environments."
+        },
+        {
+         "title": "Business Strategy for Industry",
+         "text": "Introduces competitive analysis and industry frameworks to inform scalable strategic decision-making."
+        },
+        {
+         "title": "Creative Collaboration using Figma – I",
+         "text": "Applies collaborative design workflows to produce user-centered brand assets and prototypes."
+        },
+        {
+         "title": [
+          {
+           "strong": "Agentic AI for Creative Businesses"
+          }
+         ],
+         "text": "Explores generative and autonomous AI tools for marketing innovation and efficiency in creative operations."
+        },
+        {
+         "title": "Environmental Studies",
+         "text": "Strengthens awareness of environmental systems and sustainability challenges impacting global business."
+        },
+        {
+         "title": [
+          {
+           "strong": "Internship"
+          }
+         ],
+         "text": "Provides professional exposure through real-world project execution and brand communication practice."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our semester 4 curriculum outpaces every other business school?",
+         "text": "ATLAS encourages students to blend sustainability, emerging technology, and hands-on creative practice to advance responsible and future-focused brand building.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Search and Performance Marketing",
+           "Strong focus on paid optimization, analytics, and real conversion strategy.",
+           "Often limited to general digital marketing basics."
+          ],
+          [
+           "PR and Corporate Communication",
+           "Live press releases, PR campaigns, and simulations.",
+           "Generic corporate communication notes."
+          ],
+          [
+           "Business Strategy for Industry",
+           "Industry-aligned models and current market case studies.",
+           "Broader theoretical strategy with fewer applied industry links."
+          ],
+          [
+           "Creative Collaboration using Figma – I",
+           "Real-time UX collaboration and brand design prototyping.",
+           "Tool exposure without structured collaboration practice."
+          ],
+          [
+           "Agentic AI for Creative Businesses",
+           "Hands-on generative AI and automation for branding outcomes.",
+           "AI included as theory with minimal creative business application."
+          ],
+          [
+           "Environmental Studies",
+           "Sustainability explained through business impact context.",
+           "Usually science-centric with limited brand relevance."
+          ],
+          [
+           "Internship",
+           "Digital-first branding roles with visible client outcomes.",
+           "Generic internships without specialization in branding."
+          ]
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Year 3",
+     "semesters": [
+      {
+       "title": "Semester 5",
+       "text": "This semester deepens digital brand execution through e-commerce, creator-driven influence, media buying logic, and collaborative design skills for real market performance.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "E-Commerce Marketing"
+          }
+         ],
+         "text": "Focuses on online commerce strategies, sales funnels and platform-based consumer behaviour to optimize digital product performance."
+        },
+        {
+         "title": [
+          {
+           "strong": "Influencer Marketing & Creators Economy"
+          }
+         ],
+         "text": "Examines creator-led brand ecosystems, partnership ROI, and audience trust dynamics in modern brand influence."
+        },
+        {
+         "title": [
+          {
+           "strong": "Media Planning and Buying"
+          }
+         ],
+         "text": "Develops strategic media allocation skills in digital and traditional channels with emphasis on budgets, audience fit, and reach analytics."
+        },
+        {
+         "title": [
+          {
+           "strong": "Creative Collaboration using Figma – I"
+          }
+         ],
+         "text": "Builds visual prototyping and interactive branding capabilities through collaborative design workflows on Figma."
+        },
+        {
+         "title": [
+          {
+           "strong": "Internship"
+          }
+         ],
+         "text": "Offers real-world professional exposure to branding and digital marketing environments through supervised industry placement."
+        },
+        {
+         "title": [
+          {
+           "strong": "Major Project"
+          }
+         ],
+         "text": "Applies integrated learning to solve an authentic digital branding challenge through research, creative execution, and presentation."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our semester 5 curriculum outpaces every other business school",
+         "text": "ATLAS empowers students to apply strategic digital thinking, industry-standard tools, and creative execution to deliver measurable branding outcomes in professional environments.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "E-Commerce Marketing",
+           "Practical marketplace strategy with performance tools.",
+           "Often theoretical focus with limited platform exposure."
+          ],
+          [
+           "Influencer Marketing & Creators Economy",
+           "Dedicated course on creator ecosystems.",
+           "Usually merged into Digital Marketing modules."
+          ],
+          [
+           "Media Planning and Buying",
+           "Includes real campaign budgeting and analytics.",
+           "Typically conceptual without hands-on planning tools."
+          ],
+          [
+           "Creative Collaboration using Figma – I",
+           "Strong industry software integration for branding prototypes.",
+           "Design collaboration skills introduced much later or optional."
+          ],
+          [
+           "Internship",
+           "Early and structured brand-industry immersion.",
+           "Late-stage internships or short observational roles."
+          ],
+          [
+           "Major Project",
+           "Capstone aligned with real brand needs and execution.",
+           "More academic reports than applied brand outcomes."
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Semester 6",
+       "text": "This semester advances industry-focused brand leadership through luxury strategy, AI-enabled communication, and ethical governance of digital influence. It develops applied mastery in designing and scaling high-impact digital brand systems.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Strategic Marketing Communication"
+          }
+         ],
+         "text": "Enhances the planning and execution of integrated brand messaging to drive persuasive digital engagement."
+        },
+        {
+         "title": [
+          {
+           "strong": "Luxury Brand Management"
+          }
+         ],
+         "text": "Explores value creation through exclusivity and heritage-focused premium branding strategies."
+        },
+        {
+         "title": [
+          {
+           "strong": "Laws & Ethics in the Age of AI"
+          }
+         ],
+         "text": "Develops ethical judgment and legal awareness for responsible branding in data-driven, automated environments."
+        },
+        {
+         "title": [
+          {
+           "strong": "Collaborative Studio"
+          }
+         ],
+         "text": "Promotes team-based creative problem-solving through real industry briefs and cross-disciplinary brand innovation."
+        },
+        {
+         "title": [
+          {
+           "strong": "AI Driven MarTech & AdTech"
+          }
+         ],
+         "text": "Builds capability in AI-powered campaign optimization, audience intelligence, and automated media technologies."
+        },
+        {
+         "title": [
+          {
+           "strong": "Major Project"
+          }
+         ],
+         "text": "Applies full-cycle brand planning to deliver a professional-grade digital branding solution with measurable outcomes."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our semester 6 curriculum outpaces every other business school",
+         "text": "ATLAS enables students to engage with real clients, apply advanced MarTech innovation, and uphold responsible branding practices that shape future-ready creative careers.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Strategic Marketing Communication",
+           "Includes digital ecosystems and audience behaviour analytics.",
+           "Focuses mainly on traditional IMC frameworks."
+          ],
+          [
+           "Luxury Brand Management",
+           "Centres on experiential luxury and premium digital commerce.",
+           "Limited exposure to luxury sector strategy."
+          ],
+          [
+           "Laws & Ethics in the Age of AI",
+           "Covers AI governance, data rights, and algorithm ethics.",
+           "Typically general business law without tech-ethics depth."
+          ],
+          [
+           "Collaborative Studio",
+           "Real briefs with industry mentors and multi-disciplinary execution.",
+           "Classroom projects with limited real-world interaction."
+          ],
+          [
+           "AI Driven MarTech & AdTech",
+           "Enables automation, predictive analytics, and AI media buying.",
+           "Basic digital marketing tools without advanced AI use."
+          ],
+          [
+           "Major Project",
+           "Full brand execution including research, creative, and performance analytics.",
+           "Capstone often limited to theoretical branding reports."
+          ]
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Year 4",
+     "semesters": [
+      {
+       "title": "Semester 7",
+       "text": "This semester solidifies transition into industry through full-cycle brand execution, leadership capability, and personal portfolio excellence. It fosters autonomous problem-solving and the confidence to launch innovative brand solutions.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Digital Marketing Application and Practice"
+          }
+         ],
+         "text": "Applies campaign execution, analytics, and optimization skills across real digital platforms and audiences for measurable performance."
+        },
+        {
+         "title": [
+          {
+           "strong": "Entrepreneurial Leadership"
+          }
+         ],
+         "text": "Strengthens creative decision-making, risk-taking, and team leadership to launch and grow innovative brand ventures."
+        },
+        {
+         "title": [
+          {
+           "strong": "Portfolio Development"
+          }
+         ],
+         "text": "Guides the creation of a professional branding showcase with industry-standard storytelling, case documentation, and visual identity."
+        },
+        {
+         "title": "Dissertation",
+         "text": "Develops original research capability to solve branding challenges through structured investigation and validated insights."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our semester 7 curriculum outpaces every other business school",
+         "text": "ATLAS empowers students to build an employable portfolio, deliver real client outcomes, and research emerging digital branding practices that shape impactful careers.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Digital Marketing Application and Practice",
+           "Live campaigns, cross-platform measurement, brand growth KPIs.",
+           "Simulated campaigns with limited real platforms."
+          ],
+          [
+           "Entrepreneurial Leadership",
+           "Start-up building, branding for innovation, mentorship support.",
+           "Theory-focused entrepreneurship without brand execution."
+          ],
+          [
+           "Dissertation",
+           "Branding-specific research with real market datasets.",
+           "General marketing theory papers with limited application."
+          ],
+          [
+           "Internship",
+           "Global, diverse, and\nmulti-industry exposure.",
+           "Mostly local, short-term internships."
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Semester 8",
+       "text": "This semester advances global market strategy, cultural awareness, and responsible brand communication while strengthening professional branding output.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Intercultural Marketing"
+          }
+         ],
+         "text": "Explores how culture shapes consumer behavior and adapts brand messaging for diverse communities."
+        },
+        {
+         "title": [
+          {
+           "strong": "International Business & Global Perception"
+          }
+         ],
+         "text": "Examines cross-border market strategies and global brand positioning to build competitive international identities."
+        },
+        {
+         "title": [
+          {
+           "strong": "ESG and Developmental Goals"
+          }
+         ],
+         "text": "Connects branding with sustainability and ethical governance to support responsible communication and trust."
+        },
+        {
+         "title": [
+          {
+           "strong": "Portfolio Development"
+          }
+         ],
+         "text": "Builds a professionally curated branding portfolio demonstrating research, creativity, and campaign execution for industry roles."
+        },
+        {
+         "title": [
+          {
+           "strong": "Dissertation"
+          }
+         ],
+         "text": "Develops original research capability to solve branding challenges through structured investigation and validated insights."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our semester 8 curriculum outpaces every other business school",
+         "text": "ATLAS empowers students to integrate ESG values, global perspectives, and strategic research into portfolios that reflect ethical and future-ready branding leadership.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Intercultural Marketing",
+           "Deep cultural insights with real international case studies.",
+           "Limited exposure to multicultural brand contexts."
+          ],
+          [
+           "International Business & Global Perception",
+           "Focus on global branding influence and geopolitical markets.",
+           "Traditional international business theory without branding lens."
+          ],
+          [
+           "ESG and Developmental Goals",
+           "Branding alignment with sustainability frameworks and SDGs.",
+           "ESG taught separately from brand strategy and communication."
+          ],
+          [
+           "Portfolio Development",
+           "Industry-reviewed brand projects and personal brand identity.",
+           "Basic portfolio without professional market curation."
+          ],
+          [
+           "Dissertation",
+           "Branding-specific research with real market datasets.",
+           "General marketing theory papers with limited application."
+          ]
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "download": {
+    "label": "Download Curriculum",
+    "variant": "mint",
+    "fontSize": null,
+    "brochure": "bba-brochure"
+   }
+  }
+ },
+ "refs": {
+  "stats": "stats-2e2e2a3128",
+  "why": "why-390920848e",
+  "execution": "execution-7666a2e3d4",
+  "voices": "voices-5669f623cd",
+  "admissions": "admissions-8fe3423716",
+  "eligibility": "eligibility-cbec4efa3c",
+  "banner": "banner-6cbcc531d0",
+  "search": "search-bf21a9e8fb",
+  "faq": "faq-9b7871ea42"
+ }
+}

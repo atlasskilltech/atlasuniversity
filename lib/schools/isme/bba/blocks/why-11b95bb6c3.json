@@ -1,0 +1,126 @@
+{
+ "heading": "Why Choose B.Sc. (Hons.) in Economics and Data Analytics at ATLAS?",
+ "sub": null,
+ "cards": [
+  {
+   "variant": "mint",
+   "title": "Understand Core Economic Principles",
+   "texts": [
+    "Grasp the fundamentals of micro and macroeconomics to interpret markets, policies, and global trends."
+   ],
+   "num": "01",
+   "bg": "/assets/images/schools/isme/bba/course-isme-bg1.webp",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/image-1011.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/image-1011-p-500.png 500w, /assets/images/schools/isme/bba/image-1011.png 619w",
+    "sizes": "(max-width: 683px) 100vw, 683px"
+   }
+  },
+  {
+   "variant": "mint-switch",
+   "title": "Think Critically About Economic Issues",
+   "texts": [
+    "Analyse real-world problems using economic theory and evidence-based reasoning."
+   ],
+   "num": "02",
+   "bg": "/assets/images/schools/isme/bba/ways-bg-2.png",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/frame-1272631708.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/frame-1272631708-p-500.png 500w, /assets/images/schools/isme/bba/frame-1272631708.png 620w",
+    "sizes": "(max-width: 683px) 100vw, 683px"
+   }
+  },
+  {
+   "variant": "mint",
+   "title": "Master Data Analytics Tools & Techniques",
+   "texts": [
+    "Apply statistical methods, programming, and visualisation tools to extract insights from complex datasets."
+   ],
+   "num": "03",
+   "bg": "/assets/images/schools/isme/bba/ways-bg-2.png",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/image-1015.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/image-1015-p-500.png 500w, /assets/images/schools/isme/bba/image-1015.png 620w",
+    "sizes": "(max-width: 683px) 100vw, 683px"
+   }
+  },
+  {
+   "variant": "mint-switch",
+   "title": "Integrate Economics with Data Science",
+   "texts": [
+    "Combine economic models with advanced analytics for informed decision-making and forecasting."
+   ],
+   "num": "04",
+   "bg": "/assets/images/schools/isme/bba/ways-bg-2.png",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/image-1014.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/image-1014-p-500.png 500w, /assets/images/schools/isme/bba/image-1014.png 620w",
+    "sizes": "(max-width: 683px) 100vw, 683px"
+   }
+  },
+  {
+   "variant": "mint",
+   "title": "Apply Econometric & Predictive Models",
+   "texts": [
+    "Use regression, hypothesis testing, and machine learning to solve business and policy challenges."
+   ],
+   "num": "05",
+   "bg": "/assets/images/schools/isme/bba/ways-bg-2.png",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/image-1013.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/image-1013-p-500.png 500w, /assets/images/schools/isme/bba/image-1013.png 619w",
+    "sizes": "(max-width: 683px) 100vw, 683px"
+   }
+  },
+  {
+   "variant": "mint-switch",
+   "title": "Communicate Insights Effectively",
+   "texts": [
+    "Present data-driven findings and economic analyses in clear, impactful ways for diverse audiences."
+   ],
+   "num": "06",
+   "bg": "/assets/images/schools/isme/bba/ways-bg-2.png",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/image-1016.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/image-1016-p-500.png 500w, /assets/images/schools/isme/bba/image-1016.png 620w",
+    "sizes": "(max-width: 683px) 100vw, 683px"
+   }
+  },
+  {
+   "variant": "mint",
+   "title": "Conduct Independent Research",
+   "texts": [
+    "Design and execute research projects addressing contemporary economic and social issues."
+   ],
+   "num": "07",
+   "bg": "/assets/images/schools/isme/bba/ways-bg-2.png",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/image-1013.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/image-1013-p-500.png 500w, /assets/images/schools/isme/bba/image-1013.png 619w",
+    "sizes": "(max-width: 683px) 100vw, 683px"
+   }
+  },
+  {
+   "variant": "mint-switch",
+   "title": "Innovate for a Digital Economy",
+   "texts": [
+    "Leverage big data and AI-driven tools to create solutions for emerging economic and business challenges."
+   ],
+   "num": "08",
+   "bg": "/assets/images/schools/isme/bba/ways-bg-2.png",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/image-1016.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/image-1016-p-500.png 500w, /assets/images/schools/isme/bba/image-1016.png 620w",
+    "sizes": "(max-width: 683px) 100vw, 683px"
+   }
+  }
+ ]
+}

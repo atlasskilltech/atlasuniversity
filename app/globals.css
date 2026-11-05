@@ -1,0 +1,1328 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===========================================================================
+   This is the project's ONLY stylesheet. It contains exactly three things that
+   Tailwind utilities cannot express:
+
+     1. the @font-face declarations (font loading is not a utility)
+     2. `line-height: 1.5` + the base text colour on <body>
+     3. an <img> display reset that restores the reference's box metrics
+
+   Everything else in the project is Tailwind utility classes.
+   =========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   FONTS — Manrope, self-hosted.
+
+   The reference requests exactly `Manrope:wght@300;500;700` from Google Fonts.
+   Google serves ONE variable woff2 per unicode subset and declares the three
+   discrete weights against it. That is reproduced byte-for-byte here so the CSS
+   font-matching algorithm resolves identically to the reference:
+     font-weight:400  ->  renders as 500   (no 400 face exists)
+     font-weight:600  ->  renders as 700   (no 600 face exists)
+   Adding 400/600 faces would change the rendering vs. the reference.
+   --------------------------------------------------------------------------- */
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/assets/fonts/manrope-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/assets/fonts/manrope-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/manrope-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/manrope-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/manrope-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/manrope-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ---------------------------------------------------------------------------
+   MANROPE ISME — the ISME school pages, five weights.
+
+   Every ISME page loads reference/schools/isme/assets/include/header.php, whose
+   WebFont loader asks for `Manrope:300,regular,500,600,700` — so unlike the ATLAS
+   pages above (300/500/700 only), production renders a true 400 and a true 600.
+   Rendering 400 text with the 500 face made ISME copy measurably wider (one
+   Global Business Pathway paragraph wrapped two extra lines: 959 vs production's
+   905; with these faces, 905). Same variable files, so nothing new is shipped.
+   A separate family, because adding 400/600 to 'Manrope' would move every ATLAS
+   page. It is selected through `--font-manrope` in app/schools/isme/layout.js.
+   --------------------------------------------------------------------------- */
+@font-face {
+  font-family: 'Manrope ISME';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/assets/fonts/manrope-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Manrope ISME';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/assets/fonts/manrope-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Manrope ISME';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/manrope-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Manrope ISME';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/manrope-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Manrope ISME';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/manrope-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Manrope ISME';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/manrope-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Manrope ISME';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/assets/fonts/manrope-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Manrope ISME';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/assets/fonts/manrope-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Manrope ISME';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/manrope-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Manrope ISME';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/manrope-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ---------------------------------------------------------------------------
+   POPPINS — two weights, self-hosted, for exactly two elements.
+
+   The reference requests `Poppins:wght@300;500;700;900` from Google Fonts and
+   never asks for a weight it loaded, so both uses resolve through CSS font
+   matching rather than to the declared number:
+
+     `.h2-tag.isdi`    asks 400 -> no 400 face -> matching walks up to 500.
+                       The homepage's "Thought Leadership" heading.
+     `.cr-title.isdi`  asks 600 -> no 600 face -> a target above 500 searches
+                       heavier first, so it lands on 700. The three global
+                       cards on /advantages/atlas-advantages.
+
+   Verified by probe against the live reference: 700 is the only Poppins face
+   that page actually downloads, and a 600 text measurement is identical to a
+   700 one. So 500 and 700 are the two faces declared here, and `font-medium` /
+   `font-semibold` on those elements resolve exactly as the reference renders.
+   --------------------------------------------------------------------------- */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/poppins-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/poppins-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/poppins-700-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/poppins-700-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ---------------------------------------------------------------------------
+   POPPINS ISDI — the ISDI school pages (body font), three faces.
+
+   The ISDI sheets set `font-family: Poppins, sans-serif` on the body, the header
+   and every menu row, but the ISDI header.php loads no Poppins at all (its only
+   Google Fonts request is `family=Inter`) — on production the text renders in
+   Poppins only where it is installed locally, and in Arial everywhere else.
+   Poppins is clearly the design, so it is self-hosted here.
+
+   Which faces: where the reference does render Poppins it has Medium, SemiBold
+   and Bold (verified with CDP `getPlatformFontsForNode`): the 400 the sheet
+   asks for renders as **Medium**, 600 as SemiBold, 700 as Bold. Declaring
+   exactly 500/600/700 reproduces that through normal font matching (400 walks
+   up to 500).
+
+   A separate family name, because adding a 600 face to 'Poppins' would move
+   `.cr-title.isdi` on /advantages/atlas-advantages from the 700 face it renders
+   today (see above) to 600. The 500 and 700 files are the same ones.
+   --------------------------------------------------------------------------- */
+@font-face {
+  font-family: 'Poppins ISDI';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/poppins-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Poppins ISDI';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/poppins-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins ISDI';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/assets/fonts/poppins-600-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Poppins ISDI';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/assets/fonts/poppins-600-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins ISDI';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/poppins-700-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Poppins ISDI';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/poppins-700-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ---------------------------------------------------------------------------
+   POPPINS LIBRARY — /library only. That page's own <style> @imports Poppins from Google Fonts at
+   every weight and sets it on `#body`, so — unlike the two homepage/advantages uses above, which
+   resolve 400 to the 500 face on purpose — it really renders 200 (the hero tagline), 400, 500
+   (Bootstrap headings), 600, 600 italic (the search placeholder) and 700: the six faces production
+   loads, read off `document.fonts`. A separate family, so no existing Poppins text changes face.
+   The 500/600/700 files are the ones already self-hosted; 200, 400 and 600 italic are Google's own
+   v24 files.
+   --------------------------------------------------------------------------- */
+@font-face {
+  font-family: 'Poppins Library';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url('/assets/fonts/poppins-200-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Poppins Library';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url('/assets/fonts/poppins-200-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins Library';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/assets/fonts/poppins-600i-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Poppins Library';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/assets/fonts/poppins-600i-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins Library';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/poppins-400-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Poppins Library';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/poppins-400-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins Library';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/poppins-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Poppins Library';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/assets/fonts/poppins-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins Library';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/assets/fonts/poppins-600-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Poppins Library';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/assets/fonts/poppins-600-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Poppins Library';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/poppins-700-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Poppins Library';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/poppins-700-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ---------------------------------------------------------------------------
+   Figtree — /schools/ugdx/ugdxsummerschool only. The reference @imports it
+   from Google Fonts (300-900); Google serves one variable woff2 per subset,
+   self-hosted here byte-for-byte (v9), so one face covers every weight.
+   --------------------------------------------------------------------------- */
+@font-face {
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+  src: url('/assets/fonts/figtree-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+  src: url('/assets/fonts/figtree-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Reference base: Webflow normalize + `.body.atlas-page`. */
+  body {
+    @apply font-sans text-base leading-[1.5] text-[#333];
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /*
+   * Webflow ships `img { display:inline-block; vertical-align:middle }` while
+   * Tailwind Preflight ships `display:block`. The difference changes the
+   * measured height of the social-icon links and the logo link, so the
+   * reference behaviour is restored here.
+   */
+  img {
+    @apply inline-block max-w-full align-middle;
+    border: 0;
+  }
+}
+
+/* ATLAS ISDI Advantage partner-university landing pages (nyfa.php etc.) load BOTH
+   Tailwind Play CDN and Bootstrap (the shared ISDI header pulls Bootstrap in for
+   the FAQ). Bootstrap's spacing utilities (.p-*, .m-*, .gap-* for 0-5) carry a
+   DIFFERENT scale than Tailwind's (bs 3=1rem, 4=1.5rem, 5=3rem) and, loading after,
+   override the LP author's intended Tailwind spacing AT ALL WIDTHS (a base .py-4
+   beats even a responsive .md:py-8). Production therefore renders the LP with this
+   collided spacing. These rules reproduce it: scoped to `.lp-bs` (the LP <main>),
+   at (0,2,0) specificity so they win over Tailwind's base AND responsive utilities,
+   exactly as Bootstrap does on production. Not loaded anywhere else. */
+.lp-bs .p-0{padding:0}
+.lp-bs .pt-0{padding-top:0}
+.lp-bs .pb-0{padding-bottom:0}
+.lp-bs .m-0{margin:0}
+.lp-bs .mt-0{margin-top:0}
+.lp-bs .mb-0{margin-bottom:0}
+.lp-bs .px-0{padding-left:0;padding-right:0}
+.lp-bs .py-0{padding-top:0;padding-bottom:0}
+.lp-bs .mx-0{margin-left:0;margin-right:0}
+.lp-bs .my-0{margin-top:0;margin-bottom:0}
+.lp-bs .gap-0{gap:0}
+.lp-bs .p-1{padding:0.25rem}
+.lp-bs .pt-1{padding-top:0.25rem}
+.lp-bs .pb-1{padding-bottom:0.25rem}
+.lp-bs .m-1{margin:0.25rem}
+.lp-bs .mt-1{margin-top:0.25rem}
+.lp-bs .mb-1{margin-bottom:0.25rem}
+.lp-bs .px-1{padding-left:0.25rem;padding-right:0.25rem}
+.lp-bs .py-1{padding-top:0.25rem;padding-bottom:0.25rem}
+.lp-bs .mx-1{margin-left:0.25rem;margin-right:0.25rem}
+.lp-bs .my-1{margin-top:0.25rem;margin-bottom:0.25rem}
+.lp-bs .gap-1{gap:0.25rem}
+.lp-bs .p-2{padding:0.5rem}
+.lp-bs .pt-2{padding-top:0.5rem}
+.lp-bs .pb-2{padding-bottom:0.5rem}
+.lp-bs .m-2{margin:0.5rem}
+.lp-bs .mt-2{margin-top:0.5rem}
+.lp-bs .mb-2{margin-bottom:0.5rem}
+.lp-bs .px-2{padding-left:0.5rem;padding-right:0.5rem}
+.lp-bs .py-2{padding-top:0.5rem;padding-bottom:0.5rem}
+.lp-bs .mx-2{margin-left:0.5rem;margin-right:0.5rem}
+.lp-bs .my-2{margin-top:0.5rem;margin-bottom:0.5rem}
+.lp-bs .gap-2{gap:0.5rem}
+.lp-bs .p-3{padding:1rem}
+.lp-bs .pt-3{padding-top:1rem}
+.lp-bs .pb-3{padding-bottom:1rem}
+.lp-bs .m-3{margin:1rem}
+.lp-bs .mt-3{margin-top:1rem}
+.lp-bs .mb-3{margin-bottom:1rem}
+.lp-bs .px-3{padding-left:1rem;padding-right:1rem}
+.lp-bs .py-3{padding-top:1rem;padding-bottom:1rem}
+.lp-bs .mx-3{margin-left:1rem;margin-right:1rem}
+.lp-bs .my-3{margin-top:1rem;margin-bottom:1rem}
+.lp-bs .gap-3{gap:1rem}
+.lp-bs .p-4{padding:1.5rem}
+.lp-bs .pt-4{padding-top:1.5rem}
+.lp-bs .pb-4{padding-bottom:1.5rem}
+.lp-bs .m-4{margin:1.5rem}
+.lp-bs .mt-4{margin-top:1.5rem}
+.lp-bs .mb-4{margin-bottom:1.5rem}
+.lp-bs .px-4{padding-left:1.5rem;padding-right:1.5rem}
+.lp-bs .py-4{padding-top:1.5rem;padding-bottom:1.5rem}
+.lp-bs .mx-4{margin-left:1.5rem;margin-right:1.5rem}
+.lp-bs .my-4{margin-top:1.5rem;margin-bottom:1.5rem}
+.lp-bs .gap-4{gap:1.5rem}
+.lp-bs .p-5{padding:3rem}
+.lp-bs .pt-5{padding-top:3rem}
+.lp-bs .pb-5{padding-bottom:3rem}
+.lp-bs .m-5{margin:3rem}
+.lp-bs .mt-5{margin-top:3rem}
+.lp-bs .mb-5{margin-bottom:3rem}
+.lp-bs .px-5{padding-left:3rem;padding-right:3rem}
+.lp-bs .py-5{padding-top:3rem;padding-bottom:3rem}
+.lp-bs .mx-5{margin-left:3rem;margin-right:3rem}
+.lp-bs .my-5{margin-top:3rem;margin-bottom:3rem}
+.lp-bs .gap-5{gap:3rem}
+
+/* =========================================================================
+   ISDI homepage "19 programmes. Five worlds." section (+ PathFinder quiz) —
+   reference/schools/isdi/assets/include/19-programmesv2.php. The reference
+   ships this section as a self-contained widget with 801 lines of PLAIN CSS,
+   every selector scoped to #isdi-programmes-section so it cannot leak into or
+   be affected by the rest of the page. Converting ~800 lines of keyframes,
+   pseudo-elements and responsive rules to Tailwind would be large and
+   error-prone; the faithful, self-contained choice is to lift the authored CSS
+   verbatim (the same call the `.lp-bs` Bootstrap-collision block already makes).
+   The React component in components/Schools/ISDI/Home/ProgrammesV2 renders the
+   reference's own `.isdi-*` markup against these rules.
+   ========================================================================= */
+		/* ---------- tokens + local reset (scoped) ---------- */
+		#isdi-programmes-section {
+			--isdi-blue: #193e90;
+			--isdi-pink: #ec1376;
+			--isdi-text: #2b2b2b;
+			--isdi-muted: #5f5b5d;
+			--isdi-white: #fff;
+			--isdi-quiz-bg: #fceaf2;
+			--isdi-quiz-border: #f8b4d2;
+			--isdi-quiz-divider: #fad4e6;
+			--isdi-card-radius: 12px;
+			--isdi-card-color: #193e90;
+
+			background-color: #fff;
+			color: var(--isdi-text);
+			font-family: Poppins, sans-serif;
+			font-size: 16px;
+			font-weight: 400;
+			line-height: 1.5;
+			display: block;
+			padding-top: 60px;
+			padding-bottom: 60px;
+			overflow-x: clip;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+
+		#isdi-programmes-section *,
+		#isdi-programmes-section *::before,
+		#isdi-programmes-section *::after {
+			box-sizing: border-box;
+		}
+
+		#isdi-programmes-section .isdi-is-hidden {
+			display: none !important;
+		}
+
+		/* ---------- container (never uses the site / Bootstrap .container) ---------- */
+		#isdi-programmes-section .isdi-container {
+			position: relative;
+			width: 100%;
+			max-width: 1366px;
+			margin-left: auto;
+			margin-right: auto;
+			padding-left: 22px;
+			padding-right: 22px;
+		}
+
+		/* ---------- heading ---------- */
+		#isdi-programmes-section .isdi-eyebrow {
+			margin: 0;
+			color: var(--isdi-pink);
+			font-size: 13px;
+			font-weight: 600;
+			line-height: 20px;
+			letter-spacing: .04em;
+			text-transform: uppercase;
+		}
+
+		#isdi-programmes-section .isdi-title {
+			margin: 24px 0 0;
+			color: var(--isdi-blue);
+			font-family: Poppins, sans-serif;
+			font-size: 36px;
+			font-weight: 700;
+			line-height: 1.1;
+			letter-spacing: -.01em;
+		}
+
+		#isdi-programmes-section .isdi-description {
+			margin: 24px 0 0;
+			max-width: 980px;
+			color: var(--isdi-text);
+			font-size: 16px;
+			font-weight: 400;
+			line-height: 26px;
+		}
+
+		/* ---------- world card grid ---------- */
+		#isdi-programmes-section .isdi-worlds {
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+			margin-top: 32px;
+		}
+
+		#isdi-programmes-section .isdi-worlds-row {
+			display: grid;
+			grid-template-columns: 1fr;
+			column-gap: 24px;
+			row-gap: 16px;
+		}
+
+		/* ---------- world card ---------- */
+		#isdi-programmes-section .isdi-world-card {
+			position: relative;
+			overflow: hidden;
+			border-radius: var(--isdi-card-radius);
+			background-color: var(--isdi-card-color);
+			padding: 20px 20px 12px;
+			color: var(--isdi-white);
+		}
+
+		#isdi-programmes-section .isdi-world-number {
+			position: absolute;
+			top: 3px;
+			right: 9px;
+			color: rgba(255, 255, 255, .15);
+			font-size: 72px;
+			font-weight: 700;
+			line-height: 1;
+			letter-spacing: -.02em;
+			pointer-events: none;
+			-webkit-user-select: none;
+			user-select: none;
+		}
+
+		#isdi-programmes-section .isdi-world-body {
+			position: relative;
+		}
+
+		#isdi-programmes-section .isdi-world-meta {
+			margin: 0;
+			color: rgba(255, 255, 255, .8);
+			font-size: 11px;
+			font-weight: 500;
+			line-height: 16px;
+			letter-spacing: .03em;
+			text-transform: uppercase;
+		}
+
+		#isdi-programmes-section .isdi-world-title {
+			margin: 5px 0 0;
+			color: var(--isdi-white);
+			font-family: Poppins, sans-serif;
+			font-size: 20px;
+			font-weight: 700;
+			line-height: 26px;
+		}
+
+		#isdi-programmes-section .isdi-world-description {
+			margin: 4px 0 0;
+			color: rgba(255, 255, 255, .9);
+			font-size: 11.5px;
+			font-weight: 400;
+			line-height: 15px;
+		}
+
+		/* ---------- programme list inside a card ---------- */
+		#isdi-programmes-section .isdi-programme-columns {
+			display: flex;
+			flex-direction: column;
+			margin-top: 12px;
+		}
+
+		#isdi-programmes-section .isdi-programme-list {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			min-width: 0;
+			flex: 1 1 0%;
+		}
+
+		#isdi-programmes-section .isdi-programme-list--second {
+			border-top: 1px solid rgba(255, 255, 255, .2);
+		}
+
+		#isdi-programmes-section .isdi-programme-item {
+			margin: 0;
+			padding: 0;
+			border-bottom: 1px solid rgba(255, 255, 255, .2);
+		}
+
+		#isdi-programmes-section .isdi-programme-item:last-child {
+			border-bottom: 0;
+		}
+
+		#isdi-programmes-section .isdi-programme-link {
+			display: block;
+			padding: 8px 0;
+			color: var(--isdi-white);
+			text-decoration: none;
+			background-color: transparent;
+		}
+
+		#isdi-programmes-section .isdi-programme-link:hover,
+		#isdi-programmes-section .isdi-programme-link:focus {
+			color: var(--isdi-white);
+		}
+
+		#isdi-programmes-section .isdi-programme-link:focus-visible {
+			outline: 2px solid var(--isdi-white);
+			outline-offset: 2px;
+			border-radius: 4px;
+		}
+
+		#isdi-programmes-section .isdi-programme-top {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 8px;
+		}
+
+		#isdi-programmes-section .isdi-programme-name {
+			min-width: 0;
+			color: var(--isdi-white);
+			font-size: 14.5px;
+			font-weight: 600;
+			line-height: 20px;
+			overflow-wrap: break-word;
+		}
+
+		#isdi-programmes-section .isdi-programme-link:hover .isdi-programme-name {
+			text-decoration: underline;
+			text-underline-offset: 2px;
+		}
+
+		#isdi-programmes-section .isdi-programme-arrow {
+			display: flex;
+			align-items: center;
+			flex: none;
+			margin-right: 3px;
+			color: var(--isdi-white);
+			transition: transform .2s ease;
+		}
+
+		#isdi-programmes-section .isdi-programme-link:hover .isdi-programme-arrow {
+			transform: translateX(4px);
+		}
+
+		#isdi-programmes-section .isdi-arrow-sm {
+			display: block;
+			width: 12px;
+			height: 8px;
+			flex: none;
+		}
+
+		#isdi-programmes-section .isdi-programme-detail {
+			display: block;
+			margin-top: 4px;
+			color: rgba(255, 255, 255, .7);
+			font-size: 10px;
+			font-weight: 500;
+			line-height: 14px;
+			letter-spacing: .04em;
+			text-transform: uppercase;
+		}
+
+		#isdi-programmes-section .isdi-dot {
+			margin: 0 6px;
+		}
+
+		/* ---------- pathfinder shell ---------- */
+		#isdi-programmes-section .isdi-pathfinder {
+			margin-top: 48px;
+			scroll-margin-top: 24px;
+			border: 2px solid var(--isdi-quiz-border);
+			border-radius: 24px;
+			background-color: var(--isdi-quiz-bg);
+			padding: 28px 20px 24px;
+		}
+
+		#isdi-programmes-section .isdi-pathfinder-head {
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+			border-bottom: 2px solid var(--isdi-quiz-divider);
+			padding-bottom: 20px;
+		}
+
+		#isdi-programmes-section .isdi-pathfinder-title {
+			margin: 0;
+			color: var(--isdi-pink);
+			font-family: Poppins, sans-serif;
+			font-size: 24px;
+			font-weight: 600;
+			line-height: 1.25;
+		}
+
+		#isdi-programmes-section .isdi-pathfinder-intro {
+			flex: none;
+		}
+
+		#isdi-programmes-section .isdi-pathfinder-intro-title {
+			margin: 0;
+			color: var(--isdi-text);
+			font-size: 19px;
+			font-weight: 700;
+			line-height: 28px;
+		}
+
+		#isdi-programmes-section .isdi-pathfinder-intro-text {
+			margin: 0;
+			color: var(--isdi-muted);
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 20px;
+		}
+
+		/* ---------- quiz steps ---------- */
+		#isdi-programmes-section .isdi-quiz-step {
+			padding-top: 18px;
+		}
+
+		#isdi-programmes-section .isdi-quiz-question {
+			margin: 0;
+			color: var(--isdi-text);
+			font-family: Poppins, sans-serif;
+			font-size: 18px;
+			font-weight: 600;
+			line-height: 28px;
+		}
+
+		#isdi-programmes-section .isdi-quiz-options {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 10px;
+			max-width: 940px;
+			margin-top: 12px;
+		}
+
+		/* ---------- selection pills ---------- */
+		#isdi-programmes-section .isdi-quiz-option {
+			display: block;
+			max-width: 100%;
+			margin: 0;
+			cursor: pointer;
+		}
+
+		#isdi-programmes-section .isdi-quiz-option-input {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			margin: 0;
+			padding: 0;
+			border: 0;
+			overflow: hidden;
+			white-space: nowrap;
+			clip: rect(0 0 0 0);
+			clip-path: inset(50%);
+		}
+
+		#isdi-programmes-section .isdi-quiz-option-label {
+			display: block;
+			border: 1px solid var(--isdi-blue);
+			border-radius: 999px;
+			background-color: transparent;
+			padding: 10px 16px;
+			color: var(--isdi-blue);
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 20px;
+			text-align: center;
+			-webkit-user-select: none;
+			user-select: none;
+			transition: background-color .15s ease, color .15s ease;
+		}
+
+		#isdi-programmes-section .isdi-quiz-option-label:hover {
+			background-color: rgba(25, 62, 144, .06);
+		}
+
+		#isdi-programmes-section .isdi-quiz-option-input:checked + .isdi-quiz-option-label,
+		#isdi-programmes-section .isdi-quiz-option-input:checked + .isdi-quiz-option-label:hover {
+			background-color: var(--isdi-blue);
+			color: var(--isdi-white);
+		}
+
+		#isdi-programmes-section .isdi-quiz-option-input:disabled + .isdi-quiz-option-label {
+			cursor: not-allowed;
+			opacity: .6;
+		}
+
+		#isdi-programmes-section .isdi-quiz-option-input:disabled + .isdi-quiz-option-label:hover {
+			background-color: transparent;
+		}
+
+		#isdi-programmes-section .isdi-quiz-option-input:focus-visible + .isdi-quiz-option-label {
+			outline: 2px solid var(--isdi-pink);
+			outline-offset: 2px;
+		}
+
+		/* ---------- quiz navigation ---------- */
+		#isdi-programmes-section .isdi-quiz-actions {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			flex-wrap: wrap;
+			gap: 12px;
+			margin-top: 20px;
+		}
+
+		#isdi-programmes-section .isdi-quiz-icon-button,
+		#isdi-programmes-section .isdi-quiz-button {
+			font-family: Poppins, sans-serif;
+			cursor: pointer;
+			transition: background-color .15s ease, color .15s ease, filter .15s ease;
+		}
+
+		#isdi-programmes-section .isdi-quiz-icon-button {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex: none;
+			width: 48px;
+			height: 48px;
+			border: 0;
+			border-radius: 999px;
+			background-color: var(--isdi-pink);
+			color: var(--isdi-white);
+			padding: 0;
+		}
+
+		#isdi-programmes-section .isdi-quiz-icon-button:hover {
+			filter: brightness(1.1);
+		}
+
+		#isdi-programmes-section .isdi-quiz-icon-button--ghost {
+			border: 2px solid var(--isdi-pink);
+			background-color: transparent;
+			color: var(--isdi-pink);
+		}
+
+		#isdi-programmes-section .isdi-quiz-icon-button--ghost:hover {
+			background-color: var(--isdi-pink);
+			color: var(--isdi-white);
+			filter: none;
+		}
+
+		#isdi-programmes-section .isdi-quiz-button {
+			min-height: 48px;
+			border: 0;
+			border-radius: 999px;
+			background-color: var(--isdi-pink);
+			padding: 12px 20px;
+			color: var(--isdi-white);
+			font-size: 15px;
+			font-weight: 600;
+			line-height: 20px;
+		}
+
+		#isdi-programmes-section .isdi-quiz-button:hover {
+			filter: brightness(1.1);
+		}
+
+		#isdi-programmes-section .isdi-quiz-button--ghost {
+			border: 2px solid var(--isdi-pink);
+			background-color: transparent;
+			color: var(--isdi-pink);
+		}
+
+		#isdi-programmes-section .isdi-quiz-button--ghost:hover {
+			background-color: var(--isdi-pink);
+			color: var(--isdi-white);
+			filter: none;
+		}
+
+		/* disabled buttons: no hover feedback, clearly not clickable */
+		#isdi-programmes-section .isdi-quiz-icon-button:disabled,
+		#isdi-programmes-section .isdi-quiz-button:disabled,
+		#isdi-programmes-section .isdi-quiz-icon-button:disabled:hover,
+		#isdi-programmes-section .isdi-quiz-button:disabled:hover {
+			cursor: not-allowed;
+			opacity: .6;
+			background-color: var(--isdi-pink);
+			color: var(--isdi-white);
+			filter: none;
+		}
+
+		#isdi-programmes-section .isdi-quiz-icon-button:focus-visible,
+		#isdi-programmes-section .isdi-quiz-button:focus-visible {
+			outline: 2px solid var(--isdi-blue);
+			outline-offset: 2px;
+		}
+
+		#isdi-programmes-section .isdi-arrow-lg {
+			display: block;
+			width: 18px;
+			height: 12px;
+		}
+
+		#isdi-programmes-section .isdi-arrow-lg--back {
+			transform: rotate(180deg);
+		}
+
+		/* ---------- loading / drumroll ---------- */
+		#isdi-programmes-section .isdi-quiz-loading {
+			padding: 24px 0;
+			text-align: center;
+		}
+
+		#isdi-programmes-section .isdi-quiz-loading-text {
+			margin: 0;
+			color: var(--isdi-text);
+			font-size: 17px;
+			line-height: 28px;
+		}
+
+		#isdi-programmes-section .isdi-quiz-loading-image {
+			display: block;
+			width: 450px;
+			max-width: 100%;
+			height: auto;
+			aspect-ratio: 1 / 1;
+			object-fit: contain;
+			margin: 16px auto 0;
+		}
+
+		/* ---------- results ---------- */
+		#isdi-programmes-section .isdi-quiz-results {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 16px;
+			margin-top: 16px;
+		}
+
+		#isdi-programmes-section .isdi-result-card {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			gap: 24px;
+			overflow: hidden;
+			min-height: 160px;
+			border-radius: var(--isdi-card-radius);
+			background-color: var(--isdi-card-color);
+			padding: 20px;
+			color: var(--isdi-white);
+			text-decoration: none;
+			transition: transform .15s ease;
+		}
+
+		#isdi-programmes-section .isdi-result-card:hover {
+			transform: translateY(-2px);
+			color: var(--isdi-white);
+		}
+
+		#isdi-programmes-section .isdi-result-card:focus-visible {
+			outline: 2px solid var(--isdi-blue);
+			outline-offset: 2px;
+		}
+
+		#isdi-programmes-section .isdi-result-top {
+			display: flex;
+			align-items: flex-start;
+			justify-content: space-between;
+			gap: 16px;
+		}
+
+		#isdi-programmes-section .isdi-result-meta {
+			color: rgba(255, 255, 255, .8);
+			font-size: 11px;
+			font-weight: 500;
+			line-height: 16px;
+			letter-spacing: .03em;
+			text-transform: uppercase;
+		}
+
+		#isdi-programmes-section .isdi-result-arrow {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex: none;
+			width: 36px;
+			height: 36px;
+			border-radius: 999px;
+			background-color: rgba(255, 255, 255, .15);
+			transition: background-color .15s ease;
+		}
+
+		#isdi-programmes-section .isdi-result-card:hover .isdi-result-arrow {
+			background-color: rgba(255, 255, 255, .25);
+		}
+
+		#isdi-programmes-section .isdi-result-name {
+			font-size: 22px;
+			font-weight: 700;
+			line-height: 28px;
+			overflow-wrap: break-word;
+		}
+
+		/* =========================================================
+		   TABLET AND UP (mirrors the site 767px breakpoint)
+		   ========================================================= */
+		@media screen and (min-width: 768px) {
+			#isdi-programmes-section .isdi-container {
+				padding-left: 30px;
+				padding-right: 30px;
+			}
+
+			#isdi-programmes-section .isdi-eyebrow {
+				font-size: 14px;
+			}
+
+			#isdi-programmes-section .isdi-title {
+				margin-top: 40px;
+				font-size: 46px;
+			}
+
+			#isdi-programmes-section .isdi-description {
+				margin-top: 32px;
+				font-size: 20px;
+				line-height: 28px;
+			}
+
+			#isdi-programmes-section .isdi-worlds {
+				margin-top: 42px;
+			}
+
+			/* World 01 + 03 share a row, World 02 spans the full width */
+			#isdi-programmes-section .isdi-worlds-row--one {
+				grid-template-columns: 1fr 1fr;
+				grid-auto-flow: row dense;
+			}
+
+			#isdi-programmes-section .isdi-world-card--wide {
+				grid-column: span 2;
+			}
+
+			/* two programme columns inside a card */
+			#isdi-programmes-section .isdi-programme-columns--split {
+				flex-direction: row;
+			}
+
+			#isdi-programmes-section .isdi-programme-columns--split .isdi-programme-list--first {
+				padding-right: 18px;
+			}
+
+			#isdi-programmes-section .isdi-programme-columns--split .isdi-programme-list--second {
+				border-top: 0;
+				border-left: 1px solid rgba(255, 255, 255, .2);
+				padding-left: 18px;
+			}
+
+			#isdi-programmes-section .isdi-world-description--narrow {
+				max-width: 215px;
+			}
+
+			#isdi-programmes-section .isdi-pathfinder {
+				margin-top: 56px;
+				padding: 40px 32px 32px;
+			}
+
+			#isdi-programmes-section .isdi-pathfinder-title {
+				font-size: 32px;
+				line-height: 44px;
+			}
+
+			#isdi-programmes-section .isdi-pathfinder-intro-title {
+				font-size: 24px;
+				line-height: 34px;
+			}
+
+			#isdi-programmes-section .isdi-pathfinder-intro-text {
+				font-size: 15px;
+				line-height: 22px;
+			}
+
+			#isdi-programmes-section .isdi-quiz-question {
+				font-size: 20px;
+			}
+
+			#isdi-programmes-section .isdi-quiz-options {
+				gap: 13px 14px;
+			}
+
+			#isdi-programmes-section .isdi-quiz-option-label {
+				padding: 14px 20px;
+				font-size: 15px;
+			}
+
+			#isdi-programmes-section .isdi-quiz-actions {
+				gap: 16px;
+				margin-top: 15px;
+			}
+
+			#isdi-programmes-section .isdi-quiz-button {
+				padding: 12px 24px;
+				font-size: 17px;
+			}
+
+			#isdi-programmes-section .isdi-quiz-loading-text {
+				font-size: 20px;
+			}
+		}
+
+		/* =========================================================
+		   SMALL DESKTOP AND UP (mirrors the site 991px breakpoint)
+		   ========================================================= */
+		@media screen and (min-width: 992px) {
+			#isdi-programmes-section {
+				padding-top: 80px;
+				padding-bottom: 80px;
+			}
+
+			#isdi-programmes-section .isdi-container {
+				padding-left: 62px;
+				padding-right: 62px;
+			}
+
+			#isdi-programmes-section .isdi-title {
+				font-size: 54px;
+				line-height: 60px;
+			}
+
+			#isdi-programmes-section .isdi-description {
+				margin-top: 41px;
+			}
+
+			#isdi-programmes-section .isdi-pathfinder {
+				padding: 46px 47px 35px;
+			}
+
+			#isdi-programmes-section .isdi-pathfinder-head {
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-between;
+				gap: 32px;
+				padding-bottom: 15px;
+			}
+
+			#isdi-programmes-section .isdi-quiz-results {
+				grid-template-columns: repeat(3, 1fr);
+				gap: 24px;
+			}
+
+			#isdi-programmes-section .isdi-result-card {
+				min-height: 220px;
+				padding: 24px;
+			}
+
+			#isdi-programmes-section .isdi-result-name {
+				font-size: 24px;
+				line-height: 30px;
+			}
+		}
+
+		/* =========================================================
+		   FULL DESKTOP - the card layout from the design
+		   Row 1 = 01 | 02 | 03      Row 2 = 04 | 05
+		   ========================================================= */
+		@media screen and (min-width: 1280px) {
+			#isdi-programmes-section .isdi-worlds-row--one {
+				grid-template-columns: 380fr 500fr 320fr;
+			}
+
+			#isdi-programmes-section .isdi-worlds-row--two {
+				grid-template-columns: 390fr 834fr;
+			}
+
+			#isdi-programmes-section .isdi-world-card--wide {
+				grid-column: span 1;
+			}
+
+			#isdi-programmes-section .isdi-pathfinder {
+				margin-top: 62px;
+				margin-left: 5px;
+				margin-right: 5px;
+			}
+		}
+
+		/* =========================================================
+		   SMALL PHONES (mirrors the site 479px breakpoint)
+		   ========================================================= */
+		@media screen and (max-width: 479px) {
+			#isdi-programmes-section .isdi-title {
+				font-size: 30px;
+			}
+
+			#isdi-programmes-section .isdi-world-number {
+				font-size: 58px;
+			}
+
+			#isdi-programmes-section .isdi-world-title {
+				font-size: 18px;
+				line-height: 24px;
+			}
+
+			#isdi-programmes-section .isdi-quiz-option {
+				width: 100%;
+			}
+
+			#isdi-programmes-section .isdi-quiz-button {
+				width: 100%;
+			}
+
+			#isdi-programmes-section .isdi-quiz-actions {
+				justify-content: flex-start;
+			}
+		}
+
+		/* ---------- reduced motion ---------- */
+		@media (prefers-reduced-motion: reduce) {
+			#isdi-programmes-section .isdi-programme-arrow,
+			#isdi-programmes-section .isdi-result-card,
+			#isdi-programmes-section .isdi-quiz-option-label,
+			#isdi-programmes-section .isdi-quiz-button,
+			#isdi-programmes-section .isdi-quiz-icon-button {
+				transition: none;
+			}
+		}

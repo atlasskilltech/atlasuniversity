@@ -1,0 +1,326 @@
+{
+ "path": "/schools/isme/atlas-isme-advantage/internationalisation/london-school-of-economics",
+ "ref": "atlas-isme-advantage/internationalisation/london-school-of-economics.php",
+ "lpVariant": "lse",
+ "meta": {
+  "title": "LSE & Atlas ISME | Global Learning Opportunities",
+  "description": "Study with the world's best. Discover Atlas ISME's partnership with the London School of Economics — unlocking global opportunities and international study programs for students in Mumbai"
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "kind": "lpHero",
+   "title": "A Truly Global Business Education from Mumbai to London",
+   "titleMods": [],
+   "sub": null,
+   "band": "ATLAS X The London School of Economics and Political Science.",
+   "bandMob": null,
+   "image": {
+    "src": "/assets/images/schools/isme/pages/site/atlas-isme-advantage/internationalisation/herobanner/1374.png",
+    "alt": "Header Image",
+    "srcSet": "/assets/images/schools/isme/pages/site/atlas-isme-advantage/internationalisation/herobanner/500.png 500w, /assets/images/schools/isme/pages/site/atlas-isme-advantage/internationalisation/herobanner/800.png 800w, /assets/images/schools/isme/pages/site/atlas-isme-advantage/internationalisation/herobanner/1080.png 1080w, /assets/images/schools/isme/pages/site/atlas-isme-advantage/internationalisation/herobanner/1374.png 1374w, /assets/images/schools/isme/pages/site/atlas-isme-advantage/internationalisation/herobanner/1600.png 1600w, /assets/images/schools/isme/pages/site/atlas-isme-advantage/internationalisation/herobanner/2000.png 2000w",
+    "sizes": "100vw"
+   },
+   "mobileImage": null
+  },
+  {
+   "kind": "lpStory",
+   "heading": "Academic Experience with Global Perspective",
+   "headingMods": [
+    "mrg32"
+   ],
+   "text": "Start your undergraduate journey at ATLAS ISME and enjoy the opportunity to gain a truly global academic experience with The London School of Economics and Political Science.\n\nComplete the first two years in Mumbai, building strong foundations in business, academic depth and industry perspective. Apply to study abroad at LSE in your third year, through The General Course, where you can choose from a wide range of disciplines and experience a rigorous international curriculum in London.\n\nOn completion, receive an official LSE transcript alongside your degree from ATLAS SkillTech University, adding global academic recognition to your profile.\n\nDesigned to meet international academic standards, this integrated learning experience ensures curriculum continuity, global exposure and strong career readiness, preparing you for higher education and global career opportunities.",
+   "textMods": [],
+   "image": {
+    "src": "/assets/images/schools/isme/pages/site/london-school-of-economics/section/1.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/pages/site/london-school-of-economics/section/1.png 500w, /assets/images/schools/isme/pages/site/london-school-of-economics/section/1.png 521w",
+    "sizes": "100vw"
+   }
+  },
+  {
+   "kind": "lpStack",
+   "heading": "Your Global Academic Journey",
+   "headingMods": [
+    "mrg32",
+    "mrgtp"
+   ],
+   "cards": [
+    {
+     "variant": "first",
+     "tone": "bg-1",
+     "imageFirst": true,
+     "image": {
+      "src": "/assets/images/schools/isme/pages/site/atlas-isme-advantage/lse/scroller-section/1/desk.png",
+      "alt": "",
+      "srcSet": "/assets/images/schools/isme/pages/site/atlas-isme-advantage/lse/scroller-section/1/mob.png 500w, /assets/images/schools/isme/pages/site/atlas-isme-advantage/lse/scroller-section/1/desk.png 759w",
+      "sizes": "(max-width: 759px) 100vw, 759px"
+     },
+     "title": "Years 1–2 at ATLAS ISME Mumbai, India",
+     "body": [
+      {
+       "p": [
+        {
+         "strong": "Complete the first two years of your undergraduate program at ATLAS ISME, building strong foundations in:"
+        }
+       ]
+      },
+      {
+       "list": [
+        "Business fundamentals",
+        "Deep understanding your choice of Business function : Marketing, Finance, Economics,Artificial Intelligence, Business Psychology, and more",
+        "Global & Industry Perspectives"
+       ]
+      }
+     ]
+    },
+    {
+     "variant": "second",
+     "tone": "bg-2",
+     "imageFirst": false,
+     "image": {
+      "src": "/assets/images/schools/isme/pages/site/atlas-isme-advantage/lse/scroller-section/2/desk.png",
+      "alt": "",
+      "srcSet": "/assets/images/schools/isme/pages/site/atlas-isme-advantage/lse/scroller-section/2/mob.png 500w, /assets/images/schools/isme/pages/site/atlas-isme-advantage/lse/scroller-section/2/desk.png 759w",
+      "sizes": "(max-width: 759px) 100vw, 759px"
+     },
+     "title": "Year 3 at LSE, United Kingdom",
+     "body": [
+      {
+       "p": [
+        {
+         "strong": "Apply to study abroad at The London School of Economics and Political Science and undertake The General Course in your third year."
+        }
+       ]
+      },
+      {
+       "list": [
+        "Choose from 19 academic disciplines",
+        "Experience a rigorous international curriculum",
+        "Learn in an immersive London academic environment",
+        "Students who complete the full academic year at LSE will receive an official General Course transcript"
+       ]
+      }
+     ]
+    },
+    {
+     "variant": "third",
+     "tone": "bg-3",
+     "imageFirst": false,
+     "image": {
+      "src": "/assets/images/schools/isme/pages/site/atlas-isme-advantage/lse/scroller-section/3/desk.png",
+      "alt": "",
+      "srcSet": "/assets/images/schools/isme/pages/site/atlas-isme-advantage/lse/scroller-section/3/mob.png 500w, /assets/images/schools/isme/pages/site/atlas-isme-advantage/lse/scroller-section/3/desk.png 759w",
+      "sizes": "(max-width: 759px) 100vw, 759px"
+     },
+     "title": "Graduate with a degree from ATLAS SkillTech University",
+     "body": [
+      {
+       "p": [
+        {
+         "strong": "Earn your degree from ATLAS SkillTech University, complemented by an international academic experience at The London School of Economics and Political Science."
+        }
+       ]
+      },
+      {
+       "list": [
+        "Globally recognised academic exposure",
+        "Strong analytical and academic foundation",
+        "Prepared for global careers and higher education"
+       ]
+      }
+     ]
+    },
+    {
+     "variant": "third",
+     "tone": "bg-3",
+     "imageFirst": false,
+     "image": {
+      "src": "/assets/images/schools/isme/pages/site/atlas-isme-advantage/lse/scroller-section/4/desk.png",
+      "alt": "",
+      "srcSet": "/assets/images/schools/isme/pages/site/atlas-isme-advantage/lse/scroller-section/4/mob.png 500w, /assets/images/schools/isme/pages/site/atlas-isme-advantage/lse/scroller-section/4/desk.png 759w",
+      "sizes": "(max-width: 759px) 100vw, 759px"
+     },
+     "title": "Academic Pathways with Global Perspective",
+     "body": [
+      {
+       "p": [
+        {
+         "strong": "Shape your future with specialised pathways that align with global industry demand:"
+        }
+       ]
+      },
+      {
+       "list": [
+        "Accounting",
+        "Data Science",
+        "Economics",
+        "Finance",
+        "International Relations",
+        "Law",
+        "Management"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "lpLearn",
+   "id": "masters-progressions",
+   "text": "Who Can Apply",
+   "textMods": [
+    "wid80"
+   ],
+   "sub": [
+    "All undergraduate students starting their program at ATLAS ISME in 2026 are eligible to apply. Second-year students can begin their internationalisation journey, subject to successful application to LSE’s study abroad program, ",
+    {
+     "link": "The General Course",
+     "href": "https://www.lse.ac.uk/study-at-lse/study-abroad/the-general-course",
+     "newTab": true,
+     "color": "#07F6A0",
+     "underline": true
+    },
+    ". For more details, please get in touch with the International Affairs Team."
+   ],
+   "button": null,
+   "image": {
+    "src": "/assets/images/schools/isme/pages/site/london-school-of-economics/section/2.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/pages/site/london-school-of-economics/section/2.png 500w, /assets/images/schools/isme/pages/site/london-school-of-economics/section/2.png 759w",
+    "sizes": "(max-width: 759px) 100vw, 759px"
+   }
+  },
+  {
+   "kind": "lpCards",
+   "heading": "The LSE Advantage",
+   "headingMods": [
+    "mrg16"
+   ],
+   "sub": "At LSE, you step into a truly global learning environment built for excellence and impact.",
+   "cards": [
+    {
+     "text": [
+      {
+       "strong": "Ranked in Top 10"
+      },
+      " in Marketing, Finance, Social Sciences & Sustainability (QS World University Rankings by Subject)"
+     ],
+     "textMods": [
+      "mt16"
+     ],
+     "title": null,
+     "image": {
+      "src": "/assets/images/schools/isme/pages/site/london-school-of-economics/the-lse-advantage/1.png",
+      "alt": ""
+     }
+    },
+    {
+     "text": [
+      {
+       "strong": "Learn alongside 12,000+ students"
+      },
+      " from ",
+      {
+       "strong": "140+ countries"
+      }
+     ],
+     "textMods": [
+      "mt16"
+     ],
+     "title": null,
+     "image": {
+      "src": "/assets/images/schools/isme/pages/site/london-school-of-economics/slide-section/2.png",
+      "alt": ""
+     }
+    },
+    {
+     "text": [
+      {
+       "strong": "Choose from 300+ courses"
+      },
+      " across ",
+      {
+       "strong": "19 academic disciplines"
+      }
+     ],
+     "textMods": [
+      "mt16"
+     ],
+     "title": null,
+     "image": {
+      "src": "/assets/images/schools/isme/pages/site/london-school-of-economics/slide-section/3.jpg",
+      "alt": ""
+     }
+    },
+    {
+     "text": [
+      {
+       "strong": "Become part of the LSE Alumni Network"
+      },
+      ", lifelong and global"
+     ],
+     "textMods": [
+      "mt16"
+     ],
+     "title": null,
+     "image": {
+      "src": "/assets/images/schools/isme/pages/site/london-school-of-economics/slide-section/4.jpg",
+      "alt": ""
+     }
+    }
+   ]
+  },
+  {
+   "kind": "lpAbout",
+   "id": "international-events",
+   "icon": {
+    "src": "/assets/images/schools/isme/pages/site/global-pathway/about/building-icon.png",
+    "alt": ""
+   },
+   "title": "About The London School of Economics and Political Science",
+   "text": "The London School of Economics and Political Science (LSE) is a world-leading university renowned for its academic rigour, interdisciplinary research and global outlook. Situated in the heart of London and recognised as one of the top institutions in the United Kingdom and internationally, LSE combines formal academic study with opportunities for real-world engagement, LSE graduates are widely respected for their analytical expertise, professional readiness and capacity to lead in complex international environments.",
+   "textMods": [],
+   "buttons": [
+    {
+     "label": "Know More",
+     "href": "https://www.lse.ac.uk/",
+     "icon": "/assets/images/schools/isdi/isdi-for-outstation/banner/arrow-rt.svg",
+     "variant": "outline-white"
+    }
+   ],
+   "image": {
+    "src": "/assets/images/schools/isme/pages/site/london-school-of-economics/about-london-school-of-economics/1.png",
+    "alt": ""
+   }
+  },
+  {
+   "kind": "infoBanner",
+   "heading": "Step beyond borders.\nGraduate with a global perspective.",
+   "text": null,
+   "buttons": [
+    {
+     "label": "Apply Now",
+     "href": "https://atlasuniversity.edu.in/applicationform",
+     "variant": "mint",
+     "icon": "/assets/images/schools/isdi/isdi-for-outstation/banner/arrow-rt.svg"
+    },
+    {
+     "label": "Schedule a visit",
+     "href": "https://atlasuniversity.edu.in/campusvisit",
+     "variant": "outline-white",
+     "icon": "/assets/images/schools/isdi/isdi-for-outstation/banner/arrow-rt.svg"
+    }
+   ],
+   "image": {
+    "src": "/assets/images/schools/isme/pages/site/global-pathway/ready-to-begin/1.png",
+    "alt": ""
+   }
+  },
+  {
+   "kind": "lpDisclaimer",
+   "label": "Disclaimer:",
+   "text": "ATLAS SkillTech University does not award foreign degrees and facilitates only the academic pathway and preparatory components. All foreign degree programs, accreditations, rankings, scholarships, visa outcomes and progression opportunities are governed solely by the policies of The London School of Economics and Political Science and applicable regulatory authorities and ATLAS SkillTech University does not guarantee any such outcomes. This is not a dual, joint or twinning degree program. Tuition fees are determined by The London School of Economics and Political Science (LSE) and may be revised at its discretion. Terms and conditions apply."
+  }
+ ]
+}

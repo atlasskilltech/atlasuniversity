@@ -1,0 +1,2134 @@
+{
+ "path": "/schools/isme/about/about-atlas-university-is-me",
+ "ref": "about/about-atlas-university-is-me.php",
+ "meta": {
+  "title": "About ATLAS ISME School of Management",
+  "description": "Learn about ISME’s vision, programs, leadership, industry focus and student-driven business education."
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "kind": "hero",
+   "height": "100vh",
+   "id": null,
+   "eyebrow": null,
+   "name": null,
+   "position": null,
+   "title": "About Us",
+   "text": "What began as a vision to disrupt conventional business education has evolved into a thriving ecosystem of entrepreneurs, changemakers, and future-ready leaders at ISME.",
+   "image": null,
+   "buttons": null,
+   "video": {
+    "sources": [
+     {
+      "src": "/assets/videos/schools/isme/pages/about-us-hero-video-transcode.mp4",
+      "type": "video/mp4"
+     },
+     {
+      "src": "/assets/videos/schools/isme/pages/about-us-hero-video-transcode.webm",
+      "type": "video/webm"
+     }
+    ],
+    "poster": "/assets/images/schools/isme/pages/about-us-hero-video-poster-00001.jpg"
+   }
+  },
+  {
+   "cards": [
+    {
+     "tone": "bg6",
+     "label": "When It All Began",
+     "value": "2016",
+     "note": null
+    },
+    {
+     "tone": "bg7",
+     "label": "ISME Alumni Network",
+     "value": "6,700 +",
+     "note": null
+    },
+    {
+     "tone": "bg8",
+     "label": "Founders Fuelled by ISME",
+     "value": "200 +",
+     "note": null
+    }
+   ],
+   "padBottom": false,
+   "kind": "stats"
+  },
+  {
+   "kind": "anchorMenu",
+   "centered": true,
+   "links": [
+    {
+     "label": "Vision-Mission",
+     "href": "#our-mission"
+    },
+    {
+     "label": "Our Story",
+     "href": "#our-story"
+    },
+    {
+     "label": "Leadership Team",
+     "href": "#our-leadership"
+    },
+    {
+     "label": "Faculty",
+     "href": "#",
+     "hidden": true
+    },
+    {
+     "label": "Location",
+     "href": "#our-location"
+    },
+    {
+     "label": "Thought Leadership",
+     "href": "#thought-leadership"
+    },
+    {
+     "label": "ATLAS Times",
+     "href": "#atlas-times"
+    },
+    {
+     "label": "Press Coverage",
+     "href": "#press-coverage"
+    }
+   ]
+  },
+  {
+   "kind": "missionVision",
+   "id": "our-mission",
+   "panels": [
+    {
+     "id": "mission",
+     "title": "Our Mission",
+     "lines": [
+      "To empower students with skills and cross-disciplinary knowledge to succeed in the world of Industry 4.0"
+     ],
+     "background": "#072058",
+     "image": "/assets/images/mission/mission-bg.png"
+    },
+    {
+     "id": "vision",
+     "title": "Our Vision",
+     "lines": [
+      "To create leaders of the future, equipped with the skills of tomorrow."
+     ],
+     "background": "#193e90",
+     "image": "/assets/images/mission/vision-bg.png"
+    }
+   ]
+  },
+  {
+   "kind": "iconSection",
+   "id": "our-story",
+   "icon": "/assets/images/advantages/partnership/cdn/notification.png",
+   "num": null,
+   "title": "Our Story",
+   "wrap": "blue",
+   "items": [
+    {
+     "heading": null,
+     "headingMods": [],
+     "headingOutside": false,
+     "imageFirst": false,
+     "video": {
+      "src": "https://www.youtube.com/embed/VhWExH3zajM?rel=1&controls=0&autoplay=1&mute=1&start=0",
+      "ratio": 56.17021276595745
+     },
+     "frame": "rect",
+     "image": null,
+     "text": [
+      "Established in 2016, ISME – School of Management & Entrepreneurship – began with a mission to deliver globally benchmarked education in business and entrepreneurship, preparing students to lead in a rapidly evolving world.\n\nThrough its commitment to innovation, excellence, and a student-centric approach, ISME quickly became a hub for aspiring leaders and changemakers. Over time, its academic scope led to the creation of ATLAS – a transdisciplinary university rooted with design, business and innovation in ISME’s founding vision."
+     ],
+     "button": null,
+     "kind": "storyRow",
+     "bare": true,
+     "rectWidth": "calc",
+     "turn": "md",
+     "common": true
+    }
+   ]
+  },
+  {
+   "kind": "shaping",
+   "heading": "Shaping a Viksit Bharat, Together",
+   "sub": "Social Impact That Aligns With India’s Vision 2047",
+   "cards": [
+    {
+     "variant": "isme",
+     "background": "#193e90",
+     "title": "Empowering Youth through Skill Development",
+     "text": "ATLAS ISME’s student-led initiative, Rover Angels, is empowering school girls to explore science, technology, engineering, and mathematics through engaging workshops and hands-on learning. By making STEM education more accessible and inspiring, this program fosters curiosity, confidence, and future opportunities for young minds from diverse backgrounds.",
+     "image": {
+      "src": "/assets/images/about/shaping/shaping-img-1.webp",
+      "alt": "",
+      "srcSet": "/assets/images/about/shaping/shaping-img-1-p-500.webp 500w, /assets/images/about/shaping/shaping-img-1.webp 683w",
+      "sizes": "100vw"
+     }
+    },
+    {
+     "variant": "isme-switch",
+     "background": "#13357e",
+     "title": "Promoting Inclusive and Quality Education",
+     "text": "Aligned with the National Education Policy (NEP) 2020, ATLAS ISME emphasizes an inclusive education model that caters to students from diverse socio-economic backgrounds. The institution promotes multidisciplinary learningand experiential education, enabling students to become agile learners and responsible citizens.",
+     "image": {
+      "src": "/assets/images/about/shaping/shaping-img-2.png",
+      "alt": "",
+      "srcSet": "/assets/images/about/shaping/shaping-img-2-p-500.png 500w, /assets/images/about/shaping/shaping-img-2.png 683w",
+      "sizes": "100vw"
+     }
+    },
+    {
+     "variant": "isme",
+     "background": "#193e90",
+     "title": "Supporting Sustainable Development Goals",
+     "text": "ATLAS ISME integrates sustainability and social responsibility into its curriculum and community outreach, supporting goals such as Quality Education, Decent Work and Economic Growth, and Reduced Inequalities, which align with India’s commitments under the UN SDGs.",
+     "image": {
+      "src": "/assets/images/about/shaping/shaping-img-3.png",
+      "alt": "",
+      "srcSet": "/assets/images/about/shaping/shaping-img-3-p-500.png 500w, /assets/images/about/shaping/shaping-img-3.png 684w",
+      "sizes": "100vw"
+     }
+    },
+    {
+     "variant": "isme-switch",
+     "background": "#13357e",
+     "title": "Advancing Holistic Education",
+     "text": "Team MUSHAK’s NASA journey reflects ATLAS’s vision of education that blends innovation, design, and impact. As India’s first team in the HERC RC Division, their 5th place finish and Social Media Award highlight how interdisciplinary learning and community outreach can drive real-world change and inspire future-ready minds.",
+     "image": {
+      "src": "/assets/images/about/shaping/shaping-img-4.png",
+      "alt": "",
+      "srcSet": "/assets/images/about/shaping/shaping-img-4-p-500.png 500w, /assets/images/about/shaping/shaping-img-4.png 683w",
+      "sizes": "100vw"
+     }
+    }
+   ]
+  },
+  {
+   "kind": "recognition",
+   "heading": "Recognition that reflects our commitment",
+   "sub": "Recognitions & Affiliations",
+   "current": 0,
+   "tabs": [
+    {
+     "label": "NAAC Accreditation",
+     "pane": {
+      "kind": "naac",
+      "award": {
+       "src": "/assets/images/schools/isme/pages/naac-award.png",
+       "alt": ""
+      },
+      "text": "India’s Youngest\nUniversity to Recieve\nNAAC Accreditation",
+      "image": {
+       "src": "/assets/images/about/recognition/naac-accredited.png",
+       "alt": "",
+       "srcSet": "/assets/images/about/recognition/naac-accredited-p-500.png 500w, /assets/images/about/recognition/naac-accredited-p-800.png 800w, /assets/images/about/recognition/naac-accredited-p-1080.png 1080w, /assets/images/about/recognition/naac-accredited.png 1238w",
+       "sizes": "(max-width: 1238px) 100vw, 1238px"
+      }
+     }
+    },
+    {
+     "label": "MoU’s",
+     "pane": {
+      "kind": "mou",
+      "text": "ATLAS SkillTech University signs Memorandums of Understanding (MoUs) to foster academic collaboration, student exchange, research opportunities, and global exposure.",
+      "image": {
+       "src": "/assets/images/about/recognition/mou-image.webp",
+       "alt": "",
+       "srcSet": "/assets/images/about/recognition/mou-image-p-500.webp 500w, /assets/images/about/recognition/mou-image-p-800.webp 800w, /assets/images/about/recognition/mou-image.webp 1024w",
+       "sizes": "100vw"
+      },
+      "logo": null,
+      "logos": [
+       {
+        "src": "/assets/images/about/recognition/mou-logo-1.png",
+        "alt": ""
+       },
+       {
+        "src": "/assets/images/about/recognition/mou-logo-2.png",
+        "alt": ""
+       },
+       {
+        "src": "/assets/images/about/recognition/mou-logo-3.png",
+        "alt": ""
+       },
+       {
+        "src": "/assets/images/about/recognition/mou-logo-4.png",
+        "alt": ""
+       },
+       {
+        "src": "/assets/images/about/recognition/mou-logo-5.png",
+        "alt": ""
+       },
+       {
+        "src": "/assets/images/about/recognition/mou-logo-6.png",
+        "alt": ""
+       },
+       {
+        "src": "/assets/images/about/recognition/uni_logo_bath_1280_510-e1535972281573-1-1.png",
+        "alt": ""
+       },
+       {
+        "src": "/assets/images/about/recognition/rmit_university_logo-1-1.png",
+        "alt": ""
+       },
+       {
+        "src": "/assets/images/about/recognition/griffith_university_logo_variant_2022.svg-1-1.png",
+        "alt": ""
+       },
+       {
+        "src": "/assets/images/about/recognition/group-1272631427.png",
+        "alt": ""
+       },
+       {
+        "src": "/assets/images/about/recognition/d280023b-a34c-4ace-8ee2-0a50cb0c48d5-1-1.png",
+        "alt": ""
+       },
+       {
+        "src": "/assets/images/about/recognition/sheffield-1.png",
+        "alt": ""
+       }
+      ],
+      "photoFirst": false
+     }
+    },
+    {
+     "label": "UGC Recognition",
+     "pane": {
+      "kind": "logo",
+      "text": "ATLAS SkillTech University, established in 2021 under the Maharashtra Act No. XV, has been officially recognized by the University Grants Commission (UGC) under Section 2(f) of the UGC Act, 1956 . This recognition affirms the university's compliance with national higher education standards.",
+      "image": {
+       "src": "/assets/images/about/recognition/ugc-recog-img.png",
+       "alt": "",
+       "srcSet": "/assets/images/about/recognition/ugc-recog-img-p-500.png 500w, /assets/images/about/recognition/ugc-recog-img-p-800.png 800w, /assets/images/about/recognition/ugc-recog-img-p-1080.png 1080w, /assets/images/about/recognition/ugc-recog-img.png 1238w",
+       "sizes": "100vw"
+      },
+      "logo": {
+       "src": "/assets/images/about/recognition/uni-grant-commision.png",
+       "alt": ""
+      },
+      "logos": [],
+      "photoFirst": true
+     }
+    },
+    {
+     "label": "Member of AIU",
+     "pane": {
+      "kind": "logo",
+      "text": "ATLAS SkillTech University is a proud member of the Association of Indian Universities (AIU), a key national body that ensures academic credibility and degree equivalence across India and abroad.",
+      "image": {
+       "src": "/assets/images/about/recognition/member-aiu-img.png",
+       "alt": "",
+       "srcSet": "/assets/images/about/recognition/member-aiu-img-p-500.png 500w, /assets/images/about/recognition/member-aiu-img-p-800.png 800w, /assets/images/about/recognition/member-aiu-img-p-1080.png 1080w, /assets/images/about/recognition/member-aiu-img.png 1238w",
+       "sizes": "100vw"
+      },
+      "logo": {
+       "src": "/assets/images/about/recognition/logo-for-third-tab.png",
+       "alt": ""
+      },
+      "logos": [],
+      "photoFirst": false
+     }
+    }
+   ]
+  },
+  {
+   "kind": "iconSection",
+   "id": "our-leadership",
+   "icon": "/assets/images/advantages/partnership/cdn/notification.png",
+   "num": null,
+   "title": "Leadership Team",
+   "wrap": "blue",
+   "items": [
+    {
+     "kind": "people",
+     "mods": [
+      "people-details"
+     ],
+     "common": true,
+     "quoteIcon": "/assets/images/leadership-team/quote-icon.svg",
+     "quote": "ATLAS is building a future-ready education model to equip young people in India with the skills and tech they need.",
+     "video": {
+      "poster": "/assets/images/about/chancellor/dr-shahani-video-poster.jpg",
+      "sources": [
+       {
+        "src": "/assets/videos/about/dr-shahani-video.mp4",
+        "type": "video/mp4"
+       },
+       {
+        "src": "/assets/videos/about/dr-shahani-video.webm",
+        "type": "video/webm"
+       }
+      ]
+     },
+     "name": "Dr. Indu Shahani",
+     "post": "President",
+     "paragraphs": [
+      "Dr. Indu Shahani is a renowned academic leader and institution builder with over four decades of experience in education and public service. Formerly the Sheriff of Mumbai, Principal of H.R. College, and Member of the University Grants Commission, she was also the first Indian to serve as Vice-Chair of the International Baccalaureate Board of Governors.",
+      "At ATLAS SkillTech University, Dr. Shahani is pioneering a future-focused, interdisciplinary model that bridges academics with industry. She serves on the boards of leading corporations including Colgate Palmolive, Diageo, HSBC AMC, Bajaj Electricals, and Eureka Forbes, driving her mission of creating responsible leaders and entrepreneurs for the new economy."
+     ],
+     "more": {
+      "label": "Read More",
+      "href": "/isme/dr-indu-shahani"
+     }
+    },
+    {
+     "kind": "people",
+     "mods": [
+      "people-details"
+     ],
+     "common": true,
+     "quoteIcon": "/assets/images/leadership-team/quote-icon.svg",
+     "quote": "ATLAS is building a future-ready education model to equip young people in India with the skills and tech they need.",
+     "video": {
+      "poster": "/assets/images/schools/isdi/about/leadership/sid-about-us-poster.jpg",
+      "sources": [
+       {
+        "src": "/assets/videos/schools/isdi/about/sid-about-us.mp4",
+        "type": "video/mp4"
+       },
+       {
+        "src": "/assets/videos/schools/isdi/about/sid-about-us.webm",
+        "type": "video/webm"
+       }
+      ]
+     },
+     "name": "Mr. Siddharth Shahani",
+     "post": "Executive President",
+     "paragraphs": [
+      "Siddharth Shahani, a global education leader, is the Co-founder and Executive President of ATLAS SkillTech University. With academic roots at University College London, a Master’s from the London School of Economics, and further specialization at London Business School, he brings a rich global perspective to higher education. Professionally, he honed his expertise at McKinsey & Company, London, where he advised global corporations on strategy and transformation.",
+      "At ATLAS, he is driving the vision of building India’s first urban, innovation university—an institution that combines cutting-edge global practices with the cultural depth of Indian values. His focus is on creating future-ready leaders equipped with interdisciplinary skills and entrepreneurial mindsets."
+     ],
+     "more": null
+    },
+    {
+     "kind": "people",
+     "mods": [
+      "people-details",
+      "padbtm0"
+     ],
+     "common": true,
+     "quoteIcon": "/assets/images/leadership-team/quote-icon.svg",
+     "quote": "Education must go beyond degrees it should shape individuals into responsible, innovative leaders.",
+     "video": {
+      "poster": "/assets/images/schools/isdi/about/leadership/dr-raja-welukar-poster.jpg",
+      "sources": [
+       {
+        "src": "/assets/videos/schools/isdi/about/dr-raja-welukar.mp4",
+        "type": "video/mp4"
+       },
+       {
+        "src": "/assets/videos/schools/isdi/about/dr-raja-welukar.webm",
+        "type": "video/webm"
+       }
+      ]
+     },
+     "name": "Dr Rajan Welukar",
+     "post": "Vice Chancellor",
+     "paragraphs": [
+      "Dr. Rajan Welukar, Vice Chancellor of ATLAS SkillTech University, is a distinguished academic leader with over 36 years in Indian higher education. A former Vice Chancellor of the University of Mumbai, he has also led institutions such as AURO University and Yashwantrao Chavan Maharashtra Open University. ",
+      "With a strong background as a teacher, policy advisor, and administrator, Dr. Welukar has served on key national and international education committees and continues to drive innovation, quality, and global best practices at ATLAS."
+     ],
+     "more": null
+    }
+   ]
+  },
+  {
+   "kind": "advisory",
+   "heading": "Steering Excellence, Guiding ATLAS",
+   "sub": "Our advisory board",
+   "button": {
+    "label": "View All",
+    "href": "https://atlasuniversity.edu.in/advisory-board-industry-academia-leaders",
+    "mobileIco": true
+   },
+   "people": [
+    {
+     "name": "Deepak Parekh",
+     "role": "Chairman",
+     "logo": {
+      "src": "/assets/images/about/advisory/image-1052-2-copy.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/about/advisory/board-img-1.webp",
+      "alt": ""
+     },
+     "video": {
+      "href": "#",
+      "url": "https://www.youtube.com/watch?v=nko8PuMgnT8",
+      "icon": "/assets/images/schools/isme/home/advisory/play-button-isme.png"
+     }
+    },
+    {
+     "name": "Vivek Pandit",
+     "role": "Senior Partner",
+     "logo": {
+      "src": "/assets/images/about/advisory/logo10.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/about/advisory/image-1053-copy-2.png",
+      "alt": ""
+     },
+     "video": {
+      "href": "#",
+      "url": "https://youtu.be/p2zCVkQdMtM",
+      "icon": "/assets/images/schools/isme/home/advisory/play-button-isme.png"
+     }
+    },
+    {
+     "name": "Ronnie Screwvala",
+     "role": "Chairperson & Co-Founder",
+     "logo": {
+      "src": "/assets/images/advisory-board/logo/upgrad.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/advisory-board/advisor/ronnie-screwvala.png",
+      "alt": ""
+     },
+     "video": {
+      "href": "https://www.youtube.com/shorts/DRCPfJBynd4",
+      "url": "https://www.youtube.com/embed/DRCPfJBynd4",
+      "icon": "/assets/images/schools/isme/home/advisory/play-button-isme.png"
+     }
+    },
+    {
+     "name": "Keshav Murugesh",
+     "role": "Group CEO",
+     "logo": {
+      "src": "/assets/images/about/advisory/image-1052-2.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/about/advisory/image-1053.png",
+      "alt": ""
+     },
+     "video": null
+    },
+    {
+     "name": "Karan Singh",
+     "role": "Chairman",
+     "logo": {
+      "src": "/assets/images/about/advisory/bain.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/about/advisory/image-1053-copy.png",
+      "alt": ""
+     },
+     "video": null
+    },
+    {
+     "name": "Anant Goenka",
+     "role": "Vice Chairman",
+     "logo": {
+      "src": "/assets/images/about/advisory/image-1052-2-copy-2.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/about/advisory/gradient-2.png",
+      "alt": ""
+     },
+     "video": null
+    },
+    {
+     "name": "Ram Raghavan",
+     "role": "President",
+     "logo": {
+      "src": "/assets/images/about/advisory/colgate1.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/about/advisory/gradient-2-copy.png",
+      "alt": ""
+     },
+     "video": null
+    },
+    {
+     "name": "Jamil Khatri",
+     "role": "Co-Founder & CEO",
+     "logo": {
+      "src": "/assets/images/about/advisory/logo1.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/about/advisory/gradient-2-copy-2.png",
+      "alt": ""
+     },
+     "video": null
+    },
+    {
+     "name": "Avani Davda",
+     "role": "Stretegic Advisor",
+     "logo": {
+      "src": "/assets/images/about/advisory/bain.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/about/advisory/gradient-2-copy-3.png",
+      "alt": ""
+     },
+     "video": null
+    },
+    {
+     "name": "Aryaman Birla",
+     "role": "Director",
+     "logo": {
+      "src": "/assets/images/about/advisory/logo2.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/about/advisory/gradient-2-copy-4.png",
+      "alt": ""
+     },
+     "video": null
+    },
+    {
+     "name": "Sanjay Gurbuxani",
+     "role": "VP, IBS AMEA & Global Digital Innovation",
+     "logo": {
+      "src": "/assets/images/about/advisory/logo9.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/about/advisory/gradient-3.png",
+      "alt": ""
+     },
+     "video": null
+    },
+    {
+     "name": "Anita Dongre",
+     "role": null,
+     "logo": {
+      "src": "/assets/images/about/advisory/logo4.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/about/advisory/anita.png",
+      "alt": ""
+     },
+     "video": null
+    },
+    {
+     "name": "Dr. Indu Shahani",
+     "role": "Founding President and Chancellor",
+     "logo": {
+      "src": "/assets/images/about/advisory/logo5.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/about/advisory/gradient-2-copy-8.png",
+      "alt": ""
+     },
+     "video": null
+    },
+    {
+     "name": "Mayank Kumar",
+     "role": "Co-Founder & MD",
+     "logo": {
+      "src": "/assets/images/advisory-board/logo/upgrad.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/advisory-board/advisor/mayank-kumar.png",
+      "alt": ""
+     },
+     "video": null
+    }
+   ]
+  },
+  {
+   "kind": "management",
+   "id": "isme-faculty",
+   "heading": "Our Management Team",
+   "button": {
+    "label": "View All",
+    "href": "/isme/management-team",
+    "mobileIco": false
+   },
+   "swiperMods": [
+    "swiper",
+    "common-swiper-full"
+   ],
+   "people": [
+    {
+     "name": "Prof. Heena Thakur",
+     "role": "Director, IQAC",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/heena-thakur.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Prof. Bulbul Chaudhary",
+     "role": "Pro-Vice Chancellor\nOutreach",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/bulls.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Dr Parag Amin",
+     "role": "Registrar",
+     "image": {
+      "src": "/assets/images/schools/isdi/about/management/parag-amin.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Dr. Zuleika Homavazir",
+     "role": "General Secretary",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/zuleikha-homavazir.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Prof. Bhargavi Deshpande",
+     "role": "Director, Student Welfare",
+     "image": {
+      "src": "/assets/images/schools/isdi/about/management/prof-bhargavi-deshpande.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Sagar Nichani",
+     "role": "Director, Career Services & Corporate Relations",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/sagar-nichani-2.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Sweety Sethi",
+     "role": "Director, International Relations",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/sweety-sethi.webp",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Alok Baptist",
+     "role": "Executive Director, Outreach & Admissions",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/alok.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Dr Malcom Homavazir",
+     "role": "Director of Academic Excellence",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/malcom.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Dr. Hemal Thakkar",
+     "role": "Director, Board of Assessment & Evaluation",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/dr-hemal-thakkar.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Dr. Meena Desai",
+     "role": "Director, Alumni Affairs",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/dr-meena-desai.png",
+      "alt": ""
+     }
+    }
+   ]
+  },
+  {
+   "kind": "iconSection",
+   "id": "our-location",
+   "icon": "/assets/images/advantages/partnership/cdn/notification.png",
+   "num": null,
+   "title": "In The Heart of Mumbai",
+   "wrap": "blue",
+   "items": [
+    {
+     "heading": null,
+     "headingMods": [],
+     "headingOutside": false,
+     "imageFirst": false,
+     "aboutTitle": "ATLAS Skilltech University,BKC, Mumbai",
+     "frame": "rect",
+     "image": {
+      "src": "/assets/images/location/location-img.webp",
+      "alt": ""
+     },
+     "text": [
+      "Nestled near BKC, our campus sits at the intersection of education and enterprise.\n‍\nWith 500+ companies and Mumbai’s business pulse all around, opportunity doesn’t knock—it’s already next door.\n‍\nFrom casual conversations with professionals to guest lectures and industry visits, learning happens beyond the classroom.\n‍\nGlobal names like Netflix, Google, Amazon, and Deloitte—opportunity doesn’t knock, it’s already next door."
+     ],
+     "button": null,
+     "kind": "storyRow",
+     "bare": true,
+     "rectWidth": "calc",
+     "turn": "md",
+     "common": true
+    }
+   ]
+  },
+  {
+   "kind": "iconSection",
+   "id": "thought-leadership",
+   "icon": "/assets/images/advantages/partnership/cdn/notification.png",
+   "num": null,
+   "title": "Thought Leadership",
+   "wrap": "white",
+   "items": [
+    {
+     "kind": "subsection",
+     "items": [
+      {
+       "kind": "swiper",
+       "mods": [
+        "swiper",
+        "common-swiper",
+        "w-dyn-list"
+       ],
+       "cards": [
+        {
+         "kind": "a",
+         "title": "10 Reasons Why Business Analytics Is One of the Fastest-Growing Careers in India",
+         "date": "July 7, 2025",
+         "href": "/thought-leaderships/10-reasons-why-business-analytics-is-one-of-the-fastest-growing-careers-in-india",
+         "image": {
+          "src": "/assets/images/schools/isme/home/thought-leadership/career-fast-growing.png",
+          "alt": "",
+          "srcSet": "/assets/images/schools/isme/home/thought-leadership/career-fast-growing-p-500.png 500w, /assets/images/schools/isme/home/thought-leadership/career-fast-growing-p-800.png 800w, /assets/images/schools/isme/home/thought-leadership/career-fast-growing-p-1080.png 1080w, /assets/images/schools/isme/home/thought-leadership/career-fast-growing.png 1536w",
+          "sizes": "100vw"
+         },
+         "cta": "Read now"
+        },
+        {
+         "kind": "a",
+         "title": "How can Business Analytics be used in Marketing?",
+         "date": "April 28, 2025",
+         "href": "/thought-leaderships/how-can-business-analytics-be-used-in-marketing",
+         "image": {
+          "src": "/assets/images/schools/isme/home/thought-leadership/business-a-m.png",
+          "alt": "",
+          "srcSet": "/assets/images/schools/isme/home/thought-leadership/business-a-m-p-500.png 500w, /assets/images/schools/isme/home/thought-leadership/business-a-m-p-800.png 800w, /assets/images/schools/isme/home/thought-leadership/business-a-m-p-1080.png 1080w, /assets/images/schools/isme/home/thought-leadership/business-a-m.png 1536w",
+          "sizes": "100vw"
+         },
+         "cta": "Read now"
+        },
+        {
+         "kind": "a",
+         "title": "The Role of Big Data in Financial Decision Making",
+         "date": "June 2, 2025",
+         "href": "/thought-leaderships/the-role-of-big-data-in-financial-decision-making-b6adp",
+         "image": {
+          "src": "/assets/images/schools/isme/home/thought-leadership/ba-financial-decision-making-square.png",
+          "alt": ""
+         },
+         "cta": "Read now"
+        },
+        {
+         "kind": "a",
+         "title": "Top Career Paths After BSc Finance in India",
+         "date": "June 9, 2025",
+         "href": "/thought-leaderships/top-career-paths-after-bsc-finance-in-india",
+         "image": {
+          "src": "/assets/images/schools/isme/home/thought-leadership/bsc-business-finance-square.png",
+          "alt": ""
+         },
+         "cta": "Read now"
+        },
+        {
+         "kind": "a",
+         "title": "What Is A Bachelor Of Business Administration (BBA)? A Complete Guide For Students",
+         "date": "May 30, 2025",
+         "href": "/thought-leaderships/decoding-the-digital-future-key-insights-from-the-co-elev8-session-with-industry-expert-ravin-kumar-jhaala",
+         "image": {
+          "src": "/assets/images/schools/isme/home/thought-leadership/bba-square.png",
+          "alt": ""
+         },
+         "cta": "Read now"
+        },
+        {
+         "kind": "a",
+         "title": "What to Expect in All 4 Years of a BSc Finance Degree",
+         "date": "",
+         "href": "/thought-leaderships/what-to-expect-in-all-4-years-of-a-bsc-finance-degree",
+         "image": {
+          "src": "/assets/images/schools/isme/home/thought-leadership/bba-4-degree-square.png",
+          "alt": ""
+         },
+         "cta": "Read now"
+        }
+       ],
+       "common": false
+      }
+     ],
+     "common": false
+    }
+   ],
+   "button": {
+    "label": "View more",
+    "href": "/isme/thought-leadership",
+    "variant": null,
+    "shape": "secondary",
+    "mobileIco": true
+   }
+  },
+  {
+   "kind": "iconSection",
+   "id": "atlas-times",
+   "icon": "/assets/images/advantages/partnership/cdn/notification.png",
+   "num": null,
+   "title": "ATLAS Times",
+   "wrap": "blue",
+   "items": [
+    {
+     "kind": "swiper",
+     "mods": [
+      "swiper",
+      "common-swiper",
+      "w-dyn-list"
+     ],
+     "cards": [
+      {
+       "kind": "a",
+       "title": "ATLAS HR Conclave 2025: Shaping the Future of Work and Talent",
+       "date": "October 10, 2025",
+       "href": "/atlas-times/atlas-hr-conclave-2025-shaping-the-future-of-work-and-talent",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/hr-conclave.jpeg",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isdi/about/atlas-times/hr-conclave-p-500.jpeg 500w, /assets/images/schools/isdi/about/atlas-times/hr-conclave-p-800.jpeg 800w, /assets/images/schools/isdi/about/atlas-times/hr-conclave-p-1080.jpeg 1080w, /assets/images/schools/isme/pages/hr-conclave-p-1600.jpeg 1600w, /assets/images/schools/isme/pages/hr-conclave-p-2000.jpeg 2000w, /assets/images/schools/isme/pages/hr-conclave.jpeg 2048w",
+        "sizes": "100vw"
+       },
+       "cta": "Read now"
+      },
+      {
+       "kind": "a",
+       "title": "Himanshu Mehta’s insightful session on the Impact of Geopolitics on International Business",
+       "date": "February 13, 2023",
+       "href": "/atlas-times/himanshu-mehtas-insightful-session-on-the-impact-of-geopolitics-on-international-business",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/an12.jpeg",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isdi/about/atlas-times/an12-p-500.jpeg 500w, /assets/images/schools/isdi/about/atlas-times/an12-p-800.jpeg 800w, /assets/images/schools/isdi/about/atlas-times/an12-p-1080.jpeg 1080w, /assets/images/schools/isme/pages/an12.jpeg 1368w",
+        "sizes": "100vw"
+       },
+       "cta": "Read now"
+      },
+      {
+       "kind": "a",
+       "title": "ATLAS Hosts Session on ‘Building ChatGPT Killer from India’ with Vishnu Ramesh, CEO of Subtl.ai",
+       "date": "September 6, 2023",
+       "href": "/atlas-times/atlas-hosts-session-on-building-chatgpt-killer-from-india-with-vishnu-ramesh-ceo-of-subtl-ai-2",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/an11.jpg",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isdi/about/atlas-times/an11-p-500.jpg 500w, /assets/images/schools/isdi/about/atlas-times/an11-p-800.jpg 800w, /assets/images/schools/isdi/about/atlas-times/an11-p-1080.jpg 1080w, /assets/images/schools/isme/pages/an11-p-1600.jpg 1600w, /assets/images/schools/isme/pages/an11-p-2000.jpg 2000w, /assets/images/schools/isme/pages/an11.jpg 2048w",
+        "sizes": "100vw"
+       },
+       "cta": "Read now"
+      },
+      {
+       "kind": "a",
+       "title": "ATLAS | ISME MBA Students Attend IAA Tech Pulse 2023 Conference",
+       "date": "April 28, 2023",
+       "href": "/atlas-times/atlas-isme-mba-students-attend-iaa-tech-pulse-2023-conference",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/an10.jpeg",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isdi/about/atlas-times/an10-p-500.jpeg 500w, /assets/images/schools/isdi/about/atlas-times/an10-p-800.jpeg 800w, /assets/images/schools/isdi/about/atlas-times/an10-p-1080.jpeg 1080w, /assets/images/schools/isme/pages/an10.jpeg 1600w",
+        "sizes": "100vw"
+       },
+       "cta": "Read now"
+      },
+      {
+       "kind": "a",
+       "title": "MBA Springboard: ATLAS ISME Initiative To Build Hyper-Personalised Curriculum For Future Leaders",
+       "date": "May 10, 2023",
+       "href": "/atlas-times/mba-springboard-atlas-isme-initiative-to-build-hyper-personalised-curriculum-for-future-leaders",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/an9extra.jpg",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isdi/about/atlas-times/an9extra-p-500.jpg 500w, /assets/images/schools/isdi/about/atlas-times/an9extra-p-800.jpg 800w, /assets/images/schools/isdi/about/atlas-times/an9extra-p-1080.jpg 1080w, /assets/images/schools/isme/pages/an9extra-p-1600.jpg 1600w, /assets/images/schools/isme/pages/an9extra-p-2000.jpg 2000w, /assets/images/schools/isme/pages/an9extra.jpg 2048w",
+        "sizes": "100vw"
+       },
+       "cta": "Read now"
+      },
+      {
+       "kind": "a",
+       "title": "Mastering The Art Of Restaurant Sales: Siddharth Jogani’s Guest Session At ATLAS ISME",
+       "date": "September 23, 2023",
+       "href": "/atlas-times/mastering-the-art-of-restaurant-sales-siddharth-joganis-guest-session-at-atlas-isme-kitb8",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/an8.jpg",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isdi/about/atlas-times/an8-p-500.jpg 500w, /assets/images/schools/isdi/about/atlas-times/an8-p-800.jpg 800w, /assets/images/schools/isdi/about/atlas-times/an8-p-1080.jpg 1080w, /assets/images/schools/isme/pages/an8-p-1600.jpg 1600w, /assets/images/schools/isme/pages/an8-p-2000.jpg 2000w, /assets/images/schools/isme/pages/an8.jpg 2048w",
+        "sizes": "100vw"
+       },
+       "cta": "Read now"
+      },
+      {
+       "kind": "a",
+       "title": "Pradeep Shashidharan From PENSKE Shares Practical Insights On Product Management With ATLAS ISME Students",
+       "date": "December 13, 2023",
+       "href": "/atlas-times/pradeep-shashidharan-from-penske-shares-practical-insights-on-product-management-with-atlas-isme-students",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/an7.jpg",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isdi/about/atlas-times/an7-p-500.jpg 500w, /assets/images/schools/isdi/about/atlas-times/an7-p-800.jpg 800w, /assets/images/schools/isdi/about/atlas-times/an7-p-1080.jpg 1080w, /assets/images/schools/isme/pages/an7-p-1600.jpg 1600w, /assets/images/schools/isme/pages/an7-p-2000.jpg 2000w, /assets/images/schools/isme/pages/an7.jpg 2048w",
+        "sizes": "100vw"
+       },
+       "cta": "Read now"
+      },
+      {
+       "kind": "a",
+       "title": "Transformative Industry Immersion: ATLAS ISME’s MBA Students Explore Innovation And Sustainability At Belimo, Navi Mumbai",
+       "date": "January 19, 2024",
+       "href": "/atlas-times/transformative-industry-immersion-atlas-ismes-mba-students-explore-innovation-and-sustainability-at-belimo-navi-mumbai",
+       "image": {
+        "src": "/assets/images/schools/isdi/about/atlas-times/an6.jpeg",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isdi/about/atlas-times/an6-p-500.jpeg 500w, /assets/images/schools/isdi/about/atlas-times/an6.jpeg 770w",
+        "sizes": "100vw"
+       },
+       "cta": "Read now"
+      },
+      {
+       "kind": "a",
+       "title": "Sneha Basu Roy From Google India Unlocks The Power Of Analytics For ATLAS ISME’s MBA Students",
+       "date": "March 11, 2024",
+       "href": "/atlas-times/sneha-basu-roy-from-google-india-unlocks-the-power-of-analytics-for-atlas-ismes-mba-students",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/an5.jpg",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isdi/about/atlas-times/an5-p-500.jpg 500w, /assets/images/schools/isdi/about/atlas-times/an5-p-800.jpg 800w, /assets/images/schools/isdi/about/atlas-times/an5-p-1080.jpg 1080w, /assets/images/schools/isme/pages/an5-p-1600.jpg 1600w, /assets/images/schools/isme/pages/an5-p-2000.jpg 2000w, /assets/images/schools/isme/pages/an5.jpg 2048w",
+        "sizes": "100vw"
+       },
+       "cta": "Read now"
+      },
+      {
+       "kind": "a",
+       "title": "ATLAS ISME Hosts Masterclass With Mastercard Expert On Mastering Job Interview",
+       "date": "March 27, 2024",
+       "href": "/atlas-times/atlas-isme-hosts-masterclass-with-mastercard-expert-on-mastering-job-interview",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/an3.jpg",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isdi/about/atlas-times/an3-p-500.jpg 500w, /assets/images/schools/isdi/about/atlas-times/an3-p-800.jpg 800w, /assets/images/schools/isdi/about/atlas-times/an3-p-1080.jpg 1080w, /assets/images/schools/isme/pages/an3-p-1600.jpg 1600w, /assets/images/schools/isme/pages/an3-p-2000.jpg 2000w, /assets/images/schools/isme/pages/an3.jpg 2048w",
+        "sizes": "100vw"
+       },
+       "cta": "Read now"
+      },
+      {
+       "kind": "a",
+       "title": "ATLAS ISME Hosts Masterclass On Integrated Marketing Communications With Marketing Expert Ketan Bharati",
+       "date": "April 12, 2024",
+       "href": "/atlas-times/atlas-isme-hosts-masterclass-on-integrated-marketing-communications-with-marketing-expert-ketan-bharati",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/an2.jpg",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isdi/about/atlas-times/an2-p-500.jpg 500w, /assets/images/schools/isdi/about/atlas-times/an2-p-800.jpg 800w, /assets/images/schools/isdi/about/atlas-times/an2-p-1080.jpg 1080w, /assets/images/schools/isme/pages/an2-p-1600.jpg 1600w, /assets/images/schools/isme/pages/an2-p-2000.jpg 2000w, /assets/images/schools/isme/pages/an2.jpg 2048w",
+        "sizes": "100vw"
+       },
+       "cta": "Read now"
+      },
+      {
+       "kind": "a",
+       "title": "Pioneers Of Progress: ATLAS ISME Alumni Inspire The Next Generation Of Entrepreneurs",
+       "date": "February 3, 2025",
+       "href": "/atlas-times/pioneers-of-progress-atlas-isme-alumni-inspire-the-next-generation-of-entrepreneurs",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/an1extra.jpg",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isdi/about/atlas-times/an1extra-p-500.jpg 500w, /assets/images/schools/isdi/about/atlas-times/an1extra-p-800.jpg 800w, /assets/images/schools/isdi/about/atlas-times/an1extra-p-1080.jpg 1080w, /assets/images/schools/isme/pages/an1extra-p-1600.jpg 1600w, /assets/images/schools/isme/pages/an1extra-p-2000.jpg 2000w, /assets/images/schools/isme/pages/an1extra.jpg 2048w",
+        "sizes": "100vw"
+       },
+       "cta": "Read now"
+      }
+     ],
+     "common": false
+    }
+   ],
+   "button": {
+    "label": "View more",
+    "href": "/isme/patents",
+    "variant": null,
+    "shape": "secondary",
+    "mobileIco": true
+   }
+  },
+  {
+   "kind": "iconSection",
+   "id": "press-coverage",
+   "icon": "/assets/images/advantages/partnership/cdn/notification.png",
+   "num": null,
+   "title": "Press Coverage",
+   "wrap": "white",
+   "items": [
+    {
+     "kind": "swiper",
+     "mods": [
+      "swiper",
+      "common-swiper"
+     ],
+     "cards": [
+      {
+       "kind": "news",
+       "logo": {
+        "src": "/assets/images/about/news/economic-times-logo.png",
+        "alt": ""
+       },
+       "image": {
+        "src": "/assets/images/about/news/picture-for-economic-times.png",
+        "alt": ""
+       },
+       "title": "ATLAS SkillTech University Fellows all set to lead the changing economy with their breakthrough success",
+       "date": "Aug 20, 2024",
+       "href": "#",
+       "newTab": true
+      },
+      {
+       "kind": "news",
+       "logo": {
+        "src": "/assets/images/about/news/media-brief-logo.png",
+        "alt": ""
+       },
+       "image": {
+        "src": "/assets/images/about/news/picture-for-mediabrief.png",
+        "alt": ""
+       },
+       "title": "ATLAS ISME launches ‘NextGen Leaders Pre-MBA Case Competition’ with PwC India as knowledge partner",
+       "date": "Aug 20, 2024",
+       "href": "https://mediabrief.com/atlas-isme-launches-the-nextgen-leaders-pre-mba-case-competition/",
+       "newTab": true
+      },
+      {
+       "kind": "news",
+       "logo": {
+        "src": "/assets/images/about/news/mint-logo.png",
+        "alt": ""
+       },
+       "image": {
+        "src": "/assets/images/about/news/picture-for-mint.png",
+        "alt": ""
+       },
+       "title": "ATLAS SkillTech University Brings Leading International Faculty To Mumbai Campus",
+       "date": "Aug 20, 2024",
+       "href": "#",
+       "newTab": true
+      },
+      {
+       "kind": "news",
+       "logo": {
+        "src": "/assets/images/about/news/hindustan-times-logo.png",
+        "alt": ""
+       },
+       "image": {
+        "src": "/assets/images/about/news/picture-for-hindustan-times.png",
+        "alt": ""
+       },
+       "title": "ATLAS students to represent India in NASA Rover Challenge",
+       "date": "Aug 20, 2024",
+       "href": "#",
+       "newTab": true
+      },
+      {
+       "kind": "news",
+       "logo": {
+        "src": "/assets/images/about/news/times-education-logo.png",
+        "alt": ""
+       },
+       "image": {
+        "src": "/assets/images/about/news/picture-for-times-education.png",
+        "alt": ""
+       },
+       "title": "ATLAS features in Times Education Icons 2022",
+       "date": "Aug 20, 2024",
+       "href": "#",
+       "newTab": true
+      },
+      {
+       "kind": "news",
+       "logo": {
+        "src": "/assets/images/about/news/toi-logo.png",
+        "alt": ""
+       },
+       "image": {
+        "src": "/assets/images/about/news/picture-for-toi.png",
+        "alt": ""
+       },
+       "title": "Rahul Dev kicks off Fresh Face 2025 on a high note",
+       "date": "Aug 20, 2024",
+       "href": "#",
+       "newTab": true
+      }
+     ],
+     "common": false
+    }
+   ],
+   "button": {
+    "label": "View more",
+    "href": "/isme/press-coverage",
+    "variant": null,
+    "shape": "secondary",
+    "mobileIco": true
+   }
+  },
+  {
+   "kind": "search",
+   "id": null
+  },
+  {
+   "heading": "Questions? We can read your mind",
+   "items": [
+    {
+     "q": "What Programs are offered at ATLAS ISME?",
+     "a": [
+      [
+       {
+        "strong": "ATLAS ISME is a reputed institution that is known for its distinct teaching methods. We are UGC recognised and offer the following specialised undergraduate programs:"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "BBA / BBA Hons. (With Majors & Minors)"
+         }
+        ],
+        [
+         {
+          "strong": "BBA / BBA (Hons.) Majoring in Marketing"
+         }
+        ],
+        [
+         {
+          "strong": "BBA / BBA (Hons.) Majoring in Finance"
+         }
+        ],
+        [
+         {
+          "strong": "BBA / BBA (Hons.) Majoring in Business Analytics"
+         }
+        ],
+        [
+         {
+          "strong": "BBA / BBA (Hons.) Majoring in Digital Branding & Advertising"
+         }
+        ],
+        [
+         {
+          "strong": "BBA / BBA (Hons.) Majoring in AI & Emerging Technologies"
+         }
+        ],
+        [
+         {
+          "strong": "BBA / BBA (Hons.) Majoring in Business Psychology"
+         }
+        ],
+        [
+         {
+          "strong": "BBA / BBA (Hons.) International Accounting and Finance"
+         }
+        ],
+        [
+         {
+          "strong": "B.Sc Hons. in Finance"
+         }
+        ],
+        [
+         {
+          "strong": "B.Sc Hons. in Economics & Data Analytics"
+         }
+        ]
+       ]
+      },
+      [
+       {
+        "strong": "These are 4-year programs that are taught by experts and include global immersions and equip students with the skills required for the industry."
+       }
+      ],
+      [
+       {
+        "strong": "Please note we do not offer any diploma courses or standalone certificate courses."
+       }
+      ]
+     ]
+    },
+    {
+     "q": "ATLAS ISME program equips you to become a future-ready leader with:",
+     "a": [
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Multidisciplinary Education for a dynamic business world."
+         }
+        ],
+        [
+         {
+          "strong": "Entrepreneurial Skills to thrive in any industry."
+         }
+        ],
+        [
+         {
+          "strong": "International Exposure for a global perspective."
+         }
+        ],
+        [
+         {
+          "strong": "Industry-Focused Education through exclusive masterclasses and industry visits by top professionals."
+         }
+        ],
+        [
+         {
+          "strong": "Tech-Integrated Learning to prepare you for a digital-first business environment."
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "q": "Is ATLAS ISME UGC?certified?",
+     "a": [
+      [
+       {
+        "strong": "Yes, all the programs at ATLAS ISME are UGC-recognised."
+       }
+      ],
+      [
+       {
+        "strong": "ATLAS SkillTech University is recognised by the University Grants Commission (UGC)."
+       }
+      ],
+      [
+       {
+        "strong": "It was established by an Act of the Maharashtra State Legislature and is recognised under Section 2(f) of the UGC Act, 1956. Furthermore, it is also a member of the Association of Indian Universities (AIU)."
+       }
+      ]
+     ]
+    },
+    {
+     "q": "What is the Multidisciplinary Approach at ATLAS ISME?",
+     "a": [
+      [
+       {
+        "strong": "Design thinking, creativity and technological innovation is what fuels our Multidisciplinary Approach at ATLAS ISME"
+       }
+      ],
+      [
+       {
+        "strong": "Rooted in interdisciplinary skill development, our business programs, bolstered by a tech-integrated campus, offer every learner the unique opportunity to pursue diverse interests."
+       }
+      ],
+      [
+       {
+        "strong": "At ATLAS ISME, we always ensure flexibility. Our main focus is for students to explore diverse interests and broaden their horizons by taking carefully curated electives in areas like fashion design, AI & machine learning, and VFX, even alongside a business degree. This flexibility is key to developing well-rounded, future-ready professionals."
+       }
+      ]
+     ]
+    },
+    {
+     "q": "Do ATLAS ISME really provide industry immersions?",
+     "a": [
+      [
+       {
+        "strong": "ATLAS ISME School of Management & Entrepreneurship works intricately with the dynamic business industry bustling right outside the campus gates to create unmatched opportunities like masterclasses, global and rural immersions, internships, industry mentorship and visiting faculty sessions that put our students on the global map."
+       }
+      ],
+      [
+       {
+        "strong": "Our boundary-pushing management courses boast an industry-recognised curriculum, backed by global standards of business practice, designed to help students develop critical Industry 4.0 skills and make an unforgettable mark on the international stage."
+       }
+      ]
+     ]
+    },
+    {
+     "q": "What are the top career opportunities after a BBA from ATLAS ISME ?",
+     "a": [
+      [
+       {
+        "strong": "A BBA / BBA(Hons.) program opens doors to many opportunities such as"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Marketing Executive/Manager"
+         }
+        ],
+        [
+         {
+          "strong": "Startup Founder/Entrepreneur,"
+         }
+        ],
+        [
+         {
+          "strong": "Financial Analyst"
+         }
+        ],
+        [
+         {
+          "strong": "Business Analyst"
+         }
+        ],
+        [
+         {
+          "strong": "Product Manager"
+         }
+        ],
+        [
+         {
+          "strong": "Credit Analysts"
+         }
+        ],
+        [
+         {
+          "strong": "Business Development Manager"
+         }
+        ],
+        [
+         {
+          "strong": "Data Analyst"
+         }
+        ],
+        [
+         {
+          "strong": "Management Trainee"
+         }
+        ],
+        [
+         {
+          "strong": "Portfolio Manager"
+         }
+        ],
+        [
+         {
+          "strong": "Investment Banker etc."
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "q": "What are the top career opportunities after a BSC in Finance from ATLAS ISME ?",
+     "a": [
+      [
+       {
+        "strong": "After completing a BSc in Finance from ATLAS ISME, students can pursue any of these top career opportunities:"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Financial Analyst"
+         }
+        ],
+        [
+         {
+          "strong": "Investment Banker"
+         }
+        ],
+        [
+         {
+          "strong": "Corporate Finance"
+         }
+        ],
+        [
+         {
+          "strong": "Wealth Management"
+         }
+        ],
+        [
+         {
+          "strong": "Risk Management"
+         }
+        ],
+        [
+         {
+          "strong": "Mutual Fund Analyst"
+         }
+        ],
+        [
+         {
+          "strong": "Economic Research Analyst"
+         }
+        ],
+        [
+         {
+          "strong": "Mergers & Acquisitions (M&A) Analyst etc."
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "q": "How are ATLAS ISME future-focused programs, like BBA in Digital Branding or AI & Emerging Tech, different from a traditional BBA degree?",
+     "a": [
+      [
+       {
+        "strong": "Our BBA programs are future-focused, with an emphasis on digital branding or AI and emerging tech, which stands out from traditional BBA degrees. We offer:"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Industry-endorsed curriculum: Integrating cutting-edge tools and market-relevant skills, it prepares students for the AI-powered economy."
+         }
+        ]
+       ]
+      },
+      [
+       {
+        "strong": "Specialised focus: Unlike broad, traditional BBAs, we focus on sharpening skills that are market-relevant and equipping students with applicable skills for specific industry roles through the program."
+       }
+      ]
+     ]
+    },
+    {
+     "q": "What kinds of real-world simulations and decision-making scenarios are included in the ATLAS ISME academic curriculum?",
+     "a": [
+      [
+       {
+        "strong": "ATLAS ISME offers a rich array of real-world simulations and decision-making scenarios integrated into the academic curriculum. We are renowned for:"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Case studies: ATLAS ISME extensively utilises current and complex cases from various industries."
+         }
+        ],
+        [
+         {
+          "strong": "Business simulations: Leveraging advanced business simulation tools, we are able to replicate dynamic market environments, allowing students to experience the immediate consequences of their choices in a risk-free setting."
+         }
+        ],
+        [
+         {
+          "strong": "Live projects: The program mandates participation in live industry projects and corporate immersions."
+         }
+        ]
+       ]
+      },
+      [
+       {
+        "strong": "ATLAS electives: ATLAS electives focus on ensuring students can gain immense learning from structured debates on contemporary business dilemmas, enhancing critical thinking."
+       }
+      ]
+     ]
+    },
+    {
+     "q": "Can ATLAS ISME undergraduate students launch real startups while earning credits, and how do these ventures receive support?",
+     "a": [
+      [
+       {
+        "strong": "ATLAS ISME focuses on equipping students with entrepreneurial skills. The curriculum enables students to prepare for real VC pitches and explore startup ideas. The faculty assists students with building and launching ventures. We distinguish ourselves from other reputable institutions by offering"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Credit-bearing ventures"
+         }
+        ],
+        [
+         {
+          "strong": "Structured curriculum"
+         }
+        ],
+        [
+         {
+          "strong": "Real-world application"
+         }
+        ],
+        [
+         {
+          "strong": "Incubation support and mentorship"
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "q": "Do ATLAS ISME offer experiential learning? What is the teaching methodology at ATLAS ISME?",
+     "a": [
+      [
+       {
+        "strong": "Yes, ATLAS ISME follows an experiential, industry-integrated teaching methodology."
+       }
+      ],
+      {
+       "list": "ol",
+       "items": [
+        [
+         {
+          "strong": "Inside the classroom learning at ATLAS ISME"
+         }
+        ]
+       ]
+      },
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Case Studies"
+         }
+        ],
+        [
+         {
+          "strong": "Discussions & Debates"
+         }
+        ],
+        [
+         {
+          "strong": "Academic Articles"
+         }
+        ],
+        [
+         {
+          "strong": "Text-Book References"
+         }
+        ],
+        [
+         {
+          "strong": "Industry Notes"
+         }
+        ]
+       ]
+      },
+      {
+       "list": "ol",
+       "items": [
+        [
+         {
+          "strong": "Outside the classroom learning"
+         }
+        ]
+       ]
+      },
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Industry Integration"
+         }
+        ],
+        [
+         {
+          "strong": "Industry Immersions & Visits"
+         }
+        ],
+        [
+         {
+          "strong": "Internships"
+         }
+        ],
+        [
+         {
+          "strong": "CXO Masterclasses"
+         }
+        ],
+        [
+         {
+          "strong": "Mentorship"
+         }
+        ],
+        [
+         {
+          "strong": "Live Projects"
+         }
+        ],
+        [
+         {
+          "strong": "Extra Curriculars Sports Clubs"
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "q": "What is the eligibility criteria for the BBA programs at ATLAS ISME?",
+     "a": [
+      [
+       {
+        "strong": "Candidates currently in their 12th grade & will be appearing for a 10 + 2 examination (e.g.: CBSE, HSC, IGCSE- A levels, IBDP, ISC etc.), or its educational equivalent in any discipline (e.g.: Commerce, Science, Arts) are eligible to apply"
+       }
+      ],
+      [
+       {
+        "strong": "Or"
+       }
+      ],
+      [
+       {
+        "strong": "have passed their 10+2 (or equivalent) examination in any discipline from a recognised board are eligible for the BBA program at ATLAS ."
+       }
+      ],
+      [
+       {
+        "strong": "Accepted Education Boards & Qualifications"
+       }
+      ],
+      [
+       {
+        "strong": "Central Board of Secondary Education (CBSE) / State Board / Council for the Indian School Certificate Examinations (CISCE) / National Institute of Open Schooling (NIOS) – 10+2 IB Diploma/ IB Certificate/ IB CP with minimum 3 Higher Level and 3 Standard Level subjects mandatory with a minimum of 24 points – 10+2 Cambridge Board – Minimum 2 subjects"
+       }
+      ],
+      [
+       {
+        "strong": "Note – Students from IGCSE board for class X must have cleared minimum 5 subjects"
+       }
+      ],
+      [
+       {
+        "strong": "Minimum Academic Requirements:"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Minimum 50% in Class 12 (ISC/CBSE/ State Boards)"
+         }
+        ]
+       ]
+      },
+      [
+       {
+        "strong": "OR"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "IB Diploma/Certificate with 24 points (3 HL + 3 SL subjects)"
+         }
+        ],
+        [
+         {
+          "strong": "A Levels: Minimum grades A/B/C in 2 subjects"
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "q": "What is the eligibility criteria for the Bsc. Business programs at ATLAS ISME?",
+     "a": [
+      [
+       {
+        "strong": "In order to be eligible for the ATLAS ISME’s Bsc Finance program candidates need to have completed their 10+2 (or equivalent) from a recognised board with a minimum of 60% in their previous exams. Math is a mandatory subject for this program."
+       }
+      ],
+      [
+       {
+        "strong": "Minimum Academic Requirements:"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Minimum Percentage: A minimum of 60% marks is required in the 10+2 exams."
+         }
+        ],
+        [
+         {
+          "strong": "Compulsory Subject: Mathematics is a mandatory subject for the B.Sc. Finance program."
+         }
+        ],
+        [
+         {
+          "strong": "Streams Accepted: Candidates from various disciplines (Science, Commerce, Arts) are eligible to apply, as long as they have completed their 10+2 with the required percentage."
+         }
+        ],
+        [
+         {
+          "strong": "Recognised Boards: Candidates can apply from various boards including CBSE, ISC, HSC, IBDP, IGCSE (A levels), and others."
+         }
+        ]
+       ]
+      },
+      [
+       {
+        "strong": "Please note the selection process for admission is based on a combination of an aptitude test and a personal interview."
+       }
+      ]
+     ]
+    },
+    {
+     "q": "What is the eligibility criteria for the MBA programs at ATLAS ISME?",
+     "a": [
+      [
+       {
+        "strong": "For the Postgraduate Program (MBA), students who have completed a minimum of a three-year graduate program or are currently in the final year of their graduate program in any discipline from any University recognised by the Association of Indian Universities (AIU) can apply."
+       }
+      ],
+      [
+       {
+        "strong": "Educational Qualification"
+       }
+      ],
+      [
+       {
+        "strong": "Students pursuing or having completed a minimum of 3-year graduate programs in any discipline with minimum 50% aggregate marks from any University recognised by Association of Indian Universities (AIU). Students appearing for their final exams can also apply provided they maintain a minimum of 50% aggregate marks at the time of graduation as mentioned above. Students applying for their final exams should not have any live backlogs (ATKTs)."
+       }
+      ],
+      [
+       {
+        "strong": "Examinations (MBA) – Candidates who have appeared for one of the following entrance tests – GMAT, CAT, NMAT, XAT, MAT, CMAT, ATMA or any state CET tests are preferred. Cut offs : CAT/XAT : 70%le, NMAT : 200 marks & CET : 80%"
+       }
+      ]
+     ]
+    },
+    {
+     "q": "What is the admission process for the ATLAS ISME BBA program and how do I participate in each stage?",
+     "a": [
+      [
+       {
+        "strong": "The admission process at ATLAS ISME consists of 3 key stages:"
+       }
+      ],
+      {
+       "list": "ol",
+       "items": [
+        [
+         {
+          "strong": "Business Aptitude Test (BAT): An online MCQs test that assess your verbal, logical reasoning, quantitative and business communication skills"
+         }
+        ],
+        [
+         {
+          "strong": "Personal Interview (PI): An interactive online interview that evaluates your candidature. One can expect questions from your performance in the BAT and Statement of Purpose (SOP), past achievements, perspectives on global affairs etc."
+         }
+        ]
+       ]
+      },
+      [
+       {
+        "strong": "Collaborative Accelerator: This is an on-campus group exercise where students collaborate with other candidates to solve an on spot real-world business case study."
+       }
+      ]
+     ]
+    },
+    {
+     "q": "Do CXOs and industry leaders give guest lectures at ATLAS ISME, and how does their direct industry teaching differ from traditional classroom learning?",
+     "a": [
+      [
+       {
+        "strong": "Yes, at ATLAS ISME, students receive direct industry teaching from CXOs and industry leaders, gaining real-world business insights through guest lectures, masterclasses, etc, unlike traditional classroom learning which is mostly theory-based."
+       }
+      ],
+      [
+       {
+        "strong": "At ISME, students learn directly from top industry leaders, such as CXOs, CEOs, CMOs, startup founders, serial investors, business innovators to name a few. And these industry leaders bring wealth of knowledge on current industry trends (firsthand market knowledge), hands-on experience, practical case studies into the classroom teaching, making learning more impactful and relevant for students."
+       }
+      ],
+      [
+       {
+        "strong": "Traditional classroom learning focuses solely on theoretical knowledge, whereas ATLAS ISME goes beyond traditional teaching. And this direct industry teaching from CXOs and founders at ATLAS ISME equips students with all the skills necessary for career readiness."
+       }
+      ]
+     ]
+    },
+    {
+     "q": "Does ATLAS ISME offer international exchange or global immersion programs?",
+     "a": [
+      [
+       {
+        "strong": "Yes, ATLAS ISME offers international exchange and global immersion programs. Harnessing the power of technology, entrepreneurs transform a blank canvas of ideas into vibrant and thriving businesses that create job opportunities and contribute significantly to the national and global economy. With world-class faculty, experiential ecosystems, industry-driven curriculum, and future-ready management programs, we transform young learners into leaders."
+       }
+      ]
+     ]
+    },
+    {
+     "q": "Does ATLAS ISME provide CAT and CFA exam coaching on campus?",
+     "a": [
+      [
+       {
+        "strong": "Yes, ATLAS ISME provides students with CAT and CFA exam coaching on campus. The modules of our course are designed where students are coached for CAT & CFA exams. With case studies and industry notes, we ensure students have in-depth knowledge and are well-prepared for the exam."
+       }
+      ]
+     ]
+    },
+    {
+     "q": "Does ATLAS ISME allow student-led startups to officially register as MSMEs?",
+     "a": [
+      [
+       {
+        "strong": "Yes, at ATLAS SkillTech University, innovation isn’t just a buzzword—it’s a way of life. Our students are not just learners; they are entrepreneurs in the making, creating real-world impact through startups launched during their academic journey."
+       }
+      ],
+      [
+       {
+        "strong": "We are proud to host a growing number of student-led startups officially registered under the Ministry of Micro, Small & Medium Enterprises (MSME), Government of India. These ventures span diverse domains including technology, design, sustainability, education, food innovation, and social entrepreneurship."
+       }
+      ],
+      [
+       {
+        "strong": "Through a dynamic ecosystem of mentorship, industry partnerships, access to seed funding, and incubation support, we empower our students to transform their ideas into sustainable businesses. Our integrated learning model encourages risk-taking, experimentation, and continuous learning, helping students navigate the challenges of entrepreneurship from ideation to execution."
+       }
+      ],
+      [
+       {
+        "strong": "These student-led startups are not only contributing to the economy but also solving real-world problems with creativity, courage, and conviction. Their success reflects the university’s commitment to nurturing next-generation entrepreneurs who will shape the future of innovation and industry."
+       }
+      ]
+     ]
+    },
+    {
+     "q": "Is there any entrepreneurship program at ATLAS ISME?",
+     "a": [
+      [
+       {
+        "strong": "Yes, ATLAS ISME does provide entrepreneurial learning to its undergraduate and postgraduate students.\nAt ATLAS , we are committed to nurturing and developing the next generation of entrepreneurs, providing them with the resources, knowledge and skills they need to succeed in today's competitive business world. The Entrepreneurship Lab, Startup Incubation Program, and global exposure initiatives at ATLAS ISME provide a strong foundation for students to build, test and refine their business ideas."
+       }
+      ],
+      [
+       {
+        "strong": "As India’s premier innovation and entrepreneurship-driven business school, ATLAS ISME empowers students with the skills, mentorship, and ecosystem to launch real-world startups during their undergraduate journey."
+       }
+      ],
+      [
+       {
+        "strong": "From Day 1, students are immersed in an entrepreneurial environment that includes:"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Hands-on learning in marketing, design, branding, finance & e-commerce"
+         }
+        ],
+        [
+         {
+          "strong": "Exposure to real investors, industry mentors & successful founders"
+         }
+        ],
+        [
+         {
+          "strong": "Opportunity to showcase start up ideas to industry in the heart of India's corporate capital"
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "q": "Can I launch a startup while studying at ATLAS ISME?",
+     "a": [
+      [
+       {
+        "strong": "Yes, ATLAS ISME focuses on equipping students with entrepreneurial skills. The curriculum enables students to prepare for real VC pitches and explore startup ideas. We distinguish ourselves from other reputable institutions by offering incubation support and mentorship."
+       }
+      ],
+      [
+       {
+        "strong": "At ATLAS ISME, many students have launched their own tangible real startups during their journey with ATLAS ."
+       }
+      ],
+      [
+       {
+        "strong": "With industry centric learning, hands-on entrepreneurial learning and access to Startup Street, MVP Showcases, D2C Challenges, and demo days with VCs, students can ideate, build, and sell their product while studying at ATLAS ISME."
+       }
+      ],
+      [
+       {
+        "strong": "The faculty at ATLAS ISME assists students with building and launching ventures and offers end-to-end support, from ideation to investor pitching."
+       }
+      ]
+     ]
+    },
+    {
+     "q": "What is the Global Immersion Program at ATLAS SkillTech University?",
+     "a": [
+      [
+       {
+        "strong": "The Global Immersion Program at ATLAS ISME is a curated international learning experience that blends industry exposure, academic learning, and cultural immersion. It provides students and faculty 7–10 days of exposure to top universities and global companies. Students interact with international faculty, explore different cultures, visit top multinational corporations, participate in academic sessions, networking events, and certification programs across cities like New York, London, and Singapore."
+       }
+      ],
+      [
+       {
+        "strong": "Global immersions at ATLAS equips students with global business acumen, cross-cultural competence, and practical insights into how businesses operate worldwide."
+       }
+      ],
+      [
+       {
+        "strong": "For example during the New York Immersion program, ATLAS students visited:"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Columbia University School of Professional Studies"
+         }
+        ],
+        [
+         {
+          "strong": "NYU SPS & Stern NewYork University"
+         }
+        ],
+        [
+         {
+          "strong": "Pace University – Lubin School of Business"
+         }
+        ],
+        [
+         {
+          "strong": "Fordham Gabelli School of Business"
+         }
+        ],
+        [
+         {
+          "strong": "Parsons School of Design | The New School"
+         }
+        ]
+       ]
+      },
+      [
+       {
+        "strong": "These visits included classroom sessions, business & tech. learning, design workshops, and guest lectures."
+       }
+      ],
+      [
+       {
+        "strong": "Companies and industries were covered in the New York Global Immersion"
+       }
+      ],
+      [
+       {
+        "strong": "Students engaged with leading global companies such as:"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Bloomberg (Fintech & Data Analytics)"
+         }
+        ],
+        [
+         {
+          "strong": "ICICI Bank (Global Finance)"
+         }
+        ],
+        [
+         {
+          "strong": "Arcesium (AI in Finance)"
+         }
+        ],
+        [
+         {
+          "strong": "MRM (Advertising & Branding)"
+         }
+        ],
+        [
+         {
+          "strong": "Zoo Media (AI in Marketing)"
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "q": "How does the Global Immersion Program benefit ATLAS students?",
+     "a": [
+      [
+       {
+        "strong": "Students participate in interactive and hands-on academic sessions at top universities and"
+       }
+      ],
+      [
+       {
+        "strong": "key outcomes include:"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Enhanced global perspective and global academic exposure"
+         }
+        ],
+        [
+         {
+          "strong": "Practical industry exposure (Industry readiness)"
+         }
+        ],
+        [
+         {
+          "strong": "Cross-cultural communication"
+         }
+        ],
+        [
+         {
+          "strong": "Certifications from global institutions"
+         }
+        ],
+        [
+         {
+          "strong": "Entrepreneurial thinking and creativity"
+         }
+        ],
+        [
+         {
+          "strong": "Improved career and academic outlook"
+         }
+        ],
+        [
+         {
+          "strong": "Networking with international professionals and students"
+         }
+        ]
+       ]
+      },
+      [
+       {
+        "strong": "It bridges classroom learning with real-world experience, helping students become globally competent professionals. Sessions are often led by renowned professors, with case studies, group projects, mood boarding, and presentation-based learning."
+       }
+      ]
+     ]
+    }
+   ],
+   "kind": "faq"
+  }
+ ]
+}

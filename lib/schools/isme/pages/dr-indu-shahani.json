@@ -1,0 +1,181 @@
+{
+ "path": "/schools/isme/dr-indu-shahani",
+ "ref": "dr-indu-shahani.php",
+ "meta": {
+  "title": "Dr. Indu Shahani Leadership & Vision",
+  "description": "Discover Dr. Indu Shahani’s leadership, academic excellence, contributions and student-first vision."
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "kind": "hero",
+   "height": "100vh",
+   "id": null,
+   "eyebrow": null,
+   "name": "Dr Indu Shahani",
+   "position": "President, ATLAS SkillTech University",
+   "title": null,
+   "text": null,
+   "image": {
+    "src": "/assets/images/schools/isme/pages/dr-indu-shahani-hero-img.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/pages/dr-indu-shahani-hero-img-p-500.png 500w, /assets/images/schools/isme/pages/dr-indu-shahani-hero-img-p-800.png 800w, /assets/images/schools/isme/pages/dr-indu-shahani-hero-img-p-1080.png 1080w, /assets/images/schools/isme/pages/dr-indu-shahani-hero-img.png 1366w",
+    "sizes": "(max-width: 1366px) 100vw, 1366px"
+   },
+   "buttons": null,
+   "video": null
+  },
+  {
+   "kind": "awardsMarquee",
+   "items": [
+    {
+     "title": "Sarvottam Nagrik\nSanman",
+     "press": "2025",
+     "image": "/assets/images/schools/isme/home/awards/award-flow-isme.png",
+     "variant": "base"
+    },
+    {
+     "title": "Pride of\nMaharashtra",
+     "press": "Celebrating her\nvisionary leadership",
+     "image": "/assets/images/schools/isme/home/awards/award-flow-isme.png",
+     "variant": "base"
+    },
+    {
+     "title": "Former Sheriff\nOf Mumbai",
+     "press": "2008-2009",
+     "image": "/assets/images/schools/isme/home/awards/award-flow-isme.png",
+     "variant": "base"
+    },
+    {
+     "title": "Express Award for\nWomen Entrepreneurs",
+     "press": "2024",
+     "image": "/assets/images/schools/isme/home/awards/award-flow-isme.png",
+     "variant": "base"
+    },
+    {
+     "title": "Best Institution\nOverall 2024",
+     "press": "World Education\nCongress Awards",
+     "image": "/assets/images/schools/isme/home/awards/award-flow-isme.png",
+     "variant": "base"
+    },
+    {
+     "title": "Asia’s 100 Women\nPower Leaders",
+     "press": "2023",
+     "image": "/assets/images/schools/isme/home/awards/award-flow-isme.png",
+     "variant": "base"
+    },
+    {
+     "title": "Innovative Leader\nAward",
+     "press": "2023",
+     "image": "/assets/images/schools/isme/home/awards/award-flow-isme.png",
+     "variant": "base"
+    },
+    {
+     "title": "Best Institution\nOverall 2024",
+     "press": "World Education\nCongress Awards",
+     "image": "/assets/images/schools/isme/home/awards/award-flow-isme.png",
+     "variant": "base"
+    },
+    {
+     "title": "Women of the\nDecade Award",
+     "press": "For outstanding\nleadership",
+     "image": "/assets/images/schools/isme/home/awards/award-flow-isme.png",
+     "variant": "base"
+    },
+    {
+     "title": "Citizen of\nMumbai Award",
+     "press": "Recognized for youth\n& community impact",
+     "image": "/assets/images/schools/isme/home/awards/award-flow-isme.png",
+     "variant": "base"
+    },
+    {
+     "title": "Member of the University\nGrants Commission",
+     "press": "2011-2014",
+     "image": "/assets/images/schools/isme/home/awards/award-flow-isme.png",
+     "variant": "base"
+    },
+    {
+     "title": "Excellence in\nEducation Award",
+     "press": "For pioneering\ncontributions to academia",
+     "image": "/assets/images/schools/isme/home/awards/award-flow-isme.png",
+     "variant": "base"
+    },
+    {
+     "title": "Roll of Honor,\nDeakin University",
+     "press": "For global academic\npartnerships",
+     "image": "/assets/images/schools/isme/home/awards/award-flow-isme.png",
+     "variant": "base"
+    },
+    {
+     "title": "Excellence in\nHumanitarian\nService, Rotary Club",
+     "press": "For social commitment",
+     "image": "/assets/images/schools/isme/home/awards/award-flow-isme.png",
+     "variant": "base"
+    }
+   ]
+  },
+  {
+   "kind": "rich",
+   "blocks": [
+    {
+     "tag": "p",
+     "runs": [
+      "Dr. Indu Shahani is a renowned academic leader and institution builder with over four decades of experience in education and public service. Formerly the Sheriff of Mumbai, Principal of H.R. College, and Member of the University Grants Commission, she was also the first Indian to serve as Vice-Chair of the International Baccalaureate Board of Governors."
+     ]
+    },
+    {
+     "tag": "p",
+     "runs": [
+      "At ATLAS SkillTech University, Dr. Shahani is pioneering a future-focused, interdisciplinary model that bridges academics with industry. She serves on the boards of leading corporations including Colgate Palmolive, Diageo, HSBC AMC, Bajaj Electricals, and Eureka Forbes, driving her mission of creating responsible leaders and entrepreneurs for the new economy."
+     ]
+    },
+    {
+     "tag": "p",
+     "runs": [
+      "Widely recognized for her contributions, she has received honors such as the Sarvottam Nagrik Sanman (2025), Express Award for Women Entrepreneurs (2024), and was named among Asia’s 100 Women Power Leaders (2023). Her visionary leadership continues to inspire the next generation of changemakers.",
+      "\n",
+      "‍"
+     ]
+    },
+    {
+     "tag": "blockquote",
+     "runs": [
+      {
+       "t": "“Education must not only prepare students for jobs, but empower them to create jobs and transform society.”",
+       "b": true,
+       "i": true
+      },
+      {
+       "t": " ",
+       "b": false,
+       "i": true
+      },
+      "\n",
+      {
+       "t": " - Dr. Indu Shahani ",
+       "b": false,
+       "i": true
+      },
+      "‍"
+     ]
+    },
+    {
+     "tag": "p",
+     "runs": [
+      "\n",
+      "Dr. Indu Shahani is the Founding President & Chancellor of ATLAS SkillTech University, bringing with her over four decades of leadership in education, institution building, and public service. ",
+      "\n",
+      "\n",
+      "She has held several prestigious roles, including Sheriff of Mumbai (2008–2009), Principal of H.R. College of Commerce & Economics (2000–2016), and Member of the University Grants Commission (2011–2014). Internationally, she was the first Indian appointed as Vice-Chair on the Board of Governors of the International Baccalaureate (IB), marking her global influence in education reform.",
+      "\n",
+      "\n",
+      "Dr. Shahani’s pioneering vision has always been to bridge academia and industry—the subject of her PhD from the University of Mumbai. She has been invited to serve as an Independent Director on the boards of leading corporations such as Colgate Palmolive (India) Ltd., United Spirits – Diageo, HSBC Asset Management, Bajaj Electricals, Clariant, Eureka Forbes, and Lighthouse Learning. Her contributions continue to strengthen industry–academia collaboration and drive innovation in higher education. ",
+      "\n",
+      "\n",
+      "At ATLAS SkillTech University, she is building a future-focused, interdisciplinary, innovation-driven institution that equips young India with the skills, mindset, and entrepreneurial spirit to succeed in Industry 4.0."
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,99 @@
+import { cx } from '@/lib/cx';
+import withBreaks from '@/lib/withBreaks';
+import PrimaryButton from '@/components/ui/PrimaryButton';
+import { CONTAINER, SECTION } from './ui';
+
+/**
+ * "Ready to Build What’s Next? Let’s Get Started." — port of
+ * reference/schools/isdi/index.php:3734-3748.
+ *
+ *   div.section > .info-banner-blue.bg1.isdi > .container.blue-3
+ *     > (h2.info-banner-title, .info-banner-sub-text, .info-banner-btns)
+ *     + img.faq-image-blue
+ *
+ * The same band as `components/ui/InfoBanner` in every measured property but its
+ * paint: ISDI's `.bg1.isdi` is full-bleed #de297b with square corners, where
+ * the ATLAS banner is an indigo, `32px 0`-cornered card inside `.container`.
+ * Shared components take no styling, so the ISDI band is its own component.
+ *
+ *                     >=992px                  768-991          <=767
+ *   band              #de297b, py60                             py26
+ *   title             40px/1.2, 500, white,    same             22px, mb32
+ *                     max-width 65%
+ *   lead              24px/1.4, 300, 55%, pt12 full width       18px, pt0
+ *   buttons           row, gap 16, pt24        same             column, gap 8,
+ *                                                               pt16 (10/10 <=479)
+ *   photo             right edge, full height  display: none
+ */
+/* ref `.info-banner-blue` — the base class is #193e90 and `.bg1.isdi` repaints it
+   #de297b. Every page that came first authors the pink modifier;
+   /schools/isdi/life@atlas-isdi authors the BARE class, so the tone travels. */
+const TONE = { pink: 'bg-[#de297b]', blue: 'bg-[#193e90]' };
+
+/*
+ * `variant="isme"` — the ISME homepage's `.info-banner-blue.bg1` (tone `blue`), measured at
+ * 1440 / 991 / 767 / 390: the title's bottom margin is 16 at <=767 and 14 at <=479 (ISDI's 32),
+ * the photograph stays visible down to 768 (ISDI hides it from 991), and both pills carry the
+ * reference's `arrow-rt.svg` (`button.icon`, inverted to black on the mint one).
+ */
+export default function ReadyToBuild({ data, renderButton, tone = 'pink', variant, sectionClass = SECTION }) {
+  const isme = variant === 'isme';
+  return (
+    <div data-block="ready-to-build" className={sectionClass}>
+      {/* ref .info-banner-blue(.bg1.isdi) */}
+      <div className={cx('relative py-[60px] max-md:py-[26px]', TONE[tone] ?? TONE.pink)}>
+        {/* ref .container.blue-3 */}
+        <div className={CONTAINER}>
+          <h2
+            className={cx(
+              'm-0 max-w-[65%] text-[40px] font-medium leading-[1.2] text-white max-md:text-[22px] max-md:leading-[1.2]',
+              isme ? 'max-md:mb-4 max-sm:mb-3.5' : 'max-md:mb-8',
+            )}
+          >
+            {withBreaks(data.heading)}
+          </h2>
+          {data.sub && (
+            /* ref .info-banner-sub-text — the B.Des pages' banner authors none */
+            <div className="w-[55%] pt-3 text-2xl font-light leading-[1.4] text-white max-lg:w-full max-md:pt-0 max-md:text-lg max-md:leading-[1.4]">
+              {withBreaks(data.sub)}
+            </div>
+          )}
+          <div className="flex items-center gap-4 pt-6 max-md:flex-col max-md:items-start max-md:gap-2 max-md:pt-4 max-sm:gap-2.5 max-sm:pt-2.5">
+            {data.buttons.map((button) =>
+              /* a page may render a button itself — the B.Des banner's second one opens that
+                 page's brochure popup rather than navigating */
+              renderButton ? (
+                renderButton(button)
+              ) : (
+                <PrimaryButton
+                  key={button.label}
+                  href={button.href}
+                  variant={button.variant}
+                  icon={button.icon}
+                  iconClassName={button.iconInvert ? 'invert' : undefined}
+                >
+                  {button.label}
+                </PrimaryButton>
+              )
+            )}
+          </div>
+        </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={data.image.src}
+          srcSet={data.image.srcSet}
+          sizes={`(max-width: ${data.image.width ?? 635}px) 100vw, ${data.image.width ?? 635}px`}
+          width={data.image.width ?? 635}
+          height={data.image.height ?? 408}
+          alt={data.image.alt}
+          loading="lazy"
+          decoding="async"
+          className={cx(
+            'absolute bottom-0 right-0 top-0 z-0 h-full w-auto max-w-full object-fill align-middle',
+            isme ? 'max-md:hidden' : 'max-lg:hidden',
+          )}
+        />
+      </div>
+    </div>
+  );
+}

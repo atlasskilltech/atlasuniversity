@@ -1,0 +1,930 @@
+{
+ "path": "/schools/isme/campus/campus-facilities-and-infrastructure",
+ "ref": "campus/campus-facilities-and-infrastructure.php",
+ "meta": {
+  "title": "Campus Life & Learning Spaces – ATLAS ISME",
+  "description": "Explore ISME’s campus, student life, labs, classrooms, culture and the environment that builds future leaders."
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "kind": "campusHero",
+   "title": "Cutting-Edge Campus\nwithin Corporates",
+   "video": {
+    "sources": [
+     {
+      "src": "/assets/videos/schools/isme/pages/campus-bg-header-transcode.mp4",
+      "type": "video/mp4"
+     },
+     {
+      "src": "/assets/videos/schools/isme/pages/campus-bg-header-transcode.webm",
+      "type": "video/webm"
+     }
+    ],
+    "poster": "/assets/images/schools/isme/pages/campus-bg-header-poster-00001.jpg"
+   },
+   "buttons": [
+    {
+     "label": "Schedule a visit",
+     "href": "https://atlasuniversity.edu.in/campusvisit",
+     "variant": "mint"
+    },
+    {
+     "label": "Take a Virtual Campus Tour",
+     "href": "#",
+     "variant": "outline-white"
+    }
+   ]
+  },
+  {
+   "cards": [
+    {
+     "tone": "bg6",
+     "label": "Collaborative Spaces",
+     "value": "40+ spaces",
+     "note": null
+    },
+    {
+     "tone": "bg8",
+     "label": "Surrounded by",
+     "value": "500+ top companies",
+     "note": null
+    }
+   ],
+   "padBottom": false,
+   "kind": "stats"
+  },
+  {
+   "kind": "anchorMenu",
+   "centered": true,
+   "links": [
+    {
+     "label": "Overview",
+     "href": "#overview-campus"
+    },
+    {
+     "label": "Learning Spaces",
+     "href": "#campus-learn"
+    },
+    {
+     "label": "Location",
+     "href": "#campus-location"
+    },
+    {
+     "label": "Spaces",
+     "href": "#campus-spaces"
+    },
+    {
+     "label": "Student Housing",
+     "href": "#campus-housing"
+    },
+    {
+     "label": "Green Campus",
+     "href": "#campus-green"
+    }
+   ]
+  },
+  {
+   "kind": "plainSection",
+   "id": "overview-campus",
+   "extraspace": true,
+   "sectionMods": [
+    "extraspace"
+   ],
+   "heading": "A campus built to learn, live & thrive",
+   "headingMods": [],
+   "items": [
+    {
+     "kind": "photoColumns",
+     "common": false,
+     "columns": [
+      [
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/cmp-img-1.webp",
+         "alt": ""
+        },
+        "label": "Open Spaces"
+       },
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/cmp-img-2.webp",
+         "alt": ""
+        },
+        "label": "Learning spaces that feel likereal-world workspaces"
+       }
+      ],
+      [
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/cmp-img-3.jpg",
+         "alt": ""
+        },
+        "label": "Integrated lifestyle with hostel, food, sports, and social life"
+       },
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/cmp-img-4.webp",
+         "alt": ""
+        },
+        "label": "Green campus is an integral part of our identity"
+       }
+      ],
+      [
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/cmp-img-5.webp",
+         "alt": ""
+        },
+        "label": "Pro-student services with 24/7 Wi-Fi, study lounges, and"
+       },
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/cmp-img-6.jpg",
+         "alt": ""
+        },
+        "label": "Convenient location for students coming from outside Mumbai."
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "iconSection",
+   "id": "campus-learn",
+   "icon": "/assets/images/schools/isme/pages/book.png",
+   "num": null,
+   "title": "Learn. Collaborate. Innovate. Connect.",
+   "wrap": "none",
+   "items": [
+    {
+     "kind": "swiper",
+     "mods": [
+      "swiper",
+      "common-swiper"
+     ],
+     "cards": [
+      {
+       "kind": "h",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/collaborate-1.jpg",
+        "alt": ""
+       },
+       "name": null,
+       "place": "Smart\nclassrooms"
+      },
+      {
+       "kind": "h",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/collaborate-2.jpg",
+        "alt": ""
+       },
+       "name": null,
+       "place": "Collaborative\nSpaces"
+      },
+      {
+       "kind": "h",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/collaborate-3.jpg",
+        "alt": ""
+       },
+       "name": null,
+       "place": "Centres for Entrepreneurship & Innovation"
+      },
+      {
+       "kind": "h",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/collaborate-4.jpg",
+        "alt": ""
+       },
+       "name": null,
+       "place": "Surrounded by 500+ Corporates"
+      },
+      {
+       "kind": "h",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/campus-simg-1.webp",
+        "alt": ""
+       },
+       "name": "",
+       "place": "UpGrad Hostel, BKC"
+      }
+     ],
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "iconSection",
+   "id": "campus-location",
+   "icon": "/assets/images/schools/isme/pages/location-2.png",
+   "num": null,
+   "title": "Beyond campus, within reach",
+   "wrap": "blue",
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "blue",
+     "mods": [
+      "blue-desc-wrap",
+      "mrgbtm"
+     ],
+     "textMods": [
+      "white-desc-text"
+     ],
+     "text": "Step outside campus and the city unfolds — cafés, co-working spots, cinemas, museums. ISME is stitched into the cultural, creative, and corporate pulse of Mumbai.",
+     "common": false
+    },
+    {
+     "kind": "mapTabs",
+     "menuMods": [
+      "tabs-menu-mint",
+      "less-space",
+      "w-tab-menu"
+     ],
+     "contentMods": [
+      "tab-content-mint",
+      "padtp32",
+      "w-tab-content"
+     ],
+     "common": false,
+     "tabs": [
+      {
+       "label": "Corporates",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/ug-map-image.webp",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/ug-map-image-p-500.webp 500w, /assets/images/schools/isme/pages/ug-map-image-p-800.webp 800w, /assets/images/schools/isme/pages/ug-map-image-p-1080.webp 1080w, /assets/images/schools/isme/pages/ug-map-image.webp 1239w",
+        "sizes": "(max-width: 1239px) 100vw, 1239px"
+       }
+      },
+      {
+       "label": "Travel",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/travel.webp",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/travel-p-500.webp 500w, /assets/images/schools/isme/pages/travel-p-800.webp 800w, /assets/images/schools/isme/pages/travel-p-1080.webp 1080w, /assets/images/schools/isme/pages/travel.webp 1242w",
+        "sizes": "100vw"
+       }
+      },
+      {
+       "label": "Restaurants",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/restaurants-around-atlas.png",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isdi/life-at-isdi/mumbai/restaurants-around-atlas-p-500.png 500w, /assets/images/schools/isme/pages/restaurants-around-atlas-p-800.png 800w, /assets/images/schools/isme/pages/restaurants-around-atlas-p-1080.png 1080w, /assets/images/schools/isme/pages/restaurants-around-atlas.png 1242w",
+        "sizes": "100vw"
+       }
+      },
+      {
+       "label": "Shopping",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/shopping.avif",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/shopping-p-500.avif 500w, /assets/images/schools/isme/pages/shopping-p-800.avif 800w, /assets/images/schools/isme/pages/shopping.avif 1242w",
+        "sizes": "100vw"
+       }
+      },
+      {
+       "label": "Hotels",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/hotels.webp",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/hotels-p-500.webp 500w, /assets/images/schools/isme/pages/hotels-p-800.webp 800w, /assets/images/schools/isme/pages/hotels-p-1080.webp 1080w, /assets/images/schools/isme/pages/hotels.webp 1242w",
+        "sizes": "100vw"
+       }
+      },
+      {
+       "label": "Wellness",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/shopping.avif",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/shopping-p-500.avif 500w, /assets/images/schools/isme/pages/shopping-p-800.avif 800w, /assets/images/schools/isme/pages/shopping.avif 1242w",
+        "sizes": "100vw"
+       }
+      },
+      {
+       "label": "Hospitals",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/hospitals.webp",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/hospitals-p-500.webp 500w, /assets/images/schools/isme/pages/hospitals-p-800.webp 800w, /assets/images/schools/isme/pages/hospitals-p-1080.webp 1080w, /assets/images/schools/isme/pages/hospitals.webp 1242w",
+        "sizes": "100vw"
+       }
+      },
+      {
+       "label": "Other Services",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/other-services.png",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/other-services-p-500.png 500w, /assets/images/schools/isme/pages/other-services-p-800.png 800w, /assets/images/schools/isme/pages/other-services-p-1080.png 1080w, /assets/images/schools/isme/pages/other-services.png 1242w",
+        "sizes": "100vw"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "iconSection",
+   "id": "campus-spaces",
+   "icon": "/assets/images/schools/isme/pages/support,-like,-question-3.png",
+   "num": null,
+   "title": "From brainstorms to chill zones - It all happens here",
+   "wrap": "white",
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "sub",
+     "mods": [
+      "sub-heading"
+     ],
+     "text": "Creativity doesn’t clock out at 5 PM. Whether you're prepping for a pitch, catching up over coffee, or battling it out on the turf — this campus keeps the energy on.",
+     "common": true,
+     "cw": 1
+    },
+    {
+     "kind": "shapingWrap",
+     "items": [
+      {
+       "kind": "contentB",
+       "common": true,
+       "card": {
+        "variant": "isme",
+        "background": "#193e90",
+        "title": "Smart Learning Spaces",
+        "text": "Tech-Enabled Classrooms: Immersive AV, interactive tools, and collaborative layouts enhance learning.\n\n• Computer Labs: Modern labs with high-speed systems for coding, research, and projects.\n\n• FinTech Lab: Hands-on exposure to real-world finance tools and trading simulations.",
+        "image": null,
+        "embed": "https://www.youtube.com/embed/10sN9pEPrgw?autoplay=1&mute=1&loop=1&playlist=10sN9pEPrgw&controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&fs=0&playsinline=1",
+        "mediaH220": true
+       }
+      },
+      {
+       "kind": "contentB",
+       "common": true,
+       "card": {
+        "variant": "isme-switch",
+        "background": "#13357e",
+        "title": "Centres for Entrepreneurship & Innovation",
+        "text": "• Innovation & Research Labs: Build prototypes, solve problems, and collaborate with industry experts.\n\n• Startup Incubators: Launch ventures with mentorship, MVP showcases, and academic credit support.",
+        "image": null,
+        "embed": "https://www.youtube.com/embed/pQuRHrj7ESw?autoplay=1&mute=1&loop=1&playlist=pQuRHrj7ESw&controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&fs=0&playsinline=1",
+        "mediaH220": true
+       }
+      },
+      {
+       "kind": "contentB",
+       "common": true,
+       "card": {
+        "variant": "isme",
+        "background": "#193e90",
+        "title": "Smart Library",
+        "text": "• Smart Library: Self-checkout, digital resources, and access to Indian Knowledge Systems (IKS)\n\n• Multimedia Collection: A rich selection of educational and recreational CDs and DVDs, including book companions, movies, and music—supporting diverse learning styles and interests.",
+        "image": {
+         "src": "/assets/images/schools/isme/pages/image-1091.png",
+         "alt": "",
+         "srcSet": "/assets/images/schools/isme/pages/image-1091-p-500.png 500w, /assets/images/schools/isme/pages/image-1091.png 619w",
+         "sizes": "100vw"
+        },
+        "mediaH220": true
+       }
+      },
+      {
+       "kind": "contentB",
+       "common": true,
+       "card": {
+        "variant": "isme-switch",
+        "background": "#13357e",
+        "title": "Sports, fitness &\nWellness infrastructure",
+        "text": "ATLAS has a range of sports and recreational facilities to support student wellness and engagement.\n\n• Turf: A football turf for outdoor play and matches, and a Paddel Court.\n\n• Indoor: Indoor games such as table tennis and carrom, an Indoor Basketball Court.",
+        "image": {
+         "src": "/assets/images/schools/isme/pages/gym.png",
+         "alt": "",
+         "srcSet": "/assets/images/schools/isme/pages/gym-p-500.png 500w, /assets/images/schools/isme/pages/gym.png 619w",
+         "sizes": "100vw"
+        },
+        "mediaH220": true
+       }
+      }
+     ],
+     "common": true,
+     "cw": 1
+    }
+   ]
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": null,
+   "headingMods": [],
+   "items": [
+    {
+     "kind": "headRow",
+     "mods": [
+      "head-wrap"
+     ],
+     "heading": "Hangout zones",
+     "headingMods": [
+      "h2-tag",
+      "mrg16"
+     ],
+     "sub": "Empowering students to explore, create, and innovate.",
+     "button": null,
+     "common": false
+    },
+    {
+     "kind": "wall",
+     "columns": [
+      [
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/campus1.png",
+         "alt": ""
+        },
+        "text": "Amphitheatre",
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": true
+       },
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/campus4.png",
+         "alt": ""
+        },
+        "text": "Career Cafe",
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": true
+       }
+      ],
+      [
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/campus9.png",
+         "alt": ""
+        },
+        "text": "Courtyard",
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": true
+       },
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/campus6.png",
+         "alt": ""
+        },
+        "text": "Spice Corridor",
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": true
+       }
+      ],
+      [
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/campus5.png",
+         "alt": ""
+        },
+        "text": "Hideout",
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": true
+       },
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/campus3.png",
+         "alt": ""
+        },
+        "text": "Outside courtyard",
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": true
+       }
+      ],
+      [
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/campus7.png",
+         "alt": ""
+        },
+        "text": "Third Wave Coffee",
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": true
+       },
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/campus2.png",
+         "alt": ""
+        },
+        "text": "Collaborative Corners",
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": true
+       }
+      ]
+     ],
+     "wrapClass": "instagram-wrapper mobile-vert-scroll",
+     "imgClass": "insta-image-rect",
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": null,
+   "headingMods": [],
+   "items": [
+    {
+     "kind": "headRow",
+     "mods": [
+      "head-wrap"
+     ],
+     "heading": "Food on Campus",
+     "headingMods": [
+      "h2-tag",
+      "mrg16"
+     ],
+     "sub": "Go-to spots to unwind, connect, and recharge",
+     "button": null,
+     "common": false
+    },
+    {
+     "kind": "swiper",
+     "mods": [
+      "swiper",
+      "common-swiper"
+     ],
+     "cards": [
+      {
+       "kind": "h",
+       "image": {
+        "src": "/assets/images/campus/food/pizza-hut.png",
+        "alt": ""
+       },
+       "name": "Pizza Hut",
+       "place": "Building 1"
+      },
+      {
+       "kind": "h",
+       "image": {
+        "src": "/assets/images/campus/food/dripface-coffee.png",
+        "alt": ""
+       },
+       "name": "Dripface Coffee",
+       "place": "Building 2"
+      },
+      {
+       "kind": "h",
+       "image": {
+        "src": "/assets/images/campus/food/dumpling-delights.png",
+        "alt": ""
+       },
+       "name": "Dumpling Delights",
+       "place": "Building 1"
+      },
+      {
+       "kind": "h",
+       "image": {
+        "src": "/assets/images/campus/food/yummy-waffle.png",
+        "alt": ""
+       },
+       "name": "Yummy Waffle",
+       "place": "Building 1 & 2"
+      },
+      {
+       "kind": "h",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/food-4.jpg",
+        "alt": ""
+       },
+       "name": "Open Theater",
+       "place": "10 mins away"
+      }
+     ],
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "iconSection",
+   "id": "campus-housing",
+   "icon": "/assets/images/schools/isme/pages/building.png",
+   "num": null,
+   "title": "ATLAS Student Housing",
+   "wrap": "blue",
+   "items": [
+    {
+     "kind": "spacer",
+     "common": true,
+     "cw": 2
+    },
+    {
+     "kind": "lead",
+     "tone": "blueText",
+     "mods": [
+      "blue-desc-text"
+     ],
+     "text": "Stay in premium housing facilities just 10 meters from campus. Built for community, comfort, and convenience — your housing is an extension of your college life.",
+     "common": false
+    },
+    {
+     "kind": "video",
+     "src": "https://www.youtube.com/embed/SZ3t1snaf_w?rel=0&controls=0&autoplay=1&mute=1&start=0",
+     "title": "ATLAS Hostel - Sneak Peak",
+     "ratio": 56.17021276595745,
+     "wrapClass": "center-image-full-wrap mrgtp",
+     "common": false,
+     "frame": [
+      "center-image-full-wrap",
+      "mrgtp"
+     ]
+    },
+    {
+     "kind": "h3",
+     "mods": [
+      "h3-tag-mint"
+     ],
+     "text": "Highlights",
+     "common": true,
+     "cw": 3
+    },
+    {
+     "kind": "mosaic",
+     "mods": [
+      "bl-card-wrapper-isme"
+     ],
+     "common": true,
+     "cells": [
+      {
+       "label": "AC Rooms with WiFi",
+       "image": "/assets/images/campus/housing/highlight-1.jpg"
+      },
+      {
+       "label": "24/7 security\nwith biometric access",
+       "image": "/assets/images/campus/housing/security-with-biometric-access.png"
+      },
+      {
+       "label": "Healthy meals, four times a day",
+       "image": "/assets/images/campus/housing/hight-simg-3.jpg",
+       "bgSize": "auto"
+      },
+      {
+       "label": "Lounges and gaming zones",
+       "image": "/assets/images/campus/housing/hight-simg-4.jpg"
+      },
+      {
+       "label": "Gym and wellness",
+       "image": "/assets/images/campus/housing/hight-simg-5.jpg"
+      },
+      {
+       "label": "Study zones",
+       "image": "/assets/images/campus/housing/hight-simg-6.jpg"
+      },
+      {
+       "label": "Coffee shop",
+       "image": "/assets/images/campus/housing/coffee-shop.png"
+      },
+      {
+       "label": "Housekeeping",
+       "image": "/assets/images/campus/housing/housekeeping.png"
+      }
+     ],
+     "cw": 3
+    }
+   ]
+  },
+  {
+   "kind": "iconSection",
+   "id": "campus-green",
+   "icon": "/assets/images/schools/isme/pages/weather.png",
+   "num": null,
+   "title": "Powered by purpose. Designed for sustainability.",
+   "wrap": "white",
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "white",
+     "mods": [
+      "white-desc-wrap"
+     ],
+     "textMods": [
+      "black-desc-text"
+     ],
+     "text": "ATLAS isn’t just future-facing in tech and business — it’s future-conscious in infrastructure too. Our green campus uses smart systems to reduce waste and emissions daily.",
+     "common": false
+    },
+    {
+     "kind": "contentB",
+     "common": true,
+     "card": {
+      "variant": "isme",
+      "background": "#193e90",
+      "title": "Solar Power Plant",
+      "text": "ATLAS is deeply committed to sustainability, championing the use of renewable energy to power our campus responsibly. Our on-campus solar power plant harnesses the sun’s energy to generate clean, green electricity, significantly reducing our dependence on conventional power sources and lowering our carbon footprint.",
+      "image": {
+       "src": "/assets/images/campus/green/solar.png",
+       "alt": "",
+       "srcSet": "/assets/images/campus/green/solar-p-500.png 500w, /assets/images/campus/green/solar.png 619w",
+       "sizes": "100vw"
+      },
+      "mediaH220": true
+     },
+     "cw": 4
+    },
+    {
+     "kind": "contentB",
+     "common": true,
+     "card": {
+      "variant": "isme-switch",
+      "background": "#13357e",
+      "title": "Energy Saving LED bulbs",
+      "text": "To promote energy efficiency, we have adopted LED bulbs and power-efficient equipment across campus. These energy-saving technologies help reduce electricity consumption, lower carbon emissions, and contribute to a more sustainable campus environment.",
+      "image": null,
+      "embed": "https://www.youtube.com/embed/Eo1KTb60EGA?autoplay=1&mute=1&loop=1&playlist=Eo1KTb60EGA&controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1&fs=0&playsinline=1",
+      "mediaH220": true
+     },
+     "cw": 4
+    },
+    {
+     "kind": "contentB",
+     "common": true,
+     "card": {
+      "variant": "isme",
+      "background": "#193e90",
+      "title": "Sensor Based Energy Conservation",
+      "text": "We are leveraging sensor-based technologies to optimize energy usage across campus, promoting sustainability and reducing energy waste. These smart solutions contribute to our commitment to sustainability by conserving resources while maintaining comfort and functionality on campus.",
+      "image": {
+       "src": "/assets/images/campus/green/green-camp-3.webp",
+       "alt": "",
+       "srcSet": "/assets/images/campus/green/green-camp-3-p-500.webp 500w, /assets/images/campus/green/green-camp-3.webp 619w",
+       "sizes": "100vw"
+      },
+      "mediaH220": true
+     },
+     "cw": 4
+    },
+    {
+     "kind": "contentB",
+     "common": true,
+     "card": {
+      "variant": "isme-switch",
+      "background": "#13357e",
+      "title": "Green Campus",
+      "text": "To promote energy efficiency, we have adopted LED bulbs and power-efficient equipment across campus. These energy-saving technologies help reduce electricity consumption, lower carbon emissions, and contribute to a more sustainable campus environment.",
+      "image": null,
+      "video": [
+       "/assets/videos/campus/green-campus.mp4",
+       "/assets/videos/campus/green-campus.webm"
+      ],
+      "mediaH220": true
+     },
+     "cw": 4
+    }
+   ]
+  },
+  {
+   "kind": "infoBanner",
+   "heading": "Ready to live the ISME life?",
+   "titleBare": true,
+   "containerBare": true,
+   "text": "This isn’t just where you study — it’s where\nyou build your world.",
+   "buttons": [
+    {
+     "label": "Apply Now",
+     "href": "https://atlasuniversity.edu.in/application-form",
+     "variant": "mint",
+     "icon": null
+    },
+    {
+     "label": "Schedule a visit",
+     "href": "https://atlasuniversity.edu.in/campusvisit",
+     "variant": "mint",
+     "icon": null
+    }
+   ],
+   "image": {
+    "src": "/assets/images/schools/isme/pages/bg-life@isme.png",
+    "alt": ""
+   }
+  },
+  {
+   "kind": "search",
+   "id": null
+  },
+  {
+   "heading": "Questions? We can read your mind",
+   "items": [
+    {
+     "q": "Where is the ATLAS ISME campus located?",
+     "a": [
+      "The ATLAS ISME campus is located in Bandra Kurla Complex (BKC), Mumbai.",
+      "Our official address is ATLAS SkillTech University Tower 1, Equinox Business Park, BKC, Lal Bahadur Shastri Marg, off Bandra-Kurla Complex, Ambedkar Nagar, Kurla West, Kurla, Mumbai, Maharashtra 400070."
+     ]
+    },
+    {
+     "q": "How accessible is the ATLAS campus?",
+     "a": [
+      "ATLAS ISME is located in the heart of BKC, with easy access to the Mumbai Airport, Bandra and Kurla railway stations and multiple metro lines (Bandra Colony, Santacruz and Sakinaka metro stations). The area is also surrounded by markets, malls, hotels, utility shops and medical facilities."
+     ]
+    },
+    {
+     "q": "What facilities are available at the ATLAS ISME campus?",
+     "a": [
+      "ATLAS ISME campus offers a wide range of facilities designed to support student learning, comfort, innovation and overall well-being.",
+      [
+       {
+        "strong": "Campus Facilities:"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        "State-of-the-art learning labs",
+        "Collaborative Zones, Tech-enabled classrooms, Spacious Auditorium",
+        "A digitally integrated smart library offering extensive resources & comfortable study spaces.",
+        "Multiple dining options & Cafes and a vibrant courtyard with open spaces",
+        "Medical Facilities, 24x7 wi-fi campus & security",
+        "Enterprise incubators to support student startups",
+        "Gym, sports, & theatre groups, Student Clubs and Organisations to engage students",
+        "24/7 medical assistance, first-aid facilities and on-campus doctor availability",
+        "Fully accessible campus infrastructure with elevators and wheelchair-friendly pathways for students with mobility needs"
+       ]
+      }
+     ]
+    },
+    {
+     "q": "What food options are available on the ATLAS campus?",
+     "a": [
+      "Food options include ATLAS Cafeterias (in both buildings), Equinox's Spice Corridor, Subway, Pizza Hut, Thambi, Sabbaro, Third Wave Coffee, Waffles, Society Tea, food carts and vending machines."
+     ]
+    },
+    {
+     "q": "Does ATLAS ISME offer student accommodation and what amenities are included in ATLAS student housing?",
+     "a": [
+      "Yes, ATLAS offers premium student housing just 10 meters from campus, featuring AC rooms, lounges, gyms, a cafeteria, a medical clinic and 24/7 security.",
+      "Amenities include Wi-Fi, biometric access, gaming zones, study pods, housekeeping, fitness studios, wellness counsellors and balanced meals served four times a day."
+     ]
+    },
+    {
+     "q": "Is the ATLAS ISME campus eco-friendly and what green initiatives does ATLAS follow?",
+     "a": [
+      "Yes, the campus integrates solar power, biogas recycling, rainwater harvesting, energy-efficient lighting and smart motion sensors to promote sustainability.",
+      "ATLAS implements water recycling, LED-based lighting, sensor-based energy conservation and uses borewell water for irrigation, all as part of a future-conscious infrastructure."
+     ]
+    },
+    {
+     "q": "How is the ATLAS ISME Smart Library helpful to students in terms of technology and access?",
+     "a": [
+      "The ATLAS ISME Smart Library enhances student learning through technology and multiple access (campus & remote) by providing a digital catalogue for easy resource discovery, remote access to journals and databases and a digital repository for e-resources.",
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Online Catalogue:"
+         },
+         " Students can easily search for books and other resources available in the library through the online catalogue, improving discoverability and access."
+        ],
+        [
+         {
+          "strong": "Digital Library"
+         },
+         " with RFID Technology (and other automated systems), along with remote access"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "q": "Does ATLAS ISME offer on-campus housing?",
+     "a": [
+      "Yes, ATLAS ISME provides on-campus housing facilities for outstation students. And we also help students find nearby accommodations.",
+      [
+       {
+        "strong": "In-Campus Hostel:"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        "The hostel is located just 10 meters from the University campus",
+        "Comfortable, secure and well-maintained vibrant living experience",
+        "24/7 Wi-Fi, electricity and water access.",
+        "Diverse food options (Veg/Jain/Non-Veg)",
+        "24/7 Immediate Medical staff & support available."
+       ]
+      }
+     ]
+    }
+   ],
+   "kind": "faq"
+  }
+ ]
+}

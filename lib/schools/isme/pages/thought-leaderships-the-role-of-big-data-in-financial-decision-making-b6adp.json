@@ -1,0 +1,191 @@
+{
+ "path": "/schools/isme/thought-leaderships/the-role-of-big-data-in-financial-decision-making-b6adp",
+ "ref": "thought-leaderships/the-role-of-big-data-in-financial-decision-making-b6adp.php",
+ "meta": {
+  "title": "Role of Big Data in Financial Decision-Making | Atlas",
+  "description": "Discover how business analytics undergraduate skills and bba finance course expertise at Atlas ISME drive smarter financial decisions through big data."
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "kind": "articleHeader",
+   "image": {
+    "src": "/assets/images/schools/isme/pages/ba-financial-decision-making-banner.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/pages/ba-financial-decision-making-banner-p-500.png 500w, /assets/images/schools/isme/pages/ba-financial-decision-making-banner-p-800.png 800w, /assets/images/schools/isme/pages/ba-financial-decision-making-banner-p-1080.png 1080w, /assets/images/schools/isme/pages/ba-financial-decision-making-banner.png 1366w",
+    "sizes": "100vw"
+   }
+  },
+  {
+   "kind": "breadcrumbs",
+   "links": [
+    {
+     "label": "About Us",
+     "href": "#"
+    },
+    {
+     "label": "Thought Leadership",
+     "href": "#"
+    }
+   ],
+   "arrow": "/assets/images/schools/isme/pages/bread-arrow.svg"
+  },
+  {
+   "kind": "article",
+   "title": "The Role of Big Data in Financial Decision Making",
+   "details": [
+    "Admin",
+    "9 min read",
+    "June 2, 2025"
+   ],
+   "jump": {
+    "heading": "Jump to",
+    "links": [
+     {
+      "label": "The Importance of Big Data",
+      "href": "#"
+     },
+     {
+      "label": "The Role of Big Data",
+      "href": "#"
+     },
+     {
+      "label": "Building a Career",
+      "href": "#"
+     }
+    ]
+   },
+   "body": [
+    {
+     "kind": "h3",
+     "id": "The Importance of Big Data",
+     "text": "The Importance of Big Data"
+    },
+    {
+     "kind": "p",
+     "mods": [
+      "p-tag"
+     ],
+     "text": "A highlight of the visit was the reaffirmation that ISME students from Atlas SkillTech University are always welcome to pursue their master’s studies at King’s College London. This strong relationship ensures a seamless pathway for our students to access world-class education and global exposure, fostering an enriching academic journey."
+    },
+    {
+     "kind": "rich",
+     "blocks": [
+      "The world today is completely data and AI-driven. With the world relying on technology immensely, the need to access data is imperative. Every second, data is exchanged on micro and macro levels. This data, especially financial data, is crucial in the world of business to improve decision-making.",
+      [
+       {
+        "strong": "How Does Big Data Impact Financial Decision-Making?"
+       }
+      ],
+      "Big data provides organisations with the ability to:",
+      {
+       "list": "ul",
+       "items": [
+        "Access large volumes of information",
+        "Gain a competitive edge",
+        "Extract actionable insights through analytics"
+       ]
+      },
+      "Big data analytics helps companies realise the value of their data by enhancing performance and decision-making."
+     ]
+    },
+    {
+     "kind": "h3",
+     "id": "The Role of Big Data",
+     "text": "The Role of Big Data"
+    },
+    {
+     "kind": "rich",
+     "blocks": [
+      [
+       {
+        "strong": "What Is the Role of Big Data in Financial Decision-Making?"
+       }
+      ],
+      "In today’s world, business involves not only transactions but also strategising and expansion. Big data has become an essential driver of financial decisions. Here's how it contributes:",
+      {
+       "list": "ul",
+       "items": [
+        "Enhanced Accuracy\nBig data analytics reveals patterns and trends hidden in vast databases, leading to more effective strategies and measurable outcomes.",
+        "Improved Customer Understanding\nBy analysing demographic and behavioural data, businesses can customise marketing efforts and improve user targeting.",
+        "Real-Time Insights\nCompanies can stay agile and responsive to changing trends, maintaining a competitive edge with up-to-the-minute data.",
+        "Enhanced Risk Management\nPredictive analytics help in identifying hidden risks, reducing the chance of fraud, and supporting proactive planning."
+       ]
+      },
+      "Competitive Advantage\nMarket trend analysis through financial data gives businesses the agility to optimise strategies and outperform competitors."
+     ]
+    },
+    {
+     "kind": "h3",
+     "id": "Building a Career",
+     "text": "Building a Career"
+    },
+    {
+     "kind": "rich",
+     "blocks": [
+      [
+       {
+        "strong": "Which Course Is Best for Big Data in Financial Decision-Making?"
+       }
+      ],
+      "Big data in finance is a specialised path under the broader business umbrella. A Bachelor of Business Administration (BBA) degree is ideal for those looking to explore this space, offering key knowledge in:",
+      {
+       "list": "ul",
+       "items": [
+        "Business analytics",
+        "Finance and accounting",
+        "Entrepreneurship",
+        "Marketing in a digital world"
+       ]
+      },
+      "This comprehensive curriculum equips students to confidently navigate business challenges and decision-making landscapes.",
+      [
+       {
+        "strong": "Which Institution Is Best for a BBA Degree?"
+       }
+      ],
+      "ATLAS SkillTech University stands out as one of the most sought-after institutions for a BBA degree.",
+      "Based in Mumbai, ATLAS ISME:",
+      {
+       "list": "ul",
+       "items": [
+        "Uses modern, interactive teaching methods",
+        "Offers live projects, global immersions, and internships",
+        "Encourages real-world problem-solving and industry exposure",
+        "Fosters skill development through constant interaction with industry leaders"
+       ]
+      },
+      "The experience at ATLAS prepares students to thrive in business, especially in the evolving field of big data and financial decision-making.",
+      "‍"
+     ]
+    },
+    {
+     "kind": "tags",
+     "heading": "Tags",
+     "items": [
+      {
+       "label": "Student Collaboration",
+       "href": "#"
+      },
+      {
+       "label": "Inferno",
+       "href": "#"
+      },
+      {
+       "label": "Festival",
+       "href": "#"
+      },
+      {
+       "label": "Leadership",
+       "href": "#"
+      },
+      {
+       "label": "Teamwork",
+       "href": "#"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,728 @@
+{
+ "path": "mba-hyper/mba-in-fintech",
+ "meta": {
+  "title": "ATLAS SkillTech University",
+  "description": "Get in touch with Atlas Skilltech.",
+  "keywords": null
+ },
+ "brochure": {
+  "ids": [
+   "mba-brochure",
+   "campus-visit"
+  ],
+  "scripts": [
+   {
+    "src": "https://crm.atlasskilltech.app/widgets/6a3e7b56a1fd0680c6c18e59/embed.js",
+    "height": 650
+   }
+  ]
+ },
+ "order": [
+  "hero",
+  "stats",
+  "steps",
+  "mbatrack",
+  "why",
+  "execution",
+  "voices",
+  "admissions",
+  "eligibility",
+  "banner",
+  "cmsfaq"
+ ],
+ "blocks": {
+  "hero": {
+   "title": "MBA for an AI World (With Dual Specialisation)",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/course-header-img.webp",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/course-header-img-p-500.webp 500w, /assets/images/schools/isme/bba/course-header-img-p-800.webp 800w, /assets/images/schools/isme/bba/course-header-img-p-1080.webp 1080w, /assets/images/schools/isme/bba/course-header-img.webp 1366w",
+    "sizes": "(max-width: 1366px) 100vw, 1366px"
+   },
+   "buttons": [
+    {
+     "label": "Apply for July 2027 Intake",
+     "variant": "mint",
+     "href": "https://atlasuniversity.edu.in/applicationform"
+    },
+    {
+     "label": "Download Brochure",
+     "variant": "outline-white",
+     "brochure": "mba-brochure"
+    }
+   ],
+   "narrow": true,
+   "lead": "ATLAS ISME’s MBA is not just a degree, it’s your AI-powered launchpad into leadership. A future-ready MBA that combines strong management foundations with the power of AI and analytics."
+  },
+  "mbatrack": {
+   "selection": {
+    "id": "hyper-mba-selection",
+    "heading": {
+     "num": "1",
+     "title": "Choose Your Specialisation"
+    },
+    "tabs": [
+     {
+      "id": "cards-hyper-mba",
+      "label": "Hyper Specialisation",
+      "active": true,
+      "href": null
+     },
+     {
+      "id": "cards-dual-mba",
+      "label": "Dual Specialisation",
+      "active": false,
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/marketing-finance#dual-mba-selection"
+     }
+    ],
+    "cards": [
+     {
+      "href": "/schools/isme/programs/postgraduate/mba-hyper/mba-with-specialisation#hyper-mba-selection",
+      "title": "Finance",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/mba-hyper/mba-with-hyper-specialisation-marketing#hyper-mba-selection",
+      "title": "Marketing",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/mba-hyper/mba-with-hyper-specialisation-entrepreneurship#hyper-mba-selection",
+      "title": "Entrepreneurship & Family Business",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/mba-hyper/mba-with-hyper-specialisation-business-analytics#hyper-mba-selection",
+      "title": "Business Analytics",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/mba-hyper/mba-with-digital-marketing-and-advertising#hyper-mba-selection",
+      "title": "Digital Marketing and Advertising",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/mba-hyper/mba-in-fintech#hyper-mba-selection",
+      "title": "FinTech",
+      "active": true
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/mba-hyper/mba-with-strategic-human-capital-management#hyper-mba-selection",
+      "title": "Strategic Human Capital Management",
+      "active": false
+     }
+    ],
+    "tabTick": "/assets/images/schools/isme/bba/tick-blue.svg",
+    "cardTick": "/assets/images/schools/isme/mba/mint-tick.svg",
+    "swiperPt32": true
+   },
+   "curriculum": {
+    "heading": {
+     "num": "3",
+     "title": "Review Your Curriculum"
+    },
+    "panes": [
+     {
+      "label": "Overview",
+      "kind": "text",
+      "text": [
+       "The ",
+       {
+        "strong": "MBA in FinTech at ATLAS ISME"
+       },
+       " is designed for future fintech leaders, product innovators, financial analysts and digital finance specialists. Whether you aim to build fintech products, manage digital financial ecosystems, or lead innovation in financial services, this programme equips you to thrive in a rapidly evolving industry.\n\n",
+       {
+        "strong": "You will learn to combine financial expertise with emerging technologies, data with decision-making and strategy with innovation."
+       },
+       " From digital banking and blockchain to financial modelling, risk management and algorithmic trading, every subject is delivered with strong real-world application in modern finance."
+      ],
+      "paneClass": "tab-pane-tab-1"
+     },
+     {
+      "label": "Curriculum Highlights",
+      "kind": "cards",
+      "cards": [
+       {
+        "num": "#1",
+        "title": "Digital Banking & Neobanking"
+       },
+       {
+        "num": "#2",
+        "title": "Blockchain & Digital Currencies"
+       },
+       {
+        "num": "#3",
+        "title": "FinTech Product Development"
+       },
+       {
+        "num": "#4",
+        "title": "Financial Modelling"
+       },
+       {
+        "num": "#5",
+        "title": "Algorithmic Trading"
+       },
+       {
+        "num": "#6",
+        "title": "Big Data for Finance"
+       },
+       {
+        "num": "#7",
+        "title": "Cyber Security in Finance"
+       },
+       {
+        "num": "#8",
+        "title": "Derivatives & Risk Management"
+       },
+       {
+        "num": "#9",
+        "title": "Corporate Valuation"
+       },
+       {
+        "num": "#10",
+        "title": "Capstone Project"
+       }
+      ],
+      "paneClass": "tab-pane-tab-2"
+     },
+     {
+      "label": "Learning Outcomes",
+      "kind": "cards",
+      "cards": [
+       {
+        "num": "#1",
+        "title": "Build expertise in digital banking, fintech products and financial technologies"
+       },
+       {
+        "num": "#2",
+        "title": "Apply data-driven insights through big data, analytics and algorithmic trading"
+       },
+       {
+        "num": "#3",
+        "title": "Develop strong capabilities in financial modelling, valuation and risk management"
+       },
+       {
+        "num": "#4",
+        "title": "Integrate blockchain, cybersecurity and emerging technologies in finance"
+       },
+       {
+        "num": "#5",
+        "title": "Drive innovation with entrepreneurial thinking in fintech ecosystems"
+       },
+       {
+        "num": "#6",
+        "title": "Lead financial decision-making in dynamic and technology-driven environments"
+       }
+      ],
+      "paneClass": "tab-pane-tab-3"
+     }
+    ],
+    "current": 0,
+    "years": [
+     {
+      "label": "Year 1",
+      "semesters": [
+       {
+        "title": "Semester 1",
+        "text": "Semester 1 builds strong foundations in communication, AI tools, and global business, while preparing students with essential leadership, planning, and career skills.",
+        "image": {
+         "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+         "alt": ""
+        },
+        "courses": [
+         {
+          "title": "Professional Communication and Presentation Skills",
+          "text": "Develops clear, confident and persuasive communication skills for leadership, collaboration and professional success."
+         },
+         {
+          "title": [
+           "‍",
+           {
+            "strong": "Modern Age AI Tools (Generative AI Tools)"
+           }
+          ],
+          "text": "Master generative AI tools to analyse data, visualise insights, forecast trends, model decisions and automate solutions for complex business challenges."
+         },
+         {
+          "title": [
+           {
+            "strong": "Geopolitics and International Business"
+           }
+          ],
+          "text": "Provides key insights into global markets and trends, enabling informed strategic decisions in a dynamic economy."
+         },
+         {
+          "title": [
+           {
+            "strong": "Career and Leadership Development I:Career Planning & Goal Setting"
+           }
+          ],
+          "text": "Develop skills to define career goals, create actionable plans and make informed decisions for professional growth and long-term success."
+         },
+         {
+          "title": [
+           {
+            "strong": "Digital Banking and Neobanking models"
+           }
+          ],
+          "text": "Explore digital banking and neobanking models, understanding innovative financial technologies, customer-centric services and emerging trends shaping the future of banking."
+         }
+        ],
+        "electives": [],
+        "compare": [
+         {
+          "title": "Why our Semester 1 curriculum outpaces every other business school",
+          "text": "Early foundation in finance, global business, AI tools, leadership, and electives, blending theory with practical applications for future-ready financial expertise.",
+          "head": [
+           "Subjects",
+           "ATLAS ISME",
+           "Other Business Schools"
+          ],
+          "rows": [
+           [
+            "Professional Communication & Presentation Skills",
+            "Practical, hands-on focus on presentations, clarity, & confidence building from Semester 1.",
+            "Usually taught later; focus remains theoretical, with fewer real-world applications."
+           ],
+           [
+            "Modern Age AI Tools (Generative AI Tools)",
+            "Introduced early with real-world use of AI for creativity, problem-solving, and automation.",
+            "AI rarely included this early; limited to basic IT tools."
+           ],
+           [
+            "Global Business Environment",
+            "Students explore global trends, cultural diversity, and real-world business shifts.",
+            "Typically taught abstractly, limited exposure to current global case studies."
+           ],
+           [
+            "Career & Leadership Development I: Career Planning and Goal Setting",
+            "Strong self-awareness, career mapping, and leadership readiness from Day 1.",
+            "Career planning often delayed until internships or later years."
+           ],
+           [
+            "Finance – Financial Statement Analysis",
+            "Practical analysis with live datasets, ratio evaluation, and market context.",
+            "Mostly textbook or classroom-based accounting theory."
+           ],
+           [
+            "Marketing – The 21st Century Marketing",
+            "Applied campaign creation, SEO/SEM, social media, and analytics projects.",
+            "Conceptual overview with minimal hands-on execution."
+           ],
+           [
+            "Entrepreneurship & Family Business –Entrepreneurship and Family Business 101",
+            "Exposure to entrepreneurial mindset, family business models, and startup frameworks using live case studies.",
+            "Taught as generic theory without tailoring to family enterprises or entrepreneurial realities."
+           ],
+           [
+            "Business Analytics – Driving Decisions by Excel (Basics & Advanced)",
+            "Hands-on training with Excel for analytics, dashboarding, and decision-making; practical business case applications.",
+            "Hands-on training with Excel for analytics, dashboarding, and decision-making; practical business case applications."
+           ],
+           [
+            "Digital Marketing & Advertising – Introduction to Digital Marketing",
+            "Applied campaign creation, SEO/SEM, social media, and analytics projects.",
+            "Conceptual overview with minimal hands-on execution."
+           ]
+          ]
+         }
+        ]
+       },
+       {
+        "title": "Semester 2",
+        "text": "Semester 2 strengthens leadership, creativity, and research through people skills, design thinking, sustainability, and personal branding, aligning students with industry expectations and opportunities.",
+        "image": {
+         "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+         "alt": ""
+        },
+        "courses": [
+         {
+          "title": [
+           {
+            "strong": "Organisational Behaviour & Universal Human Values"
+           }
+          ],
+          "text": "Understand workplace dynamics and cultivate universal human values to foster ethical, collaborative and effective organisational environments."
+         },
+         {
+          "title": [
+           {
+            "strong": "Economics and Cyber Governance"
+           }
+          ],
+          "text": "Explore economic principles alongside cyber governance frameworks to navigate digital economies securely and strategically."
+         },
+         {
+          "title": [
+           {
+            "strong": "Career and Leadership Development III: Emotional Intelligence and Resilience"
+           }
+          ],
+          "text": "Enhance emotional intelligence and resilience to strengthen leadership, decision-making and career growth in challenging environments."
+         },
+         {
+          "title": [
+           {
+            "strong": "Securities Analysis & Portfolio Management"
+           }
+          ],
+          "text": "Develop skills to evaluate investments, manage risk and construct portfolios for optimal returns in dynamic markets."
+         },
+         {
+          "title": [
+           {
+            "strong": "Financial Management"
+           }
+          ],
+          "text": "Develop skills in financial planning, risk management and strategic decision-making to drive organisational and personal financial success."
+         },
+         {
+          "title": [
+           {
+            "strong": "Product Development in FinTech"
+           }
+          ],
+          "text": "Learn to design, develop and innovate FinTech products by integrating technology, user needs and market trends."
+         },
+         {
+          "title": [
+           {
+            "strong": "Blockchain & Digital Currencies"
+           }
+          ],
+          "text": "Gain expertise in blockchain technology and digital currencies, understanding decentralised systems, applications and emerging financial trends."
+         }
+        ],
+        "electives": [
+         {
+          "title": [
+           {
+            "strong": "Electives (Pick one)"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Indian Financial System"
+             }
+            ],
+            "text": null
+           }
+          ]
+         }
+        ],
+        "compare": [
+         {
+          "title": "Why our semester 2 curriculum outpaces every other business school",
+          "text": "Emphasis on self-leadership, design thinking, sustainability, finance simulations, and early electives, ensuring applied learning, professional growth, and future-ready financial capabilities.",
+          "head": [
+           "Subjects",
+           "ATLAS ISME",
+           "Other Business Schools"
+          ],
+          "rows": [
+           [
+            "Managing Self and People Skills",
+            "Builds emotional intelligence, teamwork, and leadership via experiential methods.",
+            "Often textbook-driven, less emphasis on personal growth or real team dynamics."
+           ],
+           [
+            "Human-Centered Design Thinking",
+            "Empathy-driven, innovation-focused projects solving real-world business challenges.",
+            "Rarely included or taught theoretically without applied projects."
+           ],
+           [
+            "CSR, SDGs & Business Research",
+            "Applied focus on sustainability, corporate responsibility, and impactful research.",
+            "Usually limited to theory, with fewer links to SDGs or live cases."
+           ],
+           [
+            "Career & Leadership Development II: Personal Branding & Professional Networking",
+            "Early exposure to personal branding and networking skills for career growth.",
+            "Networking rarely taught systematically; personal branding not prioritized."
+           ],
+           [
+            "Finance",
+            "Early introduction to financial modeling, corporate finance, and risk management through practical simulations and case-driven learning.",
+            "Finance often introduced later, with focus remaining theoretical and limited applied exposure."
+           ],
+           [
+            "Electives",
+            "Students choose electives like stock markets, entrepreneurial finance, or sustainable finance from Semester 2 onwards.",
+            "Electives rarely offered so early; usually restricted to final years with narrower options."
+           ]
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "label": "Year 2",
+      "semesters": [
+       {
+        "title": "Semester 3",
+        "text": "Semester 3 emphasizes human values, resilience, cybersecurity, and applied economics, strengthening ethical leadership and strategic decision-making for evolving global business environments.",
+        "image": {
+         "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+         "alt": ""
+        },
+        "courses": [
+         {
+          "title": "Organisational Behaviour & Universal Human Values",
+          "text": "Understand workplace dynamics and cultivate universal human values to foster ethical, collaborative and effective organisational environments."
+         },
+         {
+          "title": "Economics and Cyber Governance",
+          "text": "Explore economic frameworks and cyber governance principles to make informed decisions in digital and data-driven economies."
+         },
+         {
+          "title": [
+           {
+            "strong": "Career and Leadership Development III: Emotional Intelligence and Resilience"
+           }
+          ],
+          "text": "Enhance emotional intelligence and resilience to strengthen leadership, adaptability and professional growth in dynamic work environments."
+         },
+         {
+          "title": [
+           {
+            "strong": "Corporate Finance"
+           }
+          ],
+          "text": "Develop skills in financial planning, capital structuring and strategic decision-making to drive corporate value and growth."
+         },
+         {
+          "title": [
+           {
+            "strong": "Financial Modelling"
+           }
+          ],
+          "text": "Learn to create robust financial models for forecasting, valuation and informed business decision-making."
+         },
+         {
+          "title": [
+           {
+            "strong": "Algorithm Trading & Robo Advisory"
+           }
+          ],
+          "text": "Understand algorithmic trading strategies and robo-advisory systems to leverage technology for efficient investment management."
+         },
+         {
+          "title": [
+           {
+            "strong": "Big Data for Finance"
+           }
+          ],
+          "text": "Apply big data analytics to financial markets, risk management and investment strategies for data-driven decision-making."
+         }
+        ],
+        "electives": [
+         {
+          "title": "Electives (Pick one)",
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Stock Markets & Technical Analysis"
+             }
+            ],
+            "text": null
+           }
+          ]
+         }
+        ],
+        "compare": [
+         {
+          "title": "Why our semester 3 curriculum outpaces every other business school",
+          "text": "Students gain financial specialization, applied economics, cybersecurity awareness, emotional intelligence, and early electives, integrating technical expertise with leadership resilience and global financial decision-making.",
+          "head": [
+           "Subjects",
+           "ATLAS ISME",
+           "Other Business Schools"
+          ],
+          "rows": [
+           [
+            "Organisational Behaviour & HRM",
+            "Focus on leadership psychology and strategy for modern workplaces.",
+            "Mostly theory-heavy models with minimal practical depth."
+           ],
+           [
+            "Cyber Security Management",
+            "Early exposure to cyber risks, digital safety, and business security strategies.",
+            "Cybersecurity rarely included in management curricula; delayed integration."
+           ],
+           [
+            "Economics for Decision Making",
+            "Applied approach using live data, case studies, and decision frameworks.",
+            "Taught theoretically with limited business-oriented applications."
+           ],
+           [
+            "Career & Leadership Development III: Emotional Intelligence & Resilience",
+            "Builds adaptive leadership through EI, resilience, and stress management.",
+            "Usually overlooked; soft skills are undervalued or delayed."
+           ],
+           [
+            "Finance",
+            "Specialized focus on valuation, FinTech, NBFC/insurance, and financial analytics with applied projects.",
+            "Limited specialization, topics often fragmented and taught later without industry-driven projects."
+           ],
+           [
+            "Electives",
+            "Choice of niche electives like behavioral finance or sustainable finance fostering diverse career paths.",
+            "Electives limited, offered late, with fewer innovative or future-ready options."
+           ]
+          ]
+         }
+        ]
+       },
+       {
+        "title": "Semester 4",
+        "text": "Semester 4 integrates governance, ethics, analytics, and inclusive leadership, culminating in a capstone that equips students for impactful corporate decision-making roles.",
+        "image": {
+         "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+         "alt": ""
+        },
+        "courses": [
+         {
+          "title": [
+           {
+            "strong": "Organisational Behaviour & Universal Human Values"
+           }
+          ],
+          "text": "Understand workplace dynamics and cultivate universal human values to foster ethical, collaborative and effective organisational environments."
+         },
+         {
+          "title": [
+           {
+            "strong": "Corporate Strategy & Supply Chain Analytics"
+           }
+          ],
+          "text": "Develop strategic decision-making skills by integrating corporate strategy with supply chain analytics for operational efficiency and competitive advantage."
+         },
+         {
+          "title": [
+           {
+            "strong": "Career and Leadership Development IV: Emotional Intelligence and Resilience"
+           }
+          ],
+          "text": "Strengthen leadership capabilities through advanced emotional intelligence and resilience to navigate complex professional challenges."
+         },
+         {
+          "title": [
+           {
+            "strong": "Corporate Valuation"
+           }
+          ],
+          "text": "Learn methods to assess corporate value, conduct financial analysis and support investment and strategic decisions."
+         },
+         {
+          "title": [
+           {
+            "strong": "Cyber Security in Finance"
+           }
+          ],
+          "text": "Understand cyber security principles, risks and solutions to safeguard financial systems and digital assets."
+         },
+         {
+          "title": [
+           {
+            "strong": "Entrepreneurship In FinTech"
+           }
+          ],
+          "text": "Explore the creation and growth of FinTech ventures, focusing on innovation, business models and market strategies."
+         },
+         {
+          "title": [
+           {
+            "strong": "Derivatives & Risk Management"
+           }
+          ],
+          "text": "Gain expertise in derivatives instruments and risk management techniques to mitigate financial exposure and optimise portfolios."
+         }
+        ],
+        "electives": [
+         {
+          "title": "Electives (Pick one)",
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Sustainable Finance"
+             }
+            ],
+            "text": null
+           }
+          ]
+         }
+        ],
+        "compare": [
+         {
+          "title": "Why our semester 4 curriculum outpaces every other business school",
+          "text": "Focus on governance, strategy, supply chain analytics, advanced finance, and personalized electives, culminating in industry-ready expertise through applied capstone projects.",
+          "head": [
+           "Subjects",
+           "ATLAS ISME",
+           "Other Business Schools"
+          ],
+          "rows": [
+           [
+            "Corporate Governance, Professional Ethics & Law",
+            "Integrates governance, compliance, and ethics with real corporate cases.",
+            "Focused narrowly on law, less emphasis on ethics or governance challenges."
+           ],
+           [
+            "Supply Chain Analytics",
+            "Data-driven insights into supply chain, logistics, and operations using modern analytics.",
+            "Operations taught traditionally, with limited analytics exposure."
+           ],
+           [
+            "Corporate Strategy",
+            "Practical, case-led strategy building with exposure to global best practices.",
+            "Strategy remains theoretical, introduced late with limited hands-on exposure."
+           ],
+           [
+            "Career & Leadership Development IV: DEI in Leadership & Capstone",
+            "Focuses on diversity, equity, inclusion, and capstone projects linking leadership to practice.",
+            "DEI rarely emphasized; capstone projects often missing or optional."
+           ],
+           [
+            "Finance",
+            "Advanced focus on corporate valuation, BFSI, FinTech, and financial analytics with hands-on projects and industry mentorship.",
+            "Finance capstones rarely emphasize FinTech or analytics; often remain classroom theory with limited applied exposure."
+           ],
+           [
+            "Electives",
+            "Final-year electives like entrepreneurial finance or sustainable finance allow career-tailored specialization and applied learning.",
+            "Electives limited, less industry-relevant, and typically confined to traditional subject choices."
+           ]
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "download": {
+     "label": "Download Curriculum",
+     "variant": "mint",
+     "fontSize": null,
+     "brochure": "mba-brochure"
+    },
+    "yearsWrapClass": "quaternary-tabs-wrapper padd-btm"
+   }
+  }
+ },
+ "refs": {
+  "stats": "stats-1fb6e3a726",
+  "steps": "steps-5e3765fa50",
+  "why": "why-ec826fb16d",
+  "execution": "execution-263d79afd8",
+  "voices": "voices-5669f623cd",
+  "admissions": "admissions-4866e9cc42",
+  "eligibility": "eligibility-387c7dd71c",
+  "banner": "banner-b416f4326e",
+  "cmsfaq": "cmsfaq-406c823ef5"
+ }
+}

@@ -1,0 +1,127 @@
+{
+ "title": "Eligibility",
+ "groups": [
+  {
+   "title": "Indian Boards (ISC / CBSE / State Boards)",
+   "titleBold": false,
+   "narrow": false,
+   "items": [
+    "Minimum 50% overall in Class XII",
+    "Mathematics is a mandatory subject"
+   ],
+   "itemGap": [
+    false,
+    false
+   ],
+   "bulletPadding": false
+  },
+  {
+   "title": "A-Levels (UK)",
+   "titleBold": false,
+   "narrow": false,
+   "items": [
+    "GCSE/IGCSE Examinations of the approved British Examination Bodies,\nwith minimum 5 (Five) subjects in A, B, C, D and E grades, including English\nat Ordinary 'O' Level and 2 subjects of which, one subject must be Mathematics\nat Advanced 'A' Level."
+   ],
+   "itemGap": [
+    false
+   ],
+   "bulletPadding": false
+  },
+  {
+   "title": "International Baccalaureate (IB)",
+   "titleBold": false,
+   "narrow": false,
+   "items": [
+    "3SL, 3HL with a minimum of 24 credit points with Mathematics as a compulsory subject."
+   ],
+   "itemGap": [
+    false
+   ],
+   "bulletPadding": false,
+   "subText": "IB Diploma Program"
+  },
+  {
+   "title": "IB Diploma Course (i.e. Certificate) Programme",
+   "titleBold": false,
+   "narrow": false,
+   "items": [
+    "3SL, 3HL with a minimum of 24 credit points with Mathematics as a compulsory subject."
+   ],
+   "itemGap": [
+    false
+   ],
+   "bulletPadding": false
+  },
+  {
+   "title": "IB Career Related Study Programmes",
+   "titleBold": false,
+   "narrow": false,
+   "items": [
+    "Students graduating with 02 DP Subjects (1 subject must be mathematics) with at least 01 subjects\nat HL level and minimum 3 points in each DP subject.",
+    "Career Related Study (CRS) with at least 03 Subjects.",
+    "International Baccalaureate Career Related Study (IBCP)\nqualification with core components requirement awarded by\nInternational Baccalaureate (IB)."
+   ],
+   "itemGap": [
+    false,
+    false,
+    false
+   ],
+   "bulletPadding": false
+  }
+ ],
+ "application": [
+  {
+   "title": "Fee Structure",
+   "text": "We believe in clarity. Here’s a simple year-on-year breakdown of our fees!",
+   "spaced": true,
+   "buttons": [
+    {
+     "label": "Fee Structure",
+     "href": "https://atlasuniversity.edu.in/fee-structure/bsc-finance/",
+     "target": "_blank",
+     "fontSize": 16
+    },
+    {
+     "label": "Admissions Policy",
+     "href": "https://atlasuniversity.edu.in/admissions-policy/",
+     "target": "_blank",
+     "fontSize": 16
+    }
+   ]
+  },
+  {
+   "title": "Loans & Scholarships",
+   "text": "That’s right – Funding just got easier! We partner with India’s top banks to support your journey to success. And, Our ATLAS Scholarship is there to enable access to world-class education for you and build a lifelong growth.",
+   "spaced": true,
+   "buttons": [
+    {
+     "label": "Education Loans",
+     "href": "https://atlasuniversity.edu.in/education-loan",
+     "target": null,
+     "fontSize": 16
+    },
+    {
+     "label": "ATLAS Scholarships",
+     "href": "https://atlasuniversity.edu.in/scholarships-and-financial-aid",
+     "target": null,
+     "fontSize": 16
+    }
+   ]
+  },
+  {
+   "title": "Your Home Away From Home",
+   "text": "Safe, comfortable housing for first-year students with a supportive community.",
+   "spaced": false,
+   "buttons": [
+    {
+     "label": "Student Housing at ISME",
+     "href": "https://www.upgradliving.com/",
+     "target": "_blank",
+     "fontSize": 16
+    }
+   ]
+  }
+ ],
+ "split": false,
+ "sheet": "bsc"
+}

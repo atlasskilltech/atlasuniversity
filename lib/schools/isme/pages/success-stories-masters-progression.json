@@ -1,0 +1,223 @@
+{
+ "path": "/schools/isme/success-stories/masters-progression",
+ "ref": "success-stories/masters-progression.php",
+ "meta": {
+  "title": "Success Stories & Career Wins – ATLAS ISME",
+  "description": "Explore inspiring journeys, placements, achievements, top recruiters, student success and real career transformations."
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "kind": "hero",
+   "height": "658",
+   "id": null,
+   "eyebrow": null,
+   "name": null,
+   "position": null,
+   "title": "Masters\nProgression",
+   "text": "At ATLAS ISDI, the master’s journey is a transformative chapter of growth, leadership, and innovation. Here, students don’t just master their craft they redefine it. Through a dynamic blend of design, strategy, and technology, supported by global collaborations, industry partnerships, and research-driven learning, our postgraduates evolve into future-ready leaders. From pioneering ideas to impactful ventures, they go on to design change, drive innovation, and shape the world of tomorrow.",
+   "image": {
+    "src": "/assets/images/schools/isdi/masters-progression/hero/master-progreession-image.webp",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isdi/masters-progression/hero/master-progreession-image-p-500.webp 500w, /assets/images/schools/isdi/masters-progression/hero/master-progreession-image-p-800.webp 800w, /assets/images/schools/isdi/masters-progression/hero/master-progreession-image-p-1080.webp 1080w, /assets/images/schools/isdi/masters-progression/hero/master-progreession-image.webp 1366w",
+    "sizes": "(max-width: 1439px) 100vw, 1365.95703125px"
+   },
+   "buttons": null,
+   "video": null
+  },
+  {
+   "cards": [
+    {
+     "tone": "bg6",
+     "label": "Global Master Progressors",
+     "value": "140+",
+     "note": null
+    },
+    {
+     "tone": "bg7",
+     "label": "Across Countries",
+     "value": "10 +",
+     "note": null
+    },
+    {
+     "tone": "bg8",
+     "label": "Total Master Progressors",
+     "value": "400 +",
+     "note": null
+    }
+   ],
+   "padBottom": true,
+   "kind": "stats"
+  },
+  {
+   "kind": "story",
+   "heading": "Guiding you to masters success",
+   "headingMods": [
+    "mrg32"
+   ],
+   "text": "Through strategic global associations spanning continents, our students gain invaluable exposure via international immersions, student exchanges, and masterclasses. This global learning experience at ATLAS equips students with the insights and confidence to make informed decisions, inspiring them to pursue master’s programs at top-ranked universities and institutions worldwide.",
+   "image": {
+    "src": "/assets/images/schools/isme/pages/master-progreession-image-1.webp",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/pages/master-progreession-image-1-p-500.webp 500w, /assets/images/schools/isme/pages/master-progreession-image-1-p-800.webp 800w, /assets/images/schools/isme/pages/master-progreession-image-1.webp 828w",
+    "sizes": "(max-width: 767px) 100vw, (max-width: 991px) 95vw, 827.98828125px"
+   }
+  },
+  {
+   "kind": "transferWall",
+   "heading": "From ATLAS ISME to the World’s Best Universities",
+   "headingMods": [
+    "mrg16"
+   ],
+   "lead": "Create impact across industries and communities worldwide",
+   "people": [
+    {
+     "name": "Atharva Haldankar",
+     "degree": "Msc in Corporate Finance",
+     "image": {
+      "src": "/assets/images/success/progressions/atharva-haldankar.jpg",
+      "alt": "",
+      "srcSet": "/assets/images/success/progressions/atharva-haldankar-p-500.jpg 500w, /assets/images/success/progressions/atharva-haldankar-p-800.jpg 800w, /assets/images/success/progressions/atharva-haldankar-p-1080.jpg 1080w, /assets/images/success/progressions/atharva-haldankar-p-1600.jpg 1600w, /assets/images/success/progressions/atharva-haldankar-p-2000.jpg 2000w, /assets/images/success/progressions/atharva-haldankar-p-2600.jpg 2600w, /assets/images/success/progressions/atharva-haldankar-p-3200.jpg 3200w, /assets/images/success/progressions/atharva-haldankar.jpg 3840w",
+      "sizes": "(max-width: 3840px) 100vw, 3840px"
+     },
+     "logo": {
+      "src": "/assets/images/success/progressions/henley-business-school.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Ritika Mansinghka",
+     "degree": "Masters in International Marketing",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/ritika-mansinghka.png",
+      "alt": ""
+     },
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/rs9327_lbs_standard_logo_rgb_aw-hpr-2-1.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Deepika Pareek",
+     "degree": "MSc International Marketing Management",
+     "image": {
+      "src": "/assets/images/success/progressions/deepika-pareek.png",
+      "alt": ""
+     },
+     "logo": {
+      "src": "/assets/images/success/progressions/icl-logo.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Nainika Patwari",
+     "degree": "Msc Strategic Thinking",
+     "image": {
+      "src": "/assets/images/success/progressions/transfer-img-4.png",
+      "alt": ""
+     },
+     "logo": {
+      "src": "/assets/images/success/progressions/ny-univ-logo.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Drushti Dhingra",
+     "degree": "MSc Marketing",
+     "image": {
+      "src": "/assets/images/success/progressions/drishti-dhungr.png",
+      "alt": ""
+     },
+     "logo": {
+      "src": "/assets/images/success/progressions/uni-of-bath.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Devina Agrawal",
+     "degree": "MSc Marketing and Strategy",
+     "image": {
+      "src": "/assets/images/success/progressions/devina-agrawal.png",
+      "alt": ""
+     },
+     "logo": {
+      "src": "/assets/images/success/progressions/ny-univ-logo.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Rayan Dalal",
+     "degree": "Masters in Business Analysis and Strategic Management",
+     "image": {
+      "src": "/assets/images/success/progressions/utkarsh-kejriwal.png",
+      "alt": ""
+     },
+     "logo": {
+      "src": "/assets/images/success/progressions/manchester.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Krishi Gada",
+     "degree": "MA Business and Finance",
+     "image": {
+      "src": "/assets/images/success/progressions/krishi-gada.png",
+      "alt": ""
+     },
+     "logo": {
+      "src": "/assets/images/success/progressions/regents.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Khushi Hinduja",
+     "degree": "MSc Management",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/khushi-hinduja.png",
+      "alt": ""
+     },
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/imperial-college-london5190-1-5.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Harvansh Chadha",
+     "degree": "MSc Finance",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/harvansh-chadha.png",
+      "alt": ""
+     },
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/schulich.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Aditya Madnani",
+     "degree": "Msc Social Innovation and Entrepreneurship Management",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/aditya-madnani.png",
+      "alt": ""
+     },
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/imperial-college-london5190-1-8.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Krishi Gada",
+     "degree": "MA Business and Finance",
+     "image": {
+      "src": "/assets/images/success/progressions/krishi-gada.png",
+      "alt": ""
+     },
+     "logo": {
+      "src": "/assets/images/success/progressions/regents.png",
+      "alt": ""
+     }
+    }
+   ]
+  }
+ ]
+}

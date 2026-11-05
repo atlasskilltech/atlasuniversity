@@ -1,0 +1,979 @@
+{
+ "path": "dual-specialisation/marketing-finance",
+ "meta": {
+  "title": "Exam Timetables & Guidelines  – ATLAS SkillTech University",
+  "description": "Find exam timetables, important dates, instructions, grading policies and resources to help students prepare effectively for assessments and exams.",
+  "keywords": null
+ },
+ "brochure": {
+  "ids": [
+   "mba-brochure",
+   "campus-visit"
+  ],
+  "scripts": [
+   {
+    "src": "https://crm.atlasskilltech.app/widgets/6a3e7b56a1fd0680c6c18e59/embed.js",
+    "height": 650
+   }
+  ]
+ },
+ "order": [
+  "hero",
+  "stats",
+  "steps",
+  "mbatrack",
+  "why",
+  "execution",
+  "voices",
+  "admissions",
+  "eligibility",
+  "banner",
+  "cmsfaq"
+ ],
+ "blocks": {
+  "hero": {
+   "title": "MBA for an AI World (With Dual Specialisation)",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/course-header-img.webp",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/course-header-img-p-500.webp 500w, /assets/images/schools/isme/bba/course-header-img-p-800.webp 800w, /assets/images/schools/isme/bba/course-header-img-p-1080.webp 1080w, /assets/images/schools/isme/bba/course-header-img.webp 1366w",
+    "sizes": "(max-width: 1366px) 100vw, 1366px"
+   },
+   "buttons": [
+    {
+     "label": "Apply for July 2027 Intake",
+     "variant": "mint",
+     "href": "https://atlasuniversity.edu.in/applicationform"
+    },
+    {
+     "label": "Download Brochure",
+     "variant": "outline-white",
+     "brochure": "mba-brochure"
+    }
+   ],
+   "narrow": true,
+   "lead": "ATLAS ISME’s MBA is not just a degree, it’s your AI-powered launchpad into leadership. A future-ready MBA that combines strong management foundations with the power of AI and analytics."
+  },
+  "mbatrack": {
+   "selection": {
+    "id": "dual-mba-selection",
+    "heading": {
+     "num": "1",
+     "title": "Choose Your Specialisation"
+    },
+    "tabs": [
+     {
+      "id": "cards-hyper-mba",
+      "label": "Hyper Specialisation",
+      "active": false,
+      "href": "/schools/isme/programs/postgraduate/mba-hyper/mba-with-specialisation#hyper-mba-selection"
+     },
+     {
+      "id": "cards-dual-mba",
+      "label": "Dual Specialisation",
+      "active": true,
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/finance-entrepreneurships"
+     }
+    ],
+    "cards": [
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/marketing-finance#dual-mba-selection",
+      "title": "Marketing + Finance",
+      "active": true
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/marketing-entrepreneurship#dual-mba-selection",
+      "title": "Marketing + Entrepreneurship & Family Business",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/marketing-business-analytics#dual-mba-selection",
+      "title": "Marketing + Business Analytics",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/marketing-digital-marketing#dual-mba-selection",
+      "title": "Marketing + Digital Marketing",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/finance-business-analytics#dual-mba-selection",
+      "title": "Finance + Business Analytics",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/finance-digital-marketing-advertising#dual-mba-selection",
+      "title": "Finance + Digital Marketing & Advertising",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/finance-entrepreneurships#dual-mba-selection",
+      "title": "Finance + Entrepreneurship & Family Business",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/entrepreneurships-business-analytics#dual-mba-selection",
+      "title": "Entrepreneurship & Family Business + Business Analytics",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/business-analytics-digital-marketing-advertising#dual-mba-selection",
+      "title": "Business Analytics + Digital Marketing & Advertising",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/entrepreneurships-digital-marketing#dual-mba-selection",
+      "title": "Entrepreneurship & Family Business + Digital Marketing",
+      "active": false
+     }
+    ],
+    "tabTick": "/assets/images/schools/isme/bba/tick-blue.svg",
+    "cardTick": "/assets/images/schools/isme/mba/mint-tick.svg"
+   },
+   "curriculum": {
+    "heading": {
+     "num": "3",
+     "title": "Review Your Curriculum"
+    },
+    "panes": [
+     {
+      "label": "Overview",
+      "kind": "text",
+      "text": [
+       "The ",
+       {
+        "strong": "MBA in Marketing + Finance at ATLAS ISME"
+       },
+       " equips students with a dual-edge advantage: the creativity to shape global brands and the financial acumen to maximize enterprise value. This program blends ",
+       {
+        "strong": "consumer psychology, digital-age marketing, and international branding with corporate finance, investment strategies"
+       },
+       ", and FinTech innovations.\n\nStudents gain a 360° perspective of business — learning to balance brand growth with financial sustainability, manage portfolios while designing campaigns, and lead with data-backed decision-making. With live projects, simulations, and case studies, the program prepares next-gen leaders to thrive in roles ",
+       {
+        "strong": "where strategic storytelling meets capital allocation, and innovation meets value creation."
+       }
+      ],
+      "buttons": [],
+      "paneClass": "tab-pane-tab-1"
+     },
+     {
+      "label": "Curriculum Highlights",
+      "kind": "cards",
+      "cards": [
+       {
+        "num": "#1",
+        "title": "Corporate Valuation & M&A"
+       },
+       {
+        "num": "#2",
+        "title": "International & Sustainable Marketing"
+       },
+       {
+        "num": "#3",
+        "title": "FinTech Ventures & Innovation"
+       },
+       {
+        "num": "#4",
+        "title": "Behavioural Finance & Wealth Management"
+       },
+       {
+        "num": "#5",
+        "title": "Product & Brand Management"
+       },
+       {
+        "num": "#6",
+        "title": "Marketing Analytics & Consumer Insights"
+       },
+       {
+        "num": "#7",
+        "title": "Sustainable Finance & ESG Investing"
+       },
+       {
+        "num": "#8",
+        "title": "Creator Economy & Digital Campaigns"
+       },
+       {
+        "num": "#9",
+        "title": "Investment Analysis & Portfolio Management"
+       },
+       {
+        "num": "#10",
+        "title": "Capstone Project integrating Finance\n+ Marketing"
+       }
+      ],
+      "paneClass": "tab-pane-tab-2"
+     },
+     {
+      "label": "Learning Outcomes",
+      "kind": "cards",
+      "cards": [
+       {
+        "num": "#1",
+        "title": "Integrate financial strategy with innovative marketing solutions."
+       },
+       {
+        "num": "#2",
+        "title": "Apply valuation, investment, and portfolio tools to real business contexts."
+       },
+       {
+        "num": "#3",
+        "title": "Design global marketing campaigns rooted in consumer psychology and analytics."
+       },
+       {
+        "num": "#4",
+        "title": "Harness FinTech, sustainable finance, and behavioral insights for decision-making."
+       },
+       {
+        "num": "#5",
+        "title": "Lead with ethical, socially responsible, and cross-cultural perspectives."
+       },
+       {
+        "num": "#6",
+        "title": "Deliver measurable impact through capstone projects and live corporate collaborations."
+       },
+       {
+        "num": "#7",
+        "title": "Sustainable Finance & ESG Investing"
+       },
+       {
+        "num": "#8",
+        "title": "Creator Economy & Digital Campaigns"
+       },
+       {
+        "num": "#9",
+        "title": "Investment Analysis & Portfolio Management"
+       },
+       {
+        "num": "#10",
+        "title": "Capstone Project integrating Finance\n+ Marketing"
+       }
+      ],
+      "paneClass": "tab-pane-tab-3"
+     }
+    ],
+    "current": 0,
+    "years": [
+     {
+      "label": "Year 1",
+      "semesters": [
+       {
+        "title": "Semester 1",
+        "text": "Semester 1 builds strong foundations in communication, AI tools, and global business, while preparing students with essential leadership, planning, and career skills.",
+        "image": {
+         "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+         "alt": ""
+        },
+        "courses": [
+         {
+          "title": [
+           {
+            "strong": "Professional Communication and Presentation Skills"
+           }
+          ],
+          "text": "Develops impactful communication and presentation techniques, enhancing clarity, confidence, and persuasion skills crucial for professional success, leadership roles, and collaborative workplace environments."
+         },
+         {
+          "title": [
+           "‍",
+           {
+            "strong": "Modern Age AI Tools (Generative AI Tools)"
+           }
+          ],
+          "text": "Explores emerging generative AI technologies, enabling students to apply automation, innovation, and creativity in solving complex business problems across industries."
+         },
+         {
+          "title": [
+           {
+            "strong": "Global Business Environment"
+           }
+          ],
+          "text": "Provides insights into international markets, cultural diversity, economic systems, and global business trends, preparing students to make informed strategic decisions in a dynamic economy."
+         },
+         {
+          "title": [
+           {
+            "strong": "Career & Leadership Development I: Career Planning and Goal Setting"
+           }
+          ],
+          "text": "Focuses on self-awareness, career planning, and effective goal setting, guiding students toward professional growth, leadership readiness, and future career opportunities."
+         },
+         {
+          "title": [
+           {
+            "strong": "Finance – Financial Statement Analysis"
+           }
+          ],
+          "text": "Learn to interpret financial statements, assess profitability, liquidity, and solvency, and apply analytical tools for strategic decision-making, valuation, and business performance evaluation in diverse industries."
+         },
+         {
+          "title": "Marketing – The 21st Century Marketing",
+          "text": "Explore modern marketing strategies, consumer behavior shifts, digital integration, and branding innovations, equipping you to craft impactful campaigns in today’s dynamic, competitive business environment."
+         },
+         {
+          "title": "Entrepreneurship & Family Business – Entrepreneurship and Family Business 101",
+          "text": "Gain foundational knowledge of entrepreneurship and family business dynamics, focusing on opportunity identification, innovation, governance, succession planning, and strategies to build sustainable ventures across generations."
+         },
+         {
+          "title": [
+           {
+            "strong": "Business Analytics – Driving Decisions by Excel (Basics & Advanced)"
+           }
+          ],
+          "text": "Master Excel tools from basics to advanced analytics, learning data organization, visualization, forecasting, and decision modeling to transform raw data into actionable business insights."
+         },
+         {
+          "title": [
+           {
+            "strong": "Digital Marketing & Advertising – Introduction to Digital Marketing"
+           }
+          ],
+          "text": "Understand the fundamentals of digital marketing, including SEO, social media, content strategies, and analytics, to design campaigns that drive engagement, brand growth, and conversions."
+         }
+        ],
+        "electives": [],
+        "compare": [
+         {
+          "title": "Why our semester 1 curriculum outpaces every other business school",
+          "text": "ATLAS ISME combines practical finance and digital marketing skills with AI and communication training, unlike traditional MBAs’ theory-focused and less tech-integrated approach.",
+          "head": [
+           "Subjects",
+           "ATLAS ISME",
+           "Other Business Schools"
+          ],
+          "rows": [
+           [
+            "Professional Communication & Presentation Skills",
+            "Practical, hands-on focus on presentations, clarity, & confidence building from Semester 1.",
+            "Usually taught later; focus remains theoretical, with fewer real-world applications."
+           ],
+           [
+            "Modern Age AI Tools (Generative AI Tools)",
+            "Introduced early with real-world use of AI for creativity, problem-solving, and automation.",
+            "AI rarely included this early; limited to basic IT tools."
+           ],
+           [
+            "Global Business Environment",
+            "Students explore global trends, cultural diversity, and real-world business shifts.",
+            "Typically taught abstractly, limited exposure to current global case studies."
+           ],
+           [
+            "Career & Leadership Development I: Career Planning and Goal Setting",
+            "Strong self-awareness, career mapping, and leadership readiness from Day 1.",
+            "Career planning often delayed until internships or later years."
+           ],
+           [
+            "Finance – Financial Statement Analysis",
+            "Practical analysis with live datasets, ratio evaluation, and market context.",
+            "Mostly textbook or classroom-based accounting theory."
+           ],
+           [
+            "Marketing – The 21st Century Marketing",
+            "Applied campaign creation, SEO/SEM, social media, and analytics projects.",
+            "Conceptual overview with minimal hands-on execution."
+           ],
+           [
+            "Entrepreneurship & Family Business – Entrepreneurship and Family Business 101",
+            "Exposure to entrepreneurial mindset, family business models, and startup frameworks using live case studies.",
+            "Taught as generic theory without tailoring to family enterprises or entrepreneurial realities."
+           ],
+           [
+            "Business Analytics – Driving Decisions by Excel (Basics & Advanced",
+            "Hands-on training with Excel for analytics, dashboarding, and decision-making; practical business case applications.",
+            "Hands-on training with Excel for analytics, dashboarding, and decision-making; practical business case applications."
+           ],
+           [
+            "Digital Marketing & Advertising – Introduction to Digital Marketing",
+            "Applied campaign creation, SEO/SEM, social media, and analytics projects.",
+            "Conceptual overview with minimal hands-on execution."
+           ]
+          ]
+         }
+        ]
+       },
+       {
+        "title": "Semester 2",
+        "text": "Semester two enhances leadership, innovation, and sustainability skills, while deepening expertise in finance and marketing with advanced electives and globally relevant applications.",
+        "image": {
+         "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+         "alt": ""
+        },
+        "courses": [
+         {
+          "title": "Managing Self & People Skills",
+          "text": "Focuses on emotional intelligence, conflict resolution, and motivation strategies. Builds leadership and interpersonal effectiveness through roleplays, group projects, and reflective learning exercises."
+         },
+         {
+          "title": "Human Centered Design Thinking",
+          "text": "Encourages innovative problem-solving using empathy, ideation, prototyping, and testing. Applies design frameworks to business challenges, fostering creativity and user-centric business solutions."
+         },
+         {
+          "title": [
+           {
+            "strong": "CSR, SDGs and Business Research"
+           }
+          ],
+          "text": "Examines corporate social responsibility and sustainability goals alongside structured research methodology. Encourages socially responsible business decision-making through data-driven insights and ethical frameworks."
+         },
+         {
+          "title": [
+           {
+            "strong": "Career & Leadership Development II: Personal Branding & Professional Networking"
+           }
+          ],
+          "text": "Guides students in developing authentic personal brands and professional networks. Involves mentoring, social media strategy, and simulated networking events with industry professionals."
+         }
+        ],
+        "electives": [
+         {
+          "title": [
+           {
+            "strong": "Finance: Core Subjects"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Investment Analysis & Portfolio Management"
+             }
+            ],
+            "text": "Covers valuation of securities, risk-return optimization, and portfolio construction strategies. Students apply analytical models to evaluate investment opportunities, manage risks, and align with financial objectives."
+           },
+           {
+            "title": [
+             {
+              "strong": "Financial Management"
+             }
+            ],
+            "text": "Explores principles of corporate finance, capital budgeting, cost of capital, and working capital. Students develop decision-making skills to optimize financial resources and maximize shareholder value."
+           }
+          ]
+         },
+         {
+          "title": [
+           {
+            "strong": "Finance: Electives (Pick One)"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Indian Financial System"
+             }
+            ],
+            "text": "Provides an overview of India’s financial institutions, markets, instruments, and regulations. Focuses on RBI, SEBI, banking, NBFCs, and their interconnections in economic growth."
+           },
+           {
+            "title": [
+             {
+              "strong": "Wealth Management"
+             }
+            ],
+            "text": "Introduces strategies for personal and institutional wealth creation. Topics include financial planning, asset allocation, taxation, estate planning, and advisory services tailored for high-net-worth clients."
+           }
+          ]
+         },
+         {
+          "title": [
+           {
+            "strong": "Marketing: Core Subjects"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Behavior-based Selling & Negotiation (BBSN)"
+             }
+            ],
+            "text": "Examines consumer psychology, persuasion techniques, and structured negotiation frameworks. Students learn adaptive selling strategies to build trust, handle objections, and achieve win-win outcomes."
+           },
+           {
+            "title": [
+             {
+              "strong": "Product & Brand Management"
+             }
+            ],
+            "text": "Covers product lifecycle management, positioning strategies, and brand equity building. Students analyze case studies to craft impactful brand narratives and sustain competitive market presence."
+           }
+          ]
+         },
+         {
+          "title": [
+           {
+            "strong": "Marketing: Electives (Pick One)"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Marketing Laws & Ethics"
+             }
+            ],
+            "text": "Explores consumer protection, advertising regulations, intellectual property, and ethical dilemmas. Students gain awareness of compliance requirements and responsible marketing practices in global and local contexts."
+           },
+           {
+            "title": [
+             {
+              "strong": "Marketing for Global Markets"
+             }
+            ],
+            "text": "Analyzes international marketing strategies, cross-cultural consumer behavior, and global branding. Students design market entry plans addressing economic, legal, and cultural complexities in multinational business environments."
+           }
+          ]
+         }
+        ],
+        "compare": [
+         {
+          "title": "Why our semester 2 curriculum outpaces every other business school",
+          "text": "ATLAS ISME integrates applied leadership, design thinking, and sustainability with industry-driven finance and marketing, unlike traditional MBA reliance on theoretical models and frameworks.",
+          "head": [
+           "Subjects",
+           "ATLAS ISME",
+           "Other Business Schools"
+          ],
+          "rows": [
+           [
+            "Managing Self and People Skills",
+            "Experiential workshops, peer feedback, and applied psychology tools for conflict resolution and motivation.",
+            "Taught as organisational behaviour concepts with limited experiential focus."
+           ],
+           [
+            "Human-Centered Design Thinking",
+            "Empathy-driven projects, prototyping, and live business problem-solving using design frameworks.",
+            "Introduced as a creativity or innovation topic, largely theoretical without prototyping."
+           ],
+           [
+            "CSR, SDGs and Business Research",
+            "Integrates sustainability with business research; uses real-world CSR projects and impact analysis.",
+            "Surface-level functions, rarely linked to decision making."
+           ],
+           [
+            "Career & Leadership Development II",
+            "Focus on personal branding, networking simulations, mentorship, and social media presence building.",
+            "General career counselling, basic resume workshops, less focus on networking strategy."
+           ],
+           [
+            "Finance",
+            "Combines portfolio management, corporate finance, Indian financial systems, and wealth strategies with case studies and market simulations.",
+            "Finance taught as siloed subjects with emphasis on theory and limited simulations."
+           ],
+           [
+            "Marketing",
+            "Behavior-based selling, brand strategy, global marketing, and ethics taught via live projects, consumer labs, and international case studies.",
+            "Focus on 4Ps and consumer behaviour, with limited emphasis on global or ethical applications."
+           ]
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "label": "Year 2",
+      "semesters": [
+       {
+        "title": "Semester 3",
+        "text": "Semester three sharpens ethical leadership, economic reasoning, and cybersecurity skills, while deepening technical finance expertise and analytical marketing capabilities with advanced electives.",
+        "image": {
+         "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+         "alt": ""
+        },
+        "courses": [
+         {
+          "title": [
+           {
+            "strong": "Organisational Behaviour and Universal Human Values"
+           }
+          ],
+          "text": "Explores workplace behaviour, motivation, and culture while integrating ethical values and human-centric leadership for sustainable and inclusive organisational growth."
+         },
+         {
+          "title": [
+           {
+            "strong": "Cyber Security Management"
+           }
+          ],
+          "text": "Introduces digital risk frameworks, cyber governance, and data protection strategies. Focuses on business resilience, compliance, and mitigating threats in a technology-driven environment."
+         },
+         {
+          "title": [
+           {
+            "strong": "Economics for Decision Making"
+           }
+          ],
+          "text": "Applies micro and macroeconomic theories to managerial decisions. Emphasises cost analysis, market dynamics, policy impacts, and forecasting for strategic business planning."
+         },
+         {
+          "title": [
+           {
+            "strong": "Career & Leadership Development III: Emotional Intelligence & Resilience"
+           }
+          ],
+          "text": "Builds emotional intelligence, adaptability, and resilience in leaders. Uses assessments, simulations, and coaching to strengthen interpersonal influence and long-term career effectiveness."
+         }
+        ],
+        "electives": [
+         {
+          "title": [
+           {
+            "strong": "Finance: Core Subjects"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Financial Modeling"
+             }
+            ],
+            "text": "Focuses on building dynamic financial models in Excel, integrating forecasting, valuation, and decision-making tools. Students simulate real-world business scenarios to support strategic corporate decisions."
+           },
+           {
+            "title": [
+             {
+              "strong": "Corporate Finance"
+             }
+            ],
+            "text": "Explores capital structure, dividend policy, mergers and acquisitions, and risk-return tradeoffs. Students learn frameworks for maximizing enterprise value while balancing stakeholder and governance considerations."
+           },
+           {
+            "title": "",
+            "text": ""
+           }
+          ]
+         },
+         {
+          "title": [
+           {
+            "strong": "Finance: Electives (Pick One)"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Stock Markets & Technical Analysis"
+             }
+            ],
+            "text": "Examines stock exchanges, trading mechanisms, and chart-based forecasting. Students practice candlestick analysis, moving averages, and momentum indicators to predict market trends and trading opportunities."
+           },
+           {
+            "title": [
+             {
+              "strong": "Entrepreneurial Finance"
+             }
+            ],
+            "text": "Focuses on financing new ventures, venture capital, private equity, and startup valuation. Students evaluate funding sources and financial strategies supporting entrepreneurial growth and sustainability."
+           }
+          ]
+         },
+         {
+          "title": [
+           {
+            "strong": "Marketing: Core Subjects"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Marketing Analytics for Managers"
+             }
+            ],
+            "text": "Introduces data-driven decision making in marketing. Students apply statistical tools, segmentation analysis, and predictive modeling to optimize campaigns, measure ROI, and enhance customer engagement."
+           },
+           {
+            "title": [
+             {
+              "strong": "Legal and Ethical Aspects of Marketing"
+             }
+            ],
+            "text": "Covers consumer rights, privacy, advertising regulations, competition law, and ethical dilemmas. Students analyze global case studies ensuring compliance while practicing responsible marketing strategies."
+           }
+          ]
+         },
+         {
+          "title": [
+           {
+            "strong": "Marketing: Electives (Pick One)"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Behavioral Science"
+             }
+            ],
+            "text": "Explores psychological and social factors influencing consumer decisions. Students apply cognitive biases, heuristics, and emotional triggers to understand behavior and design effective marketing strategies."
+           },
+           {
+            "title": [
+             {
+              "strong": "Marketing of Luxury Brands"
+             }
+            ],
+            "text": "Examines brand heritage, exclusivity, pricing psychology, and consumer aspiration. Students develop strategies for positioning and sustaining luxury brands in competitive global markets."
+           }
+          ]
+         }
+        ],
+        "compare": [
+         {
+          "title": "Why our semester 3 curriculum outpaces every other business school",
+          "text": "ATLAS ISME blends ethics, resilience, economics, and cybersecurity with advanced applied finance and marketing, while conventional MBAs emphasize theory over practice-driven integration.",
+          "head": [
+           "Subjects",
+           "ATLAS ISME",
+           "Other Business Schools"
+          ],
+          "rows": [
+           [
+            "Organisational Behaviour and Universal Human Values",
+            "Integrates behavioural science with ethics, human values, and experiential projects for holistic leadership.",
+            "Mostly theory-heavy models with minimal practical depth."
+           ],
+           [
+            "Cyber Security Management",
+            "Applied focus on governance, compliance, threat simulations, and digital risk mitigation in business contexts.",
+            "Offered as an IT/security elective with limited business application."
+           ],
+           [
+            "Economics for Decision Making",
+            "Case-based application of micro and macroeconomics to strategic decisions, pricing, and forecasting.",
+            "Emphasises economic theory and models, with less direct application to business scenarios."
+           ],
+           [
+            "Career & Leadership Development III",
+            "Emotional intelligence and resilience training through assessments, simulations, and reflective practices.",
+            "Leadership modules cover general soft skills with limited focus on resilience."
+           ],
+           [
+            "Finance",
+            "Hands-on financial modelling, corporate finance strategy, trading simulations, and entrepreneurial finance with real-world cases.",
+            "Finance is taught as theoretical courses with limited use of modelling or simulations."
+           ],
+           [
+            "Marketing",
+            "Marketing analytics, ethics, behavioural insights, and luxury branding taught via projects, labs, and data-driven exercises.",
+            "Focus on traditional consumer behaviour and marketing mix; analytics and luxury rarely explored."
+           ]
+          ]
+         }
+        ]
+       },
+       {
+        "title": "Semester 4",
+        "text": "Semester four blends governance, analytics, and corporate strategy with inclusive leadership, while refining expertise in finance innovation and culturally responsive, sustainable marketing.",
+        "image": {
+         "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+         "alt": ""
+        },
+        "courses": [
+         {
+          "title": [
+           {
+            "strong": "Corporate Governance, Professional Ethics & Law"
+           }
+          ],
+          "text": "Explores governance frameworks, ethical leadership, and legal compliance. Encourages integrity and accountability in business decision-making through case analysis and real-world governance challenges."
+         },
+         {
+          "title": [
+           {
+            "strong": "Supply Chain Analytics"
+           }
+          ],
+          "text": "Introduces analytical tools for supply chain optimization. Focuses on data-driven demand forecasting, logistics, inventory management, and resilience-building in global supply chains."
+         },
+         {
+          "title": [
+           {
+            "strong": "Corporate Strategy"
+           }
+          ],
+          "text": "Examines strategy formulation, competitive advantage, and execution. Uses case studies and simulations to connect business decisions with long-term growth and global competition."
+         },
+         {
+          "title": [
+           {
+            "strong": "Career & Leadership Development IV: Diversity, Equity & Inclusion in Leadership, & Capstone"
+           }
+          ],
+          "text": "Develops inclusive leadership through DEI frameworks. Culminates in a capstone project integrating finance, marketing, and strategy for real-world business impact."
+         }
+        ],
+        "electives": [
+         {
+          "title": [
+           {
+            "strong": "Finance: Core Subjects"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Corporate Valuation"
+             }
+            ],
+            "text": "Explores valuation methods including DCF, multiples, and transaction comparables. Students assess enterprise worth in mergers, acquisitions, IPOs, and strategic corporate investment decisions."
+           },
+           {
+            "title": [
+             {
+              "strong": "FinTech Ventures and Innovation"
+             }
+            ],
+            "text": "Examines technology-driven disruptions in finance such as blockchain, digital banking, and robo-advisory. Students analyze case studies of FinTech startups and develop innovation strategies."
+           }
+          ]
+         },
+         {
+          "title": [
+           {
+            "strong": "Finance: Electives (Pick one)"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Sustainable Finance"
+             }
+            ],
+            "text": "Introduces ESG frameworks, green bonds, and socially responsible investing. Students evaluate financial instruments aligning profitability with environmental sustainability and long-term stakeholder value creation."
+           },
+           {
+            "title": [
+             {
+              "strong": "Behavioral Finance"
+             }
+            ],
+            "text": "Explores psychological biases, investor sentiment, and irrational market behavior. Students analyze decision-making errors and their implications for portfolio management, risk, and corporate financial strategy."
+           }
+          ]
+         },
+         {
+          "title": [
+           {
+            "strong": "Marketing: Core Subjects"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "International Marketing"
+             }
+            ],
+            "text": "Focuses on cross-border marketing strategies, cultural adaptation, and trade regulations. Students design campaigns for global markets considering consumer diversity, localization, and international competition."
+           },
+           {
+            "title": [
+             {
+              "strong": "Sustainable Marketing in Practice"
+             }
+            ],
+            "text": "Covers eco-friendly branding, circular economy, and ethical consumerism. Students develop campaigns balancing profitability with environmental consciousness and socially responsible practices."
+           }
+          ]
+         },
+         {
+          "title": [
+           {
+            "strong": "Marketing: Electives (Pick One)"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Creator Economy"
+             }
+            ],
+            "text": "Analyzes influencer-driven marketing, digital content monetization, and community building. Students design campaigns leveraging creators, platforms, and analytics to drive consumer engagement and brand partnerships."
+           },
+           {
+            "title": [
+             {
+              "strong": "Chanakya’s Arthashastra"
+             }
+            ],
+            "text": "Explores ancient Indian strategic principles in governance, trade, and market regulation. Students apply timeless economic insights to contemporary marketing and business decision-making."
+           }
+          ]
+         }
+        ],
+        "compare": [
+         {
+          "title": "Why our semester 4 curriculum outpaces every other business school",
+          "text": "ATLAS ISME integrates governance, sustainability, and inclusivity with advanced finance and marketing, while traditional MBAs rely more on theory than applied practice.",
+          "head": [
+           "Subjects",
+           "ATLAS ISME",
+           "Other Business Schools"
+          ],
+          "rows": [
+           [
+            "Corporate Governance, Professional Ethics & Law",
+            "Taught through live governance cases, board simulations, and ethical dilemma workshops.",
+            "Covered as legal frameworks and codes with limited practical integration."
+           ],
+           [
+            "Supply Chain Analytics",
+            "Hands-on data analytics, forecasting, and resilience-building with industry software and live projects.",
+            "Focuses on logistics theory, rarely using advanced analytics or simulations."
+           ],
+           [
+            "Corporate Strategy",
+            "Strategy taught via simulations, consulting-style projects, and global competition analysis.",
+            "Taught using classic frameworks like Porter’s Five Forces, largely theoretical."
+           ],
+           [
+            "Career & Leadership Development IV Finance",
+            "Focuses on DEI leadership with capstone projects integrating all specialisations for real-world problem-solving.",
+            "Leadership modules end with general projects or reports, DEI less emphasized."
+           ],
+           [
+            "Finance",
+            "Corporate valuation, FinTech innovation, sustainable and behavioural finance taught with live case studies, valuation models, and startup finance projects.",
+            "Finance focuses on corporate finance and valuation theory; innovation is rarely emphasised."
+           ],
+           [
+            "Marketing",
+            "International, sustainable, creator-driven, and culturally rooted marketing taught via campaigns, global projects, and applied research.",
+            "Marketing electives focus on globalisation and consumer behaviour, with less emphasis on sustainability or creator economy."
+           ]
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "download": {
+     "label": "Download Curriculum",
+     "variant": "mint",
+     "fontSize": null,
+     "brochure": "mba-brochure"
+    },
+    "yearsWrapClass": "quaternary-tabs-wrapper padd-btm"
+   }
+  }
+ },
+ "refs": {
+  "stats": "stats-36a699fb82",
+  "steps": "steps-5e3765fa50",
+  "why": "why-ec826fb16d",
+  "execution": "execution-263d79afd8",
+  "voices": "voices-5669f623cd",
+  "admissions": "admissions-979eb2c203",
+  "eligibility": "eligibility-82996a5cff",
+  "banner": "banner-00f9a98b12",
+  "cmsfaq": "cmsfaq-406c823ef5"
+ }
+}

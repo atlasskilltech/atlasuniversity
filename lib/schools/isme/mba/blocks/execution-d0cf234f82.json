@@ -1,0 +1,124 @@
+{
+ "heading": "Where concepts meet execution,\nin and beyond the classroom.",
+ "sub": "The MBA in Investment Banking course is designed to immerse you in the realities of finance from day one. Through real-world simulations, industry projects, and hands-on learning experiences, you’ll develop the skills that top employers value most.",
+ "tabs": [
+  "Out-of-Classroom Learning",
+  "In-Classroom Learning"
+ ],
+ "panes": [
+  [
+   {
+    "image": {
+     "src": "/assets/images/schools/isme/bba/d6929703-5e47-4696-a739-83b29ae9ad0b_1_102_a.jpeg",
+     "alt": "",
+     "srcSet": "/assets/images/schools/isme/bba/d6929703-5e47-4696-a739-83b29ae9ad0b_1_102_a-p-500.jpeg 500w, /assets/images/schools/isme/bba/d6929703-5e47-4696-a739-83b29ae9ad0b_1_102_a-p-800.jpeg 800w, /assets/images/schools/isme/bba/d6929703-5e47-4696-a739-83b29ae9ad0b_1_102_a-p-1080.jpeg 1080w, /assets/images/schools/isme/bba/d6929703-5e47-4696-a739-83b29ae9ad0b_1_102_a.jpeg 1536w",
+     "sizes": "(max-width: 1536px) 100vw, 1536px"
+    },
+    "tone": "bg1",
+    "title": "Live Industry\nProjects",
+    "text": null
+   },
+   {
+    "image": {
+     "src": "/assets/images/schools/isme/bba/image-16-copy-2.png",
+     "alt": ""
+    },
+    "tone": "bg2",
+    "title": "Startup Street Collaborations",
+    "text": null
+   },
+   {
+    "image": {
+     "src": "/assets/images/schools/isme/bba/image-17-copy-2.png",
+     "alt": ""
+    },
+    "tone": "bg3",
+    "title": "Client Campaign Execution",
+    "text": null
+   },
+   {
+    "image": {
+     "src": "/assets/images/schools/isme/bba/class-3.jpg",
+     "alt": ""
+    },
+    "tone": "bg3",
+    "title": "Field Research, Consumer Surveys",
+    "text": null
+   },
+   {
+    "image": {
+     "src": "/assets/images/schools/isme/bba/image-19-copy.png",
+     "alt": ""
+    },
+    "tone": "bg3",
+    "title": "Internships & Global Immersions",
+    "text": null
+   },
+   {
+    "image": {
+     "src": "/assets/images/schools/isme/bba/image-20-copy.png",
+     "alt": ""
+    },
+    "tone": "bg3",
+    "title": "Industry Projects & Showcases",
+    "text": null
+   }
+  ],
+  [
+   {
+    "image": {
+     "src": "/assets/images/schools/isme/bba/class-1.jpg",
+     "alt": ""
+    },
+    "tone": "bg1",
+    "title": "Live Case\nStudies",
+    "text": null
+   },
+   {
+    "image": {
+     "src": "/assets/images/schools/isme/bba/image-16-copy-4.png",
+     "alt": ""
+    },
+    "tone": "bg2",
+    "title": "Strategy & Financial Simulations",
+    "text": null
+   },
+   {
+    "image": {
+     "src": "/assets/images/schools/isme/bba/image-16-copy-3.png",
+     "alt": ""
+    },
+    "tone": "bg3",
+    "title": "Sprints & Investment Challenges",
+    "text": null
+   },
+   {
+    "image": {
+     "src": "/assets/images/schools/isme/bba/image-17-copy-3.png",
+     "alt": ""
+    },
+    "tone": "bg3",
+    "title": "CXO-Led Masterclasses",
+    "text": null
+   },
+   {
+    "image": {
+     "src": "/assets/images/schools/isme/bba/image-18-copy-2.png",
+     "alt": ""
+    },
+    "tone": "bg3",
+    "title": "Marketing &\nFinance Labs",
+    "text": null
+   },
+   {
+    "image": {
+     "src": "/assets/images/schools/isme/bba/image-19-copy-2.png",
+     "alt": ""
+    },
+    "tone": "bg3",
+    "title": "Design Jams &\nCrisis Simulations",
+    "text": null
+   }
+  ]
+ ]
+}

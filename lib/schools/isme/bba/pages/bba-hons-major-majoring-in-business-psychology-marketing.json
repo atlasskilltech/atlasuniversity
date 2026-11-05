@@ -1,0 +1,846 @@
+{
+ "path": "bba-hons-major/majoring-in-business-psychology/marketing",
+ "meta": {
+  "title": "ATLAS SkillTech University",
+  "description": "Get in touch with Atlas Skilltech.",
+  "keywords": null
+ },
+ "brochure": {
+  "ids": [
+   "bba-brochure",
+   "campus-visit"
+  ],
+  "scripts": [
+   {
+    "src": "https://crm.atlasskilltech.app/widgets/6a3e788ea1fd0680c6c15cad/embed.js",
+    "height": 650
+   }
+  ]
+ },
+ "order": [
+  "hero",
+  "stats",
+  "major",
+  "minor",
+  "curriculum",
+  "why",
+  "execution",
+  "voices",
+  "admissions",
+  "eligibility",
+  "banner",
+  "search",
+  "faq"
+ ],
+ "blocks": {
+  "hero": {
+   "title": "BBA / BBA (Hons.) Majoring in Business Psychology",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/course-header-img.webp",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/course-header-img-p-500.webp 500w, /assets/images/schools/isme/bba/course-header-img-p-800.webp 800w, /assets/images/schools/isme/bba/course-header-img-p-1080.webp 1080w, /assets/images/schools/isme/bba/course-header-img.webp 1366w",
+    "sizes": "(max-width: 1366px) 100vw, 1366px"
+   },
+   "buttons": [
+    {
+     "label": "Apply for July 2027 Intake",
+     "variant": "mint",
+     "href": "https://atlasuniversity.edu.in/applicationform"
+    },
+    {
+     "label": "Download Brochure",
+     "variant": "outline-white",
+     "brochure": "bba-brochure"
+    },
+    {
+     "label": "Key Dates",
+     "variant": "outline-white",
+     "href": "/schools/isme/admissions/undergraduate/admissions-bba-bachelor-of-business-administration"
+    }
+   ]
+  },
+  "major": {
+   "id": "marketing-section",
+   "heading": null,
+   "tabs": [],
+   "panes": [
+    {
+     "label": "Overview",
+     "kind": "text",
+     "text": "The BBA / BBA (Hons.) in Business Psychology at ATLAS ISME is designed for the next generation of business leaders who understand that people are the heart of every successful organisation. This interdisciplinary program bridges psychology and business, equipping you with the tools to master human behaviour, motivation and decision-making in corporate, entrepreneurial and global contexts.\n\nYou will explore how emotions, cognition, and social dynamics influence leadership, marketing, strategy, and innovation and learn to apply these insights to build stronger teams, brands and organisational cultures. Through experiential learning, case studies, industry projects and behavioural labs, you will develop the ability to design people-centric strategies, optimise performance and lead with empathy and evidence-based insight. By the end of the program, you’ll be ready to shape workplaces where people thrive alongside business success, driving organisational performance and growth.",
+     "paneClass": "tab-pane-tab-1"
+    },
+    {
+     "label": "Curriculum Highlights",
+     "kind": "cards",
+     "cards": [
+      {
+       "num": "#1",
+       "title": "Understanding Human Behaviour in Organisations"
+      },
+      {
+       "num": "#2",
+       "title": "Leadership, Talent & People Management"
+      },
+      {
+       "num": "#3",
+       "title": "Emotional and Social Intelligence"
+      },
+      {
+       "num": "#4",
+       "title": "Entrepreneurial Mindsets & Decision-Making"
+      },
+      {
+       "num": "#5",
+       "title": "Conflict Resolution & Workplace Dynamics"
+      },
+      {
+       "num": "#6",
+       "title": "Cross-Cultural and Diversity Awareness"
+      },
+      {
+       "num": "#7",
+       "title": "Data-Driven People Insights & Assessment"
+      },
+      {
+       "num": "#8",
+       "title": "Technology and Human Interaction"
+      },
+      {
+       "num": "#9",
+       "title": "Fostering Innovation and Creativity"
+      },
+      {
+       "num": "#10",
+       "title": "Applying Psychology to Business Challenges"
+      }
+     ],
+     "paneClass": "tab-pane-tab-2"
+    },
+    {
+     "label": "Learning Outcomes",
+     "kind": "cards",
+     "cards": [
+      {
+       "num": "#1",
+       "title": "Understand core psychological theories and organisational applications"
+      },
+      {
+       "num": "#2",
+       "title": "Design people-centred strategies for leadership and engagement"
+      },
+      {
+       "num": "#3",
+       "title": "Apply founder psychology to drive entrepreneurial decision-making"
+      },
+      {
+       "num": "#4",
+       "title": "Use people analytics to inform talent and performance strategy"
+      },
+      {
+       "num": "#5",
+       "title": "Evaluate cross-cultural dynamics for effective collaboration"
+      },
+      {
+       "num": "#6",
+       "title": "Integrate behavioural science and AI to enhance organisational performance"
+      }
+     ],
+     "paneClass": "tab-pane-tab-3"
+    },
+    {
+     "label": "Career Pathways",
+     "kind": "careers",
+     "cards": [
+      {
+       "title": "HR / Talent Acquisition Executive",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/pathway-1.jpg",
+        "alt": ""
+       }
+      },
+      {
+       "title": "People Analytics Associate",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/pathway-2.jpg",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Organisational Development Executive",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/pathway-3.jpg",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Learning & Development Coordinator",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/pathway-4.jpg",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Employee Experience / Culture Analyst",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/pathway-5.jpg",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Behavioural Research Associate (Consumer/Workplace)",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/pathway-6.jpg",
+        "alt": ""
+       }
+      },
+      {
+       "title": "HR Business Partner (Entry-level support role)",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/pathway-7.jpg",
+        "alt": ""
+       }
+      }
+     ],
+     "paneClass": null
+    }
+   ],
+   "current": 0,
+   "tick": null
+  },
+  "minor": {
+   "heading": {
+    "num": "1",
+    "title": "Minor Track (Choose one)"
+   },
+   "groups": [
+    {
+     "dataId": "cards-marketing",
+     "hidden": false,
+     "cards": [
+      {
+       "href": "#",
+       "title": "Marketing",
+       "text": "Go beyond the fundamentals of branding and consumer behaviour. The Marketing minor equips you to develop impactful campaigns, understand audience insights and build standout brands in today’s competitive landscape.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/finance-1-1.png",
+        "alt": ""
+       },
+       "active": true
+      },
+      {
+       "href": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-psychology/finance#minors",
+       "title": "Finance",
+       "text": "Master key financial concepts, including investment, valuation, and budgeting, to drive organisational growth. The Finance minor prepares you for careers in corporate finance, banking and investment management.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/ent-1-1.png",
+        "alt": ""
+       },
+       "active": false
+      },
+      {
+       "href": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-psychology/entrepreneurship#minors",
+       "title": "Entrepreneurship",
+       "text": "Transform ideas into action by learning to launch ventures and drive innovation. This minor sharpens your creativity, leadership and problem-solving through real-world projects and collaboration.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/ba-1-1-1.png",
+        "alt": ""
+       },
+       "active": false
+      },
+      {
+       "href": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-psychology/economics#minors",
+       "title": "Economics",
+       "text": "Explore the economic forces and policies shaping global businesses and markets. Learn how economic analysis informs decision-making and drives innovation through public policy.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/hrm-1.png",
+        "alt": ""
+       },
+       "active": false
+      },
+      {
+       "href": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-psychology/ai-emerging-technologies#minors",
+       "title": "AI & Emerging Technologies",
+       "text": "Understand how AI, machine learning and emerging technologies are reshaping industries and driving innovation, efficiency and growth.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/o-scm.png",
+        "alt": ""
+       },
+       "active": false
+      },
+      {
+       "href": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-psychology/business-analytics#minors",
+       "title": "Business Analytics",
+       "text": "Harness data to drive smarter business decisions. Learn to analyse trends, visualise information and use quantitative tools to impact marketing, finance, and strategy with data-driven insights.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/economics-1.png",
+        "alt": ""
+       },
+       "active": false
+      },
+      {
+       "href": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-psychology/digital-branding-advertising#minors",
+       "title": "Digital Branding & Advertising",
+       "text": "Master digital marketing strategies, create compelling brand identities, and design effective campaigns to engage and grow online audiences.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/site/bba-page/1.jpg",
+        "alt": ""
+       },
+       "active": false
+      }
+     ]
+    }
+   ],
+   "tick": "/assets/images/schools/isme/bba/tick-blue.svg"
+  },
+  "curriculum": {
+   "heading": {
+    "num": "2",
+    "title": "Review Your Curriculum"
+   },
+   "review": {
+    "boxes": [
+     {
+      "label": "Major",
+      "value": "Business Psychology"
+     },
+     {
+      "label": "Minor",
+      "value": "Marketing"
+     }
+    ],
+    "choose": {
+     "label": "Choose\nAgain",
+     "href": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-psychology"
+    }
+   },
+   "years": [
+    {
+     "label": "Year 1",
+     "semesters": [
+      {
+       "title": "Semester 1",
+       "text": "This course set covers core management, marketing, finance, and entrepreneurship, integrating AI, Excel and design thinking, with insights into consumer behaviour and Indian psychology for effective decision-making.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Principles of Management"
+          }
+         ],
+         "text": "Learn the core management functions of planning, organising, leading and controlling to effectively manage teams and organisations."
+        },
+        {
+         "title": [
+          {
+           "strong": "Marketing Management & Consumer Behaviour"
+          }
+         ],
+         "text": "Understand key marketing strategies and how consumer psychology influences purchasing decisions to create impactful campaigns."
+        },
+        {
+         "title": [
+          {
+           "strong": "Behavioural Psychology"
+          }
+         ],
+         "text": "Explore behavioural patterns, cultural influences and psychological principles that shape individual and collective decision-making."
+        },
+        {
+         "title": [
+          {
+           "strong": "AI Tools & Excel for Decision Making"
+          }
+         ],
+         "text": "Build practical spreadsheet and AI-based skills to analyse data, create models and generate meaningful insights."
+        },
+        {
+         "title": [
+          {
+           "strong": "Entrepreneurship Fundamentals"
+          }
+         ],
+         "text": "Gain insights into starting and managing ventures, develop strong business models and build an entrepreneurial mindset."
+        },
+        {
+         "title": [
+          {
+           "strong": "Basics of Finance / Design Thinking for Business"
+          }
+         ],
+         "text": "Understand essential financial concepts for business decisions, or use design thinking to innovate and creatively solve business challenges."
+        },
+        {
+         "title": [
+          {
+           "strong": "ATLAS Elective"
+          }
+         ],
+         "text": "Expands learning with interdisciplinary exposure that supports analytical and managerial growth. Select from 50+ Electives."
+        }
+       ],
+       "electives": [],
+       "compare": []
+      },
+      {
+       "title": "Semester 2",
+       "text": "This set covers digital marketing, finance, innovation, economics, communication and India’s constitutional framework for navigating modern business effectively.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "New-Age Business Models"
+          }
+         ],
+         "text": "Explore how digital transformation, sustainability and innovation are reshaping traditional business frameworks for the future economy."
+        },
+        {
+         "title": [
+          {
+           "strong": "Digital Marketing 101"
+          }
+         ],
+         "text": "Learn strategies to build and grow brands online using SEO, social media, analytics and content-driven marketing."
+        },
+        {
+         "title": [
+          {
+           "strong": "Communication Psychology"
+          }
+         ],
+         "text": "Develop strong verbal and written communication skills to effectively express ideas and collaborate in professional settings."
+        },
+        {
+         "title": [
+          {
+           "strong": "Economics"
+          }
+         ],
+         "text": "Gain a foundational understanding of market dynamics, economic policies and their impact on global and local business environments."
+        },
+        {
+         "title": [
+          {
+           "strong": "Financial Statement Analysis / Systems Thinking for Innovation"
+          }
+         ],
+         "text": "Learn to interpret financial data for strategic decision-making or use systems thinking to create innovative and connected business solutions."
+        },
+        {
+         "title": [
+          {
+           "strong": "Statistics for Business / Creative Thinking & Problem Solving"
+          }
+         ],
+         "text": "Master data interpretation for business insights or strengthen creative reasoning to tackle complex challenges with innovative solutions."
+        },
+        {
+         "title": [
+          {
+           "strong": "ATLAS Elective"
+          }
+         ],
+         "text": "Gain real-world experience by applying classroom concepts in a professional setting. Build skills, confidence and industry exposure. Select from 50+ Electives."
+        }
+       ],
+       "electives": [],
+       "compare": []
+      }
+     ]
+    },
+    {
+     "label": "Year 2",
+     "semesters": [
+      {
+       "title": "Semester 3",
+       "text": "This semester strengthens marketing execution and financial compliance capabilities, integrating analytical SEO strategy, managerial accounting and taxation to support operational business decisions.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Organisational Behaviour & Human Resource Management"
+          }
+         ],
+         "text": "Understand how people behave in organisations and learn HR practices to manage and motivate teams effectively."
+        },
+        {
+         "title": [
+          {
+           "strong": "Industrial / Organisational Psychology"
+          }
+         ],
+         "text": "Study human behaviour in workplaces to enhance productivity, engagement and decision-making."
+        },
+        {
+         "title": [
+          {
+           "strong": "Strategic People Management"
+          }
+         ],
+         "text": "Learn to align talent, leadership and HR strategies with long-term business goals."
+        },
+        {
+         "title": [
+          {
+           "strong": "Marketing using CRM"
+          }
+         ],
+         "text": "Discover how Customer Relationship Management (CRM) drives marketing success. Learn to leverage data for personalised strategies and stronger customer engagement."
+        },
+        {
+         "title": [
+          {
+           "strong": "Marketing Strategy"
+          }
+         ],
+         "text": "Understand how to craft effective marketing plans. Explore positioning, competition and long-term strategies for brand growth."
+        },
+        {
+         "title": [
+          {
+           "strong": "Program Elective"
+          }
+         ],
+         "text": "Choose a course that matches your interests and expands your knowledge."
+        },
+        {
+         "title": [
+          {
+           "strong": "Applied Component: Internship / Applied Project Report"
+          }
+         ],
+         "text": "Gain hands-on experience by applying classroom learning in a real-world setting and building practical skills."
+        }
+       ],
+       "electives": [],
+       "compare": []
+      },
+      {
+       "title": "Semester 4",
+       "text": "This course set blends strategic marketing, corporate finance, and ethical communication with analytical tools that enhance decision-making, digital engagement, and risk management in modern business environments.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Business Law"
+          }
+         ],
+         "text": "Learn the legal rules and regulations that guide business operations and protect organisations."
+        },
+        {
+         "title": [
+          {
+           "strong": "Corporate Governance & Ethics"
+          }
+         ],
+         "text": "Understand how businesses are managed responsibly and the ethical principles that guide decision-making."
+        },
+        {
+         "title": [
+          {
+           "strong": "Emotional Intelligence & Well-being"
+          }
+         ],
+         "text": "Develop self-awareness, empathy and resilience to enhance personal and organisational performance."
+        },
+        {
+         "title": [
+          {
+           "strong": "Founder's Psychology & Innovative Business Models"
+          }
+         ],
+         "text": "Study entrepreneurial mindset and creative business models that drive successful ventures."
+        },
+        {
+         "title": [
+          {
+           "strong": "Media Management"
+          }
+         ],
+         "text": "Explore how media organisations operate and grow. Learn about branding, digital platforms and strategic content management."
+        },
+        {
+         "title": [
+          {
+           "strong": "Inter-Cultural Marketing"
+          }
+         ],
+         "text": "Understand how culture shapes consumer behaviour. Learn to design global marketing strategies that resonate across diverse audiences."
+        },
+        {
+         "title": [
+          {
+           "strong": "Program Elective"
+          }
+         ],
+         "text": "Choose a course that matches your interests and broadens your knowledge."
+        },
+        {
+         "title": [
+          {
+           "strong": "Applied Component: Internship / Applied Project Report"
+          }
+         ],
+         "text": "Gain practical experience by applying classroom learning in real-world situations and developing professional skills."
+        }
+       ],
+       "electives": [],
+       "compare": []
+      }
+     ]
+    },
+    {
+     "label": "Year 3",
+     "semesters": [
+      {
+       "title": "Semester 5",
+       "text": "This course set blends advanced marketing strategy with financial innovation and AI-driven tools, empowering students to build brands, analyze markets, and craft data-backed narratives for global business impact.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Strategic Business Management"
+          }
+         ],
+         "text": "Learn how to plan, make decisions and lead organisations to achieve long-term business goals."
+        },
+        {
+         "title": [
+          {
+           "strong": "International Business and Global Perception"
+          }
+         ],
+         "text": "Understand global markets, cross-cultural business practices and how international perspectives shape business strategies."
+        },
+        {
+         "title": [
+          {
+           "strong": "Conflict Theory & Resolution"
+          }
+         ],
+         "text": "Explore causes of workplace conflict and strategies for effective resolution and collaboration."
+        },
+        {
+         "title": [
+          {
+           "strong": "Cross-Cultural Psychology"
+          }
+         ],
+         "text": "Study how culture shapes behaviour, communication and decision-making in global contexts."
+        },
+        {
+         "title": [
+          {
+           "strong": "Rural Marketing"
+          }
+         ],
+         "text": "Understand the unique dynamics of rural markets. Learn strategies for reaching diverse audiences and creating value in emerging segments."
+        },
+        {
+         "title": [
+          {
+           "strong": "Luxury Marketing"
+          }
+         ],
+         "text": "Discover the art of building and sustaining premium brands. Learn how exclusivity, experience and storytelling shape the luxury market."
+        },
+        {
+         "title": [
+          {
+           "strong": "Program Elective"
+          }
+         ],
+         "text": "Choose a course that matches your interests and broadens your knowledge."
+        },
+        {
+         "title": [
+          {
+           "strong": "Applied Component: Internship / Applied Project Report"
+          }
+         ],
+         "text": "Gain practical experience by applying classroom learning in real-world situations and developing professional skills."
+        }
+       ],
+       "electives": [],
+       "compare": []
+      },
+      {
+       "title": "Semester 6",
+       "text": "This course set integrates strategic, financial, and global business knowledge with emerging technology insights and ethical considerations in AI.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Ancient Philosophy for Modern Businesses"
+          }
+         ],
+         "text": "Learn how timeless philosophical ideas can guide decision-making and leadership in today’s business world."
+        },
+        {
+         "title": [
+          {
+           "strong": "Data Visualisation Tools and Techniques"
+          }
+         ],
+         "text": "Develop skills to present data clearly using charts, graphs and other visual tools for better insights."
+        },
+        {
+         "title": [
+          {
+           "strong": "Organisational Development & Change Management"
+          }
+         ],
+         "text": "Learn to drive organisational growth and manage change for improved performance."
+        },
+        {
+         "title": [
+          {
+           "strong": "People Analytics & Psychological Assessment"
+          }
+         ],
+         "text": "Use data-driven tools to understand, assess and optimise workforce performance."
+        },
+        {
+         "title": [
+          {
+           "strong": "Event Marketing"
+          }
+         ],
+         "text": "Learn how to plan, promote and execute impactful events. Understand branding, audience engagement and sponsorship strategies in event-based marketing."
+        },
+        {
+         "title": [
+          {
+           "strong": "International Marketing"
+          }
+         ],
+         "text": "Discover how to adapt marketing strategies across global markets. Learn to navigate cultural differences and international consumer behaviour."
+        },
+        {
+         "title": [
+          {
+           "strong": "Program Elective"
+          }
+         ],
+         "text": "Choose a course that matches your interests and broadens your knowledge."
+        },
+        {
+         "title": [
+          {
+           "strong": "Applied Component: Internship / Applied Project Report"
+          }
+         ],
+         "text": "Gain practical experience by applying classroom learning in real-world situations and developing professional skills."
+        }
+       ],
+       "electives": [],
+       "compare": []
+      }
+     ]
+    },
+    {
+     "label": "Year 4",
+     "semesters": [
+      {
+       "title": "Semester 7",
+       "text": "This course set equips students with a global business and marketing perspective, investment expertise, and practical skills in big data analysis.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Coaching & Mentoring in Business Settings"
+          }
+         ],
+         "text": "Develop skills to guide, support and enhance individual and team performance effectively."
+        },
+        {
+         "title": [
+          {
+           "strong": "B2B Marketing"
+          }
+         ],
+         "text": "Delve into marketing strategies between businesses. Understand relationship management, value creation and communication in industrial markets."
+        }
+       ],
+       "electives": [],
+       "compare": []
+      },
+      {
+       "title": "Semester 8",
+       "text": "This course set strengthens analytical, visualization, and design-thinking capabilities while integrating AI-driven innovation. The research dissertation allows students to apply these skills to real-world business problems, fostering critical thinking.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Psychology of Innovation & Creativity; AI for Business"
+          }
+         ],
+         "text": "Explore how creativity, innovation and AI drive smarter, data-informed business solutions."
+        },
+        {
+         "title": [
+          {
+           "strong": "Services Marketing"
+          }
+         ],
+         "text": "Learn strategies to market services, enhance customer experience and build loyalty. Explore how service design, delivery and customer relationships drive business success."
+        }
+       ],
+       "electives": [],
+       "compare": []
+      }
+     ]
+    }
+   ],
+   "download": {
+    "label": "Download Curriculum",
+    "variant": "mint",
+    "fontSize": null,
+    "brochure": "bba-brochure"
+   }
+  }
+ },
+ "refs": {
+  "stats": "stats-0779dfd478",
+  "why": "why-4d83daf485",
+  "execution": "execution-493c861b0a",
+  "voices": "voices-5669f623cd",
+  "admissions": "admissions-e8c6e49b82",
+  "eligibility": "eligibility-cbec4efa3c",
+  "banner": "banner-4ae1821086",
+  "search": "search-bf21a9e8fb",
+  "faq": "faq-ca95ae60f2"
+ }
+}

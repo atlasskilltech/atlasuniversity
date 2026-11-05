@@ -1,0 +1,72 @@
+{
+ "heading": "Your guide to joining ATLAS BBA / BBA (Hons.)",
+ "sub": "A 4-step admission process",
+ "button": {
+  "label": "Know more",
+  "href": "/schools/isme/admissions/undergraduate/admissions-bba-bachelor-of-business-administration",
+  "target": null,
+  "fontSize": null
+ },
+ "steps": [
+  {
+   "tone": "tbg1",
+   "num": "01",
+   "title": "Submit the Application Form",
+   "link": {
+    "label": "Apply for July 2027 Intake",
+    "href": "https://atlasuniversity.edu.in/applicationform",
+    "target": null,
+    "fontSize": 14
+   },
+   "image": {
+    "src": "/assets/images/schools/isdi/programs/b-des/accessory-design-craft/admissions/tab-3-img-1.png",
+    "alt": ""
+   }
+  },
+  {
+   "tone": "tbg2",
+   "num": "02",
+   "title": "Complete the Business Aptitude Test (BAT)",
+   "link": {
+    "label": "View a Sample Paper",
+    "href": "/assets/documents/isme/atlas-isme-atlas-aptitude-test.pdf",
+    "target": "_blank",
+    "fontSize": 14
+   },
+   "image": {
+    "src": "/assets/images/schools/isdi/programs/b-des/accessory-design-craft/admissions/tab-3-img-2.png",
+    "alt": ""
+   }
+  },
+  {
+   "tone": "tbg3",
+   "num": "03",
+   "title": "Attend your Online Interview",
+   "link": {
+    "label": "View sample interview questions",
+    "href": "/assets/documents/isme/atlas-isme-personal-interview.pdf",
+    "target": "_blank",
+    "fontSize": 14
+   },
+   "image": {
+    "src": "/assets/images/schools/isme/bba/tab-3-img-3.png",
+    "alt": ""
+   }
+  },
+  {
+   "tone": "tbg4",
+   "num": "04",
+   "title": "Attend the Collaborative Accelerator",
+   "link": {
+    "label": "Know More",
+    "href": "/assets/documents/isme/atlas-isme-collaborative-accelerator.pdf",
+    "target": "_blank",
+    "fontSize": 14
+   },
+   "image": {
+    "src": "/assets/images/schools/isme/bba/tab-3-img-4.png",
+    "alt": ""
+   }
+  }
+ ]
+}

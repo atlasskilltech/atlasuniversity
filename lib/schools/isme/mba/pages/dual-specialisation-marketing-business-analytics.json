@@ -1,0 +1,966 @@
+{
+ "path": "dual-specialisation/marketing-business-analytics",
+ "meta": {
+  "title": "MBA Marketing & Business Analytics in Mumbai – ATLAS ISME",
+  "description": "Master marketing strategy with analytics. Learn consumer insights, data tools, digital skills and growth planning.",
+  "keywords": null
+ },
+ "brochure": {
+  "ids": [
+   "mba-brochure",
+   "campus-visit"
+  ],
+  "scripts": [
+   {
+    "src": "https://crm.atlasskilltech.app/widgets/6a3e7b56a1fd0680c6c18e59/embed.js",
+    "height": 650
+   }
+  ]
+ },
+ "order": [
+  "hero",
+  "stats",
+  "steps",
+  "mbatrack",
+  "why",
+  "execution",
+  "voices",
+  "admissions",
+  "eligibility",
+  "banner",
+  "cmsfaq"
+ ],
+ "blocks": {
+  "hero": {
+   "title": "MBA for an AI (With Dual Specialisation)",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/course-header-img.webp",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/course-header-img-p-500.webp 500w, /assets/images/schools/isme/bba/course-header-img-p-800.webp 800w, /assets/images/schools/isme/bba/course-header-img-p-1080.webp 1080w, /assets/images/schools/isme/bba/course-header-img.webp 1366w",
+    "sizes": "(max-width: 1366px) 100vw, 1366px"
+   },
+   "buttons": [
+    {
+     "label": "Apply for July 2027 Intake",
+     "variant": "mint",
+     "href": "https://atlasuniversity.edu.in/applicationform"
+    },
+    {
+     "label": "Download Brochure",
+     "variant": "outline-white",
+     "brochure": "mba-brochure"
+    }
+   ],
+   "narrow": true,
+   "lead": "ATLAS ISME’s MBA is not just a degree, it’s your AI-powered launchpad into leadership. A future-ready MBA that combines strong management foundations with the power of AI and analytics."
+  },
+  "mbatrack": {
+   "selection": {
+    "id": "dual-mba-selection",
+    "heading": {
+     "num": "1",
+     "title": "Choose Your Specialisation"
+    },
+    "tabs": [
+     {
+      "id": "cards-hyper-mba",
+      "label": "Hyper Specialisation",
+      "active": false,
+      "href": "/schools/isme/programs/postgraduate/mba-hyper/mba-with-specialisation#hyper-mba-selection"
+     },
+     {
+      "id": "cards-dual-mba",
+      "label": "Dual Specialisation",
+      "active": true,
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/finance-entrepreneurships"
+     }
+    ],
+    "cards": [
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/marketing-finance#dual-mba-selection",
+      "title": "Marketing + Finance",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/marketing-entrepreneurship#dual-mba-selection",
+      "title": "Marketing + Entrepreneurship & Family Business",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/marketing-business-analytics#dual-mba-selection",
+      "title": "Marketing + Business Analytics",
+      "active": true
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/marketing-digital-marketing#dual-mba-selection",
+      "title": "Marketing + Digital Marketing",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/finance-business-analytics#dual-mba-selection",
+      "title": "Finance + Business Analytics",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/finance-digital-marketing-advertising#dual-mba-selection",
+      "title": "Finance + Digital Marketing & Advertising",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/finance-entrepreneurships#dual-mba-selection",
+      "title": "Finance + Entrepreneurship & Family Business",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/entrepreneurships-business-analytics#dual-mba-selection",
+      "title": "Entrepreneurship & Family Business + Business Analytics",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/business-analytics-digital-marketing-advertising#dual-mba-selection",
+      "title": "Business Analytics + Digital Marketing & Advertising",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/entrepreneurships-digital-marketing#dual-mba-selection",
+      "title": "Entrepreneurship & Family Business + Digital Marketing",
+      "active": false
+     }
+    ],
+    "tabTick": "/assets/images/schools/isme/bba/tick-blue.svg",
+    "cardTick": "/assets/images/schools/isme/mba/mint-tick.svg"
+   },
+   "curriculum": {
+    "heading": {
+     "num": "3",
+     "title": "Review Your Curriculum"
+    },
+    "panes": [
+     {
+      "label": "Overview",
+      "kind": "text",
+      "text": [
+       "The MBA in ",
+       {
+        "strong": "Marketing + Business Analytics at ATLAS ISME"
+       },
+       " equips students to merge creative storytelling with data-driven decision-making. This dual specialization empowers future leaders to ",
+       {
+        "strong": "design impactful marketing campaigns while mastering advanced analytics, machine learning, and visualization tools."
+       },
+       "\n\nStudents learn to harness behavioral insights, predictive analytics, and AI technologies to optimize marketing strategies, personalize customer journeys, and enhance ROI. From luxury brand management to business intelligence, the program blends",
+       {
+        "strong": "human-centered creativity with analytical precision,"
+       },
+       "preparing graduates to drive growth in complex, competitive markets."
+      ],
+      "buttons": [],
+      "paneClass": "tab-pane-tab-1"
+     },
+     {
+      "label": "Curriculum Highlights",
+      "kind": "cards",
+      "cards": [
+       {
+        "num": "#1",
+        "title": "The 21st Century Marketing"
+       },
+       {
+        "num": "#2",
+        "title": "Behavior-based Selling & Negotiation (BBSN)"
+       },
+       {
+        "num": "#3",
+        "title": "Product & Brand Management"
+       },
+       {
+        "num": "#4",
+        "title": "Marketing Analytics for Managers"
+       },
+       {
+        "num": "#5",
+        "title": "International Marketing"
+       },
+       {
+        "num": "#6",
+        "title": "Sustainable Marketing in Practice"
+       },
+       {
+        "num": "#7",
+        "title": "Statistics for Business"
+       },
+       {
+        "num": "#8",
+        "title": "Machine Learning for Managers"
+       },
+       {
+        "num": "#9",
+        "title": "Business Intelligence using Power BI"
+       },
+       {
+        "num": "#10",
+        "title": "Corporate Strategy & Capstone"
+       }
+      ],
+      "paneClass": "tab-pane-tab-2"
+     },
+     {
+      "label": "Learning Outcomes",
+      "kind": "cards",
+      "cards": [
+       {
+        "num": "#1",
+        "title": "Design creative,data-backed marketing strategies."
+       },
+       {
+        "num": "#2",
+        "title": "Apply predictive analytics and machine learning for business growth."
+       },
+       {
+        "num": "#3",
+        "title": "Optimize customer journeys using behavioral and consumer insights."
+       },
+       {
+        "num": "#4",
+        "title": "Develop global brand positioning supported by advanced analytics."
+       },
+       {
+        "num": "#5",
+        "title": "Integrate sustainability into marketing campaigns and decisions."
+       },
+       {
+        "num": "#6",
+        "title": "Lead organizations with analytical rigor & innovative marketing vision."
+       },
+       {
+        "num": "#7",
+        "title": "Statistics for Business"
+       },
+       {
+        "num": "#8",
+        "title": "Machine Learning for Managers"
+       },
+       {
+        "num": "#9",
+        "title": "Business Intelligence using Power BI"
+       },
+       {
+        "num": "#10",
+        "title": "Corporate Strategy & Capstone"
+       }
+      ],
+      "paneClass": "tab-pane-tab-3"
+     }
+    ],
+    "current": 0,
+    "years": [
+     {
+      "label": "Year 1",
+      "semesters": [
+       {
+        "title": "Semester 1",
+        "text": "Semester 1 builds strong foundations in communication, AI tools, and global business, while preparing students with essential leadership, planning, and career skills.",
+        "image": {
+         "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+         "alt": ""
+        },
+        "courses": [
+         {
+          "title": [
+           {
+            "strong": "Professional Communication and Presentation Skills"
+           }
+          ],
+          "text": "Develops impactful communication and presentation techniques, enhancing clarity, confidence, and persuasion skills crucial for professional success, leadership roles, and collaborative workplace environments."
+         },
+         {
+          "title": [
+           "‍",
+           {
+            "strong": "Modern Age AI Tools (Generative AI Tools)"
+           }
+          ],
+          "text": "Explores emerging generative AI technologies, enabling students to apply automation, innovation, and creativity in solving complex business problems across industries."
+         },
+         {
+          "title": [
+           {
+            "strong": "Global Business Environment"
+           }
+          ],
+          "text": "Provides insights into international markets, cultural diversity, economic systems, and global business trends, preparing students to make informed strategic decisions in a dynamic economy."
+         },
+         {
+          "title": [
+           {
+            "strong": "Career & Leadership Development I: Career Planning and Goal Setting"
+           }
+          ],
+          "text": "Focuses on self-awareness, career planning, and effective goal setting, guiding students toward professional growth, leadership readiness, and future career opportunities."
+         },
+         {
+          "title": [
+           {
+            "strong": "Finance – Financial Statement Analysis"
+           }
+          ],
+          "text": "Learn to interpret financial statements, assess profitability, liquidity, and solvency, and apply analytical tools for strategic decision-making, valuation, and business performance evaluation in diverse industries."
+         },
+         {
+          "title": "Marketing – The 21st Century Marketing",
+          "text": "Explore modern marketing strategies, consumer behavior shifts, digital integration, and branding innovations, equipping you to craft impactful campaigns in today’s dynamic, competitive business environment."
+         },
+         {
+          "title": "Entrepreneurship & Family Business – Entrepreneurship and Family Business 101",
+          "text": "Gain foundational knowledge of entrepreneurship and family business dynamics, focusing on opportunity identification, innovation, governance, succession planning, and strategies to build sustainable ventures across generations."
+         },
+         {
+          "title": [
+           {
+            "strong": "Business Analytics – Driving Decisions by Excel (Basics & Advanced)"
+           }
+          ],
+          "text": "Master Excel tools from basics to advanced analytics, learning data organization, visualization, forecasting, and decision modeling to transform raw data into actionable business insights."
+         },
+         {
+          "title": [
+           {
+            "strong": "Digital Marketing & Advertising – Introduction to Digital Marketing"
+           }
+          ],
+          "text": "Understand the fundamentals of digital marketing, including SEO, social media, content strategies, and analytics, to design campaigns that drive engagement, brand growth, and conversions."
+         }
+        ],
+        "electives": [],
+        "compare": [
+         {
+          "title": "Why our semester 1 curriculum outpaces every other business school",
+          "text": "ATLAS ISME combines practical finance and digital marketing skills with AI and communication training, unlike traditional MBAs’ theory-focused and less tech-integrated approach.",
+          "head": [
+           "Subjects",
+           "ATLAS ISME",
+           "Other Business Schools"
+          ],
+          "rows": [
+           [
+            "Professional Communication & Presentation Skills",
+            "Practical, hands-on focus on presentations, clarity, & confidence building from Semester 1.",
+            "Usually taught later; focus remains theoretical, with fewer real-world applications."
+           ],
+           [
+            "Modern Age AI Tools (Generative AI Tools)",
+            "Introduced early with real-world use of AI for creativity, problem-solving, and automation.",
+            "AI rarely included this early; limited to basic IT tools."
+           ],
+           [
+            "Global Business Environment",
+            "Students explore global trends, cultural diversity, and real-world business shifts.",
+            "Typically taught abstractly, limited exposure to current global case studies."
+           ],
+           [
+            "Career & Leadership Development I: Career Planning and Goal Setting",
+            "Strong self-awareness, career mapping, and leadership readiness from Day 1.",
+            "Career planning often delayed until internships or later years."
+           ],
+           [
+            "Finance – Financial Statement Analysis",
+            "Practical analysis with live datasets, ratio evaluation, and market context.",
+            "Mostly textbook or classroom-based accounting theory."
+           ],
+           [
+            "Marketing – The 21st Century Marketing",
+            "Applied campaign creation, SEO/SEM, social media, and analytics projects.",
+            "Conceptual overview with minimal hands-on execution."
+           ],
+           [
+            "Entrepreneurship & Family Business – Entrepreneurship and Family Business 101",
+            "Exposure to entrepreneurial mindset, family business models, and startup frameworks using live case studies.",
+            "Taught as generic theory without tailoring to family enterprises or entrepreneurial realities."
+           ],
+           [
+            "Business Analytics – Driving Decisions by Excel (Basics & Advanced",
+            "Hands-on training with Excel for analytics, dashboarding, and decision-making; practical business case applications.",
+            "Hands-on training with Excel for analytics, dashboarding, and decision-making; practical business case applications."
+           ],
+           [
+            "Digital Marketing & Advertising – Introduction to Digital Marketing",
+            "Applied campaign creation, SEO/SEM, social media, and analytics projects.",
+            "Conceptual overview with minimal hands-on execution."
+           ]
+          ]
+         }
+        ]
+       },
+       {
+        "title": "Semester 2",
+        "text": "Semester two develops leadership, sustainability, and design thinking with applied marketing and analytics, enabling data-driven, strategic decision-making for modern managers.",
+        "image": {
+         "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+         "alt": ""
+        },
+        "courses": [
+         {
+          "title": [
+           {
+            "strong": "Managing Self and People Skills"
+           }
+          ],
+          "text": "Develops leadership, interpersonal effectiveness, and team collaboration. Students engage in role-play, psychometric assessments, and experiential exercises to enhance communication and influence."
+         },
+         {
+          "title": [
+           {
+            "strong": "Human-Centered Design Thinking"
+           }
+          ],
+          "text": "Introduces empathy-driven problem solving. Students prototype, iterate, and test user-centric solutions for practical business and marketing challenges."
+         },
+         {
+          "title": [
+           {
+            "strong": "CSR, SDGs and Business Research"
+           }
+          ],
+          "text": "Explores sustainable business practices aligned with global SDGs. Students conduct research on CSR initiatives and assess ethical and societal impact."
+         },
+         {
+          "title": [
+           {
+            "strong": "Career & Leadership Development II: Personal Branding & Professional Networking"
+           }
+          ],
+          "text": "Focuses on personal branding, LinkedIn optimization, and networking skills. Students create professional portfolios, engage in mentorship, and build strategic connections."
+         }
+        ],
+        "electives": [
+         {
+          "title": [
+           {
+            "strong": "Marketing: Core Subjects"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Behavior-based Selling & Negotiation (BBSN)"
+             }
+            ],
+            "text": "Explore how societies, cultures, and communities function and influence human behavior. Understand the social forces that shape markets, organizations, and decision-making in the real world."
+           },
+           {
+            "title": [
+             {
+              "strong": "Product & Brand Management"
+             }
+            ],
+            "text": "Focuses on brand strategy, product lifecycle, and marketing mix decisions. Students design actionable brand plans and evaluate campaign effectiveness."
+           }
+          ]
+         },
+         {
+          "title": [
+           {
+            "strong": "Marketing: Electives (Pick One)"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Marketing Laws & Ethics"
+             }
+            ],
+            "text": "Introduces regulations, compliance, and ethical standards in marketing. Students analyze real-world advertising, branding, and sales cases for responsible practices."
+           },
+           {
+            "title": [
+             {
+              "strong": "Marketing for Global Markets"
+             }
+            ],
+            "text": "Explores international marketing strategies, cross-cultural branding, and market entry. Students design campaigns and evaluate positioning in global contexts."
+           }
+          ]
+         },
+         {
+          "title": [
+           {
+            "strong": "Business Analytics: Core Subjects"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Statistics for Business"
+             }
+            ],
+            "text": "Covers descriptive, inferential, and multivariate statistics for managerial decision-making. Students analyze datasets and interpret results to inform strategy."
+           },
+           {
+            "title": [
+             {
+              "strong": "Decision Making through Predictive Modeling"
+             }
+            ],
+            "text": "Introduces regression, classification, and forecasting models. Students apply predictive analytics to real-world business problems for actionable insights."
+           }
+          ]
+         },
+         {
+          "title": [
+           "Business Analytics: Electives",
+           {
+            "strong": "(Pick One)"
+           }
+          ],
+          "items": [
+           {
+            "title": "Ethics in Artificial Intelligence",
+            "text": "Explores ethical issues in AI deployment. Students evaluate bias, privacy, and societal impact in AI-driven\ndecision-making."
+           },
+           {
+            "title": "Introduction to Power BI",
+            "text": "Teaches data visualization and dashboard creation. Students develop interactive reports for business performance tracking and decision-making."
+           }
+          ]
+         }
+        ],
+        "compare": [
+         {
+          "title": "Why our semester 2 curriculum outpaces every other business school",
+          "text": "ATLAS ISME integrates practical marketing and analytics projects with leadership labs, contrasting traditional theory-heavy, siloed MBA programs.",
+          "head": [
+           "Subjects",
+           "ATLAS ISME",
+           "Other Business Schools"
+          ],
+          "rows": [
+           [
+            "Managing Self and People Skills",
+            "Experiential workshops, role-play, psychometrics.",
+            "Mostly lecture-based OB with minimal application."
+           ],
+           [
+            "Human-Centered Design Thinking",
+            "Hands-on prototyping, ideation, user-centric solutions.",
+            "Conceptual, limited practical exercises.Limited to theory and historical models with little application."
+           ],
+           [
+            "CSR, SDGs and Business Research",
+            "Student-led research aligned with sustainability goals.",
+            "Theory-focused CSR lectures."
+           ],
+           [
+            "Career & Leadership Development II",
+            "Mentorship-driven branding, networking exercises.",
+            "Generic career guidance, minimal hands-on practice."
+           ],
+           [
+            "Marketing",
+            "Applied BBSN, brand management, global and ethical marketing projects.",
+            "Conceptual marketing with limited application."
+           ],
+           [
+            "Business Analytics",
+            "Statistical analysis, predictive modeling, and Power BI projects.",
+            "Primarily theory-based analytics, minimal real-world application."
+           ]
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "label": "Year 2",
+      "semesters": [
+       {
+        "title": "Semester 3",
+        "text": "Semester three integrates analytics, machine learning, and data-driven marketing with leadership development, preparing students for strategic, informed, and responsible decision-making roles.",
+        "image": {
+         "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+         "alt": ""
+        },
+        "courses": [
+         {
+          "title": [
+           {
+            "strong": "Organisational Behaviour and Universal Human Values"
+           }
+          ],
+          "text": "Explores individual and group behavior, ethical decision-making, and value-driven leadership. Students apply human-centric principles to enhance workplace culture and collaboration."
+         },
+         {
+          "title": [
+           {
+            "strong": "Cyber Security Management"
+           }
+          ],
+          "text": "Introduces cybersecurity frameworks, risk management, and incident response. Students engage with real-world case studies to protect digital business assets."
+         },
+         {
+          "title": [
+           {
+            "strong": "Economics for Decision Making"
+           }
+          ],
+          "text": "Applies micro and macroeconomic concepts to managerial contexts. Students analyze pricing, demand-supply, and market structures for informed decision-making."
+         },
+         {
+          "title": [
+           {
+            "strong": "Career & Leadership Development III: Emotional Intelligence & Resilience"
+           }
+          ],
+          "text": "Develops self-awareness, adaptability, and resilience in leadership. Students participate in coaching, reflective exercises, and simulations for practical skill-building."
+         }
+        ],
+        "electives": [
+         {
+          "title": [
+           {
+            "strong": "Marketing: Core Subjects"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Marketing Analytics for Managers"
+             }
+            ],
+            "text": "Covers data-driven decision-making using marketing metrics, KPIs, and analytics tools. Students interpret campaign and consumer data to optimize strategies"
+           },
+           {
+            "title": [
+             {
+              "strong": "Legal and Ethical Aspects of Marketing"
+             }
+            ],
+            "text": "Explores laws, compliance, and ethics in advertising, branding, and sales. Students evaluate frameworks for responsible marketing practices."
+           }
+          ]
+         },
+         {
+          "title": "Marketing: Electives (Pick One)",
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Behavioral Science"
+             }
+            ],
+            "text": "Studies consumer behavior, cognitive biases, and decision-making psychology. Students analyze behavioral patterns to improve marketing interventions."
+           },
+           {
+            "title": [
+             {
+              "strong": "Marketing of Luxury Brands"
+             }
+            ],
+            "text": "Focuses on premium brand management, exclusivity, and global marketing strategies. Students develop campaigns targeting high-value niche markets."
+           }
+          ]
+         },
+         {
+          "title": [
+           {
+            "strong": "Business Analytics: Core Subjects"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Machine Learning for Managers"
+             }
+            ],
+            "text": "Introduces ML concepts for business applications. Students apply supervised and unsupervised models to generate predictive and prescriptive insights."
+           },
+           {
+            "title": [
+             {
+              "strong": "Introduction to Python Programming"
+             }
+            ],
+            "text": "Covers Python basics for data analytics, including data manipulation, visualization, and scripting for business problem-solving."
+           }
+          ]
+         },
+         {
+          "title": [
+           {
+            "strong": "Business Analytics: Electives (Pick One)"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Predictive Analytics"
+             }
+            ],
+            "text": "Focuses on forecasting models, regression, and classification techniques. Students create actionable insights for strategic and operational decisions."
+           },
+           {
+            "title": [
+             {
+              "strong": "Data Visualization with Tableau"
+             }
+            ],
+            "text": "Teaches interactive dashboards, visual storytelling, and performance reporting. Students design visualizations for effective data-driven decision-making."
+           }
+          ]
+         }
+        ],
+        "compare": [
+         {
+          "title": "Why our semester 3 curriculum outpaces every other business school",
+          "text": "ATLAS ISME emphasizes practical marketing analytics and business intelligence projects, contrasting traditional MBAs’ theory-heavy, compartmentalized marketing and analytics curricula.",
+          "head": [
+           "Subjects",
+           "ATLAS ISME",
+           "Other Business Schools"
+          ],
+          "rows": [
+           [
+            "Organisational Behaviour & Universal Human Values",
+            "Experiential learning and human-centric leadership projects.",
+            "Theory-heavy OB, minimal ethics or values focus."
+           ],
+           [
+            "Cyber Security Management",
+            "Case studies, simulations, applied risk scenarios.",
+            "IT-focused theory, little business application."
+           ],
+           [
+            "Economics for Decision Making",
+            "Applied analysis for managerial decision-making.",
+            "Textbook-driven economic models."
+           ],
+           [
+            "Career & Leadership Development III",
+            "Coaching, reflective exercises, and simulations.",
+            "Generic leadership lectures with limited practice."
+           ],
+           [
+            "Marketing",
+            "Applied analytics, legal frameworks, behavioral insights, luxury brand campaigns.",
+            "Mostly conceptual marketing; limited analytics application."
+           ],
+           [
+            "Business Analytics",
+            "Machine learning, Python, predictive modeling, and Tableau dashboards.",
+            "Classroom exercises; minimal hands-on ML or visualization projects."
+           ]
+          ]
+         }
+        ]
+       },
+       {
+        "title": "Semester 4",
+        "text": "Semester four integrates corporate governance, strategic leadership, and DEI with applied marketing and analytics, preparing students for data-driven, sustainable global roles.",
+        "image": {
+         "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+         "alt": ""
+        },
+        "courses": [
+         {
+          "title": [
+           {
+            "strong": "Corporate Governance, Professional Ethics & Law"
+           }
+          ],
+          "text": "Covers governance structures, corporate ethics, and regulatory compliance. Students analyze cases to strengthen accountability, transparency, and ethical decision-making in business contexts."
+         },
+         {
+          "title": [
+           {
+            "strong": "Supply Chain Analytics"
+           }
+          ],
+          "text": "Focuses on data-driven supply chain optimization, including forecasting, inventory management, and risk assessment. Students apply analytics tools to real-world operational challenges."
+         },
+         {
+          "title": [
+           {
+            "strong": "Corporate Strategy"
+           }
+          ],
+          "text": "Teaches strategic planning, competitive analysis, and global expansion. Students create actionable strategies through consulting-style projects and international case studies."
+         },
+         {
+          "title": [
+           {
+            "strong": "Career & Leadership Development IV: Diversity, Equity, & Inclusion in\nLeadership, & Capstone"
+           }
+          ],
+          "text": "Emphasizes inclusive leadership, cross-cultural collaboration, and DEI best practices. Capstone integrates learnings from ethics, strategy, and leadership into a comprehensive project."
+         }
+        ],
+        "electives": [
+         {
+          "title": [
+           {
+            "strong": "Marketing: Core Subjects"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "International Marketing"
+             }
+            ],
+            "text": "Covers global marketing strategies, market entry, and cross-cultural brand positioning. Students develop campaigns and assess international market effectiveness."
+           },
+           {
+            "title": [
+             {
+              "strong": "Sustainable Marketing in Practice"
+             }
+            ],
+            "text": "Focuses on eco-friendly, socially responsible marketing strategies. Students create campaigns integrating sustainability and long-term societal impact."
+           }
+          ]
+         },
+         {
+          "title": "Marketing: Electives (Pick One)",
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Creator Economy"
+             }
+            ],
+            "text": "Explores digital content creation, influencer marketing, and monetization strategies. Students design engagement strategies for brands in creator-driven ecosystems."
+           },
+           {
+            "title": [
+             {
+              "strong": "Chanakya’s Arthashastra"
+             }
+            ],
+            "text": "Studies ancient principles of economics, governance, and strategy. Students apply historical insights to modern business and marketing decision-making."
+           }
+          ]
+         },
+         {
+          "title": [
+           "‍",
+           {
+            "strong": "Business Analytics: Core Subjects"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Business Intelligence using Power BI"
+             }
+            ],
+            "text": "Teaches dashboard creation, data visualization, and reporting for decision-making. Students develop interactive insights for business performance management."
+           },
+           {
+            "title": [
+             {
+              "strong": "SQL Programming"
+             }
+            ],
+            "text": "Introduces relational database concepts and SQL queries. Students extract, manipulate, and analyze data for business applications."
+           }
+          ]
+         },
+         {
+          "title": "Business Analytics: Electives (Pick One)",
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Machine Learning Fundamentals"
+             }
+            ],
+            "text": "Covers core ML concepts including supervised and unsupervised learning. Students apply algorithms to business datasets for predictive insights."
+           },
+           {
+            "title": [
+             {
+              "strong": "Python Coding"
+             }
+            ],
+            "text": "Develops Python programming skills for data manipulation, analytics, and visualization. Students solve practical business problems using Python."
+           }
+          ]
+         }
+        ],
+        "compare": [
+         {
+          "title": "Why our semester 4 curriculum outpaces every other business school",
+          "text": "ATLAS ISME combines practical marketing projects and business intelligence applications with leadership and ethics labs, contrasting theory-heavy, siloed traditional MBA programs.",
+          "head": [
+           "Subjects",
+           "ATLAS ISME",
+           "Other Business Schools"
+          ],
+          "rows": [
+           [
+            "Corporate Governance, Professional Ethics & Law",
+            "Applied case studies, ethics workshops, governance simulations.",
+            "Primarily theoretical lectures on compliance and law."
+           ],
+           [
+            "Supply Chain Analytics",
+            "Hands-on analytics, forecasting, and operational optimization projects.",
+            "Focus on theory with minimal tool usage."
+           ],
+           [
+            "Corporate Strategy",
+            "Consulting-style projects and global case studies.",
+            "Mostly textbook frameworks, limited practical application."
+           ],
+           [
+            "Career & Leadership Development IV",
+            "DEI workshops and capstone integrating strategy, ethics, and leadership.",
+            "Generic leadership or soft-skills lectures."
+           ],
+           [
+            "Marketing",
+            "International campaigns, sustainable marketing projects, and creator economy application.",
+            "Conceptual marketing with limited global or sustainability exposure."
+           ],
+           [
+            "Business Analytics",
+            "Power BI dashboards, SQL querying, Python coding, and ML projects.",
+            "Classroom exercises; minimal hands-on analytics or coding."
+           ]
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "download": {
+     "label": "Download Curriculum",
+     "variant": "mint",
+     "fontSize": null,
+     "brochure": "mba-brochure"
+    },
+    "yearsWrapClass": "quaternary-tabs-wrapper padd-btm"
+   }
+  }
+ },
+ "refs": {
+  "stats": "stats-36a699fb82",
+  "steps": "steps-5e3765fa50",
+  "why": "why-ec826fb16d",
+  "execution": "execution-263d79afd8",
+  "voices": "voices-5669f623cd",
+  "admissions": "admissions-979eb2c203",
+  "eligibility": "eligibility-82996a5cff",
+  "banner": "banner-00f9a98b12",
+  "cmsfaq": "cmsfaq-406c823ef5"
+ }
+}

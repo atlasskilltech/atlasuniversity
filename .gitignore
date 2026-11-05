@@ -1,0 +1,19 @@
+node_modules
+.next
+out
+next-env.d.ts
+.env*.local
+.DS_Store
+*.log
+
+# asset storage (scripts/assets): local hash cache and interrupted downloads
+.assets-cache.json
+*.download-[0-9]*
+assets.manifest.json.tmp-*
+# migrated assets are served from S3 (listed in assets.manifest.json; restore with `npm run assets:download`).
+# Only fonts and brand stay in git and are served from the site itself (scripts/assets/local-only.cjs).
+/public/assets/*
+!/public/assets/fonts/
+!/public/assets/brand/
+# the PHP reference site — local only, never uploaded
+/reference/

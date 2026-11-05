@@ -1,0 +1,484 @@
+{
+ "path": "mba-financial-planning-applied-finance",
+ "meta": {
+  "title": "MBA in FinTech & Financial Innovation in Mumbai – ATLAS ISME",
+  "description": "Explore fintech tools, digital finance, markets, analytics, blockchain basics and financial innovation for modern careers.",
+  "keywords": null
+ },
+ "brochure": {
+  "ids": [
+   "mba-brochure",
+   "campus-visit"
+  ],
+  "scripts": [
+   {
+    "src": "https://crm.atlasskilltech.app/widgets/6a3e7b56a1fd0680c6c18e59/embed.js",
+    "height": 650
+   }
+  ]
+ },
+ "order": [
+  "hero",
+  "stats",
+  "program",
+  "why",
+  "execution",
+  "voices",
+  "admissions",
+  "eligibility",
+  "banner",
+  "cmsfaq"
+ ],
+ "blocks": {
+  "hero": {
+   "title": "MBA – Financial Planning & Applied Finance",
+   "image": {
+    "src": "/assets/images/schools/isme/mba/site/mba-financial-planning-applied-finance/herobanner/1366x705.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/mba/site/mba-financial-planning-applied-finance/herobanner/500x258.png 500w, /assets/images/schools/isme/mba/site/mba-financial-planning-applied-finance/herobanner/800x413.png 800w, /assets/images/schools/isme/mba/site/mba-financial-planning-applied-finance/herobanner/1080x557.png 1080w, /assets/images/schools/isme/mba/site/mba-financial-planning-applied-finance/herobanner/1366x705.png 1366w",
+    "sizes": "(max-width: 1366px) 100vw, 1366px"
+   },
+   "buttons": [
+    {
+     "label": "Apply for 2027 Intake",
+     "variant": "mint",
+     "href": "https://atlasuniversity.edu.in/applicationform"
+    }
+   ],
+   "narrow": true,
+   "lead": "(Integrated with CFP® Global Certification)"
+  },
+  "program": {
+   "panes": [
+    {
+     "label": "Overview",
+     "kind": "text",
+     "text": [
+      "The MBA in Financial Planning & Applied Finance at ATLAS is a two-year, full-time PG program fully integrated with the CFP® Global Certification. It is designed to provide access to premium roles in wealth management, private banking, and financial advisory.\n\nA distinctive feature of this programme is its 100% alignment with the CFP® Certification by FPSB, the global gold standard in financial planning, recognised in over 25 countries, reflecting professional excellence, rigorous competency benchmarks, and the highest ethical standards. The program prepares students for premium roles in wealth management, private banking, investment advisory, and financial planning, while enabling them to earn:",
+      {
+       "list": [
+        [
+         {
+          "strong": "CFP® Global Certification (FPSB)"
+         }
+        ],
+        [
+         {
+          "strong": "Multiple NISM certifications (embedded in the curriculum)"
+         }
+        ]
+       ]
+      },
+      "The CFP® Global Certification ensures that a financial professional is comprehensively trained and rigorously tested across all core areas of personal finance, including investments, retirement planning, tax planning, insurance and risk management, estate planning, and fundamental financial planning principles. This ensures that students study the exact subjects covered in the CFP® program over two years and are fully prepared to appear for the CFP® examination."
+     ],
+     "paneClass": null
+    },
+    {
+     "label": "Curriculum Highlights",
+     "kind": "textCards",
+     "cards": [
+      {
+       "title": "Foundations of Financial Planning & Wealth Management"
+      },
+      {
+       "title": "Entrepreneurship & Innovation in Financial Services"
+      }
+     ],
+     "paneClass": null
+    },
+    {
+     "label": "Learning Outcomes",
+     "kind": "learn",
+     "grid": true,
+     "cards": [
+      {
+       "num": "#1",
+       "text": "Holistic Financial Planning & Advisory",
+       "tone": "bg1"
+      },
+      {
+       "num": "#2",
+       "text": "Investment & Portfolio Strategy",
+       "tone": "bg2"
+      },
+      {
+       "num": "#3",
+       "text": "Retirement, Tax & Estate Planning",
+       "tone": "bg1"
+      },
+      {
+       "num": "#4",
+       "text": "Risk Assessment & Insurance Advisory",
+       "tone": "bg1"
+      },
+      {
+       "num": "#5",
+       "text": "Client-Centric Wealth Management",
+       "tone": "bg2"
+      },
+      {
+       "num": "#6",
+       "text": "Ethical & Fiduciary Financial Practice",
+       "tone": "bg1"
+      }
+     ],
+     "paneClass": null
+    },
+    {
+     "label": "Career Pathways",
+     "kind": "careers",
+     "cards": [
+      {
+       "title": "Wealth\nManager",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn1.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Certified Financial Planner",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn2.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Investment Consultant",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn3.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Retirement & Estate Planner",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn2.png.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Private Banking Advisor",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn4.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Portfolio & Advisory Specialist",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn5.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Investment Banker",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn6.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Mutual Fund & Investment Product Specialist",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn7.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Asset Allocation Specialist",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn1.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Tax Planning Consultant (Individual & Family Taxation)",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn2.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Risk & Insurance Planning Specialist",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn3.png",
+        "alt": ""
+       }
+      }
+     ],
+     "paneClass": null
+    }
+   ],
+   "current": 0,
+   "years": [
+    {
+     "label": "Year 1",
+     "semesters": [
+      {
+       "title": "Semester 1",
+       "text": "Build the foundation of your financial planning journey by mastering essential finance and analytical skills. Learn how investments, financial strategies, data, and innovation shape wealth and business decisions, preparing you for success in a digital-first economy.",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/sem-1.png",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Personal Financial Management"
+          }
+         ],
+         "text": "Introduces personal budgeting, savings, credit management, financial goal setting, and responsible money management practices."
+        },
+        {
+         "title": [
+          {
+           "strong": "Investment Planning"
+          }
+         ],
+         "text": "Covers investment principles, asset classes, risk assessment, portfolio construction, and long-term wealth creation strategies."
+        },
+        {
+         "title": [
+          {
+           "strong": "Strategic Financial Statement Analysis"
+          }
+         ],
+         "text": "Develops skills to interpret financial statements for evaluating organisational performance, stability, and strategic decision-making."
+        },
+        {
+         "title": [
+          {
+           "strong": "Excel for Decision Making and AI Tools"
+          }
+         ],
+         "text": "Builds proficiency in Excel and AI tools for analysis, forecasting, and data-driven business decisions."
+        },
+        {
+         "title": [
+          {
+           "strong": "Managerial Economics for Business Decisions"
+          }
+         ],
+         "text": "Applies economic theories and models to managerial decision-making, pricing, production, and resource allocation."
+        },
+        {
+         "title": [
+          {
+           "strong": "Indirect Taxation"
+          }
+         ],
+         "text": "Explores GST and indirect tax structures, compliance requirements, and their implications for businesses and consumers."
+        }
+       ],
+       "electives": [],
+       "compare": []
+      },
+      {
+       "title": "Semester 2",
+       "text": "Deepen your expertise in financial planning and advisory with an advanced blend of analytical, strategic, and data-driven decision-making skills.\n\nThis semester strengthens your understanding of retirement and tax planning, AI-assisted financial modelling, entrepreneurship, and research analytics in the evolving financial services ecosystem.",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/sem-1.png",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Retirement Planning"
+          }
+         ],
+         "text": "Focuses on retirement goals, pension products, investment strategies, and post-retirement income planning solutions."
+        },
+        {
+         "title": [
+          {
+           "strong": "Tax Planning"
+          }
+         ],
+         "text": "Examines tax regulations, exemptions, and strategies to minimise liabilities while ensuring legal compliance."
+        },
+        {
+         "title": [
+          {
+           "strong": "Business Communication"
+          }
+         ],
+         "text": "Enhances professional communication skills, including presentations, reports, negotiations, and workplace interactions."
+        },
+        {
+         "title": [
+          {
+           "strong": "Financial Modelling"
+          }
+         ],
+         "text": "Focuses on ROI-driven digital marketing using AI-powered analytics, attribution, testing, and predictive optimisation."
+        },
+        {
+         "title": [
+          {
+           "strong": "Entrepreneurship (in Financial Services)"
+          }
+         ],
+         "text": "Explores entrepreneurial opportunities, innovation, regulation, and business models within the financial services sector."
+        },
+        {
+         "title": [
+          {
+           "strong": "Research Methodology & Data Analytics"
+          }
+         ],
+         "text": "Introduces research design, data collection, statistical tools, and analytics for financial and business research."
+        }
+       ],
+       "electives": [],
+       "compare": []
+      }
+     ]
+    },
+    {
+     "label": "Year 2",
+     "semesters": [
+      {
+       "title": "Semester 3",
+       "text": "Develop expertise in risk and insurance planning, corporate finance, and sustainable financial practices, while honing practical skills through hands-on labs and analysis of equity, debt, and derivative markets. The curriculum emphasizes ethics, compliance, and real-world financial decision-making.",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/sem-2.png",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Risk & Insurance Planning"
+          }
+         ],
+         "text": "Covers risk assessment, insurance products, policy selection, and risk mitigation strategies for individuals and businesses."
+        },
+        {
+         "title": [
+          {
+           "strong": "Estate and Succession Planning"
+          }
+         ],
+         "text": "Focuses on wealth transfer, inheritance laws, trusts, wills, and succession strategies for financial continuity."
+        },
+        {
+         "title": [
+          {
+           "strong": "Sustainable Finance"
+          }
+         ],
+         "text": "Examines environmental, social, and governance factors influencing sustainable investment and responsible financial practices."
+        },
+        {
+         "title": [
+          {
+           "strong": "Corporate Finance"
+          }
+         ],
+         "text": "Explores capital structure, funding decisions, dividend policies, and financial management of corporations."
+        },
+        {
+         "title": [
+          {
+           "strong": "Financial Derivatives"
+          }
+         ],
+         "text": "Introduces derivatives instruments, pricing concepts, hedging strategies, and risk management applications."
+        },
+        {
+         "title": [
+          {
+           "strong": "Behavioural Finance"
+          }
+         ],
+         "text": "Studies psychological influences on investor behaviour, decision biases, and market anomalies."
+        },
+        {
+         "title": [
+          {
+           "strong": "Marketing of Financial Services"
+          }
+         ],
+         "text": "Focuses on marketing strategies, customer behaviour, branding, and distribution of financial products and services."
+        }
+       ],
+       "electives": [],
+       "compare": []
+      },
+      {
+       "title": "Semester 4",
+       "text": "Lead with purpose and precision. This semester prepares you for professional leadership in financial planning, emphasizing integrated client-focused strategies, ethical decision-making, corporate governance, and research-driven financial expertise.",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/sem-2.png",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Financial Planning Strategies"
+          }
+         ],
+         "text": "Integrates investment, tax, retirement, and risk planning to create comprehensive client-focused financial plans."
+        },
+        {
+         "title": [
+          {
+           "strong": "Integrated Financial Planning"
+          }
+         ],
+         "text": "Applies holistic financial planning frameworks combining multiple financial domains for long-term client success."
+        },
+        {
+         "title": [
+          {
+           "strong": "Reports & Dissertation"
+          }
+         ],
+         "text": "Involves independent research, analysis, and academic writing on specialised financial planning topics."
+        },
+        {
+         "title": [
+          {
+           "strong": "Certifications"
+          }
+         ],
+         "text": "Provides credit recognition for relevant professional certifications enhancing industry knowledge and employability."
+        },
+        {
+         "title": [
+          {
+           "strong": "Corporate Governance, Professional Ethics & Law: Career Readiness"
+          }
+         ],
+         "text": "Covers governance frameworks, ethical standards, legal compliance, and professional conduct for financial careers."
+        }
+       ],
+       "electives": [],
+       "compare": []
+      }
+     ]
+    }
+   ],
+   "download": {
+    "label": "Download Curriculum",
+    "variant": "mint",
+    "fontSize": null,
+    "brochure": "mba-brochure"
+   },
+   "yearsWrap": "quaternary"
+  }
+ },
+ "refs": {
+  "stats": "stats-85903fa626",
+  "why": "why-22b34da5cb",
+  "execution": "execution-1e5cfd80cb",
+  "voices": "voices-47c8abecf0",
+  "admissions": "admissions-e3cb80af89",
+  "eligibility": "eligibility-54ef054424",
+  "banner": "banner-1d16e679f9",
+  "cmsfaq": "cmsfaq-406c823ef5"
+ }
+}

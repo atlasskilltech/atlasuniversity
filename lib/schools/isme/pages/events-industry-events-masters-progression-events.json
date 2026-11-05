@@ -1,0 +1,221 @@
+{
+ "path": "/schools/isme/events/industry-events-masters-progression-events",
+ "ref": "events/industry-events-masters-progression-events.php",
+ "meta": {
+  "title": "Atlas ISME Industry Events",
+  "description": "Discover PG progression, industry sessions, global opportunities, skill-building and career pathways through expert exposure."
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "kind": "hero",
+   "height": "100vh",
+   "id": null,
+   "eyebrow": "Masters Progression Events",
+   "name": null,
+   "position": null,
+   "title": "Your Global Postgrad\nJourney Starts Here",
+   "text": null,
+   "image": {
+    "src": "/assets/images/schools/isme/pages/hero-image-4-copy.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/pages/hero-image-4-copy-p-500.png 500w, /assets/images/schools/isme/pages/hero-image-4-copy-p-800.png 800w, /assets/images/schools/isme/pages/hero-image-4-copy-p-1080.png 1080w, /assets/images/schools/isme/pages/hero-image-4-copy.png 1366w",
+    "sizes": "(max-width: 1439px) 100vw, 1365.9722900390625px"
+   },
+   "buttons": null
+  },
+  {
+   "kind": "iconSection",
+   "id": null,
+   "icon": "/assets/images/schools/isme/pages/user.png",
+   "num": null,
+   "title": "Global Education Fair",
+   "wrap": "blue",
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "blue",
+     "mods": [
+      "blue-desc-wrap",
+      "mrgbtm"
+     ],
+     "textMods": [
+      "blue-desc-text"
+     ],
+     "text": "An annual on-campus event where top international universities from the US, UK, Europe, and Asia engage directly with students — offering guidance on Master’s programs, admissions, and scholarships.",
+     "common": false
+    },
+    {
+     "kind": "zoom",
+     "mods": [
+      "swiper",
+      "zoom-slider"
+     ],
+     "cards": [
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/yes-bankkk.png",
+        "alt": ""
+       },
+       "caption": "IE University",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/yes-bank-3-copy.png",
+        "alt": ""
+       },
+       "caption": "University of Westminster",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/yes-bank-2-copy.png",
+        "alt": ""
+       },
+       "caption": "University of Sussex",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/yes-bank-4-copy.png",
+        "alt": ""
+       },
+       "caption": "Newcastle University",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/yes-bank-5-copy.png",
+        "alt": ""
+       },
+       "caption": "Newcastle University",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/yes-bankkk.png",
+        "alt": ""
+       },
+       "caption": "Ie University",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/yes-bank-3-copy.png",
+        "alt": ""
+       },
+       "caption": "University of Westminster",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/yes-bank-2-copy.png",
+        "alt": ""
+       },
+       "caption": "University of Sussex",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/yes-bank-4-copy.png",
+        "alt": ""
+       },
+       "caption": "Newcastle University",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/yes-bank-5-copy.png",
+        "alt": ""
+       },
+       "caption": "Newcastle University",
+       "sub": null
+      }
+     ],
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "explore",
+   "heading": "Explore by Experience",
+   "cards": [
+    {
+     "text": "Entrepreneurship\nEvents",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/explore-1.jpg",
+      "alt": ""
+     },
+     "href": "/schools/isme/events/entrepreneurship-and-startup-events",
+     "icon": "/assets/icons/arrow-downward.svg",
+     "variant": "card-type-k"
+    },
+    {
+     "text": "Industry\nEvents",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/image-1212.png",
+      "alt": ""
+     },
+     "href": "/schools/isme/events/industry-networking-and-conferences",
+     "icon": "/assets/icons/arrow-downward.svg",
+     "variant": "card-type-k-2"
+    },
+    {
+     "text": "International\nEvents",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/image-1212-copy.png",
+      "alt": ""
+     },
+     "href": "/schools/isme/events/industry-events-international-events",
+     "icon": "/assets/icons/arrow-downward.svg",
+     "variant": "card-type-k-2"
+    },
+    {
+     "text": "Masters\nProgressions",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/international-faculties-thumnil.png",
+      "alt": ""
+     },
+     "href": "/schools/isme/events/industry-events-masters-progression-events",
+     "icon": "/assets/icons/arrow-downward.svg",
+     "variant": "card-type-k-2"
+    },
+    {
+     "text": "Fests & Cultural\nEvents",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/college-fest-3.png",
+      "alt": "",
+      "srcSet": "/assets/images/schools/isme/pages/college-fest-3-p-500.png 500w, /assets/images/schools/isme/pages/college-fest-3-p-800.png 800w, /assets/images/schools/isme/pages/college-fest-3-p-1080.png 1080w, /assets/images/schools/isme/pages/college-fest-3.png 1338w",
+      "sizes": "(max-width: 300px) 100vw, 300px"
+     },
+     "href": "/schools/isme/events/annual-fests-and-cultural-celebrations",
+     "icon": "/assets/icons/arrow-downward.svg",
+     "variant": "card-type-k-2"
+    },
+    {
+     "text": "Podcasts &\nFireside Chats",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/image-1212-4.png",
+      "alt": ""
+     },
+     "href": "/schools/isme/events/podcasts-and-fireside-chats-with-industry-leaders",
+     "icon": "/assets/icons/arrow-downward.svg",
+     "variant": "card-type-k-2"
+    },
+    {
+     "text": "Flagship\nEvents",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/gandhi-img-1.png",
+      "alt": "",
+      "srcSet": "/assets/images/schools/isme/pages/gandhi-img-1-p-500.png 500w, /assets/images/schools/isme/pages/gandhi-img-1-p-800.png 800w, /assets/images/schools/isme/pages/gandhi-img-1-p-1080.png 1080w, /assets/images/schools/isme/pages/gandhi-img-1.png 1446w",
+      "sizes": "(max-width: 300px) 100vw, 300px"
+     },
+     "href": "/schools/isme/events/flagship-events-at-atlas-isme",
+     "icon": "/assets/icons/arrow-downward.svg",
+     "variant": "card-type-k-2"
+    }
+   ]
+  }
+ ]
+}

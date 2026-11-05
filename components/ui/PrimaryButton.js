@@ -1,0 +1,174 @@
+import SmartLink from '@/components/SmartLink';
+import { cx } from '@/lib/cx';
+
+/**
+ * The reference's `.btn-primary` — the site's filled call-to-action pill.
+ *
+ * The same element on every page that uses it: the homepage hero
+ * (`index.php:54-90`), "Your Future Begins Here." (`index.php:3533-3546`), and
+ * the /campus-atlas hero and "Experience the ATLAS Campus in Person" banner
+ * (`campus-atlas.php:27-30`, `campus-atlas.php:723-727`). Identical measured
+ * cascade in all four places:
+ *
+ *                          >=768px                     <=767px
+ *   a.btn-primary          h56, px24, gap12, r36,      h40
+ *                          18px/500, line-height 1
+ *     .btn-primary(atlas)  #02b3c3 on black
+ *     .btn-primary(outline) transparent, 2px white border, white text
+ *   .button-tx             16px/500                    12px
+ *   .btn-pr-icon           16px natural                12px
+ *
+ * The anchor sets `line-height: 1`, which `.button-tx` inherits — hence the
+ * arbitrary `text-[16px]` rather than `text-base`, whose bundled 1.5 would win
+ * over an inherited value. Neither stylesheet declares a hover, focus or active
+ * state for this button, so this component declares none either: a page never
+ * passes it appearance, only content.
+ */
+
+/* ref .btn-primary */
+const BASE =
+  'flex flex-none items-center gap-3 px-6 rounded-[36px] ' +
+  'text-lg font-medium leading-none no-underline';
+
+/*
+ * `.btn-primary` is 56px tall and drops to 40 at 767. `.btn-ca` — declared only
+ * in /admissions/ug-admissions' own `<style>` block, for its hero's "Continue
+ * Application" button — is the same pill in every other respect but drops at
+ * **576** instead, and declares no `max-width`. Between 577 and 767 that leaves
+ * it 16px taller than the `.btn-primary`s beside it, which is what the
+ * reference paints.
+ */
+const VARIANTS = {
+  /*
+   * ref .btn-primary with no variant class — the sheet's base rule, #d20158
+   * with white text. The ISDI homepage's "Become an ISDI-ian" and "Apply Now"
+   * buttons (`data-wf--button-primary--variant="pink"`, an inert attribute).
+   */
+  pink: 'h-14 max-w-full text-white bg-atlas-cta max-md:h-10',
+  /*
+   * ref .btn-primary:where(.w-variant-267c9259-4ff0-8737-bb83-3058007e9369) —
+   * the ISDI homepage's "blue" pill on its pink banners: #1f4aa0 with a 600
+   * label (the variant sets the weight on `.button-tx`; here it is set on the
+   * anchor, which the label inherits, since the anchor paints no text itself).
+   */
+  blue: 'h-14 max-w-full text-white bg-[#1f4aa0] font-semibold max-md:h-10',
+  // ref .btn-primary:where(.w-variant-9df390f6-abdb-218d-e8a6-500b981692ba)
+  atlas: 'h-14 max-w-full text-black bg-atlas-teal max-md:h-10',
+  // ref .btn-primary:where(.w-variant-edbe4a85-a762-b5b5-c583-585856b72378)
+  outline: 'h-14 max-w-full text-white bg-transparent border-2 border-white max-md:h-10',
+  // ref .btn-primary:where(.w-variant-d71882ff-f281-7950-028c-136b51ff1605) — ISME's mint pill
+  mint: 'h-14 max-w-full text-black bg-atlas-mint max-md:h-10',
+  /* ref .btn-primary:where(.w-variant-078eeacf-2da6-f532-b503-b4a622ab47c0) — the School of Law's
+     `data-wf--button-primary--variant="law"` pill: #cb5827 with white, centred text (measured on
+     /schools/law at 1440 / 767 / 390) */
+  law: 'h-14 max-w-full text-white text-center bg-[#cb5827] max-md:h-10',
+  // ref .btn-primary:where(.w-variant-45763450-179a-8f98-e4a2-676b2380240a) — uGDX's #eb1f3c pill, white text
+  ugdx: 'h-14 max-w-full text-white bg-[#eb1f3c] max-md:h-10',
+  // ref .btn-ca
+  'atlas-576': 'h-14 text-black bg-atlas-teal max-576:h-10',
+  /*
+   * ref .btn-primary:where(.w-variant-6b63810f-e988-0cce-bafa-92afc0c78b1c) —
+   * /programs/programs-list-integrated's only button shape. A 44px outline pill
+   * rather than the 56px filled one: transparent, 1px solid black, black text.
+   * All four instances on that page carry this class, even the one whose
+   * `data-wf--button-primary--variant` reads "law" — the attribute is inert and
+   * the class is what the sheet keys off.
+   */
+  'outline-medium':
+    'h-11 max-w-full border border-solid border-black bg-transparent text-center text-black max-md:h-10',
+};
+
+/*
+ * The reference's own name for the `outline` variant, in every page's
+ * `data-wf--button-primary--variant` attribute. An unknown key yields no classes at
+ * all and the button renders as unstyled text — which is exactly what happened on
+ * /admissions/integrated-admissions and again on the ISDI B.Des pages, both times
+ * caught only by comparing screenshots. Accepting the reference's spelling removes
+ * the trap rather than restating it in every data file.
+ */
+VARIANTS['outline-white'] = VARIANTS.outline;
+/* ref .btn-primary:where(.w-variant-a1426cca-325d-0102-14bc-ee74f7531ae0) ("black") — the uGDX programme
+   pages' red banner "Apply Now": white on #000, otherwise the base pill */
+VARIANTS.black = 'h-14 max-w-full text-white bg-black max-md:h-10';
+
+/* `*-mcm` — the same pills on /schools/isme/global-business-pathway, whose own <style> redeclares
+   `.btn-primary` after the sheet, so its 56px holds through the sheet's <=767 rule and only drops to
+   40 at the page's <=568 */
+VARIANTS['mint-mcm'] = 'h-14 max-w-full text-black bg-atlas-mint max-mcm:h-10';
+VARIANTS['outline-mcm'] = 'h-14 max-w-full text-white bg-transparent border-2 border-white max-mcm:h-10';
+
+/*
+ * ref .button-tx. Every page's sheet drops the label to 12px at <=767, but they
+ * do not agree on the base size: most declare `font-size: 16px`, and
+ * /programs/ug-programs-atlas' sheet declares **no base rule at all**, so the
+ * label there inherits the button's own 18px and the pill measures 20px wider.
+ * `text-[18px]` is that inherited value written explicitly.
+ */
+const TEXT = {
+  default: 'text-[16px] max-md:text-[12px]',
+  inherit: 'text-[18px] max-md:text-[12px]',
+  /* ISME's mint pill: `.button-tx:where(.w-variant-d71882ff-…) { font-weight: 400 }` under the
+     anchor's 500 (the ISME partner-pathway pages' sheet) */
+  'inherit-light': 'text-[18px] font-normal max-md:text-[12px]',
+  'default-light': 'text-[16px] font-normal max-md:text-[12px]',
+  /* /schools/isme/global-business-pathway: `.button-tx` turns 12px at its own <=568 */
+  'default-mcm': 'text-[16px] max-mcm:text-[12px]',
+};
+
+export default function PrimaryButton({
+  href,
+  external,
+  newTab,
+  variant = 'atlas',
+  textSize = 'default',
+  icon,
+  iconClassName,
+  children,
+  className,
+  onClick,
+  ...rest
+}) {
+  const classes = cx(BASE, VARIANTS[variant], className);
+  const label = (
+    <>
+      <div className={TEXT[textSize]}>{children}</div>
+      {/* ref .btn-pr-icon */}
+      {icon && (
+        /* eslint-disable-next-line @next/next/no-img-element */
+        <img src={icon} alt="" width={16} height={16} className={cx('max-md:w-3', iconClassName)} />
+      )}
+    </>
+  );
+
+  /*
+   * The reference authors every one of these as an `<a>`, but a few carry
+   * `href="#"` and exist only to open a dialog — /programs/programs-list-integrated's
+   * "Download Brochure" pair. Those render as a real `<button>`: it never
+   * navigates, so an anchor would be the wrong control and would put a bare `#`
+   * in the browser's status bar.
+   */
+  if (onClick) {
+    return (
+      <button type="button" onClick={onClick} className={classes} {...rest}>
+        {label}
+      </button>
+    );
+  }
+
+  return (
+    <SmartLink
+      href={href}
+      external={external}
+      newTab={newTab}
+      className={classes}
+      {...rest}
+    >
+      <div className={TEXT[textSize]}>{children}</div>
+      {/* ref .btn-pr-icon */}
+      {icon && (
+        /* eslint-disable-next-line @next/next/no-img-element */
+        <img src={icon} alt="" width={16} height={16} className={cx('max-md:w-3', iconClassName)} />
+      )}
+    </SmartLink>
+  );
+}

@@ -1,0 +1,565 @@
+{
+ "path": "bsc-hons/bsc-in-economics-and-data-analytics",
+ "meta": {
+  "title": "BBA Business Analytics with Economics in Mumbai – ATLAS ISME",
+  "description": "Learn analytics with economic insights. Build strong analytical, market and decision-making skills.",
+  "keywords": null
+ },
+ "brochure": {
+  "ids": [
+   "bba-brochure",
+   "campus-visit",
+   "bba-brochure",
+   "bba-brochure-1",
+   "campus-visit"
+  ],
+  "scripts": [
+   {
+    "src": "https://crm.atlasskilltech.app/widgets/6a3e7a6aa1fd0680c6c18db8/embed.js",
+    "height": 650
+   }
+  ]
+ },
+ "order": [
+  "hero",
+  "stats",
+  "program",
+  "why",
+  "execution",
+  "voices",
+  "admissions",
+  "eligibility",
+  "banner",
+  "search",
+  "faq"
+ ],
+ "blocks": {
+  "hero": {
+   "title": "B.Sc. in Economics and Data Analytics",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/bsc-finance-hero-image.webp",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/bsc-finance-hero-image-p-500.webp 500w, /assets/images/schools/isme/bba/bsc-finance-hero-image-p-800.webp 800w, /assets/images/schools/isme/bba/bsc-finance-hero-image-p-1080.webp 1080w, /assets/images/schools/isme/bba/bsc-finance-hero-image.webp 1366w",
+    "sizes": "(max-width: 1366px) 100vw, 1366px"
+   },
+   "buttons": [
+    {
+     "label": "Apply for July 2027 Intake",
+     "variant": "mint",
+     "href": "https://atlasuniversity.edu.in/applicationform"
+    },
+    {
+     "label": "Download Brochure",
+     "variant": "outline-white",
+     "brochure": "bba-brochure"
+    }
+   ],
+   "narrow": true,
+   "lead": "Build the strategies that shape economies. Learn to forecast, value, and invest with confidence in a world that rewards data-driven financial leadership",
+   "imageFill": true
+  },
+  "program": {
+   "panes": [
+    {
+     "label": "Overview",
+     "kind": "text",
+     "text": [
+      "In a world driven by data and shaped by dynamic markets, the intersection of ",
+      {
+       "strong": "Economics and Data Analytics"
+      },
+      " is where the future of decision-making lies. The ",
+      {
+       "strong": "B.Sc. (Hons.) in Economics & Data Analytics"
+      },
+      " at ",
+      {
+       "strong": "ATLAS SkillTech University"
+      },
+      " is a cutting-edge four-year undergraduate program designed to prepare future-ready economists, strategists, and data-driven leaders\n\nThis program blends ",
+      {
+       "strong": "the analytical depth of economics"
+      },
+      " with the ",
+      {
+       "strong": "technical precision of data analytics"
+      },
+      "—empowering students to interpret real-world complexities through economic theory, quantitative tools, and data-driven insights.\n\nStudents learn to decode human behaviour, market trends, and global developments through data visualization, econometrics, coding, and predictive modelling. Whether it’s understanding how economic policy affects business or how AI is transforming financial markets, this program ensures graduates are fluent in the language of both ",
+      {
+       "strong": "economics and technology."
+      }
+     ],
+     "paneClass": "tab-pane-tab-1"
+    },
+    {
+     "label": "Curriculum Highlights",
+     "kind": "cards",
+     "cards": [
+      {
+       "num": "#1",
+       "title": "Financial Accounting & Analysis"
+      },
+      {
+       "num": "#2",
+       "title": "Corporate Finance & Valuation"
+      },
+      {
+       "num": "#3",
+       "title": "Data Science & Predictive Analytics"
+      },
+      {
+       "num": "#4",
+       "title": "FinTech, Blockchain & Digital Finance"
+      },
+      {
+       "num": "#5",
+       "title": "Risk Management & Financial Derivatives"
+      },
+      {
+       "num": "#6",
+       "title": "Banking & Financial Services"
+      },
+      {
+       "num": "#7",
+       "title": "Managerial Economics & Global Markets"
+      },
+      {
+       "num": "#8",
+       "title": "Financial Modeling with Excel & Python"
+      },
+      {
+       "num": "#9",
+       "title": "Mergers, Acquisitions & Private Equity"
+      },
+      {
+       "num": "#10",
+       "title": "Business Law & Financial Compliance"
+      }
+     ],
+     "paneClass": "tab-pane-tab-2"
+    },
+    {
+     "label": "Learning Outcomes",
+     "kind": "cards",
+     "cards": [
+      {
+       "num": "#1",
+       "title": "Navigate financial markets, systems, and instruments with ease"
+      },
+      {
+       "num": "#2",
+       "title": "Analyze business performance and make data-driven decisions"
+      },
+      {
+       "num": "#3",
+       "title": "Build forecasting models and valuation frameworks"
+      },
+      {
+       "num": "#4",
+       "title": "Evaluate risk and manage portfolios for optimized returns."
+      },
+      {
+       "num": "#5",
+       "title": "Use tools like Excel and Python to solve\nreal-world financial challenges"
+      },
+      {
+       "num": "#6",
+       "title": "Lead financial strategies with precision, clarity, and insight"
+      }
+     ],
+     "paneClass": "tab-pane-tab-3"
+    },
+    {
+     "label": "Career Pathways",
+     "kind": "careers",
+     "cards": [
+      {
+       "title": "Finance & Banking: Financial Analyst, Risk Analyst, Quantitative Researcher",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/imagee-16.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Consulting & Strategy: Business Consultant, Policy Analyst, Economic Advisor",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/imagee-16-copy.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Data & Technology: Data Scientist, Machine Learning Analyst, Product Analyst",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/imagee-17-copy.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Public Policy & Development: Economist, Research Associate, Impact Evaluation Specialist",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/imagee-17.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Corporate & Market Research: Business Intelligence Analyst, Consumer Insights Manager",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/imagee-18.png",
+        "alt": ""
+       }
+      }
+     ],
+     "paneClass": null
+    }
+   ],
+   "current": 0,
+   "years": [
+    {
+     "label": "Year 1",
+     "semesters": [
+      {
+       "title": "Semester 1",
+       "text": "The first year builds a strong academic foundation that connects economic reasoning with analytical and digital fluency. Students are introduced to principles of microeconomics and macroeconomics, mathematical methods, and business statistics, while simultaneously developing competence in programming for analytics and data visualization. Courses in communication, critical thinking, and academic writing foster clarity of thought and expression—ensuring that every student learns to think like an economist and reason like a data analyst. This year nurtures intellectual curiosity and interdisciplinary awareness, setting the stage for deeper analytical exploration.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": "Microeconomic Analysis and Market Behaviour | Credits 4",
+         "text": "This subject focuses on how individual consumers and firms make decisions, and how prices, demand, supply, and competition work in different markets."
+        },
+        {
+         "title": "Probability and Statistics I | Credits 4",
+         "text": "This subject introduces basic probability concepts and statistical methods used to analyze data, measure uncertainty, and make informed decisions."
+        },
+        {
+         "title": "Foundations of Data Analytics | Credits 3",
+         "text": "This subject introduces the basic concepts, tools, and techniques used to collect, clean, analyze, and interpret data for decision-making."
+        },
+        {
+         "title": "Basics of Excel | Credits 3",
+         "text": "This subject covers the fundamental features of MS Excel, including data entry, formulas, formatting, and basic data analysis using spreadsheets."
+        },
+        {
+         "title": "Fundamentals of Business Communication | Credits 3",
+         "text": "This subject teaches the basic principles of effective communication in a business environment, including professional speaking, writing, and interpersonal skills."
+        },
+        {
+         "title": "Atlas Elective | Credits 2",
+         "text": "Allows students to explore interest-based subjects aligned with emerging fields and career pathways. Encourages applied, skill-focused learning."
+        },
+        {
+         "title": "Indian Behavioural Psychology | Credits 2",
+         "text": "Introduces key behavioral concepts rooted in Indian psychological thought. Highlights decision-making, motivation, and cultural influences on human behavior."
+        }
+       ],
+       "electives": [],
+       "compare": []
+      },
+      {
+       "title": "Semester 2",
+       "text": "The first year builds a strong academic foundation that connects economic reasoning with analytical and digital fluency. Students are introduced to principles of microeconomics and macroeconomics, mathematical methods, and business statistics, while simultaneously developing competence in programming for analytics and data visualization. Courses in communication, critical thinking, and academic writing foster clarity of thought and expression—ensuring that every student learns to think like an economist and reason like a data analyst. This year nurtures intellectual curiosity and interdisciplinary awareness, setting the stage for deeper analytical exploration.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": "Macroeconomic Analysis and Policy Frameworks | Credits 4",
+         "text": "This subject studies the overall performance of an economy, including inflation, unemployment, and economic growth, along with government policies used to manage them."
+        },
+        {
+         "title": "Probability and Statistics II | Credits 4",
+         "text": "This subject builds on advanced probability and statistical techniques, focusing on hypothesis testing, distributions, regression, and data-driven decision-making."
+        },
+        {
+         "title": "Mathematics for Economics I | Credits 4",
+         "text": "This subject covers the basic mathematical tools such as algebra, functions, and graphs that are essential for understanding and solving economic problems."
+        },
+        {
+         "title": "Interactive Data Visualisation | Credits 3",
+         "text": "This subject focuses on creating dynamic and interactive charts and dashboards to present data clearly and help users explore insights effectively."
+        },
+        {
+         "title": "Research Design | Credits 3",
+         "text": "This subject teaches how to systematically plan a research study, choose appropriate methods, and structure data collection to answer research questions effectively."
+        },
+        {
+         "title": "ATLAS Elective | Credits 3",
+         "text": "Provides flexibility for students to pursue an elective aligned with their interests or engage in an applied social-impact project that builds real-world experience."
+        },
+        {
+         "title": "Orientation of Indian Constitution",
+         "text": "Introduces key constitutional principles, governance structures, and civic responsibilities, building awareness of India’s legal and policy foundations."
+        }
+       ],
+       "electives": [],
+       "compare": []
+      }
+     ]
+    },
+    {
+     "label": "Year 2",
+     "semesters": [
+      {
+       "title": "Semester 3",
+       "text": "In the second year, students move from foundational understanding to applied problem- solving. They engage with intermediate microeconomics and macroeconomics, econometric modeling, and public policy analysis, learning to use data to test economic hypotheses and interpret real-world patterns. Parallelly, they acquire technical expertise through database management, Python and R programming, and quantitative data analysis, linking economic theory to real-time applications. Behavioral economics, policy case studies, and skill-enhancement courses strengthen their ability to draw actionable insights from complex datasets and dynamic market environments.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": "Financial Markets & Banking | Credits 4",
+         "text": "Learn the basics of planning, organizing, and leading. Build strong foundations for effective business management."
+        },
+        {
+         "title": "Industrial and Labour Economics | Credits 4",
+         "text": "Explore cultural influences on design and visual communication. Understand how aesthetics shape perception in the Indian context."
+        },
+        {
+         "title": "Mathematics for Economics II | Credits 4",
+         "text": "Discover AI-driven applications for modern business needs. Enhance efficiency, decision-making, and innovation with AI."
+        },
+        {
+         "title": "Python for Data Science and Economic Applications | Credits 3",
+         "text": "Teaches structured model-building techniques using spreadsheets and analytical tools. Focuses on forecasting, scenario analysis, and financial decision modelling."
+        },
+        {
+         "title": "Program Elective | Credits 2",
+         "text": "Provides foundational understanding of leadership, organizational behavior, and management approaches. Links classic management theories with contemporary business practices."
+        },
+        {
+         "title": "Live Project / Summer Internship / Live coaching for professional courses / Summer School | Credits 2",
+         "text": "Allows students to pursue a specialization area aligned with their interests and career goals, supporting deeper skill development."
+        },
+        {
+         "title": "Life Skill & Human Values - Chanakya Neeti | Credits 2",
+         "text": "Offers immersive work experience in a professional setting. Students apply classroom learning to real business tasks, gaining practical industry exposure."
+        }
+       ],
+       "electives": [],
+       "compare": []
+      },
+      {
+       "title": "Semester 4",
+       "text": "In the second year, students move from foundational understanding to applied problem- solving. They engage with intermediate microeconomics and macroeconomics, econometric modeling, and public policy analysis, learning to use data to test economic hypotheses and interpret real-world patterns. Parallelly, they acquire technical expertise through database management, Python and R programming, and quantitative data analysis, linking economic theory to real-time applications. Behavioral economics, policy case studies, and skill-enhancement courses strengthen their ability to draw actionable insights from complex datasets and dynamic market environments.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": "Financial Modelling | Credits 3",
+         "text": "This subject focuses on building mathematical and analytical models to evaluate financial performance, forecast future outcomes, and support business and investment decisions."
+        },
+        {
+         "title": "Econometrics I | Credits 3",
+         "text": ""
+        },
+        {
+         "title": "SQL for Data Management and Analytics | Credits 2",
+         "text": "This subject introduces statistical techniques used to analyze economic data and test economic theories using real-world data."
+        },
+        {
+         "title": "Machine Learning for Business and Policy Analytics | Credits 2",
+         "text": "This subject teaches how machine learning techniques are used to analyze data, predict outcomes, and support decision-making in business and public policy."
+        },
+        {
+         "title": "Research Methodology for Economics | Credits 3",
+         "text": "This subject focuses on the methods and techniques used to conduct economic research, including data collection, analysis, and interpretation of economic data."
+        },
+        {
+         "title": "Intellectual Heritage of Economic Thought | Credits 3",
+         "text": "This subject explores the evolution of economic ideas and theories developed by major economists over time and how they shape modern economic thinking."
+        },
+        {
+         "title": "Program Elective | Credits 3",
+         "text": "This subject allows students to choose a specialized course based on their interests, helping them gain deeper knowledge in a specific area of economics or data analytics."
+        },
+        {
+         "title": "Environment & Sustainability | Credits 3",
+         "text": "This subject focuses on understanding environmental issues and promoting sustainable use of natural resources for long-term economic and social well-being."
+        }
+       ],
+       "electives": [],
+       "compare": []
+      }
+     ]
+    },
+    {
+     "label": "Year 3",
+     "semesters": [
+      {
+       "title": "Semester 5",
+       "text": "The third year brings integration, where students apply economic thinking to business, finance, and public systems using modern analytical tools. They explore advanced econometrics, machine learning for economists, and financial analytics, connecting statistical models to market behavior and decision-making. Exposure to data-driven policy evaluation, global political economy, and impact assessment helps them understand how data informs governance, sustainability, and strategy. A summer internship or applied project bridges academia and industry, allowing students to implement classroom knowledge in live environments—building professional readiness and problem-solving acumen.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": "Public Economics & Finance | Credits 4",
+         "text": "This subject examines how governments raise revenue, spend funds, and design policies to manage the economy, focusing on taxation, public expenditure, and financial management."
+        },
+        {
+         "title": "Economic Analysis & Public Policy | Credits 2",
+         "text": "This subject focuses on using economic principles and data analysis to evaluate public policies and their impact on society and the economy."
+        },
+        {
+         "title": "Development Economics | Credits 3",
+         "text": "This subject studies the economic development of countries, focusing on poverty, inequality, growth strategies, and the factors that improve living standards in developing nations."
+        },
+        {
+         "title": "Econometrics II (Time Series and Panel Data) | Credits 3",
+         "text": "This subject focuses on advanced econometric techniques used to analyze time-based data and panel data to study economic trends and relationships over time."
+        },
+        {
+         "title": "AI Applications in Economic and Social Analysis | Credits 3",
+         "text": "This subject explores how artificial intelligence is used to analyze economic and social data, predict trends, and support policy and decision-making."
+        },
+        {
+         "title": "Big Data Analytics and Cloud Platforms | Credits 3",
+         "text": "This subject covers the tools and techniques used to process and analyze large-scale data using cloud-based platforms for efficient storage, computing, and insights generation."
+        },
+        {
+         "title": "Live Project / Summer Internship / Live coaching for professional courses / Summer School | Credits 2",
+         "text": "This component provides hands-on practical experience through real-world projects, industry internships, professional training, or short-term academic programs to build practical skills and career readiness."
+        }
+       ],
+       "electives": [],
+       "compare": []
+      },
+      {
+       "title": "Semester 6",
+       "text": "The third year brings integration, where students apply economic thinking to business, finance, and public systems using modern analytical tools. They explore advanced econometrics, machine learning for economists, and financial analytics, connecting statistical models to market behavior and decision-making. Exposure to data-driven policy evaluation, global political economy, and impact assessment helps them understand how data informs governance, sustainability, and strategy. A summer internship or applied project bridges academia and industry, allowing students to implement classroom knowledge in live environments—building professional readiness and problem-solving acumen.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": "International Economics | Credits 4",
+         "text": "This subject studies trade between countries, exchange rates, balance of payments, and how global economic policies affect international markets and economies."
+        },
+        {
+         "title": "Environmental and Resource Economics | Credits 2",
+         "text": "This subject studies how economic activities affect the environment and how natural resources are managed efficiently for sustainable development."
+        },
+        {
+         "title": "Behavioural Economics | Credits 3",
+         "text": "This subject studies how psychological, social, and emotional factors influence economic decisions, beyond traditional rational decision-making models."
+        },
+        {
+         "title": "Game Theory and Strategic Behaviour | Credits 3",
+         "text": "This subject studies how individuals and firms make decisions in competitive situations where the outcome depends on the actions of others."
+        },
+        {
+         "title": "Social Science Data Analytics | Credits 3",
+         "text": "This subject focuses on using data analysis tools and techniques to study social issues, human behavior, and patterns in society for informed decision-making."
+        },
+        {
+         "title": "Predictive Modelling for Policy and Market Analysis | Credits 3",
+         "text": "This subject focuses on using statistical and machine learning techniques to predict market trends and evaluate the impact of public policies on the economy."
+        },
+        {
+         "title": "Soft Skills for Finance Professionals II | Credits 3",
+         "text": "This subject focuses on advanced communication, leadership, teamwork, and professional ethics required for success in the finance and business industry."
+        }
+       ],
+       "electives": [],
+       "compare": []
+      }
+     ]
+    },
+    {
+     "label": "Year 4",
+     "semesters": [
+      {
+       "title": "Semester 7",
+       "text": "The final year is a culmination of specialization, research, and professional development. Students choose to pursue either an Honours research dissertation or an applied industry project, focusing on areas such as development economics, environmental policy, financial modeling, or AI and big data analytics. They learn advanced tools in data science, econometric forecasting, and policy consulting, synthesizing their technical and theoretical learning into impactful outcomes. This year transforms students into independent thinkers and professional analysts—equipped to lead in the evolving landscape of economics, technology, and data-driven decision-making.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": "International Finance | Credits 3",
+         "text": "This subject examines how money flows across countries, focusing on exchange rates, global financial markets, foreign investments, and international monetary systems."
+        },
+        {
+         "title": "Gender & Society | Credits 3",
+         "text": "This subject studies the roles, rights, and inequalities related to gender in society, focusing on social structure, identity, and empowerment."
+        },
+        {
+         "title": "Advanced Econometrics | Credits 4",
+         "text": "This subject covers advanced statistical and quantitative methods used to analyze complex economic data and improve the accuracy of economic forecasting and policy analysis."
+        },
+        {
+         "title": "Applied Research Methodology | Credits 4",
+         "text": "This subject focuses on practical research techniques used to design studies, collect real-world data, and analyze results for solving real-life problems."
+        },
+        {
+         "title": "Text and Web Analytics for Business Intelligence | Credits 4",
+         "text": "This subject focuses on analyzing text data and web data using analytical tools to extract insights that support business decision-making and strategy."
+        },
+        {
+         "title": "Data Ethics, Privacy, and Governance | Credits 3",
+         "text": "This subject focuses on the responsible use of data, including ethical issues, data privacy protection, and the rules and policies for managing data securely and fairly."
+        }
+       ],
+       "electives": [],
+       "compare": []
+      },
+      {
+       "title": "Semester 8",
+       "text": "The final year is a culmination of specialization, research, and professional development. Students choose to pursue either an Honours research dissertation or an applied industry project, focusing on areas such as development economics, environmental policy, financial modeling, or AI and big data analytics. They learn advanced tools in data science, econometric forecasting, and policy consulting, synthesizing their technical and theoretical learning into impactful outcomes. This year transforms students into independent thinkers and professional analysts—equipped to lead in the evolving landscape of economics, technology, and data-driven decision-making.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": "Green Finance and Carbon Markets | Credits 3",
+         "text": "This subject explores how financial tools are used to support environmentally sustainable projects, along with the functioning of carbon markets that help reduce global emissions."
+        },
+        {
+         "title": "Predictive Analytics for Global Economic Trends | Credits 3",
+         "text": "This subject focuses on using data analytics and predictive techniques to forecast global economic patterns, growth, and future market movements."
+        },
+        {
+         "title": "Data-Driven Decision Making for Policy and Business | Credits 2",
+         "text": "This subject focuses on using data analysis and evidence-based insights to make informed decisions in business strategies and public policy planning."
+        },
+        {
+         "title": "Dissertation / Capstone Project",
+         "text": "This is a major independent project where students apply their knowledge and skills to solve a real-world problem through research, analysis, and practical implementation."
+        }
+       ],
+       "electives": [],
+       "compare": []
+      }
+     ]
+    }
+   ],
+   "download": {
+    "label": "Download Curriculum",
+    "variant": "mint",
+    "fontSize": null,
+    "href": "#"
+   }
+  }
+ },
+ "refs": {
+  "stats": "stats-417bc927fb",
+  "why": "why-11b95bb6c3",
+  "execution": "execution-5b2010754b",
+  "voices": "voices-5669f623cd",
+  "admissions": "admissions-09bfdb87ba",
+  "eligibility": "eligibility-4001e6c44a",
+  "banner": "banner-8cbc0dbf63",
+  "search": "search-bf21a9e8fb",
+  "faq": "faq-42676d2ee5"
+ }
+}

@@ -1,0 +1,1474 @@
+{
+ "path": "/schools/isme/atlas-isme-advantage/industry/career-services-placement-and-guidance",
+ "ref": "atlas-isme-advantage/industry/career-services-placement-and-guidance.php",
+ "meta": {
+  "title": "Career Services & Placements – ATLAS ISME",
+  "description": "Looking for strong career support? Explore placements, internships, mentoring and industry connections."
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "kind": "hero",
+   "height": "78vh",
+   "id": null,
+   "eyebrow": "Career Services",
+   "name": null,
+   "position": null,
+   "title": "Where ambition meets action — & potential becomes placement.",
+   "text": null,
+   "image": {
+    "src": "/assets/images/schools/isme/pages/career-service-image.webp",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/pages/career-service-image-p-500.webp 500w, /assets/images/schools/isme/pages/career-service-image-p-800.webp 800w, /assets/images/schools/isme/pages/career-service-image-p-1080.webp 1080w, /assets/images/schools/isme/pages/career-service-image.webp 1366w",
+    "sizes": "(max-width: 1366px) 100vw, 1366px"
+   },
+   "buttons": null,
+   "video": null
+  },
+  {
+   "cards": [
+    {
+     "tone": "bg6",
+     "label": "On Campus Interviews",
+     "value": "2400+",
+     "note": null,
+     "labelKind": "isme-2"
+    },
+    {
+     "tone": "bg7",
+     "label": "Companies where students work",
+     "value": "700+",
+     "note": null,
+     "labelKind": "isme-2"
+    },
+    {
+     "tone": "bg8",
+     "label": "Recruiters on Campus",
+     "value": "500+",
+     "note": null,
+     "labelKind": "isme-2"
+    }
+   ],
+   "padBottom": false,
+   "kind": "stats"
+  },
+  {
+   "kind": "iconSection",
+   "id": null,
+   "extraspace": true,
+   "icon": "/assets/images/schools/isme/pages/search-big.svg",
+   "num": null,
+   "title": "Brands that Back our Students",
+   "wrap": "none",
+   "items": [
+    {
+     "kind": "swiper",
+     "mods": [
+      "swiper",
+      "common-swiper"
+     ],
+     "cards": [
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/schools/isdi/industry-approach/masterclasses/global-img-1.webp",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/schools/isdi/industry-approach/masterclasses/indus-logo-1.png",
+        "alt": ""
+       },
+       "variant": "isme"
+      },
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/deloitte,-picture.png",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/schools/isdi/industry-approach/masterclasses/dezxm1f-1e987c04-a1b7-4554-a189-ed574a591c68-1.png",
+        "alt": ""
+       },
+       "variant": "isme"
+      },
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/colgate,-image.png",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/industry/projects/image-1157.png",
+        "alt": ""
+       },
+       "variant": "isme"
+      },
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/hdfc,-image.png",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/schools/isdi/industry-approach/masterclasses/image-1158.png",
+        "alt": ""
+       },
+       "variant": "isme"
+      },
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/schbang.png",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/schools/isdi/industry-approach/masterclasses/schbang-logo.png",
+        "alt": ""
+       },
+       "variant": "isme"
+      },
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/img_7849-1-1.png",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/schools/isdi/industry-approach/masterclasses/aatmanirbhar.png",
+        "alt": ""
+       },
+       "variant": "isme"
+      },
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/nse-mou.png",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/schools/isdi/industry-approach/masterclasses/nse-logo.png",
+        "alt": ""
+       },
+       "variant": "isme"
+      }
+     ],
+     "common": true
+    }
+   ],
+   "button": {
+    "label": "Hire from us",
+    "href": "/atlas-industry-partnership",
+    "variant": "mint",
+    "mobileIco": true
+   }
+  },
+  {
+   "kind": "logoMarquee",
+   "mods": [],
+   "logos": [
+    {
+     "src": "/assets/images/schools/isme/pages/gssignature_blue-1.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/kpmglogo_new-e1686087607475-1.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/seoimageplaceholder-1.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/images-4.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/4f1bf876e05e100198f4d9d1fc7c0000-1.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/images-3.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isdi/success-snapshot/recruiters/motilal_oswal_financial_services.svg-1.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isdi/success-snapshot/recruiters/edelweiss_group_logo.svg-1.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/image-967.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/image-965.png",
+     "alt": ""
+    }
+   ],
+   "slideWrap": true
+  },
+  {
+   "heading": "Hire Industry-Ready Graduates",
+   "sub": "Our learners are not just qualified — they’re prepared. Shaped by industry\ncollaborations, global exposure, and innovation-driven learning.",
+   "image": {
+    "src": "/assets/images/schools/isdi/home/section/faq-img.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isdi/home/section/faq-img-p-500.png 500w, /assets/images/schools/isdi/home/section/faq-img.png 601w",
+    "sizes": "(max-width: 601px) 100vw, 601px"
+   },
+   "buttons": [
+    {
+     "label": "Partner with us",
+     "variant": "mint",
+     "icon": "/assets/images/schools/isdi/isdi-for-outstation/banner/arrow-rt.svg",
+     "id": null,
+     "href": "mailto:info@atlasuniversity.edu.in?subject=Partner%20with%20ATLAS%20ISME%20"
+    }
+   ],
+   "kind": "banner",
+   "id": null,
+   "padtp0": true
+  },
+  {
+   "kind": "iconSection",
+   "id": null,
+   "icon": "/assets/images/schools/isme/pages/search-big.svg",
+   "num": null,
+   "title": "Industry Testimonials",
+   "wrap": "blue",
+   "items": [
+    {
+     "kind": "swiperFull",
+     "mods": [
+      "swiper",
+      "common-swiper-full"
+     ],
+     "cards": [
+      {
+       "kind": "voice",
+       "variant": "testimonial",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/alok-sheopurkar--hr--1.png",
+        "alt": ""
+       },
+       "text": "“HDFC AMC’s collaboration with Atlas SkillTech University has been enriching, reflecting student talent and readiness.”",
+       "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+       "name": [
+        {
+         "strong": "Alok Sheopurkar"
+        }
+       ],
+       "role": "Head of HR\nHDFC Bank",
+       "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png"
+      },
+      {
+       "kind": "voice",
+       "variant": "testimonial",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/nsdl-cfo.png",
+        "alt": ""
+       },
+       "text": "“With Dr. Shahani's inspiring leadership, and expert faculty, ATLAS SkillTech University has empowered students to thrive as future leaders in this era.”",
+       "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+       "name": "Jigar Shah",
+       "role": "Chief Financial Officer\nNSDL Payments Bank",
+       "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png"
+      },
+      {
+       "kind": "voice",
+       "variant": "testimonial",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/esha-dutta-wpp.png",
+        "alt": ""
+       },
+       "text": "“In my recent visit, I observed ATLAS SkillTech University nurtures talent into confident future leaders. With a futuristic vision and holistic focus.",
+       "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+       "name": "Esha Dutta",
+       "role": "Senior Vice President\nWPP",
+       "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png"
+      },
+      {
+       "kind": "voice",
+       "variant": "testimonial",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/att-n-t.png",
+        "alt": ""
+       },
+       "text": "I was incredibly impressed by the vision of the leadership at ATLAS Their ability to create skilled professionals is truly inspiring.",
+       "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+       "name": [
+        {
+         "strong": "Arun Karna"
+        }
+       ],
+       "role": "Managing Director & CEO\nAT&T",
+       "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png"
+      },
+      {
+       "kind": "voice",
+       "variant": "student",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/deepak-parekh-testimonial.jpg",
+        "alt": ""
+       },
+       "text": "The diversity of education possibilities ATLAS offers - I don’t see any other institution offering this variety.",
+       "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+       "name": "Deepak Parekh",
+       "role": "Chairman,\nHDFC Bank",
+       "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png"
+      },
+      {
+       "kind": "voice",
+       "variant": "student",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/sonal-singh-testimonial.png",
+        "alt": ""
+       },
+       "text": "What stands out is that the stress is there for making sure its not just academic knowledge, but making actual entrepreneurs come out.",
+       "quoteIcon": "/assets/images/leadership-team/quote-icon.svg",
+       "name": "Sonal Singh",
+       "role": "Director, Head of Talent Acquisition,Deutsche Bank",
+       "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png"
+      },
+      {
+       "kind": "voice",
+       "variant": "student",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/gaurav-ghelani-testimonial.png",
+        "alt": ""
+       },
+       "text": "I really appreciate the students’ curiosity and discipline, and their knowledge of the organisation.",
+       "quoteIcon": "/assets/images/leadership-team/quote-icon.svg",
+       "name": "Gaurav Ghelani",
+       "role": "Head of Talent Acquisition,\nTCS",
+       "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png"
+      },
+      {
+       "kind": "voice",
+       "variant": "student",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/rochelle-aranha-testimonial.png",
+        "alt": ""
+       },
+       "text": "There’s so much colour and such a great vibe on campus.The students are so passionate, full of energy, and such brilliant ideas,",
+       "quoteIcon": "/assets/images/leadership-team/quote-icon.svg",
+       "name": "Rochelle Aranha",
+       "role": "Business Manager,\nMicrosoft",
+       "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png"
+      }
+     ],
+     "common": false
+    }
+   ],
+   "after": [
+    {
+     "kind": "h2",
+     "mods": [
+      "h2-tag",
+      "mrgtbm0"
+     ],
+     "text": "Students at work",
+     "common": true
+    },
+    {
+     "kind": "swiper",
+     "mods": [
+      "swiper",
+      "common-swiper"
+     ],
+     "cards": [
+      {
+       "kind": "h",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/st-work-1.webp",
+        "alt": ""
+       },
+       "name": "Aniket Singh",
+       "place": "Batch of 2025"
+      },
+      {
+       "kind": "h",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/st-work-2.webp",
+        "alt": ""
+       },
+       "name": "Manya Garg",
+       "place": "Batch of 2026"
+      },
+      {
+       "kind": "h",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/st-work-3.webp",
+        "alt": ""
+       },
+       "name": "Jash Shah",
+       "place": "Batch of 2025"
+      },
+      {
+       "kind": "h",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/st-work-4.webp",
+        "alt": ""
+       },
+       "name": "Saakshi Motwani",
+       "place": "Batch of 2026"
+      },
+      {
+       "kind": "h",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/niomi-khandwala.png",
+        "alt": ""
+       },
+       "name": "Niomi Khandwala",
+       "place": "Batch of 2022"
+      },
+      {
+       "kind": "h",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/saw-bharti-axa.png",
+        "alt": ""
+       },
+       "name": "Niomi Khandwala",
+       "place": "Batch of 2022"
+      },
+      {
+       "kind": "h",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/saw-urbancompany.png",
+        "alt": ""
+       },
+       "name": "Niomi Khandwala",
+       "place": "Batch of 2022"
+      },
+      {
+       "kind": "h",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/saw-aditya-birla.png",
+        "alt": ""
+       },
+       "name": "Niomi Khandwala",
+       "place": "Batch of 2022"
+      },
+      {
+       "kind": "h",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/saw-edelweiss-life-insurance.png",
+        "alt": ""
+       },
+       "name": "Niomi Khandwala",
+       "place": "Batch of 2022"
+      },
+      {
+       "kind": "h",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/saw-jio.png",
+        "alt": ""
+       },
+       "name": "Niomi Khandwala",
+       "place": "Batch of 2022"
+      },
+      {
+       "kind": "h",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/saw-l-t.png",
+        "alt": ""
+       },
+       "name": "Niomi Khandwala",
+       "place": "Batch of 2022"
+      },
+      {
+       "kind": "h",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/saw-marico.png",
+        "alt": ""
+       },
+       "name": "Niomi Khandwala",
+       "place": "Batch of 2022"
+      },
+      {
+       "kind": "h",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/saw-marshmclennan.png",
+        "alt": ""
+       },
+       "name": "Niomi Khandwala",
+       "place": "Batch of 2022"
+      },
+      {
+       "kind": "h",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/saw-miraeasset.png",
+        "alt": ""
+       },
+       "name": "Niomi Khandwala",
+       "place": "Batch of 2022"
+      }
+     ],
+     "common": true
+    }
+   ]
+  },
+  {
+   "kind": "iconSection",
+   "id": null,
+   "icon": "/assets/images/schools/isme/pages/layer_1-18.png",
+   "num": null,
+   "title": "ATLAS Career Connect",
+   "wrap": "blue",
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "blue",
+     "mods": [
+      "blue-desc-wrap"
+     ],
+     "textMods": [
+      "blue-desc-text",
+      "f18"
+     ],
+     "text": "Interactive networking events where students engage directly with recruiters, alumni, and industry experts to explore roles, understand hiring trends, and build professional connections.",
+     "common": false
+    },
+    {
+     "kind": "imageStrip",
+     "mods": [
+      "center-image-full-wrap",
+      "mrgtp"
+     ],
+     "image": {
+      "src": "/assets/images/schools/isme/pages/atlas-career-connect-img.webp",
+      "alt": "",
+      "srcSet": "/assets/images/schools/isme/pages/atlas-career-connect-img-p-500.webp 500w, /assets/images/schools/isme/pages/atlas-career-connect-img-p-800.webp 800w, /assets/images/schools/isme/pages/atlas-career-connect-img-p-1080.webp 1080w, /assets/images/schools/isme/pages/atlas-career-connect-img.webp 1238w",
+      "sizes": "(max-width: 1238px) 100vw, 1238px"
+     },
+     "strip": "Dev Jhaveri — Schbang",
+     "common": false
+    },
+    {
+     "kind": "strip",
+     "mods": [
+      "strip-container"
+     ],
+     "content": true,
+     "cells": [
+      [
+       {
+        "cls": [
+         "str-txt-mint"
+        ],
+        "text": "2400+"
+       },
+       {
+        "cls": [
+         "str-txt-1"
+        ],
+        "text": "Interviews"
+       }
+      ],
+      [
+       {
+        "cls": [
+         "str-txt-mint"
+        ],
+        "text": "500+"
+       },
+       {
+        "cls": [
+         "str-txt-1"
+        ],
+        "text": "Recruiters"
+       }
+      ],
+      [
+       {
+        "cls": [
+         "str-txt-mint"
+        ],
+        "text": "700+"
+       },
+       {
+        "cls": [
+         "str-txt-1"
+        ],
+        "text": "Student at Companies"
+       }
+      ]
+     ],
+     "common": false,
+     "cellCls": [
+      [
+       "strip-text"
+      ],
+      [
+       "strip-text"
+      ],
+      [
+       "strip-text"
+      ]
+     ],
+     "bleed": true
+    }
+   ],
+   "after": [
+    {
+     "kind": "zoom",
+     "mods": [
+      "swiper",
+      "zoom-slider"
+     ],
+     "cards": [
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/a-l.png",
+        "alt": ""
+       },
+       "caption": "A&L",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/elchemy.png",
+        "alt": ""
+       },
+       "caption": "Elchemy",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/hdfc-life-1.png",
+        "alt": ""
+       },
+       "caption": "HDFC Life",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/goodmind.png",
+        "alt": ""
+       },
+       "caption": "Good Mind",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/non-zero.png",
+        "alt": ""
+       },
+       "caption": "Non Zero",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/park-easy.png",
+        "alt": ""
+       },
+       "caption": "Park Easy",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/a-l.png",
+        "alt": ""
+       },
+       "caption": "A&L",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/elchemy.png",
+        "alt": ""
+       },
+       "caption": "Elchemy",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/hdfc-life-1.png",
+        "alt": ""
+       },
+       "caption": "HDFC Life",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/goodmind.png",
+        "alt": ""
+       },
+       "caption": "Good Mind",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/non-zero.png",
+        "alt": ""
+       },
+       "caption": "Non Zero",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/park-easy.png",
+        "alt": ""
+       },
+       "caption": "Park Easy",
+       "sub": null
+      }
+     ],
+     "common": "lg"
+    }
+   ]
+  },
+  {
+   "kind": "iconSection",
+   "id": null,
+   "icon": "/assets/images/advantages/partnership/cdn/notification.png",
+   "num": null,
+   "title": "Pre-Placement Talks",
+   "wrap": "none",
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "sub",
+     "mods": [
+      "sub-heading",
+      "mrgbtm"
+     ],
+     "text": "Company-led sessions that give students an inside look at brand culture, roles on offer, and what recruiters are really looking for — straight from the hiring teams.",
+     "common": true
+    },
+    {
+     "kind": "zoomLg",
+     "mods": [
+      "swiper",
+      "zoom-slider-lg"
+     ],
+     "cards": [
+      {
+       "kind": "slider-card-d",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/zomato.png",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/zomato-p-500.png 500w, /assets/images/schools/isme/pages/zomato-p-800.png 800w, /assets/images/schools/isme/pages/zomato.png 803w",
+        "sizes": "(max-width: 803px) 100vw, 803px"
+       },
+       "title": "Rudra Nair",
+       "sub": "Strategy @ District by Zomato"
+      },
+      {
+       "kind": "slider-card-d",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/placement-img-1.webp",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/placement-img-1-p-500.webp 500w, /assets/images/schools/isme/pages/placement-img-1.webp 800w",
+        "sizes": "(max-width: 800px) 100vw, 800px"
+       },
+       "title": "Gavin Remidios",
+       "sub": "Experience Design Practice Leader @ IBM"
+      },
+      {
+       "kind": "slider-card-d",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/dr.-reddy.png",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/dr.-reddy-p-500.png 500w, /assets/images/schools/isme/pages/dr.-reddy-p-800.png 800w, /assets/images/schools/isme/pages/dr.-reddy.png 803w",
+        "sizes": "(max-width: 803px) 100vw, 803px"
+       },
+       "title": "Boris Gomes",
+       "sub": "Experience Lead @ Dr. Reddy's Laboratories"
+      },
+      {
+       "kind": "slider-card-d",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/savex.png",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/savex-p-500.png 500w, /assets/images/schools/isme/pages/savex-p-800.png 800w, /assets/images/schools/isme/pages/savex.png 803w",
+        "sizes": "(max-width: 803px) 100vw, 803px"
+       },
+       "title": "",
+       "sub": ""
+      },
+      {
+       "kind": "slider-card-d",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/npci.png",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/npci-p-500.png 500w, /assets/images/schools/isme/pages/npci-p-800.png 800w, /assets/images/schools/isme/pages/npci.png 803w",
+        "sizes": "(max-width: 803px) 100vw, 803px"
+       },
+       "title": "",
+       "sub": ""
+      },
+      {
+       "kind": "slider-card-d",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/dr.-reddy.png",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/dr.-reddy-p-500.png 500w, /assets/images/schools/isme/pages/dr.-reddy-p-800.png 800w, /assets/images/schools/isme/pages/dr.-reddy.png 803w",
+        "sizes": "(max-width: 803px) 100vw, 803px"
+       },
+       "title": "Boris Gomes",
+       "sub": "Experience Lead @ Dr. Reddy's Laboratories"
+      },
+      {
+       "kind": "slider-card-d",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/zomato.png",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/zomato-p-500.png 500w, /assets/images/schools/isme/pages/zomato-p-800.png 800w, /assets/images/schools/isme/pages/zomato.png 803w",
+        "sizes": "(max-width: 803px) 100vw, 803px"
+       },
+       "title": "Rudra Nair",
+       "sub": "Strategy @ District by Zomato"
+      },
+      {
+       "kind": "slider-card-d",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/placement-img-1.webp",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/placement-img-1-p-500.webp 500w, /assets/images/schools/isme/pages/placement-img-1.webp 800w",
+        "sizes": "(max-width: 800px) 100vw, 800px"
+       },
+       "title": "Gavin Remidios",
+       "sub": "Experience Design Practice Leader @ IBM"
+      },
+      {
+       "kind": "slider-card-d",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/dr.-reddy.png",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/dr.-reddy-p-500.png 500w, /assets/images/schools/isme/pages/dr.-reddy-p-800.png 800w, /assets/images/schools/isme/pages/dr.-reddy.png 803w",
+        "sizes": "(max-width: 803px) 100vw, 803px"
+       },
+       "title": "Boris Gomes",
+       "sub": "Experience Lead @ Dr. Reddy's Laboratories"
+      }
+     ],
+     "common": true
+    }
+   ]
+  },
+  {
+   "kind": "iconSection",
+   "id": null,
+   "icon": "/assets/images/advantages/partnership/cdn/notification.png",
+   "num": null,
+   "title": "Student Testimonials",
+   "wrap": "none",
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "sub",
+     "mods": [
+      "sub-heading"
+     ],
+     "text": "Company-led sessions that give students an inside look at brand culture, roles on offer, and what recruiters are really looking for — straight from the hiring teams.",
+     "common": true
+    },
+    {
+     "kind": "swiperFull",
+     "mods": [
+      "swiper",
+      "common-swiper-full"
+     ],
+     "cards": [
+      {
+       "kind": "voice",
+       "variant": "testimonial",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/ansh-maheshwari.png",
+        "alt": ""
+       },
+       "text": "ATLAS Career Teams did a great job with their Career Connect Event, well managed, had great talks.",
+       "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+       "name": "Ansh Maheshwari",
+       "role": "Batch of 2025",
+       "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png"
+      },
+      {
+       "kind": "voice",
+       "variant": "testimonial",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/kertija-mugdha.png",
+        "alt": ""
+       },
+       "text": "ATLAS helped me grow exponentially, and push me to my limits and understand what I wanted to do professionally.",
+       "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+       "name": "Kirtija Mugdha",
+       "role": "Batch of 2026",
+       "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png"
+      },
+      {
+       "kind": "voice",
+       "variant": "testimonial",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/siddharth-fernandez.png",
+        "alt": ""
+       },
+       "text": "ATLAS Career's team helped me get a PPO. They also believed in me and got me introduced me to various Industry Professionals.",
+       "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+       "name": "Siddharth Fernandez",
+       "role": "Batch of 2025",
+       "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png"
+      },
+      {
+       "kind": "voice",
+       "variant": "testimonial",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/nishi-sanjanwala.png",
+        "alt": ""
+       },
+       "text": "ATLAS Career's team helped me get a PPO. They also believed in me and got me introduced me to various Industry Professionals.",
+       "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+       "name": "Nishi Sanjanwala",
+       "role": "Batch of 2025",
+       "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png"
+      },
+      {
+       "kind": "voice",
+       "variant": "testimonial",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/ananya-purohit.png",
+        "alt": ""
+       },
+       "text": "ATLAS Career's team helped me get a PPO. They also believed in me and got me introduced me to various Industry Professionals.",
+       "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+       "name": "Ananya Purohit",
+       "role": "Batch of 2025",
+       "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png"
+      }
+     ],
+     "common": true
+    }
+   ],
+   "button": {
+    "label": "View Internship & Placements",
+    "href": "/isme/placements-and-internships-opportunities",
+    "variant": "mint",
+    "mobileIco": true
+   }
+  },
+  {
+   "kind": "iconSection",
+   "id": null,
+   "icon": "/assets/images/advantages/partnership/cdn/notification.png",
+   "num": null,
+   "title": "Our Career Support Framework",
+   "wrap": "none",
+   "items": [
+    {
+     "kind": "cardWall",
+     "columns": [
+      [
+       {
+        "size": "a",
+        "title": "Aspiration Mapping",
+        "text": "Helping you define your goals early — and align them with the right career path."
+       },
+       {
+        "size": "big",
+        "title": "Resume Building",
+        "text": "Crafting resumes that stand out and reflect your true potential."
+       },
+       {
+        "size": "a",
+        "title": "Last Mile Support",
+        "text": "Standing by you until you land the right opportunity."
+       },
+       {
+        "size": "big",
+        "title": "Online Resources",
+        "text": "Giving you access to career tools and materials anytime you need them."
+       }
+      ],
+      [
+       {
+        "size": "big",
+        "title": "Career Counselling",
+        "text": "One-on-one guidance to plan, pivot, and prepare for what’s next."
+       },
+       {
+        "size": "a",
+        "title": "Portfolio Building",
+        "text": "Showcasing your skills and achievements in a professional, creative way."
+       },
+       {
+        "size": "big",
+        "title": "Industry Value-Added Course",
+        "text": "Equipping you with extra skills that employers truly value."
+       },
+       {
+        "size": "a",
+        "title": "On the Job Support",
+        "text": "Offering guidance even after you start your career journey."
+       }
+      ],
+      [
+       {
+        "size": "a",
+        "title": "Placement Orientation",
+        "text": "Preparing you with the know-how to succeed in campus and industry placements."
+       },
+       {
+        "size": "big",
+        "title": "Networking Opportunities",
+        "text": "Opening doors to connections that can shape your future."
+       },
+       {
+        "size": "a",
+        "title": "Holistic Development",
+        "text": "Supporting your overall growth — both personal and professional."
+       },
+       {
+        "size": "big",
+        "title": "AI Tools for Interview Prep",
+        "text": "Helping you practice smarter with AI-driven prep and feedback."
+       }
+      ],
+      [
+       {
+        "size": "big",
+        "title": "Industry Engagement",
+        "text": "Connecting you with professionals for real-world exposure and insights."
+       },
+       {
+        "size": "a",
+        "title": "Weekly Career Services lecture",
+        "text": "Keeping you ahead with regular learning and career insights."
+       },
+       {
+        "size": "big",
+        "title": "Personal Grooming & Appearance",
+        "text": "Shaping your professional presence to leave a lasting impression."
+       },
+       {
+        "size": "a",
+        "title": "Mock Interviews",
+        "text": "Boosting your confidence through practice and constructive feedback"
+       }
+      ]
+     ],
+     "common": false,
+     "bgA": "/assets/images/schools/isme/pages/sm-cad-bg-1.png",
+     "bgBig": "/assets/images/schools/isme/pages/sm-cad-bg-2.png"
+    }
+   ]
+  },
+  {
+   "kind": "iconSection",
+   "id": null,
+   "icon": "/assets/images/advantages/partnership/cdn/notification.png",
+   "num": null,
+   "title": "Outcomes That Speak for Themselves",
+   "wrap": "none",
+   "items": [
+    {
+     "kind": "galleryInline",
+     "wrapMods": [
+      "instagram-wrapper",
+      "mobile-vert-scroll"
+     ],
+     "galleryMods": [
+      "h2-tag"
+     ],
+     "cards": [
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/student-grid-img-3-.png",
+        "alt": ""
+       },
+       "size": "g-card-2",
+       "name": null,
+       "caption": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/nihar-desai-2.png",
+        "alt": ""
+       },
+       "size": "grid-card-3",
+       "name": null,
+       "caption": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/student-grid-img-3-.png",
+        "alt": ""
+       },
+       "size": "g-card-2",
+       "name": null,
+       "caption": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/ami-patel.png",
+        "alt": ""
+       },
+       "size": "g-card-1",
+       "name": null,
+       "caption": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/student-grid-img-3-.png",
+        "alt": ""
+       },
+       "size": "g-card-2",
+       "name": null,
+       "caption": null
+      },
+      {
+       "image": null,
+       "size": "grid-card-3",
+       "name": "Nihar Desai",
+       "caption": "Batch of 2026"
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/ami-patel.png",
+        "alt": ""
+       },
+       "size": "g-card-1",
+       "name": null,
+       "caption": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/student-grid-img-3-.png",
+        "alt": ""
+       },
+       "size": "g-card-2",
+       "name": null,
+       "caption": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/nihar-desai-2.png",
+        "alt": ""
+       },
+       "size": "grid-card-3",
+       "name": null,
+       "caption": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/student-grid-img-3-.png",
+        "alt": ""
+       },
+       "size": "g-card-2",
+       "name": null,
+       "caption": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/nihar-desai-2.png",
+        "alt": ""
+       },
+       "size": "grid-card-3",
+       "name": null,
+       "caption": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/delna-daruvala.png",
+        "alt": ""
+       },
+       "size": "grid-card-4",
+       "name": null,
+       "caption": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/student-grid-img-5-.png",
+        "alt": ""
+       },
+       "size": "grid-card-5",
+       "name": null,
+       "caption": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/delna-daruvala.png",
+        "alt": ""
+       },
+       "size": "grid-card-4",
+       "name": null,
+       "caption": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/student-grid-img-5-.png",
+        "alt": ""
+       },
+       "size": "grid-card-5",
+       "name": null,
+       "caption": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/success/students/student-grid-img-7-.png",
+        "alt": ""
+       },
+       "size": "grid-card-7",
+       "name": null,
+       "caption": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/chandan-chaudary.png",
+        "alt": ""
+       },
+       "size": "g-card-6",
+       "name": null,
+       "caption": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/student-grid-img-5-.png",
+        "alt": ""
+       },
+       "size": "grid-card-5",
+       "name": null,
+       "caption": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/success/students/student-grid-img-7-.png",
+        "alt": ""
+       },
+       "size": "grid-card-7",
+       "name": null,
+       "caption": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/success/students/student-grid-img-8-.png",
+        "alt": ""
+       },
+       "size": "grid-card-8",
+       "name": null,
+       "caption": null
+      }
+     ],
+     "common": false
+    },
+    {
+     "kind": "h2",
+     "mods": [
+      "h2-tag",
+      "mrg16"
+     ],
+     "text": "Our Management Team",
+     "common": false,
+     "headWrap": [
+      "head-wrap",
+      "top",
+      "mrg-tp"
+     ]
+    },
+    {
+     "kind": "swiper",
+     "mods": [
+      "swiper",
+      "common-swiper"
+     ],
+     "cards": [
+      {
+       "kind": "e",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/sagar-nichani.png",
+        "alt": ""
+       },
+       "name": "Sagar Nichani",
+       "role": "Head - Career Services & Corporate Relation"
+      },
+      {
+       "kind": "e",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/pratik-redkar.png",
+        "alt": ""
+       },
+       "name": "Pratik Redkar",
+       "role": "Associate - Student Engagement"
+      },
+      {
+       "kind": "e",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/rebecca-mary-ann.png",
+        "alt": ""
+       },
+       "name": "Rebecca Mary Ann",
+       "role": "Manager - Industry Partnership"
+      },
+      {
+       "kind": "e",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/pooja-manraja.png",
+        "alt": ""
+       },
+       "name": "Pooja Manraja",
+       "role": "Student Engagement Lead -UG Programs"
+      },
+      {
+       "kind": "e",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/pallavi-sinha.png",
+        "alt": ""
+       },
+       "name": "Pallavi Sinha",
+       "role": "Associate\n- Student Engagement"
+      },
+      {
+       "kind": "e",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/mahek-sheth.png",
+        "alt": ""
+       },
+       "name": "Mahek Sheth",
+       "role": "Associate - Career Coach"
+      },
+      {
+       "kind": "e",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/pooja-patil.png",
+        "alt": ""
+       },
+       "name": "Pooja Patil",
+       "role": "Manager - Career & Placements"
+      }
+     ],
+     "common": false
+    },
+    {
+     "kind": "applicants",
+     "mods": [
+      "applicantion-wrapper"
+     ],
+     "cards": [
+      {
+       "title": "Guides for Parents & Outstation Applicants",
+       "bg": "/assets/images/schools/isme/pages/applicant-bg-1.png",
+       "variant": [
+        "w-variant-c836fdcd-be8e-2243-2ba4-98bc1cb1e31f"
+       ],
+       "buttons": [
+        {
+         "label": "Placements & Internships",
+         "href": "/isme/placements-and-internships-opportunities",
+         "newTab": false,
+         "icon": "/assets/images/schools/isdi/isdi-for-outstation/banner/arrow-rt.svg"
+        },
+        {
+         "label": "Startups",
+         "href": "/isme/success-stories#start-up-section",
+         "newTab": false,
+         "icon": "/assets/images/schools/isdi/isdi-for-outstation/banner/arrow-rt.svg"
+        }
+       ],
+       "emptySlots": 0,
+       "image": {
+        "src": "/assets/images/schools/isme/pages/applicant-img-1.png",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/applicant-img-1-p-500.png 500w, /assets/images/schools/isme/pages/applicant-img-1.png 566w",
+        "sizes": "(max-width: 767px) 100vw, 566px"
+       }
+      },
+      {
+       "title": "Great things aren’t built alone. Partner with ISDI.",
+       "bg": "/assets/images/schools/isme/pages/applicant-bg-2.png",
+       "variant": [
+        "w-variant-c836fdcd-be8e-2243-2ba4-98bc1cb1e31f"
+       ],
+       "buttons": [
+        {
+         "label": "Partner with us",
+         "href": "/atlas-industry-partnership",
+         "newTab": false,
+         "icon": "/assets/images/schools/isdi/isdi-for-outstation/banner/arrow-rt.svg"
+        }
+       ],
+       "emptySlots": 1,
+       "image": {
+        "src": "/assets/images/schools/isme/pages/applicant-img-2.png",
+        "alt": ""
+       }
+      }
+     ],
+     "common": "lg"
+    }
+   ]
+  },
+  {
+   "kind": "search",
+   "id": null
+  },
+  {
+   "heading": "Questions? We can read your mind",
+   "items": [
+    {
+     "q": "What are the jobs after BBA?",
+     "a": [
+      "BBA graduates from ATLAS ISME pursue roles such as Marketing Executive/Manager, Financial Analyst, Business Analyst, Product Manager, Data Analyst, Business Development Manager, Credit Analyst, Management Trainee, Portfolio Manager and Investment Banker, across corporates, start-ups and their own ventures."
+     ]
+    },
+    {
+     "q": "What is BBA salary?",
+     "a": [
+      "The website does not specify exact salary figures. However, with 700+ students placed at companies and 2,400+ on-campus interviews conducted, ATLAS ISME graduates are consistently hired by top Indian and global firms, with compensation varying by role, specialisation and company."
+     ]
+    },
+    {
+     "q": "Which BBA has the highest salary?",
+     "a": [
+      "Specialisations in Finance, Business Analytics and AI & Emerging Technologies typically attract the highest starting packages, as these roles are in high demand and command strong compensation across industries."
+     ]
+    },
+    {
+     "q": "Can I become CEO after BBA?",
+     "a": [
+      "A BBA is a strong starting point for an entrepreneurial or leadership career. ATLAS ISME actively supports students in launching their own ventures and many alumni have gone on to become founders and business leaders. Combined with an MBA or relevant work experience, the pathway to a CEO role is very much achievable."
+     ]
+    },
+    {
+     "q": "Is BBA enough to get a job?",
+     "a": [
+      "Yes. ATLAS ISME's Career Services team offers end-to-end support ensuring students are industry-ready. With 500+ recruiters on campus and partnerships with 700+ companies, a BBA from ATLAS ISME is well-suited to landing a strong first job."
+     ]
+    },
+    {
+     "q": "Which BBA job has the highest salary?",
+     "a": [
+      "Roles in Investment Banking, Data & Business Analytics, Product Management and Performance Marketing typically command the highest starting salaries among BBA graduates. These are also the roles that ATLAS ISME's specialised BBA programs are specifically designed to prepare students for."
+     ]
+    },
+    {
+     "q": "What is the average package for BBA graduates during campus placements in India?",
+     "a": [
+      "The page does not publish specific average salary figures. For the most accurate and up-to-date placement data, it is recommended to reach out directly to the ATLAS ISME Career Services team or visit the Placements section of the website."
+     ]
+    },
+    {
+     "q": "Which companies typically hire from business school campus placement drives?",
+     "a": [
+      "ATLAS ISME has 500+ recruiters on campus. Companies that hire include Deloitte, KPMG, Goldman Sachs, HDFC, Colgate, NSE, Motilal Oswal, Edelweiss, Zomato, IBM, Dr. Reddy's Laboratories, Marico, Jio, L&T, Marsh McLennan, Urban Company, Aditya Birla Group and many more across sectors."
+     ]
+    },
+    {
+     "q": "How should I prepare for campus placements during my BBA?",
+     "a": [
+      "ATLAS ISME's Career Support Framework covers everything students need: aspiration mapping, resume building, portfolio development, one-on-one career counselling, mock interviews, AI-powered interview prep, placement orientation, personal grooming, industry engagement and weekly career services lectures. The goal is to ensure every student is placement-ready well before interviews begin."
+     ]
+    },
+    {
+     "q": "What industries do BBA graduates typically get placed in?",
+     "a": [
+      "ATLAS ISME graduates are placed across a wide range of industries including banking and financial services, consulting, marketing and advertising, FMCG, technology, fintech, media, retail, insurance and entrepreneurship, reflecting the breadth of the BBA specialisations offered and the diversity of the recruiter network."
+     ]
+    }
+   ],
+   "kind": "faq"
+  }
+ ]
+}

@@ -1,0 +1,444 @@
+{
+ "path": "pgp-diploma-in-ai-driven-digital-branding-advertising",
+ "meta": {
+  "title": "BBA Digital Branding & Advertising in Mumbai – ATLAS ISME",
+  "description": "Want to master digital branding? Learn ads, media, strategy, content and build a creative business career.",
+  "keywords": null
+ },
+ "brochure": {
+  "ids": [
+   "mba-brochure",
+   "campus-visit"
+  ],
+  "scripts": []
+ },
+ "order": [
+  "hero",
+  "stats",
+  "program",
+  "why",
+  "execution",
+  "voices",
+  "eligibility",
+  "banner"
+ ],
+ "blocks": {
+  "hero": {
+   "title": "PG Diploma in AI-Driven Digital Branding & Advertising\n(PG Diploma in AI DBA)",
+   "image": {
+    "src": "/assets/images/schools/isme/mba/site/pgp-diploma-in-ai-driven-digital-branding-advertising/herobanner/1366x705.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/mba/site/pgp-diploma-in-ai-driven-digital-branding-advertising/herobanner/500x258.png 500w, /assets/images/schools/isme/mba/site/pgp-diploma-in-ai-driven-digital-branding-advertising/herobanner/800x413.png 800w, /assets/images/schools/isme/mba/site/pgp-diploma-in-ai-driven-digital-branding-advertising/herobanner/1080x557.png 1080w, /assets/images/schools/isme/mba/site/pgp-diploma-in-ai-driven-digital-branding-advertising/herobanner/1366x705.png 1366w",
+    "sizes": "(max-width: 1366px) 100vw, 1366px"
+   },
+   "buttons": [
+    {
+     "label": "Apply for 2027 Intake",
+     "variant": "mint",
+     "href": "https://atlasuniversity.edu.in/applicationform"
+    }
+   ],
+   "narrow": true
+  },
+  "program": {
+   "panes": [
+    {
+     "label": "Overview",
+     "kind": "text",
+     "text": "The PG Diploma in AI-Driven Digital Branding & Advertising (PG Diploma in AI DBA) at ATLAS ISME is a future-ready, industry-aligned program blending creativity, AI, data, and digital technologies.\n\nOne of the first advertising-focused PGs, it integrates AI deeply across creative, media, content, analytics, and strategy. Designed with industry leaders, the one-year program equips students to thrive at the intersection of creativity, technology, and strategy in an AI-driven marketing world.\n\nThe curriculum covers creative AI, predictive analytics, automation, and conversational tools. Hands-on AI Labs, Creative Tech Labs, and full-funnel campaign projects help students build professional portfolios. Industry-grade AdTech and MarTech platforms, generative AI tools, dashboards, and predictive models prepare learners to design, execute, and optimise end-to-end campaigns.\n\nWith a compulsory internship and AI-augmented capstone project, students gain real-world experience. Portfolio-led learning, live client briefs, and ethical AI practices ensure graduates are career-ready. PG Diploma in AI-DBA offers a fast-track, high-impact alternative to traditional MBA programs for future leaders in digital branding and advertising.",
+     "paneClass": null
+    },
+    {
+     "label": "Curriculum Highlights",
+     "kind": "textCards",
+     "cards": [
+      {
+       "title": "Foundations of Digital Branding & Marketing in the Age of AI"
+      },
+      {
+       "title": "Creative Tech Labs, Full-Funnel Campaign Simulations"
+      }
+     ],
+     "paneClass": null
+    },
+    {
+     "label": "Learning Outcomes",
+     "kind": "learn",
+     "grid": true,
+     "cards": [
+      {
+       "num": "#1",
+       "text": "Gain strong foundations in digital branding, advertising strategy, and AI-driven marketing ecosystems",
+       "tone": "bg1"
+      },
+      {
+       "num": "#2",
+       "text": "Create impactful content, campaigns, and brand narratives using generative AI and creative technologies",
+       "tone": "bg2"
+      },
+      {
+       "num": "#3",
+       "text": "Plan, execute, and optimise performance marketing and media campaigns using data, automation, and predictive analytics",
+       "tone": "bg1"
+      },
+      {
+       "num": "#4",
+       "text": "Leverage AdTech and MarTech platforms to personalise customer journeys and improve campaign ROI",
+       "tone": "bg1"
+      },
+      {
+       "num": "#5",
+       "text": "Apply consumer insights, social analytics, and AI-powered measurement models to inform strategic decisions",
+       "tone": "bg2"
+      },
+      {
+       "num": "#6",
+       "text": "Develop end-to-end, full-funnel digital advertising solutions through hands-on projects, live briefs, capstone, and internship",
+       "tone": "bg1"
+      }
+     ],
+     "paneClass": null
+    },
+    {
+     "label": "Career Pathways",
+     "kind": "careers",
+     "cards": [
+      {
+       "title": "Digital\nMarketing Strategist",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn1.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Brand Strategist /\nBrand Planner",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn2.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Performance\nMarketing Manager",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn3.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Social Media &\nCommunity Manager",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn2.png.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Content\nStrategist",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn4.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Copywriter &\nVisual Content Specialist",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn5.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Marketing Analytics &\nInsights Executive",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn6.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "CRM & Marketing\nAutomation Specialist",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn7.png",
+        "alt": ""
+       }
+      }
+     ],
+     "paneClass": null
+    }
+   ],
+   "current": 0,
+   "years": [
+    {
+     "label": "Semester 1",
+     "semesters": [
+      {
+       "title": "Semester 1",
+       "text": "Gain a rigorous introduction to the foundations of digital branding, advertising, and AI-driven marketing strategies. This semester focuses on building analytical, creative, and business communication skills essential for a career in AI-powered marketing, brand management, and digital advertising.",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/sem-1.png",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Marketing in the Age of AI"
+          }
+         ],
+         "text": "Explores how artificial intelligence transforms marketing strategy, personalisation, automation, ethics, and consumer engagement."
+        },
+        {
+         "title": [
+          {
+           "strong": "Creative Storytelling in Advertising"
+          }
+         ],
+         "text": "Builds storytelling skills to create emotionally compelling, insight-driven advertising campaigns across diverse media platforms."
+        },
+        {
+         "title": [
+          {
+           "strong": "Social Media Marketing & Influencer Ecosystems"
+          }
+         ],
+         "text": "Examines social platforms, influencer strategies, content creation, analytics, and community-driven brand growth models."
+        },
+        {
+         "title": [
+          {
+           "strong": "Performance Marketing & AI-Based Predictive Optimisation"
+          }
+         ],
+         "text": "Focuses on ROI-driven digital marketing using AI-powered analytics, attribution, testing, and predictive optimisation."
+        },
+        {
+         "title": [
+          {
+           "strong": "AI-Assisted Data-Driven Decision Making"
+          }
+         ],
+         "text": "Teaches using AI tools to analyse data, generate insights, and support strategic marketing decisions."
+        },
+        {
+         "title": [
+          {
+           "strong": "Creative Tech Lab 1: AI-powered Campaign Development"
+          }
+         ],
+         "text": "Hands-on lab applying AI tools to ideate, design, and execute integrated marketing campaigns."
+        },
+        {
+         "title": [
+          {
+           "strong": "Elective I"
+          }
+         ],
+         "text": "Allows students to specialise in selected AI-driven marketing or creative communication domains."
+        },
+        {
+         "title": [
+          {
+           "strong": "Portfolio Development – I"
+          }
+         ],
+         "text": "Introduces portfolio building through structured documentation of academic and creative marketing projects."
+        },
+        {
+         "title": [
+          {
+           "strong": "Electives (Select Any One)"
+          }
+         ],
+         "text": null,
+         "list": [
+          {
+           "title": "Marketing Automation & AI-Transformed Customer Journeys",
+           "text": "Explores AI-powered automation, personalisation, CRM integration, and optimised end-to-end customer journey design."
+          },
+          {
+           "title": "Copywriting & Visual Communication using AI",
+           "text": "Develops persuasive copywriting and visual storytelling skills using AI-assisted creative tools"
+          }
+         ]
+        },
+        {
+         "title": [
+          {
+           "strong": "Certifications (Select Any Two)"
+          }
+         ],
+         "text": null,
+         "list": [
+          {
+           "title": "Google Cloud – Introduction to Generative AI",
+           "text": "Introduces generative AI concepts, use cases, large language models, and responsible AI practices."
+          },
+          {
+           "title": "Google Ads – Google",
+           "text": "Builds practical skills in creating, managing, and optimising digital advertising campaigns using Google Ads."
+          },
+          {
+           "title": "Content Marketing – HubSpot",
+           "text": "Covers content strategy, creation, distribution, SEO, and performance measurement for brand growth."
+          },
+          {
+           "title": "Social Media Marketing – HubSpot",
+           "text": "Teaches social media strategy, publishing, engagement, analytics, and campaign optimisation techniques."
+          }
+         ]
+        }
+       ],
+       "electives": [],
+       "compare": []
+      }
+     ]
+    },
+    {
+     "label": "Semester 2",
+     "semesters": [
+      {
+       "title": "Semester 2",
+       "text": "Develop expertise in AI-driven marketing strategies, digital brand management, and advanced advertising technologies, while deepening practical skills through hands-on labs and real-world campaign simulations. The curriculum emphasizes data ethics, consumer privacy, and real-time analysis of digital marketing and advertising performance.",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/sem-2.png",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Media Management and AI-based Programmatic Advertising"
+          }
+         ],
+         "text": "Covers media planning, buying, and optimisation using AI-driven programmatic advertising technologies."
+        },
+        {
+         "title": [
+          {
+           "strong": "Brand Strategy & Integrated Marketing Communications (IMC)"
+          }
+         ],
+         "text": "Focuses on building consistent brand strategy through integrated, multi-channel marketing communications."
+        },
+        {
+         "title": [
+          {
+           "strong": "Analytics & Advertising Modelling in Advertising"
+          }
+         ],
+         "text": "Teaches analytical models, attribution, experimentation, and measurement of advertising effectiveness."
+        },
+        {
+         "title": [
+          {
+           "strong": "Applied AI and AdTech and MarTech"
+          }
+         ],
+         "text": "Explores practical AI applications across advertising and marketing technology platforms and ecosystems."
+        },
+        {
+         "title": [
+          {
+           "strong": "Consumer & AI-powered Commerce & AI-powered Consumer Experience"
+          }
+         ],
+         "text": "Analyses consumer behavior and AI-enabled commerce experiences across digital and omnichannel touchpoints."
+        },
+        {
+         "title": [
+          {
+           "strong": "Creative Tech Lab 2: Full-Funnel AI-optimised Campaign"
+          }
+         ],
+         "text": "Advanced lab executing AI-optimised campaigns across awareness, consideration, conversion, and retention stages."
+        },
+        {
+         "title": [
+          {
+           "strong": "Elective II"
+          }
+         ],
+         "text": "Offers advanced specialisation in AI-driven optimisation, analytics, listening, or digital experience strategies."
+        },
+        {
+         "title": [
+          {
+           "strong": "Portfolio Development – II"
+          }
+         ],
+         "text": "Refines professional portfolio with advanced projects, case studies, and industry-ready marketing work."
+        },
+        {
+         "title": [
+          {
+           "strong": "Internship (4 weeks)"
+          }
+         ],
+         "text": "Provides real-world industry exposure applying AI-powered marketing skills in professional environments."
+        },
+        {
+         "title": [
+          {
+           "strong": "Electives (Select Any One)"
+          }
+         ],
+         "text": null,
+         "list": [
+          {
+           "title": "Website Optimisation & CRO using AI-Stack",
+           "text": "Focuses on AI-driven UX analysis, A/B testing, and conversion rate optimisation strategies."
+          },
+          {
+           "title": "AI-based Social Listening and ORM",
+           "text": "Teaches AI-powered monitoring, analysis, and management of online conversations and brand reputation."
+          }
+         ]
+        },
+        {
+         "title": [
+          {
+           "strong": "Certifications (Select Any Two)"
+          }
+         ],
+         "text": null,
+         "list": [
+          {
+           "title": "Google Cloud – Machine Learning Crash Course (MLCC)",
+           "text": "Provides foundational understanding of machine learning concepts and applications relevant to marketing analytics."
+          },
+          {
+           "title": "Google Analytics 4 – Google",
+           "text": "Builds expertise in event-based analytics, reporting, and insights using GA4."
+          },
+          {
+           "title": "Amazon Ads for Retail – Amazon",
+           "text": "Covers retail advertising strategies, sponsored ads, targeting, and optimisation within Amazon’s ecosystem."
+          },
+          {
+           "title": "Google My Business – Google",
+           "text": "Teaches local business profile optimisation, customer engagement, reviews, and local SEO fundamentals."
+          }
+         ]
+        }
+       ],
+       "electives": [],
+       "compare": []
+      }
+     ]
+    }
+   ],
+   "download": {
+    "label": "Download Curriculum",
+    "variant": "mint",
+    "fontSize": null,
+    "brochure": "mba-brochure"
+   },
+   "yearsWrap": "quaternary"
+  }
+ },
+ "refs": {
+  "stats": "stats-6f53ab0d87",
+  "why": "why-125f4892d2",
+  "execution": "execution-f982d5113c",
+  "voices": "voices-47c8abecf0",
+  "eligibility": "eligibility-b5094972b5",
+  "banner": "banner-00f9a98b12"
+ }
+}

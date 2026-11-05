@@ -1,0 +1,621 @@
+{
+ "path": "/schools/isme/success-stories/placements-and-internships-opportunities",
+ "ref": "success-stories/placements-and-internships-opportunities.php",
+ "meta": {
+  "title": "Placements & Internship Opportunities – ATLAS ISME",
+  "description": "Discover internships, placements, industry roles, partner companies, career support, guidance and student success stories."
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "kind": "hero",
+   "height": "100vh",
+   "id": null,
+   "eyebrow": null,
+   "name": null,
+   "position": null,
+   "title": "Internships & Placements",
+   "text": null,
+   "image": {
+    "src": "/assets/images/schools/isme/pages/image-from-google-drive.jpg",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isdi/placements/hero/image-from-google-drive-p-500.jpg 500w, /assets/images/schools/isdi/placements/hero/image-from-google-drive-p-800.jpg 800w, /assets/images/schools/isdi/placements/hero/image-from-google-drive-p-1080.jpg 1080w, /assets/images/schools/isdi/placements/hero/image-from-google-drive-p-1600.jpg 1600w, /assets/images/schools/isdi/placements/hero/image-from-google-drive-p-2000.jpg 2000w, /assets/images/schools/isdi/placements/hero/image-from-google-drive-p-2600.jpg 2600w, /assets/images/schools/isdi/placements/hero/image-from-google-drive-p-3200.jpg 3200w, /assets/images/schools/isme/pages/image-from-google-drive.jpg 3648w",
+    "sizes": "100vw"
+   },
+   "buttons": null,
+   "video": null
+  },
+  {
+   "cards": [
+    {
+     "tone": "bg6",
+     "label": "Students Mentored",
+     "value": "3100+",
+     "note": null
+    },
+    {
+     "tone": "bg7",
+     "label": "Internship & Placement Offered",
+     "value": "1500+",
+     "note": null
+    },
+    {
+     "tone": "bg8",
+     "label": "Companies Visited",
+     "value": "500+",
+     "note": null
+    }
+   ],
+   "padBottom": true,
+   "kind": "stats"
+  },
+  {
+   "kind": "transferWall",
+   "heading": "From ATLAS ISME to the World’s Best Companies",
+   "headingMods": [],
+   "lead": null,
+   "people": [
+    {
+     "kind": "d",
+     "name": "Jash Kuldeep Shah",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/7-2-11.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/jash-kuldeep-shah,-zomato.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Mannat Sharma",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/ey-logo.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/mohit-duseja,-morningstar.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Aditi Sanghavi",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/7-2-8.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/aditi-sanghavi,-mirrae-asset.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Nirja Gola",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/7-2-9.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/nirja-vora,-nykaa.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Preksha Mutha",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/7-2-12.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/preksha-mutha-hdfc.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Darsh Jain",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isdi/success-snapshot/recruiters/philip-capital-logo.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/darsh-jain,-philip-capital.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Siddharth Fernandes",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/7-2-4.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/siddharth-fernandes,-marsh-mclennon.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Apurva Dixit",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/union-bank-logo.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/apurva-dixit.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Anandita Salil",
+     "role": "Chairman",
+     "roleMedium": true,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/bruggggg.jpg",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/aniket-nair,-shoppers-stop.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Nishi Sanjanwala",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/7-2-1.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/nishi-sanjanwala,-third-bridge.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Suhani Todi",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/logo-3.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/sohani-todi,-masaba.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Tanisha Asrani",
+     "role": "Chairman",
+     "roleMedium": true,
+     "logo": {
+      "src": "/assets/images/schools/isdi/success-snapshot/recruiters/philip-capital-logo.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/tanisha-asrani.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Aniket Singh",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/logo-2.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/aniket-singh,-house-of-abhinandan-lodha.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Isha Thakkar",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/logo-5.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/isha-thakkar,-anarock.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Saifa Ahmed",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/logo-20.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/saifa-ahmed,-cfa.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Prathmi Toshani",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/logo-25.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/prathmi-toshani,-dentsu.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Aarushi Nagar",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isdi/success-snapshot/recruiters/logo-4.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/aarushi-nagar,-schbang.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Aryan Pratap Chauhan",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/7-2-11.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/aryanpratap-chauhan--zomato.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Sadhana Yadav",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/zepto-logo.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/sadhana-yadav--zepto.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Sarvesh Udyawar",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/7-2-1.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/sarvesh-udyawar--third-bridge.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Karan Singh Matta",
+     "role": "Chairman",
+     "roleMedium": true,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/ey-logo.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/karan-matta--ey.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Srishti Chandanbatwe",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/urban-company-logo.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/srishti-chandanbatwe--urban-company.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Rushabh Shah",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/7-2-4.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/rushabh-shah--marsh-mclennan.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Bhoomi Kale",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/dbyz.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/bhoomi-kale--district-zomato-.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Ananya Purohit",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/zudio-logo.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/ananya-purohit--zudio.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Hiranshi Gala",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/dspr-logo.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/hiranshi-gala--dspr.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Aarav Agarwal",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/mindflix.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/aarav-agarwal--mindflix-holiday.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Aarna Srivastava",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/bharti--axa.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/aarna-srivastava--bharti-axa.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Adhyay Jadhav",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isdi/success-snapshot/recruiters/viral-fission.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/adhyay-jadhav--viral-fision.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Amol Jain",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/acer-logo.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/amol-jain--acer.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Delna Daruvala",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/cipla-logo.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/delna-daruvala--cipla.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Bhavya Agarwal",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/goodfellows-logo.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/bhavya-agarwal--good-fellows.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Dhvani Badani",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/marico.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/dhvani-badani.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Kavya Sikka",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/success/recruiters/reliance.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/kavya-sikka.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Malav Shah",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/yes.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/malav-shah.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Rishi Shah",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/jio-digital-life.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/rishi-shah.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Nihar Desai",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/l-t.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/nihar-desai.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Hriday Doshi",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/edelweiss-life-insurance.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/hriday-doshi.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Saloni Jagtap",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/acer.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/saloni-jagtap.png",
+      "alt": ""
+     }
+    },
+    {
+     "kind": "d",
+     "name": "Ronak Arora",
+     "role": null,
+     "roleMedium": false,
+     "logo": {
+      "src": "/assets/images/schools/isme/pages/pattern-logo.png",
+      "alt": ""
+     },
+     "photo": {
+      "src": "/assets/images/schools/isme/pages/ronak-arora.png",
+      "alt": ""
+     }
+    }
+   ]
+  }
+ ]
+}

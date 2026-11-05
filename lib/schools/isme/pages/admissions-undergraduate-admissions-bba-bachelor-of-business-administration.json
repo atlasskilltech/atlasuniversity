@@ -1,0 +1,759 @@
+{
+ "path": "/schools/isme/admissions/undergraduate/admissions-bba-bachelor-of-business-administration",
+ "ref": "admissions/undergraduate/admissions-bba-bachelor-of-business-administration.php",
+ "meta": {
+  "title": "BBA Admissions  – ATLAS ISME",
+  "description": "Planning for BBA? Explore specializations, eligibility, career paths and apply for business programs today."
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "title": "BBA\nAdmissions",
+   "image": {
+    "src": "/assets/images/schools/isme/pages/bba-admissions-hero.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/pages/bba-admissions-hero-p-500.png 500w, /assets/images/schools/isme/pages/bba-admissions-hero-p-800.png 800w, /assets/images/schools/isme/pages/bba-admissions-hero-p-1080.png 1080w, /assets/images/schools/isme/pages/bba-admissions-hero.png 1366w",
+    "sizes": "(max-width: 1366px) 100vw, 1366px"
+   },
+   "buttons": [
+    {
+     "label": "Apply for 2027 Intake",
+     "variant": "mint",
+     "href": "https://atlasuniversity.edu.in/applicationform"
+    }
+   ],
+   "narrow": true,
+   "eyebrow": "Bachelor of Business Administration\n3-Year (Degree) / 4-Year (Honours)",
+   "imageClass": "inner-cover-image",
+   "kind": "courseHero"
+  },
+  {
+   "kind": "anchorMenu",
+   "centered": false,
+   "links": [
+    {
+     "label": "How to Apply",
+     "href": "#how-to-apply"
+    },
+    {
+     "label": "Key Dates",
+     "href": "#key-dates"
+    },
+    {
+     "label": "Eligibility",
+     "href": "#eligibility"
+    },
+    {
+     "label": "Fee Structure",
+     "href": "#fee-structure"
+    },
+    {
+     "label": "ATLAS Scholarships",
+     "href": "#scholarship"
+    },
+    {
+     "label": "Financial Assistance",
+     "href": "#"
+    },
+    {
+     "label": "FAQs",
+     "href": "#faq"
+    }
+   ]
+  },
+  {
+   "heading": "Here’s how to apply",
+   "sub": null,
+   "button": null,
+   "steps": [
+    {
+     "tone": "tbg1",
+     "num": "01",
+     "title": "Submit the Application Form",
+     "link": {
+      "label": "Apply for 2027 Intake",
+      "href": "https://atlasuniversity.edu.in/applicationform",
+      "target": null,
+      "fontSize": 14
+     },
+     "image": {
+      "src": "/assets/images/schools/isdi/programs/b-des/accessory-design-craft/admissions/tab-3-img-1.png",
+      "alt": ""
+     }
+    },
+    {
+     "tone": "tbg2",
+     "num": "02",
+     "title": "Complete the Busines Aptitude Test (BAT)",
+     "link": {
+      "label": "View a Sample Paper",
+      "href": "/assets/documents/isme/atlas-business-aptitude-test-sample-paper-bba.pdf",
+      "target": "_blank",
+      "fontSize": 14
+     },
+     "image": {
+      "src": "/assets/images/schools/isdi/programs/b-des/accessory-design-craft/admissions/tab-3-img-2.png",
+      "alt": ""
+     }
+    },
+    {
+     "tone": "tbg4",
+     "num": "03",
+     "title": "Attend the Collaborative Accelerator",
+     "link": {
+      "label": "Know More",
+      "href": "/assets/documents/isme/atlas-isme-collaborative-accelerator.pdf",
+      "target": "_blank",
+      "fontSize": 14
+     },
+     "image": {
+      "src": "/assets/images/schools/isme/bba/tab-3-img-4.png",
+      "alt": ""
+     }
+    }
+   ],
+   "kind": "guide",
+   "id": "how-to-apply",
+   "bare": true,
+   "headingMods": [
+    "mrg32"
+   ],
+   "wrapMods": [
+    "mrgtp-24"
+   ],
+   "extraspace": true
+  },
+  {
+   "kind": "keyTable",
+   "id": "key-dates",
+   "heading": "Key Dates & Deadlines",
+   "headingMods": [
+    "mrg32"
+   ],
+   "rows": [
+    {
+     "height": 33,
+     "cells": [
+      {
+       "header": true,
+       "text": "BBA / BBA (Hons.) Admissions Calendar for July 2027 Intake",
+       "colspan": 2,
+       "headerColor": "#009fe0",
+       "align": "center"
+      }
+     ]
+    },
+    {
+     "height": 33,
+     "cells": [
+      {
+       "groups": [
+        {
+         "runs": [
+          "Cycle"
+         ],
+         "bold": true,
+         "tone": null
+        }
+       ],
+       "align": "left"
+      },
+      {
+       "groups": [
+        {
+         "runs": [
+          "Cycle 1"
+         ],
+         "bold": true,
+         "tone": null
+        }
+       ],
+       "align": "center"
+      }
+     ]
+    },
+    {
+     "height": 33,
+     "cells": [
+      {
+       "groups": [
+        {
+         "runs": [
+          "Applications ",
+          {
+           "br": true
+          },
+          " Opened"
+         ],
+         "bold": true,
+         "tone": null
+        },
+        {
+         "runs": [
+          " "
+         ],
+         "bold": false
+        },
+        {
+         "runs": [
+          "(11",
+          {
+           "sup": "th"
+          },
+          " Sep 2026)"
+         ],
+         "bold": true,
+         "tone": "green"
+        }
+       ],
+       "align": "left"
+      },
+      {
+       "groups": [
+        {
+         "runs": [
+          " Applications Open "
+         ],
+         "bold": true,
+         "tone": "green"
+        }
+       ],
+       "align": "center"
+      }
+     ]
+    },
+    {
+     "height": 64,
+     "cells": [
+      {
+       "groups": [
+        {
+         "runs": [
+          "Business Aptitude Test "
+         ],
+         "bold": true,
+         "tone": null
+        }
+       ],
+       "align": "left"
+      },
+      {
+       "groups": [
+        {
+         "runs": [
+          "11",
+          {
+           "sup": "th"
+          },
+          " Sep to 18",
+          {
+           "sup": "th"
+          },
+          " Nov 2026"
+         ],
+         "bold": true,
+         "tone": "green"
+        }
+       ],
+       "align": "center"
+      }
+     ]
+    },
+    {
+     "height": 33,
+     "cells": [
+      {
+       "groups": [
+        {
+         "runs": [
+          "Collaborative ",
+          {
+           "br": true
+          },
+          "Accelerator - On Campus "
+         ],
+         "bold": true,
+         "tone": null
+        }
+       ],
+       "align": "left"
+      },
+      {
+       "groups": [
+        {
+         "runs": [
+          "21",
+          {
+           "sup": "st"
+          },
+          " Nov 2026 (11:00 AM)"
+         ],
+         "bold": true,
+         "tone": "green"
+        }
+       ],
+       "align": "center"
+      }
+     ]
+    },
+    {
+     "height": 33,
+     "cells": [
+      {
+       "groups": [
+        {
+         "runs": [
+          "Online Collaborative Accelerator\n(For Outstation Students ONLY)"
+         ],
+         "bold": true,
+         "tone": null
+        }
+       ],
+       "align": "left"
+      },
+      {
+       "groups": [
+        {
+         "runs": [
+          "25",
+          {
+           "sup": "th"
+          },
+          " Nov 2026 (11:00 AM)"
+         ],
+         "bold": true,
+         "tone": "green"
+        }
+       ],
+       "align": "center"
+      }
+     ]
+    },
+    {
+     "height": 33,
+     "cells": [
+      {
+       "groups": [
+        {
+         "runs": [
+          "Result ",
+          {
+           "br": true
+          },
+          "Announcement"
+         ],
+         "bold": true,
+         "tone": null
+        }
+       ],
+       "align": "left"
+      },
+      {
+       "groups": [
+        {
+         "runs": [
+          "9",
+          {
+           "sup": "th"
+          },
+          " Dec 2026"
+         ],
+         "bold": true,
+         "tone": "green"
+        }
+       ],
+       "align": "center"
+      }
+     ]
+    },
+    {
+     "height": 33,
+     "cells": [
+      {
+       "groups": [
+        {
+         "runs": [
+          "Acceptance ",
+          {
+           "br": true
+          },
+          "Deadline"
+         ],
+         "bold": true,
+         "tone": null
+        }
+       ],
+       "align": "left"
+      },
+      {
+       "groups": [
+        {
+         "runs": [
+          "22",
+          {
+           "sup": "nd"
+          },
+          " Dec 2026"
+         ],
+         "bold": true,
+         "tone": "green"
+        }
+       ],
+       "align": "center"
+      }
+     ]
+    },
+    {
+     "height": 64,
+     "cells": [
+      {
+       "groups": [
+        {
+         "runs": [
+          "Annual Fee ",
+          {
+           "br": true
+          },
+          "Payment Deadline"
+         ],
+         "bold": true,
+         "tone": null
+        }
+       ],
+       "align": "left"
+      },
+      {
+       "groups": [
+        {
+         "runs": [
+          "31",
+          {
+           "sup": "st"
+          },
+          " May 2027"
+         ],
+         "bold": true,
+         "tone": "green"
+        }
+       ],
+       "align": "center"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "admEligibility",
+   "id": "eligibility",
+   "heading": "Eligibility",
+   "headWrap": true,
+   "headingMods": [
+    "mrgtbm0"
+   ],
+   "button": {
+    "label": "View Admission Policy",
+    "href": "https://atlasuniversity.edu.in/admissions-policy/",
+    "newTab": false,
+    "variant": "mint"
+   },
+   "lead": null,
+   "items": [
+    {
+     "title": "Indian Boards (ISC / CBSE / State Boards)",
+     "body": [
+      "An aggregate of 50% marks in Grade XII in any discipline."
+     ],
+     "pinned": true
+    },
+    {
+     "title": "A-Levels (UK)",
+     "body": [
+      "GCSE/IGCSE Examinations of the approved British Examination Bodies, with minimum 5 (Five) subjects in A, B, C, D and E grades, including English at Ordinary 'O' Level and 2 subjects at Advanced 'A' Level, has been equated with +2 stage qualification."
+     ],
+     "pinned": true
+    },
+    {
+     "title": "International Baccalaureate (IB)",
+     "body": [
+      [
+       {
+        "strong": "IB Diploma Program"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        "3 HL, 3 SL with a minimum of 24 credit points."
+       ]
+      },
+      [
+       {
+        "strong": "IB Diploma Course (i.e. Certificate) Programme"
+       },
+       "‍"
+      ],
+      {
+       "list": "ul",
+       "items": [
+        "3 HL, 3 SL with a minimum of 24 credit points."
+       ]
+      },
+      [
+       {
+        "strong": "IB career Related Study Programmes"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        "02 DP subjects with atleast 01 subject at HL Level and minimum 3 points in each DP subject.",
+        "Career Related Study (CRS) with at least 03 subjects.",
+        "IBCP Equivalence for General Strand (Design, Science, B. Sc Finance): International Baccalaureate Career Related Study (IBCP) qualification with core components requirement awarded by International Baccalaureate (IB)."
+       ]
+      }
+     ],
+     "pinned": true
+    }
+   ],
+   "bodyStyle": "webflow"
+  },
+  {
+   "kind": "fees",
+   "id": "fee-structure",
+   "heading": "Fee Structure",
+   "sub": "We believe in clarity & Here’s a simple breakdown of our fees!",
+   "subMods": [
+    "mrgbtm32"
+   ],
+   "cards": [
+    {
+     "lead": true,
+     "title": [
+      "Total Duration"
+     ],
+     "value": [
+      "3-Year (Degree) / 4-Year (Hons.)"
+     ],
+     "note": [
+      "\n*Indicative & subject to change"
+     ],
+     "image": {
+      "src": "/assets/images/schools/isme/pages/polygon.svg",
+      "alt": ""
+     }
+    },
+    {
+     "label": [
+      "Application Fee"
+     ],
+     "value": [
+      "INR 3,500"
+     ]
+    },
+    {
+     "label": [
+      "Enrollment Fee"
+     ],
+     "value": [
+      "INR 50,000"
+     ]
+    },
+    {
+     "label": [
+      "Year 1"
+     ],
+     "value": [
+      "INR 5,25,000"
+     ]
+    }
+   ]
+  },
+  {
+   "heading": "Funding just got easier !",
+   "sub": "We partner with India's top bank to support your journey to success.",
+   "image": {
+    "src": "/assets/images/schools/isdi/home/section/faq-img.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isdi/home/section/faq-img-p-500.png 500w, /assets/images/schools/isdi/home/section/faq-img.png 601w",
+    "sizes": "(max-width: 601px) 100vw, 601px"
+   },
+   "buttons": [
+    {
+     "label": "Know more about Financial Assistance",
+     "variant": "mint",
+     "icon": null,
+     "id": null,
+     "href": "https://atlasuniversity.edu.in/scholarships-and-financial-aid"
+    }
+   ],
+   "kind": "banner",
+   "id": "scholarship"
+  },
+  {
+   "kind": "search",
+   "id": "faq"
+  },
+  {
+   "heading": "Questions? We can read your mind",
+   "items": [
+    {
+     "q": "What is the eligibility criteria for the BBA programs at ATLAS ISME?",
+     "a": [
+      "Candidates currently in their 12th grade & will be appearing for a 10 + 2 examination (e.g.: CBSE, HSC, IGCSE- A levels, IBDP, ISC, etc.) or its educational equivalent in any discipline (e.g.: Commerce, Science, Arts) are eligible to apply",
+      "Or",
+      "have passed their 10+2 (or equivalent) examination in any discipline from a recognised board are eligible for the BBA program at ATLAS.",
+      [
+       {
+        "strong": "Accepted Education Boards & Qualifications"
+       }
+      ],
+      "Central Board of Secondary Education (CBSE) / State Board / Council for the Indian School Certificate Examinations (CISCE) / National Institute of Open Schooling (NIOS) – 10+2 IB Diploma/ IB Certificate/ IB CP with minimum 3 Higher Level and 3 Standard Level subjects mandatory with a minimum of 24 points – 10+2 Cambridge Board – Minimum 2 subjects",
+      [
+       {
+        "strong": "Note:"
+       },
+       " Students from the IGCSE board for class X must have cleared a minimum of 5 subjects"
+      ],
+      [
+       {
+        "strong": "Minimum Academic Requirements:"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        "Minimum 50% in Class 12 (ISC/CBSE/ State Boards)",
+        "OR",
+        "IB Diploma/Certificate with 24 points (3 HL + 3 SL subjects)",
+        "A Levels: Minimum grades A/B/C in 2 subjects"
+       ]
+      }
+     ]
+    },
+    {
+     "q": "What is the eligibility criteria for the B.Sc. programs at ATLAS ISME?",
+     "a": [
+      "To be eligible for the ATLAS ISME's B.Sc. Finance program, candidates need to have completed their 10+2 (or equivalent) from a recognised board with a minimum of 60% in their previous exams. Math is a mandatory subject for this program.",
+      [
+       {
+        "strong": "Minimum Academic Requirements:"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        "Minimum Percentage: A minimum of 60% marks is required in the 10+2 exams.",
+        "Compulsory Subject: Mathematics is a mandatory subject for the B.Sc. Finance program.",
+        "Streams Accepted: Candidates from various disciplines (Science, Commerce, Arts) are eligible to apply, as long as they have completed their 10+2 with the required percentage.",
+        "Recognised Boards: Candidates can apply from various boards, including CBSE, ISC, HSC, IBDP, IGCSE (A levels) and others."
+       ]
+      },
+      "Please note that the selection process for admission is based on a combination of an aptitude test and a personal interview."
+     ]
+    },
+    {
+     "q": "What is the eligibility criteria for the MBA programs at ATLAS ISME?",
+     "a": [
+      "Candidates who have completed or are in the final year of a minimum 3-year undergraduate degree in any discipline from a recognised university can apply for the MBA program at ATLAS SkillTech University.",
+      [
+       {
+        "strong": "Educational Qualification"
+       }
+      ],
+      "Students pursuing or having completed a minimum of 3-year graduate programs in any discipline with a minimum 50% aggregate marks from any University recognised by the Association of Indian Universities (AIU). Students appearing for their final exams can also apply, provided they maintain a minimum of 50% aggregate marks at the time of graduation as mentioned above. Students applying for their final exams should not have any live backlogs (ATKTs).",
+      "Examinations (MBA): Candidates who have appeared for one of the following entrance tests – GMAT, CAT, NMAT, XAT, MAT, CMAT, ATMA or any state CET tests are preferred. Cut offs: CAT/XAT: 70%, NMAT: 200 marks & CET: 80%"
+     ]
+    },
+    {
+     "q": "What is the application fee for BBA at ATLAS ISME?",
+     "a": [
+      "The application fee for BBA programs at ATLAS SkillTech University is ₹3,500.",
+      "This is a one-time, non-refundable fee and is subject to change as per the admission cycle."
+     ]
+    },
+    {
+     "q": "What is the application fee for B.Sc Finance at ATLAS ISME?",
+     "a": [
+      "For B.Sc. Finance at ATLAS ISME, candidates are required to pay a one-time, non-refundable application fee of ₹3,500."
+     ]
+    },
+    {
+     "q": "What is the application fee for an MBA at ATLAS ISME?",
+     "a": [
+      "For the MBA at ATLAS ISME, candidates have to pay a one-time non-refundable fee of ₹1,500 to apply for a program at ATLAS SkillTech University."
+     ]
+    },
+    {
+     "q": "What is the admission process for the ATLAS ISME BBA program and how do I participate in each stage?",
+     "a": [
+      "The admission process at ATLAS ISME consists of 3 key stages:",
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Business Aptitude Test (BAT):"
+         },
+         " An online MCQs test that assesses your verbal, logical reasoning, quantitative and business communication skills"
+        ],
+        [
+         {
+          "strong": "Personal Interview (PI):"
+         },
+         " An interactive online interview that evaluates your candidature. One can expect questions from your performance in the BAT and Statement of Purpose (SOP), past achievements, perspectives on global affairs, etc."
+        ],
+        [
+         {
+          "strong": "Collaborative Accelerator:"
+         },
+         " This is an on-campus group exercise where students collaborate with other candidates to solve an on-the-spot real-world business case study."
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "q": "What do I need to submit if I have already taken my final board (Class 12 Examination or Equivalent Exam) examinations?",
+     "a": [
+      "Applicants who have completed their Class 12 (or equivalent) must submit their final marksheets for all subjects at the time of admission to ATLAS SkillTech University.",
+      "If you are a resident of Maharashtra, a domicile certificate is required to be submitted prior to the commencement of classes."
+     ]
+    },
+    {
+     "q": "Is a domicile certificate required for Maharashtra-based students during the admission process at ATLAS ISME?",
+     "a": [
+      "Yes, Maharashtra State students are required to submit a domicile certificate as part of the admission process at ATLAS ISME. This certificate must be submitted before the commencement of classes to complete admission formalities at ATLAS ISME."
+     ]
+    },
+    {
+     "q": "What if I am awaiting my Class 12 or equivalent final exam results during the ATLAS ISME admission process?",
+     "a": [
+      "If you are still awaiting your Class 12 examination or equivalent results, you can still apply for admission at ATLAS ISME.",
+      "However, at ATLAS ISME, all admissions in such cases are considered provisional and subject to the submission of your final marksheet and pass certificate before the commencement of classes. Failure to submit the required documents in time may affect your enrollment status."
+     ]
+    },
+    {
+     "q": "What is the international admission policy at ATLAS SkillTech University for NRI, OCI and foreign candidates?",
+     "a": [
+      "International, NRI (Non-Resident Indian) and OCI (Overseas Citizen of India) candidates are eligible to apply under a supernumerary quota at ATLAS SkillTech University. These applicants must meet eligibility criteria equivalent to Indian academic standards for the respective program they are applying to.",
+      "This quota is in addition to the regular intake and is governed by university and regulatory guidelines for international admissions."
+     ]
+    },
+    {
+     "q": "What is the reservation policy for admissions at ATLAS ISME?",
+     "a": [
+      "As per the ATLAS SkillTech University Act 2021 and the Government of Maharashtra guidelines, up to 50% of the total intake is reserved for candidates from various reserved categories.",
+      "Please note that admissions shall follow the State Government's reservation policy as stated in the University Act. This reservation policy ensures equitable access to education while strictly adhering to state government regulations."
+     ]
+    },
+    {
+     "q": "Which Indian boards are recognised by ATLAS ISME/ATLAS SkillTech University?",
+     "a": [
+      "ATLAS SkillTech University recognises all boards approved by the Council of Boards of School Education India (COBSE). Please click here to view the complete list of boards recognised by the COBSE."
+     ]
+    }
+   ],
+   "kind": "faq"
+  }
+ ]
+}

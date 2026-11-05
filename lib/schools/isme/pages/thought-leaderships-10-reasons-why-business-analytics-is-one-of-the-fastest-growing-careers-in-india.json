@@ -1,0 +1,265 @@
+{
+ "path": "/schools/isme/thought-leaderships/10-reasons-why-business-analytics-is-one-of-the-fastest-growing-careers-in-india",
+ "ref": "thought-leaderships/10-reasons-why-business-analytics-is-one-of-the-fastest-growing-careers-in-india.php",
+ "meta": {
+  "title": "10 Reasons Business Analytics Is a Fast-Growing Career",
+  "description": "Is business analytics the career of the decade? Explore 10 reasons why Atlas ISME is a top university for business analytics for undergraduate students."
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "kind": "articleHeader",
+   "image": {
+    "src": "/assets/images/schools/isme/home/thought-leadership/career-fast-growing.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/home/thought-leadership/career-fast-growing-p-500.png 500w, /assets/images/schools/isme/home/thought-leadership/career-fast-growing-p-800.png 800w, /assets/images/schools/isme/home/thought-leadership/career-fast-growing-p-1080.png 1080w, /assets/images/schools/isme/home/thought-leadership/career-fast-growing.png 1536w",
+    "sizes": "100vw"
+   }
+  },
+  {
+   "kind": "breadcrumbs",
+   "links": [
+    {
+     "label": "About Us",
+     "href": "#"
+    },
+    {
+     "label": "Thought Leadership",
+     "href": "#"
+    }
+   ],
+   "arrow": "/assets/images/schools/isme/pages/bread-arrow.svg"
+  },
+  {
+   "kind": "article",
+   "title": "10 Reasons Why Business Analytics Is One of the Fastest-Growing Careers in India",
+   "details": [
+    "Admin",
+    "9 min read",
+    "July 7, 2025"
+   ],
+   "jump": {
+    "heading": "Jump to",
+    "links": [
+     {
+      "label": "Growing Power of Data",
+      "href": "#"
+     },
+     {
+      "label": "Business Analytics Across Sectors",
+      "href": "#"
+     },
+     {
+      "label": "Learning Business Analytics",
+      "href": "#"
+     }
+    ]
+   },
+   "body": [
+    {
+     "kind": "h3",
+     "id": "Growing Power of Data",
+     "text": "Growing Power of Data"
+    },
+    {
+     "kind": "p",
+     "mods": [
+      "p-tag"
+     ],
+     "text": "A highlight of the visit was the reaffirmation that ISME students from Atlas SkillTech University are always welcome to pursue their master’s studies at King’s College London. This strong relationship ensures a seamless pathway for our students to access world-class education and global exposure, fostering an enriching academic journey."
+    },
+    {
+     "kind": "rich",
+     "blocks": [
+      "We may disagree, but data powers the world around us. We receive feedback from AI after inserting the required data. Data is an integral part of today’s economy, and many businesses rely heavily on analysing data and functioning for growth and productivity.",
+      [
+       {
+        "strong": "Explosive Demand for Business Analysts Across Industries"
+       }
+      ],
+      "The demand for skilled business analysts is growing exponentially. Big tech companies are always on the lookout for seasoned professionals who can navigate skilfully through the complexities of extensive data. The strategic advancement received by navigating data leads to an explosive demand for business analyst professionals across all industries.",
+      [
+       {
+        "strong": "High-Paying Roles with Long-Term Growth Potential"
+       }
+      ],
+      "Business analytics as a career is highly lucrative and also in high demand. The key factors driving this demand are:",
+      {
+       "list": "ul",
+       "items": [
+        "Significant Growth",
+        "Competitive salaries",
+        "Unique skillset",
+        "Career progression"
+       ]
+      },
+      [
+       {
+        "strong": "Data-Driven Decision Making Is Now Business-Critical"
+       }
+      ],
+      "The current landscape of every industry is competitive, and every organisation aspires to stay ahead of the curve. To do so, it is imperative to understand the value of data and how analysing it leads to sound business decisions. Key benefits include:",
+      {
+       "list": "ul",
+       "items": [
+        "Informed strategies",
+        "Competitive business edge",
+        "Optimised performance",
+        "Enhanced engagement"
+       ]
+      },
+      "‍"
+     ]
+    },
+    {
+     "kind": "h3",
+     "id": "Business Analytics Across Sectors",
+     "text": "Business Analytics Across Sectors"
+    },
+    {
+     "kind": "rich",
+     "blocks": [
+      [
+       {
+        "strong": "Versatility: Work in Finance, Retail, Healthcare, and More"
+       }
+      ],
+      "The current generation reaches its saturation level almost too quickly. Business analytics offers flexibility, since every industry today relies on data. Business analytics is imperative for fields such as:",
+      {
+       "list": "ul",
+       "items": [
+        "Financial services",
+        "Software companies",
+        "Healthcare",
+        "Manufacturing and retail",
+        "Consulting firms",
+        "Businesses",
+        "Information technology companies"
+       ]
+      },
+      [
+       {
+        "strong": "Future-Ready Skills Taught in Business Analyst Programs"
+       }
+      ],
+      "A strong business analyst program equips students with both technical and soft skills. These include:",
+      {
+       "list": "ul",
+       "items": [
+        "Proficiency in tools to streamline data",
+        "Domain knowledge",
+        "Quantitative data analysis",
+        "Problem-solving skills",
+        "Communication",
+        "Professional communication and life skills",
+        "Human-centered design thinking"
+       ]
+      },
+      [
+       {
+        "strong": "Business Analytics Combines Tech, Strategy, and Communication"
+       }
+      ],
+      "The role of a business analyst is multifaceted. Each data point must be prioritised, and clear communication is key to professional success. The profession demands a unique combination of:",
+      {
+       "list": "ul",
+       "items": [
+        "Technical acumen",
+        "Business acumen",
+        "Communication and presentation skills",
+        "Strategic thinking"
+       ]
+      }
+     ]
+    },
+    {
+     "kind": "h3",
+     "id": "Learning Business Analytics ",
+     "text": "Learning Business Analytics"
+    },
+    {
+     "kind": "rich",
+     "blocks": [
+      [
+       {
+        "strong": "Strong Ecosystem of Business Analyst Colleges in Mumbai"
+       }
+      ],
+      "Mumbai, as a financial and business hub of India, provides the perfect ecosystem for aspiring analysts. Home to leading institutions like ATLAS SkillTech University, the city offers ample opportunities for networking and career growth.",
+      [
+       {
+        "strong": "Opportunities in Startups, MNCs, and Consulting Firms"
+       }
+      ],
+      "Business analytics opens doors in multiple sectors, including:",
+      {
+       "list": "ul",
+       "items": [
+        "Startups – Innovate, scale operations, and gain market traction",
+        "MNCs – Use large-scale data to improve efficiency and strategic outcomes",
+        "Consulting firms – Help clients grow by interpreting and applying data insights"
+       ]
+      },
+      [
+       {
+        "strong": "Evolving Tools and Technologies Keep the Role Dynamic"
+       }
+      ],
+      "Business analytics is constantly evolving, requiring professionals to:",
+      {
+       "list": "ul",
+       "items": [
+        "Learn emerging technologies",
+        "Master advanced platforms",
+        "Stay updated with new developments",
+        "Focus on adaptive strategies"
+       ]
+      },
+      [
+       {
+        "strong": "Learn Business Analytics at ATLAS SkillTech University, Mumbai"
+       }
+      ],
+      "Choosing the right college lays the foundation for a successful career. ATLAS SkillTech University stands out for its curriculum and unique approach. Through:",
+      {
+       "list": "ul",
+       "items": [
+        "Guest lectures",
+        "Industry expert seminars",
+        "Real-world learning experiences",
+        "Interdisciplinary exposure"
+       ]
+      },
+      "ATLAS ISME provides students with the tools to excel. It is not only a leading institute for those keen to explore the dynamics of business but also a launchpad for students to reach new career heights."
+     ]
+    },
+    {
+     "kind": "tags",
+     "heading": "Tags",
+     "items": [
+      {
+       "label": "Student Collaboration",
+       "href": "#"
+      },
+      {
+       "label": "Inferno",
+       "href": "#"
+      },
+      {
+       "label": "Festival",
+       "href": "#"
+      },
+      {
+       "label": "Leadership",
+       "href": "#"
+      },
+      {
+       "label": "Teamwork",
+       "href": "#"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

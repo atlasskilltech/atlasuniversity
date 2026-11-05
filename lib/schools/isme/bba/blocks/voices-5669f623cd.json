@@ -1,0 +1,98 @@
+{
+ "heading": "Student Voices: Real Voices from the Program",
+ "sub": "Hear from our students",
+ "cards": [
+  {
+   "kind": "testimonial",
+   "video": {
+    "sources": [
+     {
+      "src": "/assets/videos/schools/isme/bba/test-student-vid-transcode.mp4",
+      "type": "video/mp4"
+     },
+     {
+      "src": "/assets/videos/schools/isme/bba/test-student-vid-transcode.webm",
+      "type": "video/webm"
+     }
+    ],
+    "poster": "/assets/images/schools/isme/bba/test-student-vid-poster-00001.jpg"
+   },
+   "text": "At ATLAS, we’re not just learning from books, we get to work on real challenges that actually make a difference.",
+   "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+   "name": "Eshan Thackur",
+   "course": "3rd Year\nBBA Student",
+   "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png",
+   "image": null,
+   "play": null
+  },
+  {
+   "kind": "student",
+   "video": {
+    "sources": [
+     {
+      "src": "/assets/videos/schools/isme/bba/student-vid-2-transcode.mp4",
+      "type": "video/mp4"
+     },
+     {
+      "src": "/assets/videos/schools/isme/bba/student-vid-2-transcode.webm",
+      "type": "video/webm"
+     }
+    ],
+    "poster": "/assets/images/schools/isme/bba/student-vid-2-poster-00001.jpg"
+   },
+   "text": "It feels like running our own little company sometimes.That hands-on experience is what makes being here so exciting.",
+   "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+   "name": "Mahafrin Deboo",
+   "course": "3rd Year\nBBA student",
+   "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png",
+   "image": null,
+   "play": null
+  },
+  {
+   "kind": "student",
+   "video": {
+    "sources": [
+     {
+      "src": "/assets/videos/schools/isme/bba/0342835b-6dbe-4b97-879c-054fd5d7b68f-transcode.mp4",
+      "type": "video/mp4"
+     },
+     {
+      "src": "/assets/videos/schools/isme/bba/0342835b-6dbe-4b97-879c-054fd5d7b68f-transcode.webm",
+      "type": "video/webm"
+     }
+    ],
+    "poster": "/assets/images/schools/isme/bba/0342835b-6dbe-4b97-879c-054fd5d7b68f-poster-00001.jpg"
+   },
+   "text": "I love the professors here and their enthusiasm, its not what they teach but what they bring to the class.",
+   "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+   "name": "Ayush Bhatia",
+   "course": "Class of 2023\nBBA student",
+   "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png",
+   "image": null,
+   "play": null
+  },
+  {
+   "kind": "student",
+   "video": {
+    "sources": [
+     {
+      "src": "/assets/videos/schools/isme/bba/student-vid-4-transcode.mp4",
+      "type": "video/mp4"
+     },
+     {
+      "src": "/assets/videos/schools/isme/bba/student-vid-4-transcode.webm",
+      "type": "video/webm"
+     }
+    ],
+    "poster": "/assets/images/schools/isme/bba/student-vid-4-poster-00001.jpg"
+   },
+   "text": "I always thought I knew Entrepreneurship, my perspective completely changed, thanks to my professors at ATLAS ISME",
+   "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+   "name": "Diya Chanda",
+   "course": "Class of 2023\nBBA student",
+   "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png",
+   "image": null,
+   "play": null
+  }
+ ]
+}

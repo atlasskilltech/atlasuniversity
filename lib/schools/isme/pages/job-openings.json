@@ -1,0 +1,373 @@
+{
+ "path": "/schools/isme/job-openings",
+ "ref": "job-openings.php",
+ "meta": {
+  "title": "Job Openings & Careers  – ATLAS ISME",
+  "description": "Find current job openings, faculty roles and admin positions with details on application steps, eligibility and how to join academic and campus teams."
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "kind": "coverHero",
+   "title": "Shape\nWhat’s Next",
+   "image": {
+    "src": "/assets/images/schools/isme/pages/job-opening-image.webp",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/pages/job-opening-image-p-500.webp 500w, /assets/images/schools/isme/pages/job-opening-image-p-800.webp 800w, /assets/images/schools/isme/pages/job-opening-image-p-1080.webp 1080w, /assets/images/schools/isme/pages/job-opening-image.webp 1366w",
+    "sizes": "(max-width: 1366px) 100vw, 1366px"
+   },
+   "buttons": [
+    {
+     "label": "View Job Openings",
+     "href": "#opening",
+     "variant": "mint"
+    }
+   ]
+  },
+  {
+   "cards": [
+    {
+     "tone": "bg6",
+     "label": "Work That Matters",
+     "value": null,
+     "note": null,
+     "small": "At Atlas, your work shapes how students think, create, and lead."
+    },
+    {
+     "tone": "bg7",
+     "label": "National & Global Impact",
+     "value": null,
+     "note": null,
+     "small": "Be part of something that resonates far beyond the campus."
+    },
+    {
+     "tone": "bg8",
+     "label": "Innovation at the Core",
+     "value": null,
+     "note": null,
+     "small": "Experimentation fuels us — we question norms and build better."
+    }
+   ],
+   "padBottom": false,
+   "kind": "stats"
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": "The Atlas Faculty Advantage – 3 Things That Set Us Apart",
+   "headingMods": [],
+   "items": [
+    {
+     "kind": "thCards",
+     "common": false,
+     "cards": [
+      {
+       "num": "#1",
+       "title": "Research that Matters – Backed by Funding",
+       "bg": "rgb(16, 51, 128)",
+       "image": "/assets/images/schools/isme/pages/things-simg-1.png"
+      },
+      {
+       "num": "#2",
+       "title": "For Faculty Who Want to Make a Global Impact",
+       "bg": "rgb(16, 51, 128)",
+       "image": "/assets/images/schools/isme/pages/things-simg-2.png"
+      },
+      {
+       "num": "#3",
+       "title": "Located in the heart of Mumbai’s thriving Business District",
+       "bg": "rgb(65, 65, 142)",
+       "image": "/assets/images/schools/isme/pages/things-simg-3.png"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": "Faculty Life@ISME",
+   "headingMods": [],
+   "items": [
+    {
+     "kind": "zoomLg",
+     "mods": [
+      "swiper",
+      "zoom-slider-lg"
+     ],
+     "cards": [
+      {
+       "kind": "slider-card-c",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/lifeswiper-1.png",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/lifeswiper-1-p-500.png 500w, /assets/images/schools/isme/pages/lifeswiper-1-p-800.png 800w, /assets/images/schools/isme/pages/lifeswiper-1.png 802w",
+        "sizes": "(max-width: 802px) 100vw, 802px"
+       },
+       "title": "Sharing the Spotlight",
+       "sub": null
+      },
+      {
+       "kind": "slider-card-c",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/lifeswiper-2.png",
+        "alt": ""
+       },
+       "title": "Faculties Flying Across Borders",
+       "sub": null
+      },
+      {
+       "kind": "slider-card-c",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/lifeswiper-3.png",
+        "alt": ""
+       },
+       "title": "Leading the Masterclass",
+       "sub": null
+      },
+      {
+       "kind": "slider-card-c",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/lifeswiper-3.png",
+        "alt": ""
+       },
+       "title": "Leading the Masterclass",
+       "sub": null
+      },
+      {
+       "kind": "slider-card-c",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/lifeswiper-3.png",
+        "alt": ""
+       },
+       "title": "Leading the Masterclass",
+       "sub": null
+      },
+      {
+       "kind": "slider-card-c",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/lifeswiper-3.png",
+        "alt": ""
+       },
+       "title": "Leading the Masterclass",
+       "sub": null
+      }
+     ],
+     "common": false
+    }
+   ]
+  },
+  {
+   "heading": "What it’s like being at ATLAS",
+   "sub": "Hear from our faculties",
+   "cards": [
+    {
+     "kind": "student",
+     "video": {
+      "sources": [],
+      "poster": null
+     },
+     "text": "It’s rare to find a place that values both your expertise and your curiosity. At ATLAS, I get to learn as much as I teach.",
+     "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+     "name": "Dr. Tapish Panwar",
+     "course": "Academic Strategy",
+     "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/dr-tapish-panwar.png",
+      "alt": ""
+     },
+     "play": null
+    },
+    {
+     "kind": "student",
+     "video": {
+      "sources": [],
+      "poster": null
+     },
+     "text": "I don’t just feel like a professor — I feel like a collaborator. The energy is real, and the students keep me on my toes every day.",
+     "quoteIcon": "/assets/images/leadership-team/quote-icon.svg",
+     "name": "Dr. Zuleika Homavazir",
+     "course": "Director",
+     "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/dr-zuleika-homavazir.png",
+      "alt": ""
+     },
+     "play": null
+    },
+    {
+     "kind": "student",
+     "video": {
+      "sources": [],
+      "poster": null
+     },
+     "text": "ATLAS gives me the freedom to experiment with ideas and watch students turn them into something remarkable.",
+     "quoteIcon": "/assets/images/leadership-team/quote-icon.svg",
+     "name": "Manthan Gala",
+     "course": "Professor, Management",
+     "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/manthan-gala.png",
+      "alt": ""
+     },
+     "play": null
+    },
+    {
+     "kind": "student",
+     "video": {
+      "sources": [],
+      "poster": null
+     },
+     "text": "Working at ATLAS means learning alongside my students as we tackle real-world challenges together.",
+     "quoteIcon": "/assets/images/leadership-team/quote-icon.svg",
+     "name": "Bineet Desai",
+     "course": "Professor, Finance",
+     "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/bineet-desai.png",
+      "alt": ""
+     },
+     "play": null
+    }
+   ],
+   "kind": "voices",
+   "headingMods": [
+    "mrg16"
+   ]
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [
+    "blueprints"
+   ],
+   "heading": "Perks & Benefits",
+   "headingMods": [
+    "mrgtbm0"
+   ],
+   "items": [
+    {
+     "kind": "numberGrid",
+     "common": false,
+     "cells": [
+      {
+       "num": "01",
+       "title": "Freedom to Create",
+       "bg": "rgb(25, 62, 144)",
+       "image": "/assets/images/schools/isdi/industry-approach/stats/cs-01-strategic-location.png",
+       "size": "contain",
+       "position": "100% 100%"
+      },
+      {
+       "num": "02",
+       "title": "Shape YoungLives, EveryDay",
+       "bg": "rgb(11, 43, 115)",
+       "image": "/assets/images/schools/isdi/industry-approach/stats/cs-02-strongly-industry-oriented.png",
+       "size": "contain",
+       "position": "100% 50%"
+      },
+      {
+       "num": "03",
+       "title": "Pursue What\nYou TrulyCare About",
+       "bg": "rgb(48, 48, 108)",
+       "bgSm": "rgb(11, 43, 115)",
+       "image": "/assets/images/schools/isme/pages/vector-coolshape-2.png",
+       "size": "auto",
+       "position": "100% 100%"
+      },
+      {
+       "num": "04",
+       "title": "A Campus That Feels Like a\nCreative Playground",
+       "bg": "rgb(7, 32, 88)",
+       "image": "/assets/images/schools/isdi/industry-approach/stats/isme-blueprint-4.png",
+       "size": "contain",
+       "position": "100% 50%"
+      },
+      {
+       "num": "05",
+       "title": "You’ll Never Be theSmartest Person inthe Room",
+       "bg": "rgb(25, 62, 144)",
+       "image": "/assets/images/schools/isdi/industry-approach/stats/blueprint-simg-5.png",
+       "size": "auto",
+       "position": "0% 50%"
+      },
+      {
+       "num": "06",
+       "title": "Health &\nWellness Benefits",
+       "bg": "rgb(11, 43, 115)",
+       "image": "/assets/images/schools/isme/pages/blueprint-simg-6.png",
+       "size": "auto",
+       "position": "100% 50%"
+      },
+      {
+       "num": "07",
+       "title": "The People.",
+       "bg": "rgb(25, 62, 144)",
+       "image": "/assets/images/schools/isme/pages/blueprint-simg-1.png",
+       "size": "contain",
+       "position": "105% 50%"
+      },
+      {
+       "num": "08",
+       "title": "Diversity of Thought",
+       "bg": "rgb(11, 43, 115)",
+       "image": "/assets/images/schools/isme/pages/blueprint-simg-2.png",
+       "size": "cover",
+       "position": "50% 50%"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": "What it’s like being at ATLAS",
+   "headingMods": [],
+   "items": [
+    {
+     "kind": "careerVideo",
+     "mods": [
+      "career-video"
+     ],
+     "image": {
+      "src": "/assets/images/schools/isme/pages/job-opening-2.webp",
+      "alt": "",
+      "srcSet": "/assets/images/schools/isme/pages/job-opening-2-p-500.webp 500w, /assets/images/schools/isme/pages/job-opening-2-p-800.webp 800w, /assets/images/schools/isme/pages/job-opening-2-p-1080.webp 1080w, /assets/images/schools/isme/pages/job-opening-2.webp 1238w",
+      "sizes": "(max-width: 1238px) 100vw, 1238px"
+     },
+     "common": false,
+     "bleed": true
+    }
+   ]
+  },
+  {
+   "kind": "plainSection",
+   "id": "opening",
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": null,
+   "headingMods": [],
+   "items": [
+    {
+     "kind": "openings",
+     "common": false,
+     "heading": "Openings",
+     "empty": "No jobs currently",
+     "hiddenCards": [
+      "Dean  Experience: 15-30 Years | Mumbai | Full-time  At Atlas ISME, the Dean leads with vision and empathy. You’ll set the academic and cultural tone for the business school, mentor faculty, and shape the strategic direction of programs that prepare students to lead, build, and innovate in a global economy. Administration Know more",
+      "Dean  Experience: 15-30 Years | Mumbai | Full-time  At Atlas ISME, the Dean leads with vision and empathy. You’ll set the academic and cultural tone for the business school, mentor faculty, and shape the strategic direction of programs that prepare students to lead, build, and innovate in a global economy. Administration Know more",
+      "Dean  Experience: 15-30 Years | Mumbai | Full-time  At Atlas ISME, the Dean leads with vision and empathy. You’ll set the academic and cultural tone for the business school, mentor faculty, and shape the strategic direction of programs that prepare students to lead, build, and innovate in a global economy. Administration Know more"
+     ]
+    }
+   ]
+  }
+ ]
+}

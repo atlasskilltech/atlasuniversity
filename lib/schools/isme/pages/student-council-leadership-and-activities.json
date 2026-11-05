@@ -1,0 +1,236 @@
+{
+ "path": "/schools/isme/student-council-leadership-and-activities",
+ "ref": "student-council-leadership-and-activities.php",
+ "noTw": true,
+ "meta": {
+  "title": "Student Council & Leadership – ATLAS ISME",
+  "description": "Discover leadership roles, student representation, initiatives, events and opportunities that shape confident leaders."
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "kind": "hero",
+   "height": "100vh",
+   "id": null,
+   "eyebrow": null,
+   "name": null,
+   "position": null,
+   "title": "Student Council",
+   "text": null,
+   "image": {
+    "src": "/assets/images/schools/isme/pages/student-council.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/pages/student-council-p-500.png 500w, /assets/images/schools/isme/pages/student-council-p-800.png 800w, /assets/images/schools/isme/pages/student-council.png 1013w",
+    "sizes": "(max-width: 1013px) 100vw, 1013px"
+   },
+   "buttons": null,
+   "video": null
+  },
+  {
+   "kind": "story",
+   "heading": "The team that brings ideas to life and voices to the table",
+   "headingMods": [
+    "mrg32"
+   ],
+   "text": "The Student Council serves as the voice of the student body, working to foster a vibrant, inclusive, and empowering campus environment. Committed to representing student interests, the council organizes events, drives initiatives, and collaborates with faculty and administration to enhance the overall college experience. Through leadership, service, and active engagement, the council strives to build a strong sense of community and ensure that every student feels heard and valued.",
+   "image": {
+    "src": "/assets/images/schools/isme/pages/student-council-2.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/pages/student-council-2-p-500.png 500w, /assets/images/schools/isme/pages/student-council-2-p-800.png 800w, /assets/images/schools/isme/pages/student-council-2.png 828w",
+    "sizes": "(max-width: 767px) 100vw, (max-width: 991px) 727.984375px, 828px"
+   }
+  },
+  {
+   "kind": "management",
+   "subMods": [
+    "sub-heading",
+    "mrgbtm"
+   ],
+   "grid": true,
+   "id": null,
+   "heading": "From ATLAS ISME to the World’s Best Universities",
+   "button": null,
+   "sub": "Create impact across industries and communities worldwide",
+   "swiperMods": [],
+   "people": [
+    {
+     "name": "Zia Fatema",
+     "role": "President",
+     "image": {
+      "src": "/assets/images/life/council-members/zia-fatema-presi.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Raghavendra Ramola",
+     "role": "President",
+     "image": {
+      "src": "/assets/images/life/council-members/raghavendra-pamola-president.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Ovi Patil",
+     "role": "Vice President",
+     "image": {
+      "src": "/assets/images/life/council-members/screenshot-2025-07-21-at-12.03.43-pm.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Jiya Singh",
+     "role": "Vice President",
+     "image": {
+      "src": "/assets/images/life/council-members/screenshot-2025-07-21-at-12.04.06-pm.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Prisha Tiwari",
+     "role": "General Secretary",
+     "image": {
+      "src": "/assets/images/life/council-members/screenshot-2025-07-21-at-12.03.31-pm.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Swarnambika Battulkar",
+     "role": "General Secretary",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/swarnabika-battulkar.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Komal Dhamu",
+     "role": "Director, Operations",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/koman-dhamu.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Saish Shinde",
+     "role": "Director, Operations",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/saish-shinde.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Khushi Seksaria",
+     "role": "General Secretary",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/khushi-seksaria.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Arnav Chakravarty",
+     "role": "Director, Recreational",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/arnav-chakravarty.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Neha Singh",
+     "role": "Director, Changemakers",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/screenshot-2025-07-21-at-12.04.20-pm.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Safia Merchant",
+     "role": "Director, Changemakers",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/screenshot-2025-07-21-at-12.04.30-pm.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Khushi Doshi",
+     "role": "Director, Quest Department",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/khushi-doshi.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Khushi",
+     "role": "Director, Quest Department",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/bhoomika-choudhari.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Reet Singh",
+     "role": "Director, Quest Department",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/reet-singh.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Sahil Asopa",
+     "role": "Director, Student Welfare",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/sahil-asopa.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Preet Sahney",
+     "role": "Director, Editorial",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/preet-.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Mananya Sawant",
+     "role": "Director , Editorial",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/mananya-sawant.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Tia Vyas",
+     "role": "Director, Editorial",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/tia-vyas.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Naina Srivastava",
+     "role": "Director, Social Media",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/naina.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Atharva Waval",
+     "role": "Director, Social Media",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/screenshot-2025-07-21-at-12.04.30-pm-1.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Harshith Iyer",
+     "role": "Director, Social Media",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/harshith-iyer.png",
+      "alt": ""
+     }
+    }
+   ],
+   "bareHead": true
+  }
+ ]
+}

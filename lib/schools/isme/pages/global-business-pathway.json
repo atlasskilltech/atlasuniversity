@@ -1,0 +1,376 @@
+{
+ "path": "/schools/isme/global-business-pathway",
+ "ref": "global-business-pathway.php",
+ "meta": {
+  "title": "ATLAS SkillTech University",
+  "description": "Get in touch with Atlas Skilltech."
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "kind": "hero",
+   "height": "658",
+   "id": null,
+   "eyebrow": null,
+   "name": null,
+   "position": null,
+   "title": "Global Business Pathway.\nATLAS × Northeastern University",
+   "text": null,
+   "image": null,
+   "buttons": null,
+   "video": {
+    "sources": [
+     {
+      "src": "/assets/videos/schools/isme/pages/internationalisation-video-hero_mp4.mp4",
+      "type": "video/mp4"
+     },
+     {
+      "src": "/assets/videos/schools/isme/pages/internationalisation-video-hero_webm.webm",
+      "type": "video/webm"
+     }
+    ],
+    "poster": "/assets/images/schools/isme/pages/internationalisation-video-hero_poster.0000000.jpg"
+   }
+  },
+  {
+   "cards": [
+    {
+     "tone": "bg6",
+     "label": "Access to STEM\nMaster’s programs with",
+     "value": "UK & USA\nwork opportunities",
+     "note": null,
+     "labelKind": "isme-2"
+    },
+    {
+     "tone": "bg7",
+     "label": "highly selective\ninstitution with a",
+     "value": "5.4% acceptance\nrate",
+     "note": null,
+     "labelKind": "isme-2"
+    },
+    {
+     "tone": "bg8",
+     "label": "Strong career\noutcomes with ~",
+     "value": "₹88L median\ngraduate salary",
+     "note": null,
+     "labelKind": "isme-2"
+    },
+    {
+     "tone": "bg6",
+     "label": "Up to 25%\nscholarships",
+     "value": "exclusively for\nATLAS students",
+     "note": null,
+     "labelKind": "isme-2"
+    }
+   ],
+   "padBottom": false,
+   "valueSize": 20,
+   "kind": "stats"
+  },
+  {
+   "kind": "storyX",
+   "heading": "Program Overview",
+   "headingMods": [
+    "mrg32"
+   ],
+   "headingOutside": true,
+   "imageFirst": false,
+   "frame": "atlas",
+   "image": {
+    "src": "/assets/images/about/about-img-1.webp",
+    "alt": "",
+    "srcSet": "/assets/images/about/about-img-1-p-500.webp 500w, /assets/images/about/about-img-1-p-800.webp 800w, /assets/images/about/about-img-1.webp 848w",
+    "sizes": "(max-width: 767px) 100vw, (max-width: 991px) 727.96875px, 848px"
+   },
+   "text": [
+    "The Global Business Pathway is an academically integrated international progression model created in partnership with Northeastern University. It enables students to begin their undergraduate education at ATLAS ISME and transition into Northeastern University London, culminating in a UK-accredited business qualification with optional postgraduate advancement in the UK or USA. This pathway aligns curriculum continuity, global academic standards, and applied learning to ensure graduates meet the expectations of international employers and postgraduate institutions."
+   ],
+   "button": null
+  },
+  {
+   "kind": "journeys",
+   "id": "start-up-section",
+   "heading": "Academic Progression Pathway",
+   "headingMods": [],
+   "cards": [
+    {
+     "year": "Years 1–2",
+     "title": "Mumbai, India",
+     "body": [
+      {
+       "text": "Complete the first two years of your Undergraduate Business program at ATLAS ISME, building strong foundations in:",
+       "italic": false
+      },
+      {
+       "list": "ul",
+       "items": [
+        "Business fundamentals",
+        "Analytical and quantitative skills",
+        "Global business perspectives"
+       ]
+      },
+      {
+       "text": "As per multiple entry/exit options under NEP 2020",
+       "italic": true
+      }
+     ],
+     "image": {
+      "src": "/assets/images/schools/isme/home/programs/showcase-1.png",
+      "alt": ""
+     }
+    },
+    {
+     "year": "Year 3",
+     "title": "London, United Kingdom",
+     "body": [
+      {
+       "text": [
+        "Transfer to ",
+        {
+         "strong": "Northeastern University London"
+        },
+        " and earn a ",
+        {
+         "strong": "fully UK-accredited BSc (Hons) in Business."
+        }
+       ],
+       "italic": false
+      },
+      {
+       "text": "Key highlights:",
+       "italic": false
+      },
+      {
+       "list": "ul",
+       "items": [
+        "International curriculum",
+        "Immersive London learning environment",
+        "Exposure to global industry and networks"
+       ]
+      }
+     ],
+     "image": {
+      "src": "/assets/images/schools/isme/pages/j-success-img.png",
+      "alt": ""
+     }
+    },
+    {
+     "year": "Postgraduate Progression",
+     "title": "UK or USA",
+     "body": [
+      {
+       "text": "Advance to postgraduate study with two global options:",
+       "italic": false
+      },
+      {
+       "list": "ul",
+       "items": [
+        "1-year Master’s degree at Northeastern University London, or",
+        "STEM-designated 1-year MSc at Northeastern University campuses in Boston, Miami, or Oakland (USA)"
+       ]
+      }
+     ],
+     "image": {
+      "src": "/assets/images/schools/isme/pages/showcase-3.png",
+      "alt": ""
+     }
+    }
+   ],
+   "large": {
+    "title": "Post-Study Work Opportunities",
+    "line": "A course per year",
+    "body": [
+     {
+      "text": "Graduates become eligible for:"
+     },
+     {
+      "list": "ul",
+      "items": [
+       "18+ months of post-study work in the UK (Graduate Visa)",
+       "Up to 36 months of post-study work in the USA (OPT for STEM programs)"
+      ]
+     },
+     {
+      "text": "Visa and post-study work rights are subject to prevailing immigration regulations at the time of graduation"
+     }
+    ],
+    "image": {
+     "src": "/assets/images/schools/isme/pages/showcase-4.png",
+     "alt": "",
+     "srcSet": "/assets/images/schools/isme/pages/showcase-4-p-500.png 500w, /assets/images/schools/isme/pages/showcase-4-p-800.png 800w, /assets/images/schools/isme/pages/showcase-4-p-1080.png 1080w, /assets/images/schools/isme/pages/showcase-4.png 1236w",
+     "sizes": "(max-width: 1236px) 100vw, 1236px"
+    },
+    "lessSpace": true
+   }
+  },
+  {
+   "kind": "electiveTabs",
+   "heading": "Your Path to Graduation & Masters",
+   "headingMods": [
+    "mrg16"
+   ],
+   "sub": "Choose from a range of globally recognised undergraduate and postgraduate pathways across the UK and USA.",
+   "tabs": [
+    {
+     "label": "London UK",
+     "cards": [
+      {
+       "title": "BSc (Hons) Business",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/elective-card--3.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "MSc International Business",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/elective-card--2.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "MSc FinTech",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/elective-card--4.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "MSc Project Management",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/mask-group.png",
+        "alt": ""
+       }
+      }
+     ]
+    },
+    {
+     "label": "Boston, Miami or Oakland USA",
+     "cards": [
+      {
+       "title": "MS Management",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/3255.jpg",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/3255-p-500.jpg 500w, /assets/images/schools/isme/pages/3255-p-800.jpg 800w, /assets/images/schools/isme/pages/3255-p-1080.jpg 1080w, /assets/images/schools/isme/pages/3255.jpg 1500w",
+        "sizes": "100vw"
+       }
+      },
+      {
+       "title": "MS International Management",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/2150794354.jpg",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/2150794354-p-500.jpg 500w, /assets/images/schools/isme/pages/2150794354-p-800.jpg 800w, /assets/images/schools/isme/pages/2150794354.jpg 1000w",
+        "sizes": "100vw"
+       }
+      },
+      {
+       "title": "MS Business Analytics",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/2148569079.jpg",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/2148569079-p-500.jpg 500w, /assets/images/schools/isme/pages/2148569079-p-800.jpg 800w, /assets/images/schools/isme/pages/2148569079-p-1080.jpg 1080w, /assets/images/schools/isme/pages/2148569079.jpg 1500w",
+        "sizes": "100vw"
+       }
+      },
+      {
+       "title": "MS Quantitative Finance",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/2152022023.jpg",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/2152022023-p-500.jpg 500w, /assets/images/schools/isme/pages/2152022023-p-800.jpg 800w, /assets/images/schools/isme/pages/2152022023.jpg 1050w",
+        "sizes": "100vw"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "storyX",
+   "heading": "Who Is This Pathway For?",
+   "headingMods": [
+    "mrg32"
+   ],
+   "headingOutside": true,
+   "imageFirst": true,
+   "frame": "atlas",
+   "image": {
+    "src": "/assets/images/about/about-img-1.webp",
+    "alt": "",
+    "srcSet": "/assets/images/about/about-img-1-p-500.webp 500w, /assets/images/about/about-img-1-p-800.webp 800w, /assets/images/about/about-img-1.webp 848w",
+    "sizes": "(max-width: 767px) 100vw, (max-width: 991px) 727.96875px, 848px"
+   },
+   "text": [
+    {
+     "list": "ul",
+     "items": [
+      "Students aspiring to build international business careers",
+      "Those seeking UK or USA education and work exposure",
+      "Learners who want a globally recognised degree while starting their journey in India",
+      "Students planning a seamless transition to international postgraduate study"
+     ]
+    }
+   ],
+   "button": null
+  },
+  {
+   "kind": "iconSection",
+   "id": "our-location",
+   "icon": "/assets/images/advantages/partnership/cdn/notification.png",
+   "num": null,
+   "title": "About Northeastern University",
+   "wrap": "blue",
+   "items": [
+    {
+     "heading": null,
+     "headingMods": [],
+     "headingOutside": false,
+     "imageFirst": false,
+     "frame": "rect",
+     "image": {
+      "src": "/assets/images/location/location-img.webp",
+      "alt": ""
+     },
+     "text": [
+      "Northeastern University is a leading global research university recognised for its academic rigor, interdisciplinary scholarship, and industry-integrated learning model. Classified among top-tier research institutions in the United States, Northeastern combines classroom education with experiential learning, ensuring students engage with real-world challenges alongside formal academic study. With campuses across the USA, the UK, and key international cities, the university operates within a global academic ecosystem that promotes mobility, research collaboration, and cross-cultural learning. Its graduates are widely regarded for their analytical depth, professional readiness, and ability to lead in complex international environments."
+     ],
+     "button": {
+      "label": "Know More",
+      "href": "#",
+      "variant": "responsive-mint"
+     },
+     "kind": "storyRow",
+     "bare": true,
+     "rectWidth": "auto",
+     "common": true
+    }
+   ]
+  },
+  {
+   "kind": "infoBanner",
+   "heading": "Start Your Global Business Journey",
+   "text": null,
+   "buttons": [
+    {
+     "label": "Apply Now",
+     "href": "#",
+     "variant": "mint",
+     "icon": "/assets/images/schools/isdi/isdi-for-outstation/banner/arrow-rt.svg"
+    },
+    {
+     "label": "Download Program Brochure",
+     "href": "#",
+     "variant": "outline-white",
+     "icon": "/assets/images/schools/isdi/isdi-for-outstation/banner/arrow-rt.svg"
+    }
+   ],
+   "image": {
+    "src": "/assets/images/schools/isme/home/banner/build-whats-next-banner-picture-1.png",
+    "alt": ""
+   },
+   "mobileAt": "mcm"
+  }
+ ]
+}

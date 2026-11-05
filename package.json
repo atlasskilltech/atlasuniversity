@@ -1,0 +1,36 @@
+{
+  "name": "atlas-university",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "map:discover": "node --no-warnings --import ./scripts/map/register.mjs scripts/map/discover.mjs",
+    "map:audit": "node --no-warnings scripts/map/audit.mjs",
+    "map:refresh": "npm run map:discover && npm run map:audit",
+    "prebuild": "npm run map:discover || echo [map] discovery skipped - the committed snapshot in data/map is used",
+    "assets:status": "node scripts/assets/status.mjs",
+    "assets:sync": "node scripts/assets/sync.mjs",
+    "assets:sync:dry": "node scripts/assets/sync.mjs --dry-run",
+    "assets:verify": "node scripts/assets/verify.mjs",
+    "assets:download": "node scripts/assets/download.mjs",
+    "hooks:install": "node scripts/assets/install-hooks.mjs",
+    "prepare": "node scripts/assets/install-hooks.mjs"
+  },
+  "dependencies": {
+    "next": "16.2.12",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-s3": "^3.1161.0",
+    "@aws-sdk/lib-storage": "^3.1161.0",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.2.12",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17"
+  }
+}

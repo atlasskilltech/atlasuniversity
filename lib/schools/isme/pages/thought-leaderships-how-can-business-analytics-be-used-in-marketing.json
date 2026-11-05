@@ -1,0 +1,204 @@
+{
+ "path": "/schools/isme/thought-leaderships/how-can-business-analytics-be-used-in-marketing",
+ "ref": "thought-leaderships/how-can-business-analytics-be-used-in-marketing.php",
+ "meta": {
+  "title": "ATLAS SkillTech University",
+  "description": "Get in touch with Atlas Skilltech."
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "kind": "articleHeader",
+   "image": {
+    "src": "/assets/images/schools/isme/home/thought-leadership/business-a-m.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/home/thought-leadership/business-a-m-p-500.png 500w, /assets/images/schools/isme/home/thought-leadership/business-a-m-p-800.png 800w, /assets/images/schools/isme/home/thought-leadership/business-a-m-p-1080.png 1080w, /assets/images/schools/isme/home/thought-leadership/business-a-m.png 1536w",
+    "sizes": "100vw"
+   }
+  },
+  {
+   "kind": "breadcrumbs",
+   "links": [
+    {
+     "label": "About Us",
+     "href": "#"
+    },
+    {
+     "label": "Thought Leadership",
+     "href": "#"
+    }
+   ],
+   "arrow": "/assets/images/schools/isme/pages/bread-arrow.svg"
+  },
+  {
+   "kind": "article",
+   "title": "How can Business Analytics be used in Marketing?",
+   "details": [
+    "Admin",
+    "9 min read",
+    "April 28, 2025"
+   ],
+   "jump": {
+    "heading": "Jump to",
+    "links": [
+     {
+      "label": "Business Analytics and Decision Making",
+      "href": "#"
+     },
+     {
+      "label": "Impact on Marketing Success",
+      "href": "#"
+     },
+     {
+      "label": "Building a Career in Business Analytics",
+      "href": "#"
+     }
+    ]
+   },
+   "body": [
+    {
+     "kind": "h3",
+     "id": "Business Analytics and Decision Making",
+     "text": "Business Analytics and Decision Making"
+    },
+    {
+     "kind": "p",
+     "mods": [
+      "p-tag"
+     ],
+     "text": "A highlight of the visit was the reaffirmation that ISME students from Atlas SkillTech University are always welcome to pursue their master’s studies at King’s College London. This strong relationship ensures a seamless pathway for our students to access world-class education and global exposure, fostering an enriching academic journey."
+    },
+    {
+     "kind": "rich",
+     "blocks": [
+      "Business is one of the most critical careers in today’s time. Businesses may focus solely on sales and finance. However, it is a complex, layered ecosystem, and one needs to assess every aspect meticulously before making any decision. The most crucial skill for any individual who wishes to explore the business field and flourish in it is to be critical and analyse every given situation deeply.",
+      [
+       {
+        "strong": "What Is Business Analytics?"
+       }
+      ],
+      "Understanding the role of data is essential to make informed business decisions. Business analytics enables professionals to:",
+      {
+       "list": "ul",
+       "items": [
+        "Address the root causes of business challenges",
+        "Understand how frequently issues arise",
+        "Discover effective ways to overcome them"
+       ]
+      },
+      "This is done by collecting and analysing data, which leads to deeper insights and smarter decision-making."
+     ]
+    },
+    {
+     "kind": "h3",
+     "id": "Impact on Marketing Success",
+     "text": "Impact on Marketing Success"
+    },
+    {
+     "kind": "rich",
+     "blocks": [
+      [
+       {
+        "strong": "What Impact Does Business Analytics Have on Marketing?"
+       }
+      ],
+      "Business analytics simplifies complex data, helping make decisions that directly enhance business performance. Particularly in marketing, it enables:",
+      {
+       "list": "ul",
+       "items": [
+        "Customer Understanding: Gain insights into customer behaviour and preferences for stronger strategies",
+        "Data-Driven Decision-Making: Use real metrics to make informed choices",
+        "Improved ROI: Assess and refine marketing efforts to maximise returns",
+        "Optimising Campaigns: Identify gaps and enhance ongoing marketing efforts",
+        "Strategic Planning: Leverage insights to shape future marketing plans",
+        "Enhanced Customer Engagement: Personalise outreach based on analytics to drive stronger connections"
+       ]
+      },
+      [
+       {
+        "strong": "What Are the Benefits of Business and Marketing Analytics?"
+       }
+      ],
+      "When business and marketing analytics are combined, the results are powerful. Benefits include:",
+      {
+       "list": "ul",
+       "items": [
+        "A deeper understanding of target customers",
+        "The ability to refine existing strategies",
+        "Measuring the effectiveness of marketing efforts",
+        "Deeper analysis of channels to improve decisions"
+       ]
+      },
+      "‍"
+     ]
+    },
+    {
+     "kind": "h3",
+     "id": "Building a Career in Business Analytics",
+     "text": "Building a Career in Business Analytics"
+    },
+    {
+     "kind": "rich",
+     "blocks": [
+      {
+       "heading": "h3",
+       "text": [
+        {
+         "strong": "Is Business Analytics Beneficial?"
+        }
+       ]
+      },
+      "Absolutely. In today’s dynamic business world, staying ahead means adapting to new tools, trends, and data-driven strategies. A degree in business analytics offers strong career potential across sectors.",
+      {
+       "heading": "h3",
+       "text": [
+        {
+         "strong": "Where to Study Business Analytics?"
+        }
+       ]
+      },
+      "ATLAS SkillTech University is widely recognised for its advanced and immersive teaching methods in business analytics.",
+      "At ATLAS ISME:",
+      {
+       "list": "ul",
+       "items": [
+        "Students gain theoretical knowledge + hands-on industry experience",
+        "Experimental learning and live projects are integrated into the curriculum",
+        "The BBA Major provides deep insights into finance and marketing",
+        "The BBA Minor includes entrepreneurship, supply chain management, and finance",
+        "The MBA in Business Analytics teaches students how to leverage data for real-world success"
+       ]
+      },
+      "Business analytics courses at ATLAS help students build a strong foundation and a future-ready career in business"
+     ]
+    },
+    {
+     "kind": "tags",
+     "heading": "Tags",
+     "items": [
+      {
+       "label": "Student Collaboration",
+       "href": "#"
+      },
+      {
+       "label": "Inferno",
+       "href": "#"
+      },
+      {
+       "label": "Festival",
+       "href": "#"
+      },
+      {
+       "label": "Leadership",
+       "href": "#"
+      },
+      {
+       "label": "Teamwork",
+       "href": "#"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,328 @@
+{
+ "path": "/schools/isme/life@atlas-isme/test",
+ "ref": "life@atlas-isme/test.php",
+ "noTw": true,
+ "meta": {
+  "title": "Life at ATLAS ISME – Campus Experience & Activities",
+  "description": "Experience vibrant campus life at ATLAS ISME with cultural events, clubs, sports, and community initiatives."
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "kind": "lifeHero",
+   "eyebrow": "Life@ATLAS ISME",
+   "title": "Not just extra-curricular, it’s extra-ordinary.",
+   "columns": [
+    {
+     "variant": "vertical-swiper",
+     "hideOnMobile": false,
+     "slides": [
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-1.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-2.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-3.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-4.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-1.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-2.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-3.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-4.png",
+        "alt": ""
+       }
+      }
+     ]
+    },
+    {
+     "variant": "vertical-swiper1",
+     "hideOnMobile": true,
+     "slides": [
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-5.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": true,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-6.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-7.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-8.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-5.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": true,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-6.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-7.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-8.png",
+        "alt": ""
+       }
+      }
+     ]
+    },
+    {
+     "variant": "vertical-swiper",
+     "hideOnMobile": true,
+     "slides": [
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-9.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-10.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": true,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-11.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-12.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-9.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-10.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": true,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-11.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-12.png",
+        "alt": ""
+       }
+      }
+     ]
+    },
+    {
+     "variant": "vertical-swiper1",
+     "hideOnMobile": false,
+     "slides": [
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-13.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-14.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-15.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-16.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-13.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-14.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-15.png",
+        "alt": ""
+       }
+      },
+      {
+       "auto": false,
+       "image": {
+        "src": "/assets/images/life/hero/life-isme-16.png",
+        "alt": ""
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "anchorMenu",
+   "centered": false,
+   "links": [
+    {
+     "label": "Overview",
+     "href": "#life-at-isme"
+    },
+    {
+     "label": "Student Clubs",
+     "href": "#student-clubs"
+    },
+    {
+     "label": "College Fest",
+     "href": "#fest-culture"
+    },
+    {
+     "label": "Intercollegiate events",
+     "href": "#intercollegiate-events"
+    },
+    {
+     "label": "Sports",
+     "href": "#sports"
+    },
+    {
+     "label": "Student Council",
+     "href": "#student-council"
+    },
+    {
+     "label": "Student Welfare",
+     "href": "#student-welfare"
+    },
+    {
+     "label": "Community Service",
+     "href": "#community-services"
+    },
+    {
+     "label": "Campus",
+     "href": "#student-housing"
+    },
+    {
+     "label": "Hangout Spots",
+     "href": "#life-in-mumbai"
+    },
+    {
+     "label": "WILO",
+     "href": "#campus-week"
+    },
+    {
+     "label": "Our Moto",
+     "href": "#our-moto"
+    }
+   ]
+  },
+  {
+   "kind": "spacer",
+   "style": {
+    "height": "300vh",
+    "border": "1px solid red"
+   }
+  }
+ ]
+}

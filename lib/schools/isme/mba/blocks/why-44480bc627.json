@@ -1,0 +1,81 @@
+{
+ "heading": "Why Choose MBA in Investment Banking at ATLAS?",
+ "sub": null,
+ "cards": [
+  {
+   "variant": "mint",
+   "title": "Future-Ready Curriculum",
+   "texts": [
+    "These are the right subjects to be future ready, the right programs to study to get a holistic learning about business."
+   ],
+   "num": "01",
+   "bg": "/assets/images/schools/isme/bba/course-isme-bg1.webp",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/image-1011.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/image-1011-p-500.png 500w, /assets/images/schools/isme/bba/image-1011.png 619w",
+    "sizes": "(max-width: 683px) 100vw, 683px"
+   }
+  },
+  {
+   "variant": "mint-switch",
+   "title": "Learn from Industry,\nNot Just Academia",
+   "texts": [
+    "Courses led by CXOs, founders, investors, and global professionals."
+   ],
+   "num": "02",
+   "bg": "/assets/images/schools/isme/bba/ways-bg-2.png",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/frame-1272631708.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/frame-1272631708-p-500.png 500w, /assets/images/schools/isme/bba/frame-1272631708.png 620w",
+    "sizes": "(max-width: 683px) 100vw, 683px"
+   }
+  },
+  {
+   "variant": "mint",
+   "title": "Foundation Year: Build Your Base. Discover Your Edge.",
+   "texts": [
+    "From day one, you’ll engage in live projects, business simulations, mock stock exercises, and brand sprints — gaining hands-on experience through immersive courses, team collaborations, and interactive sessions, all while building core skills in problem-solving, communication, and decision-making."
+   ],
+   "num": "03",
+   "bg": "/assets/images/schools/isme/bba/ways-bg-2.png",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/image-1015.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/image-1015-p-500.png 500w, /assets/images/schools/isme/bba/image-1015.png 620w",
+    "sizes": "(max-width: 683px) 100vw, 683px"
+   }
+  },
+  {
+   "variant": "mint-switch",
+   "title": "Global Is Built In",
+   "texts": [
+    "Access Global Immersions, International Summer Schools, International faculty workshops & masterclasses, and Master’s progression pathways."
+   ],
+   "num": "04",
+   "bg": "/assets/images/schools/isme/bba/ways-bg-2.png",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/image-1014.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/image-1014-p-500.png 500w, /assets/images/schools/isme/bba/image-1014.png 620w",
+    "sizes": "(max-width: 683px) 100vw, 683px"
+   }
+  },
+  {
+   "variant": "mint",
+   "title": "Built For Outcomes",
+   "texts": [
+    "Internship-ready. Startup-ready. Grad school-ready.\nChoose your path and we’ll help you launch it."
+   ],
+   "num": "05",
+   "bg": "/assets/images/schools/isme/bba/ways-bg-2.png",
+   "image": {
+    "src": "/assets/images/schools/isme/mba/image-1013.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/mba/image-1013-p-500.png 500w, /assets/images/schools/isme/mba/image-1013.png 618w",
+    "sizes": "(max-width: 683px) 100vw, 683px"
+   }
+  }
+ ]
+}

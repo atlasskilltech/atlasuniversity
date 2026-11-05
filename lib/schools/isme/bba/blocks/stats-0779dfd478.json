@@ -1,0 +1,22 @@
+{
+ "cards": [
+  {
+   "tone": "bg6",
+   "label": "Duration",
+   "value": "3-Year Degree /\n4-Year (Hons.)",
+   "note": null
+  },
+  {
+   "tone": "bg7",
+   "label": "Eligibility Criteria",
+   "value": "50% in Class XII",
+   "note": "(Any Stream) or equivalent IB / A-Levels"
+  },
+  {
+   "tone": "bg8",
+   "label": "Next Intake",
+   "value": "July 2027",
+   "note": "Session begins from 17th July 2027"
+  }
+ ]
+}

@@ -1,0 +1,735 @@
+{
+ "path": "program-mba-in-investment-banking",
+ "meta": {
+  "title": "MBA in Investment Banking in Mumbai – ATLAS ISME",
+  "description": "Study investment banking, valuation, markets, risk, analytics, financial strategy and skills for global finance roles.",
+  "keywords": null
+ },
+ "brochure": {
+  "ids": [
+   "mba-brochure",
+   "campus-visit"
+  ],
+  "scripts": [
+   {
+    "src": "https://crm.atlasskilltech.app/widgets/6a3e7b56a1fd0680c6c18e59/embed.js",
+    "height": 650
+   }
+  ]
+ },
+ "order": [
+  "hero",
+  "stats",
+  "program",
+  "why",
+  "execution",
+  "voices",
+  "admissions",
+  "eligibility",
+  "banner",
+  "cmsfaq"
+ ],
+ "blocks": {
+  "hero": {
+   "title": "MBA in Investment Banking",
+   "image": {
+    "src": "/assets/images/schools/isme/mba/investment-banking-hero-1-1-1.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/mba/investment-banking-hero-1-1-1-p-500.png 500w, /assets/images/schools/isme/mba/investment-banking-hero-1-1-1-p-800.png 800w, /assets/images/schools/isme/mba/investment-banking-hero-1-1-1-p-1080.png 1080w, /assets/images/schools/isme/mba/investment-banking-hero-1-1-1.png 1366w",
+    "sizes": "(max-width: 1366px) 100vw, 1366px"
+   },
+   "buttons": [
+    {
+     "label": "Apply for 2027 Intake",
+     "variant": "mint",
+     "href": "https://atlasuniversity.edu.in/applicationform"
+    },
+    {
+     "label": "Download Brochure",
+     "variant": "outline-white",
+     "brochure": "mba-brochure"
+    }
+   ],
+   "narrow": true,
+   "lead": "Specialisation in Investment Banking"
+  },
+  "program": {
+   "panes": [
+    {
+     "label": "Overview",
+     "kind": "text",
+     "text": [
+      "The MBA in Investment Banking at ATLAS ISME is ",
+      {
+       "strong": "India’s first industry-endorsed program that blends academic excellence with real-world deal execution."
+      },
+      " Designed in close collaboration with leading bankers and capital market experts, this two-year program ",
+      {
+       "strong": "prepares students to work on high-stakes transactions like M&A deals, IPO mandates, and private equity investments."
+      },
+      "\n\nThrough a future-focused curriculum and live deal-room simulations, students gain hands-on experience in ",
+      {
+       "strong": "valuation techniques, financial modeling, regulatory compliance, and risk management."
+      },
+      "The program is structured to bridge theory with practice—featuring workshops on ",
+      {
+       "strong": "DRHP drafting, SEBI & LODR guidelines, fintech integrations, and ESG trends."
+      },
+      "\n\nWith direct mentorship from senior professionals and a six-month internship built into the curriculum, graduates emerge career-ready for global roles across investment banks, advisory firms, and capital markets. What sets this program apart is its guaranteed placement support, practitioner-led pedagogy, and access to India’s most powerful financial networks."
+     ],
+     "paneClass": null
+    },
+    {
+     "label": "Curriculum Highlights",
+     "kind": "textCards",
+     "cards": [
+      {
+       "title": "Foundations of Finance & Markets"
+      },
+      {
+       "title": "6-Month Corporate Internship"
+      }
+     ],
+     "paneClass": null
+    },
+    {
+     "label": "Learning Outcomes",
+     "kind": "learn",
+     "grid": true,
+     "cards": [
+      {
+       "num": "#1",
+       "text": "Gain strong financial acumen and deep understanding of banking,\ncapital markets, and investment strategy",
+       "tone": "bg1"
+      },
+      {
+       "num": "#2",
+       "text": "Analyze and build digital financial products using\nemerging tech (AI, blockchain, cloud)",
+       "tone": "bg2"
+      },
+      {
+       "num": "#3",
+       "text": "Evaluate and mitigate risk in digital lending, payments,\nand crypto transactions",
+       "tone": "bg1"
+      },
+      {
+       "num": "#4",
+       "text": "Lead digital transformation in BFSI or\nscale their own fintech startups",
+       "tone": "bg1"
+      },
+      {
+       "num": "#5",
+       "text": "Apply hands-on experience from real fintech\ncase studies, projects, and simulations",
+       "tone": "bg2"
+      },
+      {
+       "num": "#6",
+       "text": "Develop fintech business models using agile\nmethodologies and regulatory frameworks",
+       "tone": "bg1"
+      }
+     ],
+     "paneClass": null
+    },
+    {
+     "label": "Career Pathways",
+     "kind": "careers",
+     "cards": [
+      {
+       "title": "Investment\nBanks",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn1.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "ESG\nAdvisory Firms",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn2.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "FinTech\nStartups",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn3.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "SEBI-Registered\nIntermediaries",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn2.png.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Corporate Finance Divisions",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn4.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Asset Management Companies",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn5.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Financial\nConsulting",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn6.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Private Equity & Venture Capital",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn7.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Private Equity & Venture Capital",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/finn7.png",
+        "alt": ""
+       }
+      }
+     ],
+     "paneClass": null
+    }
+   ],
+   "current": 0,
+   "years": [
+    {
+     "label": "Year 1",
+     "semesters": [
+      {
+       "title": "Semester 1",
+       "text": "Gain a rigorous introduction to the foundations of investment banking, accounting, economics, and financial markets. This semester focuses on building analytical and business communication skills essential for a career in finance and investment banking.",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/sem-1.png",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Introduction to Securities Market"
+          }
+         ],
+         "text": "Explores primary and secondary markets, securities instruments, and trading mechanisms. Students analyze market structures and investment strategies."
+        },
+        {
+         "title": [
+          {
+           "strong": "Introduction to Investment Banking"
+          }
+         ],
+         "text": "Covers investment banking functions, capital raising, M&A advisory, and underwriting processes. Students examine real-world IB transactions and case studies."
+        },
+        {
+         "title": [
+          {
+           "strong": "Analysis of Financial Statements"
+          }
+         ],
+         "text": "Teaches interpretation of balance sheets, income statements, and cash flows. Students assess company performance and make informed investment decisions."
+        },
+        {
+         "title": [
+          {
+           "strong": "Excel for Decision Making + AI Tools"
+          }
+         ],
+         "text": "Develops financial modeling and analytical skills using Excel and AI tools. Students perform scenario analysis and data-driven investment decisions."
+        },
+        {
+         "title": [
+          {
+           "strong": "Managerial Economics"
+          }
+         ],
+         "text": "Applies micro and macroeconomic concepts to managerial decisions. Students evaluate market behavior, pricing strategies, and resource allocation for investments."
+        },
+        {
+         "title": [
+          {
+           "strong": "Statistics for Managers"
+          }
+         ],
+         "text": "Introduces probability, regression, and hypothesis testing for business decision-making. Students analyze data for financial forecasting and investment analysis."
+        },
+        {
+         "title": [
+          {
+           "strong": "Corporate Communication"
+          }
+         ],
+         "text": "Covers internal and external corporate communication strategies. Students develop messaging for stakeholders, investor relations, and media engagement."
+        },
+        {
+         "title": [
+          {
+           "strong": "Corporate Finance I"
+          }
+         ],
+         "text": "Introduces capital structure, time value of money, and financing decisions. Students learn to value projects, analyze risk, and optimize financial strategies."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our Semester 1 curriculum outpaces every other business school",
+         "text": "ATLAS ISME combines applied financial analysis, AI tools, and global business insights, contrasting theory-heavy, lecture-based investment banking programs.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Introduction to Securities Market",
+           "Practical analysis of market instruments and trading mechanisms.",
+           "Lecture-based overview."
+          ],
+          [
+           "Introduction to Investment Banking",
+           "Real-world IB case studies and transaction analysis.",
+           "Primarily theoretical."
+          ],
+          [
+           "Analysis of Financial Statements",
+           "Applied financial statement analysis for investment decisions.",
+           "Focus on theory and formulas."
+          ],
+          [
+           "Excel for Decision Making + AI Tools",
+           "Hands-on financial modeling and AI-assisted analysis.",
+           "Basic Excel exercises, no AI integration."
+          ],
+          [
+           "Managerial Economics",
+           "Decision-oriented economic analysis for investment contexts.",
+           "Lecture-focused economics."
+          ],
+          [
+           "Statistics for Managers",
+           "Applied statistics for financial forecasting and risk assessment.",
+           "Theory-heavy statistics."
+          ],
+          [
+           "Corporate Communication",
+           "Real-world corporate messaging and investor relations exercises.",
+           "Minimal practical exposure."
+          ],
+          [
+           "Corporate Finance I",
+           "Case-based project valuation and capital structuring exercises.",
+           "Lecture-focused corporate finance theory."
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Semester 2",
+       "text": "Develop expertise in financial management, corporate finance, and advanced regulatory frameworks, while deepening practical skills through hands-on labs and a focus on analysis of both equity and debt markets. The curriculum emphasizes compliance, ethics, and real-time market analysis.",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/sem-2.png",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Corporate Governance and Compliance under Companies Act 2013"
+          }
+         ],
+         "text": "Introduces governance principles and compliance requirements under the Companies Act 2013. Students understand corporate responsibilities and legal frameworks."
+        },
+        {
+         "title": [
+          {
+           "strong": "IPO and Capital Raising under ICDR I"
+          }
+         ],
+         "text": "Covers IPO processes and capital raising under ICDR regulations. Students learn issue management and regulatory aspects."
+        },
+        {
+         "title": [
+          {
+           "strong": "Analysis of Financial Statements"
+          }
+         ],
+         "text": "Teaches interpretation of financial statements. Students evaluate a company's performance and financial health."
+        },
+        {
+         "title": [
+          {
+           "strong": "Corporate Finance II"
+          }
+         ],
+         "text": "Focuses on advanced finance concepts like valuation and capital budgeting. Students evaluate strategic financial decisions."
+        },
+        {
+         "title": [
+          {
+           "strong": "Financial Modelling"
+          }
+         ],
+         "text": "Develops skills in building financial models for analysis and forecasting. Students support investment decisions using structured tools."
+        },
+        {
+         "title": [
+          {
+           "strong": "Financial Derivatives and Risk Management"
+          }
+         ],
+         "text": "Introduces derivatives and risk management techniques. Students learn to manage financial risks effectively."
+        },
+        {
+         "title": [
+          {
+           "strong": "Securities Analysis and Portfolio Management"
+          }
+         ],
+         "text": "Covers evaluation of securities and portfolio construction. Students apply risk-return and diversification strategies."
+        },
+        {
+         "title": [
+          {
+           "strong": "Research Methodology and Data Analytics"
+          }
+         ],
+         "text": "Introduces research methods and data analysis tools. Students use data to support financial decision-making."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our semester 2 curriculum outpaces every other business school",
+         "text": "ATLAS ISME emphasizes applied corporate governance, IPO processes, derivatives, and portfolio management with practical exercises, contrasting theory-heavy programs elsewhere.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Corporate Governance and Compliance under Companies Act 2013",
+           "Applied case studies with a focus on Companies Act 2013 compliance and governance practices",
+           "Theory-heavy corporate law with limited practical exposure"
+          ],
+          [
+           "IPO and Capital Raising under ICDR I",
+           "Real IPO case studies with hands-on regulatory application",
+           "Limited exposure to actual IPO processes"
+          ],
+          [
+           "Analysis of Financial Statements",
+           "Practical analysis of financial statements using real company data",
+           "Primarily theoretical interpretation of financial statements"
+          ],
+          [
+           "Corporate Finance II",
+           "Case-based advanced valuation and financing strategies",
+           "Lecture on heavy finance theory"
+          ],
+          [
+           "Financial Modelling",
+           "Hands-on Excel-based financial modelling and forecasting projects",
+           "Minimal practical modelling experience"
+          ],
+          [
+           "Financial Derivatives and Risk Management",
+           "Applied derivative pricing, hedging, and risk analysis",
+           "Conceptual understanding of derivatives with limited application"
+          ],
+          [
+           "Securities Analysis and Portfolio Management",
+           "Practical portfolio construction and investment strategy application",
+           "Mostly theoretical investment evaluation"
+          ],
+          [
+           "Research Methodology and Data Analytics",
+           "Data-driven financial research and analytics projects",
+           "Limited applied analytics and research exposure"
+          ]
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Year 2",
+     "semesters": [
+      {
+       "title": "Semester 3",
+       "text": "Advance into specialized banking operations, M&A, and capital markets topics, blending analytical skills with practical case study projects. Students build a strong understanding of risk management and deal execution processes essential for investment bankers.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "IPO and Capital Raising under ICDR II"
+          }
+         ],
+         "text": "Focuses on advanced IPO structuring and regulatory compliance under ICDR. Students analyse real case scenarios in capital raising."
+        },
+        {
+         "title": [
+          {
+           "strong": "Due Diligence and Business Analysis"
+          }
+         ],
+         "text": "Covers financial, legal, and business due diligence processes. Students evaluate companies for investments and strategic decisions."
+        },
+        {
+         "title": [
+          {
+           "strong": "Listing Obligations and Disclosure Requirements (LODR)"
+          }
+         ],
+         "text": "Introduces SEBI listing regulations and disclosure norms. Students ensure corporate transparency and regulatory compliance."
+        },
+        {
+         "title": [
+          {
+           "strong": "Valuation and M&A"
+          }
+         ],
+         "text": "Focuses on company valuation and mergers and acquisitions strategies. Students assess deals using financial modelling and analysis."
+        },
+        {
+         "title": [
+          {
+           "strong": "Direct and Indirect Taxation"
+          }
+         ],
+         "text": "Covers taxation laws relevant to corporate finance and investments. Students analyse tax implications for business decisions."
+        },
+        {
+         "title": [
+          {
+           "strong": "Behavioural Finance"
+          }
+         ],
+         "text": "Explores psychological factors influencing financial decisions. Students examine investor behaviour and market anomalies."
+        },
+        {
+         "title": [
+          {
+           "strong": "FinTech"
+          }
+         ],
+         "text": "Introduces digital finance, blockchain, and emerging technologies. Students evaluate innovations in banking and financial services."
+        },
+        {
+         "title": [
+          {
+           "strong": "ESG"
+          }
+         ],
+         "text": "Covers environmental, social, and governance principles in finance. Students analyse sustainable investing and responsible business practices."
+        },
+        {
+         "title": [
+          {
+           "strong": "Grooming and Etiquettes"
+          }
+         ],
+         "text": "Develops professional conduct and communication skills. Students learn corporate etiquette and client interaction standards."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our semester 3 curriculum outpaces every other business school",
+         "text": "ATLAS ISME emphasizes applied due diligence, IPO compliance, M&A valuation, and FinTech integration, unlike conventional programs with theoretical investment banking focus.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "IPO and Capital Raising under ICDR II",
+           "Advanced IPO structuring with real case applications and regulatory exposure",
+           "Limited practical exposure to advanced IPO processes"
+          ],
+          [
+           "Due Diligence and Business Analysis",
+           "Hands-on due diligence and company analysis using real cases",
+           "Mostly a theoretical understanding of due diligence"
+          ],
+          [
+           "Listing Obligations and Disclosure Requirements (LODR)",
+           "Practical application of SEBI listing norms and disclosure practices",
+           "Basic overview of listing regulations"
+          ],
+          [
+           "Valuation and M&A",
+           "Real-world valuation techniques and M&A case studies",
+           "Theory-focused valuation with limited deal exposure"
+          ],
+          [
+           "Direct and Indirect Taxation",
+           "Practical insights into tax planning and corporate taxation",
+           "Conceptual taxation knowledge with minimal application"
+          ],
+          [
+           "Behavioural Finance",
+           "Application of behavioural concepts to real investor decisions",
+           "Theoretical understanding of investor behaviour"
+          ],
+          [
+           "FinTech",
+           "Exposure to digital finance tools and emerging financial technologies",
+           "Limited coverage of FinTech concepts"
+          ],
+          [
+           "ESG",
+           "Practical understanding of ESG frameworks and sustainable investing",
+           "Basic introduction to ESG concepts"
+          ],
+          [
+           "Grooming and Etiquettes",
+           "Professional grooming, communication, and corporate readiness training",
+           "Minimal focus on soft skills development"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Semester 4",
+       "text": "Apply advanced banking knowledge through real-world projects and internships, with a focus on global investment banking, strategic advisory, and portfolio management. The curriculum prepares students to confidently step into industry roles and leadership positions",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "6 Months Internship"
+          }
+         ],
+         "text": "Provides practical industry exposure through a structured internship. Students apply classroom knowledge in real-world financial settings."
+        },
+        {
+         "title": [
+          {
+           "strong": "Workshops"
+          }
+         ],
+         "text": "Offers hands-on learning through expert-led sessions. Students gain practical insights into current industry practices and tools."
+        },
+        {
+         "title": [
+          {
+           "strong": "MS Office for Finance Professionals"
+          }
+         ],
+         "text": "Develops proficiency in MS Office tools for financial analysis and reporting. Students enhance productivity and data handling skills."
+        },
+        {
+         "title": [
+          {
+           "strong": "Drafting of Draft Red Herring Prospectus (DRHP)"
+          }
+         ],
+         "text": "Introduces the structure and drafting of DRHP documents. Students learn disclosure requirements and documentation for public issues."
+        },
+        {
+         "title": [
+          {
+           "strong": "Familiarity with Third-Party Databases"
+          }
+         ],
+         "text": "Covers the usage of financial databases for research and analysis. Students access and interpret market and company data effectively."
+        },
+        {
+         "title": [
+          {
+           "strong": "Relationship Management and Marketing in Financial Services"
+          }
+         ],
+         "text": "Focuses on client relationship building and financial product marketing. Students develop communication and client management skills."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our semester 4 curriculum outpaces every other business school",
+         "text": "ATLAS ISME emphasizes hands-on live internships and integrated capstone projects, providing practical exposure unmatched by theory-heavy programs elsewhere.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "6 Months Internship",
+           "Structured 6-month internship with hands-on industry exposure",
+           "Short-term or limited internship opportunities"
+          ],
+          [
+           "Workshops",
+           "Industry-led workshops with practical learning and simulations",
+           "Occasional workshops with limited practical depth"
+          ],
+          [
+           "MS Office for Finance Professionals",
+           "Practical training in Excel and tools for financial analysis and modelling",
+           "Basic MS Office usage with limited financial application"
+          ],
+          [
+           "Drafting of Draft Red Herring Prospectus (DRHP)",
+           "Hands-on experience in DRHP drafting and IPO documentation",
+           "Theoretical understanding of IPO documentation"
+          ],
+          [
+           "Familiarity with Third-Party Databases",
+           "Exposure to financial databases for real-time research and analysis",
+           "Limited or no access to professional databases"
+          ],
+          [
+           "Relationship Management and Marketing in Financial Services",
+           "Practical training in client handling and financial product marketing",
+           "Minimal focus on client relationship skills"
+          ]
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "download": {
+    "label": "Download Curriculum",
+    "variant": "mint",
+    "fontSize": null,
+    "brochure": "mba-brochure"
+   },
+   "yearsWrap": "quaternary"
+  }
+ },
+ "refs": {
+  "stats": "stats-308540c7b4",
+  "why": "why-44480bc627",
+  "execution": "execution-d0cf234f82",
+  "voices": "voices-47c8abecf0",
+  "admissions": "admissions-e3cb80af89",
+  "eligibility": "eligibility-54ef054424",
+  "banner": "banner-1d16e679f9",
+  "cmsfaq": "cmsfaq-406c823ef5"
+ }
+}

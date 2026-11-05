@@ -1,0 +1,934 @@
+{
+ "path": "dual-specialisation/finance-entrepreneurships",
+ "meta": {
+  "title": "MBA Finance & Entrepreneurship in Mumbai – ATLAS ISME",
+  "description": "Learn finance, investment skills, startup strategy, business planning and innovation to build strong leadership careers. Apply now.",
+  "keywords": null
+ },
+ "brochure": {
+  "ids": [
+   "mba-brochure",
+   "campus-visit"
+  ],
+  "scripts": [
+   {
+    "src": "https://crm.atlasskilltech.app/widgets/6a3e7b56a1fd0680c6c18e59/embed.js",
+    "height": 650
+   }
+  ]
+ },
+ "order": [
+  "hero",
+  "stats",
+  "steps",
+  "mbatrack",
+  "why",
+  "execution",
+  "voices",
+  "admissions",
+  "eligibility",
+  "banner",
+  "cmsfaq"
+ ],
+ "blocks": {
+  "hero": {
+   "title": "MBA for an AI World (With Dual Specialisation)",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/course-header-img.webp",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/course-header-img-p-500.webp 500w, /assets/images/schools/isme/bba/course-header-img-p-800.webp 800w, /assets/images/schools/isme/bba/course-header-img-p-1080.webp 1080w, /assets/images/schools/isme/bba/course-header-img.webp 1366w",
+    "sizes": "(max-width: 1366px) 100vw, 1366px"
+   },
+   "buttons": [
+    {
+     "label": "Apply for July 2027 Intake",
+     "variant": "mint",
+     "href": "https://atlasuniversity.edu.in/applicationform"
+    },
+    {
+     "label": "Download Brochure",
+     "variant": "outline-white",
+     "brochure": "mba-brochure"
+    }
+   ],
+   "narrow": true,
+   "lead": "ATLAS ISME’s MBA is not just a degree, it’s your AI-powered launchpad into leadership. A future-ready MBA that combines strong management foundations with the power of AI and analytics."
+  },
+  "mbatrack": {
+   "selection": {
+    "id": "dual-mba-selection",
+    "heading": {
+     "num": "1",
+     "title": "Choose Your Specialisation"
+    },
+    "tabs": [
+     {
+      "id": "cards-hyper-mba",
+      "label": "Hyper Specialisation",
+      "active": false,
+      "href": "/schools/isme/programs/postgraduate/mba-hyper/mba-with-specialisation#hyper-mba-selection"
+     },
+     {
+      "id": "cards-dual-mba",
+      "label": "Dual Specialisation",
+      "active": true,
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/finance-entrepreneurships"
+     }
+    ],
+    "cards": [
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/marketing-finance#dual-mba-selection",
+      "title": "Marketing + Finance",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/marketing-entrepreneurship#dual-mba-selection",
+      "title": "Marketing + Entrepreneurship & Family Business",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/marketing-business-analytics#dual-mba-selection",
+      "title": "Marketing + Business Analytics",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/marketing-digital-marketing#dual-mba-selection",
+      "title": "Marketing + Digital Marketing",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/finance-business-analytics#dual-mba-selection",
+      "title": "Finance + Business Analytics",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/finance-digital-marketing-advertising#dual-mba-selection",
+      "title": "Finance + Digital Marketing & Advertising",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/finance-entrepreneurships#dual-mba-selection",
+      "title": "Finance + Entrepreneurship & Family Business",
+      "active": true
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/entrepreneurships-business-analytics#dual-mba-selection",
+      "title": "Entrepreneurship & Family Business + Business Analytics",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/business-analytics-digital-marketing-advertising#dual-mba-selection",
+      "title": "Business Analytics + Digital Marketing & Advertising",
+      "active": false
+     },
+     {
+      "href": "/schools/isme/programs/postgraduate/dual-specialisation/entrepreneurships-digital-marketing#dual-mba-selection",
+      "title": "Entrepreneurship & Family Business + Digital Marketing",
+      "active": false
+     }
+    ],
+    "tabTick": "/assets/images/schools/isme/bba/tick-blue.svg",
+    "cardTick": "/assets/images/schools/isme/mba/mint-tick.svg"
+   },
+   "curriculum": {
+    "heading": {
+     "num": "3",
+     "title": "Review Your Curriculum"
+    },
+    "panes": [
+     {
+      "label": "Overview",
+      "kind": "text",
+      "text": [
+       "The ",
+       {
+        "strong": "MBA in Finance + Entrepreneurship & Family Business at ATLAS ISME"
+       },
+       " equips future leaders to merge financial expertise with entrepreneurial innovation and family business stewardship. From ",
+       {
+        "strong": "investment banking to startup growth, corporate valuation to succession planning"
+       },
+       ", fintech to ESG strategies — this dual specialization empowers students to ",
+       {
+        "strong": "manage capital, scale ventures, and sustain multi-generational enterprises in an evolving global economy."
+       }
+      ],
+      "paneClass": "tab-pane-tab-1"
+     },
+     {
+      "label": "Curriculum Highlights",
+      "kind": "cards",
+      "cards": [
+       {
+        "num": "#1",
+        "title": "Financial Statement Analysis"
+       },
+       {
+        "num": "#2",
+        "title": "Investment Analysis & Portfolio Management"
+       },
+       {
+        "num": "#3",
+        "title": "Corporate Valuation & M&A"
+       },
+       {
+        "num": "#4",
+        "title": "Entrepreneurial FInance & Wealth Management"
+       },
+       {
+        "num": "#5",
+        "title": "Family Enterprise Dynamics & Governance"
+       },
+       {
+        "num": "#6",
+        "title": "New Age Business Models"
+       },
+       {
+        "num": "#7",
+        "title": "FinTech Ventures & Innovation"
+       },
+       {
+        "num": "#8",
+        "title": "Human Centered Design Thinking"
+       },
+       {
+        "num": "#9",
+        "title": "Sustainable & Behavioural Finance"
+       },
+       {
+        "num": "#10",
+        "title": "Capstone Project & Consulting"
+       }
+      ],
+      "paneClass": "tab-pane-tab-2"
+     },
+     {
+      "label": "Learning Outcomes",
+      "kind": "cards",
+      "cards": [
+       {
+        "num": "#1",
+        "title": "Apply financial tools for valuation, investment, and decision-making."
+       },
+       {
+        "num": "#2",
+        "title": "Scale startups using innovative business models and growth strategies."
+       },
+       {
+        "num": "#3",
+        "title": "Manage succession, governance, and innovation in family enterprises."
+       },
+       {
+        "num": "#4",
+        "title": "Harness fintech and sustainable finance for entrepreneurial advantage."
+       },
+       {
+        "num": "#5",
+        "title": "Lead with resilience, ethics, and adaptability."
+       },
+       {
+        "num": "#6",
+        "title": "Integrate finance and entrepreneurship to drive long-term business growth."
+       }
+      ],
+      "paneClass": "tab-pane-tab-3"
+     }
+    ],
+    "current": 0,
+    "years": [
+     {
+      "label": "Year 1",
+      "semesters": [
+       {
+        "title": "Semester 1",
+        "text": "Semester one builds financial literacy and digital marketing foundations while developing communication, AI literacy, global awareness, and career planning skills for future managers.",
+        "image": {
+         "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+         "alt": ""
+        },
+        "courses": [
+         {
+          "title": [
+           {
+            "strong": "Professional Communication and Presentation Skills"
+           }
+          ],
+          "text": "Develops impactful communication and presentation techniques, enhancing clarity, confidence, and persuasion skills crucial for professional success, leadership roles, and collaborative workplace environments."
+         },
+         {
+          "title": [
+           "‍",
+           {
+            "strong": "Modern Age AI Tools (Generative AI Tools)"
+           }
+          ],
+          "text": "Explores emerging generative AI technologies, enabling students to apply automation, innovation, and creativity in solving complex business problems across industries."
+         },
+         {
+          "title": [
+           {
+            "strong": "Global Business Environment"
+           }
+          ],
+          "text": "Provides insights into international markets, cultural diversity, economic systems, and global business trends, preparing students to make informed strategic decisions in a dynamic economy."
+         },
+         {
+          "title": [
+           {
+            "strong": "Career & Leadership Development I: Career Planning and Goal Setting"
+           }
+          ],
+          "text": "Focuses on self-awareness, career planning, and effective goal setting, guiding students toward professional growth, leadership readiness, and future career opportunities."
+         },
+         {
+          "title": [
+           {
+            "strong": "Finance – Financial Statement Analysis"
+           }
+          ],
+          "text": "Learn to interpret financial statements, assess profitability, liquidity, and solvency, and apply analytical tools for strategic decision-making, valuation, and business performance evaluation in diverse industries."
+         },
+         {
+          "title": "Marketing – The 21st Century Marketing",
+          "text": "Explore modern marketing strategies, consumer behavior shifts, digital integration, and branding innovations, equipping you to craft impactful campaigns in today’s dynamic, competitive business environment."
+         },
+         {
+          "title": "Entrepreneurship & Family Business – Entrepreneurship and Family Business 101",
+          "text": "Gain foundational knowledge of entrepreneurship and family business dynamics, focusing on opportunity identification, innovation, governance, succession planning, and strategies to build sustainable ventures across generations."
+         },
+         {
+          "title": [
+           {
+            "strong": "Business Analytics – Driving Decisions by Excel (Basics & Advanced)"
+           }
+          ],
+          "text": "Master Excel tools from basics to advanced analytics, learning data organization, visualization, forecasting, and decision modeling to transform raw data into actionable business insights."
+         },
+         {
+          "title": [
+           {
+            "strong": "Digital Marketing & Advertising – Introduction to Digital Marketing"
+           }
+          ],
+          "text": "Understand the fundamentals of digital marketing, including SEO, social media, content strategies, and analytics, to design campaigns that drive engagement, brand growth, and conversions."
+         }
+        ],
+        "electives": [],
+        "compare": [
+         {
+          "title": "Why our semester 1 curriculum outpaces every other business school",
+          "text": "ATLAS ISME combines practical finance and digital marketing skills with AI and communication training, unlike traditional MBAs’ theory-focused and less tech-integrated approach.",
+          "head": [
+           "Subjects",
+           "ATLAS ISME",
+           "Other Business Schools"
+          ],
+          "rows": [
+           [
+            "Professional Communication & Presentation Skills",
+            "Practical, hands-on focus on presentations, clarity, & confidence building from Semester 1.",
+            "Usually taught later; focus remains theoretical, with fewer real-world applications."
+           ],
+           [
+            "Modern Age AI Tools (Generative AI Tools)",
+            "Introduced early with real-world use of AI for creativity, problem-solving, and automation.",
+            "AI rarely included this early; limited to basic IT tools."
+           ],
+           [
+            "Global Business Environment",
+            "Students explore global trends, cultural diversity, and real-world business shifts.",
+            "Typically taught abstractly, limited exposure to current global case studies."
+           ],
+           [
+            "Career & Leadership Development I: Career Planning and Goal Setting",
+            "Strong self-awareness, career mapping, and leadership readiness from Day 1.",
+            "Career planning often delayed until internships or later years."
+           ],
+           [
+            "Finance – Financial Statement Analysis",
+            "Practical analysis with live datasets, ratio evaluation, and market context.",
+            "Mostly textbook or classroom-based accounting theory."
+           ],
+           [
+            "Marketing – The 21st Century Marketing",
+            "Applied campaign creation, SEO/SEM, social media, and analytics projects.",
+            "Conceptual overview with minimal hands-on execution."
+           ],
+           [
+            "Entrepreneurship & Family Business – Entrepreneurship and Family Business 101",
+            "Exposure to entrepreneurial mindset, family business models, and startup frameworks using live case studies.",
+            "Taught as generic theory without tailoring to family enterprises or entrepreneurial realities."
+           ],
+           [
+            "Business Analytics – Driving Decisions by Excel (Basics & Advanced",
+            "Hands-on training with Excel for analytics, dashboarding, and decision-making; practical business case applications.",
+            "Hands-on training with Excel for analytics, dashboarding, and decision-making; practical business case applications."
+           ],
+           [
+            "Digital Marketing & Advertising – Introduction to Digital Marketing",
+            "Applied campaign creation, SEO/SEM, social media, and analytics projects.",
+            "Conceptual overview with minimal hands-on execution."
+           ]
+          ]
+         }
+        ]
+       },
+       {
+        "title": "Semester 2",
+        "text": "Semester two enhances leadership, creativity, and sustainability while strengthening financial expertise and building entrepreneurial innovation, succession planning, and technology-driven business strategies.",
+        "image": {
+         "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+         "alt": ""
+        },
+        "courses": [
+         {
+          "title": [
+           {
+            "strong": "Managing Self and People Skills"
+           }
+          ],
+          "text": "Focuses on emotional intelligence, motivation, and conflict resolution. Builds leadership capacity and teamwork effectiveness through workshops, peer projects, and reflective practices."
+         },
+         {
+          "title": [
+           {
+            "strong": "Human-Centered Design Thinking"
+           }
+          ],
+          "text": "Encourages creative problem-solving through empathy, ideation, prototyping, and testing. Applies design thinking to entrepreneurial, financial, and organisational challenges."
+         },
+         {
+          "title": [
+           {
+            "strong": "CSR, SDGs and Business Research"
+           }
+          ],
+          "text": "Explores corporate responsibility and sustainability alongside research methods. Encourages data-driven insights to design socially impactful and ethical business solutions."
+         },
+         {
+          "title": [
+           {
+            "strong": "Career & Leadership Development II: Personal Branding & Professional Networking"
+           }
+          ],
+          "text": "Guides students to build authentic professional identities. Involves mentoring, digital branding, and simulated networking with industry leaders."
+         }
+        ],
+        "electives": [
+         {
+          "title": [
+           {
+            "strong": "Finance: Core Subjects"
+           }
+          ],
+          "items": [
+           {
+            "title": "Investment Analysis & Portfolio Management",
+            "text": "Equips students to evaluate securities, construct portfolios, and manage investment risk. Emphasises financial modelling and applied decision-making in volatile markets."
+           },
+           {
+            "title": [
+             {
+              "strong": "Financial Management"
+             }
+            ],
+            "text": "Covers capital budgeting, cost of capital, working capital, and corporate financing decisions. Strengthens strategic financial decision-making skills."
+           }
+          ]
+         },
+         {
+          "title": [
+           {
+            "strong": "Finance: Electives (Pick one)"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Indian Financial System"
+             }
+            ],
+            "text": "Explores banking, regulatory structures, and capital markets in India. Provides insights into financial institutions and instruments unique to the Indian context."
+           },
+           {
+            "title": "Wealth Management",
+            "text": "Covers personal finance, estate planning, taxation, and investment strategies. Prepares students for financial advisory and wealth planning roles."
+           }
+          ]
+         },
+         {
+          "title": [
+           {
+            "strong": "Entrepreneurship & Family Business: Core Subjects"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "New-age Business Models"
+             }
+            ],
+            "text": "Explores modern business model innovation, startup strategies, and disruptive ventures. Students design scalable models incorporating technology, customer insights, and financial viability."
+           },
+           {
+            "title": [
+             {
+              "strong": "Family Enterprise Dynamics"
+             }
+            ],
+            "text": "Covers governance, succession planning, and operational challenges of family businesses. Students analyze case studies and develop strategic solutions for real-world family enterprises."
+           }
+          ]
+         },
+         {
+          "title": [
+           {
+            "strong": "Entrepreneurship & Family Business: Electives (Pick one)"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Strategic Planning for Family Enterprise"
+             }
+            ],
+            "text": "Focuses on creating long-term strategies tailored to family businesses. Covers governance frameworks, visioning, and succession alignment."
+           },
+           {
+            "title": [
+             {
+              "strong": "Technology Toolkit for Entrepreneurs"
+             }
+            ],
+            "text": "Introduces digital tools and emerging technologies that support innovation, scalability, and efficiency in entrepreneurial ventures."
+           }
+          ]
+         }
+        ],
+        "compare": [
+         {
+          "title": "Why our semester 2 curriculum outpaces every other business school",
+          "text": "ATLAS ISME integrates sustainability, applied finance, and entrepreneurial family business strategy, unlike conventional MBAs which emphasise siloed theory with little real-world application.",
+          "head": [
+           "Subjects",
+           "ATLAS ISME",
+           "Other Business Schools"
+          ],
+          "rows": [
+           [
+            "Managing Self and People Skills",
+            "Experiential roleplays, team projects, and applied psychology for leadership growth.",
+            "Focus on organisational behaviour theory, less practical training."
+           ],
+           [
+            "Human-Centered Design Thinking",
+            "Empathy-driven prototyping, applied projects for entrepreneurial and business challenges.",
+            "Introduced as a theory module, little hands-on prototyping."
+           ],
+           [
+            "CSR, SDGs and Business Research",
+            "Integrated CSR projects, sustainability analysis, and applied research methods.",
+            "CSR and research taught separately, theory-heavy with limited projects."
+           ],
+           [
+            "Career & Leadership Development II",
+            "Builds personal brand and networks through mentoring and networking simulations.",
+            "General career counselling, limited focus on branding or networking."
+           ],
+           [
+            "Finance",
+            "Investment, financial management, Indian markets, and wealth planning taught with simulations, case studies, and applied advisory projects.",
+            "Finance taught in silos—emphasis on theory, limited exposure to local systems or wealth management practice."
+           ],
+           [
+            "Entrepreneurship & Family Business",
+            "Innovation, family dynamics, strategic planning, and technology adoption taught with real family enterprise cases and entrepreneurial projects.",
+            "Entrepreneurship taught as startup theory; family business studies rarely included or electives only."
+           ]
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "label": "Year 2",
+      "semesters": [
+       {
+        "title": "Semester 3",
+        "text": "Semester three deepens ethical leadership, resilience, and economic decision-making while advancing financial modelling expertise and entrepreneurial innovation within family and startup ecosystems.",
+        "image": {
+         "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+         "alt": ""
+        },
+        "courses": [
+         {
+          "title": [
+           {
+            "strong": "Organisational Behaviour and Universal Human Values"
+           }
+          ],
+          "text": "Explores workplace dynamics, motivation, and culture, integrating ethical values and human-centric leadership approaches for sustainable, inclusive organisational development."
+         },
+         {
+          "title": [
+           {
+            "strong": "Cyber Security Management"
+           }
+          ],
+          "text": "Introduces cyber risk governance, data security, and compliance. Emphasises strategies for protecting digital assets and ensuring resilience in technology-driven business ecosystems."
+         },
+         {
+          "title": [
+           {
+            "strong": "Economics for Decision Making"
+           }
+          ],
+          "text": "Applies micro and macroeconomic concepts to managerial challenges. Focuses on cost analysis, market structures, policy impact, and forecasting for strategic planning."
+         },
+         {
+          "title": [
+           {
+            "strong": "Career & Leadership Development III: Emotional Intelligence & Resilience"
+           }
+          ],
+          "text": "Strengthens emotional intelligence and adaptability. Uses simulations, feedback, and coaching to cultivate resilient leaders who thrive under pressure and uncertainty."
+         }
+        ],
+        "electives": [
+         {
+          "title": "Finance: Core Subjects",
+          "items": [
+           {
+            "title": "Financial Modelling",
+            "text": "Develops quantitative skills for building valuation, forecasting, and decision-making models. Uses Excel and financial software for applied business case simulations."
+           },
+           {
+            "title": "Corporate Finance",
+            "text": "Learn strategies to influence, negotiate, and resolve conflicts effectively. Apply practical techniques to achieve results in business and leadership scenarios."
+           }
+          ]
+         },
+         {
+          "title": [
+           {
+            "strong": "Finance: Electives (Pick one)"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Stock Markets & Technical Analysis"
+             }
+            ],
+            "text": "Provides tools to analyse stock movements, interpret charts, and apply trading strategies in volatile markets."
+           },
+           {
+            "title": [
+             {
+              "strong": "Entrepreneurial Finance"
+             }
+            ],
+            "text": "Examines funding strategies, venture capital, angel investing, and financial decision-making for startups and early-stage ventures."
+           }
+          ]
+         },
+         {
+          "title": [
+           {
+            "strong": "Entrepreneurship & Family Business: Core Subjects"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "The Startup Sales Playbook"
+             }
+            ],
+            "text": "Introduces strategies for customer acquisition, pipeline building, and scaling sales in entrepreneurial contexts."
+           },
+           {
+            "title": [
+             {
+              "strong": "Business Development Breakthroughs"
+             }
+            ],
+            "text": "Focuses on growth strategies, partnerships, and innovative business development approaches for startups and family businesses."
+           },
+           {
+            "title": [
+             {
+              "strong": "Innovation & Technological Adaptation in Family Enterprise"
+             }
+            ],
+            "text": "Explores digital transformation, new technologies, and innovation frameworks tailored to family businesses."
+           }
+          ]
+         },
+         {
+          "title": [
+           {
+            "strong": "Entrepreneurship & Family Business: Electives (Pick One)"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Growth Hacking"
+             }
+            ],
+            "text": "Covers agile marketing and scaling strategies using cost-effective, data-driven methods for rapid growth."
+           },
+           {
+            "title": [
+             {
+              "strong": "Legal Compliance & Leadership in Family Enterprise"
+             }
+            ],
+            "text": "Examines legal frameworks, compliance requirements, and leadership practices specific to family-owned businesses."
+           }
+          ]
+         }
+        ],
+        "compare": [
+         {
+          "title": "Why our semester 3 curriculum outpaces every other business school",
+          "text": "ATLAS ISME integrates ethics, resilience, and applied finance with entrepreneurial sales, innovation, and family enterprise strategies, unlike MBAs focusing mainly on siloed theory.",
+          "head": [
+           "Subjects",
+           "ATLAS ISME",
+           "Other Business Schools"
+          ],
+          "rows": [
+           [
+            "Organisational Behaviour and Universal Human Values",
+            "Blends behavioural theory with ethics, experiential projects, and universal values for holistic leadership.",
+            "Focuses mainly on OB theories; values and ethics taught separately."
+           ],
+           [
+            "Cyber Security Management",
+            "Applied governance, compliance, and threat simulations tailored for business resilience.",
+            "Taught as part of IT security, less linked to business management."
+           ],
+           [
+            "Economics for Decision Making",
+            "Case-driven application of economics to pricing, forecasting, and strategy.",
+            "Emphasises theory, with limited business application in decision-making."
+           ],
+           [
+            "Career & Leadership Development III",
+            "Builds emotional intelligence and resilience with simulations, coaching, and reflective practices.",
+            "Leadership taught with general soft skills, resilience rarely emphasised."
+           ],
+           [
+            "Finance",
+            "Financial modelling, corporate finance, market analysis, and entrepreneurial finance taught through simulations, trading labs, and venture capital case studies.",
+            "Finance taught theoretically, with less exposure to modelling, trading, or entrepreneurial finance."
+           ],
+           [
+            "Entrepreneurship & Family Business",
+            "Covers sales playbooks, business development, innovation in family enterprises, growth hacking, and legal compliance with live startup/family business projects.",
+            "Entrepreneurship taught as startup theory; family business and growth hacking usually absent."
+           ]
+          ]
+         }
+        ]
+       },
+       {
+        "title": "Semester 4",
+        "text": "Semester four integrates governance, corporate strategy, valuation, and fintech innovation with entrepreneurial leadership, resilience, and consultancy for family enterprises navigating growth and transformation.",
+        "image": {
+         "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+         "alt": ""
+        },
+        "courses": [
+         {
+          "title": [
+           {
+            "strong": "Corporate Governance, Professional Ethics & Law"
+           }
+          ],
+          "text": "Explores governance frameworks, regulatory compliance, and professional ethics. Emphasises accountability, transparency, and legal structures shaping corporate conduct in globalised business contexts."
+         },
+         {
+          "title": [
+           {
+            "strong": "Supply Chain Analytics"
+           }
+          ],
+          "text": "Introduces data-driven optimisation of logistics, procurement, and distribution. Applies predictive modelling and technology-enabled solutions for efficiency, sustainability, and resilience in supply chain management."
+         },
+         {
+          "title": [
+           {
+            "strong": "Corporate Strategy"
+           }
+          ],
+          "text": "Covers competitive advantage, diversification, M&A, and global expansion. Uses real-world cases and simulations to develop long-term strategic decision-making skills."
+         },
+         {
+          "title": [
+           {
+            "strong": "Career & Leadership Development IV: Diversity, Equity,\n& Inclusion in Leadership, & Capstone"
+           }
+          ],
+          "text": "Focuses on inclusive leadership and organisational equity. Culminates in a capstone project synthesising knowledge, leadership, and practical application."
+         }
+        ],
+        "electives": [
+         {
+          "title": "Finance: Core Subjects",
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Corporate Valuation"
+             }
+            ],
+            "text": "Explores valuation models, DCF analysis, multiples, and market-based methods. Builds expertise in determining enterprise value for investments, mergers, and acquisitions."
+           },
+           {
+            "title": [
+             {
+              "strong": "FinTech Ventures and Innovation"
+             }
+            ],
+            "text": "Examines digital financial innovations—blockchain, mobile payments, robo-advisory, and AI—alongside entrepreneurial approaches to launching FinTech startups."
+           }
+          ]
+         },
+         {
+          "title": "Finance: Electives (Pick One)",
+          "items": [
+           {
+            "title": "Sustainable Finance",
+            "text": "Introduces ESG investing, green bonds, and impact finance. Students integrate sustainability into financial strategies and long-term corporate value creation."
+           },
+           {
+            "title": "Behavioural Finance",
+            "text": "Studies investor psychology, cognitive biases, and irrational market behavior. Students apply behavioral principles to improve corporate and investment decisions."
+           }
+          ]
+         },
+         {
+          "title": "Entrepreneurship & Family Business: Core Subjects",
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Entrepreneurial Leadership"
+             }
+            ],
+            "text": "Develops leadership capabilities specific to founders and family enterprises. Emphasises vision, adaptability, and decision-making under uncertainty."
+           },
+           {
+            "title": [
+             {
+              "strong": "Ethics, Governance & Social Responsibility in Family Enterprise"
+             }
+            ],
+            "text": "Explore how to evaluate assets, construct portfolios, and optimize returns. Gain practical insights into risk, performance, and market strategies."
+           }
+          ]
+         },
+         {
+          "title": [
+           {
+            "strong": "Entrepreneurship & Family Business: Electives (Pick One)"
+           }
+          ],
+          "items": [
+           {
+            "title": [
+             {
+              "strong": "Family Enterprise Consultancy"
+             }
+            ],
+            "text": "Students consult real or simulated family businesses, diagnosing challenges, recommending strategies, and developing operational or strategic solutions."
+           },
+           {
+            "title": [
+             {
+              "strong": "Managing Entrepreneurial Failures"
+             }
+            ],
+            "text": "Explores risk management, failure analysis, and recovery strategies. Students learn resilience, pivot strategies, and lessons from entrepreneurial setbacks."
+           }
+          ]
+         }
+        ],
+        "compare": [
+         {
+          "title": "Why our semester 4 curriculum outpaces every other business school",
+          "text": "ATLAS ISME merges finance innovation and sustainability with entrepreneurial governance, ethics, and consultancy, unlike other MBAs’ narrower focus on theory-heavy finance and generic entrepreneurship.",
+          "head": [
+           "Subjects",
+           "ATLAS ISME",
+           "Other Business Schools"
+          ],
+          "rows": [
+           [
+            "Corporate Governance, Professional Ethics & Law",
+            "Applied governance projects, ethics labs, legal simulations with corporate mentors.",
+            "Focuses on compliance frameworks and textbook-driven corporate law."
+           ],
+           [
+            "Supply Chain Analytics",
+            "Uses predictive analytics, real datasets, and industry tools for optimisation.",
+            "Introduces supply chain theory, analytics covered lightly."
+           ],
+           [
+            "Corporate Strategy",
+            "Strategy taught via simulations, live case competitions, and global strategy projects.",
+            "Strategy theory with limited real-world application."
+           ],
+           [
+            "Career & Leadership Development IV",
+            "Integrates DEI leadership training and capstone project linking all MBA learnings.",
+            "Integrates DEI leadership training and capstone project linking all MBA learnings."
+           ],
+           [
+            "Finance",
+            "Corporate valuation, fintech, sustainable finance, and behavioural finance taught with trading labs, innovation sprints, and ESG projects.",
+            "Finance taught theoretically; fintech and sustainability rarely central."
+           ],
+           [
+            "Entrepreneurship & Family Business",
+            "Entrepreneurial leadership, family enterprise ethics, consultancy, and failure management explored through live projects and mentorship.",
+            "Entrepreneurship focuses mainly on startup theory; family business rarely emphasised."
+           ]
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "download": {
+     "label": "Download Curriculum",
+     "variant": "mint",
+     "fontSize": null,
+     "brochure": "mba-brochure"
+    },
+    "yearsWrapClass": "quaternary-tabs-wrapper padd-btm"
+   }
+  }
+ },
+ "refs": {
+  "stats": "stats-36a699fb82",
+  "steps": "steps-5e3765fa50",
+  "why": "why-ec826fb16d",
+  "execution": "execution-263d79afd8",
+  "voices": "voices-5669f623cd",
+  "admissions": "admissions-979eb2c203",
+  "eligibility": "eligibility-82996a5cff",
+  "banner": "banner-b416f4326e",
+  "cmsfaq": "cmsfaq-406c823ef5"
+ }
+}

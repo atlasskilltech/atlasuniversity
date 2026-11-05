@@ -1,0 +1,747 @@
+{
+ "path": "program-mba-in-fintech",
+ "meta": {
+  "title": "MBA in FinTech in Mumbai at ATLAS ISME",
+  "description": "Learn fintech tools, digital finance, blockchain basics, analytics, markets and innovation skills for finance careers.",
+  "keywords": null
+ },
+ "brochure": {
+  "ids": [
+   "mba-brochure",
+   "campus-visit"
+  ],
+  "scripts": [
+   {
+    "src": "https://crm.atlasskilltech.app/widgets/6a3e7b56a1fd0680c6c18e59/embed.js",
+    "height": 650
+   }
+  ]
+ },
+ "order": [
+  "hero",
+  "stats",
+  "program",
+  "why",
+  "execution",
+  "voices",
+  "admissions",
+  "eligibility",
+  "banner",
+  "cmsfaq"
+ ],
+ "blocks": {
+  "hero": {
+   "title": "MBA in FinTech",
+   "image": {
+    "src": "/assets/images/schools/isme/mba/group-1272631418.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/mba/group-1272631418-p-500.png 500w, /assets/images/schools/isme/mba/group-1272631418-p-800.png 800w, /assets/images/schools/isme/mba/group-1272631418-p-1080.png 1080w, /assets/images/schools/isme/mba/group-1272631418.png 1366w",
+    "sizes": "(max-width: 1366px) 100vw, 1366px"
+   },
+   "buttons": [
+    {
+     "label": "Apply for 2027 Intake",
+     "variant": "mint",
+     "href": "https://atlasuniversity.edu.in/applicationform"
+    },
+    {
+     "label": "Download Brochure",
+     "variant": "outline-white",
+     "brochure": "mba-brochure"
+    }
+   ],
+   "narrow": true
+  },
+  "program": {
+   "panes": [
+    {
+     "label": "Overview",
+     "kind": "text",
+     "text": [
+      "The MBA in ",
+      {
+       "strong": "FinTech"
+      },
+      " at ATLAS ISME is designed for ",
+      {
+       "strong": "future leaders who want to innovate at the intersection of finance and technology."
+      },
+      " Whether you aspire to ",
+      {
+       "strong": "build digital banking solutions, lead blockchain adoption, launch FinTech ventures, or drive algorithmic trading"
+      },
+      " — this specialization equips you with the expertise to ",
+      {
+       "strong": "shape the future of financial services."
+      },
+      "\n\nYou’ll learn to integrate ",
+      {
+       "strong": "corporate finance with blockchain, data analytics with digital payments, and cybersecurity with product innovation."
+      },
+      " From digital banking to algorithmic trading, big data to crypto-assets, product development to venture creation — every subject is taught through simulations, live projects, and industry-driven case studies."
+     ],
+     "paneClass": null
+    },
+    {
+     "label": "Curriculum Highlights",
+     "kind": "textCards",
+     "cards": [
+      {
+       "title": "Financial Statement Analysis & Decision-Making"
+      },
+      {
+       "title": "Capstone Project: Solving India’s FinTech Challenges"
+      }
+     ],
+     "paneClass": null
+    },
+    {
+     "label": "Learning Outcomes",
+     "kind": "learn",
+     "grid": false,
+     "cards": [
+      {
+       "num": "#1",
+       "text": "Gain strong financial acumen and deep understanding of banking,\ncapital markets, and investment strategy",
+       "tone": "bg1"
+      },
+      {
+       "num": "#2",
+       "text": "Analyze and build digital financial products\nusing emerging tech (AI, blockchain, cloud)",
+       "tone": "bg2"
+      },
+      {
+       "num": "#3",
+       "text": "Evaluate and mitigate risk in digital lending, payments,\nand crypto transactions",
+       "tone": "bg1"
+      },
+      {
+       "num": "#4",
+       "text": "Lead digital transformation in BFSI or scale\ntheir own fintech startups",
+       "tone": "bg1"
+      },
+      {
+       "num": "#5",
+       "text": "Apply hands-on experience from real fintech\ncase studies, projects, and simulations",
+       "tone": "bg2"
+      },
+      {
+       "num": "#6",
+       "text": "Develop fintech business models using agile\nmethodologies and regulatory frameworks",
+       "tone": "bg1"
+      }
+     ],
+     "paneClass": null
+    },
+    {
+     "label": "Career Pathways",
+     "kind": "careers",
+     "cards": [
+      {
+       "title": "FinTech\nProduct Manager",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/33.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "AI/ML Analyst\nin Finance",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/36.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Blockchain\nConsultant",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/37.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Digital Banking\nSpecialist",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/38.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Cryptocurrency Analyst/Trader",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/39.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Payments & Compliance Manager",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/40.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "WealthTech &\nInvestment Analyst",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/41.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "InsurTech\nSpecialist",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/42.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "InsurTech\nSpecialist",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/42.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "InsurTech\nSpecialist",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/42.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "InsurTech\nSpecialist",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/42.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "InsurTech\nSpecialist",
+       "image": {
+        "src": "/assets/images/schools/isme/mba/42.png",
+        "alt": ""
+       }
+      }
+     ],
+     "paneClass": null
+    }
+   ],
+   "current": 0,
+   "years": [
+    {
+     "label": "Year 1",
+     "semesters": [
+      {
+       "title": "Semester 1",
+       "text": "Build the foundation of your FinTech journey by mastering essential business and digital skills. Learn how global forces, data, and innovation shape financial ecosystems preparing you for success in the digital-first economy.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Global Business Environment"
+          }
+         ],
+         "text": "Covers economic, political, and cultural factors affecting global business. Students analyze real-world international scenarios and learn to navigate cross-border challenges effectively."
+        },
+        {
+         "title": "Financial Statement Analysis",
+         "text": "Learn to interpret and analyze financial data to assess performance and make informed managerial decisions."
+        },
+        {
+         "title": [
+          {
+           "strong": "Digital Disruptions in Finance"
+          }
+         ],
+         "text": "Explore emerging technologies reshaping finance from blockchain to AI-driven platforms."
+        },
+        {
+         "title": [
+          {
+           "strong": "Entrepreneurship and Family Business 101"
+          }
+         ],
+         "text": "Grasp the fundamentals of entrepreneurial thinking and family business dynamics in a fast-evolving marketplace."
+        },
+        {
+         "title": [
+          {
+           "strong": "Driving Decisions by Excel And Modern Age AI Tools"
+          }
+         ],
+         "text": "Master decision-making with data analytics and automation tools for real-world problem solving."
+        },
+        {
+         "title": [
+          {
+           "strong": "Digital Banking and Neo-Banking Models"
+          }
+         ],
+         "text": "Study the transformation of banking through digital-first models and fintech innovations."
+        },
+        {
+         "title": [
+          {
+           "strong": "Career Readiness 1: Professional Communication and Presentation Skills"
+          }
+         ],
+         "text": "Develop the ability to communicate with confidence, build your personal brand, and make powerful professional impressions."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our Semester 1 curriculum outpaces every other business school",
+         "text": "ATLAS ISME emphasizes applied financial analysis and FinTech tools, contrasting traditional programs that focus primarily on theoretical finance and generic MBA subjects.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Global Business Environment",
+           "Case-based understanding of global issues",
+           "Limited contextual exposure"
+          ],
+          [
+           "Financial Statement Analysis",
+           "Industry-taught with applied projects",
+           "Primarily textbook-driven"
+          ],
+          [
+           "Digital Disruptions in Finance",
+           "Live fintech simulations & guest lectures from NSE Academy",
+           "Minimal tech-finance integration"
+          ],
+          [
+           "Entrepreneurship & Family Business 101",
+           "Startup immersion and entrepreneur talks",
+           "Limited entrepreneurial focus"
+          ],
+          [
+           "Driving Decisions by Excel And Modern Age AI Tools",
+           "Hands-on data lab projects",
+           "Basic Excel learning only"
+          ],
+          [
+           "Digital & Neo-Banking Models",
+           "NSE Academy-certified fintech experience",
+           "Limited coverage of modern banking"
+          ],
+          [
+           "Career Readiness 1",
+           "Practical sessions, personalized feedback, real corporate mentors",
+           "Theory-based communication modules"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Semester 2",
+       "text": "Deepen your expertise in finance and leadership with an advanced blend of analytical, strategic, and ethical decision-making skills.\n\nThis semester strengthens your understanding of investment management, blockchain, and sustainable business practices in the modern fintech ecosystem.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "CSR, SDGs and Business Research"
+          }
+         ],
+         "text": "Learn how responsible business practices align with global sustainability goals and apply research-driven approaches to strategic challenges."
+        },
+        {
+         "title": [
+          {
+           "strong": "Securities Analysis & Portfolio Management"
+          }
+         ],
+         "text": "Master portfolio construction, risk-return trade-offs, and valuation techniques to make informed investment decisions."
+        },
+        {
+         "title": [
+          {
+           "strong": "Financial Management"
+          }
+         ],
+         "text": "Gain a deep understanding of financial planning, capital budgeting, and corporate finance strategies."
+        },
+        {
+         "title": [
+          {
+           "strong": "Product Development in FinTech"
+          }
+         ],
+         "text": "Explore how innovative financial products are conceptualized, built, and scaled using technology."
+        },
+        {
+         "title": [
+          {
+           "strong": "Blockchain and Digital Currencies"
+          }
+         ],
+         "text": "Understand blockchain fundamentals and digital assets shaping the future of decentralized finance."
+        },
+        {
+         "title": [
+          {
+           "strong": "Indian Financial System"
+          }
+         ],
+         "text": "Examine India’s financial institutions, markets, and instruments in the context of regulatory and policy frameworks."
+        },
+        {
+         "title": [
+          {
+           "strong": "Wealth Management"
+          }
+         ],
+         "text": "Develop skills to manage client portfolios, financial goals, and personalized investment strategies."
+        },
+        {
+         "title": [
+          {
+           "strong": "Career Readiness 2: Managing Self and People Skills with Human-Centered Design"
+          }
+         ],
+         "text": "Build emotional intelligence, leadership presence, and team management skills essential for today’s dynamic workplaces."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our semester 2 curriculum outpaces every other business school",
+         "text": "ATLAS ISME emphasizes applied FinTech tools, portfolio management, and digital banking, contrasting traditional programs with lecture-based, less practical finance education.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "CSR, SDGs & Business Research",
+           "Live CSR projects and sustainability-driven case studies",
+           "Theoretical understanding only"
+          ],
+          [
+           "Securities & Portfolio Management",
+           "Real-time simulations and Bloomberg data exposure",
+           "Limited to textbook assignments"
+          ],
+          [
+           "Financial Management",
+           "Problem-solving through live corporate case studies",
+           "Conventional accounting focus"
+          ],
+          [
+           "Product Development in FinTech",
+           "Mentored fintech product sprints with startup mentors",
+           "No exposure to fintech product building"
+          ],
+          [
+           "Blockchain & Digital Currencies",
+           "Hands-on blockchain lab with demo transactions",
+           "Introductory overview without practice"
+          ],
+          [
+           "Indian Financial System",
+           "Regulatory ecosystem explored through RBI and SEBI casework",
+           "Basic policy coverage"
+          ],
+          [
+           "Wealth Management",
+           "Practical workshops on financial planning and advisory tools",
+           "Theoretical approach to asset allocation"
+          ],
+          [
+           "Career Readiness 2: Managing Self and People Skills with Human-Centered Design Thinking",
+           "Self-awareness workshops, leadership labs, and executive coaching",
+           "Generic leadership theory sessions"
+          ]
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Year 2",
+     "semesters": [
+      {
+       "title": "Semester 3",
+       "text": "Expand your analytical and strategic thinking to thrive in a data-driven, digitally secure business world. This semester prepares you to make confident financial and managerial decisions while building emotional intelligence and resilience for leadership excellence.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": "Economics and Cyber Governance",
+         "text": "Focuses on cybersecurity strategies, risk assessment, and compliance. Students learn to protect financial and business data using practical tools and scenario-based exercises."
+        },
+        {
+         "title": "Corporate Finance",
+         "text": "Gain practical insights into capital structure, funding strategies, and value creation in corporate settings."
+        },
+        {
+         "title": [
+          {
+           "strong": "Financial Modelling"
+          }
+         ],
+         "text": "Build complex financial models to forecast performance and evaluate corporate strategy."
+        },
+        {
+         "title": [
+          {
+           "strong": "Algorithm Trading & Robo Advisory"
+          }
+         ],
+         "text": "Design rule-based strategies, back-test signals, and understand the engines behind automated investment advice."
+        },
+        {
+         "title": [
+          {
+           "strong": "Finance for Entrepreneurship"
+          }
+         ],
+         "text": "Learn venture economics, term sheets, capitalization, and fundraising strategies for startups."
+        },
+        {
+         "title": [
+          {
+           "strong": "Big Data for Finance"
+          }
+         ],
+         "text": "Use large-scale datasets, feature engineering, and ML workflows to derive actionable insights for financial decisions."
+        },
+        {
+         "title": [
+          {
+           "strong": "Internship"
+          }
+         ],
+         "text": "Apply classroom learning in a professional setting and build a portfolio of industry experience."
+        },
+        {
+         "title": [
+          {
+           "strong": "Career Readiness 3: Organizational Behaviour & Human Values"
+          }
+         ],
+         "text": "Lead with empathy, manage teams effectively, and cultivate a values-driven culture that sustains high performance."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our semester 3 curriculum outpaces every other business school",
+         "text": "ATLAS ISME integrates applied FinTech product design, blockchain, and big data, contrasting lecture-heavy programs with limited practical, technology-driven finance exposure.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Economics & Cyber Governance",
+           "Casework linking policy, compliance, and cyber risk",
+           "Treated as separate, siloed topics"
+          ],
+          [
+           "Corporate Finance",
+           "Transaction-style projects and valuation clinics",
+           "Spreadsheet drills without deal context"
+          ],
+          [
+           "Financial Modelling",
+           "End-to-end, audit-ready models with scenario testing",
+           "Basic templates and formula practice"
+          ],
+          [
+           "Algorithmic Trading & Robo Advisory",
+           "Strategy design, back-testing, and paper trading",
+           "Conceptual overview, no execution"
+          ],
+          [
+           "Big Data for Finance",
+           "Hands-on ML pipelines with real datasets",
+           "Light analytics with sample data"
+          ],
+          [
+           "Internship",
+           "Structured goals, faculty supervision, and reflections",
+           "Generic internship requirement"
+          ],
+          [
+           "Finance for Entrepreneurship",
+           "Founder toolkits, investor panels, and pitch reviews",
+           "High-level entrepreneurship theory"
+          ],
+          [
+           "Career Readiness 3",
+           "Behavioral leadership labs and mentorship",
+           "Theoretical OB only"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Semester 4",
+       "text": "Lead with purpose and strategy. This semester is designed to prepare you for leadership roles in finance and technology, emphasizing ethical decision-making, corporate governance, and the innovative spirit driving the fintech industry.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Corporate Strategy & Supply Chain Analytics"
+          }
+         ],
+         "text": "Learn to align corporate strategy with operational efficiency, leveraging analytics to optimize supply chains and competitiveness."
+        },
+        {
+         "title": [
+          {
+           "strong": "Corporate Valuation"
+          }
+         ],
+         "text": "Master valuation techniques, financial modeling, and deal analysis for mergers, acquisitions, and investment decisions."
+        },
+        {
+         "title": [
+          {
+           "strong": "Cyber Security in Finance"
+          }
+         ],
+         "text": "Gain hands-on insight into cybersecurity principles, financial data protection, and regulatory compliance within fintech ecosystems."
+        },
+        {
+         "title": [
+          {
+           "strong": "Entrepreneurship in FinTech"
+          }
+         ],
+         "text": "Explore how innovation, funding, and business model design converge in the fintech startup landscape."
+        },
+        {
+         "title": [
+          {
+           "strong": "Derivatives & Risk Management"
+          }
+         ],
+         "text": "Develop expertise in derivative instruments and techniques for managing market risk."
+        },
+        {
+         "title": [
+          {
+           "strong": "Behavioural Finance"
+          }
+         ],
+         "text": "Understand cognitive biases that influence investor behavior and financial decision-making."
+        },
+        {
+         "title": [
+          {
+           "strong": "Sustainable Finance"
+          }
+         ],
+         "text": "Explore ESG frameworks, green finance products, and sustainability-linked investments."
+        },
+        {
+         "title": [
+          {
+           "strong": "Career Readiness 4: Corporate Governance, Professional Ethics & Law"
+          }
+         ],
+         "text": "Understand governance frameworks, ethical leadership, and the legal environment that defines corporate responsibility."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our semester 4 curriculum outpaces every other business school",
+         "text": "ATLAS ISME emphasizes applied BFSI, algorithmic trading, cybersecurity, and entrepreneurship, contrasting traditional MBA programs with limited technology-driven financial innovation exposure.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Corporate Strategy & Supply Chain Analytics",
+           "Live analytics dashboards and strategy games",
+           "Static classroom case studies"
+          ],
+          [
+           "Corporate Valuation",
+           "Valuation clinics with real-world data and investor pitch sessions",
+           "Formula-based assignments"
+          ],
+          [
+           "Cyber Security in Finance",
+           "NSE Academy labs and security risk simulations",
+           "Limited IT coverage"
+          ],
+          [
+           "Entrepreneurship in FinTech",
+           "Startup incubator exposure and funding challenge events",
+           "No practical startup engagement"
+          ],
+          [
+           "Derivatives & Risk Management",
+           "Real-time trading simulations and hedging projects",
+           "Traditional numerical approach"
+          ],
+          [
+           "Behavioural Finance",
+           "Interactive trading psychology experiments",
+           "Basic theory of biases"
+          ],
+          [
+           "Sustainable Finance",
+           "ESG collaborations with corporates and NGOs",
+           "Minimal sustainability content"
+          ],
+          [
+           "Career Readiness 4",
+           "Corporate governance simulations and ethical leadership workshops",
+           "Theoretical coverage of ethics and compliance"
+          ]
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "download": {
+    "label": "Download Curriculum",
+    "variant": "mint",
+    "fontSize": null,
+    "brochure": "mba-brochure"
+   },
+   "yearsWrap": "quaternary"
+  }
+ },
+ "refs": {
+  "stats": "stats-308540c7b4",
+  "why": "why-fc91f227a7",
+  "execution": "execution-d0e30f3bf3",
+  "voices": "voices-47c8abecf0",
+  "admissions": "admissions-979eb2c203",
+  "eligibility": "eligibility-54ef054424",
+  "banner": "banner-1d16e679f9",
+  "cmsfaq": "cmsfaq-011b8abe03"
+ }
+}

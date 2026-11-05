@@ -1,0 +1,19 @@
+#!/bin/sh
+# Tracked hook (core.hooksPath = .githooks, set by `npm install` / `npm run hooks:install`).
+# 1. Asset check: the manifest COMMITTED in each pushed commit must match S3 (read-only; never
+#    edits files or creates commits). See docs/assets-s3.md.
+# 2. Git LFS pre-push — .git/hooks is no longer read once core.hooksPath is set.
+input=$(cat)
+if [ -n "$input" ]; then input="$input
+"; fi
+
+if [ -f scripts/assets/pre-push.mjs ]; then
+  if ! command -v node >/dev/null 2>&1; then
+    echo >&2 "[assets] PUSH BLOCKED: node is not on PATH, so the asset check cannot run."
+    exit 1
+  fi
+  printf '%s' "$input" | node scripts/assets/pre-push.mjs "$@" || exit 1
+fi
+
+command -v git-lfs >/dev/null 2>&1 || { printf >&2 "\n%s\n\n" "This repository is configured for Git LFS but 'git-lfs' was not found on your path."; exit 2; }
+printf '%s' "$input" | git lfs pre-push "$@"

@@ -1,0 +1,75 @@
+{
+ "heading": "Hear from CFA leadership",
+ "sub": null,
+ "cards": [
+  {
+   "kind": "testimonial",
+   "video": {
+    "sources": [
+     {
+      "src": "/assets/videos/schools/isme/bba/1-3.mp4",
+      "type": "video/mp4"
+     },
+     {
+      "src": "/assets/videos/schools/isme/bba/1-3.webm",
+      "type": "video/webm"
+     }
+    ],
+    "poster": "/assets/images/schools/isme/bba/site/programs/undergraduate/bsc-hons/bsc-hons-in-finance/hear-from-our-cfa-leadership/christopher-wiese/1.jpg"
+   },
+   "text": "A strong alignment with the CFA Program, students gain the knowledge to succeed in the global financial industry.",
+   "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+   "name": "Christopher Wiese",
+   "course": "Managing Director, Education\nCFA Institute",
+   "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png",
+   "image": null,
+   "play": null
+  },
+  {
+   "kind": "testimonial",
+   "video": {
+    "sources": [
+     {
+      "src": "/assets/videos/schools/isme/bba/1-2.mp4",
+      "type": "video/mp4"
+     },
+     {
+      "src": "/assets/videos/schools/isme/bba/1-2.webm",
+      "type": "video/webm"
+     }
+    ],
+    "poster": "/assets/images/schools/isme/bba/site/programs/undergraduate/bsc-hons/bsc-hons-in-finance/hear-from-our-cfa-leadership/arati-porwal/1.jpg"
+   },
+   "text": "We look forward to engaging with young minds to create the future talent pool for the investment management industry.",
+   "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+   "name": "Aarti Porwal",
+   "course": "Country Head, India\nCFA Institute",
+   "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png",
+   "image": null,
+   "play": null
+  },
+  {
+   "kind": "testimonial",
+   "video": {
+    "sources": [
+     {
+      "src": "/assets/videos/schools/isme/bba/1.mp4",
+      "type": "video/mp4"
+     },
+     {
+      "src": "/assets/videos/schools/isme/bba/1.webm",
+      "type": "video/webm"
+     }
+    ],
+    "poster": "/assets/images/schools/isme/bba/site/programs/undergraduate/bsc-hons/bsc-hons-in-finance/hear-from-our-cfa-leadership/anne-fahlgren/1.jpg"
+   },
+   "text": "CFA program is really great for helping you develop the technical skills to be a successful investment professional.",
+   "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+   "name": "Anne Fahlgren",
+   "course": "Senior Head, General Manager\nCFA Institute",
+   "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png",
+   "image": null,
+   "play": null
+  }
+ ]
+}

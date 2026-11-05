@@ -1,0 +1,71 @@
+{
+ "path": "/schools/isme/singapore-management-university",
+ "ref": "singapore-management-university/index.php",
+ "meta": {
+  "title": "ATLAS SkillTech University",
+  "description": "Get in touch with Atlas Skilltech."
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "kind": "unknown",
+   "class": "relative w-full overflow-hidden bg-white",
+   "heading": "ATLAS ISME Semester Abroad Program with Singapore Management University"
+  },
+  {
+   "kind": "unknown",
+   "class": "flex flex-col md:flex-row w-full bg-white custom-gap",
+   "heading": null
+  },
+  {
+   "kind": "unknown",
+   "class": "py-12 md:py-20 overflow-hidden",
+   "heading": "The ATLAS ISME × Singapore Management University Semester Abroad Program"
+  },
+  {
+   "kind": "unknown",
+   "class": "py-10 md:py-16 overflow-visible",
+   "heading": "How This Pathway Works"
+  },
+  {
+   "kind": "unknown",
+   "class": "py-10 md:py-16",
+   "heading": "Eligibility Requirements"
+  },
+  {
+   "kind": "unknown",
+   "class": "py-10 md:py-16",
+   "heading": "Courses at Singapore Management University"
+  },
+  {
+   "kind": "unknown",
+   "class": "bg-[#1E3A8A] py-10 md:py-14 lg:py-16",
+   "heading": "Who Can Apply"
+  },
+  {
+   "kind": "unknown",
+   "class": "py-10 md:py-16",
+   "heading": "Why Choose This Pathway?"
+  },
+  {
+   "kind": "unknown",
+   "class": "py-10 md:py-16",
+   "heading": "Who Is This Program For"
+  },
+  {
+   "kind": "unknown",
+   "class": "py-12 md:pb-16",
+   "heading": "About Singapore Management University"
+  },
+  {
+   "kind": "unknown",
+   "class": "relative bg-[#0a1f5c] text-white py-10 md:py-14 overflow-hidden",
+   "heading": "Ready to Experience a Semester in Singapore?\nLet's Get Started."
+  },
+  {
+   "kind": "unknown",
+   "class": "py-8 md:py-12",
+   "heading": "Disclaimer"
+  }
+ ]
+}

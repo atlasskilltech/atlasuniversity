@@ -1,0 +1,26 @@
+{
+ "heading": "Ready to Build a Business Degree\nThat’s Built for the Real World?",
+ "sub": null,
+ "image": {
+  "src": "/assets/images/schools/isdi/home/section/faq-img.png",
+  "alt": "",
+  "srcSet": "/assets/images/schools/isdi/home/section/faq-img-p-500.png 500w, /assets/images/schools/isdi/home/section/faq-img.png 601w",
+  "sizes": "(max-width: 601px) 100vw, 601px"
+ },
+ "buttons": [
+  {
+   "label": "Book a Campus Visit",
+   "variant": "mint",
+   "icon": null,
+   "id": "campus-visit",
+   "href": "https://atlasuniversity.edu.in/campusvisit"
+  },
+  {
+   "label": "Download Brochure",
+   "variant": "outline-white",
+   "icon": null,
+   "id": "bba-brochure",
+   "brochure": "bba-brochure"
+  }
+ ]
+}

@@ -1,0 +1,205 @@
+{
+ "path": "/schools/isme/success-stories/startups",
+ "ref": "success-stories/startups.php",
+ "meta": {
+  "title": "Startups & Entrepreneurial Growth – ATLAS ISME",
+  "description": "Explore student startups, incubation support, innovation mentoring, business ideas, fundraising insights and startup journeys."
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "kind": "hero",
+   "height": "658",
+   "id": null,
+   "eyebrow": null,
+   "name": null,
+   "position": null,
+   "title": "Startups",
+   "text": null,
+   "image": {
+    "src": "/assets/images/schools/isme/pages/startup-image.webp",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/pages/startup-image-p-500.webp 500w, /assets/images/schools/isme/pages/startup-image-p-800.webp 800w, /assets/images/schools/isme/pages/startup-image-p-1080.webp 1080w, /assets/images/schools/isme/pages/startup-image.webp 1366w",
+    "sizes": "(max-width: 1366px) 100vw, 1366px"
+   },
+   "buttons": null,
+   "video": null
+  },
+  {
+   "cards": [
+    {
+     "tone": "bg6",
+     "label": "Alumni Startups",
+     "value": "1200+",
+     "note": null,
+     "labelKind": "isme-2"
+    },
+    {
+     "tone": "bg7",
+     "label": "Student-led Startups",
+     "value": "50+",
+     "note": null,
+     "labelKind": "isme-2"
+    },
+    {
+     "tone": "bg8",
+     "label": "Secured seed funding",
+     "value": "70%",
+     "note": null,
+     "labelKind": "isme-2"
+    }
+   ],
+   "padBottom": true,
+   "kind": "stats"
+  },
+  {
+   "kind": "story",
+   "heading": "Startups that shape the future",
+   "headingMods": [
+    "mrg32"
+   ],
+   "text": "At ISME, innovation is a way of life. Our students launch startups that tackle real-world challenges across technology, sustainability, education, and more. Through mentorship, seed funding, and hands-on support, they transform ideas into impactful ventures—reflecting ISME’s commitment to nurturing bold entrepreneurs ready to shape the future of industry and society.",
+   "image": {
+    "src": "/assets/images/schools/isdi/startups/story/startup-image-1.webp",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isdi/startups/story/startup-image-1-p-500.webp 500w, /assets/images/schools/isdi/startups/story/startup-image-1-p-800.webp 800w, /assets/images/schools/isdi/startups/story/startup-image-1.webp 828w",
+    "sizes": "(max-width: 767px) 100vw, (max-width: 991px) 727.984375px, 828px"
+   }
+  },
+  {
+   "kind": "gallery",
+   "heading": "Spotlighting student startups",
+   "headingMods": [
+    "mrg16"
+   ],
+   "lead": "Celebrating the entrepreneurs shaping tomorrow",
+   "galleryMods": [
+    "h2-tag"
+   ],
+   "cards": [
+    {
+     "image": {
+      "src": "/assets/images/entrepreneurship/founders/img_7716.png",
+      "alt": ""
+     },
+     "size": "g-card-1",
+     "name": "Khushi Doshi",
+     "caption": "Sorric Media"
+    },
+    {
+     "image": {
+      "src": "/assets/images/entrepreneurship/founders/grid-2-img.png",
+      "alt": ""
+     },
+     "size": "g-card-2",
+     "name": "Parth Gaggar",
+     "caption": null
+    },
+    {
+     "image": {
+      "src": "/assets/images/schools/isme/pages/grid-img-3.png",
+      "alt": ""
+     },
+     "size": "grid-card-3",
+     "name": "Aryan Gandhi",
+     "caption": "drnk"
+    },
+    {
+     "image": {
+      "src": "/assets/images/success/startup-grid/image-18-.png",
+      "alt": ""
+     },
+     "size": "grid-card-4",
+     "name": "Jai Shah",
+     "caption": "Orangutan"
+    },
+    {
+     "image": {
+      "src": "/assets/images/success/startup-grid/grid-img-5.png",
+      "alt": ""
+     },
+     "size": "grid-card-5",
+     "name": "Anik Jain",
+     "caption": null
+    },
+    {
+     "image": {
+      "src": "/assets/images/schools/isme/pages/grid-img-3.png",
+      "alt": ""
+     },
+     "size": "g-card-6",
+     "name": "Briana Chandiramani",
+     "caption": "Go-to-co"
+    },
+    {
+     "image": {
+      "src": "/assets/images/success/startup-grid/grid-img-7.png",
+      "alt": ""
+     },
+     "size": "grid-card-7",
+     "name": "Aanya Jain",
+     "caption": "RunFrenzytan"
+    },
+    {
+     "image": {
+      "src": "/assets/images/schools/isme/pages/grid-img-8.png",
+      "alt": ""
+     },
+     "size": "grid-card-8",
+     "name": "Anoushka Rele",
+     "caption": "Polish Me Pretty"
+    }
+   ],
+   "captionKind": "title-txt-grid"
+  },
+  {
+   "kind": "logoMarquee",
+   "mods": [],
+   "logos": [
+    {
+     "src": "/assets/images/success/startup-grid/st-logo-1.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/st-logo-2.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/success/startup-grid/st-logo-3.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/success/startup-grid/st-logo-4.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/success/startup-grid/st-logo-5.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/success/startup-grid/st-logo-6.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/success/startup-grid/st-logo-7.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/st-logo-8.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/st-logo-8.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/st-logo-8.png",
+     "alt": ""
+    }
+   ]
+  },
+  {
+   "kind": "hidden"
+  }
+ ]
+}

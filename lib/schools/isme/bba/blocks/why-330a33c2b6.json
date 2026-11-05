@@ -1,0 +1,71 @@
+{
+ "heading": "CFA-Focused Learning for Global Finance Careers",
+ "sub": null,
+ "cards": [
+  {
+   "variant": "mint",
+   "title": "CFA Scholarships for High-Achieving Students",
+   "texts": [
+    "ATLAS students can apply for up to 3 CFA scholarships each year, with exam fee support of up to USD 1,000 for any level of the CFA Program."
+   ],
+   "num": "01",
+   "bg": "/assets/images/schools/isme/bba/course-isme-bg1.webp",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/site/programs/undergraduate/bsc-hons/bsc-hons-in-finance/why-finance-aspirants-choose-atlas/1.jpg",
+    "alt": ""
+   }
+  },
+  {
+   "variant": "mint-switch",
+   "title": "CFA Registration Fee Advantage",
+   "texts": [
+    "As a CFA-affiliated institution, eligible students can access CFA Level I registration at a significantly reduced fee of approximately USD 600, making a globally respected certification more accessible."
+   ],
+   "num": "02",
+   "bg": "/assets/images/schools/isme/bba/ways-bg-2.png",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/site/programs/undergraduate/bsc-hons/bsc-hons-in-finance/why-finance-aspirants-choose-atlas/2.jpg",
+    "alt": ""
+   }
+  },
+  {
+   "variant": "mint",
+   "title": "CFA-Aligned Curriculum for Global Relevance",
+   "texts": [
+    "Learn finance through a curriculum designed to reflect global industry standards, with over 80% alignment to the CFA Program. This alignment reinforces strong academic rigour and ensures learning stays relevant to evolving financial markets."
+   ],
+   "num": "03",
+   "bg": "/assets/images/schools/isme/bba/ways-bg-2.png",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/site/programs/undergraduate/bsc-hons/bsc-hons-in-finance/why-finance-aspirants-choose-atlas/3.jpg",
+    "alt": ""
+   }
+  },
+  {
+   "variant": "mint-switch",
+   "title": "Access to the CFA Learning Ecosystem",
+   "texts": [
+    "Students gain exposure to the CFA Learning Ecosystem and updated CFA curriculum resources, supporting deeper learning and strengthening pathways to global finance careers."
+   ],
+   "num": "04",
+   "bg": "/assets/images/schools/isme/bba/ways-bg-2.png",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/site/programs/undergraduate/bsc-hons/bsc-hons-in-finance/why-finance-aspirants-choose-atlas/4.jpg",
+    "alt": ""
+   }
+  },
+  {
+   "variant": "mint",
+   "title": "A Distinct CFA Affiliation Advantage",
+   "texts": [
+    "ATLAS is among a select group of institutions in Mumbai offering the CFA Institute University Affiliation Program (UAP) and is the only university in Maharashtra with this recognition at the undergraduate level."
+   ],
+   "num": "05",
+   "bg": "/assets/images/schools/isme/bba/ways-bg-2.png",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/site/programs/undergraduate/bsc-hons/bsc-hons-in-finance/why-finance-aspirants-choose-atlas/5.jpg",
+    "alt": ""
+   }
+  }
+ ]
+}

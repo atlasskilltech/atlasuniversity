@@ -1,0 +1,374 @@
+{
+ "path": "/schools/isme/programs/summer-school-management",
+ "ref": "programs/summer-school-management.php",
+ "meta": {
+  "title": "Summer School for Future Skills in Mumbai – ATLAS ISME",
+  "description": "Want to upskill fast? Explore short courses, business workshops, leadership learning and hands-on summer programs."
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "kind": "hero",
+   "height": "658",
+   "id": null,
+   "eyebrow": null,
+   "name": null,
+   "position": null,
+   "title": "Summer school",
+   "text": "Summer School primary objective is to provide students with an insight into university life and introduce them to the diverse array of career paths awaiting them in their professional endeavors.",
+   "image": {
+    "src": "/assets/images/schools/isme/pages/summer-school-image.webp",
+    "alt": "Design students interacting with industry professionals and mentors at ISDI Summer Showcase",
+    "srcSet": "/assets/images/schools/isme/pages/summer-school-image-p-500.webp 500w, /assets/images/schools/isme/pages/summer-school-image-p-800.webp 800w, /assets/images/schools/isme/pages/summer-school-image-p-1080.webp 1080w, /assets/images/schools/isme/pages/summer-school-image.webp 1366w",
+    "sizes": "(max-width: 1366px) 100vw, 1366px"
+   },
+   "buttons": [
+    {
+     "label": "Apply Now",
+     "variant": "mint",
+     "href": "/summermgmt"
+    }
+   ],
+   "video": null
+  },
+  {
+   "cards": [
+    {
+     "tone": "bg6",
+     "label": "Eligibility",
+     "value": "Class IX-XII",
+     "note": null,
+     "labelKind": "isme-2"
+    },
+    {
+     "tone": "bg7",
+     "label": "Next Batch",
+     "value": "Batch 3: 23rd June - 03rd July",
+     "note": null,
+     "labelKind": "isme-2"
+    },
+    {
+     "tone": "bg8",
+     "label": "Duration",
+     "value": "2 Weeks",
+     "note": null,
+     "labelKind": "isme-2"
+    }
+   ],
+   "padBottom": false,
+   "kind": "stats"
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": true,
+   "sectionMods": [
+    "extraspace"
+   ],
+   "heading": "ATLAS ISME Summer School:\n3 ways it gives you the edge",
+   "headingMods": [
+    "mrgtbm0"
+   ],
+   "items": [
+    {
+     "kind": "swiperFull",
+     "mods": [
+      "swiper",
+      "common-swiper-full"
+     ],
+     "cards": [
+      {
+       "kind": "career",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/ss-img-1.jpg",
+        "alt": ""
+       },
+       "tone": "bg1",
+       "title": "Understand\nManagement Disciplines",
+       "text": "Such as entrepreneurship, finance and accounting, marketing for a digital world, and business analytics."
+      },
+      {
+       "kind": "career",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/ss-img-2.jpg",
+        "alt": "Faculty mentoring students on creative portfolio development"
+       },
+       "tone": "bg2",
+       "title": "Don’t Just Prepare Be University Ready!",
+       "text": "Accelerate your management journey, articulate your statement of purpose, and gain vision into your future at a management school."
+      },
+      {
+       "kind": "career",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/ss-img-3.webp",
+        "alt": "Students presenting at ISDI Summer School language exchange program"
+       },
+       "tone": "bg3",
+       "title": "Enhance Your Confidence & Soft Skills",
+       "text": "Discover key management skills including communication, presentation, leadership, etc."
+      },
+      {
+       "kind": "career",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/class-3.jpg",
+        "alt": "Design students on industry visit at Apple Store Mumbai"
+       },
+       "tone": "bg3",
+       "title": "Simulations & Role Plays",
+       "text": "Step into decision-maker roles, from marketing strategist to crisis manager."
+      }
+     ],
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": "Build essential business skills before university",
+   "headingMods": [],
+   "items": [
+    {
+     "kind": "zoomLg",
+     "mods": [
+      "swiper",
+      "zoom-slider-lg"
+     ],
+     "cards": [
+      {
+       "kind": "slider-card-c",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/business-skills-1.webp",
+        "alt": "Students learning stock market trading at ISME Celebrity Stock Exchange lab",
+        "srcSet": "/assets/images/schools/isme/pages/business-skills-1-p-500.webp 500w, /assets/images/schools/isme/pages/business-skills-1-p-800.webp 800w, /assets/images/schools/isme/pages/business-skills-1.webp 802w",
+        "sizes": "(max-width: 802px) 100vw, 802px"
+       },
+       "title": "Understanding Stock Markets",
+       "sub": null
+      },
+      {
+       "kind": "slider-card-c",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/ss-swiper-2.png",
+        "alt": "Students pitching startup ideas in fundraising workshop",
+        "srcSet": "/assets/images/schools/isme/pages/ss-swiper-2-p-500.png 500w, /assets/images/schools/isme/pages/ss-swiper-2-p-800.png 800w, /assets/images/schools/isme/pages/ss-swiper-2.png 801w",
+        "sizes": "(max-width: 801px) 100vw, 801px"
+       },
+       "title": "Fundraising for Startups",
+       "sub": null
+      },
+      {
+       "kind": "slider-card-c",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/ss-swiper-3.png",
+        "alt": "Student experiencing VR application-based challenge",
+        "srcSet": "/assets/images/schools/isme/pages/ss-swiper-3-p-500.png 500w, /assets/images/schools/isme/pages/ss-swiper-3-p-800.png 800w, /assets/images/schools/isme/pages/ss-swiper-3.png 801w",
+        "sizes": "(max-width: 801px) 100vw, 801px"
+       },
+       "title": "Generative AI",
+       "sub": null
+      }
+     ],
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": "How you’ll learn with us",
+   "headingMods": [
+    "mrg16"
+   ],
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "sub1",
+     "mods": [
+      "sub-heading-1"
+     ],
+     "text": "Our pedagogy is designed to blend the academic discipline with dynamic energy of a real-world incubator. We use a diverse mix of methods to ensure all types of learners — visual, auditory, interpersonal — thrive.",
+     "common": false
+    },
+    {
+     "kind": "swiper",
+     "mods": [
+      "swiper",
+      "common-swiper"
+     ],
+     "cards": [
+      {
+       "kind": "o",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/ss-learn-1.png",
+        "alt": "Design students collaborating on sketching and ideation in studio"
+       },
+       "title": "Discussion Based Socratic Method",
+       "text": "Someone who enjoys building new ideas, finding opportunitieFaculty engage the students through discussion-based lectures that invite debate and critical questioning.s, and working with others to create value."
+      },
+      {
+       "kind": "o",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/ss-learn-2.png",
+        "alt": "Students working on laptops in classroom during business simulation exercise"
+       },
+       "title": "Business Simulations",
+       "text": "Students assume real business roles, making strategic decisions in fast-paced, immersive environments andsimulated startups."
+      },
+      {
+       "kind": "o",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/ss-learn-3.png",
+        "alt": "Student experiencing VR application-based challenge"
+       },
+       "title": "Application Based Challenges",
+       "text": "Students assume real business roles,making strategic decisions in fast-paced, immersive environments"
+      },
+      {
+       "kind": "o",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/ss-learn-4.png",
+        "alt": "Students engaging in fireside chat with industry expert"
+       },
+       "title": "Fireside Chats",
+       "text": "Opportunities to learn through real-world experiences offering students direct insight into how ideas take shape."
+      }
+     ],
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": "What a Day at Summer School Looks Like",
+   "headingMods": [],
+   "items": [
+    {
+     "kind": "journey",
+     "mods": [
+      "common-flex-32-stretch"
+     ],
+     "cards": [
+      {
+       "year": "01",
+       "chip": "Learning Hour",
+       "duration": {
+        "icon": {
+         "src": "/assets/images/schools/isme/pages/duration.png",
+         "alt": "Clock Icon"
+        },
+        "text": "9:30 AM - 11:15 AM"
+       },
+       "desc": "Build strong foundations in business, design, and strategy with interactive classroom sessions led by expert faculty.",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/day-at-ss-1.png",
+        "alt": "Professor delivering guest lecture on communication skills"
+       }
+      },
+      {
+       "year": "02",
+       "chip": "Boardroom Hour",
+       "duration": {
+        "icon": {
+         "src": "/assets/images/schools/isme/pages/duration.png",
+         "alt": "Clock Icon"
+        },
+        "text": "11:30 AM - 1:30 PM"
+       },
+       "desc": "Step into simulated boardrooms to brainstorm, debate, and develop real ideas — just like in the real world.",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/day-at-ss-2.png",
+        "alt": ""
+       }
+      },
+      {
+       "year": "03",
+       "chip": "Startup Hour",
+       "duration": {
+        "icon": {
+         "src": "/assets/images/schools/isme/pages/duration.png",
+         "alt": "Clock Icon"
+        },
+        "text": "2:15 PM - 3:30 PM"
+       },
+       "desc": "Bring your ideas to life in the Startup Hour — where concepts turn into prototypes, pitches, and possible futures.",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/day-at-ss-3.png",
+        "alt": "Student presenting with faculty mentor at college event"
+       }
+      }
+     ],
+     "common": false
+    }
+   ]
+  },
+  {
+   "heading": "What it’s like being at ATLAS ISME Summer School",
+   "sub": "Hear from our students",
+   "cards": [
+    {
+     "kind": "student",
+     "video": {
+      "sources": [],
+      "poster": null
+     },
+     "text": "I got to work with people my age on real topics, and it made learning feel more real than it usually does in school.",
+     "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+     "name": "Achira Shah",
+     "course": "12th Grade",
+     "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/achira-shah.png",
+      "alt": "Picture of student named Achira Shah at Isme Summer School"
+     },
+     "play": null
+    },
+    {
+     "kind": "student",
+     "video": {
+      "sources": [],
+      "poster": null
+     },
+     "text": "The sessions were different from what I’m used to. We discussed ideas and worked in teams. I didn’t expect to enjoy it this much",
+     "quoteIcon": "/assets/images/leadership-team/quote-icon.svg",
+     "name": "Arnav Debo",
+     "course": "11th Grade",
+     "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/arnav-goswami.png",
+      "alt": "Picture of student named Arnav Debo at Isme Summer School"
+     },
+     "play": null
+    },
+    {
+     "kind": "student",
+     "video": {
+      "sources": [],
+      "poster": null
+     },
+     "text": "ATLAS is instilling the right skills to make students truly future-ready.",
+     "quoteIcon": "/assets/images/leadership-team/quote-icon.svg",
+     "name": "Gaurav Arora",
+     "course": "12th Grade",
+     "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/abdul-marowala.png",
+      "alt": "Picture of student named Gaurav Arora at Isme Summer School"
+     },
+     "play": null
+    }
+   ],
+   "kind": "voices",
+   "headingMods": [
+    "mrg16"
+   ]
+  }
+ ]
+}

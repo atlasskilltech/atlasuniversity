@@ -1,0 +1,124 @@
+{
+ "heading": "Where concepts meet execution,\nin and beyond the classroom.",
+ "sub": "The BBA / BBA (Hons.) in International Accounting & Finance with ACCA is designed to immerse you in the realities of business & tech from day one. Through real-world simulations, industry projects, and hands-on learning experiences, you’ll develop the skills that top employers value most.",
+ "tabs": [
+  "Out-of-Classroom Learning",
+  "In-Classroom Learning"
+ ],
+ "panes": [
+  [
+   {
+    "image": {
+     "src": "/assets/images/schools/isme/bba/d6929703-5e47-4696-a739-83b29ae9ad0b_1_102_a.jpeg",
+     "alt": "",
+     "srcSet": "/assets/images/schools/isme/bba/d6929703-5e47-4696-a739-83b29ae9ad0b_1_102_a-p-500.jpeg 500w, /assets/images/schools/isme/bba/d6929703-5e47-4696-a739-83b29ae9ad0b_1_102_a-p-800.jpeg 800w, /assets/images/schools/isme/bba/d6929703-5e47-4696-a739-83b29ae9ad0b_1_102_a-p-1080.jpeg 1080w, /assets/images/schools/isme/bba/d6929703-5e47-4696-a739-83b29ae9ad0b_1_102_a.jpeg 1536w",
+     "sizes": "(max-width: 1536px) 100vw, 1536px"
+    },
+    "tone": "bg1",
+    "title": "Live Industry\nProjects",
+    "text": "In marketing strategy, market research, and financial analysis"
+   },
+   {
+    "image": {
+     "src": "/assets/images/schools/isme/bba/image-16-copy-2.png",
+     "alt": ""
+    },
+    "tone": "bg2",
+    "title": "Startup Street Collaborations",
+    "text": "Run brand campaigns or develop finance models for real ventures"
+   },
+   {
+    "image": {
+     "src": "/assets/images/schools/isme/bba/image-17-copy-2.png",
+     "alt": ""
+    },
+    "tone": "bg3",
+    "title": "Client Campaign Execution",
+    "text": "Across digital, retail, and\nfintech sectors"
+   },
+   {
+    "image": {
+     "src": "/assets/images/schools/isme/bba/class-3.jpg",
+     "alt": ""
+    },
+    "tone": "bg3",
+    "title": "Field Research, Consumer Surveys",
+    "text": "Hands-on Learning to real world research and data insights"
+   },
+   {
+    "image": {
+     "src": "/assets/images/schools/isme/bba/image-19-copy.png",
+     "alt": ""
+    },
+    "tone": "bg3",
+    "title": "Internships & Global Immersions",
+    "text": "With agencies, corporates, and investment firms"
+   },
+   {
+    "image": {
+     "src": "/assets/images/schools/isme/bba/image-20-copy.png",
+     "alt": ""
+    },
+    "tone": "bg3",
+    "title": "Industry Projects & Showcases",
+    "text": "Where you pitch to professionals and potential investors"
+   }
+  ],
+  [
+   {
+    "image": {
+     "src": "/assets/images/schools/isme/bba/class-1.jpg",
+     "alt": ""
+    },
+    "tone": "bg1",
+    "title": "Live Case\nStudies",
+    "text": "Drawn from top brands, startups, and financial institutions"
+   },
+   {
+    "image": {
+     "src": "/assets/images/schools/isme/bba/image-16-copy-4.png",
+     "alt": ""
+    },
+    "tone": "bg2",
+    "title": "Strategy & Financial Simulations",
+    "text": "Replicating real-time business environments"
+   },
+   {
+    "image": {
+     "src": "/assets/images/schools/isme/bba/image-16-copy-3.png",
+     "alt": ""
+    },
+    "tone": "bg3",
+    "title": "Sprints & Investment Challenges",
+    "text": "That test your creative and analytical thinking."
+   },
+   {
+    "image": {
+     "src": "/assets/images/schools/isme/bba/image-17-copy-3.png",
+     "alt": ""
+    },
+    "tone": "bg3",
+    "title": "CXO-Led Masterclasses",
+    "text": "From experts in marketing, finance, consulting, and beyond"
+   },
+   {
+    "image": {
+     "src": "/assets/images/schools/isme/bba/image-18-copy-2.png",
+     "alt": ""
+    },
+    "tone": "bg3",
+    "title": "Marketing &\nFinance Labs",
+    "text": "With live data, dashboards, and campaign tools"
+   },
+   {
+    "image": {
+     "src": "/assets/images/schools/isme/bba/image-19-copy-2.png",
+     "alt": ""
+    },
+    "tone": "bg3",
+    "title": "Design Jams &\nCrisis Simulations",
+    "text": "For high-pressure decision-making"
+   }
+  ]
+ ]
+}

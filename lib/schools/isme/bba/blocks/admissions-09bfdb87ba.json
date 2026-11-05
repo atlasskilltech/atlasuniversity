@@ -1,0 +1,58 @@
+{
+ "heading": "Your guide to joining ATLAS B.Sc",
+ "sub": "A 4-step admission process",
+ "button": {
+  "label": "Know more",
+  "href": "/schools/isme/admissions/undergraduate/bsc-admissions",
+  "target": null,
+  "fontSize": null,
+  "mobileIco": true
+ },
+ "steps": [
+  {
+   "tone": "tbg1",
+   "num": "01",
+   "title": "Submit the Application Form",
+   "link": {
+    "label": "Apply for Jul’ 26 Cohort",
+    "href": "https://atlasuniversity.edu.in/applicationform",
+    "target": null,
+    "fontSize": 14
+   },
+   "image": {
+    "src": "/assets/images/schools/isdi/programs/b-des/accessory-design-craft/admissions/tab-3-img-1.png",
+    "alt": ""
+   }
+  },
+  {
+   "tone": "tbg2",
+   "num": "02",
+   "title": "Complete\nthe Online\nAptitude Test",
+   "link": {
+    "label": "View a Sample Paper",
+    "href": "/assets/documents/isme/atlas-online-aptitude-test-sample-paper-b-sc.pdf",
+    "target": "_blank",
+    "fontSize": 14
+   },
+   "image": {
+    "src": "/assets/images/schools/isdi/programs/b-des/accessory-design-craft/admissions/tab-3-img-2.png",
+    "alt": ""
+   }
+  },
+  {
+   "tone": "tbg3",
+   "num": "03",
+   "title": "Attend your Personal Interview",
+   "link": {
+    "label": "View sample interview questions",
+    "href": "/assets/documents/isme/atlas-isme-personal-interview.pdf",
+    "target": "_blank",
+    "fontSize": 14
+   },
+   "image": {
+    "src": "/assets/images/schools/isme/bba/tab-3-img-3.png",
+    "alt": ""
+   }
+  }
+ ]
+}

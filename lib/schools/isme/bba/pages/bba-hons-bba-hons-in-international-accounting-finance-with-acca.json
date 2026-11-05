@@ -1,0 +1,1705 @@
+{
+ "path": "bba-hons/bba-hons-in-international-accounting-finance-with-acca",
+ "meta": {
+  "title": "BBA in International Accounting & Finance with ACCA",
+  "description": "Go global with your finance career. Study BBA in international accounting and finance with ACCA at Atlas ISME, Mumbai — earn the globally recognised ACCA UK qualification alongside your degree.",
+  "keywords": null
+ },
+ "brochure": {
+  "ids": [
+   "bba-brochure",
+   "campus-visit"
+  ],
+  "scripts": [],
+  "frames": [
+   {
+    "src": "https://crm.atlasskilltech.app/widgets/6a3e788ea1fd0680c6c15cad/embed",
+    "height": 650
+   }
+  ]
+ },
+ "order": [
+  "hero",
+  "stats",
+  "program",
+  "why",
+  "execution",
+  "voices",
+  "admissions",
+  "eligibility",
+  "banner",
+  "search",
+  "faq"
+ ],
+ "blocks": {
+  "hero": {
+   "title": "BBA / BBA (Hons.) in\nInternational Accounting & Finance with ACCA",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/hero-image,-bba-ai-and-emerging-tech.webp",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/hero-image,-bba-ai-and-emerging-tech-p-500.webp 500w, /assets/images/schools/isme/bba/hero-image,-bba-ai-and-emerging-tech-p-800.webp 800w, /assets/images/schools/isme/bba/hero-image,-bba-ai-and-emerging-tech-p-1080.webp 1080w, /assets/images/schools/isme/bba/hero-image,-bba-ai-and-emerging-tech.webp 1366w",
+    "sizes": "(max-width: 1366px) 100vw, 1366px"
+   },
+   "buttons": [
+    {
+     "label": "Apply for July 2027 Intake",
+     "variant": "mint",
+     "href": "https://atlasuniversity.edu.in/applicationform"
+    },
+    {
+     "label": "Download Brochure",
+     "variant": "outline-white",
+     "brochure": "bba-brochure"
+    },
+    {
+     "label": "Key Dates",
+     "variant": "outline-white",
+     "href": "/schools/isme/admissions/undergraduate/admissions-bba-bachelor-of-business-administration"
+    }
+   ],
+   "narrow": true,
+   "lead": "ATLAS BBA / BBA (Hons.) in International Accounting & Finance with ACCA is built for future global accountants and finance with ACCA leaders who want more than a degree — they want a globally recognized professional edge."
+  },
+  "program": {
+   "panes": [
+    {
+     "label": "Overview",
+     "kind": "text",
+     "text": [
+      {
+       "strong": "The BBA / BBA (Hons.) in International Accounting & Finance with ACCA"
+      },
+      " is a four-year, integrated undergraduate degree program designed to align seamlessly with the curriculum of the Association of Chartered Certified Accountants (ACCA). This program provides students with the academic foundation of a BBA while simultaneously preparing them for the global professional accounting qualification, ACCA, recognized in over 180 countries. A distinctive feature of this program is the curriculum design, which offers students the opportunity to claim up to nine (9) exemptions from the ACCA qualification (covering all papers in the Applied Knowledge and Applied Skills levels, excluding the final four Strategic Professional papers)."
+     ],
+     "paneClass": "tab-pane-tab-1"
+    },
+    {
+     "label": "Curriculum Highlights",
+     "kind": "cards",
+     "cards": [
+      {
+       "num": "#1",
+       "title": "The curriculum is mapped to the ACCA syllabus, allowing students to earn up to nine paper exemptions (F1–F9) alongside their BBA degree."
+      },
+      {
+       "num": "#2",
+       "title": "Students gain comprehensive tax expertise by studying Indian Taxation Laws in Year 2 and International/UK Taxation in Year 3."
+      },
+      {
+       "num": "#3",
+       "title": "Strategic Business Leader (SBL) and Strategic Business Reporting (SBR) are introduced to Year 3 (Semesters 5 & 6) to develop advanced advisory skills early."
+      },
+      {
+       "num": "#4",
+       "title": "The program integrates modern technology with finance aligning with ACCA’s Business Technology requirements."
+      },
+      {
+       "num": "#5",
+       "title": "A dedicated Audit and Assurance course in Semester 4 ensures students master the principles of verification, compliance, and risk assessment."
+      },
+      {
+       "num": "#6",
+       "title": "The syllabus includes elite finance specializations such as Investment Banking Fundamentals and Corporate Valuation."
+      },
+      {
+       "num": "#7",
+       "title": "Unique behavioural science modules like Neuro-Linguistic Programming (NLP) and Indian Behavioural Psychology are included to build leadership and emotional intelligence."
+      },
+      {
+       "num": "#8",
+       "title": "A strong global perspective is fostered through dedicated courses in International Finance, preparing graduates for cross-border careers."
+      },
+      {
+       "num": "#9",
+       "title": "The curriculum promotes holistic development by blending technical finance with interdisciplinary subjects like New-age Business Models."
+      },
+      {
+       "num": "#10",
+       "title": "The final year is dedicated to advanced professional electives (AFM, AAA, ATX), a research dissertation, and internships to ensure complete work-readiness."
+      }
+     ],
+     "paneClass": "tab-pane-tab-2"
+    },
+    {
+     "label": "Learning Outcomes",
+     "kind": "cards",
+     "cards": [
+      {
+       "num": "#1",
+       "title": "Understand global financial frameworks and IFRS to prepare accurate, strategic corporate reports."
+      },
+      {
+       "num": "#2",
+       "title": "Design financial strategies and risk systems driving sustainable organizational growth and value."
+      },
+      {
+       "num": "#3",
+       "title": "Apply modern Business Technology to streamline accounting and enhance decision-making efficiency."
+      },
+      {
+       "num": "#4",
+       "title": "Evaluate corporate compliance and performance ensuring financial integrity through Audit and Assurance."
+      },
+      {
+       "num": "#5",
+       "title": "Collaborate applying ethical leadership and strategic reporting to solve complex corporate challenges."
+      },
+      {
+       "num": "#6",
+       "title": "Advise on international taxation, corporate law, and investments as a future-ready professional."
+      }
+     ],
+     "paneClass": "tab-pane-tab-3"
+    },
+    {
+     "label": "Career Pathways",
+     "kind": "careerBoxes",
+     "boxes": [
+      {
+       "title": "Audit & Assurance Specialist",
+       "text": "Work with the Big 4 (Deloitte, PwC, EY, KPMG) or top firms to verify financial accuracy and compliance.",
+       "meta": [
+        {
+         "label": "Roles:",
+         "text": "Statutory Auditor, Internal Auditor, Risk Assurance Associate"
+        },
+        {
+         "label": "Curriculum Link:",
+         "text": "Advanced Audit & Assurance (AAA), Corporate & Business Law"
+        }
+       ]
+      },
+      {
+       "title": "Investment Banking Analyst",
+       "text": "Analyze markets, structure deals, and manage mergers & acquisitions (M&A) for global banks.",
+       "meta": [
+        {
+         "label": "Roles:",
+         "text": "M&A Analyst, Equity Research Analyst, Deal Advisory Associate"
+        },
+        {
+         "label": "Curriculum Link:",
+         "text": "Investment Banking Fundamentals, Corporate Valuation, Corporate Finance"
+        }
+       ]
+      },
+      {
+       "title": "International Tax Consultant",
+       "text": "Advise multinational corporations on cross-border tax strategies, transfer pricing, and compliance.",
+       "meta": [
+        {
+         "label": "Roles:",
+         "text": "Direct / Indirect Tax Associate, Transfer Pricing Specialist, Global Tax Advisor"
+        },
+        {
+         "label": "Curriculum Link:",
+         "text": "Indian Taxation Laws, International Taxation, Advanced Taxation (ATX)"
+        }
+       ]
+      },
+      {
+       "title": "Management Accountant & Business Partner",
+       "text": "Help organizations plan for the future by analyzing costs, budgets, and performance to drive profitability.",
+       "meta": [
+        {
+         "label": "Roles:",
+         "text": "Cost Accountant, Finance Business Partner, Commercial Finance Manager"
+        },
+        {
+         "label": "Curriculum Link:",
+         "text": "Management Accounting, Advanced Performance Management (APM)"
+        }
+       ]
+      },
+      {
+       "title": "Strategic Financial Planner (FP&A)",
+       "text": "Lead financial forecasting, budgeting, and long-term strategic planning for large enterprises.",
+       "meta": [
+        {
+         "label": "Roles:",
+         "text": "FP&A Analyst, Financial Planning Manager, Strategic Planner"
+        },
+        {
+         "label": "Curriculum Link:",
+         "text": "Financial Management, Advanced Financial Management (AFM)"
+        }
+       ]
+      },
+      {
+       "title": "Forensic Accountant",
+       "text": "Investigate financial discrepancies, fraud, and disputes, combining accounting skills with investigative techniques.",
+       "meta": [
+        {
+         "label": "Roles:",
+         "text": "Forensic Auditor, Fraud Investigator, Dispute Services Consultant"
+        },
+        {
+         "label": "Curriculum Link:",
+         "text": "Audit & Assurance, Corporate Governance, Business Ethics"
+        }
+       ]
+      },
+      {
+       "title": "Risk & Compliance Manager",
+       "text": "Identify and mitigate financial, operational, and regulatory risks to protect organizational value.",
+       "meta": [
+        {
+         "label": "Roles:",
+         "text": "Risk Manager, Compliance Officer, Governance Professional"
+        },
+        {
+         "label": "Curriculum Link:",
+         "text": "Strategic Business Leader (SBL), Risk Management"
+        }
+       ]
+      },
+      {
+       "title": "Strategic Business Consultant",
+       "text": "Advice on high-level business problems, organizational change, and growth strategies.",
+       "meta": [
+        {
+         "label": "Roles:",
+         "text": "Management Consultant, Strategy Analyst, Business Transformation Consultant"
+        },
+        {
+         "label": "Curriculum Link:",
+         "text": "Strategic Business Leader (SBL), New-age Business Models"
+        }
+       ]
+      }
+     ],
+     "paneClass": null
+    }
+   ],
+   "current": 0,
+   "years": [
+    {
+     "label": "Year 1",
+     "semesters": [
+      {
+       "title": "Semester 1",
+       "text": null,
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": "Principles of Management",
+         "text": null
+        },
+        {
+         "title": [
+          {
+           "strong": "Marketing Management & Consumer Behaviour"
+          }
+         ],
+         "text": null
+        },
+        {
+         "title": [
+          {
+           "strong": "Financial Accounting"
+          }
+         ],
+         "text": null
+        },
+        {
+         "title": [
+          {
+           "strong": "Entrepreneurship Fundamentals"
+          }
+         ],
+         "text": null
+        },
+        {
+         "title": [
+          {
+           "strong": "Indian Behavioural Psychology"
+          }
+         ],
+         "text": null
+        },
+        {
+         "title": [
+          {
+           "strong": "Business Technology"
+          }
+         ],
+         "text": null
+        },
+        {
+         "title": [
+          {
+           "strong": "ATLAS Elective"
+          }
+         ],
+         "text": null
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our Semester 1 curriculum outpaces every other business school",
+         "text": "Gain an early advantage with a curriculum that blends psychology, management, and analytical tools—delivered through experiential learning, industry mentorship, and real-world application.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Introduction to Psychology & Decision Making",
+           "Applied experiments and reflection journals",
+           "Theoretical understanding only"
+          ],
+          [
+           "Marketing & Consumer Psychology",
+           "Behavioral case studies on real brands",
+           "Traditional marketing mix approach"
+          ],
+          [
+           "Principles of Management",
+           "Leadership simulation and live organizational projects",
+           "Textbook-based teaching"
+          ],
+          [
+           "Excel for Decision Making I",
+           "Industry-aligned assignments and data interpretation",
+           "Basic spreadsheet learning"
+          ],
+          [
+           "Ancient Indian Knowledge Systems (IKS)",
+           "Integration of ethical and cultural dimensions",
+           "No equivalent subject"
+          ],
+          [
+           "Professional Communication I",
+           "Corporate-style presentation and feedback labsIntegrated with business strategies for sustainable growth.",
+           "Minimal practice sessions"
+          ],
+          [
+           "Academic Writing & Critical Thinking",
+           "Case-based argumentation and analytical writing projects",
+           "Focused only on grammar or essays"
+          ],
+          [
+           "ATLAS Elective",
+           "Flexible pathways for multidisciplinary exposure",
+           "Limited or predefined electives"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Semester 2",
+       "text": null,
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Economics"
+          }
+         ],
+         "text": null
+        },
+        {
+         "title": [
+          {
+           "strong": "New-age Business Models"
+          }
+         ],
+         "text": null
+        },
+        {
+         "title": [
+          {
+           "strong": "Digital Marketing 101"
+          }
+         ],
+         "text": null
+        },
+        {
+         "title": [
+          {
+           "strong": "Financial Statement Analysis"
+          }
+         ],
+         "text": null
+        },
+        {
+         "title": [
+          {
+           "strong": "Business Communication"
+          }
+         ],
+         "text": null
+        },
+        {
+         "title": [
+          {
+           "strong": "Statistics for Business"
+          }
+         ],
+         "text": null
+        },
+        {
+         "title": [
+          {
+           "strong": "ATLAS Elective"
+          }
+         ],
+         "text": null
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our Semester 2 curriculum outpaces every other business school",
+         "text": "Gain a competitive edge with a curriculum that connects behavioral insight, digital innovation, and ethical strategy—delivered through applied learning and creative experimentation.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Business Psychology",
+           "Real corporate case studies and behavioral audits",
+           "Introductory theory without practical exposure"
+          ],
+          [
+           "Overview of Digital Marketing",
+           "Behavioral insights linked to engagement analytics",
+           "Platform tutorials without strategy context"
+          ],
+          [
+           "Positive Psychology",
+           "Applied well-being workshops and personal growth labs",
+           "Limited to conceptual understanding"
+          ],
+          [
+           "AI Tools for Business",
+           "Hands-on projects using Canva, Figma, and Trello",
+           "Surface-level software orientation"
+          ],
+          [
+           "Media Literacy & Critical Thinking",
+           "Critical analysis of digital influence and bias",
+           "Minimal media interpretation skills"
+          ],
+          [
+           "Environmental Science & Sustainability",
+           "ESG-focused projects and sustainability audits",
+           "Basic environmental awareness"
+          ],
+          [
+           "ATLAS Elective",
+           "Flexible pathways for multidisciplinary exposure",
+           "Limited or predefined electives"
+          ],
+          [
+           "Professional Communication II",
+           "Practical communication training with presentations, pitch exercises, and workplace-focused writing tasks.",
+           "Emphasis on grammar and theory with fewer opportunities for real-world communication practice."
+          ]
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Year 2",
+     "semesters": [
+      {
+       "title": "Semester 3",
+       "text": null,
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Course (Existing)"
+          }
+         ],
+         "text": "EEssentials of Organizational Behaviour and Human Resource Management"
+        },
+        {
+         "title": [
+          {
+           "strong": "Internship/Rural Immersion/SSR/Global Immersion/Family Business"
+          }
+         ],
+         "text": null
+        }
+       ],
+       "electives": [
+        {
+         "title": "Major (Finance)",
+         "items": [
+          {
+           "title": [
+            {
+             "strong": "Financial Management"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Indian Taxation Laws"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Financial Reporting"
+            }
+           ],
+           "text": null
+          }
+         ]
+        },
+        {
+         "title": "Minor (any 2)",
+         "items": [
+          {
+           "title": [
+            {
+             "strong": "Fundamentals of Selling and Negotiation"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "SEO and SEM Strategy"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Business Research Methods"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Business Intelligence using Power BI"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Predictive Business Models"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Design Thinking & MVP Management"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Dynamics of Family Managed Business"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Microeconomic Analysis"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Macroeconomic Analysis"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Fundamentals of Supply Chain Management"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Strategic Workforce Planning & Talent Acquisition"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Employment Law & Industrial Relations"
+            }
+           ],
+           "text": null
+          }
+         ]
+        },
+        {
+         "title": "Program Elective (Any 1)",
+         "items": [
+          {
+           "title": [
+            {
+             "strong": "Ancient Philosophy for Modern Business"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Data Visualisation for Business"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Geopolitics for Global Business"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "International Relations"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Negotiation and Persuation"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Product and Service Design"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Sociology of the Digital Age"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "UI/UX for Business"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Sports Analytics"
+            }
+           ],
+           "text": null
+          }
+         ]
+        }
+       ],
+       "compare": [
+        {
+         "title": "Why our Semester 3 curriculum outpaces every other business school",
+         "text": "Deepen your expertise in applied behavioral science with a curriculum that combines leadership psychology, neuroscience, and personal development through experiential learning.",
+         "head": [
+          "Subjects",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Social Cognition in Business (Social Psychology)",
+           "Live team dynamics simulations and reflection journals"
+          ],
+          [
+           "Theoretical group psychology",
+           "Industrial / Organizational Psychology"
+          ],
+          [
+           "Organizational behavior labs with real HR challenges",
+           "Limited to textbook study"
+          ],
+          [
+           "Neuroscience of Influence & Buying Decisions",
+           "Neuro-marketing projects using cognitive tools"
+          ],
+          [
+           "No neuroscience exposure",
+           "Personal Finance"
+          ],
+          [
+           "Practical workshops on budgeting and investment",
+           "Theoretical personal finance lessons"
+          ],
+          [
+           "Indian Systems of Physical & Psychological Wellness (NSS/YOGA)",
+           "Yoga and wellness integration with psychology"
+          ],
+          [
+           "Basic fitness or mindfulness modules",
+           "Psychology of Leadership"
+          ],
+          [
+           "Behavioral leadership coaching and assessment",
+           "Conceptual overview without application"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Semester 4",
+       "text": null,
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Course (Existing)"
+          }
+         ],
+         "text": "Corporate and Business Law"
+        },
+        {
+         "title": [
+          {
+           "strong": "Internship/Rural Immersion/SSR/Global Immersion/Family Business"
+          }
+         ],
+         "text": null
+        }
+       ],
+       "electives": [
+        {
+         "title": "Major (Finance)",
+         "items": [
+          {
+           "title": [
+            {
+             "strong": "Corporate Finance"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Inv. Analysis and Portfolio Mgmt"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Audit and Assurance"
+            }
+           ],
+           "text": null
+          }
+         ]
+        },
+        {
+         "title": "Minor (any 2)",
+         "items": [
+          {
+           "title": [
+            {
+             "strong": "Advertising and PR"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Retail and E-Commerce Management"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Marketing Analytics"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Data Analytics"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "SQL for Business"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Growth Hacking & Entrepreneurial Marketing"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Social Entrepreneurship"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Game Theory and Strategic thinking"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Development Economics"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Demand Planning and Production Control"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Logistics and Transportation Management"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Sustainable, Inclusive and Ethical HR Strategies"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Compensation, Rewards and Benefits"
+            }
+           ],
+           "text": null
+          }
+         ]
+        },
+        {
+         "title": "Program Elective (Any 1)",
+         "items": [
+          {
+           "title": [
+            {
+             "strong": "Ancient Philosophy for Modern Business"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Data Visualisation for Business"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Geopolitics for Global Business"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "International Relations"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Negotiation and Persuation"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "NLP in Business"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Product and Service Design"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Business Plan Writing"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "UI/UX for Business"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Sports Analytics"
+            }
+           ],
+           "text": null
+          }
+         ]
+        }
+       ],
+       "compare": [
+        {
+         "title": "Why our Semester 4 curriculum outpaces every other business school",
+         "text": "Advance your leadership capacity with a curriculum blending ethics, analytics, and innovation—bridging emotional intelligence and strategic business thinking.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Emotional Intelligence & Well-being",
+           "Personalized emotional intelligence assessments and growth coaching",
+           "Standard emotional awareness lessons"
+          ],
+          [
+           "Strategic People Management",
+           "Real-time HR analytics and leadership simulations",
+           "Theoretical HR principles"
+          ],
+          [
+           "Business Ethics",
+           "Case-based ethical decision simulations",
+           "Abstract moral philosophy"
+          ],
+          [
+           "Psychology of Social Entrepreneurship",
+           "Social venture design challenges and community projects",
+           "Limited conceptual exposure"
+          ],
+          [
+           "Founder’s Psychology & Innovative Thinking",
+           "Entrepreneurial mindset workshops and idea incubators",
+           "Conceptual overview without application"
+          ],
+          [
+           "Indian Constitution",
+           "Ethics and governance integrated with management context",
+           "General legal studies only"
+          ],
+          [
+           "Digital Tools for Behavioral Sciences (SPSS/R)",
+           "Live data analysis labs and applied research projects",
+           "Spreadsheet-level analytics exposure"
+          ]
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Year 3",
+     "semesters": [
+      {
+       "title": "Semester 5",
+       "text": null,
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [],
+       "electives": [
+        {
+         "title": "Course (Existing)",
+         "items": [
+          {
+           "title": [
+            {
+             "strong": "International Business and Global Perception"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Neuro Linguistic Program in Business"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Career Services"
+            }
+           ],
+           "text": null
+          }
+         ]
+        },
+        {
+         "title": "Major (Finance)",
+         "items": [
+          {
+           "title": [
+            {
+             "strong": "Strategic Business Leadership"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Investment Banking Fundamentals"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Performance Management"
+            }
+           ],
+           "text": null
+          }
+         ]
+        },
+        {
+         "title": "Minor (any 1)",
+         "items": [
+          {
+           "title": [
+            {
+             "strong": "Retail Management and Ecommerce"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Strategic Marketing Communication"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Advanced Digital Marketing"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Luxury Marketing"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Analytics for Sustainability"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Web and Social Media Analytics"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Fund Raising and Venture Capital"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "IP, Startup Laws and Ecosystems"
+            }
+           ],
+           "text": null
+          }
+         ]
+        }
+       ],
+       "compare": [
+        {
+         "title": "Why our Semester 5 curriculum outpaces every other business school",
+         "text": "Bridge academic knowledge with real-world impact through hands-on research, cultural exposure, and professional practice in applied business psychology.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Conflict Theory & Resolution",
+           "Real-world negotiation simulations and peer mediation workshops",
+           "Theoretical conflict analysis"
+          ],
+          [
+           "Cross-Cultural Psychology",
+           "Global team projects and cultural immersion case studies",
+           "Limited exposure to diversity dynamics"
+          ],
+          [
+           "Cross-Cultural Psychology",
+           "Limited exposure to diversity dynamics",
+           "Limited exposure to diversity dynamics"
+          ],
+          [
+           "Internship",
+           "Mentorship-driven workplace experience",
+           "Generic observational roles"
+          ],
+          [
+           "Social Media Psychology (Audit Course)",
+           "Behavioral analytics of digital engagement",
+           "Basic social media theory"
+          ],
+          [
+           "Behavioural Dynamics in Family Businesses",
+           "Live case studies with family enterprises",
+           "Minimal specialized coverage"
+          ],
+          [
+           "Major Project (Evaluation in 6th Semester)",
+           "Faculty-guided, ongoing applied research",
+           "One-off dissertation submission"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Semester 6",
+       "text": null,
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [],
+       "electives": [
+        {
+         "title": "Course (Existing)",
+         "items": [
+          {
+           "title": [
+            {
+             "strong": "Logistics and Operations Management"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Ancient Philosophy"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Applied Business Analytics"
+            }
+           ],
+           "text": null
+          }
+         ]
+        },
+        {
+         "title": "Major (Finance)",
+         "items": [
+          {
+           "title": [
+            {
+             "strong": "Entrepreneurial Finance"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "International Finance"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Behavioural Finance (Minor)"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Sustainable Finance (Minor)"
+            }
+           ],
+           "text": null
+          }
+         ]
+        },
+        {
+         "title": "Minor (any 1)",
+         "items": [
+          {
+           "title": [
+            {
+             "strong": "Innovation in FMBs"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Entrepreneurship Launchpad"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Fundamentals of Rural Marketing"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Intercultural Marketing"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Event Marketing"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Media Management"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Introduction to Cloud Computing"
+            }
+           ],
+           "text": null
+          },
+          {
+           "title": [
+            {
+             "strong": "Ethics in AI"
+            }
+           ],
+           "text": null
+          }
+         ]
+        }
+       ],
+       "compare": [
+        {
+         "title": "Why our Semester 6 curriculum outpaces every other business school",
+         "text": "Gain a strategic edge through data-backed behavioral insights, live research projects, and applied business psychology that bridges analysis and leadership practice.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Change Management",
+           "Real-world transformation simulations with behavioral feedback",
+           "Conceptual change models only"
+          ],
+          [
+           "Neuro-linguistic Programming (NLP) for Business",
+           "Applied persuasion and communication labs",
+           "Limited exposure to NLP frameworks"
+          ],
+          [
+           "Statistics for Behavioural Sciences",
+           "SPSS and R-based behavioral data analytics",
+           "Theoretical statistics without application"
+          ],
+          [
+           "Consumer Psychology in Luxury Marketing",
+           "Live brand analysis and perception mapping",
+           "Basic marketing psychology overview"
+          ],
+          [
+           "Behavioural Economics (Audit Course)",
+           "Field experiments on cognitive bias and decision-making",
+           "Textbook-based behavioral theory"
+          ],
+          [
+           "Retail Psychology",
+           "Retail space behavior mapping and consumer observation",
+           "Limited real-world application"
+          ],
+          [
+           "Research Project",
+           "Faculty-supervised empirical study and presentation",
+           "Standard academic paper submission"
+          ]
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Year 4",
+     "semesters": [
+      {
+       "title": "Semester 7",
+       "text": null,
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Advanced Financial Management (AFM)"
+          }
+         ],
+         "text": null
+        },
+        {
+         "title": [
+          {
+           "strong": "Foundation of Corporate Valuation"
+          }
+         ],
+         "text": null
+        },
+        {
+         "title": [
+          {
+           "strong": "International Taxation"
+          }
+         ],
+         "text": null
+        },
+        {
+         "title": [
+          {
+           "strong": "Advanced Auditing (AAA)"
+          }
+         ],
+         "text": null
+        },
+        {
+         "title": [
+          {
+           "strong": "Dissertation I"
+          }
+         ],
+         "text": null
+        },
+        {
+         "title": [
+          {
+           "strong": "Internship"
+          }
+         ],
+         "text": null
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our Semester 7 curriculum outpaces every other business school",
+         "text": "Transform into an innovation-focused leader through applied analytics, behavioral design, and sustainability—bridging psychology, technology, and strategic business transformation.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Organisational Development",
+           "Live transformation projects and real client engagements",
+           "Theory-based content only"
+          ],
+          [
+           "Psychology of Innovation & Creativity",
+           "Innovation sprints and ideation labs",
+           "Conceptual creativity sessions"
+          ],
+          [
+           "AI for BusinessNo-Code/Low-Code Tools",
+           "Predictive analytics with real organizational data",
+           "Conceptual understanding of AI"
+          ],
+          [
+           "Environmental and Sustainability Psychology",
+           "ESG behavioral research and sustainability labs",
+           "Limited course availability"
+          ],
+          [
+           "People Analytics & Psychological Assessment",
+           "Psychometric certification and live HR data projects",
+           "Basic analytics exposure"
+          ],
+          [
+           "Dissertation",
+           "Guided academic-industry collaborative research",
+           "Traditional academic submission"
+          ],
+          [
+           "Internship",
+           "Structured corporate mentorship and feedback reviews",
+           "Generic internship requirements"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Semester 8",
+       "text": null,
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Advanced Performance Management (APM)"
+          }
+         ],
+         "text": null
+        },
+        {
+         "title": [
+          {
+           "strong": "International Finance"
+          }
+         ],
+         "text": null
+        },
+        {
+         "title": [
+          {
+           "strong": "Advanced Taxation (ATX)"
+          }
+         ],
+         "text": null
+        },
+        {
+         "title": [
+          {
+           "strong": "Dissertation II"
+          }
+         ],
+         "text": null
+        },
+        {
+         "title": [
+          {
+           "strong": "Internship / Consulting Project"
+          }
+         ],
+         "text": null
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our Semester 8 curriculum outpaces every other business school",
+         "text": "Conclude your academic journey with research, leadership, and entrepreneurial mastery—bridging business insight, psychological expertise, and evidence-based professional practice.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Coaching & Mentoring in Business Settings",
+           "Executive coaching practice with real case simulations",
+           "Theoretical mentoring frameworks"
+          ],
+          [
+           "Finance for Enterprise",
+           "Behavioral finance integration and live case discussions",
+           "Standard finance principles only"
+          ],
+          [
+           "Entrepreneurial Psychology",
+           "Founders’ mindset labs and innovation pitch sessions",
+           "Concept-based learning without practice"
+          ],
+          [
+           "Capstone Research Thesis + Viva",
+           "Faculty-guided research with professional defense evaluation",
+           "Conventional academic submissions"
+          ]
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "download": {
+    "label": "Download Curriculum",
+    "variant": "mint",
+    "fontSize": null,
+    "brochure": "bba-brochure"
+   }
+  }
+ },
+ "refs": {
+  "stats": "stats-6a4d458824",
+  "why": "why-0ab11c595e",
+  "execution": "execution-88cbf6c838",
+  "voices": "voices-5669f623cd",
+  "admissions": "admissions-6fd02620b2",
+  "eligibility": "eligibility-edad976fd7",
+  "banner": "banner-8cbc0dbf63",
+  "search": "search-bf21a9e8fb",
+  "faq": "faq-55fbb40e97"
+ }
+}

@@ -1,0 +1,424 @@
+{
+ "path": "/schools/isme/events/hackathons-and-innovation-challenges",
+ "ref": "events/hackathons-and-innovation-challenges.php",
+ "meta": {
+  "title": "Hackathons & Innovation Challenges – ATLAS ISME",
+  "description": "Join hackathons, innovation sprints, competitions, problem-solving and industry-led challenges to build real-world skills."
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "kind": "hero",
+   "height": "100vh",
+   "id": null,
+   "eyebrow": "Hackathons & Challenges",
+   "name": null,
+   "position": null,
+   "title": "Solve, Sprint,\nDisrupt. Repeat.",
+   "text": null,
+   "image": {
+    "src": "/assets/images/schools/isme/pages/hero-image-hackathon.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/pages/hero-image-hackathon-p-500.png 500w, /assets/images/schools/isme/pages/hero-image-hackathon-p-800.png 800w, /assets/images/schools/isme/pages/hero-image-hackathon-p-1080.png 1080w, /assets/images/schools/isme/pages/hero-image-hackathon.png 1366w",
+    "sizes": "(max-width: 1439px) 100vw, 1365.9722900390625px"
+   },
+   "buttons": null
+  },
+  {
+   "kind": "iconSection",
+   "id": null,
+   "icon": "/assets/images/schools/isme/pages/user.png",
+   "num": null,
+   "title": "PwC Case Study Challenge",
+   "wrap": "blue",
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "blue",
+     "mods": [
+      "blue-desc-wrap",
+      "mrgbtm"
+     ],
+     "textMods": [
+      "blue-desc-text"
+     ],
+     "text": "A national pre-MBA case competition in knowledge partnership with PwC India, where students tackle real-world business challenges and pitch innovative, high-impact solutions to industry experts.",
+     "common": false
+    },
+    {
+     "kind": "zoom",
+     "mods": [
+      "swiper",
+      "zoom-slider"
+     ],
+     "cards": [
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/3b3a0845-8.png",
+        "alt": ""
+       },
+       "caption": "",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/pwc-2.png",
+        "alt": ""
+       },
+       "caption": "",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/pwc-3.png",
+        "alt": ""
+       },
+       "caption": "",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/pwc-6.png",
+        "alt": ""
+       },
+       "caption": "",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/pwc-5.png",
+        "alt": ""
+       },
+       "caption": "",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/pwc-4.png",
+        "alt": ""
+       },
+       "caption": "",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/pwc--picture-1.png",
+        "alt": ""
+       },
+       "caption": "Entrepreneurial Mindset",
+       "sub": "Innovates, adapts, and\nleads with initiative"
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/pwc-2.png",
+        "alt": ""
+       },
+       "caption": "",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/pwc-3.png",
+        "alt": ""
+       },
+       "caption": "",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/pwc-6.png",
+        "alt": ""
+       },
+       "caption": "",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/pwc-5.png",
+        "alt": ""
+       },
+       "caption": "",
+       "sub": null
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/pwc-4.png",
+        "alt": ""
+       },
+       "caption": "",
+       "sub": null
+      }
+     ],
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "iconSection",
+   "id": null,
+   "icon": "/assets/images/advantages/partnership/cdn/notification.png",
+   "num": null,
+   "title": "T.E.A.M. Mumbai Hacks",
+   "wrap": "white",
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "white",
+     "mods": [
+      "white-desc-wrap",
+      "mrgbtm32"
+     ],
+     "textMods": [
+      "black-desc-text",
+      "wid80"
+     ],
+     "text": "The \"Mumbai Hacks '24\" GenAI hackathon, recognized by the Guinness World Record as the largest of its kind, was held at ATLAS in partnership with the IndiaAI Mission — bringing together 1,460+ participants to build AI-powered solutions across finance, social good, entertainment, and more.",
+     "common": false
+    },
+    {
+     "kind": "strip",
+     "mods": [
+      "strip-container",
+      "mgr-btm"
+     ],
+     "content": false,
+     "cells": [
+      [
+       {
+        "cls": [
+         "str-txt-mint"
+        ],
+        "text": "2000+"
+       },
+       {
+        "cls": [
+         "str-txt-white"
+        ],
+        "text": "participants"
+       }
+      ],
+      [
+       {
+        "cls": [
+         "str-txt-mint"
+        ],
+        "text": "20+ Lakhs"
+       },
+       {
+        "cls": [
+         "str-txt-white"
+        ],
+        "text": "in winnings"
+       }
+      ],
+      [
+       {
+        "cls": [
+         "str-txt-mint"
+        ],
+        "text": "20+"
+       },
+       {
+        "cls": [
+         "str-txt-white"
+        ],
+        "text": "hours"
+       }
+      ],
+      [
+       {
+        "cls": [
+         "str-txt-mint"
+        ],
+        "text": "50+"
+       },
+       {
+        "cls": [
+         "str-txt-white"
+        ],
+        "text": "judges and mentors"
+       }
+      ]
+     ],
+     "common": false
+    },
+    {
+     "kind": "wall",
+     "columns": [
+      [
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/mh-7.png",
+         "alt": ""
+        },
+        "text": null,
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": false
+       },
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/mh-4.png",
+         "alt": ""
+        },
+        "text": null,
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": false
+       }
+      ],
+      [
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/mh-1.png",
+         "alt": ""
+        },
+        "text": null,
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": false
+       },
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/mh-5.png",
+         "alt": ""
+        },
+        "text": null,
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": false
+       }
+      ],
+      [
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/mh-2.png",
+         "alt": ""
+        },
+        "text": null,
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": false
+       },
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/mh-8.png",
+         "alt": ""
+        },
+        "text": null,
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": false
+       }
+      ],
+      [
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/mh-6.png",
+         "alt": ""
+        },
+        "text": null,
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": false
+       },
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/mh-3.png",
+         "alt": ""
+        },
+        "text": null,
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": false
+       }
+      ]
+     ],
+     "wrapClass": "instagram-wrapper",
+     "imgClass": "insta-image-rect",
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "explore",
+   "heading": "Explore by Experience",
+   "cards": [
+    {
+     "text": "Entrepreneurship\nEvents",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/explore-1.jpg",
+      "alt": ""
+     },
+     "href": "/schools/isme/events/entrepreneurship-and-startup-events",
+     "icon": "/assets/icons/arrow-downward.svg",
+     "variant": "card-type-k"
+    },
+    {
+     "text": "Industry\nEvents",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/image-1212.png",
+      "alt": ""
+     },
+     "href": "/schools/isme/events/industry-networking-and-conferences",
+     "icon": "/assets/icons/arrow-downward.svg",
+     "variant": "card-type-k-2"
+    },
+    {
+     "text": "International\nEvents",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/image-1212-copy.png",
+      "alt": ""
+     },
+     "href": "/schools/isme/events/industry-events-international-events",
+     "icon": "/assets/icons/arrow-downward.svg",
+     "variant": "card-type-k-2"
+    },
+    {
+     "text": "Masters\nProgressions",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/international-faculties-thumnil.png",
+      "alt": ""
+     },
+     "href": "/schools/isme/events/industry-events-masters-progression-events",
+     "icon": "/assets/icons/arrow-downward.svg",
+     "variant": "card-type-k-2"
+    },
+    {
+     "text": "Fests & Cultural\nEvents",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/college-fest-3.png",
+      "alt": "",
+      "srcSet": "/assets/images/schools/isme/pages/college-fest-3-p-500.png 500w, /assets/images/schools/isme/pages/college-fest-3-p-800.png 800w, /assets/images/schools/isme/pages/college-fest-3-p-1080.png 1080w, /assets/images/schools/isme/pages/college-fest-3.png 1338w",
+      "sizes": "(max-width: 300px) 100vw, 300px"
+     },
+     "href": "/schools/isme/events/annual-fests-and-cultural-celebrations",
+     "icon": "/assets/icons/arrow-downward.svg",
+     "variant": "card-type-k-2"
+    },
+    {
+     "text": "Podcasts &\nFireside Chats",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/image-1212-4.png",
+      "alt": ""
+     },
+     "href": "/schools/isme/events/podcasts-and-fireside-chats-with-industry-leaders",
+     "icon": "/assets/icons/arrow-downward.svg",
+     "variant": "card-type-k-2"
+    },
+    {
+     "text": "Flagship\nEvents",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/gandhi-img-1.png",
+      "alt": "",
+      "srcSet": "/assets/images/schools/isme/pages/gandhi-img-1-p-500.png 500w, /assets/images/schools/isme/pages/gandhi-img-1-p-800.png 800w, /assets/images/schools/isme/pages/gandhi-img-1-p-1080.png 1080w, /assets/images/schools/isme/pages/gandhi-img-1.png 1446w",
+      "sizes": "(max-width: 300px) 100vw, 300px"
+     },
+     "href": "/schools/isme/events/flagship-events-at-atlas-isme",
+     "icon": "/assets/icons/arrow-downward.svg",
+     "variant": "card-type-k-2"
+    }
+   ]
+  }
+ ]
+}

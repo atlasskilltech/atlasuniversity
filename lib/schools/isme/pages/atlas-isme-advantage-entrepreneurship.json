@@ -1,0 +1,796 @@
+{
+ "path": "/schools/isme/atlas-isme-advantage/entrepreneurship",
+ "ref": "atlas-isme-advantage/entrepreneurship.php",
+ "meta": {
+  "title": "Entrepreneurship Programs at Atlas ISME Mumbai",
+  "description": "Got a startup idea? Atlas ISME is one of the best universities for entrepreneurship in Mumbai — with a startup ecosystem, mentorship, and innovation challenges to launch your venture."
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "kind": "hero",
+   "height": "78vh",
+   "id": null,
+   "eyebrow": null,
+   "name": null,
+   "position": null,
+   "title": "Think It. Build It. Launch It.",
+   "text": "Whether you’re starting a D2C brand, pitching a tech solution, or solving real-world problems — ATLAS ISME gives you the ecosystem, mentorship, and platforms to take your idea from concept to company.",
+   "image": {
+    "src": "/assets/images/schools/isme/pages/ent-hero.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/pages/ent-hero-p-500.png 500w, /assets/images/schools/isme/pages/ent-hero-p-800.png 800w, /assets/images/schools/isme/pages/ent-hero-p-1080.png 1080w, /assets/images/schools/isme/pages/ent-hero.png 1366w",
+    "sizes": "(max-width: 1366px) 100vw, 1366px"
+   },
+   "buttons": null,
+   "video": null
+  },
+  {
+   "cards": [
+    {
+     "tone": "bg6",
+     "label": "Students Get Yearly\nEntrepreneurship Training",
+     "value": "2500+",
+     "note": null,
+     "labelKind": "isme-2"
+    },
+    {
+     "tone": "bg8",
+     "label": "Students Receive\nMentorship Every Year",
+     "value": "450+",
+     "note": null,
+     "labelKind": "isme-2"
+    }
+   ],
+   "padBottom": false,
+   "kind": "stats"
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": true,
+   "sectionMods": [
+    "extraspace"
+   ],
+   "heading": "More Than a Degree — A Step-by-Step Startup Journey",
+   "headingMods": [
+    "mrg16"
+   ],
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "sub",
+     "mods": [
+      "sub-heading",
+      "mrgbtm"
+     ],
+     "text": "At ATLAS, entrepreneurship isn’t just a mindset — it’s a structured journey. We guide you through every stage of building a venture, from ideation and mentorship to validation, market testing, and investor pitching.",
+     "common": false
+    },
+    {
+     "kind": "swiper",
+     "mods": [
+      "swiper",
+      "common-swiper",
+      "mrgtp-little"
+     ],
+     "cards": [
+      {
+       "kind": "mt",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/enterprenurship-1.png",
+        "alt": ""
+       },
+       "title": "Ideation & Concept Generation",
+       "text": "Spark creativity. Brainstorming sessions, hackathons, and trend analysis, help students come up."
+      },
+      {
+       "kind": "mt",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/entre-2.png",
+        "alt": ""
+       },
+       "title": "Feasibility &\nValidation",
+       "text": "Testing ideas, market research, customer feedback, and building prototypes to ensure ideas work."
+      },
+      {
+       "kind": "mt",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/entre-3.png",
+        "alt": ""
+       },
+       "title": "Business Model & Strategy",
+       "text": "Plan for growth. Students create business models and strategies to make their ideas viable."
+      },
+      {
+       "kind": "mt",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/entre-4.png",
+        "alt": ""
+       },
+       "title": "Mentoring & Networking",
+       "text": "Learn from the experts, mentors, investors, and industry connections guide students and help refine ideas."
+      },
+      {
+       "kind": "mt",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/entre-4.png",
+        "alt": ""
+       },
+       "title": "Funding &\nPitching",
+       "text": "Raising capital, students pitch to investors, access funding, and get support to grow their ventures."
+      },
+      {
+       "kind": "mt",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/enterprenurship-1.png",
+        "alt": ""
+       },
+       "title": "Go-to-Market & Scaling",
+       "text": "Launch and grow, students launch their product, build their customer base and scale up to reach more people."
+      }
+     ],
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "headStats",
+   "heading": "Our Teaching Pedagogy - The 3H Approach",
+   "headingMods": [
+    "h2-tag",
+    "mrg16"
+   ],
+   "sub": "The 3H pedagogy nurtures the Head (intellectual growth), Heart (emotional intelligence), & Hands (practical skills) to create well-rounded learners. By integrating thinking, feeling, and doing, it promotes deeper understanding and real-world application.",
+   "subMods": [
+    "sub-heading",
+    "mrgbtm"
+   ],
+   "stats": {
+    "cards": [
+     {
+      "tone": "bg6",
+      "label": "Head",
+      "value": "Intellectual\nGrowth",
+      "note": null
+     },
+     {
+      "tone": "bg7",
+      "label": "Heart",
+      "value": "Emotional\nIntelligence",
+      "note": null
+     },
+     {
+      "tone": "bg8",
+      "label": "Hand",
+      "value": "Practical\nSkills",
+      "note": null
+     }
+    ],
+    "padBottom": false,
+    "kind": "stats"
+   },
+   "sectionMods": [
+    "section"
+   ],
+   "wrapMods": [
+    "head-wrap",
+    "top"
+   ]
+  },
+  {
+   "kind": "journeys",
+   "id": "start-up-section",
+   "heading": "The 4-Year Journey to Success",
+   "headingMods": [],
+   "cards": [
+    {
+     "year": "1st Year",
+     "title": "New Age Business\nModel Showcase",
+     "body": [],
+     "image": {
+      "src": "/assets/images/schools/isme/home/programs/showcase-1.png",
+      "alt": ""
+     }
+    },
+    {
+     "year": "2nd Year",
+     "title": "MVP\nShowcase",
+     "body": [],
+     "image": {
+      "src": "/assets/images/schools/isme/pages/j-success-img.png",
+      "alt": ""
+     }
+    },
+    {
+     "year": "1st Year",
+     "title": "Entrepreneurship\nLaunchpad Showcase",
+     "body": [],
+     "image": {
+      "src": "/assets/images/schools/isme/pages/showcase-3.png",
+      "alt": ""
+     }
+    }
+   ],
+   "large": {
+    "title": "Family Managed Business",
+    "line": "A course per year",
+    "body": [],
+    "image": {
+     "src": "/assets/images/schools/isme/pages/showcase-4.png",
+     "alt": "",
+     "srcSet": "/assets/images/schools/isme/pages/showcase-4-p-500.png 500w, /assets/images/schools/isme/pages/showcase-4-p-800.png 800w, /assets/images/schools/isme/pages/showcase-4-p-1080.png 1080w, /assets/images/schools/isme/pages/showcase-4.png 1236w",
+     "sizes": "(max-width: 1236px) 100vw, 1236px"
+    },
+    "lessSpace": true
+   },
+   "smallH": 150,
+   "smallH1440": 160,
+   "cardTurn": "md"
+  },
+  {
+   "kind": "plainSection",
+   "id": "start-up-section",
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": "You’ll Never Build Alone",
+   "headingMods": [
+    "mrg16"
+   ],
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "sub1",
+     "mods": [
+      "sub-heading-1",
+      "mrgbtm"
+     ],
+     "text": "At ATLAS, you won’t just pitch ideas — you’ll actually build them. From creating real brands to testing your business model, you’ll get hands-on experience every step of the way. And you won’t do it alone — you’ll be guided by founders, VCs, and industry experts who’ve built it all before and are here to help you do the same.",
+     "common": false
+    },
+    {
+     "kind": "zoomLg",
+     "mods": [
+      "swiper",
+      "zoom-slider-lg"
+     ],
+     "cards": [
+      {
+       "kind": "slider-card-e-white",
+       "title": "Entrepreneurship\nLaunchpad - Year 3",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/entre-swiper-1.png",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/entre-swiper-1-p-500.png 500w, /assets/images/schools/isme/pages/entre-swiper-1.png 611w",
+        "sizes": "(max-width: 611px) 100vw, 611px"
+       }
+      },
+      {
+       "kind": "slider-card-e-white",
+       "title": "MVP\nShowcase - Year 2",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/entre-swiper-2.png",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/entre-swiper-2-p-500.png 500w, /assets/images/schools/isme/pages/entre-swiper-2.png 611w",
+        "sizes": "(max-width: 611px) 100vw, 611px"
+       }
+      },
+      {
+       "kind": "slider-card-e-white",
+       "title": "Arjun Vaidya\nD2C Challenge",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/entre-swiper-3.png",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/entre-swiper-3-p-500.png 500w, /assets/images/schools/isme/pages/entre-swiper-3.png 611w",
+        "sizes": "(max-width: 611px) 100vw, 611px"
+       }
+      },
+      {
+       "kind": "slider-card-e-white",
+       "title": "Smart\nIndia Hackathon",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/entre-swiper-4.png",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/entre-swiper-4-p-500.png 500w, /assets/images/schools/isme/pages/entre-swiper-4.png 611w",
+        "sizes": "(max-width: 611px) 100vw, 611px"
+       }
+      },
+      {
+       "kind": "slider-card-e-white",
+       "title": "Babson Global Student\nCollaborative Challenge",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/entre-swiper-5.png",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/entre-swiper-5-p-500.png 500w, /assets/images/schools/isme/pages/entre-swiper-5.png 611w",
+        "sizes": "(max-width: 611px) 100vw, 611px"
+       }
+      }
+     ],
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "plainSection",
+   "id": "start-up-section",
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": "A Curriculum That Thinks Like a Startup",
+   "headingMods": [
+    "mrg16"
+   ],
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "sub1",
+     "mods": [
+      "sub-heading-1",
+      "mrgbtm"
+     ],
+     "text": "Our entrepreneurship courses are built by those who’ve built businesses — with real-world content, problem-based learning, and founder-led delivery. You won’t just learn frameworks; you’ll apply them.",
+     "common": false
+    },
+    {
+     "kind": "swiper",
+     "mods": [
+      "swiper",
+      "common-swiper",
+      "mrgtp0"
+     ],
+     "cards": [
+      {
+       "kind": "b",
+       "title": "#1",
+       "text": "Entrepreneurship\nFundamentals"
+      },
+      {
+       "kind": "b",
+       "title": [
+        {
+         "strong": "#2"
+        }
+       ],
+       "text": "New Age\nBusiness Models"
+      },
+      {
+       "kind": "b",
+       "title": "#3",
+       "text": "Family Business Dynamics"
+      },
+      {
+       "kind": "b",
+       "title": "#4",
+       "text": "Design Thinking &\nMVP Management"
+      },
+      {
+       "kind": "b",
+       "title": "#5",
+       "text": "Social Entrepreneurship"
+      },
+      {
+       "kind": "b",
+       "title": "#6",
+       "text": "Entrepreneurial Marketing"
+      },
+      {
+       "kind": "b",
+       "title": "#7",
+       "text": "Innovation in Family Managed Businesses (FMB)"
+      },
+      {
+       "kind": "b",
+       "title": "#8",
+       "text": "IP & Startup\nLaws"
+      },
+      {
+       "kind": "b",
+       "title": "#9",
+       "text": "VC &\nFundraising"
+      },
+      {
+       "kind": "b",
+       "title": "#10",
+       "text": "Succession Planning\nin FMB"
+      },
+      {
+       "kind": "b",
+       "title": "#11",
+       "text": "Scaling Startups"
+      },
+      {
+       "kind": "b",
+       "title": "#12",
+       "text": "Strategic People Dynamics"
+      },
+      {
+       "kind": "b",
+       "title": "#13",
+       "text": "Corporate Compliance & Ethical Leadership"
+      },
+      {
+       "kind": "b",
+       "title": "#14",
+       "text": "Creative Thinking for Problem Solving"
+      },
+      {
+       "kind": "b",
+       "title": "#15",
+       "text": "Finance for\nFounders"
+      },
+      {
+       "kind": "b",
+       "title": "#16",
+       "text": "Go-To-Market Strategy"
+      }
+     ],
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": "Built Something Original? We’ll Help You Protect It.",
+   "headingMods": [
+    "mrg16"
+   ],
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "sub",
+     "mods": [
+      "sub-heading",
+      "mrgbtm"
+     ],
+     "text": "At ATLAS, you don’t just dream it — you build it, protect it, and scale it. If you're working on a product, innovation, or startup idea, our IP Enablement Flow helps you take it from sketch to pitch — and even to patent. Here’s how we support you at every step:",
+     "common": false
+    },
+    {
+     "kind": "swiper",
+     "mods": [
+      "swiper",
+      "common-swiper",
+      "mrgtp-little"
+     ],
+     "cards": [
+      {
+       "kind": "mt",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/swiper-1-entre.png",
+        "alt": ""
+       },
+       "title": "It All Starts with\nan Idea",
+       "text": "Maybe it’s a class project, a hackathon breakthrough — we help you turn it into something real."
+      },
+      {
+       "kind": "mt",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/swiper-entre-2.png",
+        "alt": ""
+       },
+       "title": "Get Feedback\nfrom Experts",
+       "text": "You'll work with faculty mentors and industry pros to test your idea’s potential, uniqueness, and market fit."
+      },
+      {
+       "kind": "mt",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/entre-3.png",
+        "alt": ""
+       },
+       "title": "Build a Working Prototype",
+       "text": "We help you turn your idea into a Proof of Concept (PoC) — through research, prototyping, and design support."
+      },
+      {
+       "kind": "mt",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/swiper-4-entre.png",
+        "alt": ""
+       },
+       "title": "Protect What\nYou’ve Built",
+       "text": "Our IP Cell helps you figure out the right way, whether it’s a patent, trademark, copyright, or design."
+      },
+      {
+       "kind": "mt",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/swiper-5-entre.png",
+        "alt": ""
+       },
+       "title": "We’ll Help with\nthe Filing",
+       "text": "Don’t worry about the legal jargon — we’ll guide you through the paperwork and file it with the right authorities."
+      },
+      {
+       "kind": "mt",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/swiper-6-entre.png",
+        "alt": ""
+       },
+       "title": "You Get\nthe Credit",
+       "text": "Your IP is registered in your name, with ATLAS by your side as an official supporter of your innovation."
+      },
+      {
+       "kind": "mt",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/swiper-7-entre.png",
+        "alt": ""
+       },
+       "title": "Launch It or\nLicense It",
+       "text": "Once your idea is protected, you can choose to launch it as a business, get incubated, or license it to others."
+      }
+     ],
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "headStats",
+   "heading": null,
+   "headingMods": [],
+   "sub": null,
+   "subMods": [],
+   "stats": {
+    "cards": [
+     {
+      "tone": "bg8",
+      "label": "Student\nCopyright Ideas",
+      "value": "2340",
+      "note": null
+     },
+     {
+      "tone": "bg6",
+      "label": "Student\nCopyrights Filed",
+      "value": "2000+",
+      "note": null
+     },
+     {
+      "tone": "bg7",
+      "label": "Student\nPatent Ideas",
+      "value": "360",
+      "note": null
+     },
+     {
+      "tone": "bg8",
+      "label": "Student\nPatents Filed",
+      "value": "310",
+      "note": null
+     }
+    ],
+    "padBottom": false,
+    "kind": "stats"
+   },
+   "sectionMods": [
+    "section"
+   ],
+   "wrapMods": []
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": "All the backing you need – In One Place",
+   "headingMods": [
+    "mrg16"
+   ],
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "sub",
+     "mods": [
+      "sub-heading",
+      "mrgbtm"
+     ],
+     "text": "When you’re ready to turn ideas into real products or ventures, ATLAS gives you access to the tools, spaces, and tech you need. Our state-of-the-art labs and studios are designed to support every stage of innovation — from concept to prototype, and beyond.",
+     "common": false
+    },
+    {
+     "kind": "photoColumns",
+     "common": false,
+     "columns": [
+      [
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/prototyping-studios.png",
+         "alt": ""
+        },
+        "label": "Prototyping\nStudios"
+       },
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/makerspaces.png",
+         "alt": ""
+        },
+        "label": "Makerspaces"
+       }
+      ],
+      [
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/football-1.png",
+         "alt": ""
+        },
+        "label": "AR/VR\nZones"
+       },
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/technology-labs.png",
+         "alt": ""
+        },
+        "label": "Technology\nLabs"
+       }
+      ],
+      [
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/robotics.png",
+         "alt": ""
+        },
+        "label": "Innovation\nLabs"
+       },
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/product-labs.png",
+         "alt": ""
+        },
+        "label": "Product\nLabs"
+       }
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": "Ideas That Became Companies — While Still in College",
+   "headingMods": [
+    "mrg16"
+   ],
+   "items": [
+    {
+     "kind": "galleryInline",
+     "wrapMods": [
+      "instagram-wrapper",
+      "mobile-vert-scroll",
+      "mar-0"
+     ],
+     "galleryMods": [],
+     "cards": [
+      {
+       "image": {
+        "src": "/assets/images/entrepreneurship/founders/img_7716.png",
+        "alt": ""
+       },
+       "size": "g-card-1",
+       "name": "Anoushka Rele",
+       "caption": "Polish Me Pretty"
+      },
+      {
+       "image": {
+        "src": "/assets/images/entrepreneurship/founders/grid-2-img.png",
+        "alt": ""
+       },
+       "size": "g-card-2",
+       "name": "Shourya Watwani",
+       "caption": "dawnLabs"
+      },
+      {
+       "image": {
+        "src": "/assets/images/entrepreneurship/founders/grid-image-6.png",
+        "alt": ""
+       },
+       "size": "grid-card-3",
+       "name": "Briana Chandiramani",
+       "caption": "GoToCo"
+      },
+      {
+       "image": {
+        "src": "/assets/images/success/startup-grid/image-18-.png",
+        "alt": ""
+       },
+       "size": "grid-card-4",
+       "name": "Jai Shah",
+       "caption": "Orangutan"
+      },
+      {
+       "image": {
+        "src": "/assets/images/success/startup-grid/grid-img-5.png",
+        "alt": ""
+       },
+       "size": "grid-card-5",
+       "name": "Anik Jain",
+       "caption": "DZINR"
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/grid-img-3.png",
+        "alt": ""
+       },
+       "size": "g-card-6",
+       "name": "Aryan Gandhi",
+       "caption": "drnk"
+      },
+      {
+       "image": {
+        "src": "/assets/images/success/startup-grid/grid-img-7.png",
+        "alt": ""
+       },
+       "size": "grid-card-7",
+       "name": "Aanya Jain",
+       "caption": "RunFrenzytan"
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/grid-img-8.png",
+        "alt": ""
+       },
+       "size": "grid-card-8",
+       "name": "Khushi Doshi",
+       "caption": "Sorric Media"
+      }
+     ],
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": "Whether You Build a Startup or a Strategy\nYou’ll Think Like a Founder",
+   "headingMods": [
+    "mrg16"
+   ],
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "sub",
+     "mods": [
+      "sub-heading"
+     ],
+     "text": "At ATLAS, the entrepreneurial mindset is for everyone — not just founders. You’ll graduate with the agility, creativity, and leadership to build value in any role, any field.",
+     "common": false
+    },
+    {
+     "kind": "imageStrip",
+     "mods": [
+      "center-image-full-wrap",
+      "mrgtp"
+     ],
+     "image": {
+      "src": "/assets/images/schools/isme/pages/center-img-entre.png",
+      "alt": "",
+      "srcSet": "/assets/images/schools/isme/pages/center-img-entre-p-500.png 500w, /assets/images/schools/isme/pages/center-img-entre-p-800.png 800w, /assets/images/schools/isme/pages/center-img-entre-p-1080.png 1080w, /assets/images/schools/isme/pages/center-img-entre.png 1238w",
+      "sizes": "(max-width: 1238px) 100vw, 1238px"
+     },
+     "bare": true,
+     "strip": null,
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "infoBanner",
+   "heading": "Your Idea Deserves a\nPlatform. Start Here.",
+   "text": null,
+   "buttons": [
+    {
+     "label": "Apply to ATLAS ISME",
+     "href": "https://atlasuniversity.edu.in/applicationform",
+     "variant": "mint",
+     "icon": "/assets/images/schools/isdi/isdi-for-outstation/banner/arrow-rt.svg"
+    }
+   ],
+   "image": {
+    "src": "/assets/images/schools/isme/pages/banner-ent.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/pages/banner-ent-p-500.png 500w, /assets/images/schools/isme/pages/banner-ent.png 596w",
+    "sizes": "(max-width: 596px) 100vw, 596px"
+   }
+  }
+ ]
+}

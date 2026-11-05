@@ -1,0 +1,96 @@
+{
+ "heading": "Why Choose BBA (Hons.) Digital\nBranding & Advertising?",
+ "sub": null,
+ "cards": [
+  {
+   "variant": "mint",
+   "title": "Future-Ready Curriculum",
+   "texts": [
+    "Study industry-relevant subjects and develop key skills in business and branding, ensuring you’re prepared for tomorrow’s fast-changing digital world."
+   ],
+   "num": "01",
+   "bg": "/assets/images/schools/isme/bba/course-isme-bg1.webp",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/image-1011.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/image-1011-p-500.png 500w, /assets/images/schools/isme/bba/image-1011.png 619w",
+    "sizes": "(max-width: 683px) 100vw, 683px"
+   }
+  },
+  {
+   "variant": "mint-switch",
+   "title": "Learn from Industry,\nNot Just Academia",
+   "texts": [
+    "Learn directly from CXOs, entrepreneurs, and global experts who deliver practical knowledge and real-world insights beyond textbook theory."
+   ],
+   "num": "02",
+   "bg": "/assets/images/schools/isme/bba/ways-bg-2.png",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/frame-1272631708.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/frame-1272631708-p-500.png 500w, /assets/images/schools/isme/bba/frame-1272631708.png 620w",
+    "sizes": "(max-width: 683px) 100vw, 683px"
+   }
+  },
+  {
+   "variant": "mint",
+   "title": "Foundation Year: Build Your Base. Discover Your Edge.",
+   "texts": [
+    "Gain hands-on experience through live projects, simulations, and brand sprints while sharpening problem-solving, communication, and decision-making skills."
+   ],
+   "num": "03",
+   "bg": "/assets/images/schools/isme/bba/ways-bg-2.png",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/image-1015.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/image-1015-p-500.png 500w, /assets/images/schools/isme/bba/image-1015.png 620w",
+    "sizes": "(max-width: 683px) 100vw, 683px"
+   }
+  },
+  {
+   "variant": "mint-switch",
+   "title": "Global Is Built In",
+   "texts": [
+    "Gain global perspective with international immersions, faculty masterclasses, and progression pathways designed for ambitious, world-ready learners."
+   ],
+   "num": "04",
+   "bg": "/assets/images/schools/isme/bba/ways-bg-2.png",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/image-1014.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/image-1014-p-500.png 500w, /assets/images/schools/isme/bba/image-1014.png 620w",
+    "sizes": "(max-width: 683px) 100vw, 683px"
+   }
+  },
+  {
+   "variant": "mint",
+   "title": "Built For Outcomes",
+   "texts": [
+    "Internship-ready. Startup-ready. Grad school-ready.\nChoose your path and we’ll help you launch it."
+   ],
+   "num": "05",
+   "bg": "/assets/images/schools/isme/bba/ways-bg-2.png",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/image-1013.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/image-1013-p-500.png 500w, /assets/images/schools/isme/bba/image-1013.png 619w",
+    "sizes": "(max-width: 683px) 100vw, 683px"
+   }
+  },
+  {
+   "variant": "mint-switch",
+   "title": "Practice > Theory",
+   "texts": [
+    "Engage with live projects, business simulations, brand sprints, and interactive sessions, building critical skills through immersive, practical learning."
+   ],
+   "num": "06",
+   "bg": "/assets/images/schools/isme/bba/ways-bg-2.png",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/image-1016.png",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/image-1016-p-500.png 500w, /assets/images/schools/isme/bba/image-1016.png 620w",
+    "sizes": "(max-width: 683px) 100vw, 683px"
+   }
+  }
+ ]
+}

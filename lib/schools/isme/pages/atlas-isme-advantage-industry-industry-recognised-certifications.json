@@ -1,0 +1,330 @@
+{
+ "path": "/schools/isme/atlas-isme-advantage/industry/industry-recognised-certifications",
+ "ref": "atlas-isme-advantage/industry/industry-recognised-certifications.php",
+ "meta": {
+  "title": "Industry Certifications & Career Skills – ATLAS ISME",
+  "description": "Gain management & entrepreneurship industry certifications, skill-based learning, digital tools, analytics, business training and career-focused credentials."
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "kind": "hero",
+   "height": "78vh",
+   "id": null,
+   "eyebrow": null,
+   "name": null,
+   "position": null,
+   "title": "Industry Certifications",
+   "text": null,
+   "image": {
+    "src": "/assets/images/schools/isme/pages/industry-cert-image.webp",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/pages/industry-cert-image-p-500.webp 500w, /assets/images/schools/isme/pages/industry-cert-image-p-800.webp 800w, /assets/images/schools/isme/pages/industry-cert-image-p-1080.webp 1080w, /assets/images/schools/isme/pages/industry-cert-image.webp 1366w",
+    "sizes": "(max-width: 1439px) 100vw, 1365.98095703125px"
+   },
+   "buttons": null,
+   "video": null
+  },
+  {
+   "cards": [
+    {
+     "tone": "bg6",
+     "label": "Total Interviews",
+     "value": "2400+ Companies",
+     "note": null,
+     "labelKind": "isme-2"
+    },
+    {
+     "tone": "bg7",
+     "label": "Student at Companies",
+     "value": "700+ Companies",
+     "note": null,
+     "labelKind": "isme-2"
+    },
+    {
+     "tone": "bg8",
+     "label": "Recruiters on Campus",
+     "value": "500+ Recruiters",
+     "note": null,
+     "labelKind": "isme-2"
+    }
+   ],
+   "padBottom": false,
+   "kind": "stats"
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": true,
+   "sectionMods": [
+    "extraspace"
+   ],
+   "heading": "Our Industry Partnerships",
+   "headingMods": [
+    "mrgtbm0"
+   ],
+   "items": [
+    {
+     "kind": "wall",
+     "columns": [
+      [
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/ic-grid-1.png",
+         "alt": ""
+        },
+        "text": "Confederation of Indian Industry’s Young Indians",
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": true
+       },
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/ic-grid-2.png",
+         "alt": ""
+        },
+        "text": "Granuler Ink Transformative",
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": true
+       }
+      ],
+      [
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/ic-grid-3.png",
+         "alt": ""
+        },
+        "text": "CFA Institute",
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": true
+       },
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/ic-grid-4.png",
+         "alt": ""
+        },
+        "text": "FPSB India",
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": true
+       }
+      ],
+      [
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/ic-grid-5.png",
+         "alt": ""
+        },
+        "text": "Pattern Marks New Horizons",
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": true
+       },
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/image-2-.png",
+         "alt": ""
+        },
+        "text": "BNI Foundation",
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": true
+       }
+      ],
+      [
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/ic-grid-6.png",
+         "alt": ""
+        },
+        "text": "Algomatix Technology",
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": true
+       },
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/ic-grid-8.png",
+         "alt": ""
+        },
+        "text": "NSE Academy",
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": true
+       }
+      ]
+     ],
+     "wrapClass": "instagram-wrapper",
+     "imgClass": "insta-image-rect",
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "logoMarquee",
+   "mods": [
+    "mrgtp"
+   ],
+   "logos": [
+    {
+     "src": "/assets/images/schools/isme/pages/ic-compnay-1.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/ic-compnay-12.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/ic-compnay-3.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/ic-compnay-4.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/ic-compnay-5.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/ic-compnay-6.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/ic-compnay-7.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/ic-compnay-8.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/ic-compnay-9.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/ic-compnay-10.png",
+     "alt": ""
+    }
+   ]
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [
+    "padtp0"
+   ],
+   "heading": "MoU’s Signed with Leading Companies",
+   "headingMods": [],
+   "items": [
+    {
+     "kind": "zoomLg",
+     "mods": [
+      "swiper",
+      "zoom-slider-lg"
+     ],
+     "cards": [
+      {
+       "kind": "slider-card-c",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/lead-company-1.webp",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/lead-company-1-p-500.webp 500w, /assets/images/schools/isme/pages/lead-company-1.webp 800w",
+        "sizes": "(max-width: 991px) 100vw, 799.982666015625px"
+       },
+       "title": "London Institute of Banking & Finance (LIBF, LIBF India)",
+       "sub": null
+      },
+      {
+       "kind": "slider-card-c",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/ic-swiper-2.png",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/ic-swiper-2-p-500.png 500w, /assets/images/schools/isme/pages/ic-swiper-2-p-800.png 800w, /assets/images/schools/isme/pages/ic-swiper-2.png 807w",
+        "sizes": "(max-width: 991px) 100vw, 806.9791870117188px"
+       },
+       "title": "NSE Academy",
+       "sub": null
+      },
+      {
+       "kind": "slider-card-c",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/ic-swiper-3.png",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/ic-swiper-3-p-500.png 500w, /assets/images/schools/isme/pages/ic-swiper-3-p-800.png 800w, /assets/images/schools/isme/pages/ic-swiper-3.png 807w",
+        "sizes": "(max-width: 991px) 100vw, 806.9791870117188px"
+       },
+       "title": "BNI Foundation",
+       "sub": null
+      }
+     ],
+     "common": false
+    }
+   ]
+  },
+  {
+   "heading": "What Our Partners Say",
+   "sub": null,
+   "cards": [
+    {
+     "kind": "testimonial",
+     "video": {
+      "sources": [],
+      "poster": null
+     },
+     "text": "Very pleased that ATLAS is incorporating the CFA program curicullum within its studies.",
+     "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+     "name": "Christopher Wiese",
+     "course": "CFA Institute\nManaging Director",
+     "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/ic-testimonial-1.png",
+      "alt": ""
+     },
+     "play": null
+    },
+    {
+     "kind": "testimonial",
+     "video": {
+      "sources": [],
+      "poster": null
+     },
+     "text": "We are so happy to be associated with ATLAS ISME and this is the first MOU via signing with the university and are associating especially in Mumbai.",
+     "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+     "name": "Aarti Porwal",
+     "course": "CFA Institute\nCountry Head, India",
+     "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/ic-testimonial-2.png",
+      "alt": ""
+     },
+     "play": null
+    },
+    {
+     "kind": "testimonial",
+     "video": {
+      "sources": [],
+      "poster": null
+     },
+     "text": "Moving to Mumbai felt overwhelming at first, but with all support provided by ISME, the transition was surprisingly smooth",
+     "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+     "name": "Anne Fahlgren",
+     "course": "CFA Institute\nSenior Head, General Manager",
+     "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/ic-testimonial-3.png",
+      "alt": ""
+     },
+     "play": null
+    }
+   ],
+   "kind": "voices",
+   "headingMods": [
+    "mrgtbm0"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1138 @@
+{
+ "path": "bba-hons/bba-Hons-business-psychology",
+ "meta": {
+  "title": "BBA in Business Psychology in Mumbai– ATLAS ISME",
+  "description": "Interested in business psychology? Learn consumer behavior, decision science and career skills. Apply now.",
+  "keywords": null
+ },
+ "brochure": {
+  "ids": [
+   "bba-brochure",
+   "campus-visit"
+  ],
+  "scripts": [
+   {
+    "src": "https://crm.atlasskilltech.app/widgets/6a3e788ea1fd0680c6c15cad/embed.js",
+    "height": 650
+   }
+  ]
+ },
+ "order": [
+  "hero",
+  "stats",
+  "program",
+  "why",
+  "execution",
+  "voices",
+  "admissions",
+  "eligibility",
+  "banner",
+  "search",
+  "faq"
+ ],
+ "blocks": {
+  "hero": {
+   "title": "BBA / BBA (Hons.) Majoring in Business Psychology",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/hero-image,-bba-ai-and-emerging-tech.webp",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/hero-image,-bba-ai-and-emerging-tech-p-500.webp 500w, /assets/images/schools/isme/bba/hero-image,-bba-ai-and-emerging-tech-p-800.webp 800w, /assets/images/schools/isme/bba/hero-image,-bba-ai-and-emerging-tech-p-1080.webp 1080w, /assets/images/schools/isme/bba/hero-image,-bba-ai-and-emerging-tech.webp 1366w",
+    "sizes": "(max-width: 1366px) 100vw, 1366px"
+   },
+   "buttons": [
+    {
+     "label": "Apply for July 2027 Intake",
+     "variant": "mint",
+     "href": "https://atlasuniversity.edu.in/applicationform"
+    },
+    {
+     "label": "Download Brochure",
+     "variant": "outline-white",
+     "brochure": "bba-brochure"
+    }
+   ],
+   "narrow": true,
+   "lead": "ATLAS BBA (Hons.) in Business Psychology is built for future-ready leaders, who want more than a business degree they want to understand people, drive performance, and shape the human side of business success."
+  },
+  "program": {
+   "panes": [
+    {
+     "label": "Overview",
+     "kind": "text",
+     "text": [
+      {
+       "strong": "The BBA (Hons.) in Business Psychology at ATLAS ISME"
+      },
+      " is built for a new kind of business leader one who understands that people are the driving force behind every successful organization. This interdisciplinary program bridges psychology and business, helping you ",
+      {
+       "strong": "master the science of human behavior, motivation, and decision-making in corporate, entrepreneurial, and global contexts."
+      },
+      "\n\nYou’ll explore how emotions, cognition, and social dynamics influence leadership, marketing, strategy, and innovation and learn to apply these insights to build stronger teams, brands, and cultures.Through ",
+      {
+       "strong": "experiential learning, case studies, industry projects, and behavioral labs,"
+      },
+      " you’ll develop the ability to design people-centric strategies, optimize performance, and lead with empathy and evidence-based insight. You’ll graduate ready to shape workplaces where people and businesses thrive together."
+     ],
+     "paneClass": "tab-pane-tab-1"
+    },
+    {
+     "label": "Curriculum Highlights",
+     "kind": "cards",
+     "cards": [
+      {
+       "num": "#1",
+       "title": "Foundations of Artificial Intelligence"
+      },
+      {
+       "num": "#2",
+       "title": "Machine Learning for Business Applications"
+      },
+      {
+       "num": "#3",
+       "title": "Data Science & Predictive Analytics"
+      },
+      {
+       "num": "#4",
+       "title": "Blockchain, Smart Contracts & Digital Assets"
+      },
+      {
+       "num": "#5",
+       "title": "Internet of Things (IoT) in Business"
+      },
+      {
+       "num": "#6",
+       "title": "Robotics & Automation Strategy"
+      },
+      {
+       "num": "#7",
+       "title": "Quantum Computing Basics"
+      },
+      {
+       "num": "#8",
+       "title": "Cloud Infrastructure\n& APIs"
+      },
+      {
+       "num": "#9",
+       "title": "Tech Ethics, Privacy & Cybersecurity"
+      },
+      {
+       "num": "#10",
+       "title": "Digital Product Innovation & Tech-Driven Startups"
+      }
+     ],
+     "paneClass": "tab-pane-tab-2"
+    },
+    {
+     "label": "Learning Outcomes",
+     "kind": "cards",
+     "cards": [
+      {
+       "num": "#1",
+       "title": "Understand core AI and emerging tech concepts and their business applications"
+      },
+      {
+       "num": "#2",
+       "title": "Design data-informed strategies for digital transformation and automation"
+      },
+      {
+       "num": "#3",
+       "title": "Build machine learning models using real-world datasets and tools"
+      },
+      {
+       "num": "#4",
+       "title": "Evaluate the business potential of technologies like blockchain, IoT and robotics"
+      },
+      {
+       "num": "#5",
+       "title": "Collaborate across tech and business teams to drive innovation"
+      },
+      {
+       "num": "#6",
+       "title": "Launch, manage, or advise ventures that operate at the frontier of tech"
+      }
+     ],
+     "paneClass": "tab-pane-tab-3"
+    },
+    {
+     "label": "Career Pathways",
+     "kind": "careers",
+     "cards": [
+      {
+       "title": "Business +AI Integration",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/image-16..png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Data &\nAnalytics",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/image-17..png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Emerging Tech\n& Digital",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/image-18..png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Health Tech Product Analyst",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/image-19..png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Social Media Manager",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/image-20..png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Tech Startup Founder",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/image-22..png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "AI Venture\nAnalyst",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/image-23..png",
+        "alt": ""
+       }
+      }
+     ],
+     "paneClass": null
+    }
+   ],
+   "current": 0,
+   "years": [
+    {
+     "label": "Year 1",
+     "semesters": [
+      {
+       "title": "Semester 1",
+       "text": "Begin your journey into the science of human behavior in business. This semester helps you understand the fundamentals of psychology and decision-making while grounding you in analytical and management thinking.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": "Introduction to Psychology & Decision Making",
+         "text": "Understand how emotions, thoughts, and cognitive biases influence behavior and choices, shaping individual, organizational, and societal decision-making processes in business contexts."
+        },
+        {
+         "title": [
+          {
+           "strong": "Marketing & Consumer Psychology"
+          }
+         ],
+         "text": "Explore what drives consumer decisions, brand attachment, and loyalty, learning how psychology shapes marketing strategies and customer engagement across industries."
+        },
+        {
+         "title": [
+          {
+           "strong": "Principles of Management"
+          }
+         ],
+         "text": "Learn how organizations function by exploring leadership styles, motivation theories, and strategies for fostering collaboration, innovation, and long-term performance."
+        },
+        {
+         "title": [
+          {
+           "strong": "Excel for Decision Making I"
+          }
+         ],
+         "text": "Build analytical thinking through Excel, learning to organize, interpret, and visualize data for data-driven, accurate, and strategic business decisions."
+        },
+        {
+         "title": [
+          {
+           "strong": "Ancient Indian Philosophy (IKS)"
+          }
+         ],
+         "text": "Explore India’s timeless wisdom and philosophical thought that promote ethical leadership, mindfulness, and a balanced approach to organizational and personal growth."
+        },
+        {
+         "title": [
+          {
+           "strong": "Professional Communication I"
+          }
+         ],
+         "text": "Master the art of expressing ideas with confidence, clarity, and professionalism across written, verbal, and visual communication formats."
+        },
+        {
+         "title": [
+          {
+           "strong": "ATLAS Elective"
+          }
+         ],
+         "text": "Allows students to explore an interdisciplinary subject aligned with their academic and professional interests. Encourages applied learning through domain-focused projects and skill-building."
+        },
+        {
+         "title": [
+          {
+           "strong": "Academic Writing & Critical Thinking"
+          }
+         ],
+         "text": "Strengthen analytical reasoning and structured writing by learning to evaluate arguments, synthesize ideas, and communicate insights effectively and persuasively."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our Semester 1 curriculum outpaces every other business school",
+         "text": "Gain an early advantage with a curriculum that blends psychology, management, and analytical tools—delivered through experiential learning, industry mentorship, and real-world application.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Introduction to Psychology & Decision Making",
+           "Applied experiments and reflection journals",
+           "Theoretical understanding only"
+          ],
+          [
+           "Marketing & Consumer Psychology",
+           "Behavioral case studies on real brands",
+           "Traditional marketing mix approach"
+          ],
+          [
+           "Principles of Management",
+           "Leadership simulation and live organizational projects",
+           "Textbook-based teaching"
+          ],
+          [
+           "Excel for Decision Making I",
+           "Industry-aligned assignments and data interpretation",
+           "Basic spreadsheet learning"
+          ],
+          [
+           "Ancient Indian Knowledge Systems (IKS)",
+           "Integration of ethical and cultural dimensions",
+           "No equivalent subject"
+          ],
+          [
+           "Professional Communication I",
+           "Corporate-style presentation and feedback labsIntegrated with business strategies for sustainable growth.",
+           "Minimal practice sessions"
+          ],
+          [
+           "Academic Writing & Critical Thinking",
+           "Case-based argumentation and analytical writing projects",
+           "Focused only on grammar or essays"
+          ],
+          [
+           "ATLAS Elective",
+           "Flexible pathways for multidisciplinary exposure",
+           "Limited or predefined electives"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Semester 2",
+       "text": "Explore how psychology powers communication, creativity, and digital innovation. Learn to bridge human understanding with marketing, AI tools, and modern sustainability thinking.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Business Psychology"
+          }
+         ],
+         "text": "Understand how psychological principles apply to business decisions, workplace behavior, and organizational performance in modern corporate environments."
+        },
+        {
+         "title": [
+          {
+           "strong": "Overview of Digital Marketing"
+          }
+         ],
+         "text": "Discover how digital platforms, analytics, and behavioral science combine to create meaningful connections between brands and audiences."
+        },
+        {
+         "title": [
+          {
+           "strong": "Positive Psychology"
+          }
+         ],
+         "text": "Learn evidence-based strategies that enhance well-being, motivation, and resilience for greater personal fulfillment and professional effectiveness."
+        },
+        {
+         "title": [
+          {
+           "strong": "AI Tools for Business (Canva, Figma, Trello)"
+          }
+         ],
+         "text": "Develop digital fluency with modern AI and design tools that enhance creativity, collaboration, and workflow efficiency across industries."
+        },
+        {
+         "title": [
+          {
+           "strong": "Media Literacy & Critical Thinking"
+          }
+         ],
+         "text": "Gain skills to evaluate and interpret media critically, understanding its influence on perceptions, communication, and decision-making."
+        },
+        {
+         "title": [
+          {
+           "strong": "Environmental Science & Sustainability"
+          }
+         ],
+         "text": "Explore sustainable business practices and environmental responsibility through an interdisciplinary lens connecting psychology, ethics, and strategy."
+        },
+        {
+         "title": [
+          {
+           "strong": "ATLAS Elective"
+          }
+         ],
+         "text": "Allows students to explore an interdisciplinary subject aligned with their academic and professional interests. Encourages applied learning through domain-focused projects and skill-building."
+        },
+        {
+         "title": [
+          {
+           "strong": "Professional Communication II"
+          }
+         ],
+         "text": "Enhance persuasive communication, storytelling, and presentation abilities that strengthen leadership presence and professional credibility."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our Semester 2 curriculum outpaces every other business school",
+         "text": "Gain a competitive edge with a curriculum that connects behavioral insight, digital innovation, and ethical strategy—delivered through applied learning and creative experimentation.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Business Psychology",
+           "Real corporate case studies and behavioral audits",
+           "Introductory theory without practical exposure"
+          ],
+          [
+           "Overview of Digital Marketing",
+           "Behavioral insights linked to engagement analytics",
+           "Platform tutorials without strategy context"
+          ],
+          [
+           "Positive Psychology",
+           "Applied well-being workshops and personal growth labs",
+           "Limited to conceptual understanding"
+          ],
+          [
+           "AI Tools for Business",
+           "Hands-on projects using Canva, Figma, and Trello",
+           "Surface-level software orientation"
+          ],
+          [
+           "Media Literacy & Critical Thinking",
+           "Critical analysis of digital influence and bias",
+           "Minimal media interpretation skills"
+          ],
+          [
+           "Environmental Science & Sustainability",
+           "ESG-focused projects and sustainability audits",
+           "Basic environmental awareness"
+          ],
+          [
+           "ATLAS Elective",
+           "Flexible pathways for multidisciplinary exposure",
+           "Limited or predefined electives"
+          ],
+          [
+           "Professional Communication II",
+           "Practical communication training with presentations, pitch exercises, and workplace-focused writing tasks.",
+           "Emphasis on grammar and theory with fewer opportunities for real-world communication practice."
+          ]
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Year 2",
+     "semesters": [
+      {
+       "title": "Semester 3",
+       "text": "Develop deeper insights into human behavior, organizational culture, and the psychological forces that drive group and individual performance in business.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Social Cognition in Business (Social Psychology)"
+          }
+         ],
+         "text": "Explore how social perception, attitudes, and group dynamics shape communication, teamwork, and decision-making in professional business environments."
+        },
+        {
+         "title": [
+          {
+           "strong": "Industrial / Organizational Psychology"
+          }
+         ],
+         "text": "Understand workplace motivation, leadership, and performance management by applying psychological concepts to improve organizational effectiveness and employee well-being."
+        },
+        {
+         "title": [
+          {
+           "strong": "Neuroscience of Influence & Buying Decisions"
+          }
+         ],
+         "text": "Discover how brain science explains persuasion, attention, and choice, helping you decode consumer behavior and decision-making processes in marketing contexts."
+        },
+        {
+         "title": [
+          {
+           "strong": "Personal Finance"
+          }
+         ],
+         "text": "Develop financial literacy and discipline by learning to plan, budget, invest, and manage personal finances effectively in a dynamic economy."
+        },
+        {
+         "title": [
+          {
+           "strong": "Indian Systems of Physical & Psychological Wellness (NSS/Yoga)"
+          }
+         ],
+         "text": "Cultivate mindfulness, discipline, and resilience through yoga-based practices that enhance psychological health and physical well-being."
+        },
+        {
+         "title": [
+          {
+           "strong": "Psychology of Leadership"
+          }
+         ],
+         "text": "Examine the psychological foundations of leadership, exploring emotional intelligence, influence, and motivation through case studies and real-world applications."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our Semester 3 curriculum outpaces every other business school",
+         "text": "Deepen your expertise in applied behavioral science with a curriculum that combines leadership psychology, neuroscience, and personal development through experiential learning.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Social Cognition in Business (Social Psychology)",
+           "Live team dynamics simulations and reflection journals",
+           "Theoretical group psychology"
+          ],
+          [
+           "Industrial / Organizational Psychology",
+           "Organizational behavior labs with real HR challenges",
+           "Limited to textbook study"
+          ],
+          [
+           "Neuroscience of Influence & Buying Decisions",
+           "Neuro-marketing projects using cognitive tools",
+           "No neuroscience exposure"
+          ],
+          [
+           "Personal Finance",
+           "Practical workshops on budgeting and investment",
+           "Theoretical personal finance lessons"
+          ],
+          [
+           "Indian Systems of Physical & Psychological Wellness (NSS/YOGA)",
+           "Yoga and wellness integration with psychology",
+           "Basic fitness or mindfulness modules"
+          ],
+          [
+           "Psychology of Leadership",
+           "Behavioral leadership coaching and assessment",
+           "Conceptual overview without application"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Semester 4",
+       "text": "Build emotional intelligence and leadership maturity. This semester empowers you to align purpose, strategy, and well-being — essential for modern business leaders.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Emotional Intelligence & Well-being"
+          }
+         ],
+         "text": "Develop greater emotional awareness and empathy to enhance resilience, communication, and balanced decision-making in leadership and teamwork contexts."
+        },
+        {
+         "title": [
+          {
+           "strong": "Strategic People Management"
+          }
+         ],
+         "text": "Learn how to design, lead, and evaluate people strategies that improve productivity, engagement, and organizational growth in evolving workplaces."
+        },
+        {
+         "title": [
+          {
+           "strong": "Business Ethics"
+          }
+         ],
+         "text": "Understand moral frameworks, ethical dilemmas, and values-driven decision-making to promote responsible, transparent, and sustainable business leadership."
+        },
+        {
+         "title": [
+          {
+           "strong": "Psychology of Social Entrepreneurship"
+          }
+         ],
+         "text": "Explore how empathy, innovation, and problem-solving drive impactful ventures addressing real-world social and environmental challenges."
+        },
+        {
+         "title": [
+          {
+           "strong": "Founder’s Psychology & Innovative Thinking"
+          }
+         ],
+         "text": "Study the entrepreneurial mindset, examining motivation, creativity, and risk-taking that shape innovative and resilient business founders."
+        },
+        {
+         "title": [
+          {
+           "strong": "Indian Constitution"
+          }
+         ],
+         "text": "Gain knowledge of constitutional principles, governance, and citizen rights, fostering ethical awareness and civic responsibility in professional practice."
+        },
+        {
+         "title": [
+          {
+           "strong": "Digital Tools for Behavioral Sciences (SPSS/R)"
+          }
+         ],
+         "text": "Develop data analysis and visualization skills using SPSS and R to interpret psychological research and organizational behavior metrics."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our Semester 4 curriculum outpaces every other business school",
+         "text": "Advance your leadership capacity with a curriculum blending ethics, analytics, and innovation—bridging emotional intelligence and strategic business thinking.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Emotional Intelligence & Well-being",
+           "Personalized emotional intelligence assessments and growth coaching",
+           "Standard emotional awareness lessons"
+          ],
+          [
+           "Strategic People Management",
+           "Real-time HR analytics and leadership simulations",
+           "Theoretical HR principles"
+          ],
+          [
+           "Business Ethics",
+           "Case-based ethical decision simulations",
+           "Abstract moral philosophy"
+          ],
+          [
+           "Psychology of Social Entrepreneurship",
+           "Social venture design challenges and community projects",
+           "Limited conceptual exposure"
+          ],
+          [
+           "Founder’s Psychology & Innovative Thinking",
+           "Entrepreneurial mindset workshops and idea incubators",
+           "Conceptual overview without application"
+          ],
+          [
+           "Indian Constitution",
+           "Ethics and governance integrated with management context",
+           "General legal studies only"
+          ],
+          [
+           "Digital Tools for Behavioral Sciences (SPSS/R)",
+           "Live data analysis labs and applied research projects",
+           "Spreadsheet-level analytics exposure"
+          ]
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Year 3",
+     "semesters": [
+      {
+       "title": "Semester 5",
+       "text": "Delve into applied business psychology and real-world research. This semester blends theory with practice, preparing you to analyze and influence behavior across cultures and industries.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Conflict Theory & Resolution"
+          }
+         ],
+         "text": "Learn to identify, manage, and resolve workplace conflicts using negotiation, communication, and behavioral strategies that build stronger, collaborative relationships."
+        },
+        {
+         "title": [
+          {
+           "strong": "Cross-Cultural Psychology"
+          }
+         ],
+         "text": "Understand how culture shapes behavior, perception, and values, equipping you to manage diversity and foster global business collaboration."
+        },
+        {
+         "title": [
+          {
+           "strong": "Research Methodology"
+          }
+         ],
+         "text": "Gain practical experience in designing, conducting, and analyzing behavioral research using ethical, quantitative, and qualitative methods."
+        },
+        {
+         "title": "Internship",
+         "text": "Apply classroom learning in professional environments, gaining practical insights into workplace behavior and organizational psychology."
+        },
+        {
+         "title": [
+          {
+           "strong": "Social Media Psychology (Audit Course)"
+          }
+         ],
+         "text": "Examine how digital platforms influence emotions, attention, and behavior, helping businesses craft mindful and responsible communication strategies."
+        },
+        {
+         "title": [
+          {
+           "strong": "Behavioural Dynamics in Family Businesses"
+          }
+         ],
+         "text": "Explore how psychology shapes leadership, decision-making, and interpersonal relationships within family-run enterprises."
+        },
+        {
+         "title": "Major Project",
+         "text": "Develop an independent research project that applies psychological frameworks to real-world business problems and behavioral insights."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our Semester 5 curriculum outpaces every other business school",
+         "text": "Bridge academic knowledge with real-world impact through hands-on research, cultural exposure, and professional practice in applied business psychology.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Conflict Theory & Resolution",
+           "Real-world negotiation simulations and peer mediation workshops",
+           "Theoretical conflict analysis"
+          ],
+          [
+           "Cross-Cultural Psychology",
+           "Global team projects and cultural immersion case studies",
+           "Limited exposure to diversity dynamics"
+          ],
+          [
+           "Cross-Cultural Psychology",
+           "Limited exposure to diversity dynamics",
+           "Limited exposure to diversity dynamics"
+          ],
+          [
+           "Internship",
+           "Mentorship-driven workplace experience",
+           "Generic observational roles"
+          ],
+          [
+           "Social Media Psychology (Audit Course)",
+           "Behavioral analytics of digital engagement",
+           "Basic social media theory"
+          ],
+          [
+           "Behavioural Dynamics in Family Businesses",
+           "Live case studies with family enterprises",
+           "Minimal specialized coverage"
+          ],
+          [
+           "Major Project (Evaluation in 6th Semester)",
+           "Faculty-guided, ongoing applied research",
+           "One-off dissertation submission"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Semester 6",
+       "text": "Advance your expertise in behavioral analytics, marketing psychology, and leadership. This semester focuses on data-driven insights and managing change in fast-paced environments.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Change Management"
+          }
+         ],
+         "text": "Learn psychological principles behind transformation, mastering tools and strategies to guide individuals and organizations through evolving business landscapes."
+        },
+        {
+         "title": [
+          {
+           "strong": "Neuro-linguistic Programming (NLP) for Business"
+          }
+         ],
+         "text": "Apply communication and behavioral modeling techniques to enhance persuasion, influence, and leadership effectiveness across corporate and entrepreneurial contexts."
+        },
+        {
+         "title": [
+          {
+           "strong": "Statistics for Behavioural Sciences"
+          }
+         ],
+         "text": "Build statistical reasoning skills to analyze behavioral data accurately and interpret complex relationships using modern quantitative techniques."
+        },
+        {
+         "title": [
+          {
+           "strong": "Consumer Psychology in Luxury Marketing"
+          }
+         ],
+         "text": "Examine the motivations and perceptions driving luxury consumption, exploring how exclusivity, emotion, and identity shape high-value purchasing behavior."
+        },
+        {
+         "title": [
+          {
+           "strong": "Behavioural Economics (Audit Course)"
+          }
+         ],
+         "text": "Understand how cognitive biases, heuristics, and decision framing influence financial, marketing, and policy-related outcomes in real-world scenarios."
+        },
+        {
+         "title": [
+          {
+           "strong": "Retail Psychology"
+          }
+         ],
+         "text": "Study the psychological factors that influence shopping patterns, store design preferences, and customer experiences in diverse retail environments."
+        },
+        {
+         "title": [
+          {
+           "strong": "Research Project"
+          }
+         ],
+         "text": "Conduct an independent research study applying behavioral insights to solve practical challenges in business or organizational settings."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our Semester 6 curriculum outpaces every other business school",
+         "text": "Gain a strategic edge through data-backed behavioral insights, live research projects, and applied business psychology that bridges analysis and leadership practice.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Change Management",
+           "Real-world transformation simulations with behavioral feedback",
+           "Conceptual change models only"
+          ],
+          [
+           "Neuro-linguistic Programming (NLP) for Business",
+           "Applied persuasion and communication labs",
+           "Limited exposure to NLP frameworks"
+          ],
+          [
+           "Statistics for Behavioural Sciences",
+           "SPSS and R-based behavioral data analytics",
+           "Theoretical statistics without application"
+          ],
+          [
+           "Consumer Psychology in Luxury Marketing",
+           "Live brand analysis and perception mapping",
+           "Basic marketing psychology overview"
+          ],
+          [
+           "Behavioural Economics (Audit Course)",
+           "Field experiments on cognitive bias and decision-making",
+           "Textbook-based behavioral theory"
+          ],
+          [
+           "Retail Psychology",
+           "Retail space behavior mapping and consumer observation",
+           "Limited real-world application"
+          ],
+          [
+           "Research Project",
+           "Faculty-supervised empirical study and presentation",
+           "Standard academic paper submission"
+          ]
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Year 4",
+     "semesters": [
+      {
+       "title": "Semester 7",
+       "text": "Move into innovation, analytics, and organizational transformation. This semester focuses on creative leadership and the application of psychology in modern workplaces.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Organisational Development"
+          }
+         ],
+         "text": "Learn how to design, develop, and sustain adaptive, high-performing organizations through psychology-driven strategies and cultural transformation frameworks."
+        },
+        {
+         "title": [
+          {
+           "strong": "Psychology of Innovation & Creativity"
+          }
+         ],
+         "text": "Explore the cognitive and emotional processes that drive creativity, helping leaders and teams generate innovative, practical solutions."
+        },
+        {
+         "title": [
+          {
+           "strong": "AI for Business"
+          }
+         ],
+         "text": "Understand how artificial intelligence supports business decisions, predictive analytics, and human-AI collaboration across strategic and operational domains."
+        },
+        {
+         "title": [
+          {
+           "strong": "Environmental and Sustainability Psychology"
+          }
+         ],
+         "text": "Examine the psychological factors that shape pro-environmental behavior and sustainable choices in individuals, communities, and organizations."
+        },
+        {
+         "title": [
+          {
+           "strong": "People Analytics & Psychological Assessment"
+          }
+         ],
+         "text": "Learn to measure, analyze, and interpret human performance using psychometric tools, data analytics, and evidence-based talent insights."
+        },
+        {
+         "title": [
+          {
+           "strong": "Dissertation"
+          }
+         ],
+         "text": "Conduct original research in business psychology, integrating theory, analytics, and behavioral design to produce actionable organizational insights."
+        },
+        {
+         "title": [
+          {
+           "strong": "Internship"
+          }
+         ],
+         "text": "Apply psychological frameworks in real-world corporate or consulting environments, gaining industry exposure and professional development experience."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our Semester 7 curriculum outpaces every other business school",
+         "text": "Transform into an innovation-focused leader through applied analytics, behavioral design, and sustainability—bridging psychology, technology, and strategic business transformation.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Organisational Development",
+           "Live transformation projects and real client engagements",
+           "Theory-based content only"
+          ],
+          [
+           "Psychology of Innovation & Creativity",
+           "Innovation sprints and ideation labs",
+           "Conceptual creativity sessions"
+          ],
+          [
+           "AI for BusinessNo-Code/Low-Code Tools",
+           "Predictive analytics with real organizational data",
+           "Conceptual understanding of AI"
+          ],
+          [
+           "Environmental and Sustainability Psychology",
+           "ESG behavioral research and sustainability labs",
+           "Limited course availability"
+          ],
+          [
+           "People Analytics & Psychological Assessment",
+           "Psychometric certification and live HR data projects",
+           "Basic analytics exposure"
+          ],
+          [
+           "Dissertation",
+           "Guided academic-industry collaborative research",
+           "Traditional academic submission"
+          ],
+          [
+           "Internship",
+           "Structured corporate mentorship and feedback reviews",
+           "Generic internship requirements"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Semester 8",
+       "text": "Synthesize your learning into professional excellence. This final semester focuses on leadership, entrepreneurship, and evidence-based coaching to prepare you for future-ready business roles.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Coaching & Mentoring in Business Settings"
+          }
+         ],
+         "text": "Learn evidence-based coaching frameworks to guide professional growth, performance improvement, and leadership development in organizational contexts."
+        },
+        {
+         "title": [
+          {
+           "strong": "Finance for Enterprise"
+          }
+         ],
+         "text": "Understand essential financial principles that empower entrepreneurs and business psychologists to make sound, strategic financial decisions."
+        },
+        {
+         "title": [
+          {
+           "strong": "Entrepreneurial Psychology"
+          }
+         ],
+         "text": "Explore the mindset, motivation, and resilience that drive innovation, adaptability, and success in entrepreneurial ventures."
+        },
+        {
+         "title": [
+          {
+           "strong": "Capstone Research Thesis + Viva"
+          }
+         ],
+         "text": "Present a comprehensive research study that integrates behavioral science and business strategy, demonstrating applied expertise and analytical rigor."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our Semester 8 curriculum outpaces every other business school",
+         "text": "Conclude your academic journey with research, leadership, and entrepreneurial mastery—bridging business insight, psychological expertise, and evidence-based professional practice.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Coaching & Mentoring in Business Settings",
+           "Executive coaching practice with real case simulations",
+           "Theoretical mentoring frameworks"
+          ],
+          [
+           "Finance for Enterprise",
+           "Behavioral finance integration and live case discussions",
+           "Standard finance principles only"
+          ],
+          [
+           "Entrepreneurial Psychology",
+           "Founders’ mindset labs and innovation pitch sessions",
+           "Concept-based learning without practice"
+          ],
+          [
+           "Capstone Research Thesis + Viva",
+           "Faculty-guided research with professional defense evaluation",
+           "Conventional academic submissions"
+          ]
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "download": {
+    "label": "Download Curriculum",
+    "variant": "mint",
+    "fontSize": null,
+    "brochure": "bba-brochure"
+   }
+  }
+ },
+ "refs": {
+  "stats": "stats-6a4d458824",
+  "why": "why-a1182053b7",
+  "execution": "execution-942cbf8019",
+  "voices": "voices-5669f623cd",
+  "admissions": "admissions-39c1dd256d",
+  "eligibility": "eligibility-cbec4efa3c",
+  "banner": "banner-8cbc0dbf63",
+  "search": "search-bf21a9e8fb",
+  "faq": "faq-9b7871ea42"
+ },
+ "eligibilitySheet": "mba"
+}

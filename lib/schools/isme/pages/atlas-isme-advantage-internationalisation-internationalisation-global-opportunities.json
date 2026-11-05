@@ -1,0 +1,2585 @@
+{
+ "path": "/schools/isme/atlas-isme-advantage/internationalisation/internationalisation-global-opportunities",
+ "ref": "atlas-isme-advantage/internationalisation/internationalisation-global-opportunities.php",
+ "meta": {
+  "title": "Global Opportunities & Exposure – ATLAS ISME",
+  "description": "Explore study abroad, exchange programs, global pathways, international learning, partnerships and cross-cultural exposure."
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "kind": "hero",
+   "height": "658",
+   "id": null,
+   "eyebrow": null,
+   "name": null,
+   "position": null,
+   "title": "Go Global with Your Education.\nStart Here. Fly Anywhere.",
+   "text": null,
+   "image": null,
+   "buttons": null,
+   "video": {
+    "sources": [
+     {
+      "src": "/assets/videos/schools/isme/pages/internationalisation-video-hero_mp4.mp4",
+      "type": "video/mp4"
+     },
+     {
+      "src": "/assets/videos/schools/isme/pages/internationalisation-video-hero_webm.webm",
+      "type": "video/webm"
+     }
+    ],
+    "poster": "/assets/images/schools/isme/pages/internationalisation-video-hero_poster.0000000.jpg"
+   }
+  },
+  {
+   "cards": [
+    {
+     "tone": "bg6",
+     "label": "Global Immersions",
+     "value": "10+ Countries 5 Continents",
+     "note": null,
+     "labelKind": "isme-2"
+    },
+    {
+     "tone": "bg7",
+     "label": "Global University Collaborations",
+     "value": "60+ MOUs",
+     "note": null,
+     "labelKind": "isme-2"
+    },
+    {
+     "tone": "bg8",
+     "label": "Masters Progression",
+     "value": "400+ Students",
+     "note": null,
+     "labelKind": "isme-2"
+    }
+   ],
+   "padBottom": false,
+   "kind": "stats"
+  },
+  {
+   "kind": "anchorMenu",
+   "centered": false,
+   "links": [
+    {
+     "label": "Overview",
+     "href": "#"
+    },
+    {
+     "label": "Global University Partnership",
+     "href": "#global-uni-partner"
+    },
+    {
+     "label": "International Events",
+     "href": "#international-events"
+    },
+    {
+     "label": "Summer School",
+     "href": "#international-summer-school"
+    },
+    {
+     "label": "Global Immersion",
+     "href": "#"
+    },
+    {
+     "label": "Masters Progressions",
+     "href": "#masters-progressions"
+    },
+    {
+     "label": "Global Education Fair",
+     "href": "#"
+    }
+   ]
+  },
+  {
+   "kind": "iconSection",
+   "id": "global-uni-partner",
+   "iconHd": true,
+   "icon": "/assets/images/advantages/partnership/cdn/notification.png",
+   "num": null,
+   "title": "One launchpad for limitless opportunities.",
+   "wrap": "white",
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "black",
+     "mods": [
+      "black-desc-text",
+      "mrgbtm"
+     ],
+     "text": "With over 60 MoUs with leading universities and institutions across the US, UK, Europe, Asia, Australia, and New Zealand, ATLAS opens doors to truly global experiences — from summer school at London School of Economics to pursue your Master’s in Design in Milan. These partnerships enable exchange programs, semester-abroad opportunities, dual degrees, and accelerated Master’s progression pathways.",
+     "common": true,
+     "cw": 1
+    },
+    {
+     "kind": "h2",
+     "mods": [
+      "h2-tag"
+     ],
+     "text": "With ATLAS Pathway, the world is within your reach",
+     "common": true,
+     "cw": 1
+    },
+    {
+     "kind": "imageStrip",
+     "mods": [
+      "center-image-full-wrap",
+      "mrgtp"
+     ],
+     "image": {
+      "src": "/assets/images/schools/isme/pages/isme-global-partner-map.png",
+      "alt": "",
+      "srcSet": "/assets/images/schools/isme/pages/isme-global-partner-map-p-500.png 500w, /assets/images/schools/isme/pages/isme-global-partner-map-p-800.png 800w, /assets/images/schools/isme/pages/isme-global-partner-map-p-1080.png 1080w, /assets/images/schools/isme/pages/isme-global-partner-map.png 1237w",
+      "sizes": "(max-width: 1237px) 100vw, 1237px"
+     },
+     "strip": null,
+     "common": true,
+     "cw": 1
+    },
+    {
+     "kind": "logoTabs",
+     "menuMods": [],
+     "tabs": [
+      {
+       "label": "United Kingdom",
+       "logos": [
+        {
+         "src": "/assets/images/success/partners/lseuk.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/kingsatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/bristolatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/ualatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/ualatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/bathatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/exeteratlass.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/southhamptonatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/birbeckuniversityatlass.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/nottinghamatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/usatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/sheffieldatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/readinguniversityatls.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/regentsatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/universityatlass.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/cityatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/goldsmithsatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/londonsouthbankatlas.png",
+         "alt": "",
+         "srcSet": "/assets/images/success/partners/londonsouthbankatlas-p-500.png 500w, /assets/images/success/partners/londonsouthbankatlas.png 734w",
+         "sizes": "(max-width: 479px) 100vw, 452.4666748046875px"
+        },
+        {
+         "src": "/assets/images/success/partners/artsatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/leedsatlas.jpg",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/sunderlandatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/teesideatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/canterburyatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/keeleatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/aberatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/cityatlasuni.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/richmondatlass.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        }
+       ]
+      },
+      {
+       "label": "USA",
+       "logos": [
+        {
+         "src": "/assets/images/success/partners/parsonsatlasss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/nyuatlasss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/babsonatlas12345.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/santaclaraatlassssss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/brandeisatlasss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/seattleuniatlasss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/paceuniatlassss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/goldenuniatlasss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/setonatlasatlass.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/nuatlassss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/nyfaatlass.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/creativetalasssssw.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/saintpetersatlass.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/seaatlasss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/richmondatlassss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        }
+       ]
+      },
+      {
+       "label": "Europe",
+       "logos": [
+        {
+         "src": "/assets/images/success/partners/domusatlasssuni.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/audenciaatlasss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/ecoleatlasss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/ifatalasss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/iebusinessatlassss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/enaeatlasss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/windatlasss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        }
+       ]
+      },
+      {
+       "label": "Australia",
+       "logos": [
+        {
+         "src": "/assets/images/success/partners/rmitatlasss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/griffithatlasss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/curtinatlassss2.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        }
+       ]
+      },
+      {
+       "label": "Other Global Partners",
+       "logos": [
+        {
+         "src": "/assets/images/success/partners/image-1454.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/image-1455.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/image-1456.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/image-1457.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/image-1458.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/image-1460.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/image-1459.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        }
+       ]
+      }
+     ],
+     "common": "lg",
+     "cw": 2
+    }
+   ]
+  },
+  {
+   "kind": "iconSection",
+   "id": "international-events",
+   "icon": "/assets/images/advantages/partnership/cdn/notification.png",
+   "num": null,
+   "title": "Global Expertise. On Campus. In Real Time.",
+   "wrap": "blue",
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "blue",
+     "mods": [
+      "blue-desc-wrap"
+     ],
+     "textMods": [
+      "blue-desc-text"
+     ],
+     "text": "Our internationalisation isn’t limited to travel — it’s embedded in the classroom. Through global faculty residencies, guest lectures, and collaborative international masterclasses, students gain exposure to world-class teaching, diverse perspectives, and real-time global insights.",
+     "common": false
+    },
+    {
+     "kind": "video",
+     "src": "https://www.youtube.com/embed/RhF0AWFc1e0?rel=0&controls=1&autoplay=1&mute=1&start=0",
+     "title": "ATLAS International Faculty Week",
+     "ratio": 56.17021276595745,
+     "wrapClass": "center-image-full-wrap mrgtp",
+     "common": false,
+     "frame": [
+      "center-image-full-wrap",
+      "mrgtp"
+     ]
+    }
+   ],
+   "after": [
+    {
+     "kind": "wall",
+     "columns": [
+      [
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/dr-greg-gannon.png",
+         "alt": ""
+        },
+        "text": null,
+        "logo": {
+         "src": "/assets/images/schools/isdi/programs-ug/world/ucaaa.png",
+         "alt": ""
+        },
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": true
+       },
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/bah.png",
+         "alt": ""
+        },
+        "text": null,
+        "logo": {
+         "src": "/assets/images/schools/isdi/programs-ug/world/uow.png",
+         "alt": ""
+        },
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": true
+       }
+      ],
+      [
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/dr-lan.png",
+         "alt": ""
+        },
+        "text": null,
+        "logo": {
+         "src": "/assets/images/schools/isdi/programs-ug/world/nyu-1.png",
+         "alt": ""
+        },
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": true
+       },
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/dr-stoyan.png",
+         "alt": ""
+        },
+        "text": null,
+        "logo": {
+         "src": "/assets/images/schools/isdi/programs-ug/world/university-of-bath.png",
+         "alt": ""
+        },
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": true
+       }
+      ],
+      [
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/westminster-logo.png",
+         "alt": ""
+        },
+        "text": null,
+        "logo": {
+         "src": "/assets/images/success/progressions/rcai.png",
+         "alt": ""
+        },
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": true
+       },
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/imperial-london-prof.png",
+         "alt": ""
+        },
+        "text": null,
+        "logo": {
+         "src": "/assets/images/schools/isdi/programs-ug/world/icll.png",
+         "alt": ""
+        },
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": true
+       }
+      ],
+      [
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/babson-pof.png",
+         "alt": ""
+        },
+        "text": null,
+        "logo": {
+         "src": "/assets/images/schools/isdi/programs-ug/world/babsoni.png",
+         "alt": ""
+        },
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": true
+       },
+       {
+        "image": {
+         "src": "/assets/images/schools/isme/pages/dr-kanyanee-ingsa.png",
+         "alt": ""
+        },
+        "text": null,
+        "logo": {
+         "src": "/assets/images/schools/isdi/programs-ug/world/lseatlas.png",
+         "alt": ""
+        },
+        "topSet": false,
+        "centerSet": false,
+        "imgWrap": true
+       }
+      ]
+     ],
+     "wrapClass": "instagram-wrapper mobile-vert-scroll",
+     "imgClass": "insta-image-rect",
+     "common": false
+    },
+    {
+     "kind": "h2",
+     "mods": [
+      "h2-tag",
+      "mrg16"
+     ],
+     "text": "Voice from Around the World",
+     "common": "lg",
+     "cw": 3
+    },
+    {
+     "kind": "swiperFull",
+     "mods": [
+      "swiper",
+      "common-swiper-full"
+     ],
+     "cards": [
+      {
+       "kind": "voice",
+       "variant": "testimonial",
+       "video": {
+        "poster": "/assets/images/schools/isme/pages/simone-varotto-henley-business-school-poster-00001.jpg",
+        "sources": [
+         {
+          "src": "/assets/videos/schools/isme/pages/simone-varotto-henley-business-school-transcode.mp4",
+          "type": "video/mp4"
+         },
+         {
+          "src": "/assets/videos/schools/isme/pages/simone-varotto-henley-business-school-transcode.webm",
+          "type": "video/webm"
+         }
+        ]
+       },
+       "image": null,
+       "text": "Learning abroad changed the way I think. It wasn't just a trip, it was clarity on where I want to go.",
+       "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+       "name": "Professor Simone Varotto",
+       "role": "Henley Business School",
+       "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png"
+      },
+      {
+       "kind": "voice",
+       "variant": "testimonial",
+       "video": {
+        "poster": "/assets/images/schools/isdi/internationalisation/events/6846c77f346415bfcbb813b6-68a5d70d12bb383920e07e80_dr-elena-dieckmann-poster-00001.jpg",
+        "sources": [
+         {
+          "src": "/assets/videos/schools/isdi/internationalisation/dr-elena-dieckmann.mp4",
+          "type": "video/mp4"
+         },
+         {
+          "src": "/assets/videos/schools/isdi/internationalisation/dr-elena-dieckmann.webm",
+          "type": "video/webm"
+         }
+        ]
+       },
+       "image": null,
+       "text": "The sessions were different from what I’m used to. We discussed ideas and worked in teams. I didn’t expect to enjoy it this much.",
+       "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+       "name": "Dr. Elena Dieckmann",
+       "role": "Imperial College, London",
+       "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png"
+      },
+      {
+       "kind": "voice",
+       "variant": "testimonial",
+       "video": {
+        "poster": "/assets/images/schools/isdi/internationalisation/events/6846c77f346415bfcbb813b6-68a5d715e78cd5e1fe0226da_dr-sabah-boustila-poster-00001.jpg",
+        "sources": [
+         {
+          "src": "/assets/videos/schools/isdi/internationalisation/dr-sabah-boustila.mp4",
+          "type": "video/mp4"
+         },
+         {
+          "src": "/assets/videos/schools/isdi/internationalisation/dr-sabah-boustila.webm",
+          "type": "video/webm"
+         }
+        ]
+       },
+       "image": null,
+       "text": "The energy at ATLAS ISME was refreshing the students asked sharp questions and approached real problems with genuine curiosity.",
+       "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+       "name": "Dr. Sabah Boustila",
+       "role": "Manchester Metropolitan University",
+       "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png"
+      },
+      {
+       "kind": "voice",
+       "variant": "student",
+       "image": {
+        "src": "/assets/images/testimonials/global/florent.png",
+        "alt": ""
+       },
+       "text": "A rewarding experience—ISME students bring skill, drive, and fresh perspective.",
+       "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+       "name": "",
+       "role": [
+        {
+         "strong": "Florent"
+        }
+       ],
+       "bgImage": "/assets/images/campus/stats/vector-atlas-2.png",
+       "lines": [
+        {
+         "cls": [
+          "st-course",
+          "st-name"
+         ],
+         "runs": [
+          {
+           "strong": "Florent"
+          }
+         ]
+        },
+        {
+         "cls": [
+          "st-course"
+         ],
+         "runs": "Dean\nSorbonne Business School"
+        }
+       ]
+      },
+      {
+       "kind": "voice",
+       "variant": "student",
+       "image": {
+        "src": "/assets/images/testimonials/global/katherine-tanu.png",
+        "alt": ""
+       },
+       "text": "ISME students bring sharp thinking and hands-on skill collaborating with them has added real momentum to our work.",
+       "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+       "name": "",
+       "role": [
+        {
+         "strong": "Katherine Tanu"
+        }
+       ],
+       "bgImage": "/assets/images/campus/stats/vector-atlas-2.png",
+       "lines": [
+        {
+         "cls": [
+          "st-course",
+          "st-name"
+         ],
+         "runs": [
+          {
+           "strong": "Katherine Tanu"
+          }
+         ]
+        },
+        {
+         "cls": [
+          "st-course"
+         ],
+         "runs": "HEC College"
+        }
+       ]
+      },
+      {
+       "kind": "voice",
+       "variant": "student",
+       "image": {
+        "src": "/assets/images/testimonials/global/jennie-backstrom.png",
+        "alt": ""
+       },
+       "text": "It’s been amazing working with ATLAS, few months I have been here. It’s been overwhelming and positive hospitality.",
+       "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+       "name": "",
+       "role": [
+        {
+         "strong": "Jennie Backstrom"
+        }
+       ],
+       "bgImage": "/assets/images/campus/stats/vector-atlas-2.png",
+       "lines": [
+        {
+         "cls": [
+          "st-course",
+          "st-name"
+         ],
+         "runs": [
+          {
+           "strong": "Jennie Backstrom"
+          }
+         ]
+        },
+        {
+         "cls": [
+          "st-course"
+         ],
+         "runs": "Babson College, USA"
+        }
+       ]
+      },
+      {
+       "kind": "voice",
+       "variant": "student",
+       "image": {
+        "src": "/assets/images/testimonials/global/sharon-bailey.png",
+        "alt": ""
+       },
+       "text": "Thanks to Dr. Sahani for the warm welcome that we’ve recieved as we start our partnership with ATLAS SkillTech University.",
+       "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+       "name": "",
+       "role": [
+        {
+         "strong": "Sharon Bailey"
+        }
+       ],
+       "bgImage": "/assets/images/campus/stats/vector-atlas-2.png",
+       "lines": [
+        {
+         "cls": [
+          "st-course",
+          "st-name"
+         ],
+         "runs": [
+          {
+           "strong": "Sharon Bailey"
+          }
+         ]
+        },
+        {
+         "cls": [
+          "st-course"
+         ],
+         "runs": "Leeds Arts University"
+        }
+       ]
+      },
+      {
+       "kind": "voice",
+       "variant": "student",
+       "image": {
+        "src": "/assets/images/testimonials/global/marlon-meikle.png",
+        "alt": ""
+       },
+       "text": "I have had the time of my life at ISDI, seeing the campus has really been inspiring. I love all of the views of the city.",
+       "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+       "name": "",
+       "role": [
+        {
+         "strong": "Marlon Meikle"
+        }
+       ],
+       "bgImage": "/assets/images/campus/stats/vector-atlas-2.png",
+       "lines": [
+        {
+         "cls": [
+          "st-course"
+         ],
+         "runs": [
+          {
+           "strong": "Marlon Meikle"
+          }
+         ]
+        },
+        {
+         "cls": [
+          "st-course"
+         ],
+         "runs": "Parsons School of Design"
+        }
+       ]
+      },
+      {
+       "kind": "voice",
+       "variant": "student",
+       "image": {
+        "src": "/assets/images/testimonials/global/maria-pineda.png",
+        "alt": ""
+       },
+       "text": "We met many fantastic student, very engaged, and more than anything, they are open to opportunities.",
+       "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+       "name": "",
+       "role": "Maria Pineda",
+       "bgImage": "/assets/images/campus/stats/vector-atlas-2.png",
+       "lines": [
+        {
+         "cls": [
+          "st-course",
+          "st-name"
+         ],
+         "runs": "Maria Pineda"
+        },
+        {
+         "cls": [
+          "st-course"
+         ],
+         "runs": "University of Maryland"
+        }
+       ]
+      }
+     ],
+     "common": "lg",
+     "cw": 3
+    },
+    {
+     "kind": "subsection",
+     "items": [
+      {
+       "kind": "h2",
+       "mods": [
+        "h2-tag",
+        "mrg16"
+       ],
+       "text": "The world is your campus",
+       "common": false
+      },
+      {
+       "kind": "lead",
+       "tone": "sub",
+       "mods": [
+        "sub-heading",
+        "mrgbtm32"
+       ],
+       "text": "Spend your summer attending short-term academic programs at top-tier global universities. Learn in small groups, collaborate with international peers, and experience new cultures — all while earning credits. Below is a quick glimpse of our summer programs in 2025.",
+       "common": false
+      },
+      {
+       "kind": "stats",
+       "common": false,
+       "cards": [
+        {
+         "tone": "bg6",
+         "label": "Participation Across",
+         "value": "17 Cities, 10 Countries",
+         "note": null
+        },
+        {
+         "tone": "bg7",
+         "label": "Participating Students",
+         "value": "80+",
+         "note": null
+        },
+        {
+         "tone": "bg8",
+         "label": "Top International Universities",
+         "value": "20+",
+         "note": null
+        }
+       ],
+       "padBottom": false
+      },
+      {
+       "kind": "atlasWall",
+       "common": false,
+       "bleed": true,
+       "bdrtp": true,
+       "columns": [
+        [
+         {
+          "image": {
+           "src": "/assets/images/schools/isme/pages/1-ual-vfatw.png",
+           "alt": ""
+          },
+          "logo": {
+           "src": "/assets/images/success/recruiters/pixel.png",
+           "alt": ""
+          }
+         },
+         {
+          "image": {
+           "src": "/assets/images/schools/isme/pages/summer-ss.png",
+           "alt": ""
+          },
+          "logo": {
+           "src": "/assets/images/success/recruiters/pixel.png",
+           "alt": ""
+          }
+         }
+        ],
+        [
+         {
+          "image": {
+           "src": "/assets/images/schools/isme/pages/lse-vfatw.png",
+           "alt": ""
+          },
+          "logo": {
+           "src": "/assets/images/success/recruiters/pixel.png",
+           "alt": ""
+          }
+         },
+         {
+          "image": {
+           "src": "/assets/images/schools/isme/pages/ied-vfatw.png",
+           "alt": ""
+          },
+          "logo": {
+           "src": "/assets/images/success/recruiters/pixel.png",
+           "alt": ""
+          }
+         }
+        ],
+        [
+         {
+          "image": {
+           "src": "/assets/images/schools/isme/pages/trinity-business-school-vfatw.png",
+           "alt": ""
+          },
+          "logo": {
+           "src": "/assets/images/success/recruiters/pixel.png",
+           "alt": ""
+          }
+         },
+         {
+          "image": {
+           "src": "/assets/images/schools/isme/pages/kings-vfatw.png",
+           "alt": ""
+          },
+          "logo": {
+           "src": "/assets/images/success/recruiters/pixel.png",
+           "alt": ""
+          }
+         }
+        ],
+        [
+         {
+          "image": {
+           "src": "/assets/images/schools/isme/pages/lss-ss.png",
+           "alt": ""
+          },
+          "logo": {
+           "src": "/assets/images/success/recruiters/pixel.png",
+           "alt": ""
+          }
+         },
+         {
+          "image": {
+           "src": "/assets/images/schools/isme/pages/parsons-vfatw.png",
+           "alt": ""
+          },
+          "logo": {
+           "src": "/assets/images/success/recruiters/pixel.png",
+           "alt": ""
+          }
+         }
+        ]
+       ]
+      }
+     ],
+     "common": false
+    },
+    {
+     "kind": "subsection",
+     "items": [
+      {
+       "kind": "h2",
+       "mods": [
+        "h2-tag",
+        "mrgbtm0"
+       ],
+       "text": "Our Student at Summer Schools Around The World",
+       "common": false
+      },
+      {
+       "kind": "lead",
+       "tone": "sub",
+       "mods": [
+        "sub-heading"
+       ],
+       "text": "",
+       "common": false
+      },
+      {
+       "kind": "swiperFull",
+       "mods": [
+        "swiper",
+        "common-swiper-full",
+        "mrgtp0"
+       ],
+       "cards": [
+        {
+         "kind": "voice",
+         "variant": "student",
+         "image": {
+          "src": "/assets/images/testimonials/student/thotangare-aavishi.png",
+          "alt": ""
+         },
+         "text": "This course was a memorable experience that combined education, imagination, and cross-cultural discovery.",
+         "quoteIcon": "/assets/images/testimonials/quote-atlas.png",
+         "name": "",
+         "role": [
+          {
+           "strong": "Thotangare Aavishi"
+          }
+         ],
+         "bgImage": "/assets/images/campus/stats/vector-atlas-2.png",
+         "lines": [
+          {
+           "cls": [
+            "st-course",
+            "st-name",
+            "atlas"
+           ],
+           "runs": [
+            {
+             "strong": "Thotangare Aavishi"
+            }
+           ]
+          },
+          {
+           "cls": [
+            "st-at-pos"
+           ],
+           "runs": "2nd Year, BBA\nSeoul National University"
+          }
+         ]
+        },
+        {
+         "kind": "voice",
+         "variant": "student",
+         "image": {
+          "src": "/assets/images/testimonials/student/ananya-bhattacharya.png",
+          "alt": ""
+         },
+         "text": "Overall, it was a transformative, once-in-a-lifetime experience that built my confidence, creativity, and independence.",
+         "quoteIcon": "/assets/images/testimonials/quote-atlas.png",
+         "name": "",
+         "role": [
+          {
+           "strong": "Ananya Bhattacharya"
+          }
+         ],
+         "bgImage": "/assets/images/campus/stats/vector-atlas-2.png",
+         "lines": [
+          {
+           "cls": [
+            "st-course",
+            "st-name",
+            "atlas"
+           ],
+           "runs": [
+            {
+             "strong": "Ananya Bhattacharya"
+            }
+           ]
+          },
+          {
+           "cls": [
+            "st-at-pos"
+           ],
+           "runs": "2nd Year, B.Des\nNTU Summer School"
+          }
+         ]
+        },
+        {
+         "kind": "voice",
+         "variant": "student",
+         "image": {
+          "src": "/assets/images/testimonials/student/milan-sharma.png",
+          "alt": ""
+         },
+         "text": "It was a transformative blend of learning and cultural discovery. It deepened my creative and strategic skills, while living in Seoul broadened my mind.",
+         "quoteIcon": "/assets/images/testimonials/quote-atlas.png",
+         "name": "",
+         "role": [
+          {
+           "strong": "Milan Sharma"
+          }
+         ],
+         "bgImage": "/assets/images/campus/stats/vector-atlas-2.png",
+         "lines": [
+          {
+           "cls": [
+            "st-course",
+            "st-name",
+            "atlas"
+           ],
+           "runs": [
+            {
+             "strong": "Milan Sharma"
+            }
+           ]
+          },
+          {
+           "cls": [
+            "st-at-pos"
+           ],
+           "runs": "2nd Year, BBA\nYonsei Summer School"
+          }
+         ]
+        },
+        {
+         "kind": "voice",
+         "variant": "student",
+         "image": {
+          "src": "/assets/images/testimonials/student/tomsin-biju.png",
+          "alt": ""
+         },
+         "text": "From clay modeling to Photoshop rendering, each session deepened my understanding of car design.",
+         "quoteIcon": "/assets/images/testimonials/quote-atlas.png",
+         "name": "",
+         "role": [
+          {
+           "strong": "Tomsin Biju"
+          }
+         ],
+         "bgImage": "/assets/images/campus/stats/vector-atlas-2.png",
+         "lines": [
+          {
+           "cls": [
+            "st-course",
+            "st-name",
+            "atlas"
+           ],
+           "runs": [
+            {
+             "strong": "Tomsin Biju"
+            }
+           ]
+          },
+          {
+           "cls": [
+            "st-at-pos"
+           ],
+           "runs": "2nd Year, B.Des\nIED Summer School"
+          }
+         ]
+        },
+        {
+         "kind": "voice",
+         "variant": "student",
+         "image": {
+          "src": "/assets/images/testimonials/student/arushi-dekate.png",
+          "alt": ""
+         },
+         "text": "My UAL PR & Advertising summer course transformed my communication skills, research, client relations, & global collaboration.",
+         "quoteIcon": "/assets/images/testimonials/quote-atlas.png",
+         "name": "",
+         "role": [
+          {
+           "strong": "Arushi Dekate"
+          }
+         ],
+         "bgImage": "/assets/images/campus/stats/vector-atlas-2.png",
+         "lines": [
+          {
+           "cls": [
+            "st-course",
+            "st-name",
+            "atlas"
+           ],
+           "runs": [
+            {
+             "strong": "Arushi Dekate"
+            }
+           ]
+          },
+          {
+           "cls": [
+            "st-at-pos"
+           ],
+           "runs": "2nd Year, SDM\nUAL Summer School"
+          }
+         ]
+        },
+        {
+         "kind": "voice",
+         "variant": "student",
+         "image": {
+          "src": "/assets/images/testimonials/student/ayaan-shetty.png",
+          "alt": ""
+         },
+         "text": "It was a transformative journey that built my confidence, and creativity, offering unforgettable experiences, lessons, and lasting growth.",
+         "quoteIcon": "/assets/images/testimonials/quote-atlas.png",
+         "name": "",
+         "role": [
+          {
+           "strong": "Ayaan Shetty"
+          }
+         ],
+         "bgImage": "/assets/images/campus/stats/vector-atlas-2.png",
+         "lines": [
+          {
+           "cls": [
+            "st-course",
+            "st-name",
+            "atlas"
+           ],
+           "runs": [
+            {
+             "strong": "Ayaan Shetty"
+            }
+           ]
+          },
+          {
+           "cls": [
+            "st-at-pos"
+           ],
+           "runs": "2nd Year, BBA\nLSE Summer School"
+          }
+         ]
+        },
+        {
+         "kind": "voice",
+         "variant": "student",
+         "image": {
+          "src": "/assets/images/testimonials/student/aashita-a.png",
+          "alt": ""
+         },
+         "text": "It gave me a broader understanding of a how Consumer’s take decisions and how companies can connect with them meaningfully.",
+         "quoteIcon": "/assets/images/testimonials/quote-atlas.png",
+         "name": "",
+         "role": [
+          {
+           "strong": "Aashita A"
+          }
+         ],
+         "bgImage": "/assets/images/campus/stats/vector-atlas-2.png",
+         "lines": [
+          {
+           "cls": [
+            "st-course",
+            "st-name",
+            "atlas"
+           ],
+           "runs": [
+            {
+             "strong": "Aashita A"
+            }
+           ]
+          },
+          {
+           "cls": [
+            "st-at-pos"
+           ],
+           "runs": "2nd Year, BBA\nLSE Summer School"
+          }
+         ]
+        },
+        {
+         "kind": "voice",
+         "variant": "student",
+         "image": {
+          "src": "/assets/images/schools/isme/pages/archana-venkatachalam.png",
+          "alt": ""
+         },
+         "text": "Learning abroad changed the way I think. It wasn’t just a trip—it was clarity on where I want to go",
+         "quoteIcon": "/assets/images/testimonials/quote-atlas.png",
+         "name": "",
+         "role": [
+          {
+           "strong": "Archana Venkatachalam"
+          }
+         ],
+         "bgImage": "/assets/images/campus/stats/vector-atlas-2.png",
+         "lines": [
+          {
+           "cls": [
+            "st-course",
+            "st-name",
+            "atlas"
+           ],
+           "runs": [
+            {
+             "strong": "Archana Venkatachalam"
+            }
+           ]
+          },
+          {
+           "cls": [
+            "st-at-pos"
+           ],
+           "runs": "3rd Year, CD\nUAL Summer School"
+          }
+         ]
+        },
+        {
+         "kind": "voice",
+         "variant": "student",
+         "image": {
+          "src": "/assets/images/schools/isme/pages/jaya-bhat-mugulthimoole.png",
+          "alt": ""
+         },
+         "text": "Attending the Fashion Design 2 summer school at NABA Milan was a transformative experience that enhanced my creativity & technical skills.",
+         "quoteIcon": "/assets/images/testimonials/quote-atlas.png",
+         "name": "",
+         "role": [
+          {
+           "strong": "Jaya Bhat Mugulthimoole"
+          }
+         ],
+         "bgImage": "/assets/images/campus/stats/vector-atlas-2.png",
+         "lines": [
+          {
+           "cls": [
+            "st-course",
+            "st-name",
+            "atlas"
+           ],
+           "runs": [
+            {
+             "strong": "Jaya Bhat Mugulthimoole"
+            }
+           ]
+          },
+          {
+           "cls": [
+            "st-at-pos"
+           ],
+           "runs": "3rd year, FD\nNABA Summer School"
+          }
+         ]
+        }
+       ],
+       "common": false
+      }
+     ],
+     "common": false
+    },
+    {
+     "kind": "subsection",
+     "items": [
+      {
+       "kind": "h2",
+       "mods": [
+        "h2-tag",
+        "mrg16"
+       ],
+       "text": "Global Immersion. Experience The World.",
+       "common": false
+      },
+      {
+       "kind": "lead",
+       "tone": "sub",
+       "mods": [
+        "sub-heading",
+        "mrgbtm"
+       ],
+       "text": "At ATLAS, learning goes beyond borders. Through our Global Immersion programs, students experience international education firsthand — exploring new cultures, collaborating with global peers, and gaining insights from leading universities and organisations around the world. ATLAS students don’t just travel — they engage, learn, and grow as global citizens ready to lead on an international stage.",
+       "common": false
+      },
+      {
+       "kind": "tabSliders",
+       "menuMods": [
+        "tabs-menu-mint",
+        "w-tab-menu"
+       ],
+       "contentMods": [
+        "tab-content-mint",
+        "w-tab-content"
+       ],
+       "tabs": [
+        {
+         "label": "United Kingdom",
+         "cards": [
+          {
+           "kind": "slider-card-e",
+           "title": "Imperial College",
+           "text": null,
+           "image": {
+            "src": "/assets/images/schools/isme/pages/imperialatlas.png",
+            "alt": "",
+            "srcSet": "/assets/images/schools/isme/pages/imperialatlas-p-500.png 500w, /assets/images/schools/isme/pages/imperialatlas-p-800.png 800w, /assets/images/schools/isme/pages/imperialatlas.png 802w",
+            "sizes": "(max-width: 802px) 100vw, 802px"
+           },
+           "logo": null
+          },
+          {
+           "kind": "slider-card-e",
+           "title": "King’s College, London",
+           "text": null,
+           "image": {
+            "src": "/assets/images/schools/isme/pages/kings111.png",
+            "alt": "",
+            "srcSet": "/assets/images/schools/isme/pages/kings111-p-500.png 500w, /assets/images/schools/isme/pages/kings111-p-800.png 800w, /assets/images/schools/isme/pages/kings111.png 802w",
+            "sizes": "(max-width: 802px) 100vw, 802px"
+           },
+           "logo": null
+          },
+          {
+           "kind": "slider-card-e",
+           "title": "University of Bistrol",
+           "text": null,
+           "image": {
+            "src": "/assets/images/schools/isme/pages/testimonial333.png",
+            "alt": "",
+            "srcSet": "/assets/images/schools/isme/pages/testimonial333-p-500.png 500w, /assets/images/schools/isme/pages/testimonial333-p-800.png 800w, /assets/images/schools/isme/pages/testimonial333.png 802w",
+            "sizes": "(max-width: 802px) 100vw, 802px"
+           },
+           "logo": null
+          },
+          {
+           "kind": "slider-card-e",
+           "title": "London School of Economics",
+           "text": null,
+           "image": {
+            "src": "/assets/images/schools/isme/pages/lseatlass.png",
+            "alt": "",
+            "srcSet": "/assets/images/schools/isme/pages/lseatlass-p-500.png 500w, /assets/images/schools/isme/pages/lseatlass-p-800.png 800w, /assets/images/schools/isme/pages/lseatlass.png 803w",
+            "sizes": "(max-width: 803px) 100vw, 803px"
+           },
+           "logo": null
+          }
+         ]
+        },
+        {
+         "label": "USA",
+         "cards": [
+          {
+           "kind": "slider-card-e",
+           "title": "Parsons The New School",
+           "text": null,
+           "image": {
+            "src": "/assets/images/schools/isme/pages/americaaa.png",
+            "alt": "",
+            "srcSet": "/assets/images/schools/isme/pages/americaaa-p-500.png 500w, /assets/images/schools/isme/pages/americaaa.png 579w",
+            "sizes": "100vw"
+           },
+           "logo": null
+          },
+          {
+           "kind": "slider-card-e",
+           "title": "Columbia University",
+           "text": null,
+           "image": {
+            "src": "/assets/images/schools/isme/pages/columbiauniversityatlas.png",
+            "alt": "",
+            "srcSet": "/assets/images/schools/isme/pages/columbiauniversityatlas-p-500.png 500w, /assets/images/schools/isme/pages/columbiauniversityatlas-p-800.png 800w, /assets/images/schools/isme/pages/columbiauniversityatlas.png 804w",
+            "sizes": "100vw"
+           },
+           "logo": null
+          },
+          {
+           "kind": "slider-card-e",
+           "title": "NYU University",
+           "text": null,
+           "image": {
+            "src": "/assets/images/schools/isme/pages/nyuschoolatlas.png",
+            "alt": "",
+            "srcSet": "/assets/images/schools/isme/pages/nyuschoolatlas-p-500.png 500w, /assets/images/schools/isme/pages/nyuschoolatlas-p-800.png 800w, /assets/images/schools/isme/pages/nyuschoolatlas.png 804w",
+            "sizes": "100vw"
+           },
+           "logo": null
+          },
+          {
+           "kind": "slider-card-e",
+           "title": "PACE University",
+           "text": null,
+           "image": {
+            "src": "/assets/images/schools/isme/pages/paceuniversity.png",
+            "alt": "",
+            "srcSet": "/assets/images/schools/isme/pages/paceuniversity-p-500.png 500w, /assets/images/schools/isme/pages/paceuniversity-p-800.png 800w, /assets/images/schools/isme/pages/paceuniversity.png 804w",
+            "sizes": "100vw"
+           },
+           "logo": null
+          }
+         ]
+        },
+        {
+         "label": "Europe",
+         "cards": [
+          {
+           "kind": "slider-card-e",
+           "title": "",
+           "text": null,
+           "image": {
+            "src": "/assets/images/schools/isme/pages/screenshot-2025-11-06-at-11.14.17-pm.png",
+            "alt": "",
+            "srcSet": "/assets/images/schools/isme/pages/screenshot-2025-11-06-at-11.14.17-pm-p-500.png 500w, /assets/images/schools/isme/pages/screenshot-2025-11-06-at-11.14.17-pm-p-800.png 800w, /assets/images/schools/isme/pages/screenshot-2025-11-06-at-11.14.17-pm-p-1080.png 1080w, /assets/images/schools/isme/pages/screenshot-2025-11-06-at-11.14.17-pm.png 1428w",
+            "sizes": "100vw"
+           },
+           "logo": null
+          },
+          {
+           "kind": "slider-card-e",
+           "title": "HKU, Netherlands",
+           "text": null,
+           "image": {
+            "src": "/assets/images/schools/isme/pages/screenshot-2025-11-06-at-11.07.02-pm.png",
+            "alt": "",
+            "srcSet": "/assets/images/schools/isme/pages/screenshot-2025-11-06-at-11.07.02-pm-p-500.png 500w, /assets/images/schools/isme/pages/screenshot-2025-11-06-at-11.07.02-pm-p-800.png 800w, /assets/images/schools/isme/pages/screenshot-2025-11-06-at-11.07.02-pm.png 804w",
+            "sizes": "100vw"
+           },
+           "logo": null
+          },
+          {
+           "kind": "slider-card-e",
+           "title": "Dr. Sanjay Masand",
+           "text": null,
+           "image": {
+            "src": "/assets/images/schools/isme/pages/leader-show-1.webp",
+            "alt": "",
+            "srcSet": "/assets/images/schools/isme/pages/leader-show-1-p-500.webp 500w, /assets/images/schools/isme/pages/leader-show-1.webp 801w",
+            "sizes": "100vw"
+           },
+           "logo": null
+          },
+          {
+           "kind": "slider-card-e",
+           "title": "Dr. Sanjay Masand",
+           "text": null,
+           "image": {
+            "src": "/assets/images/schools/isme/pages/leader-show-1.webp",
+            "alt": "",
+            "srcSet": "/assets/images/schools/isme/pages/leader-show-1-p-500.webp 500w, /assets/images/schools/isme/pages/leader-show-1.webp 801w",
+            "sizes": "100vw"
+           },
+           "logo": null
+          }
+         ]
+        },
+        {
+         "label": "Other Global Partners",
+         "cards": [
+          {
+           "kind": "slider-card-e",
+           "title": "RIT Dubai",
+           "text": null,
+           "image": {
+            "src": "/assets/images/schools/isme/pages/ritdubai.png",
+            "alt": "",
+            "srcSet": "/assets/images/schools/isme/pages/ritdubai-p-500.png 500w, /assets/images/schools/isme/pages/ritdubai.png 564w",
+            "sizes": "100vw"
+           },
+           "logo": null
+          },
+          {
+           "kind": "slider-card-e",
+           "title": "Dr. Sanjay Masand",
+           "text": null,
+           "image": {
+            "src": "/assets/images/schools/isme/pages/leader-show-1.webp",
+            "alt": "",
+            "srcSet": "/assets/images/schools/isme/pages/leader-show-1-p-500.webp 500w, /assets/images/schools/isme/pages/leader-show-1.webp 801w",
+            "sizes": "100vw"
+           },
+           "logo": null
+          },
+          {
+           "kind": "slider-card-e",
+           "title": "Dr. Sanjay Masand",
+           "text": null,
+           "image": {
+            "src": "/assets/images/schools/isme/pages/leader-show-1.webp",
+            "alt": "",
+            "srcSet": "/assets/images/schools/isme/pages/leader-show-1-p-500.webp 500w, /assets/images/schools/isme/pages/leader-show-1.webp 801w",
+            "sizes": "100vw"
+           },
+           "logo": null
+          },
+          {
+           "kind": "slider-card-e",
+           "title": "Dr. Sanjay Masand",
+           "text": null,
+           "image": {
+            "src": "/assets/images/schools/isme/pages/leader-show-1.webp",
+            "alt": "",
+            "srcSet": "/assets/images/schools/isme/pages/leader-show-1-p-500.webp 500w, /assets/images/schools/isme/pages/leader-show-1.webp 801w",
+            "sizes": "100vw"
+           },
+           "logo": null
+          }
+         ]
+        }
+       ],
+       "common": false
+      }
+     ],
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "iconSection",
+   "id": "masters-progressions",
+   "icon": "/assets/images/advantages/partnership/cdn/notification.png",
+   "num": null,
+   "title": "From Mumbai to the World’s Top Grad Schools",
+   "wrap": "blue",
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "blue",
+     "mods": [
+      "blue-desc-wrap",
+      "bottom"
+     ],
+     "textMods": [
+      "blue-desc-text",
+      "wid80"
+     ],
+     "text": "The ATLAS Master’s Progression team works with students 1:1 to craft academic and application pathways to top-tier graduate programs globally. From university selection to SOP writing and interview prep — we ensure you’re guided at every step.",
+     "common": false,
+     "button": {
+      "label": "Know More",
+      "href": "/schools/isme/atlas-isme-advantage/industry/career-services-placement-and-guidance"
+     }
+    },
+    {
+     "kind": "swiper",
+     "mods": [
+      "swiper",
+      "common-swiper"
+     ],
+     "cards": [
+      {
+       "kind": "transfer",
+       "image": {
+        "src": "/assets/images/success/progressions/atharva-haldankar.jpg",
+        "alt": "",
+        "srcSet": "/assets/images/success/progressions/atharva-haldankar-p-500.jpg 500w, /assets/images/success/progressions/atharva-haldankar-p-800.jpg 800w, /assets/images/success/progressions/atharva-haldankar-p-1080.jpg 1080w, /assets/images/success/progressions/atharva-haldankar-p-1600.jpg 1600w, /assets/images/success/progressions/atharva-haldankar-p-2000.jpg 2000w, /assets/images/success/progressions/atharva-haldankar-p-2600.jpg 2600w, /assets/images/success/progressions/atharva-haldankar-p-3200.jpg 3200w, /assets/images/success/progressions/atharva-haldankar.jpg 3840w",
+        "sizes": "(max-width: 3840px) 100vw, 3840px"
+       },
+       "name": "Atharva Haldankar",
+       "degree": "Msc in Corporate Finance",
+       "logo": {
+        "src": "/assets/images/success/progressions/henley-business-school.png",
+        "alt": ""
+       },
+       "logoKind": "sized"
+      },
+      {
+       "kind": "transfer",
+       "image": {
+        "src": "/assets/images/success/progressions/deepika-pareek.png",
+        "alt": ""
+       },
+       "name": "Deepika Pareek",
+       "degree": "MSc International Marketing Management",
+       "logo": {
+        "src": "/assets/images/success/progressions/icl-logo.png",
+        "alt": ""
+       },
+       "logoKind": "bare"
+      },
+      {
+       "kind": "transfer",
+       "image": {
+        "src": "/assets/images/success/progressions/transfer-img-4.png",
+        "alt": ""
+       },
+       "name": "Nainika Patwari",
+       "degree": "Msc Strategic Thinking",
+       "logo": {
+        "src": "/assets/images/success/progressions/ny-univ-logo.png",
+        "alt": ""
+       },
+       "logoKind": "bare"
+      },
+      {
+       "kind": "transfer",
+       "image": {
+        "src": "/assets/images/success/progressions/drishti-dhungr.png",
+        "alt": ""
+       },
+       "name": "Drushti Dhingra",
+       "degree": "MSc Marketing",
+       "logo": {
+        "src": "/assets/images/success/progressions/uni-of-bath.png",
+        "alt": ""
+       },
+       "logoKind": "bare"
+      },
+      {
+       "kind": "transfer",
+       "image": {
+        "src": "/assets/images/success/progressions/devina-agrawal.png",
+        "alt": ""
+       },
+       "name": "Devina Agrawal",
+       "degree": "MSc Marketing and Strategy",
+       "logo": {
+        "src": "/assets/images/success/progressions/ny-univ-logo.png",
+        "alt": ""
+       },
+       "logoKind": "bare"
+      },
+      {
+       "kind": "transfer",
+       "image": {
+        "src": "/assets/images/success/progressions/utkarsh-kejriwal.png",
+        "alt": ""
+       },
+       "name": "Rayan Dalal",
+       "degree": "Masters in Business Analysis and Strategic Management",
+       "logo": {
+        "src": "/assets/images/success/progressions/manchester.png",
+        "alt": ""
+       },
+       "logoKind": "sized"
+      },
+      {
+       "kind": "transfer",
+       "image": {
+        "src": "/assets/images/success/progressions/krishi-gada.png",
+        "alt": ""
+       },
+       "name": "Krishi Gada",
+       "degree": "MA Business and Finance",
+       "logo": {
+        "src": "/assets/images/success/progressions/regents.png",
+        "alt": ""
+       },
+       "logoKind": "bare"
+      }
+     ],
+     "common": false
+    },
+    {
+     "kind": "strip",
+     "mods": [
+      "strip-container"
+     ],
+     "content": true,
+     "cells": [
+      [
+       {
+        "cls": [
+         "str-txt-mint"
+        ],
+        "text": "400+"
+       },
+       {
+        "cls": [
+         "str-txt-1"
+        ],
+        "text": "Students placed in\nglobal Master’s programs"
+       }
+      ],
+      [
+       {
+        "cls": [
+         "str-txt-mint"
+        ],
+        "text": "100+"
+       },
+       {
+        "cls": [
+         "str-txt-1"
+        ],
+        "text": "Global Universities\n& Institutions"
+       }
+      ],
+      [
+       {
+        "cls": [
+         "str-txt-mint"
+        ],
+        "text": "125+"
+       },
+       {
+        "cls": [
+         "str-txt-1"
+        ],
+        "text": "Scholarships"
+       }
+      ]
+     ],
+     "common": false,
+     "cellCls": [
+      [
+       "strip-text"
+      ],
+      [
+       "strip-text"
+      ],
+      [
+       "strip-text"
+      ]
+     ],
+     "bleed": true
+    }
+   ]
+  },
+  {
+   "kind": "iconSection",
+   "id": "international-summer-school",
+   "icon": "/assets/images/advantages/partnership/cdn/notification.png",
+   "num": null,
+   "title": "Our students at universities\naround the world",
+   "wrap": "none",
+   "items": [
+    {
+     "kind": "galleryInline",
+     "bare": true,
+     "wrapMods": [],
+     "galleryMods": [
+      "h2-tag"
+     ],
+     "cards": [
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/yashvi-shah-columbia-msaters.png",
+        "alt": ""
+       },
+       "size": null,
+       "name": null,
+       "caption": "Columbia University",
+       "icon": {
+        "src": "/assets/images/schools/isme/pages/location-1-.svg",
+        "alt": ""
+       }
+      },
+      {
+       "image": {
+        "src": "/assets/images/alumni/group-1272631409.png",
+        "alt": ""
+       },
+       "size": null,
+       "name": null,
+       "caption": "Babson College",
+       "icon": {
+        "src": "/assets/images/schools/isme/pages/location-1-.svg",
+        "alt": ""
+       }
+      },
+      {
+       "image": {
+        "src": "/assets/images/alumni/group-1272631410.png",
+        "alt": ""
+       },
+       "size": null,
+       "name": null,
+       "caption": "University of Oxford",
+       "icon": {
+        "src": "/assets/images/schools/isme/pages/location-1-.svg",
+        "alt": ""
+       }
+      },
+      {
+       "image": {
+        "src": "/assets/images/alumni/group-1272631416.png",
+        "alt": ""
+       },
+       "size": "grid-card-4",
+       "name": null,
+       "caption": "King’s College",
+       "icon": {
+        "src": "/assets/images/schools/isme/pages/location-1-.svg",
+        "alt": ""
+       }
+      },
+      {
+       "image": {
+        "src": "/assets/images/alumni/group-1272631412.png",
+        "alt": ""
+       },
+       "size": "grid-card-5",
+       "name": null,
+       "caption": "New York University",
+       "icon": {
+        "src": "/assets/images/schools/isme/pages/location-1-.svg",
+        "alt": ""
+       }
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/ntu-student.png",
+        "alt": ""
+       },
+       "size": null,
+       "name": null,
+       "caption": "Nanyang Technological University",
+       "icon": {
+        "src": "/assets/images/schools/isme/pages/location-1-.svg",
+        "alt": ""
+       }
+      },
+      {
+       "image": {
+        "src": "/assets/images/alumni/group-1272631414.png",
+        "alt": ""
+       },
+       "size": null,
+       "name": null,
+       "caption": "Loughborough University",
+       "icon": {
+        "src": "/assets/images/schools/isme/pages/location-1-.svg",
+        "alt": ""
+       }
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/nishi-jain-ucl-1.png",
+        "alt": ""
+       },
+       "size": null,
+       "name": null,
+       "caption": "University College London",
+       "icon": {
+        "src": "/assets/images/schools/isme/pages/location-1-.svg",
+        "alt": ""
+       }
+      }
+     ],
+     "common": true,
+     "cw": 4
+    }
+   ]
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": null,
+   "headingMods": [],
+   "items": [
+    {
+     "kind": "headRow",
+     "mods": [
+      "head-wrap"
+     ],
+     "heading": "Global Education fair at ATLAS ISME",
+     "headingMods": [
+      "h2-tag",
+      "mrg16"
+     ],
+     "sub": "World-class universities. One-on-one interactions. Endless opportunities.",
+     "button": null,
+     "common": false
+    },
+    {
+     "kind": "swiper",
+     "mods": [
+      "swiper",
+      "common-swiper"
+     ],
+     "cards": [
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/advantages/partnership/master-progression/cdn/IMG_7849-1.png",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/schools/isdi/advantage/global/deloitte-logo-black-and-white-1-e1574953463204-1.png",
+        "alt": ""
+       },
+       "variant": "atlas"
+      },
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/advantages/partnership/master-progression/cdn/IMG_7849-1-2.png",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/schools/isdi/advantage/global/deloitte-logo-black-and-white-1-e1574953463204-1-copy.png",
+        "alt": ""
+       },
+       "variant": "atlas"
+      },
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/advantages/partnership/master-progression/cdn/IMG_7849-1-3.png",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/schools/isdi/advantage/global/deloitte-logo-black-and-white-1-e1574953463204-1-2.png",
+        "alt": ""
+       },
+       "variant": "atlas"
+      },
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/advantages/partnership/master-progression/cdn/IMG_7849-1-copy.png",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/schools/isdi/advantage/global/deloitte-logo-black-and-white-1-e1574953463204-1-3.png",
+        "alt": ""
+       },
+       "variant": "atlas"
+      },
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/advantages/partnership/master-progression/cdn/IMG_7849-1-2-copy.png",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/schools/isdi/advantage/global/deloitte-logo-black-and-white-1-e1574953463204-1-4.png",
+        "alt": ""
+       },
+       "variant": "atlas"
+      },
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/advantages/partnership/master-progression/cdn/goldsmiths-uol-ged.png",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/goldsmith-logo-1.png",
+        "alt": ""
+       },
+       "variant": "atlas"
+      },
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/advantages/partnership/master-progression/cdn/macquarie-university-ged.png",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/mac-uni-sydney.png",
+        "alt": ""
+       },
+       "variant": "atlas"
+      },
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/advantages/partnership/master-progression/cdn/henley-business-school-ged.png",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/deloitte-logo-black-and-white-1-e1574953463204-4.png",
+        "alt": ""
+       },
+       "variant": "atlas"
+      },
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/advantages/partnership/master-progression/cdn/massey-university-ged.png",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/massey-logo-1.png",
+        "alt": ""
+       },
+       "variant": "atlas"
+      },
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/advantages/partnership/master-progression/cdn/Colarodo-state-uni.png",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/cu-boulder-logo-text-white-1.png",
+        "alt": ""
+       },
+       "variant": "atlas"
+      },
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/advantages/partnership/master-progression/cdn/John-hopkins-university.png",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/audencia-logo-1.png",
+        "alt": ""
+       },
+       "variant": "atlas"
+      },
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/university-of-chester.png",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/chester-logo.png",
+        "alt": ""
+       },
+       "variant": "atlas"
+      },
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/advantages/partnership/master-progression/cdn/uni-oregan.png",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/university-of-oregon-logo-1536x864-1.png",
+        "alt": ""
+       },
+       "variant": "atlas"
+      },
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/advantages/partnership/master-progression/cdn/usf-ged.png",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/usf-logo.png",
+        "alt": ""
+       },
+       "variant": "atlas"
+      },
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/advantages/partnership/master-progression/cdn/University-of-sussex.png",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/sussex,-logo.png",
+        "alt": ""
+       },
+       "variant": "atlas"
+      },
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/advantages/partnership/master-progression/cdn/Bocconi.png",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/bocconi-logo.png",
+        "alt": ""
+       },
+       "variant": "atlas"
+      },
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/advantages/partnership/master-progression/cdn/arizona-state-uni.png",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/arizona-state.png",
+        "alt": ""
+       },
+       "variant": "atlas"
+      },
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/advantages/partnership/master-progression/cdn/california-college-of-art-ged.png",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/cca.png",
+        "alt": ""
+       },
+       "variant": "atlas"
+      },
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/advantages/partnership/master-progression/cdn/glion-uni-ged.png",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/glion-uni.png",
+        "alt": ""
+       },
+       "variant": "atlas"
+      },
+      {
+       "kind": "f",
+       "image": {
+        "src": "/assets/images/advantages/partnership/master-progression/cdn/depaul-uni.png",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/de-paul.png",
+        "alt": ""
+       },
+       "variant": "atlas"
+      }
+     ],
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": null,
+   "headingMods": [],
+   "items": [
+    {
+     "kind": "headRow",
+     "mods": [
+      "head-wrap"
+     ],
+     "heading": "Your Global Journey, Fully Supported",
+     "headingMods": [
+      "h2-tag",
+      "mrg16"
+     ],
+     "sub": "At ATLAS, we guide you every step of the way to unlock global opportunities and experiences.",
+     "subMods": [
+      "sub-heading",
+      "mrgbtm"
+     ],
+     "button": null,
+     "common": false
+    },
+    {
+     "kind": "careerGrid",
+     "cards": [
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/cs-1.png",
+        "alt": ""
+       },
+       "title": "Global Pathways",
+       "text": "Seamless progression to leading international universities through academic partnerships and articulation routes for postgraduate and advanced studies.",
+       "tone": "atlas-bg-1",
+       "link": "#"
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/cs-2.png",
+        "alt": ""
+       },
+       "title": "International Faculty & Masterclasses",
+       "text": "Learn directly from world-renowned professors and industry experts who bring global insights and practices to the ATLAS classroom.",
+       "tone": "atlas-bg-2",
+       "link": "#"
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/cs-3.png",
+        "alt": ""
+       },
+       "title": "International Visiting Faculty Bootcamps",
+       "text": "Engage in intensive bootcamps delivered by international faculty, offering immersive, hands-on learning aligned with global standards.",
+       "tone": "atlas-bg-1",
+       "link": "#"
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/cs-4.png",
+        "alt": ""
+       },
+       "title": "Global Immersions",
+       "text": "Travel abroad for short-term academic and corporate immersions that blend classroom learning with real-world, cross-cultural experiences.",
+       "tone": "atlas-bg-1",
+       "link": "#"
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/cs-5.png",
+        "alt": ""
+       },
+       "title": "Summer Schools",
+       "text": "Experience world-class education through summer programs at top global universities—explore new ideas, cultures, and academic inspirations.",
+       "tone": "atlas-bg-2",
+       "link": "#"
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/cs-6.png",
+        "alt": ""
+       },
+       "title": "Exchange & Study Abroad Programs",
+       "text": "Courses designed with CTOs, data scientists, and Spend a semester or year studying at partner universities worldwide while earning credits and building global networks.cybersecurity experts.",
+       "tone": "atlas-bg-1",
+       "link": "#"
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/cs-7.png",
+        "alt": ""
+       },
+       "title": "Global Education Fair",
+       "text": "Interact with top international universities right on campus—discover programs, scholarships, and pathways to your global future.",
+       "tone": "atlas-bg-1",
+       "link": "#"
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/cs-8.png",
+        "alt": ""
+       },
+       "title": "Delegations & Networking Events",
+       "text": "Connect with visiting global leaders, universities, and consulates through interactive events that open doors to collaborations and opportunities.",
+       "tone": "atlas-bg-2",
+       "link": "#"
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/cs-9.png",
+        "alt": ""
+       },
+       "title": "Global Citizenship Initiatives",
+       "text": "Engage in sustainability-driven programs andGlobal Dialogueswith peers worldwide, fostering leadership, empathy, and global understanding.",
+       "tone": "atlas-bg-1",
+       "link": null
+      }
+     ],
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "management",
+   "id": null,
+   "heading": "Meet your International Affairs Team",
+   "button": null,
+   "sub": "Helping you navigate your global journey with clarity, care, and confidence.",
+   "swiperMods": [
+    "swiper",
+    "common-swiper"
+   ],
+   "people": [
+    {
+     "name": "Sweey Sethi",
+     "role": "Executive Director",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/image-1194.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Utsav Shroff",
+     "role": "Director",
+     "image": {
+      "src": "/assets/images/international/affairs/isme-3-2.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Sonam Moondhra",
+     "role": "Director – Masters Progression",
+     "image": {
+      "src": "/assets/images/international/affairs/sonam-moondhra.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Pallavi Palande",
+     "role": "Senior Counsellor – Masters Progression",
+     "image": {
+      "src": "/assets/images/international/affairs/pallavi-palande.png",
+      "alt": ""
+     }
+    }
+   ],
+   "bareHead": true
+  },
+  {
+   "kind": "search",
+   "id": null
+  },
+  {
+   "heading": "Questions? We can read your mind",
+   "items": [
+    {
+     "q": "What are global immersion programs in business education?",
+     "a": [
+      "Global immersion programs are short-term international learning experiences where students travel abroad to study at top universities, visit leading companies and engage with diverse cultures. At ATLAS ISME, these immersions span 10+ countries across 5 continents and include campus visits, corporate tours, academic sessions and networking events at institutions like Imperial College, King's College London, Columbia University and NYU, helping students develop a real-world global business perspective."
+     ]
+    },
+    {
+     "q": "What is Masters Progression and how does it work for Indian business graduates?",
+     "a": [
+      "Masters Progression is a structured pathway that helps ATLAS ISME graduates gain admission to top postgraduate programs at universities abroad. A dedicated Masters Progression team works one-on-one with students on university selection, SOP writing and interview preparation. Over 400 students have been placed in global Master's programs at institutions including Oxford, NYU, King's College, University of Bath and Manchester, with access to 125+ scholarships and 100+ global university partners."
+     ]
+    },
+    {
+     "q": "How does international exposure improve job placement outcomes?",
+     "a": [
+      "International exposure builds cross-cultural communication, global business acumen and confidence which includes global immersions, international faculty masterclasses, summer schools and exchange programs, ensures students graduate with a worldview and professional network that sets them apart in competitive job markets both in India and abroad."
+     ]
+    },
+    {
+     "q": "Can Indian BBA students participate in international summer schools?",
+     "a": [
+      "Yes. ATLAS ISME BBA students actively participate in international summer schools at top universities worldwide. In 2025 alone, 80+ students attended programs across 17 cities in 10 countries, including London School of Economics, King's College, Parsons New York, UAL, IED Milan, Yonsei University, Seoul National University and NTU Singapore, earning credits and gaining real global exposure as part of their degree."
+     ]
+    },
+    {
+     "q": "Do global university partnerships affect the quality of education in India?",
+     "a": [
+      "Yes, significantly. ATLAS ISME's 60+ MoUs with universities across the US, UK, Europe, Australia and Asia bring global standards directly into the Indian classroom. These partnerships enable international faculty residencies, visiting faculty bootcamps, collaborative masterclasses and curriculum benchmarking, meaning students don't just hear about global practices, they learn from professors at institutions like Imperial College London, Babson College and Manchester Metropolitan University, right on campus."
+     ]
+    }
+   ],
+   "kind": "faq"
+  }
+ ]
+}

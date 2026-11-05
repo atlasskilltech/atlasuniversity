@@ -1,0 +1,1792 @@
+{
+ "path": "/schools/isme/imarticus29012026",
+ "ref": "imarticus29012026.php",
+ "meta": {
+  "title": "ATLAS SkillTech University",
+  "description": "Get in touch with Atlas Skilltech."
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "kind": "homeHero",
+   "heading": "MBA Admissions",
+   "ismeDuration": "Masters of Business Administration | 2-year (Full-time)",
+   "ismeDesc": "Marketing | Finance | Entrepreneurship | Business Analytics |\nDigital Marketing & Advertising | FinTech | Investment Banking",
+   "buttons": [
+    {
+     "label": "Apply for July 2026 Intake",
+     "href": "https://atlasuniversity.edu.in/applicationform",
+     "variant": "mint"
+    }
+   ],
+   "videoFrom": "home"
+  },
+  {
+   "kind": "outcomesHeading",
+   "heading": "ISME Outcomes: Measurable Impact, Proven ROI"
+  },
+  {
+   "kind": "outcomesStack",
+   "cards": [
+    {
+     "id": "first",
+     "panel": "bg-1",
+     "title": "Build Your Startup",
+     "image": {
+      "src": "/assets/images/schools/isme/home/outcomes/image-1184.png",
+      "srcSet": "/assets/images/schools/isme/home/outcomes/image-1184-p-500.png 500w, /assets/images/schools/isme/home/outcomes/image-1184.png 759w",
+      "sizes": "(max-width: 759px) 100vw, 759px",
+      "alt": "",
+      "first": true
+     },
+     "blocks": [
+      {
+       "number": "1200+",
+       "text": "Alumni Start-ups",
+       "mid": true,
+       "marquees": [
+        {
+         "kind": "circle",
+         "items": [
+          {
+           "src": "/assets/images/impact/startup/alumni/student-1.png",
+           "width": 64,
+           "height": 64
+          },
+          {
+           "src": "/assets/images/impact/startup/alumni/student-2.png",
+           "width": 64,
+           "height": 64
+          },
+          {
+           "src": "/assets/images/impact/startup/alumni/student-3.png",
+           "width": 64,
+           "height": 64
+          },
+          {
+           "src": "/assets/images/impact/startup/alumni/student-4.png",
+           "width": 64,
+           "height": 64
+          },
+          {
+           "src": "/assets/images/impact/startup/alumni/student-5.png",
+           "width": 64,
+           "height": 64
+          },
+          {
+           "src": "/assets/images/impact/startup/alumni/student-6.png",
+           "width": 64,
+           "height": 64
+          },
+          {
+           "src": "/assets/images/impact/startup/alumni/student-1.png",
+           "width": 64,
+           "height": 64
+          },
+          {
+           "src": "/assets/images/impact/startup/alumni/student-2.png",
+           "width": 64,
+           "height": 64
+          },
+          {
+           "src": "/assets/images/impact/startup/alumni/student-3.png",
+           "width": 64,
+           "height": 64
+          },
+          {
+           "src": "/assets/images/impact/startup/alumni/student-4.png",
+           "width": 64,
+           "height": 64
+          },
+          {
+           "src": "/assets/images/impact/startup/alumni/student-5.png",
+           "width": 64,
+           "height": 64
+          },
+          {
+           "src": "/assets/images/impact/startup/alumni/student-6.png",
+           "width": 64,
+           "height": 64
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "number": "25+",
+       "text": "Start-up Showcases & Masterclasses Every Semester",
+       "mid": false,
+       "marquees": [
+        {
+         "kind": "circle",
+         "items": [
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/ms-c-4.png",
+           "width": 52,
+           "height": 52
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/ms-c-2.png",
+           "width": 52,
+           "height": 52
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/ms-c-3.png",
+           "width": 52,
+           "height": 52
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/ms-c-1.png",
+           "width": 52,
+           "height": 52
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/ms-c-4.png",
+           "width": 52,
+           "height": 52
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/ms-c-2.png",
+           "width": 52,
+           "height": 52
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/ms-c-3.png",
+           "width": 52,
+           "height": 52
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/ms-c-1.png",
+           "width": 52,
+           "height": 52
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "second",
+     "panel": "bg-2",
+     "title": "Pursue Your Masters",
+     "image": {
+      "src": "/assets/images/schools/isme/home/outcomes/hardvard-big.png",
+      "srcSet": "/assets/images/schools/isme/home/outcomes/hardvard-big-p-500.png 500w, /assets/images/schools/isme/home/outcomes/hardvard-big.png 759w",
+      "sizes": "(max-width: 759px) 100vw, 759px",
+      "alt": "",
+      "first": false
+     },
+     "blocks": [
+      {
+       "number": "60+",
+       "text": "University Partnerships",
+       "mid": false,
+       "marquees": [
+        {
+         "kind": "logo",
+         "items": [
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/frame-1272631869.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/frame-1272631866.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/trent-uni.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/d280023b-a34c-4ace-8ee2-0a50cb0c48d5-1-1-.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/frame-1272631864.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/frame-1272631867.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/frame-1272631869.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/frame-1272631866.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/trent-uni.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/d280023b-a34c-4ace-8ee2-0a50cb0c48d5-1-1-.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/frame-1272631864.png",
+           "width": 60,
+           "height": 40,
+           "extra": [
+            {
+             "src": "/assets/images/schools/isme/home/outcomes/frame-1272631864.png",
+             "width": 60,
+             "height": 40
+            }
+           ]
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/frame-1272631867.png",
+           "width": 60,
+           "height": 40
+          }
+         ]
+        },
+        {
+         "kind": "logo",
+         "items": [
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/ual.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/trent-uni.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/christ-church-uni.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/leeds.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/bath.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/bristol-w-bg.png",
+           "width": 76,
+           "height": 52
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/frame-1272631866-1-.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/ual.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/trent-uni.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/christ-church-uni.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/leeds.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/bath.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/bristol-w-bg.png",
+           "width": 76,
+           "height": 52
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/frame-1272631866-1-.png",
+           "width": 60,
+           "height": 40
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "number": "1 out of 3",
+       "text": "Students Get a Minimumof 3 Masters Offers",
+       "mid": false,
+       "marquees": []
+      }
+     ]
+    },
+    {
+     "id": "third",
+     "panel": "bg-3",
+     "title": "Kickstart Your Career",
+     "image": {
+      "src": "/assets/images/schools/isme/home/outcomes/ogilvy-big.png",
+      "srcSet": "/assets/images/schools/isme/home/outcomes/ogilvy-big-p-500.png 500w, /assets/images/schools/isme/home/outcomes/ogilvy-big.png 759w",
+      "sizes": "(max-width: 759px) 100vw, 759px",
+      "alt": "",
+      "first": false
+     },
+     "blocks": [
+      {
+       "number": "60+",
+       "text": "On Campus Interviews Every Semester",
+       "mid": false,
+       "marquees": [
+        {
+         "kind": "logo",
+         "items": [
+          {
+           "src": "/assets/images/impact/career/logos/logo-3.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/impact/career/logos/logo-2.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/impact/career/logos/logo-5.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/impact/career/logos/logo-4.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/impact/career/logos/logo-1.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/impact/career/logos/logo-3.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/impact/career/logos/logo-2.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/impact/career/logos/logo-5.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/impact/career/logos/logo-4.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/impact/career/logos/logo-1.png",
+           "width": 60,
+           "height": 40
+          }
+         ]
+        },
+        {
+         "kind": "logo",
+         "items": [
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/logo-1-1.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/logo-1-2.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/logo-1-3.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/logo-1-4.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/logo-1-5.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/logo-1-1.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/logo-1-2.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/logo-1-3.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/logo-1-4.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/logo-1-5.png",
+           "width": 60,
+           "height": 40
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "number": "50+",
+       "text": "Recruiters On Campus Every Year",
+       "mid": false,
+       "marquees": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "iconSection",
+   "id": "student-housing",
+   "icon": "/assets/images/schools/isme/pages/building.png",
+   "num": null,
+   "title": "Live Where You Learn",
+   "wrap": "blue",
+   "items": [
+    {
+     "kind": "spacer",
+     "common": true,
+     "cw": 1
+    },
+    {
+     "kind": "lead",
+     "tone": "blueText",
+     "mods": [
+      "blue-desc-text"
+     ],
+     "text": "Stay in premium housing facilities just 10 meters from campus. Built for community, comfort, and convenience — your housing is an extension of your college life.",
+     "common": false,
+     "at768": true
+    },
+    {
+     "kind": "video",
+     "src": "https://www.youtube.com/embed/SZ3t1snaf_w?rel=1&controls=0&autoplay=1&mute=1&start=0",
+     "title": "ATLAS Hostel - Sneak Peak",
+     "ratio": 56.17021276595745,
+     "wrapClass": "center-image-full-wrap mrgtp",
+     "common": false,
+     "frame": [
+      "center-image-full-wrap",
+      "mrgtp"
+     ],
+     "at768": true
+    }
+   ],
+   "button": {
+    "label": "Know More",
+    "href": "https://www.upgradliving.com",
+    "variant": "mint",
+    "shape": "regular",
+    "mobileIco": true
+   },
+   "mobile768": true
+  },
+  {
+   "kind": "programTabs",
+   "heading": "Build Your Degree. Design Your Future.",
+   "sub": "Explore our cutting-edge undergraduate programs in business, branding, finance, and tech — with the freedom to choose majors, minors, and 45+ electives across disciplines.",
+   "labels": [
+    "Undergraduate",
+    "Postgraduate"
+   ],
+   "panes": [
+    [
+     {
+      "kind": "pg",
+      "mba": false,
+      "image": {
+       "src": "/assets/images/schools/isme/pages/bba-marketing.png",
+       "alt": "",
+       "srcSet": "/assets/images/schools/isme/pages/bba-marketing-p-500.png 500w, /assets/images/schools/isme/pages/bba-marketing.png 611w",
+       "sizes": "(max-width: 611px) 100vw, 611px"
+      },
+      "size": "lg",
+      "title": "BBA (Hons.) Majoring in\nMarketing/Finance/Business Analytics",
+      "text": "Craft compelling brand strategies, decode consumer behaviour, and drive growth in a digital-first world.",
+      "specialisation": {
+       "title": "Choose One Minor",
+       "items": [
+        "Marketing",
+        "|",
+        "Finance",
+        "|",
+        "Business Analytics",
+        "|",
+        "Human Resource Management",
+        "|",
+        "Entrepreneurship",
+        "|",
+        "Economics & Public Policy",
+        "|",
+        "Supply Chain Management"
+       ]
+      },
+      "eligibility": [
+       {
+        "title": "Eligibility",
+        "items": [
+         "50% in Class XII (Any Stream)\nor equivalent IB / A-Levels"
+        ]
+       },
+       {
+        "title": "Current Cycle Starts",
+        "items": [
+         "11th September 2025"
+        ]
+       }
+      ],
+      "button": {
+       "label": "Explore Program",
+       "href": "/schools/isme/programs/undergraduate/bba-hons/bba-hons-marketing-finance-business-analytics"
+      }
+     },
+     {
+      "kind": "pg",
+      "mba": false,
+      "image": {
+       "src": "/assets/images/schools/isme/pages/image-top.png",
+       "alt": "",
+       "srcSet": "/assets/images/schools/isme/pages/image-top-p-500.png 500w, /assets/images/schools/isme/pages/image-top.png 611w",
+       "sizes": "(max-width: 611px) 100vw, 611px"
+      },
+      "size": "lg",
+      "title": "BBA (Hons.)\nDigital Branding & Advertising",
+      "text": "Shape tomorrow’s brands in a digital-first world. Blend creativity with data to build powerful digital brands and lead cutting-edge advertising campaigns.",
+      "specialisation": null,
+      "eligibility": [
+       {
+        "title": "Eligibility",
+        "items": [
+         "50% in Class XII (Any Stream)\nor equivalent IB / A-Levels"
+        ]
+       },
+       {
+        "title": "Current Cycle Starts",
+        "items": [
+         "11th September 2025"
+        ]
+       }
+      ],
+      "button": {
+       "label": "Explore Program",
+       "href": "/schools/isme/programs/undergraduate/bba-hons/bba-hons-digital-branding-advertising"
+      }
+     },
+     {
+      "kind": "pg",
+      "mba": false,
+      "image": {
+       "src": "/assets/images/schools/isme/home/programs/showcase-1.png",
+       "alt": ""
+      },
+      "size": "lg",
+      "title": "BBA (Hons.)\nBusiness Psychology",
+      "text": "Redefine success in the modern workplace. Merge behavioral science with strategy to unlock human potential and power business transformation.",
+      "specialisation": null,
+      "eligibility": [
+       {
+        "title": "Eligibility",
+        "items": [
+         "50% in Class XII (Any Stream)\nor equivalent IB / A-Levels"
+        ]
+       },
+       {
+        "title": "Current Cycle Starts",
+        "items": [
+         "11th September 2025"
+        ]
+       }
+      ],
+      "button": {
+       "label": "Explore Program",
+       "href": "/schools/isme/programs/undergraduate/bba-hons/bba-Hons-business-psychology"
+      }
+     },
+     {
+      "kind": "pg",
+      "mba": false,
+      "image": {
+       "src": "/assets/images/schools/isme/pages/ai-et.png",
+       "alt": "",
+       "srcSet": "/assets/images/schools/isme/pages/ai-et-p-500.png 500w, /assets/images/schools/isme/pages/ai-et.png 611w",
+       "sizes": "(max-width: 611px) 100vw, 611px"
+      },
+      "size": "lg",
+      "title": "BBA (Hons.) Artifical Intelligence &\nEmerging Technologies",
+      "text": "Built for tech futurists, innovation leaders, and problem-solvers who want more than a business degree, they want to shape what’s next.",
+      "specialisation": null,
+      "eligibility": [
+       {
+        "title": "Eligibility",
+        "items": [
+         "50% in Class XII (Any Stream)\nor equivalent IB / A-Levels"
+        ]
+       },
+       {
+        "title": "Current Cycle Starts",
+        "items": [
+         "11th September 2025"
+        ]
+       }
+      ],
+      "button": {
+       "label": "Explore Program",
+       "href": "/schools/isme/programs/undergraduate/bba-hons/bba-hons-ai-emerging-technologies"
+      }
+     },
+     {
+      "kind": "pg",
+      "mba": false,
+      "image": {
+       "src": "/assets/images/schools/isme/pages/rectangle-34624513.png",
+       "alt": "",
+       "srcSet": "/assets/images/schools/isme/pages/rectangle-34624513-p-500.png 500w, /assets/images/schools/isme/pages/rectangle-34624513.png 610w",
+       "sizes": "(max-width: 610px) 100vw, 610px"
+      },
+      "size": "lg",
+      "title": "B.Sc. (Hons.) Finance",
+      "text": "Craft compelling brand strategies, decode consumer behaviour, and drive growth in a digital-first world.",
+      "specialisation": null,
+      "eligibility": [
+       {
+        "title": "Eligibility",
+        "items": [
+         "60% in Class XII (Any Stream)\nor equivalent IB / A-Levels"
+        ]
+       },
+       {
+        "title": "Current Cycle Starts",
+        "items": [
+         "11th September 2025"
+        ]
+       }
+      ],
+      "button": {
+       "label": "Explore Program",
+       "href": "/schools/isme/programs/undergraduate/bsc-hons/bsc-hons-in-finance"
+      }
+     },
+     {
+      "kind": "pg",
+      "mba": false,
+      "image": {
+       "src": "/assets/images/schools/isme/pages/image-top.png",
+       "alt": "",
+       "srcSet": "/assets/images/schools/isme/pages/image-top-p-500.png 500w, /assets/images/schools/isme/pages/image-top.png 611w",
+       "sizes": "(max-width: 611px) 100vw, 611px"
+      },
+      "size": "lg",
+      "title": "B.Sc. (Hons.) in Economics and Data Analytics",
+      "text": "Craft compelling brand strategies, decode consumer behaviour, and drive growth in a digital-first world.",
+      "specialisation": null,
+      "eligibility": [
+       {
+        "title": "Eligibility",
+        "items": [
+         "60% in Class XII (Any Stream)\nor equivalent IB / A-Levels"
+        ]
+       },
+       {
+        "title": "Current Cycle Starts",
+        "items": [
+         "11th September 2025"
+        ]
+       }
+      ],
+      "button": {
+       "label": "Explore Program",
+       "href": "/schools/isme/programs/undergraduate/bsc-hons/bsc-in-economics-and-data-analytics"
+      }
+     }
+    ],
+    [
+     {
+      "kind": "pg",
+      "mba": false,
+      "image": {
+       "src": "/assets/images/schools/isme/home/programs/mba-flagship.png",
+       "alt": "",
+       "srcSet": "/assets/images/schools/isme/home/programs/mba-flagship-p-500.png 500w, /assets/images/schools/isme/home/programs/mba-flagship.png 611w",
+       "sizes": "100vw"
+      },
+      "size": "lg",
+      "title": "MBA",
+      "text": "Equips you with expertise in two distinct fields, broadening career opportunities and offering a competitive edge through versatile knowledge and skills.",
+      "specialisation": {
+       "title": "Specialisation",
+       "items": [
+        "Finance",
+        "|",
+        "Marketing",
+        "|",
+        "FinTech",
+        "Entrepreneurship & Family Managed Business",
+        "|",
+        "Business Analytics",
+        "|",
+        "Digital Marketing & Advertising",
+        ""
+       ]
+      },
+      "eligibility": [
+       {
+        "title": "Eligibility",
+        "items": [
+         "Graduate degree in any discipline"
+        ]
+       },
+       {
+        "title": "Current Cycle Starts",
+        "items": [
+         "11th September 2025"
+        ]
+       }
+      ],
+      "button": {
+       "label": "Explore Program",
+       "href": "/schools/isme/programs/postgraduate/mba-with-specialisation"
+      }
+     },
+     {
+      "kind": "pg",
+      "mba": false,
+      "image": {
+       "src": "/assets/images/schools/isme/home/programs/mba-fin-tech.png",
+       "alt": "",
+       "srcSet": "/assets/images/schools/isme/home/programs/mba-fin-tech-p-500.png 500w, /assets/images/schools/isme/home/programs/mba-fin-tech.png 611w",
+       "sizes": "100vw"
+      },
+      "size": "lg",
+      "title": "MBA In FinTech",
+      "text": "A program that merges finance, technology, and innovation, equipping students to excel in digital banking, blockchain, payment systems, and financial data analytics.",
+      "specialisation": null,
+      "eligibility": [
+       {
+        "title": "Eligibility",
+        "items": [
+         "Graduate degree in any discipline"
+        ]
+       },
+       {
+        "title": "Current Cycle Starts",
+        "items": [
+         "11th September 2025"
+        ]
+       }
+      ],
+      "button": {
+       "label": "Explore Program",
+       "href": "/schools/isme/programs/postgraduate/program-mba-in-fintech"
+      }
+     },
+     {
+      "kind": "pg",
+      "mba": false,
+      "image": {
+       "src": "/assets/images/schools/isme/home/programs/mba-3.png",
+       "alt": "",
+       "srcSet": "/assets/images/schools/isme/home/programs/mba-3-p-500.png 500w, /assets/images/schools/isme/home/programs/mba-3.png 611w",
+       "sizes": "100vw"
+      },
+      "size": "lg",
+      "title": "MBA In Investment Banking",
+      "text": "A program designed to build expertise in capital markets, mergers and acquisitions, equity research, and financial modelling, preparing students for high-impact roles in global finance.",
+      "specialisation": null,
+      "eligibility": [
+       {
+        "title": "Eligibility",
+        "items": [
+         "Graduate degree in any discipline"
+        ]
+       },
+       {
+        "title": "Current Cycle Starts",
+        "items": [
+         "11th September 2025"
+        ]
+       }
+      ],
+      "button": {
+       "label": "Explore Program",
+       "href": "/schools/isme/programs/postgraduate/program-mba-in-investment-banking"
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "kind": "iconSection",
+   "id": "our-location-isme",
+   "icon": null,
+   "num": "1",
+   "title": "Location",
+   "wrap": "blue",
+   "items": [
+    {
+     "heading": null,
+     "headingMods": [],
+     "headingOutside": false,
+     "imageFirst": false,
+     "aboutTitle": "ATLAS SkillTech University,\nBKC, Mumbai",
+     "frame": "rect",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/isme-surrounded-by-corp.png",
+      "alt": "",
+      "srcSet": "/assets/images/schools/isme/pages/isme-surrounded-by-corp-p-500.png 500w, /assets/images/schools/isme/pages/isme-surrounded-by-corp-p-800.png 800w, /assets/images/schools/isme/pages/isme-surrounded-by-corp-p-1080.png 1080w, /assets/images/schools/isme/pages/isme-surrounded-by-corp.png 1242w",
+      "sizes": "100vw"
+     },
+     "text": [
+      "Nestled near BKC, our campus sits at the intersection of education and enterprise.\n‍\nWith 500+ companies and Mumbai’s business pulse all around, opportunity doesn’t knock, it’s already next door.\n‍\nFrom casual conversations with professionals to guest lectures and industry visits, learning happens beyond the classroom. Global names like Netflix, Google, Amazon, and Deloitte, opportunity doesn’t knock, it’s already next door for you."
+     ],
+     "button": null,
+     "kind": "storyRow",
+     "bare": true,
+     "rectWidth": "calc",
+     "turn": "768",
+     "common": true,
+     "cw": 2
+    }
+   ],
+   "mobile768": true
+  },
+  {
+   "kind": "outcomesHeading",
+   "heading": "ISME Outcomes: Measurable Impact, Proven ROI"
+  },
+  {
+   "kind": "outcomesStack",
+   "cards": [
+    {
+     "id": "first",
+     "panel": "bg-1",
+     "title": "Build Your Startup",
+     "image": {
+      "src": "/assets/images/schools/isme/home/outcomes/image-1184.png",
+      "srcSet": "/assets/images/schools/isme/home/outcomes/image-1184-p-500.png 500w, /assets/images/schools/isme/home/outcomes/image-1184.png 759w",
+      "sizes": "(max-width: 759px) 100vw, 759px",
+      "alt": "",
+      "first": true
+     },
+     "blocks": [
+      {
+       "number": "1200+",
+       "text": "Alumni Start-ups",
+       "mid": true,
+       "marquees": [
+        {
+         "kind": "circle",
+         "items": [
+          {
+           "src": "/assets/images/impact/startup/alumni/student-1.png",
+           "width": 64,
+           "height": 64
+          },
+          {
+           "src": "/assets/images/impact/startup/alumni/student-2.png",
+           "width": 64,
+           "height": 64
+          },
+          {
+           "src": "/assets/images/impact/startup/alumni/student-3.png",
+           "width": 64,
+           "height": 64
+          },
+          {
+           "src": "/assets/images/impact/startup/alumni/student-4.png",
+           "width": 64,
+           "height": 64
+          },
+          {
+           "src": "/assets/images/impact/startup/alumni/student-5.png",
+           "width": 64,
+           "height": 64
+          },
+          {
+           "src": "/assets/images/impact/startup/alumni/student-6.png",
+           "width": 64,
+           "height": 64
+          },
+          {
+           "src": "/assets/images/impact/startup/alumni/student-1.png",
+           "width": 64,
+           "height": 64
+          },
+          {
+           "src": "/assets/images/impact/startup/alumni/student-2.png",
+           "width": 64,
+           "height": 64
+          },
+          {
+           "src": "/assets/images/impact/startup/alumni/student-3.png",
+           "width": 64,
+           "height": 64
+          },
+          {
+           "src": "/assets/images/impact/startup/alumni/student-4.png",
+           "width": 64,
+           "height": 64
+          },
+          {
+           "src": "/assets/images/impact/startup/alumni/student-5.png",
+           "width": 64,
+           "height": 64
+          },
+          {
+           "src": "/assets/images/impact/startup/alumni/student-6.png",
+           "width": 64,
+           "height": 64
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "number": "25+",
+       "text": "Start-up Showcases & Masterclasses Every Semester",
+       "mid": false,
+       "marquees": [
+        {
+         "kind": "circle",
+         "items": [
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/ms-c-4.png",
+           "width": 52,
+           "height": 52
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/ms-c-2.png",
+           "width": 52,
+           "height": 52
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/ms-c-3.png",
+           "width": 52,
+           "height": 52
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/ms-c-1.png",
+           "width": 52,
+           "height": 52
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/ms-c-4.png",
+           "width": 52,
+           "height": 52
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/ms-c-2.png",
+           "width": 52,
+           "height": 52
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/ms-c-3.png",
+           "width": 52,
+           "height": 52
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/ms-c-1.png",
+           "width": 52,
+           "height": 52
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "second",
+     "panel": "bg-2",
+     "title": "Pursue Your Masters",
+     "image": {
+      "src": "/assets/images/schools/isme/home/outcomes/hardvard-big.png",
+      "srcSet": "/assets/images/schools/isme/home/outcomes/hardvard-big-p-500.png 500w, /assets/images/schools/isme/home/outcomes/hardvard-big.png 759w",
+      "sizes": "(max-width: 759px) 100vw, 759px",
+      "alt": "",
+      "first": false
+     },
+     "blocks": [
+      {
+       "number": "60+",
+       "text": "University Partnerships",
+       "mid": false,
+       "marquees": [
+        {
+         "kind": "logo",
+         "items": [
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/frame-1272631869.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/frame-1272631866.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/trent-uni.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/d280023b-a34c-4ace-8ee2-0a50cb0c48d5-1-1-.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/frame-1272631864.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/frame-1272631867.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/frame-1272631869.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/frame-1272631866.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/trent-uni.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/d280023b-a34c-4ace-8ee2-0a50cb0c48d5-1-1-.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/frame-1272631864.png",
+           "width": 60,
+           "height": 40,
+           "extra": [
+            {
+             "src": "/assets/images/schools/isme/home/outcomes/frame-1272631864.png",
+             "width": 60,
+             "height": 40
+            }
+           ]
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/frame-1272631867.png",
+           "width": 60,
+           "height": 40
+          }
+         ]
+        },
+        {
+         "kind": "logo",
+         "items": [
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/ual.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/trent-uni.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/christ-church-uni.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/leeds.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/bath.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/bristol-w-bg.png",
+           "width": 76,
+           "height": 52
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/frame-1272631866-1-.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/ual.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/trent-uni.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/christ-church-uni.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/leeds.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/bath.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/bristol-w-bg.png",
+           "width": 76,
+           "height": 52
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/frame-1272631866-1-.png",
+           "width": 60,
+           "height": 40
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "number": "1 out of 3",
+       "text": "Students Get a Minimumof 3 Masters Offers",
+       "mid": false,
+       "marquees": []
+      }
+     ]
+    },
+    {
+     "id": "third",
+     "panel": "bg-3",
+     "title": "Kickstart Your Career",
+     "image": {
+      "src": "/assets/images/schools/isme/home/outcomes/ogilvy-big.png",
+      "srcSet": "/assets/images/schools/isme/home/outcomes/ogilvy-big-p-500.png 500w, /assets/images/schools/isme/home/outcomes/ogilvy-big.png 759w",
+      "sizes": "(max-width: 759px) 100vw, 759px",
+      "alt": "",
+      "first": false
+     },
+     "blocks": [
+      {
+       "number": "60+",
+       "text": "On Campus Interviews Every Semester",
+       "mid": false,
+       "marquees": [
+        {
+         "kind": "logo",
+         "items": [
+          {
+           "src": "/assets/images/impact/career/logos/logo-3.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/impact/career/logos/logo-2.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/impact/career/logos/logo-5.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/impact/career/logos/logo-4.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/impact/career/logos/logo-1.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/impact/career/logos/logo-3.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/impact/career/logos/logo-2.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/impact/career/logos/logo-5.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/impact/career/logos/logo-4.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/impact/career/logos/logo-1.png",
+           "width": 60,
+           "height": 40
+          }
+         ]
+        },
+        {
+         "kind": "logo",
+         "items": [
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/logo-1-1.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/logo-1-2.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/logo-1-3.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/logo-1-4.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/logo-1-5.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/logo-1-1.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/logo-1-2.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/logo-1-3.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/logo-1-4.png",
+           "width": 60,
+           "height": 40
+          },
+          {
+           "src": "/assets/images/schools/isme/home/outcomes/logo-1-5.png",
+           "width": 60,
+           "height": 40
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "number": "50+",
+       "text": "Recruiters On Campus Every Year",
+       "mid": false,
+       "marquees": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "homeInternational"
+  },
+  {
+   "kind": "homeSection",
+   "name": "different"
+  },
+  {
+   "kind": "homeSection",
+   "name": "advisory"
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": "ATLAS Electives",
+   "headingMods": [
+    "mrg16"
+   ],
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "sub",
+     "mods": [
+      "sub-heading"
+     ],
+     "text": "Explore 45+ electives that let you customise your learning journey, broaden your perspective, and build skills beyond your core program.",
+     "common": false
+    },
+    {
+     "kind": "electiveGrid",
+     "menuMods": [
+      "tabs-menu-mint",
+      "less-space",
+      "w-tab-menu"
+     ],
+     "wrapMods": [
+      "skills-electives-wrapper"
+     ],
+     "contentMods": [
+      "tab-content-mint",
+      "padtp32",
+      "w-tab-content"
+     ],
+     "tabs": [
+      {
+       "label": "Technology",
+       "cards": [
+        {
+         "title": "Interactive Fiction with Roleplay & Worldbuilding",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/1-isme-interactive-fiction-with-roleplay-worldbuilding.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Prototyping – Hands On\nMinds On!",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/1-isme-prototyping-hands-on-minds-on.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Blockchain Foundations: The Dawn of Decentralization",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/isme-blockchain-foundations-the-dawn-of-decentralization.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "The AI Genesis: Fundamentals of Smart Systems",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/isme-the-ai-genesis-fundamentals-of-smart-systems.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "AI Foundry – Build Your\nOwn AI Agent",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/isme-ai-foundry-build-your-own-ai-agent.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Generative AI\nApplications Toolbox",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/1-isme-blogging-unleashed-ignite-your-online-presence-amplify-your-voice.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Deep Tech\nFrontiers of Innovation",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/isme-deep-tech-frontiers-of-innovation.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Communication Narratives: Storytelling in the Digital Age",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/communication-narratives-storytelling-in-the-digital-age.png",
+          "alt": ""
+         }
+        }
+       ]
+      },
+      {
+       "label": "Business & Finance",
+       "cards": [
+        {
+         "title": "The Business of Esports: Monetising your passion",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/isme-the-business-of-esports-monetising-your-passion.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Trading on Stock Markets - Bear, Bull, and Stag - Level 1",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/isme-trading-on-stock-markets-bear-bull-and-stag-level-2.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "The Finance Lab: Money Literacy and More",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/isme-the-finance-lab-money-literacy-and-more.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Power and Politics – The\nGreat Game",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/isme-power-and-politics-the-great-game.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Integrated Storytelling for Digital Marketing",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/isme-integrated-storytelling-for-digital-marketing.png",
+          "alt": ""
+         }
+        }
+       ]
+      },
+      {
+       "label": "Languages",
+       "cards": [
+        {
+         "title": "German:\nHallo Deutschland",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/german-hallo-deutschland.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Mandarin:\nHow to Nǐ Hǎo",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/mandarin-how-to-ni-hao.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Spanish:\nHola España",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/spanish-hola-espana.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Get Set Nihongo",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/japanese-get-set-nihongo.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "French It Up:\nBonjour La Ville Lumière",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/french-it-up-bonjour-la-ville-lumiere.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Sanskrit Essentials - Key to Ancient Indian Wisdom",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/isme-sanskrit-essentials-key-to-ancient-indian-wisdom.png",
+          "alt": ""
+         }
+        }
+       ]
+      },
+      {
+       "label": "Self & Growth",
+       "cards": [
+        {
+         "title": "Pop Music and You: Sophisticated Listener",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/isme-pop-music-and-you-sophisticated-listener.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Craft:\nThe Future of Fashion?",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/isme-craft-the-future-of-fashion.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Ace Your Communication:\nKey to Success",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/isme-ace-your-communication-key-to-success.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Empathetic Leadership: Strategies for Effective People Management",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/isme-empathetic-leadership-strategies-for-effective-people-management.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Cosmic Insights:\nThe Art of Astrology, Numerology and Vastu",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/isme-cosmic-insights-the-art-of-astrology-numerology-and-vastu.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Reimagining Dharavi:\nUrban Planning for Sustainable Futures",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/isme-reimagining-dharavi-urban-planning-for-sustainable-futures.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Blogging Unleashed:\nIgnite Your Online Presence & Amplify Your Voice",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/1-isme-blogging-unleashed-ignite-your-online-presence-amplify-your-voice.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Innovative Thinking:\nLearning from Ancient Indian Mythological Tales",
+         "image": {
+          "src": "/assets/images/schools/isme/pages/isme--innovative-thinking_-learning-from-ancient-indian-mythological-tales.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Managing Change Using Dance and Movements",
+         "image": {
+          "src": "/assets/images/schools/isme/pages/isme.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Behaviour Science\nin Action",
+         "image": {
+          "src": "/assets/images/schools/isme/pages/isme-behviou.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Content Spinners:\nCrafting Stories that Trend",
+         "image": {
+          "src": "/assets/images/schools/isme/pages/content-spinners_-crafting-stories-that-trend.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "The Writer’s Odyssey:\nA Journey in Creativity",
+         "image": {
+          "src": "/assets/images/schools/isdi/programs-pg/minors/the-writer’s-odyssey_-a-journey-in-creativity.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Tai Chi\nMeditation in Motion",
+         "image": {
+          "src": "/assets/images/schools/isme/pages/isme--tai-chi-–-meditation-in-motion.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Panchatantra Reimagined Modern Impact",
+         "image": {
+          "src": "/assets/images/schools/isme/pages/isme--panchatantra-reimagined_-modern-impact.png",
+          "alt": ""
+         }
+        }
+       ]
+      },
+      {
+       "label": "Art & Design",
+       "cards": [
+        {
+         "title": "Nautanki Shaala: The Story, The Stage, & the Act",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/isme-5.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Fashion & Films: Relationship between Style & Cinema",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/isme-6-1.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Canvas Painting:\nFlourish Your Imagination",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/isme-3-1.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Kaat Chap:\nCreate Your Own Design",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/isme-2.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Unleash Your Creativity: Designing is Fun",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/isme-4.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Art with Words:\nCalligraphy Calling",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/isme-1.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Art of\nPhotography",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/art-of-photography.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Cinema of the World:\nA Kaleidoscope",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/cinema-of-the-world-a-kaleidoscope.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Design through Trends: Clue to Concept",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/isme-7.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "AI Narratives: Storytelling through 2D Art",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/isme-ai-narratives-storytelling-through-2d-art.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Design Futures – 3D Modeling & Digital Making",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/design-futures-3d-modeling-digital-making.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "Film Foundry - Crafting Stories, Building Audiences",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/isme-film-foundry-crafting-stories-building-audiences.png",
+          "alt": ""
+         }
+        },
+        {
+         "title": "All the World’s Your Stage Using Theatre in Life",
+         "image": {
+          "src": "/assets/images/schools/isme/home/electives/isme-all-the-worlds-your-stage-using-theatre-in-life.png",
+          "alt": ""
+         }
+        }
+       ]
+      }
+     ],
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "homeSection",
+   "name": "thisWeek"
+  },
+  {
+   "kind": "homeSection",
+   "name": "faqBanner"
+  },
+  {
+   "kind": "homeSection",
+   "name": "motion"
+  },
+  {
+   "kind": "homeSection",
+   "name": "future"
+  },
+  {
+   "kind": "homeSection",
+   "name": "people"
+  },
+  {
+   "kind": "homeSection",
+   "name": "thoughtLeadership"
+  },
+  {
+   "kind": "homeSection",
+   "name": "industry"
+  },
+  {
+   "kind": "homeSection",
+   "name": "readyToBuild"
+  },
+  {
+   "kind": "search",
+   "id": "faq"
+  },
+  {
+   "kind": "homeAwards"
+  }
+ ]
+}

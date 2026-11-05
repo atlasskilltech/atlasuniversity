@@ -1,0 +1,22 @@
+{
+ "cards": [
+  {
+   "tone": "bg6",
+   "label": "Duration",
+   "value": "2-Year Full Time",
+   "note": null
+  },
+  {
+   "tone": "bg7",
+   "label": "Eligibility Criteria",
+   "value": "50% and above",
+   "note": "(Graduate from any discipline)"
+  },
+  {
+   "tone": "bg8",
+   "label": "Next Intake",
+   "value": "July 2027",
+   "note": "Session begins from 17th July 2027"
+  }
+ ]
+}

@@ -1,0 +1,1176 @@
+{
+ "path": "bsc-hons/bsc-hons-in-finance",
+ "meta": {
+  "title": "B.Sc Finance Program in Mumbai – ATLAS ISME",
+  "description": "Want to study finance? Learn markets, investment skills, analytics and build a strong finance career. Apply now.",
+  "keywords": null
+ },
+ "brochure": {
+  "ids": [
+   "bba-brochure",
+   "campus-visit",
+   "bba-brochure",
+   "bba-brochure-1",
+   "campus-visit"
+  ],
+  "scripts": [
+   {
+    "src": "https://crm.atlasskilltech.app/widgets/6a3e7a6aa1fd0680c6c18db8/embed.js",
+    "height": 650
+   }
+  ]
+ },
+ "order": [
+  "hero",
+  "stats",
+  "program",
+  "why",
+  "voices",
+  "execution",
+  "execution2",
+  "voices2",
+  "admissions",
+  "eligibility",
+  "banner",
+  "search",
+  "faq"
+ ],
+ "blocks": {
+  "hero": {
+   "title": "B.Sc (Hons.) Finance",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/bsc-finance-hero-image.webp",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/bsc-finance-hero-image-p-500.webp 500w, /assets/images/schools/isme/bba/bsc-finance-hero-image-p-800.webp 800w, /assets/images/schools/isme/bba/bsc-finance-hero-image-p-1080.webp 1080w, /assets/images/schools/isme/bba/bsc-finance-hero-image.webp 1366w",
+    "sizes": "(max-width: 1366px) 100vw, 1366px"
+   },
+   "buttons": [
+    {
+     "label": "Apply for July 2027 Intake",
+     "variant": "mint",
+     "href": "https://atlasuniversity.edu.in/applicationform"
+    },
+    {
+     "label": "Download Brochure",
+     "variant": "outline-white",
+     "brochure": "bba-brochure"
+    }
+   ],
+   "narrow": true,
+   "lead": "Build the strategies that shape economies with CFA-aligned learning, master forecasting, valuation & investing in a data-driven financial landscape.",
+   "imageFill": true
+  },
+  "program": {
+   "panes": [
+    {
+     "label": "Overview",
+     "kind": "text",
+     "text": "The B.Sc. in Finance at ATLAS ISME is designed for ambitious minds who want to master the art and science of financial decision-making in a global economy. Aligned with the globally recognised CFA Program, this degree blends the rigour of financial theory with the dynamism of real-world markets to prepare you for a future in investment, banking, fintech and beyond. Through hands-on simulations, live market labs, investment challenges and mentorship from finance professionals, you’ll learn how money moves, how businesses grow and how to drive decisions that shape economies. With exposure to industry-relevant concepts in investment analysis, valuation, portfolio management and financial markets, you’ll build the knowledge and skills sought by leading employers across the finance industry.",
+     "paneClass": "tab-pane-tab-1"
+    },
+    {
+     "label": "Curriculum Highlights",
+     "kind": "cards",
+     "cards": [
+      {
+       "num": "#1",
+       "title": "Financial Accounting & Analysis"
+      },
+      {
+       "num": "#2",
+       "title": "Corporate Finance & Valuation"
+      },
+      {
+       "num": "#3",
+       "title": "Data Science & Predictive Analytics"
+      },
+      {
+       "num": "#4",
+       "title": "FinTech, Blockchain & Digital Finance"
+      },
+      {
+       "num": "#5",
+       "title": "Risk Management & Financial Derivatives"
+      },
+      {
+       "num": "#6",
+       "title": "Banking & Financial Services"
+      },
+      {
+       "num": "#7",
+       "title": "Managerial Economics & Global Markets"
+      },
+      {
+       "num": "#8",
+       "title": "Financial Modeling with Excel & Python"
+      },
+      {
+       "num": "#9",
+       "title": "Mergers, Acquisitions & Private Equity"
+      },
+      {
+       "num": "#10",
+       "title": "Business Law & Financial Compliance"
+      }
+     ],
+     "paneClass": "tab-pane-tab-2"
+    },
+    {
+     "label": "Learning Outcomes",
+     "kind": "cards",
+     "cards": [
+      {
+       "num": "#1",
+       "title": "Navigate financial markets, systems, and instruments with ease"
+      },
+      {
+       "num": "#2",
+       "title": "Analyze business performance and make data-driven decisions"
+      },
+      {
+       "num": "#3",
+       "title": "Build forecasting models and valuation frameworks"
+      },
+      {
+       "num": "#4",
+       "title": "Evaluate risk and manage portfolios for optimized returns."
+      },
+      {
+       "num": "#5",
+       "title": "Use tools like Excel and Python to solve\nreal-world financial challenges"
+      },
+      {
+       "num": "#6",
+       "title": "Lead financial strategies with precision, clarity, and insight"
+      }
+     ],
+     "paneClass": "tab-pane-tab-3"
+    },
+    {
+     "label": "Career Pathways",
+     "kind": "careers",
+     "cards": [
+      {
+       "title": "Financial\nAnalyst",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/imagee-16.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Investment Banking Associate",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/imagee-16-copy.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Corporate\nFinance\nManager",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/imagee-17-copy.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Asset & Wealth Manager",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/imagee-17.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "FinTech\nProduct Analyst",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/imagee-18.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Treasury & Risk Specialist",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/imageeee-16.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Private Equity Credit Analyst",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/imagee-20.png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Equity Research Valuation Consultant",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/imagee-19.png",
+        "alt": ""
+       }
+      }
+     ],
+     "paneClass": null
+    }
+   ],
+   "current": 0,
+   "years": [
+    {
+     "label": "Year 1",
+     "semesters": [
+      {
+       "title": "Semester 1",
+       "text": "An introduction foundational finance, accounting, and economics concepts while building technical Excel skills, communication abilities, and strategic thinking essential for global business readiness.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": "Global Financial Landscape",
+         "text": "Introduces international financial systems, markets, and institutions, exploring global capital flows, economic linkages, and the dynamics of globalization shaping finance and business."
+        },
+        {
+         "title": [
+          {
+           "strong": "Quantitative Techniques in Finance"
+          }
+         ],
+         "text": "Introduces statistical and mathematical tools used in financial analysis. Emphasizes data-driven decision-making, forecasting, and analytical reasoning."
+        },
+        {
+         "title": [
+          {
+           "strong": "Management Accounting"
+          }
+         ],
+         "text": "Covers internal planning, budgeting, cost analysis, and performance evaluation. Students learn how accounting information supports managerial strategy."
+        },
+        {
+         "title": [
+          {
+           "strong": "Strategic Microeconomics for Business"
+          }
+         ],
+         "text": "Focuses on firm-level decision-making using microeconomic principles. Explores market structures, pricing, and competitive strategy."
+        },
+        {
+         "title": [
+          {
+           "strong": "Basics of Excel"
+          }
+         ],
+         "text": "Builds foundational spreadsheet skills for organizing, analyzing, and presenting data. Students learn essential functions and workflows used in business analytics."
+        },
+        {
+         "title": [
+          {
+           "strong": "Fundamentals of Business Communication"
+          }
+         ],
+         "text": "Develops core communication skills for professional environments. Emphasizes clarity, structure, and effectiveness in written and verbal interactions."
+        },
+        {
+         "title": [
+          {
+           "strong": "ATLAS Elective"
+          }
+         ],
+         "text": "Allows students to explore interest-based subjects aligned with emerging fields and career pathways. Encourages applied, skill-focused learning."
+        },
+        {
+         "title": [
+          {
+           "strong": "Indian Behavioral Psychology"
+          }
+         ],
+         "text": "Introduces key behavioral concepts rooted in Indian psychological thought. Highlights decision-making, motivation, and cultural influences on human behavior."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our semester 1 curriculum outpaces every other business school",
+         "text": "ATLAS emphasizes applied learning, global contexts, and tech integration, while other schools often stick to theory-heavy teaching with limited interdisciplinary or practical exposure.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Global Financial Landscape",
+           "Global finance taught with case studies, simulations, and current events analysis.",
+           "Focus on textbook theory, minimal global market simulations."
+          ],
+          [
+           "Quantitative Techniques in Finance",
+           "Applied quantitative modelling using financial datasets and practical problem sets.",
+           "Focus on mathematical theory without strong application to finance."
+          ],
+          [
+           "Management Accounting",
+           "Project-based cost analysis, budgeting exercises, and industry-relevant simulations.",
+           "Traditional cost accounting taught mainly through textbook examples."
+          ],
+          [
+           "Strategic Microeconomics for Business",
+           "Business-oriented microeconomic applications linking economic logic to firm strategy.",
+           "Theory-heavy models with limited practical business integration."
+          ],
+          [
+           "Basics of Excel",
+           "Hands-on Excel work including formulas, data cleaning, and foundational analytics skills.",
+           "Basic spreadsheet instruction without business-focused applications."
+          ],
+          [
+           "ATLAS Elective",
+           "Flexible, industry-aligned elective tracks fostering specialized skill building.",
+           "Limited elective variety and minimal customization in early semesters."
+          ],
+          [
+           "Fundamentals of Business Communication",
+           "Communication labs, real-world writing tasks, and presentation practice.",
+           "Emphasis on grammar and theory with fewer practical communication activities."
+          ],
+          [
+           "Indian Behavioral Psychology",
+           "Applied behavioral insights with cultural context and decision-making relevance.",
+           "General psychology concepts without regional or applied business focus."
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Semester 2",
+       "text": "This semester deepens financial expertise, integrates corporate law and management, and introduces advanced analytics for business decision-making, blending practical application with strategic macroeconomic context.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Analysis of Financial Statements"
+          }
+         ],
+         "text": "Equips students with the skills to interpret and evaluate corporate financial statements. Focuses on ratio analysis, cash flow assessment, and performance benchmarking to inform sound financial decisions."
+        },
+        {
+         "title": [
+          {
+           "strong": "Financial Analytics using R and Python"
+          }
+         ],
+         "text": "Introduces coding-based analytics for finance using R and Python. Students learn data manipulation, regression modeling, and visualization techniques to drive data-backed financial insights."
+        },
+        {
+         "title": [
+          {
+           "strong": "Financial Markets and Institutions"
+          }
+         ],
+         "text": "Explores the structure and functioning of financial markets, intermediaries, and regulatory systems. Students learn how institutions influence liquidity, stability, and economic growth."
+        },
+        {
+         "title": [
+          {
+           "strong": "Strategic Macroeconomics for Business"
+          }
+         ],
+         "text": "Analyzes macroeconomic indicators, policy frameworks, and their impact on business strategy. Students learn to assess how shifts in inflation, interest rates, and fiscal policy shape market opportunities."
+        },
+        {
+         "title": [
+          {
+           "strong": "Financial Data Visualisation"
+          }
+         ],
+         "text": "Develops skills in converting financial datasets into clear, interactive visual formats. Emphasizes dashboard creation and visual storytelling for executive decision-making."
+        },
+        {
+         "title": [
+          {
+           "strong": "Data Analytics"
+          }
+         ],
+         "text": "Covers foundational analytical techniques for extracting insights from data. Students learn statistical analysis, data processing, and decision-support methodologies."
+        },
+        {
+         "title": [
+          {
+           "strong": "ATLAS Elective / Social Project"
+          }
+         ],
+         "text": "Provides flexibility for students to pursue an elective aligned with their interests or engage in an applied social-impact project that builds real-world experience."
+        },
+        {
+         "title": [
+          {
+           "strong": "Orientation of Indian Constitution"
+          }
+         ],
+         "text": "Introduces key constitutional principles, governance structures, and civic responsibilities, building awareness of India’s legal and policy foundations."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our semester 1 curriculum outpaces every other business school",
+         "text": "ATLAS integrates technology-driven tools and case-based learning in finance, law, and analytics, while other schools emphasize traditional theory with limited applied exposure.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Analysis of Financial Statements",
+           "Case-based, annual report deep dives, Bloomberg/FactSet tools.",
+           "Primarily ratio analysis through textbooks, limited real-world application."
+          ],
+          [
+           "Financial Analytics using R and Python",
+           "Coding labs, financial modelling, and applied analytics using industry tools.",
+           "Basic programming concepts with minimal finance-specific applications."
+          ],
+          [
+           "Financial Markets and Institutions",
+           "Practical market simulations and real-time market structure insights.",
+           "High-level theory about markets with limited industry exposure."
+          ],
+          [
+           "Financial Data Visualisation",
+           "Hands-on dashboards using BI tools and live financial data.",
+           "Mostly Excel-based charts with limited advanced visualization training."
+          ],
+          [
+           "Strategic Macroeconomics for Business",
+           "Applied macroeconomic analysis linked directly to business decision-making.",
+           "Theory-focused macroeconomics with minimal business integration."
+          ],
+          [
+           "Data Analytics",
+           "Real datasets, applied statistical tools, and decision-focused case studies.",
+           "Introductory statistics without modern data analytics frameworks."
+          ],
+          [
+           "ATLAS Elective / Social Project",
+           "Custom and socially-driven learning pathways with structured mentorship.",
+           "Limited project-based learning and fewer elective choices."
+          ],
+          [
+           "Orientation of Indian Constitution",
+           "Contemporary policy relevance and case-based governance learning.",
+           "General civics overview with limited applied context."
+          ]
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Year 2",
+     "semesters": [
+      {
+       "title": "Semester 3",
+       "text": "This semester builds strong foundations in taxation, corporate finance, portfolio management, and ESG, integrating psychology and social internships for holistic, globally-relevant financial expertise.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": "Corporate Finance I",
+         "text": "Learn the basics of planning, organizing, and leading. Build strong foundations for effective business management."
+        },
+        {
+         "title": [
+          {
+           "strong": "Direct and Indirect Tax"
+          }
+         ],
+         "text": "Explore cultural influences on design and visual communication. Understand how aesthetics shape perception in the Indian context."
+        },
+        {
+         "title": [
+          {
+           "strong": "Equity Analysis & Portfolio Management"
+          }
+         ],
+         "text": "Discover AI-driven applications for modern business needs. Enhance efficiency, decision-making, and innovation with AI."
+        },
+        {
+         "title": [
+          {
+           "strong": "Financial Modelling and Analytics"
+          }
+         ],
+         "text": "Teaches structured model-building techniques using spreadsheets and analytical tools. Focuses on forecasting, scenario analysis, and financial decision modelling."
+        },
+        {
+         "title": [
+          {
+           "strong": "Principles and Practices of Management"
+          }
+         ],
+         "text": "Provides foundational understanding of leadership, organizational behavior, and management approaches. Links classic management theories with contemporary business practices."
+        },
+        {
+         "title": [
+          {
+           "strong": "Program Elective"
+          }
+         ],
+         "text": "Allows students to pursue a specialization area aligned with their interests and career goals, supporting deeper skill development."
+        },
+        {
+         "title": [
+          {
+           "strong": "Summer Internship"
+          }
+         ],
+         "text": "Offers immersive work experience in a professional setting. Students apply classroom learning to real business tasks, gaining practical industry exposure."
+        },
+        {
+         "title": [
+          {
+           "strong": "Life Skill and Human Values"
+          }
+         ],
+         "text": "Focuses on personal development, emotional intelligence, and ethical decision-making. Builds interpersonal skills essential for professional and social environments."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our semester 3 curriculum outpaces every other business school",
+         "text": "ATLAS integrates ESG, psychology, and real-world internships into finance, offering broader human-centered exposure compared to conventional finance-heavy programs at other business schools.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Corporate Finance I",
+           "Case-based, tech-enabled simulations, applied decision-making",
+           "More theory-driven, less interactive simulations"
+          ],
+          [
+           "Direct and Indirect Tax",
+           "Blends law with applied compliance projects",
+           "Mostly textbook and exam-focused"
+          ],
+          [
+           "Equity Analysis & Portfolio Management",
+           "Live Bloomberg/Excel labs, market analysis practice",
+           "Primarily theoretical portfolio models"
+          ],
+          [
+           "Financial Modelling and Analytics",
+           "Practical spreadsheet models, forecasting tasks, and scenario simulations.",
+           "Basic modelling theory without applied financial datasets."
+          ],
+          [
+           "Principles and Practices of Management",
+           "Cross-disciplinary assignments and leadership workshops linked to modern business contexts.",
+           "Classroom theory with limited experiential learning."
+          ],
+          [
+           "Program Elective",
+           "Flexible elective pathways aligned with emerging skill demands.",
+           "Restricted elective options and traditional course structures."
+          ],
+          [
+           "Summer Internship",
+           "Structured mentorship, performance evaluation, and industry projects.",
+           "General internship participation with less academic integration."
+          ],
+          [
+           "Life Skill and Human Values",
+           "Applied personal development sessions focusing on ethics and emotional intelligence.",
+           "General soft-skills content taught without structured application."
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Semester 4",
+       "text": "This semester deepens financial expertise through fintech, derivatives, risk management, and research methods, blending analytics, strategy, and innovation for holistic industry readiness.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Corporate Finance 2"
+          }
+         ],
+         "text": "Advances capital structure, mergers, acquisitions, and dividend policy decisions, emphasizing valuation, financing strategies, and applied problem-solving for global financial markets and corporate growth."
+        },
+        {
+         "title": [
+          {
+           "strong": "Strategic Derivatives and Risk Management"
+          }
+         ],
+         "text": "Covers derivative instruments, pricing fundamentals, and hedging strategies. Students learn how businesses manage financial risk through real-market applications."
+        },
+        {
+         "title": [
+          {
+           "strong": "Business Law"
+          }
+         ],
+         "text": "Introduces key legal frameworks that shape business operations, including contracts, corporate regulations, and compliance requirements. Supports informed managerial decision-making."
+        },
+        {
+         "title": [
+          {
+           "strong": "Public Finance"
+          }
+         ],
+         "text": "Examines government revenue, expenditure, budgeting, and fiscal policy. Students analyze how public financial systems influence economic stability and development."
+        },
+        {
+         "title": [
+          {
+           "strong": "Financial Planning and Wealth Management"
+          }
+         ],
+         "text": "Teaches personal finance, portfolio construction, tax planning, insurance, and retirement strategies, integrating technology tools for modern wealth advisory and financial independence goals."
+        },
+        {
+         "title": "Research Methodology and Business Analytics",
+         "text": "Introduces qualitative and quantitative research methods, hypothesis testing, and business analytics, focusing on financial data interpretation for evidence-based strategic decision-making."
+        },
+        {
+         "title": [
+          {
+           "strong": "Soft Skills for Finance Professionals 1"
+          }
+         ],
+         "text": "Builds communication, professionalism, teamwork, and workplace etiquette tailored to financial careers. Prepares students for client-facing and organizational interactions."
+        },
+        {
+         "title": [
+          {
+           "strong": "Environment and Sustainability"
+          }
+         ],
+         "text": "Explores ecological systems, sustainable business practices, and environmental responsibility. Encourages ethical decision-making within financial and corporate contexts."
+        },
+        {
+         "title": [
+          {
+           "strong": "Program Elective"
+          }
+         ],
+         "text": "Provides specialized learning opportunities aligned with career interests, supporting domain-specific skill development."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our semester 4 curriculum outpaces every other business school",
+         "text": "ATLAS uniquely integrates fintech, analytics, and applied wealth management, offering practice-driven depth beyond traditional schools’ mostly theoretical or regulation-focused finance curriculum.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Corporate Finance 2",
+           "Applied M&A cases, live simulations, valuation models, industry mentors",
+           "Theory-heavy, textbook-driven corporate finance concepts"
+          ],
+          [
+           "Strategic Derivatives and Risk Management",
+           "Hands-on hedging tools, derivatives pricing labs, and real-market case studies.",
+           "Conceptual derivative models taught with minimal practical risk exercises."
+          ],
+          [
+           "Financial Planning and Wealth Management",
+           "Client-based advisory simulations and portfolio design workshops.",
+           "Theory-driven planning concepts without applied wealth management practice."
+          ],
+          [
+           "Business Law",
+           "Practical compliance scenarios and contemporary business legal cases.",
+           "Textbook-based legal principles with limited real-world examples."
+          ],
+          [
+           "Public Finance",
+           "Applied fiscal analysis and policy impact studies linked to current economic issues.",
+           "Broad theory of public finance with less contemporary policy application."
+          ],
+          [
+           "Research Methodology and Business Analytics",
+           "Applied research design, data analysis projects, and analytics tools for decision-making.",
+           "Primarily academic research theory with fewer practical analytics applications."
+          ],
+          [
+           "Soft Skills for Finance Professionals 1",
+           "Finance-specific communication, etiquette, and professional readiness modules.",
+           "Generic soft-skill training with little industry customization."
+          ],
+          [
+           "Program Elective",
+           "Flexible electives aligned with industry demands and emerging finance roles.",
+           "Limited customization and fewer modern elective options."
+          ],
+          [
+           "Environment and Sustainability",
+           "Applied sustainability practices and impact assessments for business decisions.",
+           "Introductory environmental concepts without applied sustainability integration."
+          ]
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Year 3",
+     "semesters": [
+      {
+       "title": "Semester 5",
+       "text": "Semester 5 equips students with advanced valuation, market insights, technical and innovative financial analytics, emerging technologies, and professional skills, supported by practical internship exposure.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": "Corporate Valuation",
+         "text": "Students master valuation methods including DCF, multiples, and precedent transactions, applied to real firms through case studies, simulations, and project-based financial decision-making exercises."
+        },
+        {
+         "title": [
+          {
+           "strong": "Behavioural Finance"
+          }
+         ],
+         "text": "Explores psychological factors influencing financial decisions, market anomalies, and investor biases. Students learn how behavior shapes financial outcomes and market trends."
+        },
+        {
+         "title": "Technical Analysis",
+         "text": "Covers charting techniques, candlestick patterns, momentum indicators, and trading strategies, enabling students to analyze securities, predict price movements, and develop actionable investment decisions."
+        },
+        {
+         "title": "Innovative Financial Analytics",
+         "text": "Introduces cutting-edge analytical tools, AI-driven insights, and data visualization techniques to interpret financial patterns, predict market trends, and support evidence-based decision-making processes."
+        },
+        {
+         "title": "Fintech Cryptos, AI, ML, Blockchain and its Financial Application",
+         "text": "Examines digital currencies, distributed ledgers, blockchain, AI, and machine learning applications, highlighting their impact on finance, investments, security, and financial innovation ecosystems."
+        },
+        {
+         "title": "Summer Internship",
+         "text": "Hands-on internship with corporates, financial institutions, or startups, offering practical exposure to finance roles, networking opportunities, and application of classroom learning in real-world contexts."
+        },
+        {
+         "title": [
+          {
+           "strong": "Financial Reporting Standards"
+          }
+         ],
+         "text": "Teaches principles governing financial statement preparation and disclosure. Emphasizes compliance, transparency, and interpretation of reporting standards."
+        },
+        {
+         "title": [
+          {
+           "strong": "Program Elective"
+          }
+         ],
+         "text": "Provides specialized learning opportunities aligned with career interests, supporting domain-specific skill development."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our semester 5 curriculum outpaces every other business school",
+         "text": "ATLAS emphasizes experiential learning, technology integration, and soft skills, while other schools focus more on theory, lacking exposure to real-world innovations and industry application.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Corporate Valuation",
+           "Case-driven,\nlive company projects, real-time valuation tools.",
+           "Primarily textbook-based, minimal industry application."
+          ],
+          [
+           "Behavioural Finance",
+           "Applied behavioral case studies linking psychology to financial decisions.",
+           "High-level theory on investor behavior without experiential components."
+          ],
+          [
+           "Technical Analysis",
+           "Live trading labs, Bloomberg/Reuters data, practical charting workshops.",
+           "Focus on theory, charts in textbooks, limited practice."
+          ],
+          [
+           "Innovative Financial Analytics",
+           "AI tools, Python/R-based projects, industry-aligned case studies.",
+           "Basic spreadsheet/statistical methods, less focus on innovation."
+          ],
+          [
+           "Cryptos, AI, ML, Blockchain",
+           "Hands-on labs with fintech platforms, real-world applications.",
+           "Brief overview of fintech trends, limited technical depth."
+          ],
+          [
+           "Summer Internship",
+           "Mandatory internship with industry mentors, practical deliverables.",
+           "Optional or unstructured internships, less industry guidance."
+          ],
+          [
+           "Financial Reporting Standards",
+           "Real reporting cases, compliance scenarios, and industry-style assessment.",
+           "Textbook interpretation of standards with limited applied exposure."
+          ],
+          [
+           "Program Elective",
+           "Flexible electives aligned with industry demands and emerging finance roles.",
+           "Limited customization and fewer modern elective options."
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Semester 6",
+       "text": "Semester 6 integrates global finance, behavioral insights, and applied research. Unlike others, it balances theory, advanced analytics, and practical projects, enhancing career readiness.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Mergers and Acquisitions"
+          }
+         ],
+         "text": "Explores valuation, deal structuring, synergies, and integration strategies in M&A, with case studies and simulations for practical exposure to real-world transactions."
+        },
+        {
+         "title": [
+          {
+           "strong": "Forex and International Finance"
+          }
+         ],
+         "text": "Covers currency markets, hedging strategies, and global monetary systems. ATLAS emphasizes live forex trading simulations and real policy analysis for industry-focused learning."
+        },
+        {
+         "title": [
+          {
+           "strong": "Fixed Income"
+          }
+         ],
+         "text": "Introduces bonds, interest rate risk, credit analysis, and yield curves. ATLAS integrates Bloomberg terminals and market data for in-depth practical exposure."
+        },
+        {
+         "title": "Alternate Investments",
+         "text": "Studies private equity, hedge funds, real estate, and commodities. ATLAS incorporates current market research and guest lectures from alternative investment specialists."
+        },
+        {
+         "title": [
+          {
+           "strong": "Applied Finance Capstone Project 1"
+          }
+         ],
+         "text": "Provides a structured project experience where students apply finance concepts to real-world problems. Encourages data-driven analysis, modelling, and professional presentation."
+        },
+        {
+         "title": [
+          {
+           "strong": "Corporate Law"
+          }
+         ],
+         "text": "Covers key legal principles governing companies, contracts, governance, and regulatory compliance. Supports informed decision-making in managerial and financial contexts."
+        },
+        {
+         "title": "Soft Skills for Finance Professionals 2",
+         "text": "Builds advanced communication, negotiation, leadership, and client management skills for financial roles through workshops, simulations, and team presentations."
+        },
+        {
+         "title": [
+          {
+           "strong": "Program Elective"
+          }
+         ],
+         "text": "Provides specialized learning opportunities aligned with career interests, supporting domain-specific skill development."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our semester 6 curriculum outpaces every other business school",
+         "text": "ATLAS integrates global exposure, tech-driven tools, and practical learning into finance education, surpassing conventional theory-driven teaching at other schools.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Mergers and Acquisitions",
+           "Case studies + simulations on live deals, focus on integration challenges",
+           "Case studies + simulations on live deals, focus on integration challenges"
+          ],
+          [
+           "Forex and International Finance",
+           "Live forex trading simulations + global policy impact studies",
+           "Bloomberg terminal practice + bond valuation projects"
+          ],
+          [
+           "Fixed Income",
+           "Bloomberg terminal practice + bond valuation projects",
+           "Focus on mathematical models, less exposure to financial tools"
+          ],
+          [
+           "Alternate Investments",
+           "Market research + expert guest sessions on hedge funds and PE",
+           "Covers basics of asset classes with fewer industry links"
+          ],
+          [
+           "Applied Finance Capstone Project 1",
+           "Industry-linked project work with structured mentorship and real data analysis.",
+           "General academic projects with limited industry alignment."
+          ],
+          [
+           "Corporate Law",
+           "Applied legal scenarios and compliance case studies relevant to finance.",
+           "Textbook law concepts with minimal real-world application."
+          ],
+          [
+           "Soft Skills for Finance Professionals 2",
+           "General communication courses, not finance-specific",
+           "Interactive workshops + client simulations"
+          ],
+          [
+           "Program Elective",
+           "Flexible electives aligned with industry demands and emerging finance roles.",
+           "Limited customization and fewer modern elective options."
+          ]
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Year 4",
+     "semesters": [
+      {
+       "title": "Semester 7",
+       "text": "Semester 7 builds entrepreneurial mindset, advanced risk management, and public finance expertise through applied projects, internships, and research-focused learning beyond traditional classrooms.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Securities Operation and Risk Management"
+          }
+         ],
+         "text": "Covers operational processes in securities markets, including clearing, settlement, compliance, and risk controls. Students learn how institutions manage operational and market risk."
+        },
+        {
+         "title": [
+          {
+           "strong": "Applied Finance Capstone Project 2"
+          }
+         ],
+         "text": "Provides an advanced, industry-linked project where students solve real financial problems using analytical tools, modelling, and research-driven insights."
+        },
+        {
+         "title": [
+          {
+           "strong": "Entrepreneurial Finance: VC, PE and Startup Financing"
+          }
+         ],
+         "text": "Examines funding mechanisms for new ventures, including venture capital, private equity, and startup financing strategies. Students learn valuation, deal structuring, and investor decision-making."
+        },
+        {
+         "title": [
+          {
+           "strong": "Applied Financial Research Methods and Data Analysis Tools"
+          }
+         ],
+         "text": "Teaches advanced research design, empirical analysis, and financial data modelling. Emphasizes data interpretation and analytical rigor for complex financial problems."
+        },
+        {
+         "title": [
+          {
+           "strong": "Marketing of Financial Products and Services"
+          }
+         ],
+         "text": "Explores marketing strategies tailored to financial offerings such as banking, insurance, and investment products. Highlights consumer behavior, branding, and service delivery in finance."
+        },
+        {
+         "title": [
+          {
+           "strong": "Success and Failure in Entrepreneurship: A Strategic Perspective"
+          }
+         ],
+         "text": "Analyzes entrepreneurial journeys through case studies of successful and failed ventures. Students learn strategic decision-making, resilience, and critical evaluation of business models."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our semester 7 curriculum outpaces every other business school",
+         "text": "Leadership, analytics, and consumer insights combined with hands-on projects give you skills that outpace traditional classroom learning.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Securities Operation and Risk Management",
+           "Practical exposure to market operations, risk systems, and compliance workflows.",
+           "Conceptual overview of securities markets with minimal operational detail."
+          ],
+          [
+           "Applied Finance Capstone Project 2",
+           "Industry-driven project work with real datasets, modelling, and structured mentorship.",
+           "Academic research projects lacking industry alignment or application."
+          ],
+          [
+           "Entrepreneurial Finance: VC, PE and Startup Financing",
+           "Applied startup valuation, term-sheet analysis, and exposure to investor frameworks.",
+           "Theoretical coverage of VC and PE with limited real-world casework."
+          ],
+          [
+           "Applied Financial Research Methods and Data Analysis Tools",
+           "Advanced data tools, empirical modelling, and research-driven financial problem solving.",
+           "Basic research theory with limited analytical tool usage."
+          ],
+          [
+           "Marketing of Financial Products and Services",
+           "Market-focused assignments, segmentation analysis, and real financial product case studies.",
+           "General marketing theory without specialization in financial services."
+          ],
+          [
+           "Success and Failure in Entrepreneurship",
+           "Case-based learning using real venture outcomes and strategic analysis frameworks.",
+           "High-level entrepreneurship theory without deep case integration."
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Semester 8",
+       "text": "Semester 8 deepens understanding of sustainable finance, global markets, advanced research, and entrepreneurship, integrating corporate exposure through business planning and internships for holistic learning.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Sustainable Finance"
+          }
+         ],
+         "text": "Focuses on ESG investing, impact assessment, and ethical financial strategies, equipping students to make investment decisions that promote environmental, social, and governance objectives."
+        },
+        {
+         "title": [
+          {
+           "strong": "Global Economic Trends"
+          }
+         ],
+         "text": "Explore cultural influences on design and visual communication.\nUnderstand how aesthetics shape perception in the Indian context."
+        },
+        {
+         "title": [
+          {
+           "strong": "Succession Planning and Estate Management"
+          }
+         ],
+         "text": "Covers strategies for leadership transition, ownership transfer, and long-term wealth preservation. Students learn planning frameworks for families, businesses, and high-net-worth individuals."
+        },
+        {
+         "title": [
+          {
+           "strong": "Corporate Internship and Project Report Submission"
+          }
+         ],
+         "text": "Provides professional workplace experience and requires a structured report demonstrating applied learning, analysis, and industry insights gained during the internship."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our semester 8 curriculum outpaces every other business school",
+         "text": "ATLAS blends sustainable finance, global trends, research, and business planning with immersive internships, ensuring practical, industry-aligned experience unlike traditional theoretical approaches elsewhere.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Sustainable Finance",
+           "Real-world ESG case studies, industry mentoring, applied investment projects",
+           "Mainly conceptual, limited applied ESG exposure"
+          ],
+          [
+           "Global Economic Trends",
+           "Interactive simulations, macroeconomic scenario analysis, real-time market insights",
+           "Predominantly lecture-based, minimal live market analysis"
+          ],
+          [
+           "Succession Planning and Estate Management",
+           "Practical transition planning, real family-business cases, and estate structuring exercises.",
+           "High-level theory on succession with minimal real-world examples."
+          ],
+          [
+           "Corporate Internship and Project Report Submission",
+           "Structured mentorship, industry evaluation, and detailed analytical reporting requirements.",
+           "Usually theoretical, fewer opportunities for real-world validation"
+          ]
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "download": {
+    "label": "Download Curriculum",
+    "variant": "mint",
+    "fontSize": null,
+    "href": "#"
+   }
+  }
+ },
+ "refs": {
+  "stats": "stats-417bc927fb",
+  "why": "why-330a33c2b6",
+  "voices": "voices-5c3270e7fd",
+  "execution": "execution-fdf211ef5a",
+  "execution2": "execution-bdb961cfe6",
+  "voices2": "voices-5669f623cd",
+  "admissions": "admissions-09bfdb87ba",
+  "eligibility": "eligibility-5251c63ad0",
+  "banner": "banner-8cbc0dbf63",
+  "search": "search-bf21a9e8fb",
+  "faq": "faq-aa0004998d"
+ }
+}

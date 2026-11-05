@@ -1,0 +1,1140 @@
+{
+ "path": "/schools/isme/department-of-finance-accounting-economics",
+ "ref": "department-of-finance-accounting-economics.php",
+ "lpVariant": "lse",
+ "meta": {
+  "title": "ATLAS SkillTech University",
+  "description": "Get in touch with Atlas Skilltech."
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "kind": "campusHero",
+   "title": "Department of Finance, Accounting & Economics",
+   "image": {
+    "src": "/assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/herobanner/hero_banner_1367x705.webp",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/herobanner/hero_banner_500x258.webp 500w, /assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/herobanner/hero_banner_800x413.webp 800w, /assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/herobanner/hero_banner_1080x557.webp 1080w, /assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/herobanner/hero_banner_1367x705.webp 1366w",
+    "sizes": "(max-width: 1439px) 100vw, 1365.98095703125px"
+   },
+   "duration": "Think Capital. Decode Markets. Lead the Future.",
+   "padMd40": true,
+   "buttons": [
+    {
+     "label": "Apply to ATLAS ISME",
+     "href": "https://atlasuniversity.edu.in/applicationform",
+     "variant": "mint"
+    },
+    {
+     "label": "Schedule a Visit",
+     "href": "https://atlasuniversity.edu.in/campusvisit",
+     "variant": "outline"
+    }
+   ]
+  },
+  {
+   "kind": "lpStory",
+   "heading": "About the Department",
+   "headingMods": [
+    "mrg32"
+   ],
+   "text": [
+    "The Department of Finance, Accounting & Economics forms the analytical backbone of ",
+    {
+     "strong": "ATLAS ISME,"
+    },
+    " blending financial expertise, accounting discipline, and economic intelligence to drive informed, strategic decision-making. Students go beyond understanding systems; they learn to question, optimise, and reimagine them.\n\nWith a curriculum that balances academic rigour and real-world application, the department builds critical thinking, ethical judgment, and data-driven problem-solving skills. Industry-recognised certification pathways with ",
+    {
+     "strong": "National Stock Exchange (NSE), CFA Institute, National Institute of Securities Markets (NISM), The London Institute of Banking & Finance (LIBF), Financial Planning Standards Board (FPSB), Association of Investment Bankers of India (AiBi),"
+    },
+    " combined with global exposure, live projects, and industry mentorship, ensure graduates emerge ",
+    {
+     "strong": "career-ready, globally relevant, and equipped for leadership across finance, policy, and entrepreneurial roles."
+    }
+   ],
+   "textMods": [],
+   "image": {
+    "src": "/assets/images/schools/isme/pages/law-top.png",
+    "alt": ""
+   },
+   "wrapMd": true
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": "Strategic Partnerships & Professional Certifications",
+   "headingMods": [
+    "mrg16"
+   ],
+   "items": [
+    {
+     "kind": "logoTabs",
+     "noMenu": true,
+     "menuMods": [],
+     "tabs": [
+      {
+       "label": null,
+       "logos": [
+        {
+         "src": "/assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/strategic-partnerships-professional-certifications/1.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/strategic-partnerships-professional-certifications/2.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/strategic-partnerships-professional-certifications/new3.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/strategic-partnerships-professional-certifications/4.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/strategic-partnerships-professional-certifications/5.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/strategic-partnerships-professional-certifications/6.png",
+         "alt": ""
+        }
+       ]
+      }
+     ],
+     "cellSize": "law",
+     "pad56": true,
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [
+    "padtp0"
+   ],
+   "heading": "MoUs with Leading Companies",
+   "headingMods": [],
+   "items": [
+    {
+     "kind": "zoomLg",
+     "mods": [
+      "swiper",
+      "zoom-slider-lg"
+     ],
+     "cards": [
+      {
+       "kind": "slider-card-c",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/lead-company-1.webp",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/lead-company-1-p-500.webp 500w, /assets/images/schools/isme/pages/lead-company-1.webp 800w",
+        "sizes": "(max-width: 991px) 100vw, 799.982666015625px"
+       },
+       "title": "London Institute of Banking & Finance (LIBF, LIBF India)",
+       "sub": null
+      },
+      {
+       "kind": "slider-card-c",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/ic-swiper-2.png",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/ic-swiper-2-p-500.png 500w, /assets/images/schools/isme/pages/ic-swiper-2-p-800.png 800w, /assets/images/schools/isme/pages/ic-swiper-2.png 807w",
+        "sizes": "(max-width: 991px) 100vw, 806.9791870117188px"
+       },
+       "title": "NSE Academy",
+       "sub": null
+      },
+      {
+       "kind": "slider-card-c",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/ic-swiper-3.png",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/ic-swiper-3-p-500.png 500w, /assets/images/schools/isme/pages/ic-swiper-3-p-800.png 800w, /assets/images/schools/isme/pages/ic-swiper-3.png 807w",
+        "sizes": "(max-width: 991px) 100vw, 806.9791870117188px"
+       },
+       "title": "BNI Foundation",
+       "sub": null
+      },
+      {
+       "kind": "slider-card-c",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/strategic-mous-with-leading-companies/800x479/4.webp",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/strategic-mous-with-leading-companies/500x299/4.webp 500w, /assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/strategic-mous-with-leading-companies/800x479/4.webp 800w, /assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/strategic-mous-with-leading-companies/800x479/4.webp 807w",
+        "sizes": "(max-width: 991px) 100vw, 806.9791870117188px"
+       },
+       "title": "Algomatix Technology",
+       "sub": null
+      },
+      {
+       "kind": "slider-card-c",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/strategic-mous-with-leading-companies/800x479/5.webp",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/strategic-mous-with-leading-companies/500x299/5.webp 500w, /assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/strategic-mous-with-leading-companies/800x479/5.webp 800w, /assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/strategic-mous-with-leading-companies/800x479/5.webp 807w",
+        "sizes": "(max-width: 991px) 100vw, 806.9791870117188px"
+       },
+       "title": "Confederation of Indian Industry’s Young Indians",
+       "sub": null
+      },
+      {
+       "kind": "slider-card-c",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/strategic-mous-with-leading-companies/800x479/6.webp",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/strategic-mous-with-leading-companies/500x299/6.webp 500w, /assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/strategic-mous-with-leading-companies/800x479/6.webp 800w, /assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/strategic-mous-with-leading-companies/800x479/6.webp 807w",
+        "sizes": "(max-width: 991px) 100vw, 806.9791870117188px"
+       },
+       "title": "FPSB India",
+       "sub": null
+      },
+      {
+       "kind": "slider-card-c",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/strategic-mous-with-leading-companies/800x479/7.webp",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/strategic-mous-with-leading-companies/500x299/7.webp 500w, /assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/strategic-mous-with-leading-companies/800x479/7.webp 800w, /assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/strategic-mous-with-leading-companies/800x479/7.webp 807w",
+        "sizes": "(max-width: 991px) 100vw, 806.9791870117188px"
+       },
+       "title": "Granuler Ink Transformative",
+       "sub": null
+      },
+      {
+       "kind": "slider-card-c",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/strategic-mous-with-leading-companies/800x479/8.webp",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/strategic-mous-with-leading-companies/500x299/8.webp 500w, /assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/strategic-mous-with-leading-companies/800x479/8.webp 800w, /assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/strategic-mous-with-leading-companies/800x479/8.webp 807w",
+        "sizes": "(max-width: 991px) 100vw, 806.9791870117188px"
+       },
+       "title": "Pattern Marks New Horizons",
+       "sub": null
+      }
+     ],
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "logoMarquee",
+   "mods": [
+    "mrgtp"
+   ],
+   "logos": [
+    {
+     "src": "/assets/images/schools/isme/pages/ic-compnay-1.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/ic-compnay-12.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/ic-compnay-3.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/ic-compnay-4.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/ic-compnay-5.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/ic-compnay-6.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/ic-compnay-7.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/ic-compnay-8.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/ic-compnay-9.png",
+     "alt": ""
+    },
+    {
+     "src": "/assets/images/schools/isme/pages/ic-compnay-10.png",
+     "alt": ""
+    }
+   ]
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": "What Sets Us Apart",
+   "headingMods": [
+    "mrgbtm0"
+   ],
+   "items": [
+    {
+     "kind": "careerGrid",
+     "law": true,
+     "common": false,
+     "cards": [
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/key-highlights-department/1.webp",
+        "alt": ""
+       },
+       "title": "Academic Depth, Industry Relevance",
+       "text": "Our curriculum is benchmarked with leading global finance schools and continuously updated with industry inputs. Concepts are reinforced through case studies, simulations, and real-world problem-solving.",
+       "backgroundImage": "/assets/images/advantages/partnership/cdn/incub-bg-1.png",
+       "backgroundRepeat": "repeat"
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/key-highlights-department/2.webp",
+        "alt": ""
+       },
+       "title": "Experiential & Applied Learning",
+       "text": "From financial modelling labs and market simulations to live consulting projects and internships, learning at ISME is hands‑on and outcome‑driven.",
+       "backgroundImage": "/assets/images/centre-for-research/vector-1.png",
+       "backgroundRepeat": "no-repeat"
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/key-highlights-department/3.webp",
+        "alt": ""
+       },
+       "title": "Global & Future‑Facing Perspective",
+       "text": "Students explore global markets, fintech innovations, behavioural economics, ESG finance, and data-led decision-making, preparing them for a rapidly transforming financial ecosystem.",
+       "backgroundImage": "/assets/images/advantages/partnership/cdn/vector-paren-2.png",
+       "backgroundRepeat": "no-repeat"
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/key-highlights-department/4.webp",
+        "alt": ""
+       },
+       "title": "Professional Certifications & Career Acceleration",
+       "text": "Integrated pathways and academic alignment with globally recognised certifications such as CFA®, CFP®, LIBF, and other finance credentials strengthen employability and professional readiness.",
+       "backgroundImage": "/assets/images/advantages/partnership/cdn/incub-bg-1.png",
+       "backgroundRepeat": "repeat"
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/key-highlights-department/5.webp",
+        "alt": ""
+       },
+       "title": "Technology-Enabled Learning",
+       "text": "Learning is supported by tech-enabled infrastructure and specialised finance facilities, including fintech labs, financial databases, analytics tools, and market simulations, ensuring students develop hands-on proficiency with the technologies shaping modern finance.",
+       "backgroundImage": "/assets/images/centre-for-research/vector-1.png",
+       "backgroundRepeat": "no-repeat"
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/key-highlights-department/6.webp",
+        "alt": ""
+       },
+       "title": "Entrepreneurial Thinking",
+       "text": "Rooted in ISME’s entrepreneurial DNA, the department encourages innovation, value creation, and strategic risk‑taking, whether within organisations or through new ventures.",
+       "backgroundImage": "/assets/images/advantages/partnership/cdn/vector-paren-2.png",
+       "backgroundRepeat": "no-repeat"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "programTabs",
+   "heading": "Build Skills. Explore Opportunities. Lead the Future.",
+   "sub": "Explore our cutting-edge business programs in finance, accounting, and economics — with the flexibility to choose majors, minors, and 45+ electives across disciplines.",
+   "labels": [
+    "Undergraduate",
+    "Postgraduate"
+   ],
+   "panes": [
+    [
+     {
+      "kind": "pg",
+      "mba": false,
+      "image": {
+       "src": "/assets/images/schools/isme/pages/rectangle-34624513.png",
+       "alt": "",
+       "srcSet": "/assets/images/schools/isme/pages/rectangle-34624513-p-500.png 500w, /assets/images/schools/isme/pages/rectangle-34624513.png 610w",
+       "sizes": "(max-width: 610px) 100vw, 610px"
+      },
+      "size": "lgFixed",
+      "title": "B.Sc. Finance (3-Year Degree / 4-Year Hons.)",
+      "text": "Build strong foundations in finance, accounting, markets, valuation, and financial strategy, with exposure to real‑world applications and global best practices.",
+      "specialisation": null,
+      "eligibility": [
+       {
+        "title": "Eligibility",
+        "items": [
+         "60% in Class XII (Any Stream)\nor equivalent IB / A-Levels"
+        ]
+       },
+       {
+        "title": "Current Cycle Starts",
+        "items": [
+         "25th September 2025"
+        ]
+       },
+       {
+        "title": "Certification from:",
+        "items": [
+         "CFA Institute"
+        ]
+       }
+      ],
+      "button": {
+       "label": "Explore Program",
+       "href": "/schools/isme/programs/undergraduate/bsc-hons/bsc-hons-in-finance"
+      }
+     },
+     {
+      "kind": "pg",
+      "mba": false,
+      "image": {
+       "src": "/assets/images/schools/isme/pages/image-top.png",
+       "alt": "",
+       "srcSet": "/assets/images/schools/isme/pages/image-top-p-500.png 500w, /assets/images/schools/isme/pages/image-top.png 611w",
+       "sizes": "(max-width: 611px) 100vw, 611px"
+      },
+      "size": "lgFixed",
+      "title": "B.Sc. (Hons.) Economics & Data Analytics (3-Year Degree / 4-Year Hons.)",
+      "text": "Combine economic theory with data analysis to interpret trends, influence policy, and guide business strategy in data‑driven economies.",
+      "specialisation": null,
+      "eligibility": [
+       {
+        "title": "Eligibility",
+        "items": [
+         "60% in Class XII (Any Stream)\nor equivalent IB / A-Levels"
+        ]
+       },
+       {
+        "title": "Current Cycle Starts",
+        "items": [
+         "25th September 2025"
+        ]
+       }
+      ],
+      "button": {
+       "label": "Explore Program",
+       "href": "/schools/isme/programs/undergraduate/bsc-hons/bsc-in-economics-and-data-analytics"
+      }
+     },
+     {
+      "kind": "pg",
+      "mba": false,
+      "image": {
+       "src": "/assets/images/schools/isme/pages/bba-marketing.png",
+       "alt": "",
+       "srcSet": "/assets/images/schools/isme/pages/bba-marketing-p-500.png 500w, /assets/images/schools/isme/pages/bba-marketing.png 611w",
+       "sizes": "(max-width: 611px) 100vw, 611px"
+      },
+      "size": "lgFixed",
+      "title": "BBA Majoring in Business Analytics / Finance / Marketing (3-Year Degree / 4-Year Hons.)",
+      "text": "An integrated business degree with focused specialisation in finance or accounting, designed for leadership roles in corporate and entrepreneurial settings.",
+      "specialisation": null,
+      "eligibility": [
+       {
+        "title": "Eligibility",
+        "items": [
+         "60% in Class XII (Any Stream)\nor equivalent IB / A-Levels"
+        ]
+       },
+       {
+        "title": "Current Cycle Starts",
+        "items": [
+         "25th September 2025"
+        ]
+       }
+      ],
+      "button": {
+       "label": "Explore Program",
+       "href": "/schools/isme/programs/undergraduate/bba-hons/bba-hons-marketing-finance-business-analytics"
+      }
+     }
+    ],
+    [
+     {
+      "kind": "pg",
+      "mba": false,
+      "image": {
+       "src": "/assets/images/schools/isme/home/programs/mba-fin-tech.png",
+       "alt": "",
+       "srcSet": "/assets/images/schools/isme/home/programs/mba-fin-tech-p-500.png 500w, /assets/images/schools/isme/home/programs/mba-fin-tech.png 611w",
+       "sizes": "100vw"
+      },
+      "size": "lgFixed",
+      "title": "MBA In FinTech",
+      "text": "Designed for careers at the intersection of finance and technology, this program focuses on digital finance, financial innovation, analytics, and emerging fintech ecosystems.",
+      "specialisation": null,
+      "eligibility": [
+       {
+        "title": "Eligibility",
+        "items": [
+         "Graduate degree in any discipline"
+        ]
+       },
+       {
+        "title": "Current Cycle Starts",
+        "items": [
+         "11th September 2025"
+        ]
+       }
+      ],
+      "button": {
+       "label": "Explore Program",
+       "href": "/schools/isme/programs/postgraduate/program-mba-in-fintech"
+      }
+     },
+     {
+      "kind": "pg",
+      "mba": false,
+      "image": {
+       "src": "/assets/images/schools/isme/home/programs/mba-3.png",
+       "alt": "",
+       "srcSet": "/assets/images/schools/isme/home/programs/mba-3-p-500.png 500w, /assets/images/schools/isme/home/programs/mba-3.png 611w",
+       "sizes": "100vw"
+      },
+      "size": "lgFixed",
+      "title": "MBA In Investment Banking",
+      "text": "Build advanced expertise in capital markets, corporate finance, valuation, mergers & acquisitions, and investment banking practices aligned with global industry standards.",
+      "specialisation": null,
+      "eligibility": [
+       {
+        "title": "Eligibility",
+        "items": [
+         "Graduate degree in any discipline"
+        ]
+       },
+       {
+        "title": "Current Cycle Starts",
+        "items": [
+         "11th September 2025"
+        ]
+       },
+       {
+        "title": "Certification from:",
+        "items": [
+         "AiBi"
+        ]
+       }
+      ],
+      "button": {
+       "label": "Explore Program",
+       "href": "/schools/isme/programs/postgraduate/program-mba-in-investment-banking"
+      }
+     },
+     {
+      "kind": "pg",
+      "mba": false,
+      "image": {
+       "src": "/assets/images/schools/isme/home/programs/mba-3.png",
+       "alt": "",
+       "srcSet": "/assets/images/schools/isme/home/programs/mba-3-p-500.png 500w, /assets/images/schools/isme/home/programs/mba-3.png 611w",
+       "sizes": "100vw"
+      },
+      "size": "lgFixed",
+      "title": "MBA in Financial Planning & Applied Finance",
+      "text": "Develop strong capabilities in wealth management, financial planning, risk assessment, and applied finance, supported by industry-aligned learning and professional certifications.",
+      "specialisation": null,
+      "eligibility": [
+       {
+        "title": "Eligibility",
+        "items": [
+         "Graduate degree in any discipline"
+        ]
+       },
+       {
+        "title": "Current Cycle Starts",
+        "items": [
+         "11th September 2025"
+        ]
+       },
+       {
+        "title": "Certification from:",
+        "items": [
+         "FPSB, CFP®"
+        ]
+       }
+      ],
+      "button": {
+       "label": "Explore Program",
+       "href": "/schools/isme/programs/postgraduate/program-mba-in-investment-banking"
+      }
+     }
+    ]
+   ],
+   "contentPadFixed": true
+  },
+  {
+   "kind": "plainSection",
+   "id": "industry-connect",
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": null,
+   "headingMods": [],
+   "items": [
+    {
+     "kind": "headRow",
+     "mods": [
+      "head-wrap",
+      "mrgbtm"
+     ],
+     "heading": "Strongly Industry Oriented",
+     "headingMods": [
+      "h2-tag",
+      "mrg16"
+     ],
+     "sub": null,
+     "button": null,
+     "common": false
+    },
+    {
+     "kind": "yearSwipers",
+     "mods": [
+      "tertiary-tabs",
+      "w-tabs"
+     ],
+     "menuMods": [
+      "tertiary-tabs-menu",
+      "w-tab-menu"
+     ],
+     "tabs": [
+      {
+       "label": "Masterclasses",
+       "cards": [
+        {
+         "image": {
+          "src": "/assets/images/schools/isme/pages/sneha-basu-roy.png",
+          "alt": ""
+         },
+         "name": "Sneha Basu Roy",
+         "role": "VC & Startup Ecosystem\nGoogle",
+         "logo": {
+          "src": "/assets/images/schools/isdi/programs-ug/faculty/google-for-sneha.png",
+          "alt": ""
+         }
+        },
+        {
+         "image": {
+          "src": "/assets/images/schools/isme/pages/akash-jauhari.png",
+          "alt": ""
+         },
+         "name": "Akash Jauhari",
+         "role": "Client Solutions Manager\nMedia & Entertainment",
+         "logo": {
+          "src": "/assets/images/schools/isdi/programs-ug/faculty/meta-logo.png",
+          "alt": ""
+         }
+        },
+        {
+         "image": {
+          "src": "/assets/images/schools/isme/pages/mukul-deoras.png",
+          "alt": ""
+         },
+         "name": "Mukul Deoras",
+         "role": "President\n(Asia Pacific)",
+         "logo": {
+          "src": "/assets/images/schools/isdi/programs-ug/faculty/colgrate-for-mukul.png",
+          "alt": ""
+         }
+        },
+        {
+         "image": {
+          "src": "/assets/images/schools/isme/pages/joseph-fernandes.png",
+          "alt": ""
+         },
+         "name": "Joseph Fernandes",
+         "role": "Senior Vice President\nHuman Resources",
+         "logo": {
+          "src": "/assets/images/industry/masterclasses/mastercard.png",
+          "alt": ""
+         }
+        },
+        {
+         "image": {
+          "src": "/assets/images/schools/isme/pages/sandeep-balani.png",
+          "alt": ""
+         },
+         "name": "Sandeep Balani",
+         "role": "Vice\nPresident",
+         "logo": {
+          "src": "/assets/images/industry/masterclasses/jio-ads.png",
+          "alt": ""
+         }
+        },
+        {
+         "image": {
+          "src": "/assets/images/schools/isme/pages/samrat-paul.png",
+          "alt": ""
+         },
+         "name": "Samrat Paul",
+         "role": "Paytm Associate VP\nNational Sales",
+         "logo": {
+          "src": "/assets/images/schools/isdi/programs-ug/faculty/paytm-for-samrat.png",
+          "alt": ""
+         }
+        },
+        {
+         "image": {
+          "src": "/assets/images/schools/isme/pages/sunita-wazir.png",
+          "alt": ""
+         },
+         "name": "Sunita Vazir",
+         "role": "Senior Manager,\nGlobal Wellbeing",
+         "logo": {
+          "src": "/assets/images/schools/isdi/programs-ug/faculty/unilever-for-sunita.png",
+          "alt": ""
+         }
+        },
+        {
+         "image": {
+          "src": "/assets/images/schools/isme/pages/rochelle-aranha.png",
+          "alt": ""
+         },
+         "name": "Rochelle Aranha",
+         "role": "HR\nManager",
+         "logo": {
+          "src": "/assets/images/industry/masterclasses/bcg-for-rochelle.png",
+          "alt": ""
+         }
+        },
+        {
+         "image": {
+          "src": "/assets/images/schools/isme/pages/mayank-kumar-session.png",
+          "alt": ""
+         },
+         "name": "Mayank Kumar",
+         "role": "Co-Founder & MD\nupGrad",
+         "logo": {
+          "src": "/assets/images/industry-on-campus/10/logo.png",
+          "alt": ""
+         }
+        },
+        {
+         "image": {
+          "src": "/assets/images/schools/isme/pages/student-work--cards-6.png",
+          "alt": ""
+         },
+         "name": "Niranjan Hiranandani",
+         "role": "Co-founder and Managing Director\nHiranandani Group",
+         "logo": {
+          "src": "/assets/images/schools/isdi/industry-approach/advisory/hira-logo.png",
+          "alt": ""
+         }
+        }
+       ],
+       "mods": [
+        "swiper",
+        "common-swiper",
+        "mrgtp-little"
+       ]
+      },
+      {
+       "label": "Live Projects",
+       "cards": [
+        {
+         "image": {
+          "src": "/assets/images/schools/isme/pages/1p5a9510-2.png",
+          "alt": ""
+         },
+         "name": "Mondelez",
+         "role": "How can Mondelez connect better with Gen Z through new packaging and marketing ideas?",
+         "logo": {
+          "src": "/assets/images/schools/isdi/advantage/industry/mondelez_international.svg-2-copy.png",
+          "alt": ""
+         }
+        },
+        {
+         "image": {
+          "src": "/assets/images/schools/isme/pages/1p5a9510-copy.png",
+          "alt": ""
+         },
+         "name": "HDFC Life",
+         "role": "How can KlarifyLife’s Term Guide be improved to help young adults better understand term insurance?",
+         "logo": {
+          "src": "/assets/images/schools/isdi/advantage/industry/image-1215.png",
+          "alt": ""
+         }
+        },
+        {
+         "image": {
+          "src": "/assets/images/schools/isme/pages/1p5a9510-copy-2.png",
+          "alt": ""
+         },
+         "name": "Jio Ads",
+         "role": "How can students use Tableau to create clear and useful data visualizations for business insights?",
+         "logo": {
+          "src": "/assets/images/schools/isdi/advantage/industry/image-1215-copy.png",
+          "alt": ""
+         }
+        },
+        {
+         "image": {
+          "src": "/assets/images/schools/isme/pages/1p5a9510-copy-3.png",
+          "alt": ""
+         },
+         "name": "Colgate",
+         "role": "How can Colgate better promote its Visible White range to overcome consumer doubts?",
+         "logo": {
+          "src": "/assets/images/schools/isdi/advantage/industry/image-1215-copy-2.png",
+          "alt": ""
+         }
+        },
+        {
+         "image": {
+          "src": "/assets/images/schools/isme/pages/1p5a9510-copy-4.png",
+          "alt": ""
+         },
+         "name": "Godrej",
+         "role": "How can students use Tableau to create clear and useful data visualizations for business insights?",
+         "logo": {
+          "src": "/assets/images/schools/isdi/advantage/industry/image-1215-copy-3.png",
+          "alt": ""
+         }
+        },
+        {
+         "image": {
+          "src": "/assets/images/schools/isme/pages/1p5a9510-copy-5.png",
+          "alt": ""
+         },
+         "name": "Belgian Waffel",
+         "role": "How can students use Tableau to create clear and useful data visualizations for business insights?",
+         "logo": {
+          "src": "/assets/images/schools/isdi/advantage/industry/image-1215-copy-4.png",
+          "alt": ""
+         }
+        },
+        {
+         "image": {
+          "src": "/assets/images/schools/isme/pages/1p5a9510-copy-6.png",
+          "alt": ""
+         },
+         "name": "Poonawala Fincrop",
+         "role": "How can students use Tableau to create clear and useful data visualizations for business insights?",
+         "logo": {
+          "src": "/assets/images/schools/isdi/advantage/industry/image-1215-copy-5.png",
+          "alt": ""
+         }
+        },
+        {
+         "image": {
+          "src": "/assets/images/schools/isme/pages/1p5a9510-copy-7.png",
+          "alt": ""
+         },
+         "name": "Society Tea",
+         "role": "How can students use Tableau to create clear and useful data visualizations for business insights?",
+         "logo": {
+          "src": "/assets/images/schools/isdi/advantage/industry/image-1215-copy-6.png",
+          "alt": ""
+         }
+        }
+       ],
+       "mods": [
+        "swiper",
+        "common-swiper",
+        "mrgtp-little"
+       ]
+      },
+      {
+       "label": "Industry Visits",
+       "cards": [
+        {
+         "image": {
+          "src": "/assets/images/schools/isme/pages/1p5a9510-copy-13.png",
+          "alt": ""
+         },
+         "name": "Apple",
+         "role": "BKC Store,\nMumbai",
+         "logo": {
+          "src": "/assets/images/schools/isdi/advantage/industry/image-1215-copy-11.png",
+          "alt": ""
+         }
+        },
+        {
+         "image": {
+          "src": "/assets/images/schools/isme/pages/1p5a9510-copy-8.png",
+          "alt": ""
+         },
+         "name": "NSE",
+         "role": "National Stock Exchange,\nBKC Mumbai",
+         "logo": {
+          "src": "/assets/images/schools/isdi/advantage/industry/image-1215-copy-7.png",
+          "alt": ""
+         }
+        },
+        {
+         "image": {
+          "src": "/assets/images/schools/isme/pages/1p5a9510-copy-9.png",
+          "alt": ""
+         },
+         "name": "Deutsche Bank",
+         "role": "BKC Office,\nMumbai",
+         "logo": {
+          "src": "/assets/images/schools/isdi/advantage/industry/db-bank-1.png",
+          "alt": ""
+         }
+        },
+        {
+         "image": {
+          "src": "/assets/images/schools/isme/pages/1p5a9510-copy-11.png",
+          "alt": ""
+         },
+         "name": "Ogilvy",
+         "role": "The ORB,\nAndheri East, Mumbai",
+         "logo": {
+          "src": "/assets/images/schools/isdi/advantage/industry/image-1215-copy-9.png",
+          "alt": ""
+         }
+        },
+        {
+         "image": {
+          "src": "/assets/images/schools/isme/pages/1p5a9510-copy-12.png",
+          "alt": ""
+         },
+         "name": "GroupM",
+         "role": "Mumbai\nOffice",
+         "logo": {
+          "src": "/assets/images/schools/isdi/advantage/industry/image-1215-copy-10.png",
+          "alt": ""
+         }
+        },
+        {
+         "image": {
+          "src": "/assets/images/schools/isme/pages/1p5a9510-copy-10.png",
+          "alt": ""
+         },
+         "name": "Gozoop",
+         "role": "Skyline Icon,\nAndheri, Mumbai",
+         "logo": {
+          "src": "/assets/images/schools/isdi/advantage/industry/image-1215-copy-8.png",
+          "alt": ""
+         }
+        }
+       ],
+       "mods": [
+        "swiper",
+        "common-swiper",
+        "mrgtp-little"
+       ]
+      }
+     ],
+     "current": 0,
+     "common": "md40",
+     "cw": 1
+    }
+   ]
+  },
+  {
+   "kind": "electiveTabs",
+   "heading": "Career Pathways",
+   "headingMods": [
+    "mrg16"
+   ],
+   "subFlat": true,
+   "sub": "Graduates from the Department of Finance, Accounting & Economics are equipped to pursue roles across industries and geographies, including:",
+   "tabs": [
+    {
+     "label": null,
+     "cards": [
+      {
+       "title": "Investment Banker",
+       "image": null,
+       "mods": [
+        "law"
+       ]
+      },
+      {
+       "title": "Private Equity / Investment Banking Associate",
+       "image": null,
+       "mods": []
+      },
+      {
+       "title": "Corporate Finance Manager",
+       "image": null,
+       "mods": []
+      },
+      {
+       "title": "Equity & Research Analyst",
+       "image": null,
+       "mods": []
+      },
+      {
+       "title": "Financial Analyst (Corporate / Strategic / Investment)",
+       "image": null,
+       "mods": []
+      },
+      {
+       "title": "Wealth & Asset Manager",
+       "image": null,
+       "mods": []
+      },
+      {
+       "title": "Financial Planning & Advisory Professional (CFP-track roles)",
+       "image": null,
+       "mods": []
+      },
+      {
+       "title": "Risk & Treasury Manager",
+       "image": null,
+       "mods": []
+      },
+      {
+       "title": "FinTech Consultant / FinTech Strategy Lead",
+       "image": null,
+       "mods": []
+      },
+      {
+       "title": "Strategy & Consulting Analyst",
+       "image": null,
+       "mods": []
+      },
+      {
+       "title": "Economic & Policy Analyst",
+       "image": null,
+       "mods": []
+      },
+      {
+       "title": "Entrepreneur / Startup Founder (Finance / FinTech / Advisory)",
+       "image": null,
+       "mods": []
+      }
+     ]
+    }
+   ],
+   "noMenu": true,
+   "contentMods": [
+    "tab-content-mint",
+    "atlas",
+    "w-tab-content"
+   ]
+  },
+  {
+   "heading": "What Our Partners Say",
+   "sub": null,
+   "inContainer": "tw",
+   "cards": [
+    {
+     "kind": "testimonial",
+     "video": {
+      "sources": [],
+      "poster": null
+     },
+     "text": "The diversity of education possibilities ATLAS offers - I don’t see any other institution offering this variety.",
+     "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+     "name": "Deepak Parekh",
+     "course": "Chairman\nHDFC Bank",
+     "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/our-partners-say/deepak-parekh.png",
+      "alt": ""
+     },
+     "play": null
+    },
+    {
+     "kind": "testimonial",
+     "video": {
+      "sources": [],
+      "poster": null
+     },
+     "text": "ATLAS is looking at developing the right kind of skills to make students ready for their future.",
+     "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+     "name": "Aastha Arora",
+     "course": "LIBF Institute\nVice President",
+     "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/site/department-of-finance-accounting-economics/our-partners-say/aastha-arora.png",
+      "alt": ""
+     },
+     "play": null
+    },
+    {
+     "kind": "testimonial",
+     "video": {
+      "sources": [],
+      "poster": null
+     },
+     "text": "Very pleased that ATLAS is incorporating the CFA program curicullum within its studies.",
+     "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+     "name": "Christopher Wiese",
+     "course": "CFA Institute\nManaging Director",
+     "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/ic-testimonial-1.png",
+      "alt": ""
+     },
+     "play": null
+    },
+    {
+     "kind": "testimonial",
+     "video": {
+      "sources": [],
+      "poster": null
+     },
+     "text": "We are so happy to be associated with ATLAS ISME and this is the first MOU via signing with the university and are associating especially in Mumbai.",
+     "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+     "name": "Aarti Porwal",
+     "course": "CFA Institute\nCountry Head, India",
+     "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/ic-testimonial-2.png",
+      "alt": ""
+     },
+     "play": null
+    },
+    {
+     "kind": "testimonial",
+     "video": {
+      "sources": [],
+      "poster": null
+     },
+     "text": "Moving to Mumbai felt overwhelming at first, but with all support provided by ISME, the transition was surprisingly smooth",
+     "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+     "name": "Anne Fahlgren",
+     "course": "CFA Institute\nSenior Head, General Manager",
+     "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/ic-testimonial-3.png",
+      "alt": ""
+     },
+     "play": null
+    }
+   ],
+   "kind": "voices",
+   "headingMods": [
+    "mrgtbm0"
+   ]
+  },
+  {
+   "kind": "infoBanner",
+   "heading": "Shape the Future of Finance, Economics & Accounting",
+   "text": "Ready to lead the world of finance, accounting, and economics? Explore our programs and take the next step toward a future‑ready career at ATLAS | ISME.",
+   "buttons": [
+    {
+     "label": "Apply fo 2026 Intake",
+     "href": "https://atlasuniversity.edu.in/applicationform",
+     "variant": "law",
+     "icon": null
+    },
+    {
+     "label": "Schedule a Visit",
+     "href": "https://atlasuniversity.edu.in/campusvisit",
+     "variant": "law",
+     "icon": null
+    }
+   ],
+   "image": {
+    "src": "/assets/images/schools/isme/pages/law-banner-2.png",
+    "alt": ""
+   },
+   "law": true
+  }
+ ]
+}

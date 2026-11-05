@@ -1,0 +1,441 @@
+{
+ "path": "/schools/isme/publications-research-and-thought-leadership",
+ "ref": "publications-research-and-thought-leadership.php",
+ "meta": {
+  "title": "Research & Publications – ATLAS ISME",
+  "description": "Explore research papers, thought leadership, academic insights, industry studies, publications and knowledge-driven work."
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "kind": "hero",
+   "height": "658",
+   "id": null,
+   "eyebrow": null,
+   "name": null,
+   "position": null,
+   "title": "Publications",
+   "text": null,
+   "image": {
+    "src": "/assets/images/schools/isdi/thought-leaderships/hero/publication-image.webp",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isdi/thought-leaderships/hero/publication-image-p-500.webp 500w, /assets/images/schools/isdi/thought-leaderships/hero/publication-image-p-800.webp 800w, /assets/images/schools/isdi/thought-leaderships/hero/publication-image-p-1080.webp 1080w, /assets/images/schools/isdi/thought-leaderships/hero/publication-image.webp 1366w",
+    "sizes": "(max-width: 1366px) 100vw, 1366px"
+   },
+   "buttons": null,
+   "video": null
+  },
+  {
+   "kind": "story",
+   "heading": "Student Research & Development Cell (SRDC)",
+   "headingMods": [
+    "mrg32"
+   ],
+   "text": "ATLAS Student Research and Development Cell (SRDC), is a dynamic and vibrant platform within our university that empowers students to explore, innovate, and contribute to the world of research and development. SRDC serves as a catalyst for fostering a culture of curiosity, critical thinking, and hands-on learning among students.",
+   "image": {
+    "src": "/assets/images/schools/isme/pages/publication-img-1.webp",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/pages/publication-img-1-p-500.webp 500w, /assets/images/schools/isme/pages/publication-img-1-p-800.webp 800w, /assets/images/schools/isme/pages/publication-img-1.webp 828w",
+    "sizes": "(max-width: 767px) 100vw, (max-width: 991px) 727.96875px, 828px"
+   }
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": "Our Objectives",
+   "headingMods": [
+    "mrgtbm0"
+   ],
+   "items": [
+    {
+     "kind": "swiper",
+     "mods": [
+      "swiper",
+      "common-swiper"
+     ],
+     "cards": [
+      {
+       "kind": "portF",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/obj-simg-1.webp",
+        "alt": ""
+       },
+       "title": "Ignite Research Exploration",
+       "note": "Spark students' curiosity and inspire them to delve into diverse disciplines, encouraging exploration.",
+       "plain": true
+      },
+      {
+       "kind": "portF",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/obj-simg-2.webp",
+        "alt": ""
+       },
+       "title": "Cultivate Critical Thinkers",
+       "note": "Nurture students' ability to analyse complex problems through research and development.",
+       "plain": true
+      },
+      {
+       "kind": "portF",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/obj-simg-3.webp",
+        "alt": ""
+       },
+       "title": "Amplify Research Skills",
+       "note": "Conduct workshops and seminars to build students' research and academic skills.",
+       "plain": true
+      },
+      {
+       "kind": "portF",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/obj-simg-4.webp",
+        "alt": ""
+       },
+       "title": "Foster Collaborative Learning",
+       "note": "Spark students' curiosity and inspire them to delve into diverse disciplines, encouraging exploration.",
+       "plain": true
+      },
+      {
+       "kind": "portF",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/objective-image.png",
+        "alt": ""
+       },
+       "title": "Bridge Academia and Industry",
+       "note": "Connect student research with real-world applications through industry partnerships.",
+       "plain": true
+      },
+      {
+       "kind": "portF",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/objective-image-2.png",
+        "alt": ""
+       },
+       "title": "Showcase Student Innovation",
+       "note": "Provide platforms to present and publish research at conferences, journals, and exhibitions.",
+       "plain": true
+      }
+     ],
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": "Publications & Research Papers",
+   "headingMods": [
+    "mrg16"
+   ],
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "sub",
+     "mods": [
+      "sub-heading",
+      "mrgbtm"
+     ],
+     "text": "See how real projects shape future business leaders.",
+     "common": false
+    },
+    {
+     "kind": "pubs",
+     "common": false,
+     "cards": [
+      {
+       "logo": {
+        "src": "/assets/images/success/research/image-1189-3.png",
+        "alt": ""
+       },
+       "impactFactorLabel": "Impact Factor",
+       "impactPoint": "8.15",
+       "title": "The Impact of Russia Ukraine War on the Global Economy",
+       "authorLabel": "Author:",
+       "author": "Joshua Dsouza",
+       "coAuthorLabel": "Co-Author :",
+       "coAuthors": "Dr. Varsha Agarwal",
+       "subtitle": "International Journal of Scientific Development and Research",
+       "volumeLabel": "Volume:",
+       "volume": "7",
+       "issueLabel": "Issue:",
+       "issue": "11",
+       "pagesLabel": "Pages:",
+       "pages": "1-7",
+       "date": "November, 2022",
+       "issnLabel": "ISSN:",
+       "issn": "2455-2631",
+       "href": "https://www.ijsdr.org/viewpaperforall.php?paper=IJSDR2211157"
+      },
+      {
+       "logo": {
+        "src": "/assets/images/success/research/international-journal-of-advance-research-ideas-and-innovations-in-technology.png",
+        "alt": ""
+       },
+       "impactFactorLabel": "Impact Factor",
+       "impactPoint": "6.0",
+       "title": "A Study on the Value of promotion in the telecom industry of India",
+       "authorLabel": "Author:",
+       "author": "Aryan Patel",
+       "coAuthorLabel": "Co-Author :",
+       "coAuthors": "Krish Shah, Gaurav Bagaria, Chaitanya Ameser, Arnav Goyal, Dr. Varsha Agarwal",
+       "subtitle": "International Journal of Advance Research, Ideas and Innovations in Technology",
+       "volumeLabel": "Volume:",
+       "volume": "8",
+       "issueLabel": "Issue:",
+       "issue": "5",
+       "pagesLabel": "Pages:",
+       "pages": "260-265",
+       "date": "November, 2022",
+       "issnLabel": "ISSN:",
+       "issn": "2454-132X",
+       "href": "https://www.ijariit.com/editions/volume-8-issue-5/"
+      },
+      {
+       "logo": {
+        "src": "/assets/images/success/research/international-journal-of-advance-research-ideas-and-innovations-in-technology.png",
+        "alt": ""
+       },
+       "impactFactorLabel": "Impact Factor",
+       "impactPoint": "6.0",
+       "title": "A Study on negative impact of advertisement on children",
+       "authorLabel": "Author:",
+       "author": "Saniya Thombre",
+       "coAuthorLabel": "Co-Author :",
+       "coAuthors": "Shirin Badlawala, Mansha Dedhia, Dr. Varsha Agarwal",
+       "subtitle": "International Journal of Advance Research, Ideas and Innovations in Technology",
+       "volumeLabel": "Volume:",
+       "volume": "4",
+       "issueLabel": "Issue:",
+       "issue": "6",
+       "pagesLabel": "Pages:",
+       "pages": "276-280",
+       "date": "November, 2022",
+       "issnLabel": "ISSN:",
+       "issn": "2454-132X",
+       "href": "https://www.ijariit.com/editions/volume-8-issue-5/"
+      },
+      {
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/publication5.png",
+        "alt": ""
+       },
+       "impactFactorLabel": "Impact Factor",
+       "impactPoint": "7.9",
+       "title": "Analysis of Social Media Marketing Impact on Consumer Behavior",
+       "authorLabel": "Author:",
+       "author": "Anagha Nair",
+       "coAuthorLabel": "Co-Author :",
+       "coAuthors": "Riya Deshpande, Vanshika Aswani, Wayur Shukla, Ansh Jadhav, Dr. Varsha Agarwal",
+       "subtitle": "Journal of Emerging Technologies and innovative Research",
+       "volumeLabel": "Volume:",
+       "volume": "9",
+       "issueLabel": "Issue:",
+       "issue": "11",
+       "pagesLabel": "Pages:",
+       "pages": "f1488-f156",
+       "date": "November, 2022",
+       "issnLabel": "ISSN:",
+       "issn": "2349-5162",
+       "href": "https://www.scirp.org/journal/paperinformation?paperid=133258"
+      },
+      {
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/publication1.png",
+        "alt": ""
+       },
+       "impactFactorLabel": "Impact Factor",
+       "impactPoint": "7.4",
+       "title": "Advantages and Disadvantages of Social Media Marketing",
+       "authorLabel": "Author:",
+       "author": "Joshua Dsouza",
+       "coAuthorLabel": "Co-Author :",
+       "coAuthors": "Dr. Varsha Agarwal",
+       "subtitle": "International Journal of All Research Education and Scientific Methods",
+       "volumeLabel": "Volume:",
+       "volume": "10",
+       "issueLabel": "Issue:",
+       "issue": "11",
+       "pagesLabel": "Pages:",
+       "pages": "494-497",
+       "date": "November, 2022",
+       "issnLabel": "ISSN:",
+       "issn": "2455-6211",
+       "href": "https://www.ijaresm.com/advantages-and-disadvantages-of-social-media-marketing"
+      },
+      {
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/publication1.png",
+        "alt": ""
+       },
+       "impactFactorLabel": "Impact Factor",
+       "impactPoint": "4.2",
+       "title": "Marketing Your Business in India: Challenges and Opportunities",
+       "authorLabel": "Author:",
+       "author": "Joshua Dsouza",
+       "coAuthorLabel": "Co-Author :",
+       "coAuthors": "Kevin Ruparel, Krishna Agarwal, Dr. Varsha Agarwal",
+       "subtitle": "International Journal of All Research Education and Scientific Methods",
+       "volumeLabel": "Volume:",
+       "volume": "10",
+       "issueLabel": "Issue:",
+       "issue": "11",
+       "pagesLabel": "Pages:",
+       "pages": "543-550",
+       "date": "November, 2022",
+       "issnLabel": "ISSN:",
+       "issn": "2455-6211",
+       "href": "https://www.ijaresm.com/marketing-your-business-in-india-challenges-and-opportunities"
+      },
+      {
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/publication2.png",
+        "alt": ""
+       },
+       "impactFactorLabel": "Impact Factor",
+       "impactPoint": "7.17",
+       "title": "Literature Review Analysis for Family Business",
+       "authorLabel": "Author:",
+       "author": "Saharsh Khanna",
+       "coAuthorLabel": "Co-Author :",
+       "coAuthors": "Dr. Varsha Agarwal",
+       "subtitle": "International Journal for Multidisciplinary Educational Research",
+       "volumeLabel": "Volume:",
+       "volume": "9",
+       "issueLabel": "Issue:",
+       "issue": "6",
+       "pagesLabel": "Pages:",
+       "pages": "1-7",
+       "date": "November, 2022",
+       "issnLabel": "ISSN:",
+       "issn": "2583-2160",
+       "href": "https://ijrar.org/viewfull.php?&&p_id=IJRAR22D2368"
+      },
+      {
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/publication2.png",
+        "alt": ""
+       },
+       "impactFactorLabel": "Impact Factor",
+       "impactPoint": "8.0",
+       "title": "Brand Manipulation - A Boon for Marketers",
+       "authorLabel": "Author:",
+       "author": "Sahil Chamarthi",
+       "coAuthorLabel": "Co-Author :",
+       "coAuthors": "Dr. Varsha Agarwal",
+       "subtitle": "International Journal for Multidisciplinary Educational Research",
+       "volumeLabel": "Volume:",
+       "volume": "4",
+       "issueLabel": "Issue:",
+       "issue": "11(4)",
+       "pagesLabel": "Pages:",
+       "pages": "119-123",
+       "date": "November, 2022",
+       "issnLabel": "ISSN:",
+       "issn": "2277-7881",
+       "href": "https://s3-ap-southeast-1.amazonaws.com/ijmer/pdf/volume11/volume11-issue11(4)/18.pdf"
+      },
+      {
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/image-1189.png",
+        "alt": ""
+       },
+       "impactFactorLabel": "Impact Factor",
+       "impactPoint": "9.24",
+       "title": "Online Shopping: How customers see it",
+       "authorLabel": "Author:",
+       "author": "Yatharth Gupta",
+       "coAuthorLabel": "Co-Author :",
+       "coAuthors": "Angat Mulani, Jay Patel, Sohani Todi, Diva Boricha, Dr. Varsha Agarwal",
+       "subtitle": "International Journal of Multidisciplinary Research",
+       "volumeLabel": "Volume:",
+       "volume": "4",
+       "issueLabel": "Issue:",
+       "issue": "6",
+       "pagesLabel": "Pages:",
+       "pages": "1-7",
+       "date": "November, 2022",
+       "issnLabel": "ISSN:",
+       "issn": "2582-2160",
+       "href": "https://www.gapbodhitaru.org/res/articles(311-314)%20ONLINE%20SHOPPING%20HOW%20CUSTOMERS%20SEE%20IT.pdf"
+      },
+      {
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/image-1189.png",
+        "alt": ""
+       },
+       "impactFactorLabel": "Impact Factor",
+       "impactPoint": "9.24",
+       "title": "Impact of social media on the Buying Choices of Shoppers",
+       "authorLabel": "Author:",
+       "author": "Akshat Shah",
+       "coAuthorLabel": "Co-Author :",
+       "coAuthors": "Roshan Shah, Kiara Patni, Diya Talreja, Krishna Palod,\nDr. Varsha Agarwal",
+       "subtitle": "International Journal for Multidisciplinary Research",
+       "volumeLabel": "Volume:",
+       "volume": "4",
+       "issueLabel": "Issue:",
+       "issue": "6",
+       "pagesLabel": "Pages:",
+       "pages": "1-7",
+       "date": "November, 2022",
+       "issnLabel": "ISSN:",
+       "issn": "2583-2160",
+       "href": "https://www.ijfmr.com/papers/2022/6/1083.pdf"
+      },
+      {
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/image-1189.png",
+        "alt": ""
+       },
+       "impactFactorLabel": "Impact Factor",
+       "impactPoint": "9.24",
+       "title": "Analysing Tesla’s $0 Marketing Strategy",
+       "authorLabel": "Author:",
+       "author": "Hanesh Bangeja",
+       "coAuthorLabel": "Co-Author :",
+       "coAuthors": "Dr. Varsha Agarwal",
+       "subtitle": "International Journal for Multidisciplinary Research",
+       "volumeLabel": "Volume:",
+       "volume": "4",
+       "issueLabel": "Issue:",
+       "issue": "6",
+       "pagesLabel": "Pages:",
+       "pages": "1-7",
+       "date": "November, 2022",
+       "issnLabel": "ISSN:",
+       "issn": "2583-2160",
+       "href": "https://www.ijfmr.com/papers/2022/6/1080.pdf"
+      },
+      {
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/image-1189.png",
+        "alt": ""
+       },
+       "impactFactorLabel": "Impact Factor",
+       "impactPoint": "7.97",
+       "title": "Brands Increasing Customer Engagement with Manipulative Tactices",
+       "authorLabel": "Author:",
+       "author": "Aashana Sakariya",
+       "coAuthorLabel": "Co-Author :",
+       "coAuthors": "Armaan Nebhnani, Harshi Kothari, Kritika Bansal, Naman Sanghavi, Vomika Arora,\nDr. Varsha Agarwal",
+       "subtitle": "International Journal for Multidisciplinary Research",
+       "volumeLabel": "Volume:",
+       "volume": "4",
+       "issueLabel": "Issue:",
+       "issue": "11",
+       "pagesLabel": "Pages:",
+       "pages": "1431-1436",
+       "date": "November, 2022",
+       "issnLabel": "ISSN:",
+       "issn": "2583-2160",
+       "href": "https://www.ijfmr.com/papers/2022/6/1080.pdf"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

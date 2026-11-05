@@ -1,0 +1,36 @@
+{
+ "path": "/schools/isme/af-dm",
+ "ref": "af-dm.php",
+ "meta": {
+  "title": "ATLAS SkillTech University",
+  "description": "Get in touch with Atlas Skilltech."
+ },
+ "brochure": null,
+ "blocks": [
+  {
+   "kind": "unknown",
+   "class": "relative w-full h-screen overflow-hidden",
+   "heading": "4th Year BBA (Hons.)"
+  },
+  {
+   "kind": "unknown",
+   "class": "bg-[#f3f3f3] py-12 px-6",
+   "heading": "Step Into High-Impact Careers\nWith BBA (Hons.) At ATLAS"
+  },
+  {
+   "kind": "unknown",
+   "class": "bg-[#f3f3f3] py-14 px-6",
+   "heading": "Specialisations To Accelerate Your Growth"
+  },
+  {
+   "kind": "unknown",
+   "class": "bg-[#f3f3f3] py-14 px-6",
+   "heading": "Power-Packed Learning With Deloitte India"
+  },
+  {
+   "kind": "unknown",
+   "class": "bg-[#f3f3f3] py-14 px-6",
+   "heading": "Aligning Education With Industry Demands"
+  }
+ ]
+}

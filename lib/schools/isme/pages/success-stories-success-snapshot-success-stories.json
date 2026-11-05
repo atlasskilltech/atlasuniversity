@@ -1,0 +1,3394 @@
+{
+ "path": "/schools/isme/success-stories/success-snapshot/success-stories",
+ "ref": "success-stories/success-snapshot/success-stories.php",
+ "meta": {
+  "title": "Success Stories & Career Wins – ATLAS ISME",
+  "description": "Explore inspiring journeys, placements, achievements, top recruiters, student success and real career transformations."
+ },
+ "brochure": {
+  "src": "https://crm.atlasskilltech.app/widgets/6a901fefe104d95ba35d279a/embed.js",
+  "height": 650
+ },
+ "blocks": [
+  {
+   "kind": "hero",
+   "height": "100vh",
+   "id": null,
+   "widget": {
+    "label": "Download ISME Outcomes Book",
+    "src": "https://crm.atlasskilltech.app/widgets/6a901fefe104d95ba35d279a/embed",
+    "height": 650
+   },
+   "eyebrow": null,
+   "name": null,
+   "position": null,
+   "title": "Success\nStories",
+   "text": "ATLAS | ISME students turn ideas into real-world impact, contributing to the global economy. They gain international exposure through immersions, exchanges, and masterclasses with global faculty.",
+   "image": {
+    "src": "/assets/images/schools/isdi/success-snapshot/hero/outcome-bg.webp",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isdi/success-snapshot/hero/outcome-bg-p-500.webp 500w, /assets/images/schools/isdi/success-snapshot/hero/outcome-bg-p-800.webp 800w, /assets/images/schools/isdi/success-snapshot/hero/outcome-bg-p-1080.webp 1080w, /assets/images/schools/isdi/success-snapshot/hero/outcome-bg.webp 1366w",
+    "sizes": "(max-width: 1366px) 100vw, 1366px"
+   },
+   "buttons": null,
+   "video": null
+  },
+  {
+   "cards": [
+    {
+     "tone": "bg6",
+     "label": "On Campus\nInterviews (Per Year)",
+     "value": "1200+",
+     "note": null,
+     "labelKind": "isme-2"
+    },
+    {
+     "tone": "bg7",
+     "label": "Alumni\nStartups",
+     "value": "1200+",
+     "note": null,
+     "labelKind": "isme-2"
+    },
+    {
+     "tone": "bg8",
+     "label": "Student gets\nMinimum of 3 Offers",
+     "value": "1:3",
+     "note": null,
+     "labelKind": "isme-2"
+    }
+   ],
+   "padBottom": false,
+   "kind": "stats"
+  },
+  {
+   "kind": "anchorMenu",
+   "centered": false,
+   "links": [
+    {
+     "label": "Our beliefs",
+     "href": "#our-beliefs"
+    },
+    {
+     "label": "Startups",
+     "href": "#start-up-section"
+    },
+    {
+     "label": "Placements & Internships",
+     "href": "#placement"
+    },
+    {
+     "label": "Masters Progression",
+     "href": "#master-progressions"
+    },
+    {
+     "label": "Patents & Publications",
+     "href": "#patent"
+    },
+    {
+     "label": "Awards & Recognitions",
+     "href": "#awards"
+    },
+    {
+     "label": "Student Spotlight",
+     "href": "#spotlight"
+    }
+   ]
+  },
+  {
+   "kind": "coreCards",
+   "cardMinH": 500,
+   "heading": null,
+   "headingMods": [],
+   "common": false,
+   "sliderMods": [
+    "swiper",
+    "common-swiper-full"
+   ],
+   "background": "/assets/images/advantages/css/cool-shape-vector.png",
+   "cards": [
+    {
+     "number": "#1",
+     "title": "Business isn’t a spectator sport.",
+     "text": [
+      "With 500+ companies and Mumbai’s business pulse all around Global names like Netflix, Google, Amazon, and Deloitte—opportunity doesn’t knock, it’s already next door."
+     ],
+     "image": null
+    },
+    {
+     "number": "#2",
+     "title": "Education is a collaboration, not a lecture.",
+     "text": [
+      "Bridging the gap between academics and the real world through hands-on projects, expert-led sessions, and immersive industry exposure."
+     ],
+     "image": null
+    },
+    {
+     "number": "#3",
+     "title": "Every student is a founder in the making.",
+     "text": [
+      "We believe college life should be a blend of purpose, play, and personal growth. From taking the stage to leading a cause, from late-night brainstorming to spontaneous celebrations — every experience shapes who you become."
+     ],
+     "image": null
+    },
+    {
+     "number": "#4",
+     "title": "Approach to education.",
+     "rows": [
+      {
+       "value": "1200+",
+       "label": [
+        "On Campus Interviews"
+       ]
+      },
+      {
+       "value": "1200+",
+       "label": [
+        "Alumni Startups"
+       ]
+      },
+      {
+       "value": "1:3",
+       "label": [
+        "Student gets mins. of 3 master offers"
+       ]
+      }
+     ],
+     "image": null
+    },
+    {
+     "number": "#5",
+     "title": "Real-world practitioners make the best teachers.",
+     "text": [
+      "Our campus is designed for the future, equipped with advanced multimedia systems to make learning dynamic and engaging."
+     ],
+     "image": null
+    },
+    {
+     "number": "#6",
+     "title": "Business never stands still, neither\nshould the curriculum.",
+     "text": [
+      "Every aspect of the ATLAS ISME experience is designed with the student at its core."
+     ],
+     "image": null
+    },
+    {
+     "number": "#7",
+     "title": "Location shapes learning.",
+     "text": [
+      "Research and Development Cell, is a dynamic and vibrant platform within our university that empowers students."
+     ],
+     "image": null
+    },
+    {
+     "number": "#8",
+     "title": "Freedom fuels leadership.",
+     "text": [
+      "We believe that learning goes beyond borders, which is why we actively immerse students in international experiences that shape their worldviews."
+     ],
+     "image": null
+    }
+   ]
+  },
+  {
+   "kind": "iconSection",
+   "id": "start-up-section",
+   "iconHd": true,
+   "icon": "/assets/images/advantages/partnership/cdn/notification.png",
+   "num": null,
+   "title": "Startups",
+   "wrap": "blue",
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "blue",
+     "mods": [
+      "blue-desc-wrap"
+     ],
+     "textMods": [
+      "blue-desc-text"
+     ],
+     "text": "At ISME, innovation is a way of life. Our students launch startups that tackle real-world challenges across technology, sustainability, education, and more. Through mentorship, seed funding, and hands-on support, they transform ideas into impactful ventures—reflecting ISME’s commitment to nurturing bold entrepreneurs ready to shape the future of industry and society.",
+     "common": false
+    },
+    {
+     "kind": "startupBlock",
+     "common": false,
+     "text": "DRNK by Aryan Gandhi — Funded by Nikhil Kamath | Co-founder@Zerodha",
+     "image": "/assets/images/success/startups/startup-bg.png"
+    }
+   ]
+  },
+  {
+   "kind": "gallery",
+   "heading": "Startups founded by ATLAS ISME Alumni",
+   "headingMods": [
+    "mrg16"
+   ],
+   "lead": "Celebrating the entrepreneurs shaping tomorrow",
+   "galleryMods": [],
+   "cards": [
+    {
+     "image": {
+      "src": "/assets/images/entrepreneurship/founders/img_7716.png",
+      "alt": ""
+     },
+     "size": "g-card-1",
+     "name": "Anoushka Rele",
+     "caption": "Polish Me Pretty"
+    },
+    {
+     "image": {
+      "src": "/assets/images/entrepreneurship/founders/grid-2-img.png",
+      "alt": ""
+     },
+     "size": "g-card-2",
+     "name": "Shourya Watwani",
+     "caption": "dawnLabs"
+    },
+    {
+     "image": {
+      "src": "/assets/images/entrepreneurship/founders/grid-image-6.png",
+      "alt": ""
+     },
+     "size": "grid-card-3",
+     "name": "Briana Chandiramani",
+     "caption": "GoToCo"
+    },
+    {
+     "image": {
+      "src": "/assets/images/success/startup-grid/image-18-.png",
+      "alt": ""
+     },
+     "size": "grid-card-4",
+     "name": "Jai Shah",
+     "caption": "Orangutan"
+    },
+    {
+     "image": {
+      "src": "/assets/images/success/startup-grid/grid-img-5.png",
+      "alt": ""
+     },
+     "size": "grid-card-5",
+     "name": "Anik Jain",
+     "caption": "DZINR"
+    },
+    {
+     "image": {
+      "src": "/assets/images/schools/isme/pages/grid-img-3.png",
+      "alt": ""
+     },
+     "size": "g-card-6",
+     "name": "Aryan Gandhi",
+     "caption": "drnk"
+    },
+    {
+     "image": {
+      "src": "/assets/images/success/startup-grid/grid-img-7.png",
+      "alt": ""
+     },
+     "size": "grid-card-7",
+     "name": "Aanya Jain",
+     "caption": "RunFrenzytan"
+    },
+    {
+     "image": {
+      "src": "/assets/images/schools/isme/pages/grid-img-8.png",
+      "alt": ""
+     },
+     "size": "grid-card-8",
+     "name": "Khushi Doshi",
+     "caption": "Sorric Media"
+    }
+   ],
+   "captionKind": "title-txt-grid",
+   "logos": [
+    {
+     "src": "/assets/images/success/startup-grid/st-logo-1.png",
+     "alt": "",
+     "spaced": true,
+     "sm": false
+    },
+    {
+     "src": "/assets/images/success/startup-grid/st-logo-5.png",
+     "alt": "",
+     "spaced": true,
+     "sm": false
+    },
+    {
+     "src": "/assets/images/success/startup-grid/st-logo-3.png",
+     "alt": "",
+     "spaced": true,
+     "sm": false
+    },
+    {
+     "src": "/assets/images/success/startup-grid/st-logo-4.png",
+     "alt": "",
+     "spaced": true,
+     "sm": false
+    },
+    {
+     "src": "/assets/images/success/startup-grid/st-logo-6.png",
+     "alt": "",
+     "spaced": true,
+     "sm": false
+    },
+    {
+     "src": "/assets/images/success/startup-grid/st-logo-7.png",
+     "alt": "",
+     "spaced": true,
+     "sm": false
+    },
+    {
+     "src": "/assets/images/success/startup-grid/imvento.png",
+     "alt": "",
+     "spaced": true,
+     "sm": false
+    },
+    {
+     "src": "/assets/images/success/startup-grid/dawnlabs.png",
+     "alt": "",
+     "spaced": true,
+     "sm": false
+    }
+   ]
+  },
+  {
+   "kind": "iconSection",
+   "id": "placement",
+   "iconHd": true,
+   "icon": "/assets/images/advantages/partnership/cdn/notification.png",
+   "num": null,
+   "title": "Placements & Internships",
+   "wrap": "blue",
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "blue",
+     "mods": [
+      "blue-desc-wrap"
+     ],
+     "textMods": [
+      "blue-desc-text"
+     ],
+     "text": "At ISME, success isn’t just a goal—it’s a journey we shape together. With deep industry integration, personalized career pathways, and marquee internships, our students graduate not only job-ready but future-ready. From Fortune 500 placements to thriving entrepreneurial ventures, ISME empowers students to unlock high-growth careers with equally high-impact packages—proving that ambition, when nurtured right, pays off in every sense.",
+     "common": false
+    },
+    {
+     "kind": "swiper",
+     "mods": [
+      "swiper",
+      "common-swiper"
+     ],
+     "cards": [
+      {
+       "kind": "placement",
+       "name": "Daksh Mali",
+       "course": "BBA in Finance",
+       "batch": "Batch of 2025",
+       "image": {
+        "src": "/assets/images/success/placements/daksh-mali-success-stories.png",
+        "alt": "",
+        "srcSet": "/assets/images/success/placements/daksh-mali-success-stories-p-500.png 500w, /assets/images/success/placements/daksh-mali-success-stories-p-800.png 800w, /assets/images/success/placements/daksh-mali-success-stories.png 944w",
+        "sizes": "(max-width: 944px) 100vw, 944px"
+       },
+       "logo": {
+        "src": "/assets/images/success/placements/aws.png",
+        "alt": "",
+        "srcSet": "/assets/images/success/placements/aws-p-500.png 500w, /assets/images/success/placements/aws-p-800.png 800w, /assets/images/success/placements/aws-p-1080.png 1080w, /assets/images/success/placements/aws.png 1200w",
+        "sizes": "(max-width: 1200px) 100vw, 1200px"
+       },
+       "linkedin": {
+        "href": "https://www.linkedin.com/in/dakshmali/",
+        "icon": "/assets/images/schools/isdi/success-snapshot/placement/linkedin.svg"
+       }
+      },
+      {
+       "kind": "placement",
+       "name": "Shreya Kabra",
+       "course": "MBA in Finance",
+       "batch": "Batch of 2024",
+       "image": {
+        "src": "/assets/images/success/placements/shreya-ss.jpg",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/success/placements/aditya-birla-capital-aravind-krishna.png",
+        "alt": ""
+       },
+       "linkedin": {
+        "href": "https://www.linkedin.com/in/shreya-kabra-215477203/",
+        "icon": "/assets/images/schools/isdi/success-snapshot/placement/linkedin.svg"
+       }
+      },
+      {
+       "kind": "placement",
+       "name": "Dhavya Mehta",
+       "course": "BBA in Finance",
+       "batch": "Batch of 2025",
+       "image": {
+        "src": "/assets/images/success/placements/dhavya-mehta.jpg",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/success/placements/angel_one_logo.png",
+        "alt": ""
+       },
+       "linkedin": {
+        "href": "https://www.linkedin.com/in/dhavyamehta/",
+        "icon": "/assets/images/schools/isdi/success-snapshot/placement/linkedin.svg"
+       }
+      },
+      {
+       "kind": "placement",
+       "name": "Nishi Sanjanwala",
+       "course": "MBA in Marketing",
+       "batch": "Batch of 2025",
+       "image": {
+        "src": "/assets/images/success/placements/nishi-s.jpg",
+        "alt": ""
+       },
+       "logo": {
+        "src": "/assets/images/success/placements/third-bridge-logo.png",
+        "alt": "",
+        "srcSet": "/assets/images/success/placements/third-bridge-logo-p-500.png 500w, /assets/images/success/placements/third-bridge-logo-p-800.png 800w, /assets/images/success/placements/third-bridge-logo.png 1250w",
+        "sizes": "(max-width: 1250px) 100vw, 1250px"
+       },
+       "linkedin": {
+        "href": "https://www.linkedin.com/in/shivani-p-511b20245/",
+        "icon": "/assets/images/schools/isdi/success-snapshot/placement/linkedin.svg"
+       }
+      },
+      {
+       "kind": "placement",
+       "name": "Dixita Zota",
+       "course": "MBA in Finance",
+       "batch": "Batch of 2024",
+       "image": {
+        "src": "/assets/images/success/placements/dixita-with-logo.png",
+        "alt": "",
+        "srcSet": "/assets/images/success/placements/dixita-with-logo-p-500.png 500w, /assets/images/success/placements/dixita-with-logo-p-800.png 800w, /assets/images/success/placements/dixita-with-logo-p-1080.png 1080w, /assets/images/success/placements/dixita-with-logo.png 1121w",
+        "sizes": "(max-width: 1121px) 100vw, 1121px"
+       },
+       "logo": {
+        "src": "/assets/images/success/placements/crisil-footer.png",
+        "alt": ""
+       },
+       "linkedin": {
+        "href": "https://www.linkedin.com/in/dixitazota0908/",
+        "icon": "/assets/images/schools/isdi/success-snapshot/placement/linkedin.svg"
+       }
+      },
+      {
+       "kind": "placement",
+       "name": "Ami Patel",
+       "course": "MBA in Finance",
+       "batch": "Batch of 2024",
+       "image": {
+        "src": "/assets/images/success/placements/ami-patel-with-logo.png",
+        "alt": "",
+        "srcSet": "/assets/images/success/placements/ami-patel-with-logo-p-500.png 500w, /assets/images/success/placements/ami-patel-with-logo-p-800.png 800w, /assets/images/success/placements/ami-patel-with-logo-p-1080.png 1080w, /assets/images/success/placements/ami-patel-with-logo.png 1134w",
+        "sizes": "(max-width: 1134px) 100vw, 1134px"
+       },
+       "logo": {
+        "src": "/assets/images/schools/isdi/parents-corner/careers/shabang-logo.avif",
+        "alt": ""
+       },
+       "linkedin": {
+        "href": "https://www.linkedin.com/in/patel-ami11/",
+        "icon": "/assets/images/schools/isdi/success-snapshot/placement/linkedin.svg"
+       }
+      },
+      {
+       "kind": "placement",
+       "name": "Vansh Mehta",
+       "course": "MBA in Finance",
+       "batch": "Batch of 2025",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/vansh-mehta-with-logo.png",
+        "alt": "",
+        "srcSet": "/assets/images/schools/isme/pages/vansh-mehta-with-logo-p-500.png 500w, /assets/images/schools/isme/pages/vansh-mehta-with-logo-p-800.png 800w, /assets/images/schools/isme/pages/vansh-mehta-with-logo-p-1080.png 1080w, /assets/images/schools/isme/pages/vansh-mehta-with-logo.png 1086w",
+        "sizes": "(max-width: 1086px) 100vw, 1086px"
+       },
+       "logo": {
+        "src": "/assets/images/schools/isdi/parents-corner/careers/jp-morgan.svg",
+        "alt": ""
+       },
+       "linkedin": {
+        "href": "https://www.linkedin.com/in/vansh-mehta-622502217/",
+        "icon": "/assets/images/schools/isdi/success-snapshot/placement/linkedin.svg"
+       }
+      }
+     ],
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "management",
+   "id": null,
+   "heading": "Industry Internships",
+   "button": null,
+   "swiperMods": [
+    "swiper",
+    "common-swiper"
+   ],
+   "people": [
+    {
+     "name": "Aryan Jain",
+     "role": "",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/aryan-jain.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Yash Shah",
+     "role": "",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/yash-shah.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Aryan Kapoor",
+     "role": "",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/aryan-kapoor.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Shriya Agarwal",
+     "role": "",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/shriya-agrawal.png",
+      "alt": ""
+     }
+    },
+    {
+     "name": "Anisha Parab",
+     "role": "",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/anisha-parab.png",
+      "alt": ""
+     }
+    }
+   ],
+   "bareHead": true,
+   "headingMb0": true
+  },
+  {
+   "kind": "gallery",
+   "heading": "Students at work",
+   "headingMods": [
+    "mrgtbm0"
+   ],
+   "lead": null,
+   "galleryMods": [
+    "h2-tag"
+   ],
+   "cards": [
+    {
+     "image": {
+      "src": "/assets/images/success/students/student-grid-img-1-.png",
+      "alt": ""
+     },
+     "size": null,
+     "name": "Aryan Shetty",
+     "caption": "Batch of 2022"
+    },
+    {
+     "image": {
+      "src": "/assets/images/schools/isme/pages/student-grid-img-3-.png",
+      "alt": ""
+     },
+     "size": "g-card-2",
+     "name": null,
+     "caption": null
+    },
+    {
+     "image": {
+      "src": "/assets/images/success/students/student-grid-img-2-.png",
+      "alt": ""
+     },
+     "size": "grid-card-3",
+     "name": "Shanaya Shah",
+     "caption": "Batch of 2022"
+    },
+    {
+     "image": {
+      "src": "/assets/images/success/students/student-grid-img-4-.png",
+      "alt": ""
+     },
+     "size": "grid-card-4",
+     "name": "Yash Panchal",
+     "caption": "Batch of 2022"
+    },
+    {
+     "image": {
+      "src": "/assets/images/schools/isme/pages/student-grid-img-5-.png",
+      "alt": ""
+     },
+     "size": "grid-card-5",
+     "name": null,
+     "caption": null
+    },
+    {
+     "image": {
+      "src": "/assets/images/success/students/sana-sidhu-fae.png",
+      "alt": ""
+     },
+     "size": "g-card-6",
+     "name": "Sana Sidhu",
+     "caption": "Batch of 2025"
+    },
+    {
+     "image": {
+      "src": "/assets/images/success/students/student-grid-img-7-.png",
+      "alt": ""
+     },
+     "size": "grid-card-7",
+     "name": "Dhwani Shah",
+     "caption": "Batch of 2022"
+    },
+    {
+     "image": {
+      "src": "/assets/images/success/students/student-grid-img-8-.png",
+      "alt": ""
+     },
+     "size": "grid-card-8",
+     "name": "Vanshi Arya",
+     "caption": "Batch of 2022"
+    }
+   ],
+   "captionKind": "title-txt-grid2"
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": "Top Recruiters @ ATLAS ISME",
+   "headingMods": [
+    "mrg16"
+   ],
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "sub",
+     "mods": [
+      "sub-heading",
+      "mrgbtm"
+     ],
+     "text": "Our talent speaks for itself—trusted by the most prestigious brands",
+     "common": false
+    },
+    {
+     "kind": "logoTabs",
+     "menuMods": [],
+     "tabs": [
+      {
+       "label": "Technology",
+       "logos": [
+        {
+         "src": "/assets/images/success/recruiters/image-1348.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/image-1349.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/digiimpact.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/tvs.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/boat.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/screenshot-2025-10-28-at-7.17.41-pm-1.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/reliance_jio_logo_-october_2015-.svg-1.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/uc-1.png",
+         "alt": ""
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      },
+      {
+       "label": "BFSI",
+       "logos": [
+        {
+         "src": "/assets/images/success/recruiters/hdfc2.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/hdfclife.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/kotak.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/iifl.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/motialaoswal.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/morningstar.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/abcapital.ns_big-e60c51c6-1.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/idbi.png",
+         "alt": ""
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      },
+      {
+       "label": "Consulting",
+       "logos": [
+        {
+         "src": "/assets/images/success/recruiters/bdccccg.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/marshmcmannoi.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/landor.png",
+         "alt": ""
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      },
+      {
+       "label": "FMCG",
+       "logos": [
+        {
+         "src": "/assets/images/success/recruiters/pandg.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/mondelez.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/reddy.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/gooodrej.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/maaacro.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/ciiiipla.png",
+         "alt": ""
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      },
+      {
+       "label": "Media",
+       "logos": [
+        {
+         "src": "/assets/images/success/recruiters/vogue.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/havas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/dentsu.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/omg.png",
+         "alt": ""
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+       ]
+      },
+      {
+       "label": "Consumer Brands, Retail & Lifestyle",
+       "logos": [
+        {
+         "src": "/assets/images/success/recruiters/reliance.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/relianceeeee.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/tatacliq.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/techmahindfra.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/trentlimtes.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/nykaaaa.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/zooomato.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/mcdddd.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/guuuuccci.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/lodhabro.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/makemytripzz.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/recruiters/pixel.png",
+         "alt": ""
+        },
+        null,
+        null,
+        null,
+        null
+       ]
+      }
+     ],
+     "common": false
+    }
+   ]
+  },
+  {
+   "heading": "Industry Testimonials",
+   "sub": "Hear directly from industry leaders, educators, and changemakers who’ve collaborated with ISME",
+   "inContainer": "tw",
+   "cards": [
+    {
+     "kind": "testimonial",
+     "video": {
+      "sources": [
+       {
+        "src": "/assets/videos/schools/isme/pages/ss-deepak-parekh-transcode.mp4",
+        "type": "video/mp4"
+       },
+       {
+        "src": "/assets/videos/schools/isme/pages/ss-deepak-parekh-transcode.webm",
+        "type": "video/webm"
+       }
+      ],
+      "poster": "/assets/images/schools/isme/pages/ss-deepak-parekh-poster-00001.jpg"
+     },
+     "text": "The diversity of education possibilities ATLAS offers - I don’t see any other institution offering this variety.",
+     "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+     "name": "Deepak Parekh",
+     "course": "Chairman,\nHDFC Bank",
+     "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png",
+     "image": null,
+     "play": null
+    },
+    {
+     "kind": "testimonial",
+     "video": {
+      "sources": [
+       {
+        "src": "/assets/videos/schools/isme/pages/ss-sonal-singh-transcode.mp4",
+        "type": "video/mp4"
+       },
+       {
+        "src": "/assets/videos/schools/isme/pages/ss-sonal-singh-transcode.webm",
+        "type": "video/webm"
+       }
+      ],
+      "poster": "/assets/images/schools/isme/pages/ss-sonal-singh-poster-00001.jpg"
+     },
+     "text": "What stands out is that the stress is there for making sure it's not just academic knowledge.",
+     "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+     "name": "Sonal Singh",
+     "course": "Head of Talent Acquisition, Deutsche Bank",
+     "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png",
+     "image": null,
+     "play": null
+    },
+    {
+     "kind": "testimonial",
+     "video": {
+      "sources": [
+       {
+        "src": "/assets/videos/schools/isme/pages/ss-anant-goenka-transcode.mp4",
+        "type": "video/mp4"
+       },
+       {
+        "src": "/assets/videos/schools/isme/pages/ss-anant-goenka-transcode.webm",
+        "type": "video/webm"
+       }
+      ],
+      "poster": "/assets/images/schools/isme/pages/ss-anant-goenka-poster-00001.jpg"
+     },
+     "text": "I really appreciate the students’ curiosity and discipline, and their knowledge of the organisation.",
+     "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+     "name": "Anant Goenka",
+     "course": "Vice Chair Person ,\nRPG Group",
+     "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png",
+     "image": null,
+     "play": null
+    },
+    {
+     "kind": "testimonial",
+     "video": {
+      "sources": [
+       {
+        "src": "/assets/videos/schools/isme/pages/ss-rochelle-arahana-transcode.mp4",
+        "type": "video/mp4"
+       },
+       {
+        "src": "/assets/videos/schools/isme/pages/ss-rochelle-arahana-transcode.webm",
+        "type": "video/webm"
+       }
+      ],
+      "poster": "/assets/images/schools/isme/pages/ss-rochelle-arahana-poster-00001.jpg"
+     },
+     "text": "There’s so much colour and such a great vibe on campus.The students are so passionate, full of energy, and such brilliant ideas,",
+     "quoteIcon": "/assets/images/schools/isme/home/people/quote-mint.svg",
+     "name": "Rochelle Aranha",
+     "course": "Business Manager,\nMicrosoft",
+     "bgImage": "/assets/images/schools/isdi/internationalisation/events/student-cd-bg.png",
+     "image": null,
+     "play": null
+    }
+   ],
+   "kind": "voices",
+   "headingMods": [
+    "mrg16"
+   ]
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": "Our Career Support Services",
+   "headingMods": [
+    "mrg16"
+   ],
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "sub1",
+     "mods": [
+      "sub-heading-1"
+     ],
+     "text": "At ISME, we believe true learning happens when students are trusted with freedom and guided to use it wisely. We give our students the space to explore, express, and take ownership of their journeys, while instilling a strong sense of accountability, purpose, and respect. It’s not just about independence; it’s about becoming thoughtful and responsible.",
+     "common": false
+    },
+    {
+     "kind": "careerGrid",
+     "isme": true,
+     "common": false,
+     "cards": [
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/css-1.png",
+        "alt": ""
+       },
+       "title": "Portfolio & Resume Development",
+       "text": "On-campus masterclasses and industry interactions with leaders from IBM, Google, Mercedes-Benz, and CXOs like Deepak Parekh and Peyush Bansal."
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/off.png",
+        "alt": ""
+       },
+       "title": "Career\nConnect",
+       "text": "Career Connect 2023 hosted 40+ industry partners and 1200+ interviews, offering students direct access to top on-campus placements."
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/img_9510.png",
+        "alt": ""
+       },
+       "title": "Emerging Career Trends Workshops",
+       "text": "Expert-led sessions on AI, sustainability, and future skills help students explore emerging careers and align with real-world opportunities."
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/capstone-projects-ceat-pro.png",
+        "alt": ""
+       },
+       "title": "Capstones and Internships",
+       "text": "Credit-bearing projects with real impact — from CEAT and HDFC Life to Forbes Marshall."
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/career-services-5.png",
+        "alt": ""
+       },
+       "title": "One-on-One mentoring",
+       "text": "Personalized guidance from faculty and industry experts to help shape your unique career path."
+      },
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/industry-interaction-fal.png",
+        "alt": ""
+       },
+       "title": "Industry\nInteractions",
+       "text": "Learn from industry experts through interactive masterclasses that offer real-world insights, in-demand skills, and problem-solving approaches."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": "The 4-Year Journey to Success",
+   "headingMods": [],
+   "items": [
+    {
+     "kind": "journey",
+     "mods": [
+      "journey-wrapper"
+     ],
+     "cards": [
+      {
+       "year": "1st Year",
+       "chip": "Observership",
+       "duration": {
+        "icon": {
+         "src": "/assets/images/schools/isme/pages/duration.png",
+         "alt": ""
+        },
+        "text": "1 Months"
+       },
+       "desc": "Laying the foundation through immersive observation and understanding of real-world practices.",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/j-success-img.png",
+        "alt": ""
+       }
+      },
+      {
+       "year": "2nd Year",
+       "chip": "Apprenticeship",
+       "duration": {
+        "icon": {
+         "src": "/assets/images/schools/isme/pages/duration.png",
+         "alt": ""
+        },
+        "text": "2 Months"
+       },
+       "desc": "Hands-on learning begins with guided participation under experienced mentors.",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/img_7781.png",
+        "alt": ""
+       }
+      },
+      {
+       "year": "3rd Year",
+       "chip": "Internship",
+       "duration": {
+        "icon": {
+         "src": "/assets/images/schools/isme/pages/duration.png",
+         "alt": ""
+        },
+        "text": "3 Months"
+       },
+       "desc": "Translating skills into action through industry exposure and independent contributions.",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/1p5a5966.png",
+        "alt": ""
+       }
+      }
+     ],
+     "common": false
+    },
+    {
+     "kind": "journeyLarge",
+     "common": false,
+     "year": "4th Year",
+     "chip": "Capstone & Placements or Masters",
+     "desc": "Capstone innovation meets career preparation in the transition from campus to corporate.\nA culmination of learning, leading to real-world roles and future-forward careers.",
+     "images": [
+      {
+       "src": "/assets/images/schools/isme/pages/master-prog-1.png",
+       "alt": ""
+      },
+      {
+       "src": "/assets/images/schools/isme/pages/master-prog-2.png",
+       "alt": ""
+      },
+      {
+       "src": "/assets/images/schools/isme/pages/master-prog-3.png",
+       "alt": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "iconSection",
+   "id": "master-progressions",
+   "icon": "/assets/images/advantages/partnership/cdn/notification.png",
+   "num": null,
+   "title": "Master's Progressions",
+   "wrap": "blue",
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "blue",
+     "mods": [
+      "blue-desc-wrap"
+     ],
+     "textMods": [
+      "blue-desc-text"
+     ],
+     "text": "Through strategic global associations spanning continents, our students gain invaluable exposure via international immersions, student exchanges, and masterclasses. This global learning experience at ATLAS equips students with the insights and confidence to make informed decisions, inspiring them to pursue master’s programs at top-ranked universities and institutions worldwide.",
+     "common": false
+    },
+    {
+     "kind": "swiper",
+     "mods": [
+      "swiper",
+      "common-swiper"
+     ],
+     "cards": [
+      {
+       "kind": "master",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/masters-card-img.png",
+        "alt": ""
+       },
+       "play": {
+        "src": "/assets/images/schools/isme/home/advisory/play-button-isme.png",
+        "alt": ""
+       }
+      },
+      {
+       "kind": "master",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/masters-card-2.png",
+        "alt": ""
+       },
+       "play": {
+        "src": "/assets/images/schools/isme/home/advisory/play-button-isme.png",
+        "alt": ""
+       }
+      },
+      {
+       "kind": "master",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/global1.png",
+        "alt": ""
+       },
+       "play": {
+        "src": "/assets/images/schools/isme/home/advisory/play-button-isme.png",
+        "alt": ""
+       }
+      },
+      {
+       "kind": "master",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/gloabl2.png",
+        "alt": ""
+       },
+       "play": {
+        "src": "/assets/images/schools/isme/home/advisory/play-button-isme.png",
+        "alt": ""
+       }
+      },
+      {
+       "kind": "master",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/global4.png",
+        "alt": ""
+       },
+       "play": {
+        "src": "/assets/images/schools/isme/home/advisory/play-button-isme.png",
+        "alt": ""
+       }
+      }
+     ],
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "gallery",
+   "heading": "Our students at universities around the world",
+   "headingMods": [],
+   "lead": null,
+   "galleryMods": [
+    "h2-tag"
+   ],
+   "cards": [
+    {
+     "image": {
+      "src": "/assets/images/alumni/group-1272631408.png",
+      "alt": ""
+     },
+     "size": null,
+     "name": null,
+     "caption": "NTU",
+     "icon": {
+      "src": "/assets/images/schools/isme/pages/location-1-.svg",
+      "alt": ""
+     }
+    },
+    {
+     "image": {
+      "src": "/assets/images/alumni/group-1272631409.png",
+      "alt": ""
+     },
+     "size": "g-card-2",
+     "name": null,
+     "caption": "Babson",
+     "icon": {
+      "src": "/assets/images/schools/isme/pages/location-1-.svg",
+      "alt": ""
+     }
+    },
+    {
+     "image": {
+      "src": "/assets/images/alumni/group-1272631410.png",
+      "alt": ""
+     },
+     "size": "grid-card-3",
+     "name": null,
+     "caption": "University of Oxford",
+     "icon": {
+      "src": "/assets/images/schools/isme/pages/location-1-.svg",
+      "alt": ""
+     }
+    },
+    {
+     "image": {
+      "src": "/assets/images/alumni/group-1272631416.png",
+      "alt": ""
+     },
+     "size": "grid-card-4",
+     "name": null,
+     "caption": "King’s College",
+     "icon": {
+      "src": "/assets/images/schools/isme/pages/location-1-.svg",
+      "alt": ""
+     }
+    },
+    {
+     "image": {
+      "src": "/assets/images/alumni/group-1272631412.png",
+      "alt": ""
+     },
+     "size": "grid-card-5",
+     "name": null,
+     "caption": "NYU",
+     "icon": {
+      "src": "/assets/images/schools/isme/pages/location-1-.svg",
+      "alt": ""
+     }
+    },
+    {
+     "image": {
+      "src": "/assets/images/schools/isme/home/future/yashvi-shaha-small.png",
+      "alt": ""
+     },
+     "size": "g-card-6",
+     "name": null,
+     "caption": "Columbia University",
+     "icon": {
+      "src": "/assets/images/schools/isme/pages/location-1-.svg",
+      "alt": ""
+     }
+    },
+    {
+     "image": {
+      "src": "/assets/images/alumni/group-1272631414.png",
+      "alt": ""
+     },
+     "size": "grid-card-7",
+     "name": null,
+     "caption": "Loughborough University",
+     "icon": {
+      "src": "/assets/images/schools/isme/pages/location-1-.svg",
+      "alt": ""
+     }
+    },
+    {
+     "image": {
+      "src": "/assets/images/schools/isme/pages/nishi-jain-ucl-1.png",
+      "alt": ""
+     },
+     "size": "grid-card-8",
+     "name": null,
+     "caption": "UCL",
+     "icon": {
+      "src": "/assets/images/schools/isme/pages/location-1-.svg",
+      "alt": ""
+     }
+    }
+   ],
+   "captionKind": "title-txt-grid3",
+   "wrapRow": true
+  },
+  {
+   "kind": "plainSection",
+   "id": "w-node-_98429547-31e6-e05b-b397-96e23a88eb73-2f6c7a22",
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": "Global University Collaborations",
+   "headingMods": [
+    "mrg16"
+   ],
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "sub",
+     "mods": [
+      "sub-heading",
+      "mrgbtm"
+     ],
+     "text": "MOUs with top universities open doors for our students to world-class opportunities.",
+     "common": false
+    },
+    {
+     "kind": "logoTabs",
+     "menuMods": [],
+     "tabs": [
+      {
+       "label": "United Kingdom",
+       "logos": [
+        {
+         "src": "/assets/images/success/partners/lseuk.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/kingsatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/bristolatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/ualatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/ualatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/bathatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/exeteratlass.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/southhamptonatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/birbeckuniversityatlass.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/nottinghamatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/usatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/sheffieldatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/readinguniversityatls.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/regentsatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/universityatlass.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/cityatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/goldsmithsatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/londonsouthbankatlas.png",
+         "alt": "",
+         "srcSet": "/assets/images/success/partners/londonsouthbankatlas-p-500.png 500w, /assets/images/success/partners/londonsouthbankatlas.png 734w",
+         "sizes": "(max-width: 479px) 100vw, 231.421875px"
+        },
+        {
+         "src": "/assets/images/success/partners/artsatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/leedsatlas.jpg",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/sunderlandatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/teesideatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/canterburyatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/keeleatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/aberatlas.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/cityatlasuni.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/richmondatlass.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        }
+       ]
+      },
+      {
+       "label": "USA",
+       "logos": [
+        {
+         "src": "/assets/images/success/partners/parsonsatlasss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/nyuatlasss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/babsonatlas12345.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/santaclaraatlassssss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/brandeisatlasss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/seattleuniatlasss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/paceuniatlassss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/goldenuniatlasss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/setonatlasatlass.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/nuatlassss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/nyfaatlass.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/creativetalasssssw.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/saintpetersatlass.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/seaatlasss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/richmondatlassss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        }
+       ]
+      },
+      {
+       "label": "Europe",
+       "logos": [
+        {
+         "src": "/assets/images/success/partners/domusatlasssuni.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/audenciaatlasss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/ecoleatlasss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/ifatalasss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/iebusinessatlassss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/enaeatlasss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/windatlasss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        }
+       ]
+      },
+      {
+       "label": "Australia",
+       "logos": [
+        {
+         "src": "/assets/images/success/partners/rmitatlasss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/griffithatlasss.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/curtinatlassss2.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        }
+       ]
+      },
+      {
+       "label": "Other Global Partners",
+       "logos": [
+        {
+         "src": "/assets/images/success/partners/image-1454.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/image-1455.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/image-1456.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/image-1457.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/image-1458.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/image-1460.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/image-1459.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        },
+        {
+         "src": "/assets/images/success/partners/screenshot-2025-11-10-at-4.52.04-pm.png",
+         "alt": ""
+        }
+       ]
+      }
+     ],
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": null,
+   "headingMods": [],
+   "items": [
+    {
+     "kind": "headRow",
+     "mods": [
+      "head-wrap",
+      "mrgbtm"
+     ],
+     "heading": "From ATLAS ISME to the World's Best Universities",
+     "headingMods": [
+      "h2-tag",
+      "mrg16"
+     ],
+     "sub": "Create impact across industries and communities worldwide",
+     "button": null,
+     "common": false
+    },
+    {
+     "kind": "transferMarquee",
+     "common": false,
+     "cards": [
+      {
+       "kind": "transfer",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/transfer-img-1.png",
+        "alt": ""
+       },
+       "name": "Rayan Dalal",
+       "degree": "Msc in Finance",
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/cambridge-uni.png",
+        "alt": ""
+       },
+       "logoKind": "bare"
+      },
+      {
+       "kind": "transfer",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/yash-dandavate,-london-business-schoo;.png",
+        "alt": ""
+       },
+       "name": "Yash Dandavate",
+       "degree": "Masters in Management",
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/ls-bf.png",
+        "alt": ""
+       },
+       "logoKind": "bare"
+      },
+      {
+       "kind": "transfer",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/tanaisha-parabia,-imperial-college-london.png",
+        "alt": ""
+       },
+       "name": "Tanaisha Parabia",
+       "degree": "MSc Strategic Thinking",
+       "logo": {
+        "src": "/assets/images/schools/isdi/internationalisation/masters/imperial-college-london5190-1.png",
+        "alt": ""
+       },
+       "logoKind": "bare"
+      },
+      {
+       "kind": "transfer",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/nainika-patwari-nyu.png",
+        "alt": ""
+       },
+       "name": "Nainika Patwari",
+       "degree": "MSc Strategic Thinking",
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/imperial-college-london5190-1-1.png",
+        "alt": ""
+       },
+       "logoKind": "bare"
+      },
+      {
+       "kind": "transfer",
+       "image": {
+        "src": "/assets/images/success/progressions/atharva-haldankar.jpg",
+        "alt": "",
+        "srcSet": "/assets/images/success/progressions/atharva-haldankar-p-500.jpg 500w, /assets/images/success/progressions/atharva-haldankar-p-800.jpg 800w, /assets/images/success/progressions/atharva-haldankar-p-1080.jpg 1080w, /assets/images/success/progressions/atharva-haldankar-p-1600.jpg 1600w, /assets/images/success/progressions/atharva-haldankar-p-2000.jpg 2000w, /assets/images/success/progressions/atharva-haldankar-p-2600.jpg 2600w, /assets/images/success/progressions/atharva-haldankar-p-3200.jpg 3200w, /assets/images/success/progressions/atharva-haldankar.jpg 3840w",
+        "sizes": "(max-width: 3840px) 100vw, 3840px"
+       },
+       "name": "Atharva Haldankar",
+       "degree": "Msc in Corporate Finance",
+       "logo": {
+        "src": "/assets/images/success/progressions/henley-business-school.png",
+        "alt": ""
+       },
+       "logoKind": "sized"
+      },
+      {
+       "kind": "transfer",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/ritika-mansinghka.png",
+        "alt": ""
+       },
+       "name": "Ritika Mansinghka",
+       "degree": "Masters in International Marketing",
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/rs9327_lbs_standard_logo_rgb_aw-hpr-2-1.png",
+        "alt": ""
+       },
+       "logoKind": "bare"
+      },
+      {
+       "kind": "transfer",
+       "image": {
+        "src": "/assets/images/success/progressions/deepika-pareek.png",
+        "alt": ""
+       },
+       "name": "Deepika Pareek",
+       "degree": "MSc International Marketing Management",
+       "logo": {
+        "src": "/assets/images/success/progressions/icl-logo.png",
+        "alt": ""
+       },
+       "logoKind": "bare"
+      },
+      {
+       "kind": "transfer",
+       "image": {
+        "src": "/assets/images/success/progressions/transfer-img-4.png",
+        "alt": ""
+       },
+       "name": "Nainika Patwari",
+       "degree": "Msc Strategic Thinking",
+       "logo": {
+        "src": "/assets/images/success/progressions/ny-univ-logo.png",
+        "alt": ""
+       },
+       "logoKind": "bare"
+      },
+      {
+       "kind": "transfer",
+       "image": {
+        "src": "/assets/images/success/progressions/drishti-dhungr.png",
+        "alt": ""
+       },
+       "name": "Drushti Dhingra",
+       "degree": "MSc Marketing",
+       "logo": {
+        "src": "/assets/images/success/progressions/uni-of-bath.png",
+        "alt": ""
+       },
+       "logoKind": "bare"
+      },
+      {
+       "kind": "transfer",
+       "image": {
+        "src": "/assets/images/success/progressions/devina-agrawal.png",
+        "alt": ""
+       },
+       "name": "Devina Agrawal",
+       "degree": "MSc Marketing and Strategy",
+       "logo": {
+        "src": "/assets/images/success/progressions/ny-univ-logo.png",
+        "alt": ""
+       },
+       "logoKind": "bare"
+      },
+      {
+       "kind": "transfer",
+       "image": {
+        "src": "/assets/images/success/progressions/utkarsh-kejriwal.png",
+        "alt": ""
+       },
+       "name": "Rayan Dalal",
+       "degree": "Masters in Business Analysis and Strategic Management",
+       "logo": {
+        "src": "/assets/images/success/progressions/manchester.png",
+        "alt": ""
+       },
+       "logoKind": "sized"
+      },
+      {
+       "kind": "transfer",
+       "image": {
+        "src": "/assets/images/success/progressions/krishi-gada.png",
+        "alt": ""
+       },
+       "name": "Krishi Gada",
+       "degree": "MA Business and Finance",
+       "logo": {
+        "src": "/assets/images/success/progressions/regents.png",
+        "alt": ""
+       },
+       "logoKind": "bare"
+      },
+      {
+       "kind": "transfer",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/khushi-hinduja.png",
+        "alt": ""
+       },
+       "name": "Khushi Hinduja",
+       "degree": "MSc Management",
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/imperial-college-london5190-1-5.png",
+        "alt": ""
+       },
+       "logoKind": "bare"
+      },
+      {
+       "kind": "transfer",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/harvansh-chadha.png",
+        "alt": ""
+       },
+       "name": "Harvansh Chadha",
+       "degree": "MSc Finance",
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/schulich.png",
+        "alt": ""
+       },
+       "logoKind": "bare"
+      },
+      {
+       "kind": "transfer",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/aditya-madnani.png",
+        "alt": ""
+       },
+       "name": "Aditya Madnani",
+       "degree": "Msc Social Innovation and Entrepreneurship Management",
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/imperial-college-london5190-1-8.png",
+        "alt": ""
+       },
+       "logoKind": "bare"
+      }
+     ],
+     "bleed": true
+    }
+   ]
+  },
+  {
+   "kind": "iconSection",
+   "id": "patent",
+   "icon": "/assets/images/advantages/partnership/cdn/notification.png",
+   "num": null,
+   "title": "Patents & Publications",
+   "wrap": "blue",
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "blue",
+     "mods": [
+      "blue-desc-wrap"
+     ],
+     "textMods": [
+      "blue-desc-text"
+     ],
+     "text": "ATLAS’s Student Research and Development Cell (SRDC), is a dynamic and vibrant platform within our university that empowers students to explore, innovate, and contribute to the world of research and development. SRDC serves as a catalyst for fostering a culture of curiosity, critical thinking, and hands-on learning among students.",
+     "common": false
+    },
+    {
+     "kind": "swiper",
+     "mods": [
+      "swiper",
+      "common-swiper"
+     ],
+     "cards": [
+      {
+       "kind": "patent",
+       "title": "Modular Garment Hanging Device",
+       "number": "Patent No. 98674501",
+       "holder": "Chirag Gupta, Siddharth, Fernandes Shabahat, Nagori Moksha, Aujga, Palak Keshri",
+       "batch": "MBA Class of 2022",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/patent-1.png",
+        "alt": ""
+       },
+       "wash": "/assets/images/schools/isdi/advantage/research/vector-patent.png"
+      },
+      {
+       "kind": "patent",
+       "title": "Recycled Pen Manufacturing System",
+       "number": "Patent No. 98674501",
+       "holder": "Siddhi Dharne, Abhishek Majumdar, Ronak Bhansali, Diya Ranka",
+       "batch": "MBA Class of 2022",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/patent-2.png",
+        "alt": ""
+       },
+       "wash": "/assets/images/schools/isdi/advantage/research/vector-patent.png"
+      },
+      {
+       "kind": "patent",
+       "title": "Automated Cardboard Recycling-Enabled Decorative Articles Manufacturing Device",
+       "number": "Patent No. 98674501",
+       "holder": "Riddhi Thakkar, Samad Sodawala, Yashfeen Bukhari",
+       "batch": "MBA Class of 2022",
+       "image": {
+        "src": "/assets/images/schools/isme/pages/patent-3.png",
+        "alt": ""
+       },
+       "wash": "/assets/images/schools/isdi/advantage/research/vector-patent.png"
+      }
+     ],
+     "common": false
+    }
+   ],
+   "after": [
+    {
+     "kind": "stats",
+     "common": false,
+     "cards": [
+      {
+       "tone": "bg6",
+       "label": "Patents",
+       "value": "150+",
+       "note": null,
+       "labelKind": "isme-2"
+      },
+      {
+       "tone": "bg7",
+       "label": "Publications",
+       "value": "Across 10+ Nations",
+       "note": null,
+       "labelKind": "isme-2"
+      }
+     ],
+     "padBottom": false,
+     "patentWrap": true,
+     "padTop": true
+    }
+   ],
+   "wrapPad0": true
+  },
+  {
+   "kind": "plainSection",
+   "id": null,
+   "extraspace": false,
+   "sectionMods": [],
+   "heading": null,
+   "headingMods": [],
+   "items": [
+    {
+     "kind": "headRow",
+     "mods": [
+      "head-wrap",
+      "mrgbtm"
+     ],
+     "heading": "Publications & Research Papers",
+     "headingMods": [
+      "h2-tag",
+      "mrg16"
+     ],
+     "sub": "See how real projects shape future business leaders.",
+     "button": {
+      "label": "View All",
+      "href": "/schools/isme/publications-research-and-thought-leadership",
+      "mobileIco": false
+     },
+     "common": false
+    },
+    {
+     "kind": "pubs",
+     "common": false,
+     "cards": [
+      {
+       "logo": {
+        "src": "/assets/images/success/research/image-1189-3.png",
+        "alt": ""
+       },
+       "impactFactorLabel": "Impact Factor",
+       "impactPoint": "8.15",
+       "title": "The Impact of Russia Ukraine War on the Global Economy",
+       "authorLabel": "Author:",
+       "author": "Joshua Dsouza",
+       "coAuthorLabel": "Co-Author :",
+       "coAuthors": "Dr. Varsha Agarwal",
+       "subtitle": "International Journal of Scientific Development and Research",
+       "volumeLabel": "Volume:",
+       "volume": "7",
+       "issueLabel": "Issue:",
+       "issue": "11",
+       "pagesLabel": "Pages:",
+       "pages": "1-7",
+       "date": "November, 2022",
+       "issnLabel": "ISSN:",
+       "issn": "2455-2631",
+       "href": "https://www.ijsdr.org/viewpaperforall.php?paper=IJSDR2211157"
+      },
+      {
+       "logo": {
+        "src": "/assets/images/success/research/international-journal-of-advance-research-ideas-and-innovations-in-technology.png",
+        "alt": ""
+       },
+       "impactFactorLabel": "Impact Factor",
+       "impactPoint": "6.0",
+       "title": "A Study on the Value of promotion in the telecom industry of India",
+       "authorLabel": "Author:",
+       "author": "Aryan Patel",
+       "coAuthorLabel": "Co-Author :",
+       "coAuthors": "Krish Shah, Gaurav Bagaria, Chaitanya Ameser, Arnav Goyal, Dr. Varsha Agarwal",
+       "subtitle": "International Journal of Advance Research, Ideas and Innovations in Technology",
+       "volumeLabel": "Volume:",
+       "volume": "8",
+       "issueLabel": "Issue:",
+       "issue": "5",
+       "pagesLabel": "Pages:",
+       "pages": "260-265",
+       "date": "November, 2022",
+       "issnLabel": "ISSN:",
+       "issn": "2454-132X",
+       "href": "https://www.ijariit.com/editions/volume-8-issue-5/"
+      },
+      {
+       "logo": {
+        "src": "/assets/images/success/research/international-journal-of-advance-research-ideas-and-innovations-in-technology.png",
+        "alt": ""
+       },
+       "impactFactorLabel": "Impact Factor",
+       "impactPoint": "6.0",
+       "title": "A Study on negative impact of advertisement on children",
+       "authorLabel": "Author:",
+       "author": "Saniya Thombre",
+       "coAuthorLabel": "Co-Author :",
+       "coAuthors": "Shirin Badlawala, Mansha Dedhia, Dr. Varsha Agarwal",
+       "subtitle": "International Journal of Advance Research, Ideas and Innovations in Technology",
+       "volumeLabel": "Volume:",
+       "volume": "4",
+       "issueLabel": "Issue:",
+       "issue": "6",
+       "pagesLabel": "Pages:",
+       "pages": "276-280",
+       "date": "November, 2022",
+       "issnLabel": "ISSN:",
+       "issn": "2454-132X",
+       "href": "https://www.ijariit.com/editions/volume-8-issue-5/"
+      },
+      {
+       "logo": {
+        "src": "/assets/images/schools/isme/pages/publication5.png",
+        "alt": ""
+       },
+       "impactFactorLabel": "Impact Factor",
+       "impactPoint": "7.9",
+       "title": "Analysis of Social Media Marketing Impact on Consumer Behavior",
+       "authorLabel": "Author:",
+       "author": "Anagha Nair",
+       "coAuthorLabel": "Co-Author :",
+       "coAuthors": "Riya Deshpande, Vanshika Aswani, Wayur Shukla, Ansh Jadhav, Dr. Varsha Agarwal",
+       "subtitle": "Journal of Emerging Technologies and innovative Research",
+       "volumeLabel": "Volume:",
+       "volume": "9",
+       "issueLabel": "Issue:",
+       "issue": "11",
+       "pagesLabel": "Pages:",
+       "pages": "f1488-f156",
+       "date": "November, 2022",
+       "issnLabel": "ISSN:",
+       "issn": "2349-5162",
+       "href": "https://www.scirp.org/journal/paperinformation?paperid=133258"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "iconSection",
+   "id": "awards",
+   "icon": "/assets/images/schools/isme/pages/essential-green.svg",
+   "num": null,
+   "title": "Awards & Recognitions",
+   "wrap": "blue",
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "blue",
+     "mods": [
+      "blue-desc-wrap"
+     ],
+     "textMods": [
+      "blue-desc-text"
+     ],
+     "text": "Excellence isn’t a milestone—it’s a mindset. Our students and faculty consistently earn recognition on national and international platforms for innovation, leadership, and impact. From winning global business competitions to securing prestigious scholarships and industry accolades, every achievement reflects the culture of ambition and excellence that defines ISME. These honors aren’t just trophies—they’re testaments to the transformative education and drive that power our community forward.",
+     "common": false
+    },
+    {
+     "kind": "galleryInline",
+     "bare": true,
+     "wrapMods": [],
+     "galleryMods": [],
+     "cards": [
+      {
+       "image": {
+        "src": "/assets/images/schools/isme/pages/nishika-kambli--stellar-student-award-2021.png",
+        "alt": ""
+       },
+       "size": "g-card-1",
+       "name": "Nishika Kambli",
+       "caption": "Stellar Student Award 2021"
+      },
+      {
+       "image": {
+        "src": "/assets/images/about/spotlight/achievers-awards-2022-winner.png",
+        "alt": ""
+       },
+       "size": "g-card-2",
+       "name": "Achievers Award",
+       "caption": "2022 Winners"
+      },
+      {
+       "image": {
+        "src": "/assets/images/about/spotlight/mahek-nayak-maharashtra-state-games-24.png",
+        "alt": ""
+       },
+       "size": "grid-card-3",
+       "name": "Mahek Nayak",
+       "caption": "Maharashtra State Games"
+      },
+      {
+       "image": {
+        "src": "/assets/images/about/spotlight/cyberstrike-winners.png",
+        "alt": ""
+       },
+       "size": "grid-card-4",
+       "name": "Cyberstrike Fest",
+       "caption": "2024 Winner"
+      },
+      {
+       "image": {
+        "src": "/assets/images/about/spotlight/team-rodeo.png",
+        "alt": ""
+       },
+       "size": "grid-card-5",
+       "name": "Team Rodeo",
+       "caption": "Gold Medal in ATLAS Footsal"
+      },
+      {
+       "image": {
+        "src": "/assets/images/about/spotlight/diya-basu.png",
+        "alt": ""
+       },
+       "size": "g-card-6",
+       "name": "Diya Basu",
+       "caption": "Miss Maharashtra"
+      },
+      {
+       "image": {
+        "src": "/assets/images/about/spotlight/siddhi-nitin-deo-hats-off-award.png",
+        "alt": ""
+       },
+       "size": "grid-card-7",
+       "name": "Siddhi Nitin Deo",
+       "caption": "Hats Off Award"
+      },
+      {
+       "image": {
+        "src": "/assets/images/about/spotlight/prachi-legacy-award.png",
+        "alt": ""
+       },
+       "size": "grid-card-8",
+       "name": "Prachi",
+       "caption": "Legacy Award"
+      }
+     ],
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "iconSection",
+   "id": "spotlight",
+   "icon": "/assets/images/schools/isme/pages/search-big.svg",
+   "num": null,
+   "title": "Student Spotlight",
+   "wrap": "blue",
+   "items": [
+    {
+     "kind": "lead",
+     "tone": "blue",
+     "mods": [
+      "blue-desc-wrap"
+     ],
+     "textMods": [
+      "blue-desc-text"
+     ],
+     "text": "Our students are the changemakers of today and the leaders of tomorrow. Whether launching disruptive startups, acing international case competitions, or interning with top global firms, they embody innovation, resilience, and purpose. The Student Spotlight celebrates these trailblazers—highlighting journeys that inspire, achievements that matter, and the bold spirit that sets ISME students apart in every field they choose to lead.",
+     "common": false
+    },
+    {
+     "kind": "spotlightImage",
+     "image": {
+      "src": "/assets/images/schools/isme/pages/super-squad-1.webp",
+      "alt": "",
+      "srcSet": "/assets/images/schools/isme/pages/super-squad-1-p-500.webp 500w, /assets/images/schools/isme/pages/super-squad-1-p-800.webp 800w, /assets/images/schools/isme/pages/super-squad-1-p-1080.webp 1080w, /assets/images/schools/isme/pages/super-squad-1.webp 1366w",
+      "sizes": "(max-width: 1366px) 100vw, 1366px"
+     },
+     "common": false
+    }
+   ]
+  },
+  {
+   "kind": "search",
+   "id": null
+  },
+  {
+   "heading": "Questions? We can read your mind",
+   "items": [
+    {
+     "q": "What Programs are offered at ATLAS ISME?",
+     "a": [
+      [
+       {
+        "strong": "ATLAS ISME is a reputed institution that is known for its distinct teaching methods. We are UGC recognised and offer the following specialised undergraduate programs:"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "BBA / BBA Hons. (With Majors & Minors)"
+         }
+        ],
+        [
+         {
+          "strong": "BBA / BBA (Hons.) Majoring in Marketing"
+         }
+        ],
+        [
+         {
+          "strong": "BBA / BBA (Hons.) Majoring in Finance"
+         }
+        ],
+        [
+         {
+          "strong": "BBA / BBA (Hons.) Majoring in Business Analytics"
+         }
+        ],
+        [
+         {
+          "strong": "BBA / BBA (Hons.) Majoring in Digital Branding & Advertising"
+         }
+        ],
+        [
+         {
+          "strong": "BBA / BBA (Hons.) Majoring in AI & Emerging Technologies"
+         }
+        ],
+        [
+         {
+          "strong": "BBA / BBA (Hons.) Majoring in Business Psychology"
+         }
+        ],
+        [
+         {
+          "strong": "BBA / BBA (Hons.) International Accounting and Finance"
+         }
+        ],
+        [
+         {
+          "strong": "B.Sc Hons. in Finance"
+         }
+        ],
+        [
+         {
+          "strong": "B.Sc Hons. in Economics & Data Analytics"
+         }
+        ]
+       ]
+      },
+      [
+       {
+        "strong": "These are 4-year programs that are taught by experts and include global immersions and equip students with the skills required for the industry."
+       }
+      ],
+      [
+       {
+        "strong": "Please note we do not offer any diploma courses or standalone certificate courses."
+       }
+      ]
+     ]
+    },
+    {
+     "q": "ATLAS ISME program equips you to become a future-ready leader with:",
+     "a": [
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Multidisciplinary Education for a dynamic business world."
+         }
+        ],
+        [
+         {
+          "strong": "Entrepreneurial Skills to thrive in any industry."
+         }
+        ],
+        [
+         {
+          "strong": "International Exposure for a global perspective."
+         }
+        ],
+        [
+         {
+          "strong": "Industry-Focused Education through exclusive masterclasses and industry visits by top professionals."
+         }
+        ],
+        [
+         {
+          "strong": "Tech-Integrated Learning to prepare you for a digital-first business environment."
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "q": "Is ATLAS ISME UGC?certified?",
+     "a": [
+      [
+       {
+        "strong": "Yes, all the programs at ATLAS ISME are UGC-recognised."
+       }
+      ],
+      [
+       {
+        "strong": "ATLAS SkillTech University is recognised by the University Grants Commission (UGC)."
+       }
+      ],
+      [
+       {
+        "strong": "It was established by an Act of the Maharashtra State Legislature and is recognised under Section 2(f) of the UGC Act, 1956. Furthermore, it is also a member of the Association of Indian Universities (AIU)."
+       }
+      ]
+     ]
+    },
+    {
+     "q": "What is the Multidisciplinary Approach at ATLAS ISME?",
+     "a": [
+      [
+       {
+        "strong": "Design thinking, creativity and technological innovation is what fuels our Multidisciplinary Approach at ATLAS ISME"
+       }
+      ],
+      [
+       {
+        "strong": "Rooted in interdisciplinary skill development, our business programs, bolstered by a tech-integrated campus, offer every learner the unique opportunity to pursue diverse interests."
+       }
+      ],
+      [
+       {
+        "strong": "At ATLAS ISME, we always ensure flexibility. Our main focus is for students to explore diverse interests and broaden their horizons by taking carefully curated electives in areas like fashion design, AI & machine learning, and VFX, even alongside a business degree. This flexibility is key to developing well-rounded, future-ready professionals."
+       }
+      ]
+     ]
+    },
+    {
+     "q": "Do ATLAS ISME really provide industry immersions?",
+     "a": [
+      [
+       {
+        "strong": "ATLAS ISME School of Management & Entrepreneurship works intricately with the dynamic business industry bustling right outside the campus gates to create unmatched opportunities like masterclasses, global and rural immersions, internships, industry mentorship and visiting faculty sessions that put our students on the global map."
+       }
+      ],
+      [
+       {
+        "strong": "Our boundary-pushing management courses boast an industry-recognised curriculum, backed by global standards of business practice, designed to help students develop critical Industry 4.0 skills and make an unforgettable mark on the international stage."
+       }
+      ]
+     ]
+    },
+    {
+     "q": "What are the top career opportunities after a BBA from ATLAS ISME ?",
+     "a": [
+      [
+       {
+        "strong": "A BBA / BBA(Hons.) program opens doors to many opportunities such as"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Marketing Executive/Manager"
+         }
+        ],
+        [
+         {
+          "strong": "Startup Founder/Entrepreneur,"
+         }
+        ],
+        [
+         {
+          "strong": "Financial Analyst"
+         }
+        ],
+        [
+         {
+          "strong": "Business Analyst"
+         }
+        ],
+        [
+         {
+          "strong": "Product Manager"
+         }
+        ],
+        [
+         {
+          "strong": "Credit Analysts"
+         }
+        ],
+        [
+         {
+          "strong": "Business Development Manager"
+         }
+        ],
+        [
+         {
+          "strong": "Data Analyst"
+         }
+        ],
+        [
+         {
+          "strong": "Management Trainee"
+         }
+        ],
+        [
+         {
+          "strong": "Portfolio Manager"
+         }
+        ],
+        [
+         {
+          "strong": "Investment Banker etc."
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "q": "What are the top career opportunities after a BSC in Finance from ATLAS ISME ?",
+     "a": [
+      [
+       {
+        "strong": "After completing a BSc in Finance from ATLAS ISME, students can pursue any of these top career opportunities:"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Financial Analyst"
+         }
+        ],
+        [
+         {
+          "strong": "Investment Banker"
+         }
+        ],
+        [
+         {
+          "strong": "Corporate Finance"
+         }
+        ],
+        [
+         {
+          "strong": "Wealth Management"
+         }
+        ],
+        [
+         {
+          "strong": "Risk Management"
+         }
+        ],
+        [
+         {
+          "strong": "Mutual Fund Analyst"
+         }
+        ],
+        [
+         {
+          "strong": "Economic Research Analyst"
+         }
+        ],
+        [
+         {
+          "strong": "Mergers & Acquisitions (M&A) Analyst etc."
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "q": "How are ATLAS ISME future-focused programs, like BBA in Digital Branding or AI & Emerging Tech, different from a traditional BBA degree?",
+     "a": [
+      [
+       {
+        "strong": "Our BBA programs are future-focused, with an emphasis on digital branding or AI and emerging tech, which stands out from traditional BBA degrees. We offer:"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Industry-endorsed curriculum: Integrating cutting-edge tools and market-relevant skills, it prepares students for the AI-powered economy."
+         }
+        ]
+       ]
+      },
+      [
+       {
+        "strong": "Specialised focus: Unlike broad, traditional BBAs, we focus on sharpening skills that are market-relevant and equipping students with applicable skills for specific industry roles through the program."
+       }
+      ]
+     ]
+    },
+    {
+     "q": "What kinds of real-world simulations and decision-making scenarios are included in the ATLAS ISME academic curriculum?",
+     "a": [
+      [
+       {
+        "strong": "ATLAS ISME offers a rich array of real-world simulations and decision-making scenarios integrated into the academic curriculum. We are renowned for:"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Case studies: ATLAS ISME extensively utilises current and complex cases from various industries."
+         }
+        ],
+        [
+         {
+          "strong": "Business simulations: Leveraging advanced business simulation tools, we are able to replicate dynamic market environments, allowing students to experience the immediate consequences of their choices in a risk-free setting."
+         }
+        ],
+        [
+         {
+          "strong": "Live projects: The program mandates participation in live industry projects and corporate immersions."
+         }
+        ]
+       ]
+      },
+      [
+       {
+        "strong": "ATLAS electives: ATLAS electives focus on ensuring students can gain immense learning from structured debates on contemporary business dilemmas, enhancing critical thinking."
+       }
+      ]
+     ]
+    },
+    {
+     "q": "Can ATLAS ISME undergraduate students launch real startups while earning credits, and how do these ventures receive support?",
+     "a": [
+      [
+       {
+        "strong": "ATLAS ISME focuses on equipping students with entrepreneurial skills. The curriculum enables students to prepare for real VC pitches and explore startup ideas. The faculty assists students with building and launching ventures. We distinguish ourselves from other reputable institutions by offering"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Credit-bearing ventures"
+         }
+        ],
+        [
+         {
+          "strong": "Structured curriculum"
+         }
+        ],
+        [
+         {
+          "strong": "Real-world application"
+         }
+        ],
+        [
+         {
+          "strong": "Incubation support and mentorship"
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "q": "Do ATLAS ISME offer experiential learning? What is the teaching methodology at ATLAS ISME?",
+     "a": [
+      [
+       {
+        "strong": "Yes, ATLAS ISME follows an experiential, industry-integrated teaching methodology."
+       }
+      ],
+      {
+       "list": "ol",
+       "items": [
+        [
+         {
+          "strong": "Inside the classroom learning at ATLAS ISME"
+         }
+        ]
+       ]
+      },
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Case Studies"
+         }
+        ],
+        [
+         {
+          "strong": "Discussions & Debates"
+         }
+        ],
+        [
+         {
+          "strong": "Academic Articles"
+         }
+        ],
+        [
+         {
+          "strong": "Text-Book References"
+         }
+        ],
+        [
+         {
+          "strong": "Industry Notes"
+         }
+        ]
+       ]
+      },
+      {
+       "list": "ol",
+       "items": [
+        [
+         {
+          "strong": "Outside the classroom learning"
+         }
+        ]
+       ]
+      },
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Industry Integration"
+         }
+        ],
+        [
+         {
+          "strong": "Industry Immersions & Visits"
+         }
+        ],
+        [
+         {
+          "strong": "Internships"
+         }
+        ],
+        [
+         {
+          "strong": "CXO Masterclasses"
+         }
+        ],
+        [
+         {
+          "strong": "Mentorship"
+         }
+        ],
+        [
+         {
+          "strong": "Live Projects"
+         }
+        ],
+        [
+         {
+          "strong": "Extra Curriculars Sports Clubs"
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "q": "What is the eligibility criteria for the BBA programs at ATLAS ISME?",
+     "a": [
+      [
+       {
+        "strong": "Candidates currently in their 12th grade & will be appearing for a 10 + 2 examination (e.g.: CBSE, HSC, IGCSE- A levels, IBDP, ISC etc.), or its educational equivalent in any discipline (e.g.: Commerce, Science, Arts) are eligible to apply"
+       }
+      ],
+      [
+       {
+        "strong": "Or"
+       }
+      ],
+      [
+       {
+        "strong": "have passed their 10+2 (or equivalent) examination in any discipline from a recognised board are eligible for the BBA program at ATLAS ."
+       }
+      ],
+      [
+       {
+        "strong": "Accepted Education Boards & Qualifications"
+       }
+      ],
+      [
+       {
+        "strong": "Central Board of Secondary Education (CBSE) / State Board / Council for the Indian School Certificate Examinations (CISCE) / National Institute of Open Schooling (NIOS) – 10+2 IB Diploma/ IB Certificate/ IB CP with minimum 3 Higher Level and 3 Standard Level subjects mandatory with a minimum of 24 points – 10+2 Cambridge Board – Minimum 2 subjects"
+       }
+      ],
+      [
+       {
+        "strong": "Note – Students from IGCSE board for class X must have cleared minimum 5 subjects"
+       }
+      ],
+      [
+       {
+        "strong": "Minimum Academic Requirements:"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Minimum 50% in Class 12 (ISC/CBSE/ State Boards)"
+         }
+        ]
+       ]
+      },
+      [
+       {
+        "strong": "OR"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "IB Diploma/Certificate with 24 points (3 HL + 3 SL subjects)"
+         }
+        ],
+        [
+         {
+          "strong": "A Levels: Minimum grades A/B/C in 2 subjects"
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "q": "What is the eligibility criteria for the Bsc. Business programs at ATLAS ISME?",
+     "a": [
+      [
+       {
+        "strong": "In order to be eligible for the ATLAS ISME’s Bsc Finance program candidates need to have completed their 10+2 (or equivalent) from a recognised board with a minimum of 60% in their previous exams. Math is a mandatory subject for this program."
+       }
+      ],
+      [
+       {
+        "strong": "Minimum Academic Requirements:"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Minimum Percentage: A minimum of 60% marks is required in the 10+2 exams."
+         }
+        ],
+        [
+         {
+          "strong": "Compulsory Subject: Mathematics is a mandatory subject for the B.Sc. Finance program."
+         }
+        ],
+        [
+         {
+          "strong": "Streams Accepted: Candidates from various disciplines (Science, Commerce, Arts) are eligible to apply, as long as they have completed their 10+2 with the required percentage."
+         }
+        ],
+        [
+         {
+          "strong": "Recognised Boards: Candidates can apply from various boards including CBSE, ISC, HSC, IBDP, IGCSE (A levels), and others."
+         }
+        ]
+       ]
+      },
+      [
+       {
+        "strong": "Please note the selection process for admission is based on a combination of an aptitude test and a personal interview."
+       }
+      ]
+     ]
+    },
+    {
+     "q": "What is the eligibility criteria for the MBA programs at ATLAS ISME?",
+     "a": [
+      [
+       {
+        "strong": "For the Postgraduate Program (MBA), students who have completed a minimum of a three-year graduate program or are currently in the final year of their graduate program in any discipline from any University recognised by the Association of Indian Universities (AIU) can apply."
+       }
+      ],
+      [
+       {
+        "strong": "Educational Qualification"
+       }
+      ],
+      [
+       {
+        "strong": "Students pursuing or having completed a minimum of 3-year graduate programs in any discipline with minimum 50% aggregate marks from any University recognised by Association of Indian Universities (AIU). Students appearing for their final exams can also apply provided they maintain a minimum of 50% aggregate marks at the time of graduation as mentioned above. Students applying for their final exams should not have any live backlogs (ATKTs)."
+       }
+      ],
+      [
+       {
+        "strong": "Examinations (MBA) – Candidates who have appeared for one of the following entrance tests – GMAT, CAT, NMAT, XAT, MAT, CMAT, ATMA or any state CET tests are preferred. Cut offs : CAT/XAT : 70%le, NMAT : 200 marks & CET : 80%"
+       }
+      ]
+     ]
+    },
+    {
+     "q": "What is the admission process for the ATLAS ISME BBA program and how do I participate in each stage?",
+     "a": [
+      [
+       {
+        "strong": "The admission process at ATLAS ISME consists of 3 key stages:"
+       }
+      ],
+      {
+       "list": "ol",
+       "items": [
+        [
+         {
+          "strong": "Business Aptitude Test (BAT): An online MCQs test that assess your verbal, logical reasoning, quantitative and business communication skills"
+         }
+        ],
+        [
+         {
+          "strong": "Personal Interview (PI): An interactive online interview that evaluates your candidature. One can expect questions from your performance in the BAT and Statement of Purpose (SOP), past achievements, perspectives on global affairs etc."
+         }
+        ]
+       ]
+      },
+      [
+       {
+        "strong": "Collaborative Accelerator: This is an on-campus group exercise where students collaborate with other candidates to solve an on spot real-world business case study."
+       }
+      ]
+     ]
+    },
+    {
+     "q": "Do CXOs and industry leaders give guest lectures at ATLAS ISME, and how does their direct industry teaching differ from traditional classroom learning?",
+     "a": [
+      [
+       {
+        "strong": "Yes, at ATLAS ISME, students receive direct industry teaching from CXOs and industry leaders, gaining real-world business insights through guest lectures, masterclasses, etc, unlike traditional classroom learning which is mostly theory-based."
+       }
+      ],
+      [
+       {
+        "strong": "At ISME, students learn directly from top industry leaders, such as CXOs, CEOs, CMOs, startup founders, serial investors, business innovators to name a few. And these industry leaders bring wealth of knowledge on current industry trends (firsthand market knowledge), hands-on experience, practical case studies into the classroom teaching, making learning more impactful and relevant for students."
+       }
+      ],
+      [
+       {
+        "strong": "Traditional classroom learning focuses solely on theoretical knowledge, whereas ATLAS ISME goes beyond traditional teaching. And this direct industry teaching from CXOs and founders at ATLAS ISME equips students with all the skills necessary for career readiness."
+       }
+      ]
+     ]
+    },
+    {
+     "q": "Does ATLAS ISME offer international exchange or global immersion programs?",
+     "a": [
+      [
+       {
+        "strong": "Yes, ATLAS ISME offers international exchange and global immersion programs. Harnessing the power of technology, entrepreneurs transform a blank canvas of ideas into vibrant and thriving businesses that create job opportunities and contribute significantly to the national and global economy. With world-class faculty, experiential ecosystems, industry-driven curriculum, and future-ready management programs, we transform young learners into leaders."
+       }
+      ]
+     ]
+    },
+    {
+     "q": "Does ATLAS ISME provide CAT and CFA exam coaching on campus?",
+     "a": [
+      [
+       {
+        "strong": "Yes, ATLAS ISME provides students with CAT and CFA exam coaching on campus. The modules of our course are designed where students are coached for CAT & CFA exams. With case studies and industry notes, we ensure students have in-depth knowledge and are well-prepared for the exam."
+       }
+      ]
+     ]
+    },
+    {
+     "q": "Does ATLAS ISME allow student-led startups to officially register as MSMEs?",
+     "a": [
+      [
+       {
+        "strong": "Yes, at ATLAS SkillTech University, innovation isn’t just a buzzword—it’s a way of life. Our students are not just learners; they are entrepreneurs in the making, creating real-world impact through startups launched during their academic journey."
+       }
+      ],
+      [
+       {
+        "strong": "We are proud to host a growing number of student-led startups officially registered under the Ministry of Micro, Small & Medium Enterprises (MSME), Government of India. These ventures span diverse domains including technology, design, sustainability, education, food innovation, and social entrepreneurship."
+       }
+      ],
+      [
+       {
+        "strong": "Through a dynamic ecosystem of mentorship, industry partnerships, access to seed funding, and incubation support, we empower our students to transform their ideas into sustainable businesses. Our integrated learning model encourages risk-taking, experimentation, and continuous learning, helping students navigate the challenges of entrepreneurship from ideation to execution."
+       }
+      ],
+      [
+       {
+        "strong": "These student-led startups are not only contributing to the economy but also solving real-world problems with creativity, courage, and conviction. Their success reflects the university’s commitment to nurturing next-generation entrepreneurs who will shape the future of innovation and industry."
+       }
+      ]
+     ]
+    },
+    {
+     "q": "Is there any entrepreneurship program at ATLAS ISME?",
+     "a": [
+      [
+       {
+        "strong": "Yes, ATLAS ISME does provide entrepreneurial learning to its undergraduate and postgraduate students.\nAt ATLAS , we are committed to nurturing and developing the next generation of entrepreneurs, providing them with the resources, knowledge and skills they need to succeed in today's competitive business world. The Entrepreneurship Lab, Startup Incubation Program, and global exposure initiatives at ATLAS ISME provide a strong foundation for students to build, test and refine their business ideas."
+       }
+      ],
+      [
+       {
+        "strong": "As India’s premier innovation and entrepreneurship-driven business school, ATLAS ISME empowers students with the skills, mentorship, and ecosystem to launch real-world startups during their undergraduate journey."
+       }
+      ],
+      [
+       {
+        "strong": "From Day 1, students are immersed in an entrepreneurial environment that includes:"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Hands-on learning in marketing, design, branding, finance & e-commerce"
+         }
+        ],
+        [
+         {
+          "strong": "Exposure to real investors, industry mentors & successful founders"
+         }
+        ],
+        [
+         {
+          "strong": "Opportunity to showcase start up ideas to industry in the heart of India's corporate capital"
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "q": "Can I launch a startup while studying at ATLAS ISME?",
+     "a": [
+      [
+       {
+        "strong": "Yes, ATLAS ISME focuses on equipping students with entrepreneurial skills. The curriculum enables students to prepare for real VC pitches and explore startup ideas. We distinguish ourselves from other reputable institutions by offering incubation support and mentorship."
+       }
+      ],
+      [
+       {
+        "strong": "At ATLAS ISME, many students have launched their own tangible real startups during their journey with ATLAS ."
+       }
+      ],
+      [
+       {
+        "strong": "With industry centric learning, hands-on entrepreneurial learning and access to Startup Street, MVP Showcases, D2C Challenges, and demo days with VCs, students can ideate, build, and sell their product while studying at ATLAS ISME."
+       }
+      ],
+      [
+       {
+        "strong": "The faculty at ATLAS ISME assists students with building and launching ventures and offers end-to-end support, from ideation to investor pitching."
+       }
+      ]
+     ]
+    },
+    {
+     "q": "What is the Global Immersion Program at ATLAS SkillTech University?",
+     "a": [
+      [
+       {
+        "strong": "The Global Immersion Program at ATLAS ISME is a curated international learning experience that blends industry exposure, academic learning, and cultural immersion. It provides students and faculty 7–10 days of exposure to top universities and global companies. Students interact with international faculty, explore different cultures, visit top multinational corporations, participate in academic sessions, networking events, and certification programs across cities like New York, London, and Singapore."
+       }
+      ],
+      [
+       {
+        "strong": "Global immersions at ATLAS equips students with global business acumen, cross-cultural competence, and practical insights into how businesses operate worldwide."
+       }
+      ],
+      [
+       {
+        "strong": "For example during the New York Immersion program, ATLAS students visited:"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Columbia University School of Professional Studies"
+         }
+        ],
+        [
+         {
+          "strong": "NYU SPS & Stern NewYork University"
+         }
+        ],
+        [
+         {
+          "strong": "Pace University – Lubin School of Business"
+         }
+        ],
+        [
+         {
+          "strong": "Fordham Gabelli School of Business"
+         }
+        ],
+        [
+         {
+          "strong": "Parsons School of Design | The New School"
+         }
+        ]
+       ]
+      },
+      [
+       {
+        "strong": "These visits included classroom sessions, business & tech. learning, design workshops, and guest lectures."
+       }
+      ],
+      [
+       {
+        "strong": "Companies and industries were covered in the New York Global Immersion"
+       }
+      ],
+      [
+       {
+        "strong": "Students engaged with leading global companies such as:"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Bloomberg (Fintech & Data Analytics)"
+         }
+        ],
+        [
+         {
+          "strong": "ICICI Bank (Global Finance)"
+         }
+        ],
+        [
+         {
+          "strong": "Arcesium (AI in Finance)"
+         }
+        ],
+        [
+         {
+          "strong": "MRM (Advertising & Branding)"
+         }
+        ],
+        [
+         {
+          "strong": "Zoo Media (AI in Marketing)"
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "q": "How does the Global Immersion Program benefit ATLAS students?",
+     "a": [
+      [
+       {
+        "strong": "Students participate in interactive and hands-on academic sessions at top universities and"
+       }
+      ],
+      [
+       {
+        "strong": "key outcomes include:"
+       }
+      ],
+      {
+       "list": "ul",
+       "items": [
+        [
+         {
+          "strong": "Enhanced global perspective and global academic exposure"
+         }
+        ],
+        [
+         {
+          "strong": "Practical industry exposure (Industry readiness)"
+         }
+        ],
+        [
+         {
+          "strong": "Cross-cultural communication"
+         }
+        ],
+        [
+         {
+          "strong": "Certifications from global institutions"
+         }
+        ],
+        [
+         {
+          "strong": "Entrepreneurial thinking and creativity"
+         }
+        ],
+        [
+         {
+          "strong": "Improved career and academic outlook"
+         }
+        ],
+        [
+         {
+          "strong": "Networking with international professionals and students"
+         }
+        ]
+       ]
+      },
+      [
+       {
+        "strong": "It bridges classroom learning with real-world experience, helping students become globally competent professionals. Sessions are often led by renowned professors, with case studies, group projects, mood boarding, and presentation-based learning."
+       }
+      ]
+     ]
+    }
+   ],
+   "kind": "faq"
+  }
+ ]
+}

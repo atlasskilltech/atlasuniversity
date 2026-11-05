@@ -1,0 +1,1249 @@
+{
+ "path": "bba-hons/bba-hons-ai-emerging-technologies",
+ "meta": {
+  "title": "BBA AI & Emerging Tech in Mumbai – ATLAS ISME",
+  "description": "Want a tech-first business degree? Learn AI, analytics, digital skills and future-ready business tools.",
+  "keywords": null
+ },
+ "brochure": {
+  "ids": [
+   "bba-brochure",
+   "campus-visit"
+  ],
+  "scripts": [
+   {
+    "src": "https://crm.atlasskilltech.app/widgets/6a3e788ea1fd0680c6c15cad/embed.js",
+    "height": 650
+   }
+  ]
+ },
+ "order": [
+  "hero",
+  "stats",
+  "program",
+  "why",
+  "execution",
+  "voices",
+  "admissions",
+  "eligibility",
+  "banner",
+  "search",
+  "faq"
+ ],
+ "blocks": {
+  "hero": {
+   "title": "BBA / BBA (Hons.) in Artificial Intelligence & Emerging Technologies",
+   "image": {
+    "src": "/assets/images/schools/isme/bba/hero-image,-bba-ai-and-emerging-tech.webp",
+    "alt": "",
+    "srcSet": "/assets/images/schools/isme/bba/hero-image,-bba-ai-and-emerging-tech-p-500.webp 500w, /assets/images/schools/isme/bba/hero-image,-bba-ai-and-emerging-tech-p-800.webp 800w, /assets/images/schools/isme/bba/hero-image,-bba-ai-and-emerging-tech-p-1080.webp 1080w, /assets/images/schools/isme/bba/hero-image,-bba-ai-and-emerging-tech.webp 1366w",
+    "sizes": "(max-width: 1366px) 100vw, 1366px"
+   },
+   "buttons": [
+    {
+     "label": "Apply for July 2027 Intake",
+     "variant": "mint",
+     "href": "https://atlasuniversity.edu.in/applicationform"
+    },
+    {
+     "label": "Download Brochure",
+     "variant": "outline-white",
+     "brochure": "bba-brochure"
+    }
+   ],
+   "narrow": true,
+   "lead": "ATLAS BBA (Hons.) in AI & Emerging Technologies is built for tech futurists, innovation leaders, and problem-solvers who want more than a business degree, they want to shape what’s next."
+  },
+  "program": {
+   "panes": [
+    {
+     "label": "Overview",
+     "kind": "text",
+     "text": [
+      "The BBA (Hons.) in Artificial Intelligence & Emerging Technologies at ATLAS ISME is built for a new kind of ",
+      {
+       "strong": "business leader"
+      },
+      "— one who speaks the language of data, innovation, and machine intelligence.\n\nThis ",
+      {
+       "strong": "interdisciplinary program"
+      },
+      " blends business fundamentals with deep",
+      {
+       "strong": "exposure to AI"
+      },
+      ", machine learning, and breakthrough technologies like blockchain, IoT, robotics, and quantum computing. You’ll not only learn how these technologies work — you’ll ",
+      {
+       "strong": "learn how to build businesses, solutions, and strategies"
+      },
+      " around them.\n\nThrough a mix of simulations, real-world applications, startup collaborations, and product labs, you’ll graduate with the ability to lead digital transformation, launch AI-driven ventures, and build competitive advantage through tech."
+     ],
+     "paneClass": "tab-pane-tab-1"
+    },
+    {
+     "label": "Curriculum Highlights",
+     "kind": "cards",
+     "cards": [
+      {
+       "num": "#1",
+       "title": "Foundations of Artificial Intelligence"
+      },
+      {
+       "num": "#2",
+       "title": "Machine Learning for Business Applications"
+      },
+      {
+       "num": "#3",
+       "title": "Data Science & Predictive Analytics"
+      },
+      {
+       "num": "#4",
+       "title": "Blockchain, Smart Contracts & Digital Assets"
+      },
+      {
+       "num": "#5",
+       "title": "Internet of Things (IoT) in Business"
+      },
+      {
+       "num": "#6",
+       "title": "Robotics & Automation Strategy"
+      },
+      {
+       "num": "#7",
+       "title": "Quantum Computing Basics"
+      },
+      {
+       "num": "#8",
+       "title": "Cloud Infrastructure\n& APIs"
+      },
+      {
+       "num": "#9",
+       "title": "Tech Ethics, Privacy & Cybersecurity"
+      },
+      {
+       "num": "#10",
+       "title": "Digital Product Innovation & Tech-Driven Startups"
+      }
+     ],
+     "paneClass": "tab-pane-tab-2"
+    },
+    {
+     "label": "Learning Outcomes",
+     "kind": "cards",
+     "cards": [
+      {
+       "num": "#1",
+       "title": "Understand core AI and emerging tech concepts and their business applications"
+      },
+      {
+       "num": "#2",
+       "title": "Design data-informed strategies for digital transformation and automation"
+      },
+      {
+       "num": "#3",
+       "title": "Build machine learning models using real-world datasets and tools"
+      },
+      {
+       "num": "#4",
+       "title": "Evaluate the business potential of technologies like blockchain, IoT and robotics"
+      },
+      {
+       "num": "#5",
+       "title": "Collaborate across tech and business teams to drive innovation"
+      },
+      {
+       "num": "#6",
+       "title": "Launch, manage, or advise ventures that operate at the frontier of tech"
+      }
+     ],
+     "paneClass": "tab-pane-tab-3"
+    },
+    {
+     "label": "Career Pathways",
+     "kind": "careers",
+     "cards": [
+      {
+       "title": "Business +AI Integration",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/image-16..png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Data &\nAnalytics",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/image-17..png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Emerging Tech\n& Digital",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/image-18..png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Health Tech Product Analyst",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/image-19..png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Social Media Manager",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/image-20..png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "Tech Startup Founder",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/image-22..png",
+        "alt": ""
+       }
+      },
+      {
+       "title": "AI Venture\nAnalyst",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/image-23..png",
+        "alt": ""
+       }
+      }
+     ],
+     "paneClass": null
+    }
+   ],
+   "current": 0,
+   "years": [
+    {
+     "label": "Year 1",
+     "semesters": [
+      {
+       "title": "Semester 1",
+       "text": "Build a strong foundation in business and technology. This semester blends managerial principles with emerging tech and critical reasoning to shape innovative, future-ready professionals.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Principles of Management"
+          }
+         ],
+         "text": "Introduces key theories and practices in management, covering planning, leadership, organizational structures, and decision-making. Builds foundational understanding of how organizations operate and perform."
+        },
+        {
+         "title": "Introduction to Emerging Technologies",
+         "text": "Explores disruptive technologies like AI, blockchain, IoT, and cloud computing. Students analyze their impact on businesses, industries, and society through innovation-driven use cases."
+        },
+        {
+         "title": [
+          {
+           "strong": "Generative AI Tools and Excel for Decision Making"
+          }
+         ],
+         "text": "Covers practical use of generative AI and spreadsheet tools to support analysis, automation, and managerial decision-making. Focuses on applied, tool-based problem solving."
+        },
+        {
+         "title": [
+          {
+           "strong": "Art of Business Communication"
+          }
+         ],
+         "text": "Develops professional communication skills for business contexts, including writing, presenting, and interpersonal messaging. Emphasizes clarity, structure, and persuasive communication."
+        },
+        {
+         "title": [
+          {
+           "strong": "Indian Behavioral Psychology"
+          }
+         ],
+         "text": "Examines psychological concepts rooted in Indian knowledge traditions, focusing on motivation, decision-making, and cultural perspectives on human behavior."
+        },
+        {
+         "title": [
+          {
+           "strong": "Introduction to Logical Reasoning and Problem Solving"
+          }
+         ],
+         "text": "Builds critical thinking skills through structured reasoning, analytical exercises, and problem-solving frameworks essential for academic and workplace tasks."
+        },
+        {
+         "title": [
+          {
+           "strong": "ATLAS Elective"
+          }
+         ],
+         "text": "Provides flexibility for students to pursue specialized areas of interest aligned with modern industry needs and emerging skill demands."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our Semester 1 curriculum outpaces every other business school",
+         "text": "Gain a competitive foundation that merges management principles, digital fluency, and analytical reasoning—bridging classical knowledge with future-focused business innovation.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Principles and Practices of Management",
+           "Live organizational simulations and leadership workshops",
+           "Theory-only management overview"
+          ],
+          [
+           "Introduction to Emerging Technologies",
+           "Exposure to AI, IoT, Blockchain, and other new-age technologies from day one.",
+           "Limited or no coverage of modern technologies at the UG level."
+          ],
+          [
+           "Generative AI Tools and Excel for Decision Making",
+           "Practical use of AI assistants, Excel automation, and decision-support models.",
+           "Basic Excel training with little to no integration of modern AI tools."
+          ],
+          [
+           "Art of Business Communication",
+           "Communication labs, presentations, and digital communication practice.",
+           "General communication theory without context-specific skill building."
+          ],
+          [
+           "Indian Behavioral Psychology",
+           "Applied psychological insights connected to culture, decision-making, and leadership.",
+           "Standard psychology content with limited cultural or applied relevance."
+          ],
+          [
+           "Introduction to Logical Reasoning and Problem Solving",
+           "Real-world reasoning drills and structured problem-solving techniques.",
+           "Basic logical concepts without applied problem-solving activities."
+          ],
+          [
+           "ATLAS Elective",
+           "Cutting-edge electives from Year 1, aligned to student interests.",
+           "Generic electives, often introduced later in the program."
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Semester 2",
+       "text": "Deepen your understanding of digital business, finance, and communication. This semester combines technology-driven learning with ethical and sustainable business principles for a globally competitive foundation.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Digital Business Applications"
+          }
+         ],
+         "text": "Focuses on evaluating corporate financial statements to assess performance, profitability, and risk. Students learn analytical techniques used in business and investment decision-making."
+        },
+        {
+         "title": [
+          {
+           "strong": "Financial Accounting fo AI-Driven Business"
+          }
+         ],
+         "text": "Explores modern marketing strategies enhanced by AI tools, automation, and data-driven targeting. Emphasizes how technology reshapes consumer engagement and brand strategy."
+        },
+        {
+         "title": [
+          {
+           "strong": "AI-Enabled Marketing Strategies"
+          }
+         ],
+         "text": "Explore how artificial intelligence personalizes campaigns, predicts trends, and drives data-based marketing decisions for impactful customer engagement."
+        },
+        {
+         "title": [
+          {
+           "strong": "Business Technology Primer (IoT + Blockchain)"
+          }
+         ],
+         "text": "Gain foundational knowledge of IoT and blockchain technologies that are transforming supply chains, data management, and digital business models."
+        },
+        {
+         "title": [
+          {
+           "strong": "Business Communication"
+          }
+         ],
+         "text": "Strengthen professional writing and presentation skills for virtual teams, integrating clarity, empathy, and persuasive storytelling."
+        },
+        {
+         "title": "Indian Constitution",
+         "text": "Covers constitutional framework, governance, and rights, contextualized to ethical technology practices and responsibilities of businesses in an AI-empowered society."
+        },
+        {
+         "title": [
+          {
+           "strong": "ATLAS Elective"
+          }
+         ],
+         "text": "Provides flexibility for students to pursue specialized areas of interest aligned with modern industry needs and emerging skill demands."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our Semester 2 curriculum outpaces every other business school",
+         "text": "Build confidence as a digital business professional through experiential learning, financial literacy, and next-generation communication skills that drive organizational success.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Digital Business Applications",
+           "Hands-on ERP and CRM simulations",
+           "Limited digital system exposure"
+          ],
+          [
+           "Financial Accounting for AI-Driven Businesses",
+           "AI-based accounting case studies",
+           "Traditional bookkeeping exercises"
+          ],
+          [
+           "AI-Enabled Marketing Strategies",
+           "Machine-learning marketing analytics projects",
+           "Conceptual marketing coverage"
+          ],
+          [
+           "Business Technology Primer (IoT Blockchain)",
+           "Real-world IoT and blockchain implementation labs",
+           "Basic conceptual introduction"
+          ],
+          [
+           "Business Communication",
+           "Cross-cultural digital communication workshops",
+           "Generic presentation practice"
+          ],
+          [
+           "Indian Constitution",
+           "Linked with digital ethics and AI governance",
+           "Generic civic and constitutional learning"
+          ],
+          [
+           "Atlas Elective",
+           "Cross-disciplinary, student-driven innovative electives",
+           "Fixed electives with limited interdisciplinarity"
+          ]
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Year 2",
+     "semesters": [
+      {
+       "title": "Semester 3",
+       "text": "Advance your understanding of artificial intelligence and analytics. This semester builds technical fluency and ethical awareness while nurturing problem-solving and research-oriented thinking for modern business ecosystems.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": "Introduction to Artificial Intelligence",
+         "text": "Introduces AI fundamentals, covering machine learning, neural networks, and practical applications across industries, building technical literacy and critical thinking about AI’s transformative potential."
+        },
+        {
+         "title": [
+          {
+           "strong": "Natural Language Processing for Business"
+          }
+         ],
+         "text": "Introduces NLP techniques for interpreting and analyzing text data. Students learn how language models support customer insights, automation, and business decision-making."
+        },
+        {
+         "title": [
+          {
+           "strong": "Data Analytics for Decision Making"
+          }
+         ],
+         "text": "Covers analytical methods used to extract insights from data. Focuses on statistical analysis, visualization, and data-driven decision support."
+        },
+        {
+         "title": [
+          {
+           "strong": "Business Ethics, Privacy, and Cybersecurity"
+          }
+         ],
+         "text": "Examines ethical frameworks, digital privacy issues, and cybersecurity risks in modern business environments. Emphasizes responsible technology use and organizational compliance."
+        },
+        {
+         "title": [
+          {
+           "strong": "Yoga/Sports/NCC/NSS"
+          }
+         ],
+         "text": "Build self-discipline, physical fitness, and community engagement through structured programs fostering personal and social responsibility."
+        },
+        {
+         "title": [
+          {
+           "strong": "Python / R Programming for Business"
+          }
+         ],
+         "text": "Builds programming skills using Python or R to analyze business data, automate tasks, and develop analytical solutions."
+        },
+        {
+         "title": [
+          {
+           "strong": "Social Internship"
+          }
+         ],
+         "text": "Apply academic learning to real-world environments through community projects that build empathy, teamwork, and leadership."
+        },
+        {
+         "title": [
+          {
+           "strong": "Program Electives"
+          }
+         ],
+         "text": "Allows students to pursue specialized academic interests aligned with emerging fields. Encourages deeper skill development through flexible, industry-relevant modules."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our Semester 3 curriculum outpaces every other business school",
+         "text": "Gain the perfect blend of technical, ethical, and analytical expertise through hands-on projects, real-world internships, and applied business intelligence learning.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Introduction to Artificial Intelligence",
+           "Application-driven, industry-aligned AI projects with case-based learning.",
+           "Mostly theoretical focus on algorithms without applied projects."
+          ],
+          [
+           "Natural Language Processing for Business",
+           "Hands-on NLP tasks using modern language models and real datasets.",
+           "Basic text-processing concepts without applied business tools."
+          ],
+          [
+           "Data Analytics for Decision Making",
+           "Real datasets, visualization tools, and decision-oriented analytics projects.",
+           "Introductory statistics with limited decision-making integration."
+          ],
+          [
+           "Business Ethics, Privacy, and Cybersecurity",
+           "Case-driven digital ethics, privacy frameworks, and cybersecurity simulations.",
+           "Theoretical ethics models with minimal cybersecurity application."
+          ],
+          [
+           "Yoga/Sports/NCC/NSS",
+           "Holistic development modules blending physical, civic, and resilience-based learning.",
+           "Limited extracurricular integration and fewer structured development activities."
+          ],
+          [
+           "Python / R Programming for Business",
+           "Practical coding assignments tied to business analytics tasks.",
+           "Basic syntax teaching without real-world business applications."
+          ],
+          [
+           "Social Internship",
+           "Mentored community and CSR projects",
+           "Short-term field observation"
+          ],
+          [
+           "Program Electives",
+           "Adaptive elective pathways in AI and technology",
+           "Fixed elective selection only"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Semester 4",
+       "text": "Strengthen your expertise in AI and digital business. This semester integrates technology, analytics, and sustainability to prepare you for responsible leadership in a data-driven world.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": "Machine Learning Basics",
+         "text": "Covers supervised and unsupervised learning, regression, clustering, and classification, focusing on business use cases with practical exposure through Python and industry datasets."
+        },
+        {
+         "title": "Cloud Computing and Virtualization",
+         "text": "Explores cloud infrastructure, service models, virtualization technologies, and deployment strategies, preparing students to leverage cloud solutions for scalable, data-driven enterprise applications."
+        },
+        {
+         "title": [
+          {
+           "strong": "Internet of Things for Business"
+          }
+         ],
+         "text": "Examines IoT systems, sensors, connectivity, and their applications in business operations. Highlights data-driven automation and smart system integration."
+        },
+        {
+         "title": [
+          {
+           "strong": "Business Research Methods"
+          }
+         ],
+         "text": "Covers research design, data collection, and analytical methodologies used in business studies. Focuses on structured inquiry and evidence-based evaluation."
+        },
+        {
+         "title": [
+          {
+           "strong": "Modern Indian Language Proficiency"
+          }
+         ],
+         "text": "Builds proficiency in a contemporary Indian language to enhance communication and cultural understanding in diverse professional environments."
+        },
+        {
+         "title": [
+          {
+           "strong": "Environmental Science and Sustainability"
+          }
+         ],
+         "text": "Explores ecological systems, sustainability frameworks, and environmental challenges. Encourages responsible decision-making in business and societal contexts."
+        }
+       ],
+       "electives": [
+        {
+         "title": "Multidisciplinary Elective",
+         "items": [
+          {
+           "title": "Sociology",
+           "text": "Explore how societies, cultures, and communities function and influence human behavior. Understand the social forces that shape markets, organizations, and decision-making in the real world."
+          },
+          {
+           "title": "Negotiation and Persuation",
+           "text": "Learn strategies to influence, negotiate, and resolve conflicts effectively. Apply practical techniques to achieve results in business and leadership scenarios."
+          },
+          {
+           "title": "International Relations",
+           "text": "Understand global politics, diplomacy, and international institutions that impact businesses and markets worldwide. Analyze global trends to make informed strategic decisions."
+          },
+          {
+           "title": "Geopolitical Economy",
+           "text": "Study the intersection of economics, politics, and global events. Learn how policy, trade, and geopolitical shifts influence business and market strategy."
+          },
+          {
+           "title": "Ancient Philosophy",
+           "text": "Examine timeless ideas on ethics, leadership, and human behavior. Apply philosophical insights to modern management, decision-making, and organizational challenges."
+          },
+          {
+           "title": "Product and Service Design",
+           "text": "Learn to create innovative, user-focused products and services. Move from ideation to prototyping and launch with practical frameworks and design thinking."
+          },
+          {
+           "title": "Data Visualisation",
+           "text": "Transform raw data into clear, actionable visual insights. Learn to communicate complex information effectively for business decisions."
+          },
+          {
+           "title": "UI/UX Design",
+           "text": "Understand user behavior and design intuitive digital experiences. Build interfaces and workflows that engage users and meet real business goals."
+          },
+          {
+           "title": "ML for Managers",
+           "text": "Gain a practical understanding of machine learning concepts and tools. Learn to apply predictive insights to solve business problems and drive strategy."
+          },
+          {
+           "title": "Sports Analytics",
+           "text": "Analyze performance, strategy, and business metrics in sports using data-driven approaches. Translate insights into actionable decisions for teams, organizations, and fans."
+          },
+          {
+           "title": "Sustainability & ESG",
+           "text": "Explore environmental, social, and governance practices that drive long-term value. Learn how businesses integrate sustainability into strategy, operations, and impact measurement."
+          }
+         ]
+        }
+       ],
+       "compare": [
+        {
+         "title": "Why our Semester 4 curriculum outpaces every other business school",
+         "text": "Bridge innovation and impact with applied AI learning, sustainability focus, and research-oriented problem solving that prepares you for future business ecosystems.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Machine Learning Basics",
+           "Industry datasets, business case projects.",
+           "Theory-heavy, minimal application focus."
+          ],
+          [
+           "Cloud Computing & Virtualization",
+           "Hands-on labs with cloud platforms.",
+           "General overview, less applied."
+          ],
+          [
+           "Internet of Things for Business",
+           "IoT device simulations, data integration tasks, and business-focused case studies.",
+           "Introductory IoT concepts without applied business use cases."
+          ],
+          [
+           "Business Research Methods",
+           "Applied research projects, data tools, and structured analytical training.",
+           "Theory-heavy research content with fewer practical assignments."
+          ],
+          [
+           "Modern Indian Language Proficiency",
+           "Language immersion activities focused on professional communication contexts.",
+           "Standard language instruction without workplace relevance."
+          ],
+          [
+           "Environmental Science and Sustainability",
+           "Real-world sustainability analysis and exposure to modern environmental practices.",
+           "General environmental theory without applied sustainability focus."
+          ],
+          [
+           "Multidisciplinary Elective",
+           "Broad elective options supporting cross-domain learning and industry alignment.",
+           "Limited elective variety with traditional subject choices."
+          ]
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Year 3",
+     "semesters": [
+      {
+       "title": "Semester 5",
+       "text": "Explore the intersection of automation, immersive technologies, and business intelligence. This semester focuses on advanced digital systems, analytics, and innovation for industry-ready professionals.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": "Robotics & Automation in Business",
+         "text": "Explores robotics applications in supply chains, services, and manufacturing, enabling students to design automation solutions that increase efficiency, reduce costs, and create value."
+        },
+        {
+         "title": "Extended Reality (AR/VR)",
+         "text": "Introduces augmented and virtual reality for immersive training, marketing, and customer engagement, teaching students to develop prototypes and experiences with measurable business outcomes."
+        },
+        {
+         "title": [
+          {
+           "strong": "Supply Chain with Emerging Technologies"
+          }
+         ],
+         "text": "Discover how AI, IoT, and blockchain reshape supply chain efficiency, transparency, and responsiveness in global business ecosystems."
+        },
+        {
+         "title": [
+          {
+           "strong": "Sectoral Concentration I (Health/Agri/GreenTech)"
+          }
+         ],
+         "text": "Specialize in a chosen domain, exploring how technology drives innovation, sustainability, and impact across critical industry sectors."
+        },
+        {
+         "title": [
+          {
+           "strong": "Technical Internship"
+          }
+         ],
+         "text": "Gain hands-on professional exposure by applying classroom concepts to real-world challenges within technology-driven businesses."
+        },
+        {
+         "title": [
+          {
+           "strong": "SQL Programming"
+          }
+         ],
+         "text": "Master database design and querying skills to organize, analyze, and retrieve information efficiently for data-driven decision-making."
+        },
+        {
+         "title": [
+          {
+           "strong": "UI/UX for AI Interfaces"
+          }
+         ],
+         "text": "Learn to design intuitive, human-centered interfaces that enhance user interaction with AI applications and digital platforms."
+        },
+        {
+         "title": [
+          {
+           "strong": "Major Project"
+          }
+         ],
+         "text": "Students begin a major applied project that integrates learning across technology, business, and strategy."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our Semester 5 curriculum outpaces every other business school",
+         "text": "Equip yourself with advanced technical expertise and industry exposure through applied automation, immersive innovation, and data-driven business problem-solving.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Robotics & Automation in Business",
+           "Hands-on robotics labs, industry projects, and real automation simulations.",
+           "Theoretical focus with limited lab exposure."
+          ],
+          [
+           "Extended Reality (AR/VR)",
+           "Prototype development, VR/AR labs, real business case integrations.",
+           "Conceptual understanding without live prototyping"
+          ],
+          [
+           "Supply Chain with Emerging Technologies",
+           "Blockchain and IoT-integrated supply chain modeling",
+           "Basic logistics theory"
+          ],
+          [
+           "Sectoral Concentration I (Health/Agri/GreenTech)",
+           "Domain-specific innovation case studies",
+           "Limited industry specialization"
+          ],
+          [
+           "Technical Internship",
+           "Faculty-guided industrial internship experience",
+           "Generic internship requirement"
+          ],
+          [
+           "SQL Programming",
+           "Practical database optimization and query projects",
+           "Simple SQL syntax exercises"
+          ],
+          [
+           "UI/UX for AI Interfaces",
+           "User research and prototype design for AI systems",
+           "Basic interface design overview"
+          ],
+          [
+           "Major Project (Evaluation in Sixth Semester)",
+           "Real-world project ideation and milestone evaluation",
+           "Static end-of-term report"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Semester 6",
+       "text": "Refine your leadership, analytics, and innovation skills. This semester focuses on advanced digital transformation, sector specialization, and entrepreneurial thinking for the AI-driven business landscape.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Quantum Computing Fundamentals"
+          }
+         ],
+         "text": "Introduces the principles of quantum mechanics applied to computation, including qubits, superposition, and quantum logic. Highlights emerging applications of quantum computing in business and analytics."
+        },
+        {
+         "title": [
+          {
+           "strong": "Deep Learning for Business Applications"
+          }
+         ],
+         "text": "Covers neural networks, deep learning architectures, and their use in solving business problems. Students learn to apply deep learning models to forecasting, classification, and automation."
+        },
+        {
+         "title": [
+          {
+           "strong": "Power BI / Tableau / Data Visualization"
+          }
+         ],
+         "text": "Teaches modern data visualization tools to create dashboards, interactive reports, and analytical stories. Emphasizes visual communication for executive decision-making."
+        },
+        {
+         "title": [
+          {
+           "strong": "NLP / Big Data / Blockchain"
+          }
+         ],
+         "text": "Allows students to specialize in one advanced digital domain—either Natural Language Processing, Big Data systems, or Blockchain fundamentals. Focuses on practical application within business contexts."
+        },
+        {
+         "title": [
+          {
+           "strong": "Sectoral Concentration II (Health / Agri / GreenTech)"
+          }
+         ],
+         "text": "Provides domain-specific learning by exploring industry challenges, technology adoption, and solution frameworks in health, agriculture, or sustainability sectors."
+        },
+        {
+         "title": [
+          {
+           "strong": "Business Intelligence and Advanced Analytics"
+          }
+         ],
+         "text": "Covers advanced analytics methods, data engineering concepts, and BI systems used for strategic decision-making. Highlights integration of data pipelines with business insights."
+        },
+        {
+         "title": [
+          {
+           "strong": "Capstone Project I"
+          }
+         ],
+         "text": "A major applied project requiring students to solve a real business or technology problem using analytics, research, and strategic frameworks. Culminates in a professional project report and presentation."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our Semester 6 curriculum outpaces every other business school",
+         "text": "Graduate as an industry-ready leader through experiential learning, innovation-driven projects, and applied analytics that merge strategy, creativity, and execution.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Quantum Computing Fundamentals",
+           "Exposure to real quantum tools, simulations, and emerging business use cases.",
+           "High-level overview of quantum theory without practical tools."
+          ],
+          [
+           "Deep Learning for Business Applications",
+           "Hands-on deep learning labs with real datasets and applied use cases.",
+           "Basic neural network concepts with limited business application."
+          ],
+          [
+           "Power BI / Tableau / Data Visualization",
+           "Interactive dashboard creation using industry BI tools and real data.",
+           "Introductory charting with limited exposure to modern BI platforms."
+          ],
+          [
+           "NLP / Big Data / Blockchain",
+           "Applied specialization with domain-specific projects and tool usage.",
+           "Theoretical overview of digital domains without specialization."
+          ],
+          [
+           "Sectoral Concentration II",
+           "Industry-linked case studies and applied solutions in Health, Agri, or GreenTech.",
+           "General sector studies without technology-driven application."
+          ],
+          [
+           "Business Intelligence and Advanced Analytics",
+           "Advanced BI workflows, data engineering integration, and analytics modelling.",
+           "Basic analytics focus without advanced BI systems exposure."
+          ],
+          [
+           "Capstone Project I",
+           "Industry-mentored major project with real datasets and structured evaluation.",
+           "Academic project work lacking professional integration or real-world impact."
+          ]
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "label": "Year 4",
+     "semesters": [
+      {
+       "title": "Semester 7",
+       "text": "Advance your professional readiness and strategic mindset. This semester develops critical thinking, research acumen, and corporate readiness through applied projects and innovation-driven experiences.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Seminar: Emerging Tech / Industry 5.0"
+          }
+         ],
+         "text": "Explores cutting-edge technologies and Industry 5.0 concepts focused on human–machine collaboration, sustainability, and advanced automation. Encourages strategic analysis of future digital ecosystems."
+        },
+        {
+         "title": [
+          {
+           "strong": "AI Product Management and GTM Strategy"
+          }
+         ],
+         "text": "Covers the lifecycle of AI-driven products, including design, development, deployment, and go-to-market strategy. Students learn how to align business needs with AI capabilities."
+        },
+        {
+         "title": [
+          {
+           "strong": "AI in Strategic Management"
+          }
+         ],
+         "text": "Examines how AI transforms strategic planning, competitive analysis, and organizational decision-making. Highlights how intelligent systems shape long-term business strategy."
+        },
+        {
+         "title": [
+          {
+           "strong": "Entrepreneurial Leadership"
+          }
+         ],
+         "text": "Develops leadership mindsets required for innovation and venture development. Focuses on resilience, opportunity recognition, and strategic execution in entrepreneurial settings."
+        },
+        {
+         "title": [
+          {
+           "strong": "Design Thinking for Digital Innovation"
+          }
+         ],
+         "text": "Introduces human-centered design frameworks for creating digital products and solutions. Emphasizes problem discovery, prototyping, and iterative innovation."
+        },
+        {
+         "title": [
+          {
+           "strong": "Operations and Quality Management"
+          }
+         ],
+         "text": "Covers operational efficiency, process optimization, and quality control systems. Students learn modern tools used in designing and improving operational workflows."
+        },
+        {
+         "title": [
+          {
+           "strong": "Capstone Project"
+          }
+         ],
+         "text": "Students begin a major applied project that integrates learning across technology, business, and strategy. Final evaluation occurs in Semester 8."
+        },
+        {
+         "title": [
+          {
+           "strong": "Domain Internship"
+          }
+         ],
+         "text": "Provides hands-on industry exposure within a chosen domain. Students gain practical experience, apply classroom concepts, and develop professional competencies."
+        }
+       ],
+       "electives": [
+        {
+         "title": "Multidisciplinary Elective",
+         "items": [
+          {
+           "title": "Sociology",
+           "text": "Explore how societies, cultures, and communities function and influence human behavior. Understand the social forces that shape markets, organizations, and decision-making in the real world."
+          },
+          {
+           "title": "Negotiation and Persuation",
+           "text": "Learn strategies to influence, negotiate, and resolve conflicts effectively. Apply practical techniques to achieve results in business and leadership scenarios."
+          },
+          {
+           "title": "International Relations",
+           "text": "Understand global politics, diplomacy, and international institutions that impact businesses and markets worldwide. Analyze global trends to make informed strategic decisions."
+          },
+          {
+           "title": "Geopolitical Economy",
+           "text": "Study the intersection of economics, politics, and global events. Learn how policy, trade, and geopolitical shifts influence business and market strategy."
+          },
+          {
+           "title": "Ancient Philosophy",
+           "text": "Examine timeless ideas on ethics, leadership, and human behavior. Apply philosophical insights to modern management, decision-making, and organizational challenges."
+          },
+          {
+           "title": "Product and Service Design",
+           "text": "Learn to create innovative, user-focused products and services. Move from ideation to prototyping and launch with practical frameworks and design thinking."
+          },
+          {
+           "title": "Data Visualisation",
+           "text": "Transform raw data into clear, actionable visual insights. Learn to communicate complex information effectively for business decisions."
+          },
+          {
+           "title": "UI/UX Design",
+           "text": "Understand user behavior and design intuitive digital experiences. Build interfaces and workflows that engage users and meet real business goals."
+          },
+          {
+           "title": "ML for Managers",
+           "text": "Gain a practical understanding of machine learning concepts and tools. Learn to apply predictive insights to solve business problems and drive strategy."
+          },
+          {
+           "title": "Sports Analytics",
+           "text": "Analyze performance, strategy, and business metrics in sports using data-driven approaches. Translate insights into actionable decisions for teams, organizations, and fans."
+          },
+          {
+           "title": "Sustainability & ESG",
+           "text": "Explore environmental, social, and governance practices that drive long-term value. Learn how businesses integrate sustainability into strategy, operations, and impact measurement."
+          }
+         ]
+        }
+       ],
+       "compare": [
+        {
+         "title": "Why our Semester 7 curriculum outpaces every other business school",
+         "text": "Gain strategic foresight through applied analytics, ethical AI leadership, and hands-on project experience that prepares you for senior business roles.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Emerging Tech / Industry 5.0",
+           "Applied seminar with real-world tech demonstrations and future-oriented case studies.",
+           "High-level trend discussions without practical exposure to new technologies."
+          ],
+          [
+           "AI Product Management and GTM Strategy",
+           "Practical product lifecycle training, GTM simulations, and AI-based strategy exercises.",
+           "Generic product management theory without AI integration."
+          ],
+          [
+           "AI in Strategic Management",
+           "Strategic planning using AI tools, analytics-based decision models, and applied cases.",
+           "Traditional strategic management with minimal AI incorporation."
+          ],
+          [
+           "Entrepreneurial Leadership",
+           "Venture-focused leadership assignments, startup case studies, and experiential exercises.",
+           "Theoretical entrepreneurship frameworks with limited practical engagement."
+          ],
+          [
+           "Design Thinking for Digital Innovation",
+           "Hands-on prototyping, UX methods, and digital innovation labs.",
+           "Basic design thinking concepts taught without digital application."
+          ],
+          [
+           "Operations and Quality Management",
+           "Applied process design, quality improvement tools, and operational case simulations.",
+           "Traditional operations theory with minimal tool-based practice."
+          ],
+          [
+           "Multidisciplinary Electives",
+           "Broad cross-domain choices aligned with modern industry needs.",
+           "Limited elective flexibility and traditional course offerings."
+          ],
+          [
+           "Capstone Project",
+           "Industry-mentored major project initiated in Sem 7 with structured guidance.",
+           "Standard academic project lacking long-term industry involvement."
+          ],
+          [
+           "Domain Internship",
+           "Placement-based practical experience with reflective academic integration.",
+           "Basic internship requirement without structured evaluations."
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Semester 8",
+       "text": "Synthesize your learning through research, innovation, and leadership. This final semester emphasizes entrepreneurial thinking, strategic growth, and advanced project execution for future-ready professionals.",
+       "image": {
+        "src": "/assets/images/schools/isme/bba/sem-img-1.jpg",
+        "alt": ""
+       },
+       "courses": [
+        {
+         "title": [
+          {
+           "strong": "Sectoral Elective: HealthTech / AgriTech / GreenTech"
+          }
+         ],
+         "text": "Provides advanced domain-specific learning focused on technological innovation within healthcare, agriculture, or sustainability. Students analyze real sector challenges and design tech-enabled solutions."
+        },
+        {
+         "title": [
+          {
+           "strong": "Explainable AI and Fairness"
+          }
+         ],
+         "text": "Explores transparency, interpretability, and ethical considerations in AI systems. Students learn frameworks and tools for building responsible, bias-aware AI models."
+        },
+        {
+         "title": [
+          {
+           "strong": "Edge AI and IoT Devices"
+          }
+         ],
+         "text": "Covers AI deployment on edge devices, IoT integration, and real-time intelligent systems. Emphasizes low-latency processing, device-level intelligence, and practical IoT applications."
+        },
+        {
+         "title": [
+          {
+           "strong": "Capstone Project II"
+          }
+         ],
+         "text": "A major applied or research-driven project that synthesizes program learning. Students deliver a comprehensive solution, analysis, or prototype addressing a real-world technological or business problem."
+        }
+       ],
+       "electives": [],
+       "compare": [
+        {
+         "title": "Why our Semester 8 curriculum outpaces every other business school",
+         "text": "Graduate with entrepreneurial agility and strategic intelligence—bridging AI, global business awareness, and leadership readiness for high-impact professional success.",
+         "head": [
+          "Subjects",
+          "ATLAS ISME",
+          "Other Business Schools"
+         ],
+         "rows": [
+          [
+           "Sectoral Elective: HealthTech / AgriTech / GreenTech",
+           "Industry-linked domain projects, applied tech solutions, and sector-focused case studies.",
+           "General sector theory with limited technological application."
+          ],
+          [
+           "Explainable AI and Fairness",
+           "Hands-on interpretability tools, fairness frameworks, and real dataset analysis.",
+           "Basic ethics lectures with minimal technical focus on explainability."
+          ],
+          [
+           "Edge AI and IoT Devices",
+           "Practical IoT labs, edge deployment exercises, and real-time AI applications.",
+           "Introductory IoT concepts without applied edge AI workflows."
+          ],
+          [
+           "Capstone Project II",
+           "Industry-mentored major project with research depth, technical execution, and professional evaluation.",
+           "Standard academic project without strong industry integration."
+          ]
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "download": {
+    "label": "Download Curriculum",
+    "variant": "mint",
+    "fontSize": null,
+    "brochure": "bba-brochure"
+   }
+  }
+ },
+ "refs": {
+  "stats": "stats-6a4d458824",
+  "why": "why-45b3590efe",
+  "execution": "execution-3ba70d89a3",
+  "voices": "voices-5669f623cd",
+  "admissions": "admissions-39c1dd256d",
+  "eligibility": "eligibility-cbec4efa3c",
+  "banner": "banner-8cbc0dbf63",
+  "search": "search-bf21a9e8fb",
+  "faq": "faq-9b7871ea42"
+ }
+}
