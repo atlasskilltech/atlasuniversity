@@ -1,0 +1,764 @@
+'use client';
+
+/* =====================================================================
+   The public flipbook viewer.
+
+   This is a VIEWER, not a second document system. It shows the very
+   same sheets the studio previews and the PDF exporter rasterises - the
+   components in components/pdf, fitted by the same pass in lib/fit -
+   so a flipbook can never drift from the PDF it represents. Nothing
+   here knows what a fee structure is.
+
+   How the pages reach the flip engine:
+
+     React renders the document's sheets once, off-screen. The fit pass
+     measures them. Each finished sheet is then drawn to an image by the
+     SAME rasteriser the PDF exporter uses (lib/pdf/rasterize), at screen
+     resolution rather than print resolution, and the book is loaded from
+     those images.
+
+   Images rather than the live DOM, on purpose: page-flip renders an HTML
+   book by transforming real elements, which can only produce a flat
+   fold, while an image book is drawn on a canvas and gets the real
+   thing - a curved page curl with the gradient shading and the inner,
+   outer and book shadows of a page physically turning. That is the
+   whole point of this viewer, and it costs one trade-off: the text in
+   the flipbook is artwork, while the selectable text and the clickable
+   links live in the downloadable PDF.
+
+   The pages are drawn ONCE per document and cached. Resizing, zooming
+   and turning all reuse them.
+   ===================================================================== */
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { documentSheets } from '@/components/PdfStudio/documents/DocumentSheets';
+import { fitAll, whenRenderable } from '@/lib/pdf-studio/fit';
+import { rasterizeSheet } from '@/lib/pdf-studio/pdf/rasterize';
+import { SCALE_SETS } from '@/lib/pdf-studio/registry';
+import { PAGE_H_MM, PAGE_W_MM } from '@/lib/pdf-studio/sheet';
+import FlipbookControls from './FlipbookControls';
+
+const SHEET_RATIO = PAGE_H_MM / PAGE_W_MM;
+const ZOOM_STEPS = [1, 1.25, 1.5, 1.75, 2, 2.5, 3];
+
+const clamp01 = (n) => Math.min(1, Math.max(0, n));
+
+/** Narrower than this and a page of a spread is too small to read, so the
+    book shows one page at a time instead: every phone, and a tablet held
+    upright. */
+const MIN_SPREAD_PAGE = 380;
+
+/** Room to leave around the spread, so a page never touches the frame.
+    Narrow screens get less of it: every pixel of width is a bigger sheet. */
+const GUTTER = { wide: { x: 24, y: 16 }, narrow: { x: 10, y: 8 } };
+
+/**
+ * How much detail the page artwork carries.
+ *
+ * The reader has to be able to read the page, so the artwork has to hold
+ * enough pixels for the largest the page will ever be drawn - which on a
+ * high-density display is twice the size it appears. Scaling with the
+ * device's own pixel ratio asks a plain screen for no more than it can
+ * show, and a Retina one for what it needs, and the ceiling keeps a
+ * three-times-density phone from rendering a canvas nothing can use.
+ *
+ * JPEG because a sheet is white paper with type on it, which is what
+ * JPEG is good at - the same choice the PDF exporter makes - and at this
+ * quality, oversampled, the type stays crisp.
+ */
+function viewerScale() {
+  const dpr =
+    typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1;
+  return Math.min(3, Math.max(2, 2 * dpr));
+}
+
+const VIEWER_QUALITY = 0.95;
+
+/** A4 width at CSS resolution: the size the sheets actually lay out at. */
+const NATURAL_W = PAGE_W_MM * (96 / 25.4);
+
+/**
+ * How large a page may be drawn: twice the sheet's own width. The
+ * artwork always carries at least that much detail (see `viewerScale`),
+ * so a page this size is still sharp, and below the ceiling the book is
+ * free to use whatever room a tall window or a tall iframe gives it,
+ * rather than stopping at the sheet's nominal size and leaving the space
+ * empty.
+ */
+const MAX_PAGE_W = NATURAL_W * 2;
+
+export default function FlipbookViewer({ entry }) {
+  const sourceRef = useRef(null); // off-screen React sheets
+  const stageRef = useRef(null); // the measured area
+  const hostRef = useRef(null); // stable; React owns this one
+  const flipRef = useRef(null);
+  const builtForRef = useRef(null); // the measurement the book was built for
+  // Where the reader has got to. Kept apart from the flip instance
+  // because a rebuild tears that instance down - and on a zoom change
+  // React runs the effect cleanup, which destroys it, before the rebuild
+  // gets a chance to ask it anything.
+  const openAtRef = useRef(0);
+  // The point the next zoom step should hold still, carried from the
+  // gesture to the rebuild that answers it.
+  const anchorRef = useRef(null);
+  // The grab in progress: where it started, and where the stage was
+  // scrolled to when it did.
+  const panRef = useRef(null);
+
+  const [unit, setUnit] = useState(undefined);
+  const [pages, setPages] = useState(null); // page artwork, once drawn
+  const [zoom, setZoom] = useState(0);
+  const [page, setPage] = useState(0);
+  const [spread, setSpread] = useState(1);
+  const [fullscreen, setFullscreen] = useState(false);
+  const [panning, setPanning] = useState(false);
+
+  // How many pages the book has is simply how many were drawn, so it is
+  // derived rather than stored - nothing has to keep the two in step.
+  const total = pages?.length ?? 0;
+
+  /* --- 1. fit the sheets, exactly as the studio does ----------------- */
+  useEffect(() => {
+    let cancelled = false;
+    const source = sourceRef.current;
+
+    whenRenderable(source).then(() => {
+      if (cancelled || !source) return;
+      const units = fitAll(source, SCALE_SETS);
+      setUnit(units[scaleSetOf(entry)]);
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [entry]);
+
+  /* --- 2. draw each fitted sheet to a page image, once --------------- */
+  useEffect(() => {
+    if (unit === undefined) return undefined;
+    let cancelled = false;
+
+    // A frame after the fitted unit paints, so each sheet is drawn at the
+    // size the fit pass settled on.
+    const handle = requestAnimationFrame(() => {
+      const source = sourceRef.current;
+      if (!source) return;
+      const sheets = Array.from(source.querySelectorAll('[data-sheet]'));
+
+      const scale = viewerScale();
+
+      (async () => {
+        const urls = [];
+        for (const sheet of sheets) {
+          // Sequential: each sheet is a full-page canvas, and drawing
+          // them all at once would spike memory for no gain.
+          const canvas = await rasterizeSheet(sheet, scale);
+          if (cancelled) return;
+          urls.push(canvas.toDataURL('image/jpeg', VIEWER_QUALITY));
+        }
+        if (!cancelled) setPages(urls);
+      })().catch((error) => {
+        console.error('The flipbook pages could not be drawn:', error);
+      });
+    });
+
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(handle);
+    };
+  }, [unit]);
+
+  /* --- 3. build the book from those page images ---------------------- */
+  const build = useCallback(() => {
+    const stage = stageRef.current;
+    const host = hostRef.current;
+    if (!stage || !host || !pages?.length) return;
+
+    // Building the book changes what sits inside the stage, which can
+    // move a scrollbar and so report the stage as resized again. Ignoring
+    // a measurement that has not really changed stops that feeding back
+    // on itself, and stops a stray observation throwing away the reader's
+    // place in the book.
+    const measured = `${stage.clientWidth}x${stage.clientHeight}x${zoom}x${pages.length}`;
+    if (measured === builtForRef.current) return;
+    builtForRef.current = measured;
+
+    if (flipRef.current) {
+      try {
+        flipRef.current.destroy();
+      } catch {
+        /* already gone */
+      }
+      flipRef.current = null;
+    }
+
+    // page-flip's destroy() removes the element it was given from the
+    // document, so it never gets the same one twice: each build hands it
+    // a fresh, disposable child of the host React owns. Rebuilding on
+    // zoom or resize is then always a clean start.
+    host.replaceChildren();
+    const mount = document.createElement('div');
+    /* page-flip ships a stylesheet (stPageFlip.css) for the elements it
+       builds. This project carries no stylesheet but app/globals.css, so the
+       two rules an image book actually needs are restated as utilities on
+       the element page-flip turns into `.stf__parent`: a positioned,
+       composited block, and its canvas stretched over it. (The sheet's other
+       rules style the HTML renderer, which is not used here; its
+       `.sft__wrapper` rule is a typo that never matches.) */
+    mount.className =
+      'relative block shrink-0 box-border [transform:translateZ(0)] touch-pan-y [&_canvas]:absolute [&_canvas]:left-0 [&_canvas]:top-0 [&_canvas]:h-full [&_canvas]:w-full';
+    host.appendChild(mount);
+
+    const gutter = stage.clientWidth < 640 ? GUTTER.narrow : GUTTER.wide;
+    const availableW = Math.max(240, stage.clientWidth - gutter.x * 2);
+    const availableH = Math.max(320, stage.clientHeight - gutter.y * 2);
+    const scale = ZOOM_STEPS[zoom] ?? 1;
+
+    /* --------------------------------------------------------------
+       How the book opens.
+
+       Only a document of three pages or more is a book with a cover:
+       page one stands alone, then the pages pair off (2-3, 4-5, ...),
+       as a real one does.
+
+       TWO pages are not a book. Given a cover and a spread, page two
+       would sit alone against an empty half, which reads as a missing
+       page. So a two-page document turns one page at a time at every
+       width: page 1, turn, page 2. Nothing is invented to pad it out
+       and nothing empty is ever shown.
+
+       A spread also has to earn its place: below a readable page width
+       the book gives the whole stage to one page, which is what every
+       phone and every narrow embed gets.
+
+       The decision is made here and handed to page-flip as
+       `usePortrait`, rather than left to its own heuristic, which infers
+       orientation from the measured block width and disagrees.
+       -------------------------------------------------------------- */
+    const isBook = pages.length > 2;
+    const spreadWanted = isBook && availableW / 2 >= MIN_SPREAD_PAGE;
+    const columns = spreadWanted ? 2 : 1;
+
+    let pageW = Math.min(MAX_PAGE_W, availableW / columns);
+    let pageH = pageW * SHEET_RATIO;
+    if (pageH > availableH) {
+      pageH = availableH;
+      pageW = pageH / SHEET_RATIO;
+    }
+    pageW = Math.floor(pageW * scale);
+    pageH = Math.floor(pageW * SHEET_RATIO);
+
+    mount.style.width = `${pageW * columns}px`;
+    mount.style.height = `${pageH}px`;
+
+    /* ----------------------------------------------------------------
+       Hold the reader's place under the cursor.
+
+       Zooming rebuilds the book at a larger pixel size rather than
+       stretching what is already drawn, which is what keeps the page
+       sharp enough to read. The cost is that the new book is a new
+       object with a new size, so scrolling has to be re-derived: the
+       gesture recorded WHERE in the page it happened, as a fraction of
+       the page rather than a number of pixels, and that fraction is put
+       back under the same point on screen here. Whatever the reader was
+       looking at is still under the pointer.
+       ---------------------------------------------------------------- */
+    const anchor = anchorRef.current;
+    anchorRef.current = null;
+    host.style.transform = '';
+    if (anchor) {
+      const stageBox = stage.getBoundingClientRect();
+      const bookW = host.offsetWidth;
+      const bookH = host.offsetHeight;
+
+      // An axis where the book is taller or wider than the stage is
+      // moved by scrolling it.
+      stage.scrollLeft =
+        host.offsetLeft + anchor.fx * bookW - (anchor.cx - stageBox.left);
+      stage.scrollTop =
+        host.offsetTop + anchor.fy * bookH - (anchor.cy - stageBox.top);
+
+      /* An axis where the book still FITS has nothing to scroll, and an
+         auto margin would hold it in the middle - so the point under the
+         pointer would slide away as the book grew out from its centre.
+         There it is nudged instead, far enough to put the point back and
+         no further than keeps the whole book on the stage.
+
+         A translation is safe where a scale would not be: page-flip
+         locates a pointer as `clientX - boundingRect.left`, and moving
+         an element moves its rect with it, so the arithmetic is
+         unchanged and dragging a corner still works. */
+      const nudge = (offset, size, viewport, wanted) => {
+        if (size > viewport) return 0;
+        const start = offset;
+        return Math.min(Math.max(wanted - start, -start), viewport - size - start);
+      };
+      const dx = nudge(
+        host.offsetLeft,
+        bookW,
+        stage.clientWidth,
+        anchor.cx - stageBox.left - anchor.fx * bookW,
+      );
+      const dy = nudge(
+        host.offsetTop,
+        bookH,
+        stage.clientHeight,
+        anchor.cy - stageBox.top - anchor.fy * bookH,
+      );
+      if (dx || dy) host.style.transform = `translate(${dx}px, ${dy}px)`;
+    }
+
+    /* ----------------------------------------------------------------
+       A single sheet is not a book.
+
+       No flip engine and no page turns; the control bar drops its page
+       navigation too, leaving the zoom and fullscreen the viewer always
+       offers.
+       ---------------------------------------------------------------- */
+    if (pages.length === 1) {
+      const only = document.createElement('img');
+      only.src = pages[0];
+      only.alt = entry.title;
+      only.className = 'block h-full w-full bg-white shadow-lg';
+      mount.appendChild(only);
+      return;
+    }
+
+    let loaded = false;
+    // Loaded on demand: the flip engine is only needed once the pages are
+    // drawn, and never at all by the studio.
+    import('page-flip')
+      .then(({ PageFlip }) => {
+        const flip = new PageFlip(mount, {
+          width: pageW,
+          height: pageH,
+          size: 'fixed',
+          // Reopen where the reader was, not at the beginning: a rebuild
+          // is a new book, and resizing should not cost them their place.
+          startPage: Math.min(Math.max(openAtRef.current, 0), pages.length - 1),
+
+          // The turn itself: a soft page carrying its own shadow, at a
+          // speed that reads as paper rather than as a transition.
+          drawShadow: true,
+          maxShadowOpacity: 0.6,
+          flippingTime: 800,
+
+          usePortrait: !spreadWanted,
+
+          // The first sheet stands alone, as the cover of a book does.
+          // Only a real book has one: with two pages it would strand
+          // page two against an empty half.
+          showCover: isBook,
+          autoSize: false,
+
+          // Every way of turning a page: the buttons, a click, a drag of
+          // the corner, a swipe.
+          useMouseEvents: true,
+          showPageCorners: true,
+          disableFlipByClick: false,
+          mobileScrollSupport: true,
+          swipeDistance: 30,
+        });
+
+        flip.loadFromImages(pages);
+        flipRef.current = flip;
+        loaded = true;
+
+        /* ------------------------------------------------------------
+           Draw the book at the display's real resolution.
+
+           page-flip sizes its canvas from the element's CSS width and
+           height and stops there, so on any high-density screen - most
+           laptops, every phone - the whole book is drawn at half the
+           pixels the display has and then stretched over them. The
+           artwork behind it is sharp; what the reader sees is not.
+
+           Overriding the one method that sizes the canvas fixes it at
+           the source: the backing store is scaled by the device pixel
+           ratio, and the context is scaled to match, so every drawing
+           call the library makes in CSS pixels lands on the full grid.
+           The CSS size is untouched - it comes from the stylesheet's
+           width:100% - so nothing about the layout moves.
+
+           It has to be the method rather than a one-off resize, because
+           page-flip calls it again whenever the book updates, and
+           setting `canvas.width` resets the context transform.
+           ------------------------------------------------------------ */
+        try {
+          const ui = flip.getUI?.();
+          const canvas = ui?.getCanvas?.();
+          const ctx = canvas?.getContext('2d');
+          const dpr = window.devicePixelRatio || 1;
+          if (ui && canvas && ctx && dpr > 0) {
+            ui.resizeCanvas = () => {
+              const cs = getComputedStyle(canvas);
+              const cssW = parseInt(cs.getPropertyValue('width'), 10) || 0;
+              const cssH = parseInt(cs.getPropertyValue('height'), 10) || 0;
+              canvas.width = Math.round(cssW * dpr);
+              canvas.height = Math.round(cssH * dpr);
+              ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            };
+            ui.update();
+          }
+        } catch {
+          /* a future page-flip may size its canvas differently */
+        }
+
+        /* ------------------------------------------------------------
+           Nothing empty may look like a page.
+
+           page-flip's canvas renderer repaints the whole book area
+           solid white on every frame and then draws the pages over it.
+           Where a book legitimately shows one page and not two - beside
+           the cover, and beside a final page when the count is even -
+           that leaves a page-sized white rectangle, which reads as a
+           blank sheet that is not in the document.
+
+           Clearing to transparent instead lets the viewer's own
+           background show through in those places, so the only things
+           that look like pages are the real ones. No page is invented
+           and none is hidden; this only changes what is behind them.
+           ------------------------------------------------------------ */
+        try {
+          const render = flip.getRender?.();
+          const canvas = flip.getUI?.()?.getCanvas?.();
+          const ctx = canvas?.getContext('2d');
+          if (render && ctx && canvas) {
+            // Cleared in CSS pixels, because the context above is scaled
+            // by the device pixel ratio and every drawing call - this one
+            // included - is made in that same space.
+            render.clear = () => {
+              const cs = getComputedStyle(canvas);
+              ctx.clearRect(
+                0,
+                0,
+                parseInt(cs.getPropertyValue('width'), 10) || canvas.width,
+                parseInt(cs.getPropertyValue('height'), 10) || canvas.height,
+              );
+            };
+          }
+        } catch {
+          /* a future page-flip may not expose this; the book still works */
+        }
+
+        openAtRef.current = flip.getCurrentPageIndex();
+        setPage(openAtRef.current);
+        setSpread(spreadWanted ? 2 : 1);
+
+        flip.on('flip', (e) => {
+          openAtRef.current = e.data;
+          setPage(e.data);
+        });
+        flip.on('changeOrientation', (e) =>
+          setSpread(e.data === 'portrait' ? 1 : 2),
+        );
+      })
+      .catch((error) => {
+        console.error('The flipbook engine could not be loaded:', error);
+        if (!loaded) mount.replaceChildren();
+      });
+  }, [pages, zoom, entry.title]);
+
+  /* --- 4. build once the pages exist, and rebuild when the room does - */
+  useEffect(() => {
+    if (!pages?.length) return undefined;
+    build();
+
+    let timer;
+    const rebuild = () => {
+      clearTimeout(timer);
+      timer = setTimeout(build, 180);
+    };
+
+    /* --------------------------------------------------------------
+       The book is sized from the STAGE, not from the window.
+
+       Embedded in someone else's page, the window may never change
+       while the iframe around this viewer does - a responsive column,
+       a sidebar opening, a container transition. A ResizeObserver on
+       the stage catches all of those, and the iframe being resized
+       too, so the one signal covers every case.
+
+       It is watched rather than polled, and the rebuild is debounced,
+       because building the book changes what is inside the stage and a
+       scrollbar appearing or leaving would otherwise feed straight back
+       in. `build` itself only acts on a real change in the measured
+       size, which closes that loop.
+       -------------------------------------------------------------- */
+    const stage = stageRef.current;
+    const observer =
+      typeof ResizeObserver !== 'undefined' ? new ResizeObserver(rebuild) : null;
+    if (observer && stage) observer.observe(stage);
+    else window.addEventListener('resize', rebuild);
+
+    window.addEventListener('orientationchange', rebuild);
+
+    return () => {
+      clearTimeout(timer);
+      observer?.disconnect();
+      window.removeEventListener('resize', rebuild);
+      window.removeEventListener('orientationchange', rebuild);
+      if (flipRef.current) {
+        try {
+          flipRef.current.destroy();
+        } catch {
+          /* already gone */
+        }
+        flipRef.current = null;
+      }
+    };
+  }, [pages, build]);
+
+  /* --- controls ------------------------------------------------------ */
+  // flipPrev/flipNext animate the turn, and the buttons, the keyboard and
+  // the swipe handler all go through them - so every route to the next
+  // page turns the page rather than replacing it.
+  const flipPrev = useCallback(() => flipRef.current?.flipPrev(), []);
+  const flipNext = useCallback(() => flipRef.current?.flipNext(), []);
+
+  /* --------------------------------------------------------------------
+     One step of zoom, about a point.
+
+     The point is recorded as a FRACTION of the book rather than a pixel
+     offset, because the book that comes back from the rebuild is a
+     different size; a fraction survives that, a pixel offset does not.
+     `build` puts it back under the same place on screen.
+
+     Given no point - the toolbar buttons - it zooms about the middle of
+     the stage, which is what the reader is looking at when they are not
+     pointing at anything.
+     -------------------------------------------------------------------- */
+  const stepZoom = useCallback((delta, at) => {
+    const stage = stageRef.current;
+    const host = hostRef.current;
+    if (stage && host) {
+      const stageBox = stage.getBoundingClientRect();
+      const bookBox = host.getBoundingClientRect();
+      const cx = at?.cx ?? stageBox.left + stageBox.width / 2;
+      const cy = at?.cy ?? stageBox.top + stageBox.height / 2;
+      anchorRef.current = {
+        cx,
+        cy,
+        fx: bookBox.width ? clamp01((cx - bookBox.left) / bookBox.width) : 0.5,
+        fy: bookBox.height ? clamp01((cy - bookBox.top) / bookBox.height) : 0.5,
+      };
+    }
+    setZoom((z) => Math.min(ZOOM_STEPS.length - 1, Math.max(0, z + delta)));
+  }, []);
+
+  /* --------------------------------------------------------------------
+     The wheel zooms the book, and only the book.
+
+     Every wheel event over the stage is taken: turned into a zoom step
+     and then stopped, so it never reaches the page hosting the viewer.
+     That covers the trackpad pinch a browser sends as ctrl+wheel, which
+     would otherwise zoom the whole site.
+
+     Steps are coalesced into one per frame, so a fast flick of the wheel
+     rebuilds the book once rather than once per notch.
+
+     Touch is untouched: a wheel event is a mouse and trackpad thing, and
+     nothing here fires for a finger.
+     -------------------------------------------------------------------- */
+  useEffect(() => {
+    const stage = stageRef.current;
+    if (!stage || !pages?.length) return undefined;
+
+    let queued = 0;
+    let frame = 0;
+
+    const onWheel = (e) => {
+      e.preventDefault();
+      queued += e.deltaY < 0 ? 1 : -1;
+      const at = { cx: e.clientX, cy: e.clientY };
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        const delta = queued;
+        queued = 0;
+        if (delta) stepZoom(delta, at);
+      });
+    };
+
+    stage.addEventListener('wheel', onWheel, { passive: false });
+    return () => {
+      stage.removeEventListener('wheel', onWheel);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, [pages, stepZoom]);
+
+  /* --------------------------------------------------------------------
+     Drag to move an enlarged page around.
+
+     Only once zoomed. At its natural size the book behaves exactly as it
+     did: the pointer belongs to page-flip, and a drag turns a page.
+
+     Above 100% the pointer belongs to the reader instead - they are
+     inspecting one page, not leafing through - so the press is caught on
+     the way DOWN to the book, before page-flip's own handler can see it,
+     and turned into panning. Turning pages is still there on the
+     toolbar and the arrow keys.
+
+     Scrolling the stage is what actually moves the book, so the browser
+     does the clamping: the page can be pushed to its edges and no
+     further, and never off into space. The move listeners sit on the
+     window so the grab survives the pointer leaving the stage, and the
+     whole thing is mouse-only - a finger still scrolls and still turns
+     pages exactly as it did.
+     -------------------------------------------------------------------- */
+  useEffect(() => {
+    const stage = stageRef.current;
+    if (!stage || zoom === 0) return undefined;
+
+    const onDown = (e) => {
+      if (e.button !== 0) return;
+      // leave the scrollbars alone: a press in the gutter is a scrollbar
+      // drag, and the browser handles that better than this does
+      const box = stage.getBoundingClientRect();
+      if (
+        e.clientX - box.left > stage.clientWidth ||
+        e.clientY - box.top > stage.clientHeight
+      ) {
+        return;
+      }
+      e.preventDefault(); // no text selection, no image drag
+      e.stopPropagation(); // and page-flip never learns of it
+      panRef.current = {
+        x: e.clientX,
+        y: e.clientY,
+        left: stage.scrollLeft,
+        top: stage.scrollTop,
+      };
+      setPanning(true);
+    };
+
+    const onMove = (e) => {
+      const from = panRef.current;
+      if (!from) return;
+      stage.scrollLeft = from.left - (e.clientX - from.x);
+      stage.scrollTop = from.top - (e.clientY - from.y);
+    };
+
+    const onUp = () => {
+      if (!panRef.current) return;
+      panRef.current = null;
+      setPanning(false);
+    };
+
+    stage.addEventListener('mousedown', onDown, true); // capture, not bubble
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+    return () => {
+      stage.removeEventListener('mousedown', onDown, true);
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseup', onUp);
+      // Back to its natural size, or unmounted, mid-grab: let it go.
+      panRef.current = null;
+      setPanning(false);
+    };
+  }, [zoom]);
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'ArrowLeft') flipPrev();
+      if (e.key === 'ArrowRight') flipNext();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [flipPrev, flipNext]);
+
+  const toggleFullscreen = useCallback(() => {
+    const root = stageRef.current?.closest('[data-flipbook-root]');
+    if (!document.fullscreenElement) root?.requestFullscreen?.().catch(() => {});
+    else document.exitFullscreen?.().catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    const onChange = () => setFullscreen(Boolean(document.fullscreenElement));
+    document.addEventListener('fullscreenchange', onChange);
+    return () => document.removeEventListener('fullscreenchange', onChange);
+  }, []);
+
+  return (
+    /* ------------------------------------------------------------------
+       The viewer is exactly as tall as the room it is given and no
+       taller, so that embedded in an iframe it never makes the host page
+       scroll: the control bar takes its own height, the stage takes what
+       is left (`flex-1` over `min-h-0`, or a tall book would push the
+       bar out of view), and nothing overflows the whole.
+
+       `h-screen` is the 100vh fallback; the inline 100dvh overrides it
+       where dynamic viewport units exist, so the height follows a mobile
+       browser's address bar sliding in and out. A browser that cannot
+       parse dvh drops that declaration and keeps the class.
+       ------------------------------------------------------------------ */
+    <div
+      data-flipbook-root=""
+      style={{ height: '100dvh' }}
+      className="flex h-screen w-full flex-col overflow-hidden bg-slate-200"
+    >
+      <div
+        ref={stageRef}
+        /* At its natural size the book is measured to fit, so the stage
+           has nothing to scroll. Zoomed in it deliberately does, which is
+           how the reader pans around an enlarged page - inside the
+           viewer, never on the page hosting it, which is what
+           `overscroll-contain` settles.
+
+           The book is centred with `m-auto` on the book itself rather
+           than `justify-center` on the stage: centring a flex line puts
+           the overflow on BOTH sides when the book is larger than the
+           stage, and the part that overflows the start can never be
+           scrolled to. An auto margin centres the same way and leaves
+           the whole book reachable. */
+        className={`relative flex min-h-0 flex-1 overscroll-contain p-1.5 n640:p-4 ${
+          zoom > 0
+            ? `overflow-auto ${panning ? 'cursor-grabbing' : 'cursor-grab'}`
+            : 'overflow-hidden'
+        }`}
+      >
+        <div ref={hostRef} className="m-auto shrink-0" />
+        {pages ? null : (
+          <p className="absolute inset-0 flex items-center justify-center text-sm font-semibold text-[#342B7C]/70 leading-5">
+            Preparing the flipbook&hellip;
+          </p>
+        )}
+      </div>
+
+      <FlipbookControls
+        title={entry.title}
+        page={page}
+        total={total}
+        spread={spread}
+        zoom={zoom}
+        zoomSteps={ZOOM_STEPS.length}
+        fullscreen={fullscreen}
+        onPrev={flipPrev}
+        onNext={flipNext}
+        onZoomIn={() => stepZoom(1)}
+        onZoomOut={() => stepZoom(-1)}
+        onFullscreen={toggleFullscreen}
+      />
+
+      {/* ---------------------------------------------------------------
+          The source sheets.
+
+          Parked off-screen rather than hidden, so they keep a real
+          layout and can be measured and drawn - the same arrangement
+          the studio uses for its document store.
+          --------------------------------------------------------------- */}
+      <div
+        ref={sourceRef}
+        aria-hidden="true"
+        className="pointer-events-none fixed left-[-100000px] top-0 w-[210mm]"
+      >
+        {documentSheets(entry, unit)}
+      </div>
+    </div>
+  );
+}
+
+function scaleSetOf(entry) {
+  if (entry.kind === 'policy') return 'refund-policy';
+  if (entry.kind === 'admissions-policy') return 'admissions-policy';
+  return 'fee-structures';
+}

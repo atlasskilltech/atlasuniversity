@@ -40,5 +40,8 @@ export default function MainSiteOnly({ children }) {
   if (pathname === '/map' || pathname?.startsWith('/map/')) return null;
   if (pathname === '/contact-us') return null;
   if (pathname === '/brand' || pathname?.startsWith('/brand/')) return null;
+  // The ATLAS Tech PDF Studio is a standalone application with its own header (components/PdfStudio):
+  // the studio, its embeddable flipbook viewer and its bare print view all render without the site chrome.
+  if (pathname === '/pdf-studio' || pathname?.startsWith('/pdf-studio/')) return null;
   return children;
 }
