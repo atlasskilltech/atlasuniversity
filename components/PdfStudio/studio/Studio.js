@@ -36,10 +36,20 @@ import {
 } from '@/lib/pdf-studio/registry';
 import { buildPdf, saveBlob, zipPdfs } from '@/lib/pdf-studio/pdf/export';
 
+/* The statutory documents (ACT, ENFACT, OPEACT, UMBRELLA ACT, AIU) are
+   issued documents, not designed ones: nothing about them is fitted or
+   exported, so they stay out of the store - their page images load only
+   when one is opened - and their page counts come from their own data. */
+const isStatutory = (entry) => entry.kind === 'statutory';
+const DESIGNED = DOCUMENTS.filter((entry) => !isStatutory(entry));
+const STATUTORY_PAGES = Object.fromEntries(
+  DOCUMENTS.filter(isStatutory).map((entry) => [entry.id, entry.doc.pages.length]),
+);
+
 export default function Studio() {
   const storeRef = useRef(null);
   const [units, setUnits] = useState({});
-  const [pageCounts, setPageCounts] = useState({});
+  const [pageCounts, setPageCounts] = useState(STATUTORY_PAGES);
   const [chosenId, setChosenId] = useState(null);
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState(null);
@@ -74,7 +84,7 @@ export default function Studio() {
         counts[group.dataset.document] =
           group.querySelectorAll('[data-sheet]').length;
       }
-      setPageCounts(counts);
+      setPageCounts({ ...STATUTORY_PAGES, ...counts });
     });
 
     return () => {
@@ -119,8 +129,24 @@ export default function Studio() {
   );
 
   const downloadOne = useCallback(
-    (entry) =>
-      guard(async () => {
+    (entry) => {
+      // A statutory document IS its PDF: hand over the ready-made file
+      // (the original scans / the supplied Act) rather than redraw it.
+      // The asset is served from S3, where a browser ignores `download`
+      // on a cross-origin link, so it opens in a new tab to save from.
+      if (isStatutory(entry)) {
+        const a = document.createElement('a');
+        a.href = entry.doc.pdf;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.download = entry.file;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setMessage({ text: `Opened ${entry.file}`, ttl: 3000 });
+        return undefined;
+      }
+      return guard(async () => {
         const group = storeGroup(entry.id);
         if (!group) throw new Error('That document is not ready yet.');
 
@@ -128,7 +154,8 @@ export default function Studio() {
         const pdf = await buildPdf(group, metaFor(entry));
         saveBlob(pdf.output('blob'), entry.file);
         setMessage({ text: `Downloaded ${entry.file}`, ttl: 3000 });
-      }),
+      });
+    },
     [guard, storeGroup],
   );
 
@@ -299,7 +326,7 @@ export default function Studio() {
         aria-hidden="true"
         className="pointer-events-none fixed left-[-100000px] top-0 w-[210mm]"
       >
-        {DOCUMENTS.map((entry) => (
+        {DESIGNED.map((entry) => (
           <div key={entry.id} data-document={entry.id}>
             {documentSheets(entry, units[scaleSetOf(entry)])}
           </div>

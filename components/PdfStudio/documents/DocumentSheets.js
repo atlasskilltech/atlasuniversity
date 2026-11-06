@@ -10,11 +10,13 @@
 import feeStructureSheets from './FeeStructureDocument';
 import refundPolicySheets from './RefundPolicyDocument';
 import admissionsPolicySheets from './AdmissionsPolicyDocument';
+import statutoryDocumentSheets from './StatutoryDocument';
 
 const RENDERERS = {
   'fee-structure': feeStructureSheets,
   policy: refundPolicySheets,
   'admissions-policy': admissionsPolicySheets,
+  statutory: statutoryDocumentSheets,
 };
 
 /** The sheets of one document, as an array of elements. */

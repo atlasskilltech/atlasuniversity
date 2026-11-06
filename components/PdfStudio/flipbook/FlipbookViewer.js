@@ -29,7 +29,7 @@
    The pages are drawn ONCE per document and cached. Resizing, zooming
    and turning all reuse them.
    ===================================================================== */
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { documentSheets } from '@/components/PdfStudio/documents/DocumentSheets';
 import { fitAll, whenRenderable } from '@/lib/pdf-studio/fit';
 import { rasterizeSheet } from '@/lib/pdf-studio/pdf/rasterize';
@@ -105,7 +105,18 @@ export default function FlipbookViewer({ entry }) {
   const panRef = useRef(null);
 
   const [unit, setUnit] = useState(undefined);
-  const [pages, setPages] = useState(null); // page artwork, once drawn
+  const [drawn, setPages] = useState(null); // page artwork, once drawn
+
+  /* A statutory document (ACT, ENFACT, OPEACT, UMBRELLA ACT, AIU) already
+     IS page artwork: its WebP pages go to the flip engine as they are, and
+     there is nothing to fit or draw. Every designed document still takes
+     the path below unchanged. */
+  const statutory = entry.kind === 'statutory';
+  const statutoryPages = useMemo(
+    () => (statutory ? entry.doc.pages.map((pg) => pg.src) : null),
+    [statutory, entry],
+  );
+  const pages = statutory ? statutoryPages : drawn;
   const [zoom, setZoom] = useState(0);
   const [page, setPage] = useState(0);
   const [spread, setSpread] = useState(1);
@@ -118,6 +129,7 @@ export default function FlipbookViewer({ entry }) {
 
   /* --- 1. fit the sheets, exactly as the studio does ----------------- */
   useEffect(() => {
+    if (statutory) return undefined;
     let cancelled = false;
     const source = sourceRef.current;
 
@@ -130,7 +142,7 @@ export default function FlipbookViewer({ entry }) {
     return () => {
       cancelled = true;
     };
-  }, [entry]);
+  }, [entry, statutory]);
 
   /* --- 2. draw each fitted sheet to a page image, once --------------- */
   useEffect(() => {
@@ -318,7 +330,10 @@ export default function FlipbookViewer({ entry }) {
       const only = document.createElement('img');
       only.src = pages[0];
       only.alt = entry.title;
-      only.className = 'block h-full w-full bg-white shadow-lg';
+      // object-contain: a designed sheet is drawn at exactly the page's
+      // proportions, so this changes nothing for it; the AIU letter is not
+      // A4-shaped and is fitted whole rather than stretched.
+      only.className = 'block h-full w-full bg-white object-contain shadow-lg';
       mount.appendChild(only);
       return;
     }
@@ -751,7 +766,7 @@ export default function FlipbookViewer({ entry }) {
         aria-hidden="true"
         className="pointer-events-none fixed left-[-100000px] top-0 w-[210mm]"
       >
-        {documentSheets(entry, unit)}
+        {statutory ? null : documentSheets(entry, unit)}
       </div>
     </div>
   );
