@@ -22,19 +22,60 @@ jobs:
           mkdir -p ~/.ssh
           echo "$EC2_KEY" > ~/.ssh/key.pem
           chmod 600 ~/.ssh/key.pem
+          trap 'rm -f ~/.ssh/key.pem' EXIT
 
-          ssh -i ~/.ssh/key.pem -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST << 'EOF'
-            set -e
+          # The remote script runs in a login shell (`bash -l -s`: ~/.profile puts node, npm and pm2
+          # on PATH, as the previous `ssh host << EOF` did) under `set -euo pipefail`. Any failing
+          # step (pull, install, build, pm2) ends the deployment and ssh returns its non-zero exit
+          # code, which fails this step. Nothing after a failed build reloads the app.
+          ssh -i ~/.ssh/key.pem -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST 'bash -l -s' << 'EOF'
+            set -euo pipefail
 
-            cd /home/ubuntu/atlasuniversity
+            APP_DIR=/home/ubuntu/atlasuniversity
+            cd "$APP_DIR"
 
-            git pull origin main
+            # ---- generated map snapshot -------------------------------------------------------
+            # `npm run build` runs `prebuild` -> `npm run map:discover`, which rewrites these three
+            # tracked files on every build (at least their `generatedAt` stamp). Left as local
+            # modifications they make the next `git pull` abort, so before pulling they are backed
+            # up and ONLY these three are restored to the committed version. The build below
+            # regenerates them from the new code.
+            MAP_GENERATED=(data/map/graph.json data/map/facts.json data/map/history.json)
+
+            # Any other modified tracked file (staged or not) is a real server-side change: do not
+            # touch it, stop and name it. Untracked files are left alone (git pull refuses on its
+            # own if one would be overwritten).
+            UNRELATED=$(git status --porcelain=v1 --untracked-files=no | cut -c4- \
+              | grep -vxF -e "${MAP_GENERATED[0]}" -e "${MAP_GENERATED[1]}" -e "${MAP_GENERATED[2]}" || true)
+            if [ -n "$UNRELATED" ]; then
+              echo "[deploy] ABORTED: unrelated local changes on the server; nothing was modified:" >&2
+              echo "$UNRELATED" | sed 's/^/[deploy]   /' >&2
+              exit 1
+            fi
+
+            if ! git diff --quiet HEAD -- "${MAP_GENERATED[@]}"; then
+              MAP_BACKUP="$HOME/map-backups/$(date -u +%Y%m%dT%H%M%SZ)"
+              mkdir -p "$MAP_BACKUP"
+              cp -p data/map/*.json "$MAP_BACKUP"/
+              echo "[deploy] backed up data/map/*.json to $MAP_BACKUP"
+              git restore --staged --worktree --source=HEAD -- "${MAP_GENERATED[@]}"
+              echo "[deploy] restored ${MAP_GENERATED[*]} to the committed version"
+            else
+              echo "[deploy] generated map files unchanged, no backup needed"
+            fi
+
+            # ---- update, install, build, reload -----------------------------------------------
+            git pull --ff-only origin main
 
             npm ci
-            npm run build || true
+            npm run build
 
-            pm2 reload atlasuniversity || pm2 start --name atlasuniversity
+            # Reached only when the build succeeded.
+            if pm2 describe atlasuniversity > /dev/null 2>&1; then
+              pm2 reload atlasuniversity
+            else
+              pm2 start npm --name atlasuniversity -- start
+            fi
             pm2 save
+            echo "[deploy] done: $(git rev-parse --short HEAD)"
           EOF
-
-          rm -f ~/.ssh/key.pem
