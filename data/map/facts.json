@@ -1,6 +1,86 @@
 {
- "generatedAt": "2026-11-03T09:34:15.427Z",
+ "generatedAt": "2026-11-07T18:56:11.777Z",
  "facts": [
+  {
+   "route": "/aarohan2024",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Download Schedule",
+   "value": "/assets/aarohan/2024/pdf/itinaray-2024.pdf",
+   "href": "/assets/aarohan/2024/pdf/itinaray-2024.pdf",
+   "id": "zuz42e"
+  },
+  {
+   "route": "/aarohan2025",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Download Schedule",
+   "value": "/assets/aarohan/2025/pdf/aarohan-3-0-4-page-brochure.pdf",
+   "href": "/assets/aarohan/2025/pdf/aarohan-3-0-4-page-brochure.pdf",
+   "id": "6rkh75"
+  },
+  {
+   "route": "/aarohan2025/abstract-submission",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Download",
+   "value": "/assets/aarohan/2025/pdf/splnproc2311-mac.pdf",
+   "href": "/assets/aarohan/2025/pdf/splnproc2311-mac.pdf",
+   "id": "vkt3qm"
+  },
+  {
+   "route": "/aarohan2025/information-for-authors",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Download",
+   "value": "/assets/aarohan/2025/pdf/splnproc2311-mac.pdf",
+   "href": "/assets/aarohan/2025/pdf/splnproc2311-mac.pdf",
+   "id": "15mscue"
+  },
+  {
+   "route": "/aarohan2025/informations-for-chairs",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Download",
+   "value": "/assets/aarohan/2025/pdf/splnproc2311-mac.pdf",
+   "href": "/assets/aarohan/2025/pdf/splnproc2311-mac.pdf",
+   "id": "z3mf3v"
+  },
+  {
+   "route": "/aarohan2025/paper-submission",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Download",
+   "value": "/assets/aarohan/2025/pdf/splnproc2311-mac.pdf",
+   "href": "/assets/aarohan/2025/pdf/splnproc2311-mac.pdf",
+   "id": "1kw1gde"
+  },
+  {
+   "route": "/aarohan2025/research-ethics",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Download",
+   "value": "/assets/aarohan/2025/pdf/splnproc2311-mac.pdf",
+   "href": "/assets/aarohan/2025/pdf/splnproc2311-mac.pdf",
+   "id": "1ve1ea5"
+  },
+  {
+   "route": "/aarohan23",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Download Schedule",
+   "value": "/assets/aarohan/2023/pdf/itinarary-v01-2.pdf",
+   "href": "/assets/aarohan/2023/pdf/itinarary-v01-2.pdf",
+   "id": "1kh42ib"
+  },
   {
    "route": "/admissions/integrated-admissions",
    "section": null,
@@ -17,14 +97,14 @@
    "kind": "date",
    "key": "date",
    "label": "B.Tech Applications Start",
-   "value": "11th Sep 2025",
+   "value": "11th Sep 2026",
    "group": "uGDX School of Technology",
    "school": "ugdx",
    "date": {
-    "iso": "2025-09-11",
+    "iso": "2026-09-11",
     "precision": "day"
    },
-   "id": "q0cio2"
+   "id": "qk8kk1"
   },
   {
    "route": "/admissions/integrated-admissions",
@@ -32,14 +112,14 @@
    "kind": "date",
    "key": "date",
    "label": "Application Deadline",
-   "value": "20th Aug 2026",
+   "value": "8th Dec 2026",
    "group": "uGDX School of Technology · B.Tech Applications Start",
    "school": "ugdx",
    "date": {
-    "iso": "2026-08-20",
+    "iso": "2026-12-08",
     "precision": "day"
    },
-   "id": "1x4x66b"
+   "id": "pif4fy"
   },
   {
    "route": "/admissions/integrated-admissions",
@@ -47,14 +127,14 @@
    "kind": "date",
    "key": "date",
    "label": "Interview Date",
-   "value": "20th Aug 2026",
+   "value": "12th Dec 2026",
    "group": "uGDX School of Technology · B.Tech Applications Start",
    "school": "ugdx",
    "date": {
-    "iso": "2026-08-20",
+    "iso": "2026-12-12",
     "precision": "day"
    },
-   "id": "1azpacu"
+   "id": "121v2j0"
   },
   {
    "route": "/admissions/integrated-admissions",
@@ -62,14 +142,14 @@
    "kind": "date",
    "key": "date",
    "label": "Result Announcement",
-   "value": "21st Aug 2026",
+   "value": "18th Dec 2026",
    "group": "uGDX School of Technology · B.Tech Applications Start",
    "school": "ugdx",
    "date": {
-    "iso": "2026-08-21",
+    "iso": "2026-12-18",
     "precision": "day"
    },
-   "id": "1t0uu11"
+   "id": "1oum9ct"
   },
   {
    "route": "/admissions/integrated-admissions",
@@ -77,14 +157,14 @@
    "kind": "date",
    "key": "date",
    "label": "Acceptance Deadline",
-   "value": "22nd Aug 2026",
+   "value": "22nd Dec 2026",
    "group": "uGDX School of Technology · B.Tech Applications Start",
    "school": "ugdx",
    "date": {
-    "iso": "2026-08-22",
+    "iso": "2026-12-22",
     "precision": "day"
    },
-   "id": "aojrke"
+   "id": "u3yctl"
   },
   {
    "route": "/admissions/integrated-admissions",
@@ -92,14 +172,14 @@
    "kind": "date",
    "key": "date",
    "label": "Semester 1 Fee Payment Deadline",
-   "value": "24th Aug 2026",
+   "value": "21st Jan 2027",
    "group": "uGDX School of Technology · B.Tech Applications Start",
    "school": "ugdx",
    "date": {
-    "iso": "2026-08-24",
+    "iso": "2027-01-21",
     "precision": "day"
    },
-   "id": "n4zmxa"
+   "id": "832cox"
   },
   {
    "route": "/admissions/integrated-admissions",
@@ -107,13 +187,13 @@
    "kind": "date",
    "key": "date",
    "label": "Applications Opened",
-   "value": "Closed",
-   "group": "ATLAS School of Law · BBA LL.B. Admissions Calendar for July 2026 Intake",
+   "value": "Applications Open",
+   "group": "ATLAS School of Law · BBA LL.B. Admissions Calendar for July 2027 Intake",
    "school": "law",
    "date": {
-    "state": "closed"
+    "state": "open"
    },
-   "id": "16137ho"
+   "id": "blz55s"
   },
   {
    "route": "/admissions/integrated-admissions",
@@ -122,41 +202,13 @@
    "key": "date",
    "label": "Applications Opened (note)",
    "value": "(11th Sep 2026)",
-   "group": "ATLAS School of Law · BBA LL.B. Admissions Calendar for July 2026 Intake",
+   "group": "ATLAS School of Law · BBA LL.B. Admissions Calendar for July 2027 Intake",
    "school": "law",
    "date": {
     "iso": "2026-09-11",
     "precision": "day"
    },
-   "id": "z903r4"
-  },
-  {
-   "route": "/admissions/integrated-admissions",
-   "section": "Key Dates & Deadlines",
-   "kind": "date",
-   "key": "date",
-   "label": "ATLAS Law Aptitude Test",
-   "value": "Closed",
-   "group": "ATLAS School of Law · BBA LL.B. Admissions Calendar for July 2026 Intake",
-   "school": "law",
-   "date": {
-    "state": "closed"
-   },
-   "id": "1h77b6d"
-  },
-  {
-   "route": "/admissions/integrated-admissions",
-   "section": "Key Dates & Deadlines",
-   "kind": "date",
-   "key": "date",
-   "label": "Personal Interview",
-   "value": "Closed",
-   "group": "ATLAS School of Law · BBA LL.B. Admissions Calendar for July 2026 Intake",
-   "school": "law",
-   "date": {
-    "state": "closed"
-   },
-   "id": "11h5phz"
+   "id": "1mxbfs5"
   },
   {
    "route": "/admissions/integrated-admissions",
@@ -164,13 +216,14 @@
    "kind": "date",
    "key": "date",
    "label": "Result Announcement",
-   "value": "Closed",
-   "group": "ATLAS School of Law · BBA LL.B. Admissions Calendar for July 2026 Intake",
+   "value": "2nd Dec 2026",
+   "group": "ATLAS School of Law · BBA LL.B. Admissions Calendar for July 2027 Intake",
    "school": "law",
    "date": {
-    "state": "closed"
+    "iso": "2026-12-02",
+    "precision": "day"
    },
-   "id": "18xo6os"
+   "id": "11m2rmz"
   },
   {
    "route": "/admissions/integrated-admissions",
@@ -178,13 +231,14 @@
    "kind": "date",
    "key": "date",
    "label": "Acceptance Deadline",
-   "value": "Closed",
-   "group": "ATLAS School of Law · BBA LL.B. Admissions Calendar for July 2026 Intake",
+   "value": "15th Dec 2026",
+   "group": "ATLAS School of Law · BBA LL.B. Admissions Calendar for July 2027 Intake",
    "school": "law",
    "date": {
-    "state": "closed"
+    "iso": "2026-12-15",
+    "precision": "day"
    },
-   "id": "1ba76zt"
+   "id": "fa3oe0"
   },
   {
    "route": "/admissions/integrated-admissions",
@@ -192,13 +246,14 @@
    "kind": "date",
    "key": "date",
    "label": "Semester Fee Payment Deadline",
-   "value": "Closed",
-   "group": "ATLAS School of Law · BBA LL.B. Admissions Calendar for July 2026 Intake",
+   "value": "31st May 2027",
+   "group": "ATLAS School of Law · BBA LL.B. Admissions Calendar for July 2027 Intake",
    "school": "law",
    "date": {
-    "state": "closed"
+    "iso": "2027-05-31",
+    "precision": "day"
    },
-   "id": "yhmnuc"
+   "id": "1bis12"
   },
   {
    "route": "/admissions/integrated-admissions",
@@ -235,14 +290,74 @@
    "kind": "date",
    "key": "date",
    "label": "M.Des Application Start",
-   "value": "11th Sep 2025",
+   "value": "1st Sep 2026",
    "group": "ISDI School of Design & Innovation",
    "school": "isdi",
    "date": {
-    "iso": "2025-09-11",
+    "iso": "2026-09-01",
     "precision": "day"
    },
-   "id": "vyw0ps"
+   "id": "118pvo3"
+  },
+  {
+   "route": "/admissions/pg-admissions",
+   "section": "Key Dates & Deadlines",
+   "kind": "date",
+   "key": "date",
+   "label": "Application Deadline",
+   "value": "22nd Nov 2026",
+   "group": "ISDI School of Design & Innovation · M.Des Application Start",
+   "school": "isdi",
+   "date": {
+    "iso": "2026-11-22",
+    "precision": "day"
+   },
+   "id": "h3hnu1"
+  },
+  {
+   "route": "/admissions/pg-admissions",
+   "section": "Key Dates & Deadlines",
+   "kind": "date",
+   "key": "date",
+   "label": "Group Discussion and Personal Interview",
+   "value": "25th Nov 2026",
+   "group": "ISDI School of Design & Innovation · M.Des Application Start",
+   "school": "isdi",
+   "date": {
+    "iso": "2026-11-25",
+    "precision": "day"
+   },
+   "id": "1s7nl01"
+  },
+  {
+   "route": "/admissions/pg-admissions",
+   "section": "Key Dates & Deadlines",
+   "kind": "date",
+   "key": "date",
+   "label": "Result Announcement",
+   "value": "1st Dec 2026",
+   "group": "ISDI School of Design & Innovation · M.Des Application Start",
+   "school": "isdi",
+   "date": {
+    "iso": "2026-12-01",
+    "precision": "day"
+   },
+   "id": "rt8sh2"
+  },
+  {
+   "route": "/admissions/pg-admissions",
+   "section": "Key Dates & Deadlines",
+   "kind": "date",
+   "key": "date",
+   "label": "Annual Fee Payment Deadline",
+   "value": "6th Jan 2027",
+   "group": "ISDI School of Design & Innovation · M.Des Application Start",
+   "school": "isdi",
+   "date": {
+    "iso": "2027-01-06",
+    "precision": "day"
+   },
+   "id": "4jq4yb"
   },
   {
    "route": "/admissions/pg-admissions",
@@ -250,14 +365,74 @@
    "kind": "date",
    "key": "date",
    "label": "MBA DMST Application Start",
-   "value": "11th Sep 2025",
+   "value": "1st Sep 2026",
    "group": "ISDI School of Design & Innovation",
    "school": "isdi",
    "date": {
-    "iso": "2025-09-11",
+    "iso": "2026-09-01",
     "precision": "day"
    },
-   "id": "19xrd39"
+   "id": "hhqyhk"
+  },
+  {
+   "route": "/admissions/pg-admissions",
+   "section": "Key Dates & Deadlines",
+   "kind": "date",
+   "key": "date",
+   "label": "Application Deadline",
+   "value": "22nd Nov 2026",
+   "group": "ISDI School of Design & Innovation · MBA DMST Application Start",
+   "school": "isdi",
+   "date": {
+    "iso": "2026-11-22",
+    "precision": "day"
+   },
+   "id": "10s1jww"
+  },
+  {
+   "route": "/admissions/pg-admissions",
+   "section": "Key Dates & Deadlines",
+   "kind": "date",
+   "key": "date",
+   "label": "Group Discussion and Personal Interview",
+   "value": "25th Nov 2026",
+   "group": "ISDI School of Design & Innovation · MBA DMST Application Start",
+   "school": "isdi",
+   "date": {
+    "iso": "2026-11-25",
+    "precision": "day"
+   },
+   "id": "1b01e5u"
+  },
+  {
+   "route": "/admissions/pg-admissions",
+   "section": "Key Dates & Deadlines",
+   "kind": "date",
+   "key": "date",
+   "label": "Result Announcement",
+   "value": "1st Dec 2026",
+   "group": "ISDI School of Design & Innovation · MBA DMST Application Start",
+   "school": "isdi",
+   "date": {
+    "iso": "2026-12-01",
+    "precision": "day"
+   },
+   "id": "mjkhk7"
+  },
+  {
+   "route": "/admissions/pg-admissions",
+   "section": "Key Dates & Deadlines",
+   "kind": "date",
+   "key": "date",
+   "label": "Annual Fee Payment Deadline",
+   "value": "6th Jan 2027",
+   "group": "ISDI School of Design & Innovation · MBA DMST Application Start",
+   "school": "isdi",
+   "date": {
+    "iso": "2027-01-06",
+    "precision": "day"
+   },
+   "id": "1mpp6bq"
   },
   {
    "route": "/admissions/pg-admissions",
@@ -265,14 +440,89 @@
    "kind": "date",
    "key": "date",
    "label": "MBA Applications Start",
-   "value": "11th Sep 2025",
+   "value": "1st Sep 2026",
    "group": "ISME School of Management & Entrepreneurship",
    "school": "isme",
    "date": {
-    "iso": "2025-09-11",
+    "iso": "2026-09-01",
     "precision": "day"
    },
-   "id": "fw3tjy"
+   "id": "8tu7t9"
+  },
+  {
+   "route": "/admissions/pg-admissions",
+   "section": "Key Dates & Deadlines",
+   "kind": "date",
+   "key": "date",
+   "label": "Application Deadline",
+   "value": "4th Dec 2026",
+   "group": "ISME School of Management & Entrepreneurship · MBA Applications Start",
+   "school": "isme",
+   "date": {
+    "iso": "2026-12-04",
+    "precision": "day"
+   },
+   "id": "1yb89ak"
+  },
+  {
+   "route": "/admissions/pg-admissions",
+   "section": "Key Dates & Deadlines",
+   "kind": "date",
+   "key": "date",
+   "label": "Group Discussion and Personal Interview",
+   "value": "5th Dec 2026",
+   "group": "ISME School of Management & Entrepreneurship · MBA Applications Start",
+   "school": "isme",
+   "date": {
+    "iso": "2026-12-05",
+    "precision": "day"
+   },
+   "id": "1fzitw2"
+  },
+  {
+   "route": "/admissions/pg-admissions",
+   "section": "Key Dates & Deadlines",
+   "kind": "date",
+   "key": "date",
+   "label": "Result Announcement",
+   "value": "14th Dec 2026",
+   "group": "ISME School of Management & Entrepreneurship · MBA Applications Start",
+   "school": "isme",
+   "date": {
+    "iso": "2026-12-14",
+    "precision": "day"
+   },
+   "id": "1pp9ueb"
+  },
+  {
+   "route": "/admissions/pg-admissions",
+   "section": "Key Dates & Deadlines",
+   "kind": "date",
+   "key": "date",
+   "label": "Acceptance Deadline",
+   "value": "19th Dec 2026",
+   "group": "ISME School of Management & Entrepreneurship · MBA Applications Start",
+   "school": "isme",
+   "date": {
+    "iso": "2026-12-19",
+    "precision": "day"
+   },
+   "id": "1c3osm3"
+  },
+  {
+   "route": "/admissions/pg-admissions",
+   "section": "Key Dates & Deadlines",
+   "kind": "date",
+   "key": "date",
+   "label": "Annual Fee Payment Deadline",
+   "value": "19th Jan 2027",
+   "group": "ISME School of Management & Entrepreneurship · MBA Applications Start",
+   "school": "isme",
+   "date": {
+    "iso": "2027-01-19",
+    "precision": "day"
+   },
+   "id": "vog9el"
   },
   {
    "route": "/admissions/pg-admissions",
@@ -310,12 +560,12 @@
    "key": "date",
    "label": "Applications Opened",
    "value": "Applications Open",
-   "group": "ISDI School of Design & Innovation · Applications Open for B.Des Admissions July 2026 Intake",
+   "group": "ISDI School of Design & Innovation · B.Des Admissions Calendar for July 2027 Intake",
    "school": "isdi",
    "date": {
     "state": "open"
    },
-   "id": "4yvmjt"
+   "id": "v10dzl"
   },
   {
    "route": "/admissions/ug-admissions",
@@ -323,29 +573,14 @@
    "kind": "date",
    "key": "date",
    "label": "Applications Opened (note)",
-   "value": "(11th Sep 2025)",
-   "group": "ISDI School of Design & Innovation · Applications Open for B.Des Admissions July 2026 Intake",
+   "value": "(11th Sep 2026)",
+   "group": "ISDI School of Design & Innovation · B.Des Admissions Calendar for July 2027 Intake",
    "school": "isdi",
    "date": {
-    "iso": "2025-09-11",
+    "iso": "2026-09-11",
     "precision": "day"
    },
-   "id": "1qnmkd7"
-  },
-  {
-   "route": "/admissions/ug-admissions",
-   "section": "Key Dates & Deadlines",
-   "kind": "date",
-   "key": "date",
-   "label": "Design Aptitude Test & Portfolio",
-   "value": "14th July 2026",
-   "group": "ISDI School of Design & Innovation · Applications Open for B.Des Admissions July 2026 Intake",
-   "school": "isdi",
-   "date": {
-    "iso": "2026-07-14",
-    "precision": "day"
-   },
-   "id": "1q977h7"
+   "id": "17pp86"
   },
   {
    "route": "/admissions/ug-admissions",
@@ -353,14 +588,14 @@
    "kind": "date",
    "key": "date",
    "label": "Result Announcement",
-   "value": "15th July 2026",
-   "group": "ISDI School of Design & Innovation · Applications Open for B.Des Admissions July 2026 Intake",
+   "value": "2nd Dec 2026",
+   "group": "ISDI School of Design & Innovation · B.Des Admissions Calendar for July 2027 Intake",
    "school": "isdi",
    "date": {
-    "iso": "2026-07-15",
+    "iso": "2026-12-02",
     "precision": "day"
    },
-   "id": "cmli1s"
+   "id": "6eyngs"
   },
   {
    "route": "/admissions/ug-admissions",
@@ -368,128 +603,29 @@
    "kind": "date",
    "key": "date",
    "label": "Acceptance Deadline",
-   "value": "16th July 2026",
-   "group": "ISDI School of Design & Innovation · Applications Open for B.Des Admissions July 2026 Intake",
+   "value": "15th Jan 2027",
+   "group": "ISDI School of Design & Innovation · B.Des Admissions Calendar for July 2027 Intake",
    "school": "isdi",
    "date": {
-    "iso": "2026-07-16",
+    "iso": "2027-01-15",
     "precision": "day"
    },
-   "id": "1d3kg6i"
+   "id": "8hivx5"
   },
   {
    "route": "/admissions/ug-admissions",
    "section": "Key Dates & Deadlines",
    "kind": "date",
    "key": "date",
-   "label": "Semester Fee",
-   "value": "16th July 2026",
-   "group": "ISDI School of Design & Innovation · Applications Open for B.Des Admissions July 2026 Intake",
+   "label": "Semester Fee Payment Deadline",
+   "value": "31st May 2027",
+   "group": "ISDI School of Design & Innovation · B.Des Admissions Calendar for July 2027 Intake",
    "school": "isdi",
    "date": {
-    "iso": "2026-07-16",
+    "iso": "2027-05-31",
     "precision": "day"
    },
-   "id": "653fd1"
-  },
-  {
-   "route": "/admissions/ug-admissions",
-   "section": "Key Dates & Deadlines",
-   "kind": "date",
-   "key": "date",
-   "label": "Applications Opened",
-   "value": "Closed",
-   "group": "ISME School of Management & Entrepreneurship · BBA / BBA (Hons.) Admissions Calendar for July 2026 Intake",
-   "school": "isme",
-   "date": {
-    "state": "closed"
-   },
-   "id": "siv5cx"
-  },
-  {
-   "route": "/admissions/ug-admissions",
-   "section": "Key Dates & Deadlines",
-   "kind": "date",
-   "key": "date",
-   "label": "Applications Opened (note)",
-   "value": "(11th Sep 2025)",
-   "group": "ISME School of Management & Entrepreneurship · BBA / BBA (Hons.) Admissions Calendar for July 2026 Intake",
-   "school": "isme",
-   "date": {
-    "iso": "2025-09-11",
-    "precision": "day"
-   },
-   "id": "14zsngo"
-  },
-  {
-   "route": "/admissions/ug-admissions",
-   "section": "Key Dates & Deadlines",
-   "kind": "date",
-   "key": "date",
-   "label": "Business Aptitude Test & Interview",
-   "value": "Closed",
-   "group": "ISME School of Management & Entrepreneurship · BBA / BBA (Hons.) Admissions Calendar for July 2026 Intake",
-   "school": "isme",
-   "date": {
-    "state": "closed"
-   },
-   "id": "10pwaeq"
-  },
-  {
-   "route": "/admissions/ug-admissions",
-   "section": "Key Dates & Deadlines",
-   "kind": "date",
-   "key": "date",
-   "label": "Collaborative Accelerator",
-   "value": "Closed",
-   "group": "ISME School of Management & Entrepreneurship · BBA / BBA (Hons.) Admissions Calendar for July 2026 Intake",
-   "school": "isme",
-   "date": {
-    "state": "closed"
-   },
-   "id": "8dok0r"
-  },
-  {
-   "route": "/admissions/ug-admissions",
-   "section": "Key Dates & Deadlines",
-   "kind": "date",
-   "key": "date",
-   "label": "Result Announcement",
-   "value": "Closed",
-   "group": "ISME School of Management & Entrepreneurship · BBA / BBA (Hons.) Admissions Calendar for July 2026 Intake",
-   "school": "isme",
-   "date": {
-    "state": "closed"
-   },
-   "id": "oh6mlh"
-  },
-  {
-   "route": "/admissions/ug-admissions",
-   "section": "Key Dates & Deadlines",
-   "kind": "date",
-   "key": "date",
-   "label": "Acceptance Deadline",
-   "value": "Closed",
-   "group": "ISME School of Management & Entrepreneurship · BBA / BBA (Hons.) Admissions Calendar for July 2026 Intake",
-   "school": "isme",
-   "date": {
-    "state": "closed"
-   },
-   "id": "s4rcfc"
-  },
-  {
-   "route": "/admissions/ug-admissions",
-   "section": "Key Dates & Deadlines",
-   "kind": "date",
-   "key": "date",
-   "label": "Annual Fee Payment Deadline",
-   "value": "Closed",
-   "group": "ISME School of Management & Entrepreneurship · BBA / BBA (Hons.) Admissions Calendar for July 2026 Intake",
-   "school": "isme",
-   "date": {
-    "state": "closed"
-   },
-   "id": "p151ay"
+   "id": "1mw1w9v"
   },
   {
    "route": "/admissions/ug-admissions",
@@ -498,12 +634,12 @@
    "key": "date",
    "label": "Applications Opened",
    "value": "Applications Open",
-   "group": "ISME School of Management & Entrepreneurship · B.Sc (Hons.) Admissions Calendar for July 2026 Intake",
+   "group": "ISME School of Management & Entrepreneurship · BBA / BBA (Hons.) Admissions Calendar for July 2027 Intake",
    "school": "isme",
    "date": {
     "state": "open"
    },
-   "id": "bnnohf"
+   "id": "4wy9v7"
   },
   {
    "route": "/admissions/ug-admissions",
@@ -512,28 +648,13 @@
    "key": "date",
    "label": "Applications Opened (note)",
    "value": "(11th Sep 2026)",
-   "group": "ISME School of Management & Entrepreneurship · B.Sc (Hons.) Admissions Calendar for July 2026 Intake",
+   "group": "ISME School of Management & Entrepreneurship · BBA / BBA (Hons.) Admissions Calendar for July 2027 Intake",
    "school": "isme",
    "date": {
     "iso": "2026-09-11",
     "precision": "day"
    },
-   "id": "ozuyx0"
-  },
-  {
-   "route": "/admissions/ug-admissions",
-   "section": "Key Dates & Deadlines",
-   "kind": "date",
-   "key": "date",
-   "label": "Business Aptitude Test & Interview",
-   "value": "14th July 2026",
-   "group": "ISME School of Management & Entrepreneurship · B.Sc (Hons.) Admissions Calendar for July 2026 Intake",
-   "school": "isme",
-   "date": {
-    "iso": "2026-07-14",
-    "precision": "day"
-   },
-   "id": "1goll7m"
+   "id": "9q6w3o"
   },
   {
    "route": "/admissions/ug-admissions",
@@ -541,14 +662,14 @@
    "kind": "date",
    "key": "date",
    "label": "Result Announcement",
-   "value": "15th July 2026",
-   "group": "ISME School of Management & Entrepreneurship · B.Sc (Hons.) Admissions Calendar for July 2026 Intake",
+   "value": "9th Dec 2026",
+   "group": "ISME School of Management & Entrepreneurship · BBA / BBA (Hons.) Admissions Calendar for July 2027 Intake",
    "school": "isme",
    "date": {
-    "iso": "2026-07-15",
+    "iso": "2026-12-09",
     "precision": "day"
    },
-   "id": "evy4hq"
+   "id": "1z0tub1"
   },
   {
    "route": "/admissions/ug-admissions",
@@ -556,14 +677,14 @@
    "kind": "date",
    "key": "date",
    "label": "Acceptance Deadline",
-   "value": "16th July 2026",
-   "group": "ISME School of Management & Entrepreneurship · B.Sc (Hons.) Admissions Calendar for July 2026 Intake",
+   "value": "22nd Dec 2026",
+   "group": "ISME School of Management & Entrepreneurship · BBA / BBA (Hons.) Admissions Calendar for July 2027 Intake",
    "school": "isme",
    "date": {
-    "iso": "2026-07-16",
+    "iso": "2026-12-22",
     "precision": "day"
    },
-   "id": "1iscxq8"
+   "id": "16uvyl3"
   },
   {
    "route": "/admissions/ug-admissions",
@@ -571,104 +692,14 @@
    "kind": "date",
    "key": "date",
    "label": "Annual Fee Payment Deadline",
-   "value": "16th July 2026",
-   "group": "ISME School of Management & Entrepreneurship · B.Sc (Hons.) Admissions Calendar for July 2026 Intake",
+   "value": "31st May 2027",
+   "group": "ISME School of Management & Entrepreneurship · BBA / BBA (Hons.) Admissions Calendar for July 2027 Intake",
    "school": "isme",
    "date": {
-    "iso": "2026-07-16",
+    "iso": "2027-05-31",
     "precision": "day"
    },
-   "id": "v1xuhy"
-  },
-  {
-   "route": "/admissions/ug-admissions",
-   "section": "Key Dates & Deadlines",
-   "kind": "date",
-   "key": "date",
-   "label": "B.Tech Applications Start",
-   "value": "11th Sep 2025",
-   "group": "uGDX School of Technology",
-   "school": "ugdx",
-   "date": {
-    "iso": "2025-09-11",
-    "precision": "day"
-   },
-   "id": "189c0nr"
-  },
-  {
-   "route": "/admissions/ug-admissions",
-   "section": "Key Dates & Deadlines",
-   "kind": "date",
-   "key": "date",
-   "label": "Application Deadline",
-   "value": "20th Aug 2026",
-   "group": "uGDX School of Technology · B.Tech Applications Start",
-   "school": "ugdx",
-   "date": {
-    "iso": "2026-08-20",
-    "precision": "day"
-   },
-   "id": "16hm82o"
-  },
-  {
-   "route": "/admissions/ug-admissions",
-   "section": "Key Dates & Deadlines",
-   "kind": "date",
-   "key": "date",
-   "label": "Interview Date",
-   "value": "20th Aug 2026",
-   "group": "uGDX School of Technology · B.Tech Applications Start",
-   "school": "ugdx",
-   "date": {
-    "iso": "2026-08-20",
-    "precision": "day"
-   },
-   "id": "3wyt85"
-  },
-  {
-   "route": "/admissions/ug-admissions",
-   "section": "Key Dates & Deadlines",
-   "kind": "date",
-   "key": "date",
-   "label": "Result Announcement",
-   "value": "21st Aug 2026",
-   "group": "uGDX School of Technology · B.Tech Applications Start",
-   "school": "ugdx",
-   "date": {
-    "iso": "2026-08-21",
-    "precision": "day"
-   },
-   "id": "1iu7avc"
-  },
-  {
-   "route": "/admissions/ug-admissions",
-   "section": "Key Dates & Deadlines",
-   "kind": "date",
-   "key": "date",
-   "label": "Acceptance Deadline",
-   "value": "22nd Aug 2026",
-   "group": "uGDX School of Technology · B.Tech Applications Start",
-   "school": "ugdx",
-   "date": {
-    "iso": "2026-08-22",
-    "precision": "day"
-   },
-   "id": "2cav8j"
-  },
-  {
-   "route": "/admissions/ug-admissions",
-   "section": "Key Dates & Deadlines",
-   "kind": "date",
-   "key": "date",
-   "label": "Semester 1 Fee Payment Deadline",
-   "value": "24th Aug 2026",
-   "group": "uGDX School of Technology · B.Tech Applications Start",
-   "school": "ugdx",
-   "date": {
-    "iso": "2026-08-24",
-    "precision": "day"
-   },
-   "id": "jwqr5f"
+   "id": "1lyi5lo"
   },
   {
    "route": "/admissions/ug-admissions",
@@ -676,13 +707,13 @@
    "kind": "date",
    "key": "date",
    "label": "Applications Opened",
-   "value": "Closed",
-   "group": "ATLAS School of Law · BBA LL.B. Admissions Calendar for July 2026 Intake",
-   "school": "law",
+   "value": "Applications Open",
+   "group": "ISME School of Management & Entrepreneurship · B.Sc (Hons.) Admissions Calendar for July 2027 Intake",
+   "school": "isme",
    "date": {
-    "state": "closed"
+    "state": "open"
    },
-   "id": "1yhe429"
+   "id": "4l78x8"
   },
   {
    "route": "/admissions/ug-admissions",
@@ -691,41 +722,13 @@
    "key": "date",
    "label": "Applications Opened (note)",
    "value": "(11th Sep 2026)",
-   "group": "ATLAS School of Law · BBA LL.B. Admissions Calendar for July 2026 Intake",
-   "school": "law",
+   "group": "ISME School of Management & Entrepreneurship · B.Sc (Hons.) Admissions Calendar for July 2027 Intake",
+   "school": "isme",
    "date": {
     "iso": "2026-09-11",
     "precision": "day"
    },
-   "id": "14vo1yh"
-  },
-  {
-   "route": "/admissions/ug-admissions",
-   "section": "Key Dates & Deadlines",
-   "kind": "date",
-   "key": "date",
-   "label": "ATLAS Law Aptitude Test",
-   "value": "Closed",
-   "group": "ATLAS School of Law · BBA LL.B. Admissions Calendar for July 2026 Intake",
-   "school": "law",
-   "date": {
-    "state": "closed"
-   },
-   "id": "ydzo7g"
-  },
-  {
-   "route": "/admissions/ug-admissions",
-   "section": "Key Dates & Deadlines",
-   "kind": "date",
-   "key": "date",
-   "label": "Personal Interview",
-   "value": "Closed",
-   "group": "ATLAS School of Law · BBA LL.B. Admissions Calendar for July 2026 Intake",
-   "school": "law",
-   "date": {
-    "state": "closed"
-   },
-   "id": "1t0qjm4"
+   "id": "2jfjfd"
   },
   {
    "route": "/admissions/ug-admissions",
@@ -733,13 +736,14 @@
    "kind": "date",
    "key": "date",
    "label": "Result Announcement",
-   "value": "Closed",
-   "group": "ATLAS School of Law · BBA LL.B. Admissions Calendar for July 2026 Intake",
-   "school": "law",
+   "value": "2nd Dec 2026",
+   "group": "ISME School of Management & Entrepreneurship · B.Sc (Hons.) Admissions Calendar for July 2027 Intake",
+   "school": "isme",
    "date": {
-    "state": "closed"
+    "iso": "2026-12-02",
+    "precision": "day"
    },
-   "id": "1d48wad"
+   "id": "c5o52v"
   },
   {
    "route": "/admissions/ug-admissions",
@@ -747,13 +751,178 @@
    "kind": "date",
    "key": "date",
    "label": "Acceptance Deadline",
-   "value": "Closed",
-   "group": "ATLAS School of Law · BBA LL.B. Admissions Calendar for July 2026 Intake",
+   "value": "15th Dec 2026",
+   "group": "ISME School of Management & Entrepreneurship · B.Sc (Hons.) Admissions Calendar for July 2027 Intake",
+   "school": "isme",
+   "date": {
+    "iso": "2026-12-15",
+    "precision": "day"
+   },
+   "id": "1ulog9o"
+  },
+  {
+   "route": "/admissions/ug-admissions",
+   "section": "Key Dates & Deadlines",
+   "kind": "date",
+   "key": "date",
+   "label": "Annual Fee Payment Deadline",
+   "value": "31st May 2027",
+   "group": "ISME School of Management & Entrepreneurship · B.Sc (Hons.) Admissions Calendar for July 2027 Intake",
+   "school": "isme",
+   "date": {
+    "iso": "2027-05-31",
+    "precision": "day"
+   },
+   "id": "1x5yawn"
+  },
+  {
+   "route": "/admissions/ug-admissions",
+   "section": "Key Dates & Deadlines",
+   "kind": "date",
+   "key": "date",
+   "label": "B.Tech Applications Start",
+   "value": "11th Sep 2026",
+   "group": "uGDX School of Technology",
+   "school": "ugdx",
+   "date": {
+    "iso": "2026-09-11",
+    "precision": "day"
+   },
+   "id": "17p3crw"
+  },
+  {
+   "route": "/admissions/ug-admissions",
+   "section": "Key Dates & Deadlines",
+   "kind": "date",
+   "key": "date",
+   "label": "Application Deadline",
+   "value": "8th Dec 2026",
+   "group": "uGDX School of Technology · B.Tech Applications Start",
+   "school": "ugdx",
+   "date": {
+    "iso": "2026-12-08",
+    "precision": "day"
+   },
+   "id": "jkstmz"
+  },
+  {
+   "route": "/admissions/ug-admissions",
+   "section": "Key Dates & Deadlines",
+   "kind": "date",
+   "key": "date",
+   "label": "Interview Date",
+   "value": "12th Dec 2026",
+   "group": "uGDX School of Technology · B.Tech Applications Start",
+   "school": "ugdx",
+   "date": {
+    "iso": "2026-12-12",
+    "precision": "day"
+   },
+   "id": "np2m4r"
+  },
+  {
+   "route": "/admissions/ug-admissions",
+   "section": "Key Dates & Deadlines",
+   "kind": "date",
+   "key": "date",
+   "label": "Result Announcement",
+   "value": "18th Dec 2026",
+   "group": "uGDX School of Technology · B.Tech Applications Start",
+   "school": "ugdx",
+   "date": {
+    "iso": "2026-12-18",
+    "precision": "day"
+   },
+   "id": "1tojh5c"
+  },
+  {
+   "route": "/admissions/ug-admissions",
+   "section": "Key Dates & Deadlines",
+   "kind": "date",
+   "key": "date",
+   "label": "Acceptance Deadline",
+   "value": "22nd Dec 2026",
+   "group": "uGDX School of Technology · B.Tech Applications Start",
+   "school": "ugdx",
+   "date": {
+    "iso": "2026-12-22",
+    "precision": "day"
+   },
+   "id": "oat1kw"
+  },
+  {
+   "route": "/admissions/ug-admissions",
+   "section": "Key Dates & Deadlines",
+   "kind": "date",
+   "key": "date",
+   "label": "Semester 1 Fee Payment Deadline",
+   "value": "21st Jan 2027",
+   "group": "uGDX School of Technology · B.Tech Applications Start",
+   "school": "ugdx",
+   "date": {
+    "iso": "2027-01-21",
+    "precision": "day"
+   },
+   "id": "1hg3jr0"
+  },
+  {
+   "route": "/admissions/ug-admissions",
+   "section": "Key Dates & Deadlines",
+   "kind": "date",
+   "key": "date",
+   "label": "Applications Opened",
+   "value": "Applications Open",
+   "group": "ATLAS School of Law · BBA LL.B. Admissions Calendar for July 2027 Intake",
    "school": "law",
    "date": {
-    "state": "closed"
+    "state": "open"
    },
-   "id": "18nfo1k"
+   "id": "bije6b"
+  },
+  {
+   "route": "/admissions/ug-admissions",
+   "section": "Key Dates & Deadlines",
+   "kind": "date",
+   "key": "date",
+   "label": "Applications Opened (note)",
+   "value": "(11th Sep 2026)",
+   "group": "ATLAS School of Law · BBA LL.B. Admissions Calendar for July 2027 Intake",
+   "school": "law",
+   "date": {
+    "iso": "2026-09-11",
+    "precision": "day"
+   },
+   "id": "gzvl5g"
+  },
+  {
+   "route": "/admissions/ug-admissions",
+   "section": "Key Dates & Deadlines",
+   "kind": "date",
+   "key": "date",
+   "label": "Result Announcement",
+   "value": "2nd Dec 2026",
+   "group": "ATLAS School of Law · BBA LL.B. Admissions Calendar for July 2027 Intake",
+   "school": "law",
+   "date": {
+    "iso": "2026-12-02",
+    "precision": "day"
+   },
+   "id": "1qd4kuy"
+  },
+  {
+   "route": "/admissions/ug-admissions",
+   "section": "Key Dates & Deadlines",
+   "kind": "date",
+   "key": "date",
+   "label": "Acceptance Deadline",
+   "value": "15th Dec 2026",
+   "group": "ATLAS School of Law · BBA LL.B. Admissions Calendar for July 2027 Intake",
+   "school": "law",
+   "date": {
+    "iso": "2026-12-15",
+    "precision": "day"
+   },
+   "id": "hqxy3v"
   },
   {
    "route": "/admissions/ug-admissions",
@@ -761,13 +930,14 @@
    "kind": "date",
    "key": "date",
    "label": "Semester Fee Payment Deadline",
-   "value": "Closed",
-   "group": "ATLAS School of Law · BBA LL.B. Admissions Calendar for July 2026 Intake",
+   "value": "31st May 2027",
+   "group": "ATLAS School of Law · BBA LL.B. Admissions Calendar for July 2027 Intake",
    "school": "law",
    "date": {
-    "state": "closed"
+    "iso": "2027-05-31",
+    "precision": "day"
    },
-   "id": "14gojul"
+   "id": "4cy5yx"
   },
   {
    "route": "/admissions/ug-admissions",
@@ -869,6 +1039,86 @@
    "id": "1jotmqc"
   },
   {
+   "route": "/journal",
+   "section": "Research Papers",
+   "kind": "document",
+   "key": "pdf",
+   "label": "View",
+   "value": "/assets/journal/pdf/ubers-4ps.pdf",
+   "href": "/assets/journal/pdf/ubers-4ps.pdf",
+   "id": "6pp5vp"
+  },
+  {
+   "route": "/journal",
+   "section": "Research Papers",
+   "kind": "document",
+   "key": "pdf",
+   "label": "View",
+   "value": "/assets/journal/pdf/environmental-issues.pdf",
+   "href": "/assets/journal/pdf/environmental-issues.pdf",
+   "id": "1ndwks3"
+  },
+  {
+   "route": "/journal",
+   "section": "Research Papers",
+   "kind": "document",
+   "key": "pdf",
+   "label": "View",
+   "value": "/assets/journal/pdf/media-entrepreneurship.pdf",
+   "href": "/assets/journal/pdf/media-entrepreneurship.pdf",
+   "id": "1k3v7rl"
+  },
+  {
+   "route": "/journal",
+   "section": "Research Papers",
+   "kind": "document",
+   "key": "pdf",
+   "label": "View",
+   "value": "/assets/journal/pdf/airbnb-tourism.pdf",
+   "href": "/assets/journal/pdf/airbnb-tourism.pdf",
+   "id": "uzofc5"
+  },
+  {
+   "route": "/journal",
+   "section": "Research Papers",
+   "kind": "document",
+   "key": "pdf",
+   "label": "View",
+   "value": "/assets/journal/pdf/luxury-fashion.pdf",
+   "href": "/assets/journal/pdf/luxury-fashion.pdf",
+   "id": "1syotvl"
+  },
+  {
+   "route": "/journal",
+   "section": "Research Papers",
+   "kind": "document",
+   "key": "pdf",
+   "label": "View",
+   "value": "/assets/journal/pdf/social-media-marketing.pdf",
+   "href": "/assets/journal/pdf/social-media-marketing.pdf",
+   "id": "1pkrf4r"
+  },
+  {
+   "route": "/journal",
+   "section": "Research Papers",
+   "kind": "document",
+   "key": "pdf",
+   "label": "View",
+   "value": "/assets/journal/pdf/covid19-study.pdf",
+   "href": "/assets/journal/pdf/covid19-study.pdf",
+   "id": "4ciqkh"
+  },
+  {
+   "route": "/journal",
+   "section": "Research Papers",
+   "kind": "document",
+   "key": "pdf",
+   "label": "View",
+   "value": "/assets/journal/pdf/industrial-development.pdf",
+   "href": "/assets/journal/pdf/industrial-development.pdf",
+   "id": "1rz4o1f"
+  },
+  {
    "route": "/library",
    "section": "E-Resources:",
    "kind": "document",
@@ -877,6 +1127,386 @@
    "value": "https://atlasskilltech.app/campusLibrary/library-list-of-subscribed-print-&-e-journals-2025-.pdf",
    "href": "https://atlasskilltech.app/campusLibrary/library-list-of-subscribed-print-&-e-journals-2025-.pdf",
    "id": "ochfza"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Institutional Development Plan",
+   "value": "/assets/mandatory-disclosures/institutional-development-plan.pdf",
+   "href": "/assets/mandatory-disclosures/institutional-development-plan.pdf",
+   "id": "1k9soms"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Recognition / Approval (2(f))",
+   "value": "/assets/mandatory-disclosures/2-F.pdf",
+   "href": "/assets/mandatory-disclosures/2-F.pdf",
+   "id": "1vt2hug"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Annual Reports",
+   "value": "/assets/mandatory-disclosures/annual-reports.pdf",
+   "href": "/assets/mandatory-disclosures/annual-reports.pdf",
+   "id": "exegoh"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Governing Body Composition",
+   "value": "/assets/committees/1_gverning_body_composition.pdf",
+   "href": "/assets/committees/1_gverning_body_composition.pdf",
+   "id": "283agm"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Board of Management Composition",
+   "value": "/assets/committees/2_board_management_composition.pdf",
+   "href": "/assets/committees/2_board_management_composition.pdf",
+   "id": "1kif2bf"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Finance Committee Composition",
+   "value": "/assets/committees/3_finance_committee_composition.pdf",
+   "href": "/assets/committees/3_finance_committee_composition.pdf",
+   "id": "pje2gm"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Fee Fixation Committee Composition",
+   "value": "/assets/committees/4_fee_fixation_committee_composition.pdf",
+   "href": "/assets/committees/4_fee_fixation_committee_composition.pdf",
+   "id": "18hshqc"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Academic Council Composition",
+   "value": "/assets/committees/5_academic_council_composition.pdf",
+   "href": "/assets/committees/5_academic_council_composition.pdf",
+   "id": "v3s87l"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Board of Studies ISDI Composition",
+   "value": "/assets/committees/6_board_of_studies_isdi_composition.pdf",
+   "href": "/assets/committees/6_board_of_studies_isdi_composition.pdf",
+   "id": "1r2p1a8"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Board of Studies ISME Composition",
+   "value": "/assets/mandatory-disclosures/Board_of_Studies_ISME_Composition.pdf",
+   "href": "/assets/mandatory-disclosures/Board_of_Studies_ISME_Composition.pdf",
+   "id": "1zrdqx"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Board of Studies uGDX Composition",
+   "value": "/assets/mandatory-disclosures/8_Board_of_Studies_UGDX_Composition.pdf",
+   "href": "/assets/mandatory-disclosures/8_Board_of_Studies_UGDX_Composition.pdf",
+   "id": "1892pu3"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Board of Studies LAW Composition",
+   "value": "/assets/mandatory-disclosures/BOS_Law_School_Composition.pdf",
+   "href": "/assets/mandatory-disclosures/BOS_Law_School_Composition.pdf",
+   "id": "8uninz"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Internal Quality Assurance Cell Composition",
+   "value": "/assets/committees/11_internal_quality_assurance_cell_composition.pdf",
+   "href": "/assets/committees/11_internal_quality_assurance_cell_composition.pdf",
+   "id": "1u60t54"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Academic Calendar",
+   "value": "/assets/mandatory-disclosures/Academic-Calendar--AY-2025-26.pdf",
+   "href": "/assets/mandatory-disclosures/Academic-Calendar--AY-2025-26.pdf",
+   "id": "1la5ok6"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "feeStructure",
+   "label": "Prospectus",
+   "value": "https://atlasuniversity.edu.in/fee-structure/bdes/",
+   "href": "https://atlasuniversity.edu.in/fee-structure/bdes/",
+   "id": "1xc09yi"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "B.Des",
+   "value": "https://atlasuniversity.edu.in/brochure/ATLAS%20B.Des_Brochure.pdf",
+   "href": "https://atlasuniversity.edu.in/brochure/ATLAS%20B.Des_Brochure.pdf",
+   "id": "1oo0gdp"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "BBA",
+   "value": "https://atlasuniversity.edu.in/brochure/BBA_Brochure_Final.pdf",
+   "href": "https://atlasuniversity.edu.in/brochure/BBA_Brochure_Final.pdf",
+   "id": "71tkvi"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "BBA DB & Advt",
+   "value": "https://atlasuniversity.edu.in/brochure/2025/BBA%20-%20Digital%20Branding%20&%20Advertising_Small_2025.pdf",
+   "href": "https://atlasuniversity.edu.in/brochure/2025/BBA%20-%20Digital%20Branding%20&%20Advertising_Small_2025.pdf",
+   "id": "1rmft0r"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "BBA AIET",
+   "value": "https://atlasuniversity.edu.in/brochure/2025/BBA%20%E2%80%93%20Artificial%20Intelligence%20and%20Emerging%20Technologies_small_2025.pdf",
+   "href": "https://atlasuniversity.edu.in/brochure/2025/BBA%20%E2%80%93%20Artificial%20Intelligence%20and%20Emerging%20Technologies_small_2025.pdf",
+   "id": "1m9r6wx"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "B.Sc Finance",
+   "value": "https://atlasuniversity.edu.in/brochure/B_Sc_Finance_Brochure.pdf",
+   "href": "https://atlasuniversity.edu.in/brochure/B_Sc_Finance_Brochure.pdf",
+   "id": "1wjcei3"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "B.Tech (CS,AI & ML)",
+   "value": "https://atlasuniversity.edu.in/brochure/2025/uGDX_BTech_CS_AI_And_ML_Brochure.pdf",
+   "href": "https://atlasuniversity.edu.in/brochure/2025/uGDX_BTech_CS_AI_And_ML_Brochure.pdf",
+   "id": "1xfgdjr"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "B.Tech (CS,AI & Robotics)",
+   "value": "https://atlasuniversity.edu.in/brochure/uGDX_Brochure_Robotics.pdf",
+   "href": "https://atlasuniversity.edu.in/brochure/uGDX_Brochure_Robotics.pdf",
+   "id": "1rtqcyb"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "B.Tech (CIT,AI & CS)",
+   "value": "https://atlasuniversity.edu.in/brochure/2025/uGDX_BTECH_IT_AI_CYBERSECURITY.pdf",
+   "href": "https://atlasuniversity.edu.in/brochure/2025/uGDX_BTECH_IT_AI_CYBERSECURITY.pdf",
+   "id": "wfqy2q"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "BBA LL.B.(Honours)",
+   "value": "https://atlasuniversity.edu.in/brochure/BBA_LLB_Brochure_Lowres_Sigal_Page.pdf",
+   "href": "https://atlasuniversity.edu.in/brochure/BBA_LLB_Brochure_Lowres_Sigal_Page.pdf",
+   "id": "1t5xh0p"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "B.Tech (CIT,AI & DS)",
+   "value": "https://atlasuniversity.edu.in/brochure/2025/uGDX_BTECH_CS_AI_DATA_SCIENCE.pdf",
+   "href": "https://atlasuniversity.edu.in/brochure/2025/uGDX_BTECH_CS_AI_DATA_SCIENCE.pdf",
+   "id": "1yp5geb"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Executive MBA",
+   "value": "https://atlasuniversity.edu.in/brochure/atlas-executive-mba-brochure.pdf",
+   "href": "https://atlasuniversity.edu.in/brochure/atlas-executive-mba-brochure.pdf",
+   "id": "up8uef"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "MBA Investment Banking",
+   "value": "https://atlasuniversity.edu.in/brochure/ATLAS_MBA_Investment_Banking.pdf",
+   "href": "https://atlasuniversity.edu.in/brochure/ATLAS_MBA_Investment_Banking.pdf",
+   "id": "ebwcsa"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "MBA Fintech",
+   "value": "https://atlasuniversity.edu.in/brochure/MBA_in_FinTech.pdf",
+   "href": "https://atlasuniversity.edu.in/brochure/MBA_in_FinTech.pdf",
+   "id": "15jci8c"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "MBA",
+   "value": "https://atlasuniversity.edu.in/brochure/MBA%20in%20Mgmt.%20&%20Entr.%20Brochure%20v2.0_SoMgmt.pdf",
+   "href": "https://atlasuniversity.edu.in/brochure/MBA%20in%20Mgmt.%20&%20Entr.%20Brochure%20v2.0_SoMgmt.pdf",
+   "id": "ktjrur"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "M.Des",
+   "value": "https://atlasuniversity.edu.in/brochure/ISDI_PGP_DI_Brochure.pdf",
+   "href": "https://atlasuniversity.edu.in/brochure/ISDI_PGP_DI_Brochure.pdf",
+   "id": "1w56iuy"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "MBA DMST",
+   "value": "https://atlasuniversity.edu.in/brochure/Design-Management-&-Strategic-Thinking.pdf",
+   "href": "https://atlasuniversity.edu.in/brochure/Design-Management-&-Strategic-Thinking.pdf",
+   "id": "1mzvzgp"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "feeStructure",
+   "label": "Fee structure",
+   "value": "https://atlasuniversity.edu.in/flipbook/fee-structure/",
+   "href": "https://atlasuniversity.edu.in/flipbook/fee-structure/",
+   "id": "1qy2gmb"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "admissionsPolicy",
+   "label": "Undergraduate",
+   "value": "https://atlasuniversity.edu.in/admissions-policy",
+   "href": "https://atlasuniversity.edu.in/admissions-policy",
+   "id": "1nkwuz0"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "NCC/NSS - Details",
+   "value": "/assets/mandatory-disclosures/SFU-letter.pdf",
+   "href": "/assets/mandatory-disclosures/SFU-letter.pdf",
+   "id": "13pw0kd"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Holiday List 2025",
+   "value": "/assets/mandatory-disclosures/Schedule-of-Holidays-2025-26.pdf",
+   "href": "/assets/mandatory-disclosures/Schedule-of-Holidays-2025-26.pdf",
+   "id": "1bvgvj2"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Academic Calender 2025",
+   "value": "/assets/mandatory-disclosures/Academic-Calendar--AY-2025-26.pdf",
+   "href": "/assets/mandatory-disclosures/Academic-Calendar--AY-2025-26.pdf",
+   "id": "1tmllbx"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Independance Day 2025",
+   "value": "/assets/mandatory-disclosures/Notice_15th_August_independance_day.pdf",
+   "href": "/assets/mandatory-disclosures/Notice_15th_August_independance_day.pdf",
+   "id": "soonra"
+  },
+  {
+   "route": "/mandatory_disclosures",
+   "section": null,
+   "kind": "document",
+   "key": "pdf",
+   "label": "Days to be Observed",
+   "value": "/assets/mandatory-disclosures/Days_to_be_observed.pdf",
+   "href": "/assets/mandatory-disclosures/Days_to_be_observed.pdf",
+   "id": "e50g7a"
   },
   {
    "route": "/nirf",
