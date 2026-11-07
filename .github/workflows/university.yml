@@ -34,6 +34,13 @@ jobs:
             APP_DIR=/home/ubuntu/atlasuniversity
             cd "$APP_DIR"
 
+            # The repo's own hooks must not run during a deployment. `npm ci` (`prepare`) points
+            # core.hooksPath at .githooks, whose Git LFS hooks `exit 2` when git-lfs is not on PATH;
+            # `git restore` then returns that 2 and the deploy stops. The hooks are client-side
+            # helpers (LFS locking, the pre-push asset check); LFS content comes from the smudge
+            # filter, which is not a hook and still runs. The server's config is not changed.
+            git() { command git -c core.hooksPath=/dev/null "$@"; }
+
             # ---- local changes on the server ---------------------------------------------------
             # Two kinds are expected and are produced by the deployment itself:
             #   * data/map/{graph,facts,history}.json - rewritten by every `npm run build`
