@@ -33,24 +33,6 @@ import { usePathname } from 'next/navigation';
    the ATLAS chrome stays on there. */
 const ATLAS_CHROME_SCHOOLS = ['/schools/law', '/schools/ugdx'];
 
-/* Standalone sites ported from reference/new pages/ — each ships its own header (and footer, where it
-   has one) in the reference, never the ATLAS chrome: the Tim Cook and Convocation stories, the three
-   Aarohan conference sites, the admissions landing pages and the Sensorium fashion-show site. Matched by
-   whole path segment, so `/lp` does not catch `/library`. */
-const STANDALONE = [
-  '/timcook',
-  '/convocation',
-  '/aarohan23',
-  '/aarohan2024',
-  '/aarohan2025',
-  '/lp',
-  '/lp23',
-  '/lp24',
-  '/lp25',
-  '/lp2022',
-  '/sensorium',
-];
-
 export default function MainSiteOnly({ children }) {
   const pathname = usePathname();
   if (ATLAS_CHROME_SCHOOLS.some((p) => pathname === p || pathname?.startsWith(`${p}/`))) return children;
@@ -61,6 +43,5 @@ export default function MainSiteOnly({ children }) {
   // The ATLAS Tech PDF Studio is a standalone application with its own header (components/PdfStudio):
   // the studio, its embeddable flipbook viewer and its bare print view all render without the site chrome.
   if (pathname === '/pdf-studio' || pathname?.startsWith('/pdf-studio/')) return null;
-  if (STANDALONE.some((p) => pathname === p || pathname?.startsWith(`${p}/`))) return null;
   return children;
 }

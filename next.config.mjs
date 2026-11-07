@@ -142,40 +142,6 @@ const nextConfig = {
         destination: '/advantages/partnership/international-summerschool',
         permanent: false,
       },
-      /*
-       * Standalone sites ported from reference/new pages/ (2026-11-08).
-       *
-       * Aarohan: the reference is PHP, so every page had a `.php` URL; the port serves the
-       * extension-less path (production itself already 301s /aarohan23/<slug>.php to it). Order
-       * matters — the first match wins — so index.php and the doubled `.php.php` copy come before
-       * the generic rule. library / news / speaker-single only echo the ATLAS homepage on
-       * production, and registration(v2) 302s there, so all five go to `/` temporarily.
-       */
-      { source: '/aarohan2025/sumit-saxena.php.php', destination: '/aarohan2025/sumit-saxena', permanent: true },
-      ...['library', 'news', 'speaker-single', 'registration', 'registrationv2'].map((p) => ({
-        source: `/aarohan2025/${p}.php`,
-        destination: '/',
-        permanent: false,
-      })),
-      ...['aarohan23', 'aarohan2024', 'aarohan2025'].flatMap((y) => [
-        { source: `/${y}/index.php`, destination: `/${y}`, permanent: true },
-        { source: `/${y}/:slug([^/]+?)\\.php`, destination: `/${y}/:slug`, permanent: true },
-      ]),
-      /* lp23 / lp24 / lp25 / lp25/ismeug: production 301s index.php and thankyou.php to the clean paths. */
-      ...['lp23', 'lp24', 'lp25', 'lp25/ismeug'].flatMap((p) => [
-        { source: `/${p}/index.php`, destination: `/${p}`, permanent: true },
-        { source: `/${p}/thankyou.php`, destination: `/${p}/thankyou`, permanent: true },
-      ]),
-      /*
-       * lp2022: only five pages are live and ported. Production 302s the expired campaigns, and
-       * these carry those redirects over unchanged (307 here, as with /programs above). The lead
-       * CSVs, PHP mailers and admin pages under lp2022 are not ported.
-       */
-      ...['/lp2022', '/lp2022/DMAprogram', '/lp2022/film-animation', '/lp2022/mbaprograms', '/lp2022/MEprograms', '/lp2022/pgdiprogram', '/lp2022/ug/ba'].map(
-        (source) => ({ source, destination: '/', permanent: false }),
-      ),
-      { source: '/lp2022/ug/bsc', destination: 'https://atlasuniversity.edu.in/admission-b_tech/', permanent: false },
-      { source: '/lp2022/film-animation_26/thank-you', destination: '/lp2022/film-animation_26', permanent: false },
     ];
   },
 };
