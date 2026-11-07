@@ -21,6 +21,8 @@ const NOT_CONTENT = [
   /^lib\/instagram\//,
   /^lib\/schools\/isdi\/blog\//,
   /^lib\/map\//,
+  /* `next/font/local` registrations (e.g. lib/landing/lp2022/fonts): build-time only, no copy, and Node cannot import them */
+  /\/fonts$/,
 ];
 
 function walk(dir, out = []) {
