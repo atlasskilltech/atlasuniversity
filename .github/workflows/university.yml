@@ -22,19 +22,84 @@ jobs:
           mkdir -p ~/.ssh
           echo "$EC2_KEY" > ~/.ssh/key.pem
           chmod 600 ~/.ssh/key.pem
+          trap 'rm -f ~/.ssh/key.pem' EXIT
 
-          ssh -i ~/.ssh/key.pem -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST << 'EOF'
-            set -e
+          # The remote script runs in a login shell (`bash -l -s`: ~/.profile puts node, npm and pm2
+          # on PATH, as the previous `ssh host << EOF` did) under `set -euo pipefail`. Any failing
+          # step (fetch, pull, install, build, pm2) ends the deployment and ssh returns its non-zero
+          # exit code, which fails this step. Nothing after a failed build reloads the app.
+          ssh -i ~/.ssh/key.pem -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST 'bash -l -s' << 'EOF'
+            set -euo pipefail
 
-            cd /home/ubuntu/atlasuniversity
+            APP_DIR=/home/ubuntu/atlasuniversity
+            cd "$APP_DIR"
 
-            git pull origin main
+            # ---- local changes on the server ---------------------------------------------------
+            # Two kinds are expected and are produced by the deployment itself:
+            #   * data/map/{graph,facts,history}.json - rewritten by every `npm run build`
+            #     (`prebuild` -> `npm run map:discover`).
+            #   * .githooks/* - `npm ci` runs `prepare` (scripts/assets/install-hooks.mjs), which
+            #     chmods the tracked hooks to 0755; git records that as a mode change.
+            # Policy: back up every locally changed tracked file first. Restore ONLY the three
+            # generated map files (the build regenerates them). Leave every other change exactly as
+            # it is - a pull keeps it as long as the incoming commits do not touch that file. If an
+            # incoming commit does touch a locally changed file, stop before modifying anything.
+            MAP_GENERATED=(data/map/graph.json data/map/facts.json data/map/history.json)
+            is_map() { local f; for f in "${MAP_GENERATED[@]}"; do [ "$1" = "$f" ] && return 0; done; return 1; }
+
+            git fetch origin main
+            INCOMING=$(git diff --name-only HEAD FETCH_HEAD)
+            echo "[deploy] server at $(git rev-parse --short HEAD), deploying $(git rev-parse --short FETCH_HEAD)"
+
+            mapfile -t DIRTY < <(git status --porcelain=v1 --untracked-files=no | cut -c4-)
+            CONFLICTS=()
+            KEPT=()
+            for f in "${DIRTY[@]}"; do
+              is_map "$f" && continue
+              if grep -qxF -- "$f" <<< "$INCOMING"; then CONFLICTS+=("$f"); else KEPT+=("$f"); fi
+            done
+
+            if [ "${#CONFLICTS[@]}" -gt 0 ]; then
+              echo "[deploy] ABORTED: these files have local changes on the server AND are changed by the" >&2
+              echo "[deploy] incoming commits; nothing was modified:" >&2
+              printf '[deploy]   %s\n' "${CONFLICTS[@]}" >&2
+              exit 1
+            fi
+
+            if [ "${#DIRTY[@]}" -gt 0 ]; then
+              BACKUP="$HOME/deploy-backups/$(date -u +%Y%m%dT%H%M%SZ)"
+              mkdir -p "$BACKUP"
+              git diff HEAD --binary > "$BACKUP/local-changes.patch"
+              git status --porcelain=v1 --untracked-files=no > "$BACKUP/status.txt"
+              for f in "${DIRTY[@]}"; do
+                if [ -e "$f" ]; then mkdir -p "$BACKUP/files/$(dirname "$f")"; cp -p "$f" "$BACKUP/files/$f"; fi
+              done
+              echo "[deploy] backed up ${#DIRTY[@]} locally changed file(s) + patch to $BACKUP"
+            fi
+
+            if [ "${#KEPT[@]}" -gt 0 ]; then
+              echo "[deploy] left untouched (local changes not affected by this update):"
+              printf '[deploy]   %s\n' "${KEPT[@]}"
+              git diff --summary HEAD -- "${KEPT[@]}" | sed 's/^/[deploy]   /'
+            fi
+
+            if ! git diff --quiet HEAD -- "${MAP_GENERATED[@]}"; then
+              git restore --staged --worktree --source=HEAD -- "${MAP_GENERATED[@]}"
+              echo "[deploy] restored generated ${MAP_GENERATED[*]} to the committed version"
+            fi
+
+            # ---- update, install, build, reload -----------------------------------------------
+            git pull --ff-only origin main
 
             npm ci
-            npm run build || true
+            npm run build
 
-            pm2 reload atlasuniversity || pm2 start --name atlasuniversity
+            # Reached only when the build succeeded.
+            if pm2 describe atlasuniversity > /dev/null 2>&1; then
+              pm2 reload atlasuniversity
+            else
+              pm2 start npm --name atlasuniversity -- start
+            fi
             pm2 save
+            echo "[deploy] done: $(git rev-parse --short HEAD)"
           EOF
-
-          rm -f ~/.ssh/key.pem
