@@ -53,6 +53,27 @@ const nextConfig = {
   ...(ASSET_IMAGE_PATTERNS.length ? { images: { remotePatterns: ASSET_IMAGE_PATTERNS } } : {}),
   ...(ASSET_URL_RULES ? { turbopack: { rules: ASSET_URL_RULES } } : {}),
 
+  /*
+   * ATLAS News admin (/news/admin and everything under it, pages and APIs): never framed (clickjacking),
+   * never cached, never indexed, no referrer leaks, and only same-origin resources. Scoped to the admin
+   * area only — no other route's headers change.
+   */
+  async headers() {
+    const adminHeaders = [
+      { key: 'X-Frame-Options', value: 'DENY' },
+      { key: 'Content-Security-Policy', value: "frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'" },
+      { key: 'Referrer-Policy', value: 'same-origin' },
+      { key: 'X-Content-Type-Options', value: 'nosniff' },
+      { key: 'X-Robots-Tag', value: 'noindex, nofollow' },
+      { key: 'Cache-Control', value: 'no-store, max-age=0' },
+      { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+    ];
+    return [
+      { source: '/news/admin', headers: adminHeaders },
+      { source: '/news/admin/:path*', headers: adminHeaders },
+    ];
+  },
+
   async redirects() {
     return [
       /*

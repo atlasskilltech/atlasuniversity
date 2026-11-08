@@ -23,7 +23,12 @@ const NOT_CONTENT = [
   /^lib\/map\//,
   /* `next/font/local` registrations (e.g. lib/landing/lp2022/fonts): build-time only, no copy, and Node cannot import them */
   /\/fonts$/,
+  /* ATLAS News reads MySQL at request time; discovery must never import it (no database at build time) */
+  /^lib\/news\//,
 ];
+
+/* Routes that are not public pages and never belong on the site map: the News admin area. */
+const PRIVATE_ROUTE = /^\/news\/admin(\/|$)/;
 
 function walk(dir, out = []) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -96,7 +101,7 @@ export function discoverRoutes(root) {
   const routes = [];
   for (const file of walk(appDir)) {
     const r = routeOf(appDir, file);
-    if (!r) continue;
+    if (!r || PRIVATE_ROUTE.test(r.route)) continue;
     const src = fs.readFileSync(file, 'utf8');
     const direct = libImports(src);
     /* A page that imports no content module directly (the homepage) reads its data through the
