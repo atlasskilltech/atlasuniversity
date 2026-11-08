@@ -1,99 +1,85 @@
+import Link from 'next/link';
 import { requireAdminPage } from '@/lib/news/auth/admin';
-import { foundationHealth } from '@/lib/news/health';
-import FoundationTools from '@/components/News/Admin/FoundationTools';
+import { dashboardSummary } from '@/lib/news/cms/dashboard';
+import { BTN_PRIMARY, CARD, cx, formatDateTime, MUTED, PageHeader, StateBadge } from '@/components/News/Admin/ui';
+import DbUnavailable from '@/components/News/Admin/DbUnavailable';
 
 export const dynamic = 'force-dynamic';
+export const metadata = { title: 'Dashboard — ATLAS News Admin', robots: { index: false, follow: false } };
 
-export const metadata = { title: 'Foundation status — ATLAS News Admin', robots: { index: false, follow: false } };
-
-const Badge = ({ ok, children }) => (
-  <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-[12px] font-semibold ${ok ? 'bg-[#e7f6ec] text-[#11733b]' : 'bg-[#fdecea] text-[#b42318]'}`}>
-    {children}
-  </span>
-);
-
-function Row({ label, children }) {
+function Stat({ label, value, href, note }) {
   return (
-    <div className="flex flex-col gap-1 border-t border-[#eef0f3] py-3 first:border-t-0 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
-      <dt className="text-[14px] text-[#5b6170]">{label}</dt>
-      <dd className="text-[14px] font-medium break-words sm:text-right">{children}</dd>
-    </div>
+    <Link href={href} className={cx(CARD, 'block transition hover:shadow-[0_2px_8px_rgba(16,24,40,0.10)]')}>
+      <p className="text-[13px] font-medium text-[#5b6170]">{label}</p>
+      <p className="mt-1 text-[30px] font-semibold leading-none tabular-nums">{value}</p>
+      {note ? <p className="mt-2 text-[12.5px] text-[#6b7180]">{note}</p> : null}
+    </Link>
   );
 }
 
-function Card({ title, children }) {
-  return (
-    <section className="rounded-2xl bg-white p-5 shadow-[0_1px_2px_rgba(16,24,40,0.06)] sm:p-6">
-      <h2 className="text-[16px] font-semibold">{title}</h2>
-      <dl className="mt-3">{children}</dl>
-    </section>
-  );
-}
-
-/*
- * Stage 1 dashboard: the state of the foundation — database + schema, admin password, S3 storage and the
- * upload pipeline — plus two tools to prove them end to end on whichever server this runs on. The
- * editorial dashboard replaces this page in Stage 3.
- */
-export default async function NewsAdminHome() {
-  /* The page checks the session itself: a layout's check is not re-run on client navigation (Next.js
-     partial rendering), so the parent layout alone must never be what protects this page's data. */
+/* Every figure is a COUNT over the News tables. There are no readership numbers: no analytics source exists. */
+export default async function NewsAdminDashboard() {
   await requireAdminPage();
-  const h = await foundationHealth();
-  const db = h.database;
+  let d;
+  try {
+    d = await dashboardSummary();
+  } catch (e) {
+    return <DbUnavailable title="Dashboard" code={e?.code} />;
+  }
   return (
-    <div className="flex flex-col gap-5">
-      <div>
-        <h1 className="text-[22px] font-semibold leading-[1.3] sm:text-[26px]">Foundation status</h1>
-        <p className="mt-1 text-[14px] leading-[1.5] text-[#5b6170]">
-          Stage 1 of the ATLAS News platform. Editorial tools arrive in Stage 3.
-        </p>
+    <div>
+      <PageHeader title="Dashboard" description="What is on ATLAS News right now.">
+        <Link href="/news/admin/articles/new" className={BTN_PRIMARY}>
+          New article
+        </Link>
+      </PageHeader>
+
+      <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+        <Stat label="Live articles" value={d.articles.live} href="/news/admin/articles?filter=live" />
+        <Stat label="Scheduled" value={d.articles.scheduled} href="/news/admin/articles?filter=scheduled" />
+        <Stat label="Drafts" value={d.articles.drafts} href="/news/admin/articles?filter=draft" />
+        <Stat label="In Trash" value={d.articles.trash} href="/news/admin/articles?filter=trash" />
+        <Stat label="Categories" value={d.categories.total} href="/news/admin/categories" note={`${d.categories.inMenu} of 8 in the navigation`} />
+        <Stat label="Homepage slots filled" value={`${d.homepage.filled}/${d.homepage.capacity}`} href="/news/admin/homepage" />
+        <Stat label="Images in library" value={d.media.total} href="/news/admin/media" />
       </div>
 
-      <div className="grid gap-5 lg:grid-cols-2">
-        <Card title="Database">
-          <Row label="Connection">{db.error ? <Badge ok={false}>unavailable ({db.error})</Badge> : <Badge ok>connected</Badge>}</Row>
-          {!db.error ? (
-            <>
-              <Row label="Database">{db.name}</Row>
-              <Row label="Server">{db.serverVersion}</Row>
-              <Row label="Table prefix">{h.prefix}</Row>
-              <Row label="News tables">{db.tables}</Row>
-              <Row label="Migrations applied">{db.applied.join(', ') || 'none'}</Row>
-              <Row label="Pending">{db.pending.length ? <Badge ok={false}>{db.pending.join(', ')}</Badge> : <Badge ok>none</Badge>}</Row>
-              {db.problems.map((p) => (
-                <Row key={p} label="Problem">
-                  <Badge ok={false}>{p}</Badge>
-                </Row>
+      <div className="mt-6 grid gap-5 lg:grid-cols-2">
+        <section className={cx(CARD, 'min-w-0')}>
+          <h2 className="text-[16px] font-semibold">Coming up</h2>
+          {d.upcoming.length ? (
+            <ul className="mt-3 divide-y divide-[#eef0f3]">
+              {d.upcoming.map((a) => (
+                <li key={a.id} className="flex items-center justify-between gap-4 py-2.5">
+                  <Link href={`/news/admin/articles/${a.id}`} className="min-w-0 truncate text-[14px] font-medium hover:underline">
+                    {a.title}
+                  </Link>
+                  <span className="shrink-0 text-[13px] text-[#5b6170]">{formatDateTime(a.publishedAt)}</span>
+                </li>
               ))}
-            </>
-          ) : null}
-        </Card>
-
-        <Card title="Admin access">
-          <Row label="Password source">
-            <Badge ok={h.password === 'database'}>{h.password}</Badge>
-          </Row>
-          <Row label="Session">active (database-backed, 12 h idle / 7 days max)</Row>
-          <Row label="Rate limit">5 failed attempts per IP per 15 min</Row>
-        </Card>
-
-        <Card title="S3 storage">
-          <Row label="Configured">{h.storage.configured ? <Badge ok>yes</Badge> : <Badge ok={false}>no</Badge>}</Row>
-          <Row label="Public host">{h.storage.publicHost || '—'}</Row>
-          <Row label="Key root">{h.storage.keyRoot}</Row>
-          <Row label="Static credentials in env">{h.storage.credentialsInEnv ? 'yes' : 'no (SDK default chain / instance role)'}</Row>
-        </Card>
-
-        <Card title="Upload rules">
-          <Row label="Max file size">{Math.round(h.uploads.maxBytes / 1024 / 1024)} MB</Row>
-          <Row label="Accepted">JPEG, PNG, WebP, AVIF</Row>
-          <Row label="Renditions (WebP)">{h.uploads.renditions.join(' · ')}</Row>
-          <Row label="Metadata">EXIF/GPS stripped</Row>
-        </Card>
+            </ul>
+          ) : (
+            <p className={cx(MUTED, 'mt-3')}>Nothing scheduled.</p>
+          )}
+        </section>
+        <section className={cx(CARD, 'min-w-0')}>
+          <h2 className="text-[16px] font-semibold">Recently edited</h2>
+          {d.recent.length ? (
+            <ul className="mt-3 divide-y divide-[#eef0f3]">
+              {d.recent.map((a) => (
+                <li key={a.id} className="flex items-center justify-between gap-4 py-2.5">
+                  <Link href={`/news/admin/articles/${a.id}`} className="min-w-0 truncate text-[14px] font-medium hover:underline">
+                    {a.title}
+                  </Link>
+                  <StateBadge state={a.state} />
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className={cx(MUTED, 'mt-3')}>No articles yet.</p>
+          )}
+        </section>
       </div>
-
-      <FoundationTools />
     </div>
   );
 }

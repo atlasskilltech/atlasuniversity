@@ -59,11 +59,52 @@ test('schema: every table uses the atlasnews_ prefix and the shipped migrations 
   assert.equal(NEWS_TABLE_PREFIX, 'atlasnews_');
   assert.doesNotThrow(() => assertStatementsSafe());
   /* up creates exactly the managed tables; down drops exactly them */
-  const created = MIGRATIONS.flatMap((m) => m.up).map((s) => s.match(/CREATE TABLE (\S+)/)[1]).sort();
-  const dropped = MIGRATIONS.flatMap((m) => m.down).map((s) => s.match(/DROP TABLE IF EXISTS (\S+)/)[1]).sort();
+  const created = MIGRATIONS.flatMap((m) => m.up).map((s) => s.match(/^CREATE TABLE (\S+)/)?.[1]).filter(Boolean).sort();
+  const dropped = MIGRATIONS.flatMap((m) => m.down).map((s) => s.match(/^DROP TABLE IF EXISTS (\S+)/)?.[1]).filter(Boolean).sort();
   assert.deepEqual(created, [...MANAGED_TABLES].sort());
   assert.deepEqual(dropped, created);
   assert.match(checksum(MIGRATIONS[0]), /^[0-9a-f]{64}$/);
+});
+
+test('schema: migration 0001 is frozen — its checksum is the one applied in production', () => {
+  assert.equal(MIGRATIONS[0].id, '0001_initial_schema');
+  assert.equal(checksum(MIGRATIONS[0]), '4179787f1387dcad2e1a7e5cb7a5a4a4642ba6c84e28531f235985fef5887587');
+});
+
+test('schema: 0002 is additive — ALTER ADD only on existing News tables, paired with an exact reverse', () => {
+  const m = MIGRATIONS.find((x) => x.id === '0002_cms_schema_gaps');
+  assert.ok(m, '0002 present');
+  assert.equal(MIGRATIONS.indexOf(m), 1, '0002 follows 0001');
+  assert.equal(m.pairedDown, true);
+  for (const sql of m.up) {
+    assert.match(sql, /^ALTER TABLE atlasnews_/);
+    /* every clause adds something; nothing is dropped, modified, renamed or changed in up */
+    assert.doesNotMatch(sql, /\b(DROP|MODIFY|CHANGE|RENAME|ALGORITHM)\b/i);
+  }
+  for (const sql of m.down) assert.doesNotMatch(sql, /\b(ADD|MODIFY|CHANGE)\b/i);
+  const added = m.up.join(' ').match(/ADD COLUMN (\w+)/g).map((x) => x.split(' ')[2]).sort();
+  assert.deepEqual(added, ['canonical_url', 'deleted_at', 'image_media_id', 'is_featured', 'zone']);
+  const removed = m.down.join(' ').match(/DROP COLUMN (\w+)/g).map((x) => x.split(' ')[2]).sort();
+  assert.deepEqual(removed, added, 'down removes exactly the columns up adds');
+  /* every new column is NULL or has a default, so existing rows stay valid */
+  for (const col of m.up.join('\n').matchAll(/ADD COLUMN \w+ ([^\n]+)/g)) assert.match(col[1], /\bNULL\b|DEFAULT/, col[0]);
+  /* the five columns go on the four approved tables only */
+  const tables = [...new Set(m.up.map((s) => s.match(/^ALTER TABLE (\S+)/)[1]))].sort();
+  assert.deepEqual(tables, [T.categories, T.homepageSlots, T.media, T.posts].sort());
+  assert.deepEqual(validateMigrations().created.get('0002_cms_schema_gaps'), [], '0002 creates no table');
+});
+
+test('schema guard: pairedDown is validated', () => {
+  const base = { id: '0001_a', up: ['CREATE TABLE atlasnews_a (id INT)'], down: ['DROP TABLE IF EXISTS atlasnews_a'] };
+  const alter = (t, c) => `ALTER TABLE ${t} ADD COLUMN ${c} INT NULL`;
+  const unalter = (t, c) => `ALTER TABLE ${t} DROP COLUMN ${c}`;
+  const ok = { id: '0002_b', pairedDown: true, up: [alter('atlasnews_a', 'x'), alter('atlasnews_a', 'y')], down: [unalter('atlasnews_a', 'y'), unalter('atlasnews_a', 'x')] };
+  assert.doesNotThrow(() => validateMigrations([base, ok]));
+  assert.throws(() => validateMigrations([base, { ...ok, down: [unalter('atlasnews_a', 'y')] }]), /as many down steps/);
+  assert.throws(() => validateMigrations([base, { ...ok, up: ['CREATE TABLE atlasnews_c (id INT)', alter('atlasnews_a', 'y')] }]), /only ALTER TABLE steps/);
+  assert.throws(() => validateMigrations([{ ...base, up: ['CREATE TABLE atlasnews_a (id INT)', 'CREATE TABLE atlasnews_b (id INT)'], down: ['DROP TABLE IF EXISTS atlasnews_b', 'DROP TABLE IF EXISTS atlasnews_a'] },
+    { ...ok, down: [unalter('atlasnews_b', 'y'), unalter('atlasnews_a', 'x')] }]), /step 1 alters atlasnews_a but its reverse alters atlasnews_b/);
+  assert.throws(() => validateMigrations([base, { ...ok, up: [alter('atlasnews_z', 'x'), alter('atlasnews_a', 'y')], down: [unalter('atlasnews_a', 'y'), unalter('atlasnews_z', 'x')] }]), /may only alter a table an earlier migration created/);
 });
 
 test('schema guard: rejects anything that could touch a non-News table', () => {
@@ -244,6 +285,15 @@ test('sanitiser: keeps the editorial vocabulary', () => {
   assert.match(yt, /^<iframe src="https:\/\/www\.youtube-nocookie\.com\/embed\/dQw4w9WgXcQ" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"><\/iframe>$/);
   assert.match(sanitizeArticleHtml('<a href="https://x.com" target="_blank">x</a>'), /rel="noopener noreferrer"/);
   assert.equal(sanitizeArticleHtml('<b>x</b>'), '<strong>x</strong>');
+});
+
+test('sanitiser: H2-H6 kept, H1 becomes H2 (the title is the only H1), nothing else is a heading', () => {
+  assert.equal(sanitizeArticleHtml('<h2>2</h2><h3>3</h3><h4>4</h4><h5>5</h5><h6>6</h6>'), '<h2>2</h2><h3>3</h3><h4>4</h4><h5>5</h5><h6>6</h6>');
+  assert.equal(sanitizeArticleHtml('<h1>Pasted title</h1><p>x</p>'), '<h2>Pasted title</h2><p>x</p>');
+  /* attributes on a pasted H1 are dropped like on any heading; its content is still sanitised */
+  assert.equal(sanitizeArticleHtml('<h1 id="t" class="big" style="color:red" onclick="x()">A<script>alert(1)</script><b>B</b></h1>'), '<h2>A<strong>B</strong></h2>');
+  assert.doesNotMatch(sanitizeArticleHtml('<H1>Upper</H1><h1><h1>nested</h1></h1>'), /<h1/i);
+  assert.equal(sanitizeArticleHtml('<h7>no</h7>'), 'no');
 });
 
 test('plain text + slugs', () => {

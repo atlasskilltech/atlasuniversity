@@ -19,6 +19,10 @@
  *                              characters, no control characters / line breaks. Prints only "unchanged" /
  *                              "updated" — never the password or the hash.
  *                                  printf '%s' "$PW" | npm run news:admin -- provision-password
+ *   indexing                   read-only: is search-engine indexing of the public News pages enabled?
+ *   indexing --off             noindex every public News page (the default).
+ *   indexing --on --confirm    allow indexing. Deliberately needs --confirm: only once real content is
+ *                              migrated, verified and indexing has been approved. Takes effect within 60 s.
  *
  * Needs the migrations applied (`npm run news:migrate -- up`) and the same DB_* connection as that tool.
  */
@@ -80,11 +84,23 @@ async function main() {
     }
     return;
   }
+  if (cmd === 'indexing') {
+    if (args.on && args.off) throw new Error('choose --on or --off, not both');
+    if (args.on) {
+      if (!args.confirm) throw new Error('enabling indexing needs --confirm (only after real content is migrated and indexing is approved)');
+      await setSetting(SETTING.indexingEnabled, true);
+    } else if (args.off) {
+      await setSetting(SETTING.indexingEnabled, false);
+    }
+    const on = (await getSetting(SETTING.indexingEnabled, false)) === true;
+    log(`search-engine indexing of public News pages: ${on ? 'ENABLED' : 'disabled (noindex)'}${args.on || args.off ? ' — takes effect within 60 seconds' : ''}`);
+    return;
+  }
   if (cmd === 'revoke-sessions') {
     log(`${await revokeAllSessions()} session(s) signed out`);
     return;
   }
-  log(`unknown command "${cmd}" — use status, provision-password, set-password or revoke-sessions`);
+  log(`unknown command "${cmd}" — use status, provision-password, set-password, revoke-sessions or indexing`);
   process.exitCode = 1;
 }
 

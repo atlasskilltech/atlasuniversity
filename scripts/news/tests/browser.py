@@ -40,6 +40,7 @@ with sync_playwright() as p:
         pg.wait_for_url('**/news/admin', timeout=30000)
         pg.wait_for_load_state('networkidle')
         dash = pg.inner_text('h1')
+        pg.goto(BASE + '/news/admin/system', wait_until='networkidle')
         ovf = pg.evaluate('() => document.documentElement.scrollWidth - document.documentElement.clientWidth')
         cookie_js = pg.evaluate('() => document.cookie')
         pg.click('text=Check S3 write access')
@@ -50,7 +51,7 @@ with sync_playwright() as p:
         pg.wait_for_url('**/news/admin/login', timeout=30000)
         pg.goto(BASE + '/news/admin', wait_until='networkidle')
         signed_out = pg.url.endswith('/news/admin/login')
-        good = (on_login and no_chrome and 'Incorrect' in wrong_msg and dash == 'Foundation status' and ovf <= 0
+        good = (on_login and no_chrome and 'Incorrect' in wrong_msg and dash == 'Dashboard' and ovf <= 0
                 and not cookie_js and check_ok and signed_out and len(errs) <= 1 and all('401' in e for e in errs))
         ok &= good
         print('PASS' if good else 'FAIL', f'browser {w}px', dict(login_redirect=on_login, chrome_hidden=no_chrome, error_shown=wrong_msg,

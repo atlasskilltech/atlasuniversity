@@ -87,6 +87,8 @@ const DECOY_HASH = await hashPassword(DECOY_PW);
 await closePool();
 
 /* ------------------------------------------------------------------------------------ S3 stub + app */
+/* a fresh data cache: entries from another run (another database) must never be served here */
+fs.rmSync(path.join(ROOT, '.next', 'cache', 'fetch-cache'), { recursive: true, force: true });
 const stub = await startS3Stub();
 const STUB = `http://127.0.0.1:${stub.port}`;
 const STUB_BUCKET = `${STUB}/stub-bucket`;
@@ -208,8 +210,11 @@ try {
   const CK = sc.split(';')[0];
   check('cookie value is a 43-char random token', CK.split('=')[1]?.length === 43 && !sc.includes(PW));
   r = await req('GET', '/news/admin', { cookie: CK, origin: null });
-  check('dashboard with session → 200 with data', r.status === 200 && r.text.includes('>Foundation status</h1>') && r.text.includes(DB.name), r.status);
+  check('dashboard with session → 200 with real counts', r.status === 200 && r.text.includes('>Dashboard</h1>') && r.text.includes('Live articles'), r.status);
   check('dashboard HTML has no password/hash/credential', !r.text.includes(PW) && !r.text.includes('scrypt$') && !r.text.includes('stub-secret'));
+  r = await req('GET', '/news/admin/system', { cookie: CK, origin: null });
+  check('system page with session → 200 with data', r.status === 200 && r.text.includes('>Foundation status</h1>') && r.text.includes(DB.name), r.status);
+  check('system page HTML has no password/hash/credential', !r.text.includes(PW) && !r.text.includes('scrypt$') && !r.text.includes('stub-secret'));
   r = await req('GET', '/news/admin/login', { cookie: CK, origin: null });
   check('login page with session → redirect to dashboard', isRedirect(r.status), r.status);
   r = await req('GET', '/news/admin/api/health', { cookie: CK, origin: null });
@@ -305,12 +310,127 @@ try {
   r = await req('POST', '/news/admin/api/storage-check', { body: '', cookie: CK });
   check('storage-check: write + public read + checksum', r.status === 200 && r.json.ok === true, r.text.slice(0, 200));
 
-  /* 8. page authentication: direct, RSC, expired */
-  const DATA = [DB.name, 'Migrations applied', 'Table prefix', '>Foundation status</h1>', `127.0.0.1:${stub.port}`];
-  const tree = encodeURIComponent(JSON.stringify(['', { children: ['news', { children: ['admin', { children: ['(panel)', { children: ['__PAGE__', {}, null, null] }, null, null] }, null, null] }, null, null] }, null, null, true]));
-  for (const [label, hdrs] of [['plain GET', {}], ['RSC request', { RSC: '1' }], ['RSC with a crafted router-state header (Next itself rejects it: 500)', { RSC: '1', 'Next-Router-State-Tree': tree, 'Next-Url': '/news/admin' }]]) {
-    r = await req('GET', '/news/admin', { headers: hdrs, origin: null });
-    check(`no session, ${label} → no dashboard data (${r.status})`, !DATA.some((d) => r.text.includes(d)));
+  /* 7b. Stage 3 CMS over HTTP */
+  const J = (body) => ({ body: JSON.stringify(body), headers: { 'Content-Type': 'application/json' }, cookie: CK });
+  r = await req('GET', '/news/admin/api/articles', { origin: null });
+  check('CMS: articles API without session → 401', r.status === 401);
+  r = await req('POST', '/news/admin/api/categories', { ...J({ name: 'E2E' }), origin: 'https://evil.example' });
+  check('CMS: cross-origin write refused (403)', r.status === 403 && r.json.code === 'forbidden_origin', r.status);
+  r = await req('POST', '/news/admin/api/categories', { ...J({ name: 'E2E' }), origin: null });
+  check('CMS: write without Origin refused (403)', r.status === 403, r.status);
+  r = await req('POST', '/news/admin/api/categories', { body: 'name=x', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, cookie: CK });
+  check('CMS: non-JSON body → 415', r.status === 415, r.status);
+  r = await req('POST', '/news/admin/api/categories', { body: '{bad', headers: { 'Content-Type': 'application/json' }, cookie: CK });
+  check('CMS: malformed JSON → 400, no stack or SQL in the body', r.status === 400 && !/at |SELECT|INSERT|sql/i.test(r.text), r.text.slice(0, 120));
+  r = await req('POST', '/news/admin/api/categories', J({ name: 'E2E Campus', showInMenu: true, menuOrder: 1 }));
+  const catId = r.json.id;
+  check('CMS: create category → 201', r.status === 201 && catId > 0, r.text.slice(0, 160));
+  r = await req('POST', '/news/admin/api/articles', J({ title: '', status: 'published' }));
+  check('CMS: invalid article → 400 with field errors', r.status === 400 && r.json.fields?.title && r.json.fields?.categoryIds, r.text.slice(0, 200));
+  r = await req('POST', '/news/admin/api/articles', J({ title: 'E2E story', status: 'published', contentHtml: '<h1>Pasted</h1><p>Hello<script>alert(1)</script></p><h5>five</h5>', categoryIds: [catId] }));
+  const artId = r.json.id;
+  check('CMS: publish article → 201', r.status === 201 && r.json.slug === 'e2e-story', r.text.slice(0, 160));
+  r = await req('GET', `/news/admin/api/articles/${artId}`, { cookie: CK, origin: null });
+  const art = r.json.article;
+  check('CMS: stored body sanitised — H1→H2, script gone, H5 kept', art?.contentHtml === '<h2>Pasted</h2><p>Hello</p><h5>five</h5>' && art.state === 'live', art?.contentHtml);
+  r = await req('PUT', `/news/admin/api/articles/${artId}`, J({ article: { ...art, status: 'published', categoryIds: [catId] }, updatedAt: '2020-01-01T00:00:00.000Z' }));
+  check('CMS: stale save → 409 edit_conflict', r.status === 409 && r.json.code === 'edit_conflict', r.status);
+  r = await req('PUT', `/news/admin/api/articles/${artId}`, J({ article: { ...art, slug: 'e2e-story-renamed', status: 'published', categoryIds: [catId] }, updatedAt: art.updatedAt }));
+  check('CMS: slug change on a live article → redirect recorded', r.status === 200 && r.json.redirectFrom === '/news/e2e-story', r.text.slice(0, 200));
+  r = await req('PUT', '/news/admin/api/homepage', J({ zones: { hero_centre: [artId], picks: [artId] } }));
+  check('CMS: same article in two homepage slots → 400 naming the article', r.status === 400 && /“E2E story” is already placed in Hero — centre/.test(r.json.fields?.picks || ''), r.text.slice(0, 240));
+  r = await req('PUT', '/news/admin/api/homepage', J({ zones: { sidebar: [artId] } }));
+  check('CMS: unknown homepage zone → 400 (validated in code)', r.status === 400 && r.json.fields?.sidebar, r.status);
+  r = await req('PUT', '/news/admin/api/homepage', J({ zones: { hero_centre: [artId] } }));
+  check('CMS: homepage saved', r.status === 200 && r.json.zones[0].items[0]?.id === artId, r.text.slice(0, 160));
+  r = await req('GET', `/news/admin/preview/${artId}`, { cookie: CK, origin: null });
+  check('CMS: preview renders the article with the public layout', r.status === 200 && r.text.includes('E2E story') && r.text.includes('Pasted</h2>') && !r.text.includes('<script>alert'), r.status);
+  r = await req('GET', `/news/admin/preview/${artId}`, { origin: null });
+  check('CMS: preview without session → redirect, no content', isRedirect(r.status) && !r.text.includes('E2E story'), r.status);
+  const [mrow] = await q('SELECT id FROM atlasnews_media ORDER BY id LIMIT 1');
+  if (mrow) {
+    const cur = (await req('GET', `/news/admin/api/articles/${artId}`, { cookie: CK, origin: null })).json.article;
+    await req('PUT', `/news/admin/api/articles/${artId}`, J({ article: { ...cur, status: 'published', featuredMediaId: mrow.id }, updatedAt: cur.updatedAt }));
+    r = await req('DELETE', `/news/admin/api/media/${mrow.id}`, { cookie: CK });
+    check('CMS: deleting an image in use → 409 with its usage', r.status === 409 && r.json.usage?.featured?.[0]?.id === artId, r.text.slice(0, 200));
+  }
+  r = await req('DELETE', `/news/admin/api/categories/${catId}`, { cookie: CK });
+  check('CMS: deleting a category in use → 409', r.status === 409 && r.json.code === 'category_in_use', r.status);
+  r = await req('DELETE', `/news/admin/api/articles/${artId}`, { cookie: CK });
+  check('CMS: trash → off the homepage', r.status === 200 && r.json.removedFromHomepage === true, r.text.slice(0, 160));
+  r = await req('GET', '/news/admin/api/articles/abc', { cookie: CK, origin: null });
+  check('CMS: non-numeric id → 404', r.status === 404, r.status);
+  for (const [pagePath, needle] of [['/news/admin', '>Dashboard</h1>'], ['/news/admin/articles', '>Articles</h1>'], ['/news/admin/categories', '>Categories</h1>'], ['/news/admin/homepage', '>Homepage</h1>'], ['/news/admin/media', '>Media library</h1>'], ['/news/admin/articles/new', 'New article']]) {
+    r = await req('GET', pagePath, { cookie: CK, origin: null });
+    check(`CMS page ${pagePath} → 200`, r.status === 200 && r.text.includes(needle) && !r.text.includes(PW), r.status);
+  }
+
+  /* 7c. Public pages from MySQL: privacy, immediate cache invalidation, redirects, curation, robots */
+  const pub = (p) => req('GET', p, { origin: null });
+  const noindexMeta = (html) => /<meta name="robots" content="noindex, nofollow"/.test(html);
+  r = await pub('/news');
+  check('public: empty publication (only a trashed story) → 200, a quiet notice, no sample stories', r.status === 200 && r.text.includes('will appear here soon') && !r.text.includes('A graduating class'), r.status);
+  check('public: homepage is noindex by default (indexing_enabled unset)', noindexMeta(r.text));
+  check('public: no Editor’s Picks or Featured block when none are set', !r.text.includes('Editor’s Picks') && !r.text.includes('The big read'));
+  r = await req('POST', '/news/admin/api/categories', J({ name: 'Public Desk', showInMenu: true, menuOrder: 2 }));
+  const pubCat = r.json.id;
+  const T1 = 'Public visibility check';
+  r = await req('POST', '/news/admin/api/articles', J({ title: T1, status: 'draft', contentHtml: '<p>Draft body</p>', excerpt: 'An excerpt', categoryIds: [pubCat] }));
+  const pid = r.json.id;
+  const getArt = async () => (await req('GET', `/news/admin/api/articles/${pid}`, { cookie: CK, origin: null })).json.article;
+  const put = async (patch) => {
+    const a = await getArt();
+    return req('PUT', `/news/admin/api/articles/${pid}`, J({ article: { ...a, ...patch }, updatedAt: a.updatedAt }));
+  };
+  r = await pub('/news/public-visibility-check');
+  check('public: a DRAFT is a 404 and its content never appears', r.status === 404 && !r.text.includes('Draft body') && !r.text.includes(T1), r.status);
+  r = await put({ status: 'published', publishedAt: null });
+  check('public: publish via the CMS', r.status === 200, r.text.slice(0, 120));
+  r = await pub('/news/public-visibility-check');
+  check('public: published → visible IMMEDIATELY (cache invalidated), noindex, canonical', r.status === 200 && r.text.includes(T1) && r.text.includes('Draft body') && noindexMeta(r.text) && r.text.includes('rel="canonical" href="https://atlasuniversity.edu.in/news/public-visibility-check"'), r.status);
+  check('public: article JSON-LD present', r.text.includes('"@type":"NewsArticle"'));
+  await pub('/news'); /* warm the homepage cache, then change it */
+  r = await put({ title: `${T1} (edited)` });
+  r = await pub('/news/public-visibility-check');
+  check('public: an edit shows on the next request', r.text.includes(`${T1} (edited)`), r.status);
+  r = await pub('/news');
+  check('public: the homepage leads with the new story (lead = newest when no curation)', r.text.includes(`${T1} (edited)`), r.status);
+  r = await req('PUT', '/news/admin/api/homepage', J({ zones: { picks: [pid] } }));
+  r = await pub('/news');
+  check('public: Editor’s Picks shows once a pick is set', r.text.includes('Editor’s Picks'), r.status);
+  r = await req('PUT', '/news/admin/api/homepage', J({ zones: { featured: [pid] } }));
+  r = await pub('/news');
+  check('public: Featured ("The big read") shows once set, and Picks disappears when cleared', r.text.includes('The big read') && !r.text.includes('Editor’s Picks'), r.status);
+  r = await pub('/news/category/public-desk');
+  check('public: category page lists the story; in the navigation', r.status === 200 && r.text.includes(`${T1} (edited)`) && r.text.includes('href="/news/category/public-desk"'), r.status);
+  check('public: category page 2 of 1 → 404; /page/1 → permanent redirect', (await pub('/news/category/public-desk/page/2')).status === 404 && [301, 308].includes((await pub('/news/category/public-desk/page/1')).status));
+  r = await put({ status: 'scheduled', publishedAt: new Date(Date.now() + 3600_000).toISOString() });
+  check('public: rescheduled for later → 404 IMMEDIATELY, gone from the homepage', (await pub('/news/public-visibility-check')).status === 404 && !(await pub('/news')).text.includes(T1), r.status);
+  r = await put({ status: 'published', publishedAt: null });
+  r = await put({ slug: 'public-visibility-renamed' });
+  check('public: slug renamed → redirect recorded', r.json.redirectFrom === '/news/public-visibility-check', r.text.slice(0, 160));
+  r = await pub('/news/public-visibility-check');
+  check('public: old URL → permanent redirect to the new one', [301, 308].includes(r.status) && (r.headers.get('location') || '').endsWith('/news/public-visibility-renamed'), `${r.status} ${r.headers.get('location')}`);
+  check('public: new URL → 200', (await pub('/news/public-visibility-renamed')).status === 200);
+  r = await req('PUT', `/news/admin/api/categories/${pubCat}`, J({ name: 'Public Desk', slug: 'public-desk-2', showInMenu: true }));
+  r = await pub('/news/category/public-desk');
+  check('public: renamed category → old URL redirects', [301, 308].includes(r.status) && (r.headers.get('location') || '').endsWith('/news/category/public-desk-2'), r.status);
+  r = await req('DELETE', `/news/admin/api/articles/${pid}`, { cookie: CK });
+  check('public: trashed → 404 IMMEDIATELY and off the homepage', (await pub('/news/public-visibility-renamed')).status === 404 && !(await pub('/news')).text.includes(T1));
+  r = await pub('/news/no-such-story');
+  check('public: unknown slug → the News 404 page', r.status === 404 && r.text.includes('This story isn’t here'), r.status);
+  r = await pub('/news/admin/api/articles');
+  check('public: CMS APIs are not public', r.status === 401);
+
+  /* 8. page authentication: direct, RSC, expired — on the dashboard AND the system page */
+  const DATA = [DB.name, 'Migrations applied', 'Table prefix', '>Foundation status</h1>', `127.0.0.1:${stub.port}`, '>Dashboard</h1>', 'Live articles', 'Recently edited'];
+  const treeFor = (leaf) => encodeURIComponent(JSON.stringify(['', { children: ['news', { children: ['admin', { children: ['(panel)', { children: leaf }, null, null] }, null, null] }, null, null] }, null, null, true]));
+  const tree = treeFor(['__PAGE__', {}, null, null]);
+  for (const [pagePath, t] of [['/news/admin', tree], ['/news/admin/system', treeFor(['system', { children: ['__PAGE__', {}, null, null] }, null, null])]]) {
+    for (const [label, hdrs] of [['plain GET', {}], ['RSC request', { RSC: '1' }], ['RSC with a crafted router-state header (Next itself rejects it: 500)', { RSC: '1', 'Next-Router-State-Tree': t, 'Next-Url': pagePath }]]) {
+      r = await req('GET', pagePath, { headers: hdrs, origin: null });
+      check(`no session, ${pagePath} ${label} → no admin data (${r.status})`, !DATA.some((d) => r.text.includes(d)));
+    }
   }
   const session = async (ipAddr) => (await login(PW, ipAddr)).cookies[0].split(';')[0];
   const ck2 = await session('203.0.113.21');
@@ -331,8 +451,8 @@ try {
     await q('DELETE FROM atlasnews_login_attempts');
     /* async: the S3 stand-in runs in THIS process, so the event loop must stay free while the browser
        test (which triggers S3 writes through the app) runs */
-    const py = await new Promise((resolve) => {
-      const child = spawn(E.PYTHON || 'python', [path.join(ROOT, 'scripts', 'news', 'tests', 'browser.py'), BASE, PW], { stdio: ['ignore', 'pipe', 'pipe'] });
+    const runPy = (script) => new Promise((resolve) => {
+      const child = spawn(E.PYTHON || 'python', [path.join(ROOT, 'scripts', 'news', 'tests', script), BASE, PW], { stdio: ['ignore', 'pipe', 'pipe'] });
       let out = '';
       let err = '';
       child.stdout.on('data', (d) => { out += d; });
@@ -344,8 +464,23 @@ try {
       });
       child.on('error', (e) => resolve({ status: -1, stdout: '', stderr: String(e.message) }));
     });
+    /* the Stage 2 sample content (test database only), curated through the CMS API so the public cache
+       is invalidated the way an editor's save does it */
+    await q('DELETE FROM atlasnews_homepage_slots');
+    const { seedSample } = await import('./seed-sample.mjs');
+    const seeded = await seedSample((sql, params) => q(sql, params), { slots: false });
+    r = await req('PUT', '/news/admin/api/homepage', { body: JSON.stringify({ zones: seeded.zones }), headers: { 'Content-Type': 'application/json' }, cookie: CK });
+    check('sample content seeded; homepage curated through the CMS API', r.status === 200, r.text.slice(0, 160));
+    const pubPy = await runPy('browser_public.py');
+    process.stdout.write(pubPy.stdout || '');
+    check('browser public test: hero, sections, Featured, Editor’s Picks, article, category, light/dark (390 + 1440)', pubPy.status === 0, (pubPy.stderr || '').slice(-600));
+    const py = await runPy('browser.py');
     process.stdout.write(py.stdout || '');
     check('browser smoke test (390 + 1440)', py.status === 0, (py.stderr || '').slice(-300));
+    await q('DELETE FROM atlasnews_login_attempts');
+    const cms = await runPy('browser_cms.py');
+    process.stdout.write(cms.stdout || '');
+    check('browser CMS test: editor, paste H1→H2, HTML mode, pickers, homepage rule (390 + 1440)', cms.status === 0, (cms.stderr || '').slice(-600));
   }
 
   /* 10. logout */

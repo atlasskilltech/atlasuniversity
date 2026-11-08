@@ -163,12 +163,16 @@ export function CategorySection({ category, articles, flip = false }) {
   );
 }
 
-/** Numbered "most read" list. */
-export function Trending({ articles }) {
+/**
+ * Editor's Picks: a numbered list chosen by the editors in the admin (Homepage → Editor's Picks). It is a
+ * curated list, NOT a popularity ranking — there is no analytics source — and it is not shown at all
+ * when no picks are set. (Stage 2 called this "Most read".)
+ */
+export function EditorsPicks({ articles }) {
   if (!articles.length) return null;
   return (
-    <section aria-labelledby="most-read">
-      <SectionHeading id="most-read" title="Most read" />
+    <section aria-labelledby="editors-picks">
+      <SectionHeading id="editors-picks" title="Editor’s Picks" />
       <ol className="grid gap-x-10 md:grid-cols-2 lg:grid-cols-1">
         {articles.map((a, i) => (
           <li key={a.slug} className="group relative flex gap-5 border-b border-news-line py-5">

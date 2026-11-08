@@ -6,7 +6,7 @@
  * public article renderer is written once against stored HTML and never needs a fixture-only code path.
  * Classes used: news-pullquote, news-gallery, news-gallery-item, is-cols-2/3, align-wide.
  */
-import { optimizedImageUrl, optimizedSrcSet, resolveMedia } from '../images.js';
+import { optimizedImageUrl, optimizedSrcSet, resolveMedia } from '../../../../lib/news/public/images.js';
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 

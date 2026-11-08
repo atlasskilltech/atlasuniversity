@@ -80,10 +80,10 @@ test('migrations: refuse to adopt pre-existing atlasnews_ tables', { skip }, asy
 test('migrations: dry run changes nothing; up creates exactly the News schema', { skip }, async () => {
   const before = await surveyFingerprint();
   const dry = await mod.migrateUp({ dryRun: true });
-  assert.deepEqual(dry.pending, ['0001_initial_schema']);
+  assert.deepEqual(dry.pending, ['0001_initial_schema', '0002_cms_schema_gaps']);
   assert.deepEqual(await tablesLike('atlasnews\\_%'), []);
   const r = await mod.migrateUp();
-  assert.deepEqual(r.applied, ['0001_initial_schema']);
+  assert.deepEqual(r.applied, ['0001_initial_schema', '0002_cms_schema_gaps']);
   const tables = await tablesLike('atlasnews\\_%');
   assert.deepEqual([...tables].sort(), Object.values(mod.cfg.T).sort());
   assert.equal(tables.length, 12);
@@ -97,8 +97,9 @@ test('migrations: dry run changes nothing; up creates exactly the News schema', 
   }
   /* foreign keys only between News tables */
   const [fks] = await admin.query('SELECT table_name AS t, referenced_table_name AS r FROM information_schema.referential_constraints WHERE constraint_schema = ?', [NAME]);
-  /* posts: featured, og, primary category · post_categories: 2 · post_tags: 2 · homepage_slots: 1 */
-  assert.equal(fks.length, 8);
+  /* posts: featured, og, primary category · post_categories: 2 · post_tags: 2 · homepage_slots: 1 ·
+     categories.image_media_id (0002): 1 */
+  assert.equal(fks.length, 9);
   for (const f of fks) assert.ok(f.t.startsWith('atlasnews_') && f.r.startsWith('atlasnews_'));
 });
 
@@ -129,6 +130,126 @@ test('constraints: slug uniqueness, FK actions, redirect status check', { skip }
   const rel = await mod.query(`SELECT COUNT(*) AS n FROM ${T.postCategories}`);
   assert.equal(Number(rel[0].n), 0, 'ON DELETE CASCADE');
   await mod.query(`DELETE FROM ${T.categories}`);
+});
+
+/* SHOW CREATE TABLE for every News table, minus the AUTO_INCREMENT counter (data, not schema) */
+const schemaSnapshot = async () => {
+  const out = {};
+  for (const t of Object.values(mod.cfg.T).filter((n) => n !== mod.cfg.T.migrations).sort()) {
+    const [[row]] = await admin.query(`SHOW CREATE TABLE \`${NAME}\`.\`${t}\``);
+    out[t] = row['Create Table'].replace(/ AUTO_INCREMENT=\d+/, '');
+  }
+  return out;
+};
+const columnsOf = async (table) => {
+  const [rows] = await admin.query(
+    'SELECT column_name AS c, column_type AS t, is_nullable AS n, column_default AS d FROM information_schema.columns WHERE table_schema = ? AND table_name = ? ORDER BY ordinal_position',
+    [NAME, table],
+  );
+  return rows.map((r) => ({ c: r.c ?? r.COLUMN_NAME, t: r.t ?? r.COLUMN_TYPE, n: r.n ?? r.IS_NULLABLE, d: r.d ?? r.COLUMN_DEFAULT }));
+};
+
+test('0002: upgrading a 0001 database that holds content keeps every row and value, and reverses exactly', { skip }, async () => {
+  const T = mod.cfg.T;
+  const before = await surveyFingerprint();
+  /* start from the production state: 0001 applied, 0002 pending */
+  assert.equal((await mod.migrateDown({ confirm: true })).reverted, '0002_cms_schema_gaps');
+  assert.deepEqual((await mod.migrationStatus()).pending, ['0002_cms_schema_gaps']);
+
+  /* content written under 0001 */
+  const m = await mod.query(`INSERT INTO ${T.media} (storage_key, sha256, mime_type, alt_text) VALUES ('assets/news/m.webp', REPEAT('b', 64), 'image/webp', 'Alt')`);
+  const c = await mod.query(`INSERT INTO ${T.categories} (slug, name, show_in_menu, menu_order) VALUES ('campus', 'Campus', 1, 3)`);
+  const p = await mod.query(`INSERT INTO ${T.posts} (slug, title, content_html, status, published_at, featured_media_id, primary_category_id, seo_title) VALUES ('kept', 'Kept', '<p>body</p>', 'published', UTC_TIMESTAMP(3), ?, ?, 'SEO')`, [m.insertId, c.insertId]);
+  await mod.query(`INSERT INTO ${T.homepageSlots} (position, post_id) VALUES (1, ?)`, [p.insertId]);
+  const rowsOf = async () => ({
+    posts: await mod.query(`SELECT id, slug, title, content_html, status, published_at, featured_media_id, primary_category_id, seo_title, created_at, updated_at FROM ${T.posts} ORDER BY id`),
+    media: await mod.query(`SELECT id, storage_key, sha256, alt_text, created_at, updated_at FROM ${T.media} ORDER BY id`),
+    categories: await mod.query(`SELECT id, slug, name, show_in_menu, menu_order, created_at, updated_at FROM ${T.categories} ORDER BY id`),
+    slots: await mod.query(`SELECT position, post_id, updated_at FROM ${T.homepageSlots} ORDER BY position`),
+  });
+  const rows0001 = await rowsOf();
+  const schema0001 = await schemaSnapshot();
+
+  /* apply 0002 */
+  assert.deepEqual((await mod.migrateUp()).applied, ['0002_cms_schema_gaps']);
+  assert.deepEqual(await rowsOf(), rows0001, 'every existing row and value unchanged — including updated_at');
+  const schema0002 = await schemaSnapshot();
+  const changed = Object.keys(schema0001).filter((t) => schema0001[t] !== schema0002[t]).sort();
+  assert.deepEqual(changed, [T.categories, T.homepageSlots, T.media, T.posts].sort(), 'only the four approved tables change');
+
+  /* the new columns: types, nullability and defaults, and their values on pre-existing rows */
+  const find = async (t, name) => (await columnsOf(t)).find((x) => x.c === name);
+  assert.deepEqual(await find(T.posts, 'canonical_url'), { c: 'canonical_url', t: 'varchar(600)', n: 'YES', d: (await find(T.posts, 'canonical_url')).d });
+  assert.match((await find(T.categories, 'image_media_id')).t, /^bigint(\(20\))? unsigned$/);
+  assert.equal((await find(T.categories, 'is_featured')).n, 'NO');
+  assert.equal(String((await find(T.categories, 'is_featured')).d), '0');
+  assert.equal((await find(T.media, 'deleted_at')).t, 'datetime(3)');
+  assert.equal((await find(T.homepageSlots, 'zone')).t, "enum('hero_centre','hero_left','hero_right','featured','picks')");
+  assert.match(String((await find(T.homepageSlots, 'zone')).d), /featured/);
+  const [post] = await mod.query(`SELECT canonical_url FROM ${T.posts} WHERE id = ?`, [p.insertId]);
+  const [cat] = await mod.query(`SELECT image_media_id, is_featured FROM ${T.categories} WHERE id = ?`, [c.insertId]);
+  const [med] = await mod.query(`SELECT deleted_at FROM ${T.media} WHERE id = ?`, [m.insertId]);
+  const [slot] = await mod.query(`SELECT zone FROM ${T.homepageSlots} WHERE position = 1`);
+  assert.equal(post.canonical_url, null);
+  assert.equal(cat.image_media_id, null);
+  assert.equal(Number(cat.is_featured), 0);
+  assert.equal(med.deleted_at, null);
+  assert.equal(slot.zone, 'featured', 'existing curated slots land in the featured zone');
+
+  /* behaviour: the category image follows the media FK; zone accepts only its five values */
+  await mod.query(`UPDATE ${T.categories} SET image_media_id = ?, is_featured = 1 WHERE id = ?`, [m.insertId, c.insertId]);
+  await assert.rejects(mod.query(`INSERT INTO ${T.homepageSlots} (position, zone, post_id) VALUES (10, 'hero_centre', ?)`, [p.insertId]), /ER_DUP_ENTRY/, 'a post still sits in one slot only');
+  /* ENUM enforcement depends on strict mode, which a server may not run by default (local XAMPP does
+     not) — so check it in an explicitly strict session. The CMS validates the zone in code regardless. */
+  await admin.query("SET SESSION sql_mode = 'STRICT_ALL_TABLES'");
+  await assert.rejects(admin.query(`UPDATE \`${NAME}\`.${T.homepageSlots} SET zone = 'sidebar' WHERE position = 1`), /Data truncated|ER_WARN_DATA_TRUNCATED|ER_TRUNCATED/);
+  await admin.query('SET SESSION sql_mode = DEFAULT');
+  await assert.rejects(mod.query(`UPDATE ${T.categories} SET image_media_id = 999999 WHERE id = ?`, [c.insertId]), /ER_NO_REFERENCED_ROW/);
+  await mod.query(`UPDATE ${T.media} SET deleted_at = UTC_TIMESTAMP(3) WHERE id = ?`, [m.insertId]);
+  await mod.query(`UPDATE ${T.media} SET deleted_at = NULL WHERE id = ?`, [m.insertId]);
+
+  /* down 0002: the schema returns byte-for-byte to 0001's, and the 0001 data is still there */
+  assert.equal((await mod.migrateDown({ confirm: true })).reverted, '0002_cms_schema_gaps');
+  assert.deepEqual(await schemaSnapshot(), schema0001, 'down reverses 0002 exactly — 0001 schema untouched');
+  const after = await rowsOf();
+  assert.deepEqual(after.posts, rows0001.posts);
+  assert.deepEqual(after.slots, rows0001.slots);
+  /* media/categories updated_at moved only because this test UPDATEd those rows above (ON UPDATE fires);
+     every 0001 value is unchanged */
+  const noUpd = (rows) => rows.map(({ updated_at: _u, ...r }) => r);
+  assert.deepEqual(noUpd(after.media), noUpd(rows0001.media));
+  assert.deepEqual(noUpd(after.categories), noUpd(rows0001.categories));
+
+  /* and forward again, leaving the database fully migrated for the tests that follow */
+  assert.deepEqual((await mod.migrateUp()).applied, ['0002_cms_schema_gaps']);
+  assert.equal(await surveyFingerprint(), before, 'survey_responses untouched throughout');
+  await mod.query(`DELETE FROM ${T.homepageSlots}`);
+  await mod.query(`DELETE FROM ${T.posts}`);
+  await mod.query(`DELETE FROM ${T.categories}`);
+  await mod.query(`DELETE FROM ${T.media}`);
+});
+
+test('paired rollback: an ALTER migration failing part-way reverts the steps that succeeded', { skip }, async () => {
+  const { MIGRATIONS } = await import('../../../lib/news/db/migrations.js');
+  const T = mod.cfg.T;
+  const before = await surveyFingerprint();
+  const schemaBefore = await schemaSnapshot();
+  const migrations = [...MIGRATIONS, {
+    id: '0099_test_paired', description: 'second step fails', pairedDown: true,
+    up: [
+      `ALTER TABLE ${T.posts} ADD COLUMN probe_a INT NULL, ADD KEY idx_atlasnews_probe_a (probe_a)`,
+      /* valid for the validator, rejected by the server */
+      `ALTER TABLE ${T.media} ADD COLUMN probe_b NOT_A_REAL_TYPE`,
+    ],
+    down: [`ALTER TABLE ${T.media} DROP COLUMN probe_b`, `ALTER TABLE ${T.posts} DROP KEY idx_atlasnews_probe_a, DROP COLUMN probe_a`],
+  }];
+  const logs = [];
+  await assert.rejects(mod.migrateUp({ migrations, log: (x) => logs.push(x) }));
+  assert.match(logs.join('\n'), /reverted step 1 of 0099_test_paired/);
+  assert.deepEqual(await schemaSnapshot(), schemaBefore, 'schema exactly as before the failed run');
+  const [[b]] = await admin.query(`SELECT COUNT(*) AS n FROM \`${NAME}\`.atlasnews_schema_migrations WHERE id = '0099_test_paired'`);
+  assert.equal(Number(b.n), 0, 'not recorded as applied');
+  assert.equal(await surveyFingerprint(), before);
 });
 
 test('settings + sessions: create, validate, idle and absolute expiry, revoke', { skip }, async () => {
@@ -198,26 +319,26 @@ test('ownership: a pending migration whose table already exists is refused befor
   await admin.query(`CREATE TABLE \`${NAME}\`.atlasnews_extra (id INT PRIMARY KEY, v VARCHAR(20))`);
   await admin.query(`INSERT INTO \`${NAME}\`.atlasnews_extra VALUES (1, 'not ours')`);
   const migrations = [...MIGRATIONS, {
-    id: '0002_test_extra', description: 'test',
+    id: '0099_test_extra', description: 'test',
     up: ['CREATE TABLE atlasnews_extra (id INT PRIMARY KEY)'],
     down: ['DROP TABLE IF EXISTS atlasnews_extra'],
   }];
   const s = await mod.migrationStatus({ migrations });
-  assert.match(s.problems.join(' '), /0002_test_extra would create tables that already exist.*atlasnews_extra/);
+  assert.match(s.problems.join(' '), /0099_test_extra would create tables that already exist.*atlasnews_extra/);
   await assert.rejects(mod.migrateUp({ migrations }), /refusing to migrate/);
   const [[row]] = await admin.query(`SELECT v FROM \`${NAME}\`.atlasnews_extra WHERE id = 1`);
   assert.equal(row.v, 'not ours', 'pre-existing table and its data untouched');
   assert.equal(await surveyFingerprint(), before);
-  const [[b]] = await admin.query(`SELECT COUNT(*) AS n FROM \`${NAME}\`.atlasnews_schema_migrations WHERE id = '0002_test_extra'`);
+  const [[b]] = await admin.query(`SELECT COUNT(*) AS n FROM \`${NAME}\`.atlasnews_schema_migrations WHERE id = '0099_test_extra'`);
   assert.equal(Number(b.n), 0, 'not recorded as applied');
-  /* rollback is also refused to touch it: 0002 is not applied, so down reverts 0001 only — checked below */
+  /* rollback is also refused to touch it: 0099 is not applied, so down reverts 0002 then 0001 only — checked below */
 });
 
 test('ownership: a migration that fails part-way drops ONLY the tables this run created', { skip }, async () => {
   const { MIGRATIONS } = await import('../../../lib/news/db/migrations.js');
   const before = await surveyFingerprint();
   const migrations = [...MIGRATIONS, {
-    id: '0002_test_partial', description: 'fails on its second statement',
+    id: '0099_test_partial', description: 'fails on its second statement',
     up: [
       'CREATE TABLE atlasnews_partial_a (id INT PRIMARY KEY)',
       /* valid for the validator, rejected by the server: an unknown column type */
@@ -235,7 +356,7 @@ test('ownership: a migration that fails part-way drops ONLY the tables this run 
   assert.equal(row.v, 'not ours');
   assert.equal(await surveyFingerprint(), before);
   assert.equal((await tablesLike('atlasnews\\_%')).length, 13, '12 News tables + the foreign atlasnews_extra');
-  const [[b]] = await admin.query(`SELECT COUNT(*) AS n FROM \`${NAME}\`.atlasnews_schema_migrations WHERE id = '0002_test_partial'`);
+  const [[b]] = await admin.query(`SELECT COUNT(*) AS n FROM \`${NAME}\`.atlasnews_schema_migrations WHERE id = '0099_test_partial'`);
   assert.equal(Number(b.n), 0);
 });
 
@@ -296,6 +417,8 @@ test('migrations: down needs --confirm, drops only News tables, then up again', 
   await assert.rejects(mod.migrateDown(), /explicit confirmation/);
   /* 12 News tables + the foreign atlasnews_extra the ownership tests created */
   assert.equal((await tablesLike('atlasnews\\_%')).length, 13);
+  assert.equal((await mod.migrateDown({ confirm: true })).reverted, '0002_cms_schema_gaps', 'newest first');
+  assert.equal((await tablesLike('atlasnews\\_%')).length, 13, 'reverting 0002 drops no table');
   const r = await mod.migrateDown({ confirm: true });
   assert.equal(r.reverted, '0001_initial_schema');
   /* rollback removed exactly its own 12 tables (bookkeeping included) — NOT the foreign atlasnews_extra,
@@ -309,6 +432,6 @@ test('migrations: down needs --confirm, drops only News tables, then up again', 
   await assert.rejects(mod.migrateUp(), /already exist without migration bookkeeping: atlasnews_extra/);
   /* test cleanup of the fixture table (the test's own admin connection, never the runner) */
   await admin.query(`DROP TABLE \`${NAME}\`.atlasnews_extra`);
-  assert.deepEqual((await mod.migrateUp()).applied, ['0001_initial_schema']);
+  assert.deepEqual((await mod.migrateUp()).applied, ['0001_initial_schema', '0002_cms_schema_gaps']);
   assert.equal((await tablesLike('atlasnews\\_%')).length, 12);
 });

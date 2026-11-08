@@ -18,6 +18,10 @@ const PROSE = cx(
   '[&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:mr-3 [&>p:first-of-type]:first-letter:mt-[7px] [&>p:first-of-type]:first-letter:font-news-serif [&>p:first-of-type]:first-letter:text-[78px] [&>p:first-of-type]:first-letter:font-semibold [&>p:first-of-type]:first-letter:leading-[0.8] [&>p:first-of-type]:first-letter:text-news-accent',
   '[&>h2]:mb-5 [&>h2]:mt-14 [&>h2]:text-[27px] [&>h2]:font-semibold [&>h2]:leading-[1.2] [&>h2]:tracking-[-0.01em] md:[&>h2]:text-[31px]',
   '[&>h3]:mb-4 [&>h3]:mt-10 [&>h3]:text-[22px] [&>h3]:font-semibold [&>h3]:leading-[1.25]',
+  /* h4-h6 (the editor allows H2-H6): the h3 treatment, a step smaller each */
+  '[&>h4]:mb-3 [&>h4]:mt-8 [&>h4]:text-[19px] [&>h4]:font-semibold [&>h4]:leading-[1.3]',
+  '[&>h5]:mb-3 [&>h5]:mt-7 [&>h5]:text-[17px] [&>h5]:font-semibold [&>h5]:leading-[1.35]',
+  '[&>h6]:mb-3 [&>h6]:mt-7 [&>h6]:font-sans [&>h6]:text-[13px] [&>h6]:font-semibold [&>h6]:uppercase [&>h6]:leading-[1.4] [&>h6]:tracking-[0.06em]',
   '[&_a]:text-news-accent [&_a]:underline [&_a]:decoration-1 [&_a]:underline-offset-4 hover:[&_a]:decoration-2',
   '[&_strong]:font-semibold [&_em]:italic',
   '[&>ul]:mb-7 [&>ul]:list-disc [&>ul]:pl-6 [&>ol]:mb-7 [&>ol]:list-decimal [&>ol]:pl-6 [&_li]:mb-3 [&_li]:pl-1.5 [&_li::marker]:font-sans [&_li::marker]:font-semibold [&_li::marker]:text-news-accent',

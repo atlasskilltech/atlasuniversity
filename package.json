@@ -20,11 +20,18 @@
     "prepare": "node scripts/assets/install-hooks.mjs",
     "news:migrate": "node --no-warnings scripts/news/migrate.mjs",
     "news:admin": "node --no-warnings scripts/news/admin.mjs",
-    "news:test": "node --no-warnings --test scripts/news/tests/*.test.mjs",
-    "news:e2e": "node --no-warnings scripts/news/tests/e2e.mjs"
+    "news:test": "node --no-warnings --import ./scripts/news/tests/register.mjs --test scripts/news/tests/*.test.mjs",
+    "news:e2e": "node --no-warnings --import ./scripts/news/tests/register.mjs scripts/news/tests/e2e.mjs",
+    "news:dbdown": "node --no-warnings --import ./scripts/news/tests/register.mjs scripts/news/tests/dbdown.mjs",
+    "news:multiproc": "node --no-warnings --import ./scripts/news/tests/register.mjs scripts/news/tests/multiproc.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1161.0",
+    "@tiptap/core": "3.32.0",
+    "@tiptap/extension-image": "3.32.0",
+    "@tiptap/pm": "3.32.0",
+    "@tiptap/react": "3.32.0",
+    "@tiptap/starter-kit": "3.32.0",
     "gsap": "^3.15.0",
     "jspdf": "^4.2.1",
     "jszip": "^3.10.2",

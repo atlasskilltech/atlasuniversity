@@ -4,6 +4,9 @@ import { LimiterBusy, mediaLimiter } from '@/lib/news/http/limiter';
 import { ImageRejected, MAX_UPLOAD_BYTES } from '@/lib/news/media/images';
 import { uploadImage } from '@/lib/news/media/service';
 import { StorageError } from '@/lib/news/storage/s3';
+import { cmsRoute } from '@/lib/news/cms/http';
+import { listMedia } from '@/lib/news/cms/media';
+import { listParams } from '@/lib/news/cms/validate';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -11,6 +14,12 @@ export const runtime = 'nodejs';
 /* multipart overhead allowance on top of the file limit */
 const MAX_REQUEST = MAX_UPLOAD_BYTES + 256 * 1024;
 const TOO_LARGE = `Images must be ${MAX_UPLOAD_BYTES / 1024 / 1024} MB or smaller.`;
+
+/** GET ?q&page&pageSize — the library, newest first (images removed from the library are excluded). */
+export const GET = cmsRoute(async (request) => {
+  const { page, pageSize, q } = listParams(new URL(request.url).searchParams, { maxPageSize: 60, defaultPageSize: 30 });
+  return json(await listMedia({ page, pageSize, q }));
+});
 
 /**
  * POST multipart/form-data { file, alt?, caption? } → the stored media record (admin only).
