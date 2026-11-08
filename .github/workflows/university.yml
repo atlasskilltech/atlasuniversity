@@ -18,6 +18,9 @@ jobs:
           EC2_HOST: ${{ secrets.EC2_HOST }}      # EC2 Public IP
           EC2_USER: ${{ secrets.EC2_USER }}      # ubuntu
           EC2_KEY:  ${{ secrets.EC2_SSH_KEY }}   # SSH private key
+          # ATLAS News admin password — the scrypt HASH only, never the password (GitHub masks it in logs).
+          # Optional: when unset, the deploy skips provisioning and admin sign-in stays disabled.
+          NEWS_ADMIN_PASSWORD_HASH: ${{ secrets.NEWS_ADMIN_PASSWORD_HASH }}
         run: |
           mkdir -p ~/.ssh
           echo "$EC2_KEY" > ~/.ssh/key.pem
@@ -28,7 +31,13 @@ jobs:
           # on PATH, as the previous `ssh host << EOF` did) under `set -euo pipefail`. Any failing
           # step (fetch, pull, install, build, pm2) ends the deployment and ssh returns its non-zero
           # exit code, which fails this step. Nothing after a failed build reloads the app.
-          ssh -i ~/.ssh/key.pem -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST 'bash -l -s' << 'EOF'
+          #
+          # The News password hash travels INSIDE the encrypted SSH stream, as one shell-quoted assignment
+          # placed before the (literal, unexpanded) remote script — never on a command line (so never in
+          # `ps` or shell history), never echoed, and not exported to any child process.
+          {
+            printf 'NEWS_ADMIN_PASSWORD_HASH_INPUT=%q\n' "${NEWS_ADMIN_PASSWORD_HASH:-}"
+            cat << 'EOF'
             set -euo pipefail
 
             APP_DIR=/home/ubuntu/atlasuniversity
@@ -99,6 +108,22 @@ jobs:
             git pull --ff-only origin main
 
             npm ci
+
+            # ---- ATLAS News database ------------------------------------------------------------
+            # Creates/updates ONLY `atlasnews_*` tables (lib/news/db/migrate.js validates every statement,
+            # refuses foreign atlasnews_ tables, locks, and rolls back only what it created). Uses the
+            # server's own DB_* settings; nothing is passed in. A failure stops the deployment here:
+            # no build, no reload — the running site is untouched.
+            npm run news:migrate -- up
+
+            # Admin password: store the HASH from the GitHub secret (idempotent; never printed).
+            if [ -n "${NEWS_ADMIN_PASSWORD_HASH_INPUT:-}" ]; then
+              printf '%s' "$NEWS_ADMIN_PASSWORD_HASH_INPUT" | npm run news:admin -- set-password-hash
+            else
+              echo "[deploy] NEWS_ADMIN_PASSWORD_HASH secret not set; News admin password not provisioned"
+            fi
+            unset NEWS_ADMIN_PASSWORD_HASH_INPUT
+
             npm run build
 
             # Reached only when the build succeeded.
@@ -110,3 +135,4 @@ jobs:
             pm2 save
             echo "[deploy] done: $(git rev-parse --short HEAD)"
           EOF
+          } | ssh -i ~/.ssh/key.pem -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST 'bash -l -s'

@@ -239,6 +239,37 @@ test('ownership: a migration that fails part-way drops ONLY the tables this run 
   assert.equal(Number(b.n), 0);
 });
 
+test('admin setup: set-password-hash stores only valid hashes, is idempotent, revokes sessions on change', { skip }, async () => {
+  const { setAdminPasswordHash, InvalidHashError } = await import('../../../lib/news/auth/adminSetup.js');
+  const { hashPassword } = await import('../../../lib/news/auth/password.js');
+  const T = mod.cfg.T;
+  await mod.query(`DELETE FROM ${T.settings}`);
+  /* a plaintext password (the classic mistake) is refused and nothing is stored */
+  for (const bad of ['example-plaintext-password-123', '', '   ', 'scrypt$15$8$1$short$short']) {
+    await assert.rejects(setAdminPasswordHash(bad), (e) => e instanceof InvalidHashError && !e.message.includes(bad.trim() || '\u0000'));
+  }
+  assert.equal(await mod.getSetting('admin_password_hash'), null);
+
+  const h1 = await hashPassword('first-correct-horse-battery');
+  const first = await setAdminPasswordHash(`${h1}\n`);
+  assert.equal(first.changed, true);
+  assert.equal(await mod.getSetting('admin_password_hash'), h1, 'stored trimmed');
+
+  const { token } = await mod.createSession({});
+  const again = await setAdminPasswordHash(h1);
+  assert.deepEqual(again, { changed: false, revokedSessions: 0 }, 'identical hash → no write');
+  assert.ok(await mod.validateSession(token), 'routine deploy keeps the admin signed in');
+
+  const h2 = await hashPassword('second-correct-horse-battery');
+  const changed = await setAdminPasswordHash(h2);
+  assert.equal(changed.changed, true);
+  assert.equal(changed.revokedSessions, 1);
+  assert.equal(await mod.validateSession(token), null, 'a new password signs everyone out');
+  assert.equal(await mod.getSetting('admin_password_hash'), h2);
+  await mod.query(`DELETE FROM ${T.settings}`);
+  await mod.query(`DELETE FROM ${T.sessions}`);
+});
+
 test('migrations: down needs --confirm, drops only News tables, then up again', { skip }, async () => {
   const before = await surveyFingerprint();
   await assert.rejects(mod.migrateDown(), /explicit confirmation/);

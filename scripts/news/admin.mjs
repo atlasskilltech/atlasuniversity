@@ -11,6 +11,13 @@
  *   set-password --generate    generate a strong random password, store its hash, sign out every
  *                              session, and print the password ONCE so it can be handed over privately.
  *   revoke-sessions            sign out every admin session.
+ *   set-password-hash          read a ready-made scrypt HASH (never a password) from STDIN and store it.
+ *                              Used by the deployment workflow with the NEWS_ADMIN_PASSWORD_HASH GitHub
+ *                              secret. Rejects anything that is not a valid hash (so a plaintext password
+ *                              is never stored), is a no-op when the stored hash is identical (routine
+ *                              deploys do not sign the admin out), and signs every session out when it
+ *                              changes. Prints only "unchanged" / "updated" — never the value.
+ *                                  printf '%s' "$HASH" | npm run news:admin -- set-password-hash
  *
  * Needs the migrations applied (`npm run news:migrate -- up`) and the same DB_* connection as that tool.
  */
@@ -21,6 +28,7 @@ import { getSetting, setSetting, SETTING } from '../../lib/news/db/settings.js';
 import { generatePassword, hashPassword, MIN_PASSWORD_LENGTH, parseHash } from '../../lib/news/auth/password.js';
 import { revokeAllSessions } from '../../lib/news/auth/sessions.js';
 import { WINDOW_SECONDS } from '../../lib/news/auth/rateLimit.js';
+import { setAdminPasswordHash } from '../../lib/news/auth/adminSetup.js';
 
 loadEnv();
 const args = parseArgs();
@@ -37,6 +45,14 @@ async function readStdin() {
 }
 
 async function main() {
+  if (cmd === 'set-password-hash') {
+    if (process.stdin.isTTY) throw new Error('pipe the hash on stdin: printf \'%s\' "$HASH" | npm run news:admin -- set-password-hash');
+    const chunks = [];
+    for await (const c of process.stdin) chunks.push(c);
+    const r = await setAdminPasswordHash(Buffer.concat(chunks).toString('utf8'));
+    log(r.changed ? `admin password hash updated; ${r.revokedSessions} session(s) signed out` : 'admin password hash unchanged');
+    return;
+  }
   if (cmd === 'status') {
     const hash = await getSetting(SETTING.adminPasswordHash, null);
     const when = await getSetting(SETTING.adminPasswordUpdatedAt, null);
