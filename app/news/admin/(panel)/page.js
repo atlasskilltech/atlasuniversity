@@ -72,7 +72,7 @@ export default async function NewsAdminHome() {
 
         <Card title="Admin access">
           <Row label="Password source">
-            <Badge ok={h.password === 'database' || h.password === 'env'}>{h.password}</Badge>
+            <Badge ok={h.password === 'database'}>{h.password}</Badge>
           </Row>
           <Row label="Session">active (database-backed, 12 h idle / 7 days max)</Row>
           <Row label="Rate limit">5 failed attempts per IP per 15 min</Row>

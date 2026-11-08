@@ -433,3 +433,15 @@ test('client IP: the rightmost trusted hop is used; forged left-hand entries are
   assert.equal(newsClientIp(r({}), {}), 'unknown');
   assert.equal(newsClientIp(r({ 'x-forwarded-for': '2001:db8::1' }), { NEWS_TRUSTED_PROXY_HOPS: 'x' }), '2001:db8::1');
 });
+
+test('password: the 16-character minimum stays, and a 256-character maximum keeps every stored password verifiable', async () => {
+  const { MIN_PASSWORD_LENGTH, MAX_PASSWORD_LENGTH } = await import('../../../lib/news/auth/password.js');
+  assert.equal(MIN_PASSWORD_LENGTH, 16);
+  assert.equal(MAX_PASSWORD_LENGTH, 256);
+  await assert.rejects(hashPassword('x'.repeat(15)), /at least 16/);
+  await assert.rejects(hashPassword('x'.repeat(257)), /at most 256/);
+  for (const len of [16, 32, 256]) {
+    const pw = generatePassword(len);
+    assert.equal(await verifyPassword(pw, await hashPassword(pw)), true, `${len} chars round-trips`);
+  }
+});

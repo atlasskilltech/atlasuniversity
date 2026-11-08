@@ -80,6 +80,10 @@ const { closePool } = await import('../../../lib/news/db/pool.js');
 await migrateUp();
 const PW = generatePassword();
 await setSetting(SETTING.adminPasswordHash, await hashPassword(PW));
+/* a DIFFERENT password whose valid hash is handed to the app as NEWS_ADMIN_PASSWORD_HASH: sign-in must
+   ignore it and use only the database, so provisioning can never be shadowed by a stale variable */
+const DECOY_PW = generatePassword();
+const DECOY_HASH = await hashPassword(DECOY_PW);
 await closePool();
 
 /* ------------------------------------------------------------------------------------ S3 stub + app */
@@ -95,7 +99,7 @@ const appEnv = {
   ASSETS_S3_REGION: 'us-east-1', AWS_S3_REGION: 'us-east-1', AWS_REGION: 'us-east-1',
   ASSETS_S3_PREFIX: '', ASSETS_S3_ENDPOINT: STUB, NEXT_PUBLIC_ASSET_BASE_URL: STUB_BUCKET,
   AWS_ACCESS_KEY_ID: 'stub-key', AWS_SECRET_ACCESS_KEY: 'stub-secret', AWS_SESSION_TOKEN: '', AWS_PROFILE: '',
-  NEWS_ADMIN_PASSWORD_HASH: '',
+  NEWS_ADMIN_PASSWORD_HASH: DECOY_HASH,
 };
 const app = spawn(process.execPath, [path.join(ROOT, 'node_modules', 'next', 'dist', 'bin', 'next'), 'start', '-p', String(PORT)], {
   cwd: ROOT, env: appEnv, stdio: ['ignore', fs.openSync(logFile, 'a'), fs.openSync(logFile, 'a')],
@@ -194,6 +198,8 @@ try {
   check('rate limit keys on the rightmost X-Forwarded-For hop (forged left entry does not reset it)', r.status === 429, r.status);
 
   /* 4. login + session cookie */
+  r = await login(DECOY_PW, '203.0.113.11');
+  check('password matching an env NEWS_ADMIN_PASSWORD_HASH → 401 (env is ignored)', r.status === 401 && r.json?.code === 'invalid_password', r.status);
   r = await login(PW, '203.0.113.10');
   check('correct password → 200', r.status === 200, r.status);
   const sc = r.cookies[0] || '';
@@ -208,7 +214,7 @@ try {
   check('login page with session → redirect to dashboard', isRedirect(r.status), r.status);
   r = await req('GET', '/news/admin/api/health', { cookie: CK, origin: null });
   const hb = r.json;
-  check('health with session → 200, schema applied, password from database', r.status === 200 && hb.database?.ok && hb.database.pending.length === 0 && hb.password === 'database', JSON.stringify(hb).slice(0, 200));
+  check('health with session → 200, schema applied, password from database (not the env hash)', r.status === 200 && hb.database?.ok && hb.database.pending.length === 0 && hb.password === 'database', JSON.stringify(hb).slice(0, 200));
   check('health exposes no secret', !r.text.includes(PW) && !r.text.includes('scrypt$') && !r.text.includes('stub-secret'));
 
   /* 5. uploads — only ever against the stand-in */

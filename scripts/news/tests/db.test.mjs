@@ -239,33 +239,54 @@ test('ownership: a migration that fails part-way drops ONLY the tables this run 
   assert.equal(Number(b.n), 0);
 });
 
-test('admin setup: set-password-hash stores only valid hashes, is idempotent, revokes sessions on change', { skip }, async () => {
-  const { setAdminPasswordHash, InvalidHashError } = await import('../../../lib/news/auth/adminSetup.js');
-  const { hashPassword } = await import('../../../lib/news/auth/password.js');
+test('provision-password: first, unchanged, changed, corrupt stored hash, invalid input', { skip }, async () => {
+  const { provisionAdminPassword, InvalidPasswordError } = await import('../../../lib/news/auth/adminSetup.js');
+  const { verifyPassword, parseHash } = await import('../../../lib/news/auth/password.js');
   const T = mod.cfg.T;
   await mod.query(`DELETE FROM ${T.settings}`);
-  /* a plaintext password (the classic mistake) is refused and nothing is stored */
-  for (const bad of ['example-plaintext-password-123', '', '   ', 'scrypt$15$8$1$short$short']) {
-    await assert.rejects(setAdminPasswordHash(bad), (e) => e instanceof InvalidHashError && !e.message.includes(bad.trim() || '\u0000'));
+  await mod.query(`DELETE FROM ${T.sessions}`);
+  const PW1 = 'TestOnly-Provision-Pass-0001-abcdefgh';
+  const PW2 = 'TestOnly-Provision-Pass-0002-ijklmnop';
+
+  /* invalid input: rejected, nothing stored, the input never appears in the error */
+  const bad = [['', 'empty'], ['short-15-chars!', 'shorter'], ['x'.repeat(257), 'longer'], [`${PW1}\n`, 'control'], [`a\u0007${PW1}`, 'control'], [null, 'empty'], [12345678901234567, 'empty']];
+  for (const [input, rule] of bad) {
+    await assert.rejects(provisionAdminPassword(input), (e) => e instanceof InvalidPasswordError && e.message.includes(rule) && !(typeof input === 'string' && input && e.message.includes(input)), String(rule));
   }
-  assert.equal(await mod.getSetting('admin_password_hash'), null);
+  assert.equal(await mod.getSetting('admin_password_hash'), null, 'nothing stored by invalid input');
 
-  const h1 = await hashPassword('first-correct-horse-battery');
-  const first = await setAdminPasswordHash(`${h1}\n`);
-  assert.equal(first.changed, true);
-  assert.equal(await mod.getSetting('admin_password_hash'), h1, 'stored trimmed');
+  /* 1. first provisioning: hashed here, only the hash stored */
+  const first = await provisionAdminPassword(PW1);
+  assert.deepEqual(first, { changed: true, revokedSessions: 0 });
+  const h1 = await mod.getSetting('admin_password_hash');
+  assert.ok(parseHash(h1), 'a scrypt hash is stored');
+  assert.ok(!h1.includes(PW1), 'never the password');
+  assert.equal(await verifyPassword(PW1, h1), true);
+  const [{ n }] = await mod.query(`SELECT COUNT(*) AS n FROM ${T.settings} WHERE setting_value LIKE ?`, [`%${PW1}%`]);
+  assert.equal(Number(n), 0, 'the plaintext is nowhere in the settings table');
+  const stamp1 = await mod.getSetting('admin_password_updated_at');
 
+  /* 2. unchanged password (every routine deploy): no write, session kept */
   const { token } = await mod.createSession({});
-  const again = await setAdminPasswordHash(h1);
-  assert.deepEqual(again, { changed: false, revokedSessions: 0 }, 'identical hash → no write');
-  assert.ok(await mod.validateSession(token), 'routine deploy keeps the admin signed in');
+  assert.deepEqual(await provisionAdminPassword(PW1), { changed: false, revokedSessions: 0 });
+  assert.equal(await mod.getSetting('admin_password_hash'), h1, 'not re-hashed (salt unchanged)');
+  assert.equal(await mod.getSetting('admin_password_updated_at'), stamp1);
+  assert.ok(await mod.validateSession(token), 'the admin stays signed in');
 
-  const h2 = await hashPassword('second-correct-horse-battery');
-  const changed = await setAdminPasswordHash(h2);
-  assert.equal(changed.changed, true);
-  assert.equal(changed.revokedSessions, 1);
-  assert.equal(await mod.validateSession(token), null, 'a new password signs everyone out');
-  assert.equal(await mod.getSetting('admin_password_hash'), h2);
+  /* 3. changed password: new hash, old password stops working, every session revoked */
+  const changed = await provisionAdminPassword(PW2);
+  assert.deepEqual(changed, { changed: true, revokedSessions: 1 });
+  const h2 = await mod.getSetting('admin_password_hash');
+  assert.notEqual(h2, h1);
+  assert.equal(await verifyPassword(PW2, h2), true);
+  assert.equal(await verifyPassword(PW1, h2), false, 'old password no longer valid');
+  assert.equal(await mod.validateSession(token), null, 'existing session revoked');
+
+  /* 4. a corrupt stored value is replaced by a valid hash rather than trusted */
+  await mod.setSetting('admin_password_hash', 'not-a-hash');
+  assert.equal((await provisionAdminPassword(PW2)).changed, true);
+  assert.equal(await verifyPassword(PW2, await mod.getSetting('admin_password_hash')), true);
+
   await mod.query(`DELETE FROM ${T.settings}`);
   await mod.query(`DELETE FROM ${T.sessions}`);
 });

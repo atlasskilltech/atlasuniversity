@@ -11,13 +11,14 @@
  *   set-password --generate    generate a strong random password, store its hash, sign out every
  *                              session, and print the password ONCE so it can be handed over privately.
  *   revoke-sessions            sign out every admin session.
- *   set-password-hash          read a ready-made scrypt HASH (never a password) from STDIN and store it.
- *                              Used by the deployment workflow with the NEWS_ADMIN_PASSWORD_HASH GitHub
- *                              secret. Rejects anything that is not a valid hash (so a plaintext password
- *                              is never stored), is a no-op when the stored hash is identical (routine
- *                              deploys do not sign the admin out), and signs every session out when it
- *                              changes. Prints only "unchanged" / "updated" — never the value.
- *                                  printf '%s' "$HASH" | npm run news:admin -- set-password-hash
+ *   provision-password         read the admin PASSWORD from STDIN (exact bytes — nothing trimmed) and
+ *                              hash it HERE with scrypt; only the hash is stored. Used by the deployment
+ *                              workflow with the NEWS_ADMIN_PASSWORD GitHub secret. If the stored hash
+ *                              already verifies this password nothing is written and no session is touched;
+ *                              otherwise the new hash is stored and every session signed out. 16–256
+ *                              characters, no control characters / line breaks. Prints only "unchanged" /
+ *                              "updated" — never the password or the hash.
+ *                                  printf '%s' "$PW" | npm run news:admin -- provision-password
  *
  * Needs the migrations applied (`npm run news:migrate -- up`) and the same DB_* connection as that tool.
  */
@@ -28,7 +29,7 @@ import { getSetting, setSetting, SETTING } from '../../lib/news/db/settings.js';
 import { generatePassword, hashPassword, MIN_PASSWORD_LENGTH, parseHash } from '../../lib/news/auth/password.js';
 import { revokeAllSessions } from '../../lib/news/auth/sessions.js';
 import { WINDOW_SECONDS } from '../../lib/news/auth/rateLimit.js';
-import { setAdminPasswordHash } from '../../lib/news/auth/adminSetup.js';
+import { provisionAdminPassword } from '../../lib/news/auth/adminSetup.js';
 
 loadEnv();
 const args = parseArgs();
@@ -45,19 +46,21 @@ async function readStdin() {
 }
 
 async function main() {
-  if (cmd === 'set-password-hash') {
-    if (process.stdin.isTTY) throw new Error('pipe the hash on stdin: printf \'%s\' "$HASH" | npm run news:admin -- set-password-hash');
+  if (cmd === 'provision-password') {
+    if (process.stdin.isTTY) throw new Error('pipe the password on stdin: printf \'%s\' "$PW" | npm run news:admin -- provision-password');
     const chunks = [];
     for await (const c of process.stdin) chunks.push(c);
-    const r = await setAdminPasswordHash(Buffer.concat(chunks).toString('utf8'));
-    log(r.changed ? `admin password hash updated; ${r.revokedSessions} session(s) signed out` : 'admin password hash unchanged');
+    /* exact bytes: no trimming, so a stray newline is rejected rather than silently changing the password */
+    const r = await provisionAdminPassword(Buffer.concat(chunks).toString('utf8'));
+    log(r.changed ? `admin password updated; ${r.revokedSessions} session(s) signed out` : 'admin password unchanged');
     return;
   }
   if (cmd === 'status') {
     const hash = await getSetting(SETTING.adminPasswordHash, null);
     const when = await getSetting(SETTING.adminPasswordUpdatedAt, null);
-    const env = (process.env.NEWS_ADMIN_PASSWORD_HASH || '').trim();
-    log(`password: ${env ? `from NEWS_ADMIN_PASSWORD_HASH (${parseHash(env) ? 'valid' : 'INVALID'})` : hash ? `set in database${when ? ` (${when})` : ''}${parseHash(hash) ? '' : ' — INVALID'}` : 'NOT SET'}`);
+    log(`password: ${hash ? `set in database${when ? ` (${when})` : ''}${parseHash(hash) ? '' : ' — INVALID'}` : 'NOT SET'}`);
+    /* presence only, never the value: a leftover variable is ignored by sign-in, and worth knowing about */
+    if (process.env.NEWS_ADMIN_PASSWORD_HASH !== undefined) log('note: NEWS_ADMIN_PASSWORD_HASH is present in this environment and is IGNORED');
     const [{ n }] = await query(`SELECT COUNT(*) AS n FROM ${T.sessions} WHERE revoked_at IS NULL AND expires_at > UTC_TIMESTAMP(3)`);
     const [{ f }] = await query(`SELECT COUNT(*) AS f FROM ${T.loginAttempts} WHERE succeeded = 0 AND attempted_at > (UTC_TIMESTAMP(3) - INTERVAL ? SECOND)`, [WINDOW_SECONDS]);
     log(`active sessions: ${n}   failed logins (last 15 min): ${f}`);
@@ -81,7 +84,7 @@ async function main() {
     log(`${await revokeAllSessions()} session(s) signed out`);
     return;
   }
-  log(`unknown command "${cmd}" — use status, set-password or revoke-sessions`);
+  log(`unknown command "${cmd}" — use status, provision-password, set-password or revoke-sessions`);
   process.exitCode = 1;
 }
 

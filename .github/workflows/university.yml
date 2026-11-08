@@ -18,9 +18,10 @@ jobs:
           EC2_HOST: ${{ secrets.EC2_HOST }}      # EC2 Public IP
           EC2_USER: ${{ secrets.EC2_USER }}      # ubuntu
           EC2_KEY:  ${{ secrets.EC2_SSH_KEY }}   # SSH private key
-          # ATLAS News admin password — the scrypt HASH only, never the password (GitHub masks it in logs).
-          # Optional: when unset, the deploy skips provisioning and admin sign-in stays disabled.
-          NEWS_ADMIN_PASSWORD_HASH: ${{ secrets.NEWS_ADMIN_PASSWORD_HASH }}
+          # ATLAS News admin password (GitHub encrypts it at rest and masks it in logs). It is hashed with
+          # scrypt ON THE SERVER; only the hash is stored. Optional: when unset, provisioning is skipped and
+          # admin sign-in stays disabled.
+          NEWS_ADMIN_PASSWORD: ${{ secrets.NEWS_ADMIN_PASSWORD }}
         run: |
           mkdir -p ~/.ssh
           echo "$EC2_KEY" > ~/.ssh/key.pem
@@ -32,11 +33,11 @@ jobs:
           # step (fetch, pull, install, build, pm2) ends the deployment and ssh returns its non-zero
           # exit code, which fails this step. Nothing after a failed build reloads the app.
           #
-          # The News password hash travels INSIDE the encrypted SSH stream, as one shell-quoted assignment
+          # The News admin password travels INSIDE the encrypted SSH stream, as one shell-quoted assignment
           # placed before the (literal, unexpanded) remote script — never on a command line (so never in
           # `ps` or shell history), never echoed, and not exported to any child process.
           {
-            printf 'NEWS_ADMIN_PASSWORD_HASH_INPUT=%q\n' "${NEWS_ADMIN_PASSWORD_HASH:-}"
+            printf 'NEWS_ADMIN_PASSWORD_INPUT=%q\n' "${NEWS_ADMIN_PASSWORD:-}"
             cat << 'EOF'
             set -euo pipefail
 
@@ -116,13 +117,16 @@ jobs:
             # no build, no reload — the running site is untouched.
             npm run news:migrate -- up
 
-            # Admin password: store the HASH from the GitHub secret (idempotent; never printed).
-            if [ -n "${NEWS_ADMIN_PASSWORD_HASH_INPUT:-}" ]; then
-              printf '%s' "$NEWS_ADMIN_PASSWORD_HASH_INPUT" | npm run news:admin -- set-password-hash
+            # Admin password from the NEWS_ADMIN_PASSWORD secret: piped on stdin (printf is a shell builtin,
+            # so it never appears as a process argument) and hashed with scrypt by the command; only the
+            # hash is stored. Unchanged password: no write, sessions kept. Changed: sessions revoked.
+            # Never printed. A rejected password (e.g. under 16 characters) stops the deployment.
+            if [ -n "${NEWS_ADMIN_PASSWORD_INPUT:-}" ]; then
+              printf '%s' "$NEWS_ADMIN_PASSWORD_INPUT" | npm run news:admin -- provision-password
             else
-              echo "[deploy] NEWS_ADMIN_PASSWORD_HASH secret not set; News admin password not provisioned"
+              echo "[deploy] NEWS_ADMIN_PASSWORD secret not set; News admin password not provisioned"
             fi
-            unset NEWS_ADMIN_PASSWORD_HASH_INPUT
+            unset NEWS_ADMIN_PASSWORD_INPUT
 
             npm run build
 
