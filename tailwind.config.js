@@ -113,6 +113,19 @@ module.exports = {
 
     extend: {
       colors: {
+        /* ATLAS News (/news public pages). Each is an RGB triplet in a CSS variable set by the News shell
+           (components/News/Public/theme.js) for the light, dark and system themes, so every utility keeps
+           working with an opacity modifier (`bg-news-ink/5`) and a theme switch is one attribute change. */
+        news: {
+          paper: 'rgb(var(--n-paper) / <alpha-value>)',
+          surface: 'rgb(var(--n-surface) / <alpha-value>)',
+          ink: 'rgb(var(--n-ink) / <alpha-value>)',
+          muted: 'rgb(var(--n-muted) / <alpha-value>)',
+          line: 'rgb(var(--n-line) / <alpha-value>)',
+          accent: 'rgb(var(--n-accent) / <alpha-value>)',
+          brand: 'rgb(var(--n-brand) / <alpha-value>)',
+          night: 'rgb(var(--n-night) / <alpha-value>)',
+        },
         atlas: {
           blue: '#009fe0',      // top utility bar (default variant)
           teal: '#02b3c3',      // mega-menu hover + underline
@@ -160,6 +173,8 @@ module.exports = {
         'poppins-library': ['Poppins Library', 'serif'],
         // /schools/ugdx/ugdxsummerschool's own <style> — see the Figtree note in globals.css
         figtree: ['Figtree', 'sans-serif'],
+        // ATLAS News (/news public pages): the editorial serif — see the Newsreader note in globals.css
+        'news-serif': ['Newsreader', 'Georgia', 'Cambria', 'Times New Roman', 'serif'],
       },
 
       spacing: {
