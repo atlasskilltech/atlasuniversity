@@ -1,0 +1,117 @@
+name: ATLAS News — WordPress import (manual)
+
+# MANUAL ONLY. There is no push, schedule or other trigger: this workflow runs solely when someone starts it
+# from the Actions tab ("Run workflow").
+#
+# It applies the encrypted import bundle (data/news-import/*.enc, built from a verified local import by
+# `npm run news:import-bundle -- export`) to the production News database ON THE APPLICATION SERVER, which is
+# the only machine the database accepts connections from. The media the bundle references were uploaded to
+# S3 beforehand (`npm run news:import-upload`); the server checks that every object exists before writing.
+#
+#   mode = dry-run (default)  decrypt, check every storage object, and print the insert / update / skip counts
+#                              computed against the real tables. Writes NOTHING.
+#   mode = import             back up every atlasnews_* table, import, then dry-run again to prove that
+#                              nothing is left to do. Requires `confirm` = the 16-character confirm code the
+#                              dry run printed — a real import is always a separate, deliberate run.
+#
+# Idempotent and resumable: rows are matched on their WordPress ids, a rerun changes nothing, and a post an
+# editor changed in the CMS after the import is never overwritten. Search indexing is never touched.
+#
+# Secrets: EC2_HOST, EC2_USER, EC2_SSH_KEY (the deployment's own) and NEWS_IMPORT_BUNDLE_KEY (the bundle's
+# base64 key). The database credentials never leave the server — the import uses the server's own DB_*
+# settings. The bundle key travels inside the encrypted SSH stream and is fed to the importer on stdin: never
+# on a command line, never echoed, never written to disk. GitHub also masks every secret in the log.
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'dry-run (writes nothing) or import (needs the confirm code)'
+        type: choice
+        options: [dry-run, import]
+        default: dry-run
+      confirm:
+        description: 'For mode=import only: the 16-character confirm code printed by the dry run'
+        type: string
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: news-wp-import
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Check the inputs
+        env:
+          MODE: ${{ inputs.mode }}
+          CONFIRM: ${{ inputs.confirm }}
+          HAS_KEY: ${{ secrets.NEWS_IMPORT_BUNDLE_KEY != '' }}
+        run: |
+          set -euo pipefail
+          case "$MODE" in dry-run|import) ;; *) echo "unknown mode"; exit 1 ;; esac
+          if [ "$MODE" = import ] && ! printf '%s' "$CONFIRM" | grep -Eq '^[0-9a-f]{16}$'; then
+            echo "mode=import needs the 16-character confirm code from a dry run of this same bundle"; exit 1
+          fi
+          if [ "$HAS_KEY" != true ]; then echo "the NEWS_IMPORT_BUNDLE_KEY secret is not set"; exit 1; fi
+
+      - name: Run on the application server
+        env:
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          EC2_USER: ${{ secrets.EC2_USER }}
+          EC2_KEY: ${{ secrets.EC2_SSH_KEY }}
+          NEWS_IMPORT_BUNDLE_KEY: ${{ secrets.NEWS_IMPORT_BUNDLE_KEY }}
+          MODE: ${{ inputs.mode }}
+          CONFIRM: ${{ inputs.confirm }}
+          EXPECTED_COMMIT: ${{ github.sha }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$EC2_KEY" > ~/.ssh/key.pem
+          chmod 600 ~/.ssh/key.pem
+          trap 'rm -f ~/.ssh/key.pem' EXIT
+          {
+            printf 'BUNDLE_KEY=%q\n' "$NEWS_IMPORT_BUNDLE_KEY"
+            printf 'MODE=%q\nCONFIRM=%q\nEXPECTED_COMMIT=%q\n' "$MODE" "$CONFIRM" "$EXPECTED_COMMIT"
+            cat << 'EOF'
+            set -euo pipefail
+            APP_DIR=/home/ubuntu/atlasuniversity
+            BUNDLE=data/news-import/wordpress-2026-11-06.enc
+            cd "$APP_DIR"
+
+            # The server must be running exactly the commit this workflow was started from (the deployment of
+            # that commit must have finished), so the importer and the bundle are the reviewed ones.
+            HEAD_NOW=$(git rev-parse HEAD)
+            if [ "$HEAD_NOW" != "$EXPECTED_COMMIT" ]; then
+              echo "[news-import] ABORTED: the server is at ${HEAD_NOW:0:12}, this run is for ${EXPECTED_COMMIT:0:12}. Wait for the deployment, then run again." >&2
+              exit 1
+            fi
+            test -f "$BUNDLE" || { echo "[news-import] ABORTED: $BUNDLE is not on the server" >&2; exit 1; }
+            echo "[news-import] server at ${HEAD_NOW:0:12}; mode: $MODE"
+
+            run_apply() { printf '%s' "$BUNDLE_KEY" | node --no-warnings scripts/news/import-bundle.mjs apply --bundle="$BUNDLE" "$@"; }
+
+            if [ "$MODE" = dry-run ]; then
+              run_apply
+              exit 0
+            fi
+
+            # ---- import: backup first; nothing is written if the backup fails
+            mkdir -p "$HOME/news-backups" && chmod 700 "$HOME/news-backups"
+            STAMP=$(date -u +%Y%m%dT%H%M%SZ)
+            node --no-warnings scripts/news/import-bundle.mjs backup --out="$HOME/news-backups/atlasnews-before-wp-import-$STAMP.sql.gz"
+            echo "[news-import] backup kept on the server: ~/news-backups/atlasnews-before-wp-import-$STAMP.sql.gz"
+
+            mkdir -p "$HOME/news-import-reports" && chmod 700 "$HOME/news-import-reports"
+            run_apply --execute --allow-remote-db --confirm="$CONFIRM" --report="$HOME/news-import-reports/import-$STAMP.json"
+
+            echo "[news-import] verification: a second dry run must find nothing left to do"
+            run_apply
+            unset BUNDLE_KEY
+          EOF
+          } | ssh -i ~/.ssh/key.pem -o StrictHostKeyChecking=no "$EC2_USER@$EC2_HOST" 'bash -l -s'

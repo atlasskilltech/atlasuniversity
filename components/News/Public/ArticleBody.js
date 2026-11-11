@@ -8,6 +8,7 @@ import { cx } from './ui';
  *
  * Styling is applied to the allowed elements and classes from this one container:
  *   p h2 h3 ul ol blockquote.news-pullquote figure(.align-wide) .news-gallery(.is-cols-2|3) table
+ *   blockquote .news-columns(.is-cols-2|3|4) > .news-column  .news-video > video  .news-embed > iframe  pre
  * Images carry width/height, so their space is reserved before they load.
  */
 const PROSE = cx(
@@ -38,6 +39,15 @@ const PROSE = cx(
   '[&_.news-gallery]:my-12 [&_.news-gallery]:grid [&_.news-gallery]:grid-cols-2 [&_.news-gallery]:gap-3 md:[&_.news-gallery]:gap-4 md:[&_.news-gallery.is-cols-3]:grid-cols-3 xl:[&_.news-gallery]:-mx-[150px]',
   '[&_.news-gallery-item]:m-0 [&_.news-gallery-item>img]:aspect-[4/3] [&_.news-gallery-item>img]:object-cover',
   '[&_.news-gallery>p]:col-span-full [&_.news-gallery>p]:mb-0 [&_.news-gallery>p]:font-sans [&_.news-gallery>p]:text-[13px] [&_.news-gallery>p]:text-news-muted',
+  /* plain quotes (the pull quote above is the large one) */
+  '[&>blockquote:not(.news-pullquote)]:my-10 [&>blockquote:not(.news-pullquote)]:border-l-2 [&>blockquote:not(.news-pullquote)]:border-news-line [&>blockquote:not(.news-pullquote)]:pl-6 [&>blockquote:not(.news-pullquote)]:italic [&>blockquote:not(.news-pullquote)>p]:mb-3 [&>blockquote:not(.news-pullquote)>cite]:block [&>blockquote:not(.news-pullquote)>cite]:font-sans [&>blockquote:not(.news-pullquote)>cite]:text-[13px] [&>blockquote:not(.news-pullquote)>cite]:not-italic [&>blockquote:not(.news-pullquote)>cite]:text-news-muted',
+  /* side-by-side columns (imported WordPress columns / media-text): stacked on phones */
+  '[&_.news-columns]:my-10 [&_.news-columns]:grid [&_.news-columns]:gap-6 md:[&_.news-columns]:grid-cols-2 md:[&_.news-columns.is-cols-3]:grid-cols-3 md:[&_.news-columns.is-cols-4]:grid-cols-4',
+  '[&_.news-column>*:first-child]:mt-0 [&_.news-column>*:last-child]:mb-0 [&_.news-column>p]:mb-5 [&_.news-column>figure]:my-0',
+  /* video and YouTube: full width, 16:9 reserved before load */
+  '[&_.news-video]:my-12 [&_video]:block [&_video]:h-auto [&_video]:w-full [&_video]:bg-black',
+  '[&_.news-embed]:my-12 [&_.news-embed>iframe]:block [&_.news-embed>iframe]:aspect-video [&_.news-embed>iframe]:h-auto [&_.news-embed>iframe]:w-full',
+  '[&>pre]:my-8 [&>pre]:whitespace-pre-wrap [&>pre]:font-news-serif',
   /* tables */
   '[&_table]:my-10 [&_table]:w-full [&_table]:border-collapse [&_table]:font-sans [&_table]:text-[15px] [&_th]:border-b-2 [&_th]:border-news-ink [&_th]:py-2 [&_th]:text-left [&_td]:border-b [&_td]:border-news-line [&_td]:py-2',
 );
