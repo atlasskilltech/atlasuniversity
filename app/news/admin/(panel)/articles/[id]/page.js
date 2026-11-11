@@ -40,5 +40,5 @@ export default async function EditArticlePage({ params }) {
       </div>
     );
   }
-  return <ArticleForm initial={article} categories={categories.map((c) => ({ id: c.id, name: c.name }))} />;
+  return <ArticleForm initial={article} categories={categories.map((c) => ({ id: c.id, name: c.name, parentId: c.parentId, menuOrder: c.menuOrder }))} />;
 }

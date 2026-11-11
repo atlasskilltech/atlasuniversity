@@ -3,11 +3,14 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { api } from './api';
+import { indent, selfAndDescendants, treeOrder } from './categoryTree';
 import MediaPicker, { thumbOf } from './MediaPicker';
 import { BTN_DANGER, BTN_GHOST, BTN_PRIMARY, BTN_SECONDARY, CARD, cx, ERR, HINT, INPUT, INPUT_ERR, LABEL } from './ui';
 
-const BLANK = { id: null, name: '', slug: '', description: '', showInMenu: false, menuOrder: '', isFeatured: false, image: null, seoTitle: '', seoDescription: '' };
+const BLANK = { id: null, parentId: null, name: '', slug: '', description: '', showInMenu: false, menuOrder: '', isFeatured: false, image: null, seoTitle: '', seoDescription: '' };
 const MAX_MENU = 8;
+/* the server's MAX_CATEGORY_DEPTH (lib/news/cms/validate.js); the server enforces it either way */
+const MAX_DEPTH = 6;
 
 export default function CategoryManager({ items }) {
   const router = useRouter();
@@ -17,11 +20,14 @@ export default function CategoryManager({ items }) {
   const [busy, setBusy] = useState(false);
   const [picker, setPicker] = useState(false);
   const inMenu = items.filter((c) => c.showInMenu).length;
+  const tree = treeOrder(items);
+  const labelOf = new Map(tree.map((c) => [c.id, c.label]));
 
-  const open = (c) => {
+  /* c: a category to edit, or null for a new one; parentId presets the parent of a new one ("Add sub-category") */
+  const open = (c, parentId = null) => {
     setErrors({});
     setMessage(null);
-    setEdit(c ? { ...BLANK, ...c, menuOrder: c.menuOrder ?? '' } : { ...BLANK });
+    setEdit(c ? { ...BLANK, ...c, menuOrder: c.menuOrder ?? '' } : { ...BLANK, parentId });
   };
   const set = (k, v) => setEdit((p) => ({ ...p, [k]: v }));
 
@@ -32,6 +38,7 @@ export default function CategoryManager({ items }) {
     const body = {
       name: edit.name, slug: edit.slug, description: edit.description, showInMenu: edit.showInMenu, menuOrder: edit.menuOrder === '' ? null : Number(edit.menuOrder),
       isFeatured: edit.isFeatured, imageMediaId: edit.image?.id || null, seoTitle: edit.seoTitle, seoDescription: edit.seoDescription,
+      parentId: edit.parentId || null,
     };
     const r = edit.id ? await api('PUT', `/categories/${edit.id}`, body) : await api('POST', '/categories', body);
     setBusy(false);
@@ -64,26 +71,43 @@ export default function CategoryManager({ items }) {
           </div>
         ) : null}
         <p className="mb-3 text-[13px] text-[#5b6170]">
-          {inMenu} of {MAX_MENU} navigation places used. Menu order: lower numbers first.
+          {inMenu} of {MAX_MENU} navigation places used. Menu order: lower numbers first. Sub-categories are listed under their parent.
         </p>
         <div className={cx(CARD, '!p-0 overflow-hidden')}>
           {items.length ? (
             <ul className="divide-y divide-[#eef0f3]">
-              {items.map((c) => (
-                <li key={c.id} className={cx('flex flex-wrap items-center gap-3 p-4', edit?.id === c.id && 'bg-[#f7f8fa]')}>
-                  <div className="min-w-0 flex-1">
+              {tree.map((c) => (
+                <li key={c.id} data-category-depth={c.depth} className={cx('flex flex-wrap items-center gap-3 p-4', edit?.id === c.id && 'bg-[#f7f8fa]')}>
+                  <div className={cx('min-w-0 flex-1', indent(c.depth))}>
                     <p className="flex flex-wrap items-center gap-2 text-[15px] font-semibold">
-                      {c.name}
+                      {c.depth > 0 ? (
+                        <span aria-hidden="true" className="-ml-4 text-[#b0b5c0]">
+                          └
+                        </span>
+                      ) : null}
+                      <span>{c.name}</span>
+                      {c.depth > 0 ? <span className="sr-only"> (sub-category of {c.path.slice(0, -1).join(' › ')})</span> : null}
                       {c.showInMenu ? <span className="rounded-full bg-[#eef2ff] px-2 py-0.5 text-[11.5px] font-semibold text-[#3b4fc4]">Menu{c.menuOrder !== null ? ` · ${c.menuOrder}` : ''}</span> : null}
                       {c.isFeatured ? <span className="rounded-full bg-[#fff4e5] px-2 py-0.5 text-[11.5px] font-semibold text-[#9a5b00]">Featured</span> : null}
                     </p>
                     <p className="mt-0.5 text-[12.5px] text-[#6b7180]">
+                      {c.label !== c.name ? <span className="font-medium text-[#4a4f5c]">{c.label} · </span> : null}
                       /news/category/{c.slug} · {c.articleCount} {c.articleCount === 1 ? 'article' : 'articles'} ({c.liveCount} live)
+                      {c.childCount ? ` · ${c.childCount} sub-${c.childCount === 1 ? 'category' : 'categories'}` : ''}
                     </p>
                   </div>
-                  <div className="flex gap-1.5">
+                  <div className="flex flex-wrap gap-1.5">
                     <button type="button" className={BTN_SECONDARY} onClick={() => open(c)}>Edit</button>
-                    <button type="button" className={BTN_DANGER} onClick={() => remove(c)} disabled={c.articleCount > 0} title={c.articleCount > 0 ? 'Move its articles to another category first' : undefined}>
+                    <button type="button" className={BTN_GHOST} onClick={() => open(null, c.id)} disabled={c.depth + 1 >= MAX_DEPTH} title={c.depth + 1 >= MAX_DEPTH ? `Categories can be nested at most ${MAX_DEPTH} levels deep` : undefined}>
+                      Add sub-category
+                    </button>
+                    <button
+                      type="button"
+                      className={BTN_DANGER}
+                      onClick={() => remove(c)}
+                      disabled={c.childCount > 0 || c.articleCount > 0}
+                      title={c.childCount > 0 ? 'Move or delete its sub-categories first' : c.articleCount > 0 ? 'Move its articles to another category first' : undefined}
+                    >
                       Delete
                     </button>
                   </div>
@@ -99,7 +123,9 @@ export default function CategoryManager({ items }) {
       <aside className="lg:sticky lg:top-[120px] lg:self-start">
         {edit ? (
           <form onSubmit={save} className={cx(CARD, 'flex flex-col gap-4')}>
-            <h2 className="text-[16px] font-semibold">{edit.id ? `Edit “${edit.name || 'category'}”` : 'New category'}</h2>
+            <h2 className="text-[16px] font-semibold">
+              {edit.id ? `Edit “${edit.name || 'category'}”` : edit.parentId ? `New sub-category of “${labelOf.get(edit.parentId) || '…'}”` : 'New category'}
+            </h2>
             <div>
               <label className={LABEL} htmlFor="c-name">Name</label>
               <input id="c-name" value={edit.name} maxLength={200} onChange={(e) => setEdit((p) => ({ ...p, name: e.target.value, slug: p.id || p.slugTouched ? p.slug : '' }))} className={cx(INPUT, errors.name && INPUT_ERR)} />
@@ -109,6 +135,27 @@ export default function CategoryManager({ items }) {
               <label className={LABEL} htmlFor="c-slug">Slug</label>
               <input id="c-slug" value={edit.slug} maxLength={200} placeholder="made from the name if empty" onChange={(e) => setEdit((p) => ({ ...p, slug: e.target.value, slugTouched: true }))} className={cx(INPUT, 'font-mono !text-[13px]', errors.slug && INPUT_ERR)} />
               {errors.slug ? <p className={ERR}>{errors.slug}</p> : <p className={HINT}>{edit.id ? 'Changing it adds a redirect from the old category address.' : '/news/category/…'}</p>}
+            </div>
+            <div>
+              <label className={LABEL} htmlFor="c-parent">Parent category</label>
+              <select
+                id="c-parent"
+                value={edit.parentId || ''}
+                onChange={(e) => set('parentId', e.target.value ? Number(e.target.value) : null)}
+                className={cx(INPUT, errors.parentId && INPUT_ERR)}
+              >
+                <option value="">None — a top-level category</option>
+                {(() => {
+                  /* a category can never sit under itself or under one of its own sub-categories */
+                  const blocked = edit.id ? selfAndDescendants(items, edit.id) : new Set();
+                  return tree.map((c) => (
+                    <option key={c.id} value={c.id} disabled={blocked.has(c.id)}>
+                      {`${'  '.repeat(c.depth)}${c.depth ? '└ ' : ''}${c.label}${blocked.has(c.id) ? (c.id === edit.id ? ' (this category)' : ' (inside this category)') : ''}`}
+                    </option>
+                  ));
+                })()}
+              </select>
+              {errors.parentId ? <p className={ERR} role="alert">{errors.parentId}</p> : <p className={HINT}>Changing the parent moves its sub-categories with it. The address /news/category/… does not change.</p>}
             </div>
             <div>
               <label className={LABEL} htmlFor="c-desc">Description</label>

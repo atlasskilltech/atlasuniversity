@@ -14,5 +14,5 @@ export default async function NewArticlePage() {
   } catch (e) {
     return <DbUnavailable title="New article" code={e?.code} />;
   }
-  return <ArticleForm initial={null} categories={categories.map((c) => ({ id: c.id, name: c.name }))} />;
+  return <ArticleForm initial={null} categories={categories.map((c) => ({ id: c.id, name: c.name, parentId: c.parentId, menuOrder: c.menuOrder }))} />;
 }

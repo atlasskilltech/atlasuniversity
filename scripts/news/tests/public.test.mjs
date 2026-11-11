@@ -233,3 +233,83 @@ test('pagination, unknown slugs, redirects, legacy encoded slugs and the indexin
   }
   await run(`DELETE FROM ${T.settings} WHERE setting_key = 'indexing_enabled'`);
 });
+
+/* ------------------------------------------------------------------------------------ 4. hierarchy */
+
+test('hierarchy: a parent archive includes children and deeper descendants, each article once, paginated in order', { skip }, async () => {
+  const id = async (slug) => (await run(`SELECT id FROM ${T.categories} WHERE slug = ?`, [slug]))[0].id;
+  const post = async (slug) => (await run(`SELECT id FROM ${T.posts} WHERE slug = ?`, [slug]))[0].id;
+  const academic = await id('academic');
+  const child = (await run(`INSERT INTO ${T.categories} (parent_id, slug, name) VALUES (?, 'academic-labs', 'Labs')`, [academic])).insertId;
+  const grand = (await run(`INSERT INTO ${T.categories} (parent_id, slug, name) VALUES (?, 'academic-labs-robotics', 'Robotics')`, [child])).insertId;
+  /* X only in the grandchild; Y in the parent AND the child (must not be listed twice) */
+  const X = 'sensorium-when-a-courtyard-became-a-runway';
+  const Y = 'placement-season-decoded';
+  const x = await post(X);
+  const y = await post(Y);
+  await run(`INSERT INTO ${T.postCategories} (post_id, category_id) VALUES (?, ?)`, [x, grand]);
+  await run(`INSERT IGNORE INTO ${T.postCategories} (post_id, category_id) VALUES (?, ?), (?, ?)`, [y, academic, y, child]);
+
+  const expected = (await run(
+    `SELECT DISTINCT p.slug, p.published_at, p.id FROM ${T.posts} p JOIN ${T.postCategories} pc ON pc.post_id = p.id
+      WHERE pc.category_id IN (?, ?, ?) AND p.deleted_at IS NULL AND p.status <> 'draft' AND p.published_at <= UTC_TIMESTAMP(3)
+      ORDER BY p.published_at DESC, p.id DESC`, [academic, child, grand])).map((r) => r.slug);
+  const first = await q.getCategoryPage('academic', 1);
+  const all = [first.featured.slug, ...first.items.map((a) => a.slug)];
+  for (let p = 2; p <= first.totalPages; p++) all.push(...(await q.getCategoryPage('academic', p)).items.map((a) => a.slug));
+  assert.equal(first.total, expected.length, 'count = distinct live articles in the subtree');
+  assert.deepEqual(all, expected, 'every article once, newest first, across all pages');
+  assert.ok(all.includes(X), 'grandchild article is in the root archive');
+  assert.equal(all.filter((s) => s === Y).length, 1, 'an article in two levels of the same branch is listed once');
+  assert.deepEqual((await q.getCategoryPage('academic', first.totalPages + 1)).outOfRange, true);
+  /* the child archive: its own + the grandchild's; the grandchild: only its own */
+  const c1 = await q.getCategoryPage('academic-labs', 1);
+  assert.deepEqual([c1.featured.slug, ...c1.items.map((a) => a.slug)].sort(), [X, Y].sort());
+  const g1 = await q.getCategoryPage('academic-labs-robotics', 1);
+  assert.deepEqual([g1.featured.slug, ...g1.items.map((a) => a.slug)], [X]);
+
+  /* breadcrumbs: X's primary category becomes the grandchild → the full path, root first */
+  const before = (await run(`SELECT primary_category_id FROM ${T.posts} WHERE id = ?`, [x]))[0].primary_category_id;
+  await run(`UPDATE ${T.posts} SET primary_category_id = ? WHERE id = ?`, [grand, x]);
+  const ax = await q.getArticleBySlug(X);
+  assert.deepEqual(ax.categoryPath.map((c) => c.slug), ['academic', 'academic-labs', 'academic-labs-robotics']);
+  assert.equal(ax.category.slug, 'academic-labs-robotics');
+  assert.deepEqual(ax.categoryPath.map((c) => c.url), ['/news/category/academic', '/news/category/academic-labs', '/news/category/academic-labs-robotics'], 'flat URLs');
+  assert.deepEqual((await q.getArticleBySlug('a-graduating-class-steps-into-a-world-still-being-written')).categoryPath.map((c) => c.slug), ['student-life'], 'a root primary: path of one');
+
+  /* tidy */
+  await run(`UPDATE ${T.posts} SET primary_category_id = ? WHERE id = ?`, [before, x]);
+  await run(`DELETE FROM ${T.postCategories} WHERE category_id IN (?, ?) OR (post_id = ? AND category_id = ?)`, [child, grand, y, academic]);
+  await run(`DELETE FROM ${T.categories} WHERE id = ?`, [grand]);
+  await run(`DELETE FROM ${T.categories} WHERE id = ?`, [child]);
+});
+
+test('legacy nested category URLs: only a complete root-to-category chain resolves; everything else is a 404', { skip }, async () => {
+  const academic = (await run(`SELECT id FROM ${T.categories} WHERE slug = 'academic'`))[0].id;
+  const industry = (await run(`SELECT id FROM ${T.categories} WHERE slug = 'industry'`))[0].id;
+  const a1 = (await run(`INSERT INTO ${T.categories} (parent_id, slug, name) VALUES (?, 'masterclass', 'Masterclass')`, [industry])).insertId;
+  const a2 = (await run(`INSERT INTO ${T.categories} (parent_id, slug, name) VALUES (?, 'masterclass-series', 'Series')`, [a1])).insertId;
+  /* the same NAME under another parent, different slug: never ambiguous, because slugs are unique */
+  const g1 = (await run(`INSERT INTO ${T.categories} (parent_id, slug, name) VALUES (?, 'masterclass-academic', 'Masterclass')`, [academic])).insertId;
+  const R = (segs) => q.resolveLegacyCategoryPath(segs);
+  assert.deepEqual(await R(['industry', 'masterclass']), { to: '/news/category/masterclass' });
+  assert.deepEqual(await R(['industry', 'masterclass', 'masterclass-series']), { to: '/news/category/masterclass-series' });
+  assert.deepEqual(await R(['industry', 'masterclass', 'page', '3']), { to: '/news/category/masterclass/page/3' }, 'pagination kept');
+  assert.deepEqual(await R(['industry', 'masterclass', 'page', '1']), { to: '/news/category/masterclass' }, 'page 1 is the base URL');
+  assert.deepEqual(await R(['academic', 'masterclass-academic']), { to: '/news/category/masterclass-academic' }, 'same name, other branch');
+  for (const bad of [
+    ['academic', 'masterclass'], /* real slugs, wrong ancestor */
+    ['masterclass', 'masterclass-series'], /* partial chain, root missing */
+    ['masterclass-series', 'masterclass', 'industry'], /* reversed */
+    ['industry', 'masterclass-series'], /* skips a level */
+    ['industry', 'nope'], ['nope', 'masterclass'], /* unknown */
+    ['industry'], /* a single segment is the normal route, never a redirect */
+    ['industry', 'masterclass', 'page'], ['industry', 'masterclass', 'page', 'x'], ['industry', 'masterclass', 'page', '0'],
+    ['industry', 'masterclass', 'extra', 'page', '2'], ['industry', 'masterclass', 'junk'],
+    ['', 'masterclass'], [], 'industry/masterclass', ['industry', 'x'.repeat(300)],
+  ]) {
+    assert.equal(await R(bad), null, JSON.stringify(bad).slice(0, 80));
+  }
+  await run(`DELETE FROM ${T.categories} WHERE id IN (?, ?)`, [a2, g1]);
+  await run(`DELETE FROM ${T.categories} WHERE id = ?`, [a1]);
+});

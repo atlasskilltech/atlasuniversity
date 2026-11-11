@@ -93,6 +93,15 @@ test('category: name, slug, menu order, booleans', () => {
   assert.match(validateCategory({ name: 'Category' }).errors.slug, /reserved/);
 });
 
+test('category parent: absent = unchanged, null = root, an id = that parent, anything else refused', () => {
+  assert.equal(validateCategory({ name: 'A' }).value.parentId, undefined, 'absent: an older form can never re-root a category');
+  assert.equal(validateCategory({ name: 'A', parentId: null }).value.parentId, null);
+  assert.equal(validateCategory({ name: 'A', parentId: '' }).value.parentId, null);
+  assert.equal(validateCategory({ name: 'A', parentId: '12' }).value.parentId, 12);
+  assert.equal(validateCategory({ name: 'A', parentId: 7 }).value.parentId, 7);
+  for (const bad of ['x', -1, 0, 1.5, '12; DROP', [3]]) assert.ok(validateCategory({ name: 'A', parentId: bad }).errors.parentId, String(bad));
+});
+
 test('homepage: zones are exactly the approved five, with fixed capacities and position ranges', () => {
   assert.deepEqual(HOMEPAGE_ZONE_NAMES, ['hero_centre', 'hero_left', 'hero_right', 'featured', 'picks']);
   assert.deepEqual(HOMEPAGE_ZONES.map((z) => z.max), [1, 2, 2, 1, 5]);

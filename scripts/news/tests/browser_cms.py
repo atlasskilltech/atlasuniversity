@@ -73,10 +73,31 @@ with sync_playwright() as p:
         check(f'{tag} category created from the UI', pg.is_visible(f'text={cat_name}'))
         check(f'{tag} categories page: no overflow', overflow(pg) <= 0, overflow(pg))
 
+        # ---- hierarchy in the Category Manager
+        row = lambda name: pg.locator('li[data-category-depth]', has=pg.locator(f'span:text-is("{name}")'))
+        sub_name = f'Browser Sub {STAMP} {w}'
+        row(cat_name).locator('button:has-text("Add sub-category")').click()
+        check(f'{tag} "Add sub-category" presets the parent', pg.input_value('#c-parent') != '' and pg.is_visible(f'text=New sub-category of “{cat_name}”'), pg.input_value('#c-parent'))
+        pg.fill('#c-name', sub_name)
+        pg.click('form button[type=submit]:has-text("Save")')
+        pg.wait_for_selector(f'span:text-is("{sub_name}")', timeout=15000)
+        check(f'{tag} sub-category listed under its parent, indented (depth 1)', row(sub_name).get_attribute('data-category-depth') == '1', row(sub_name).get_attribute('data-category-depth'))
+        idx = pg.evaluate("([a, b]) => { const n = [...document.querySelectorAll('li[data-category-depth]')].map((l) => l.textContent); return [n.findIndex((t) => t.includes(a)), n.findIndex((t) => t.includes(b))]; }", [cat_name, sub_name])
+        check(f'{tag} sub-category directly follows its parent', idx[1] == idx[0] + 1, idx)
+        check(f'{tag} Delete is disabled on a parent with sub-categories', row(cat_name).locator('button:has-text("Delete")').is_disabled())
+        row(cat_name).locator('button:has-text("Edit")').click()
+        opts = pg.evaluate("() => [...document.querySelectorAll('#c-parent option')].map((o) => [o.textContent.trim(), o.disabled])")
+        own = [o for o in opts if cat_name in o[0] or sub_name in o[0]]
+        check(f'{tag} parent select: the category and its descendants are disabled', len(own) == 2 and all(d for _, d in own), own)
+        pg.click('button:has-text("Cancel")')
+        check(f'{tag} categories page with a hierarchy: no overflow', overflow(pg) <= 0, overflow(pg))
+
         # ---- article in the editor
         title = f'Browser story {STAMP} {w}'
         pg.goto(BASE + '/news/admin/articles/new', wait_until='networkidle')
         pg.wait_for_selector('.ProseMirror', timeout=20000)
+        sub_lbl = pg.locator('label[data-category-depth]', has_text=sub_name)
+        check(f'{tag} article form lists the sub-category indented under its parent', sub_lbl.count() == 1 and sub_lbl.get_attribute('data-category-depth') == '1', sub_lbl.count())
         pg.fill('#title', title)
         slug = pg.input_value('#slug')
         check(f'{tag} slug follows the title', slug == f'browser-story-{STAMP}-{w}', slug)

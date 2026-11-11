@@ -80,10 +80,10 @@ test('migrations: refuse to adopt pre-existing atlasnews_ tables', { skip }, asy
 test('migrations: dry run changes nothing; up creates exactly the News schema', { skip }, async () => {
   const before = await surveyFingerprint();
   const dry = await mod.migrateUp({ dryRun: true });
-  assert.deepEqual(dry.pending, ['0001_initial_schema', '0002_cms_schema_gaps']);
+  assert.deepEqual(dry.pending, ['0001_initial_schema', '0002_cms_schema_gaps', '0003_category_hierarchy']);
   assert.deepEqual(await tablesLike('atlasnews\\_%'), []);
   const r = await mod.migrateUp();
-  assert.deepEqual(r.applied, ['0001_initial_schema', '0002_cms_schema_gaps']);
+  assert.deepEqual(r.applied, ['0001_initial_schema', '0002_cms_schema_gaps', '0003_category_hierarchy']);
   const tables = await tablesLike('atlasnews\\_%');
   assert.deepEqual([...tables].sort(), Object.values(mod.cfg.T).sort());
   assert.equal(tables.length, 12);
@@ -98,8 +98,8 @@ test('migrations: dry run changes nothing; up creates exactly the News schema', 
   /* foreign keys only between News tables */
   const [fks] = await admin.query('SELECT table_name AS t, referenced_table_name AS r FROM information_schema.referential_constraints WHERE constraint_schema = ?', [NAME]);
   /* posts: featured, og, primary category · post_categories: 2 · post_tags: 2 · homepage_slots: 1 ·
-     categories.image_media_id (0002): 1 */
-  assert.equal(fks.length, 9);
+     categories.image_media_id (0002): 1 · categories.parent_id → categories (0003): 1 */
+  assert.equal(fks.length, 10);
   for (const f of fks) assert.ok(f.t.startsWith('atlasnews_') && f.r.startsWith('atlasnews_'));
 });
 
@@ -152,9 +152,13 @@ const columnsOf = async (table) => {
 test('0002: upgrading a 0001 database that holds content keeps every row and value, and reverses exactly', { skip }, async () => {
   const T = mod.cfg.T;
   const before = await surveyFingerprint();
-  /* start from the production state: 0001 applied, 0002 pending */
-  assert.equal((await mod.migrateDown({ confirm: true })).reverted, '0002_cms_schema_gaps');
-  assert.deepEqual((await mod.migrationStatus()).pending, ['0002_cms_schema_gaps']);
+  /* start from the state 0002 met in production: 0001 applied, 0002 pending — and the code knowing
+     nothing later (0003 is reverted first, then this test runs against migrations 0001-0002 only) */
+  const { MIGRATIONS } = await import('../../../lib/news/db/migrations.js');
+  const M2 = { migrations: MIGRATIONS.slice(0, 2) };
+  assert.equal((await mod.migrateDown({ confirm: true })).reverted, '0003_category_hierarchy');
+  assert.equal((await mod.migrateDown({ confirm: true, ...M2 })).reverted, '0002_cms_schema_gaps');
+  assert.deepEqual((await mod.migrationStatus(M2)).pending, ['0002_cms_schema_gaps']);
 
   /* content written under 0001 */
   const m = await mod.query(`INSERT INTO ${T.media} (storage_key, sha256, mime_type, alt_text) VALUES ('assets/news/m.webp', REPEAT('b', 64), 'image/webp', 'Alt')`);
@@ -171,7 +175,7 @@ test('0002: upgrading a 0001 database that holds content keeps every row and val
   const schema0001 = await schemaSnapshot();
 
   /* apply 0002 */
-  assert.deepEqual((await mod.migrateUp()).applied, ['0002_cms_schema_gaps']);
+  assert.deepEqual((await mod.migrateUp(M2)).applied, ['0002_cms_schema_gaps']);
   assert.deepEqual(await rowsOf(), rows0001, 'every existing row and value unchanged — including updated_at');
   const schema0002 = await schemaSnapshot();
   const changed = Object.keys(schema0001).filter((t) => schema0001[t] !== schema0002[t]).sort();
@@ -209,7 +213,7 @@ test('0002: upgrading a 0001 database that holds content keeps every row and val
   await mod.query(`UPDATE ${T.media} SET deleted_at = NULL WHERE id = ?`, [m.insertId]);
 
   /* down 0002: the schema returns byte-for-byte to 0001's, and the 0001 data is still there */
-  assert.equal((await mod.migrateDown({ confirm: true })).reverted, '0002_cms_schema_gaps');
+  assert.equal((await mod.migrateDown({ confirm: true, ...M2 })).reverted, '0002_cms_schema_gaps');
   assert.deepEqual(await schemaSnapshot(), schema0001, 'down reverses 0002 exactly — 0001 schema untouched');
   const after = await rowsOf();
   assert.deepEqual(after.posts, rows0001.posts);
@@ -221,12 +225,55 @@ test('0002: upgrading a 0001 database that holds content keeps every row and val
   assert.deepEqual(noUpd(after.categories), noUpd(rows0001.categories));
 
   /* and forward again, leaving the database fully migrated for the tests that follow */
-  assert.deepEqual((await mod.migrateUp()).applied, ['0002_cms_schema_gaps']);
+  assert.deepEqual((await mod.migrateUp()).applied, ['0002_cms_schema_gaps', '0003_category_hierarchy']);
   assert.equal(await surveyFingerprint(), before, 'survey_responses untouched throughout');
   await mod.query(`DELETE FROM ${T.homepageSlots}`);
   await mod.query(`DELETE FROM ${T.posts}`);
   await mod.query(`DELETE FROM ${T.categories}`);
   await mod.query(`DELETE FROM ${T.media}`);
+});
+
+test('0003: existing categories keep their ids and become roots; the database itself refuses bad parents and orphaning; down is exact', { skip }, async () => {
+  const T = mod.cfg.T;
+  const before = await surveyFingerprint();
+  /* the state 0003 will meet in production: 0001 + 0002 applied, categories and articles present */
+  assert.equal((await mod.migrateDown({ confirm: true })).reverted, '0003_category_hierarchy');
+  const a = await mod.query(`INSERT INTO ${T.categories} (slug, name, show_in_menu, menu_order, is_featured) VALUES ('alpha', 'Alpha', 1, 1, 1)`);
+  const b = await mod.query(`INSERT INTO ${T.categories} (slug, name) VALUES ('beta', 'Beta')`);
+  const p = await mod.query(`INSERT INTO ${T.posts} (slug, title, content_html, primary_category_id) VALUES ('in-alpha', 'In alpha', '<p>x</p>', ?)`, [a.insertId]);
+  await mod.query(`INSERT INTO ${T.postCategories} (post_id, category_id) VALUES (?, ?)`, [p.insertId, a.insertId]);
+  const rows = async () => mod.query(`SELECT id, slug, name, show_in_menu, menu_order, is_featured, created_at, updated_at FROM ${T.categories} ORDER BY id`);
+  const rows0002 = await rows();
+  const schema0002 = await schemaSnapshot();
+
+  assert.deepEqual((await mod.migrateUp()).applied, ['0003_category_hierarchy']);
+  assert.deepEqual(await rows(), rows0002, 'every category row and id unchanged (updated_at included)');
+  const schema0003 = await schemaSnapshot();
+  assert.deepEqual(Object.keys(schema0002).filter((t) => schema0002[t] !== schema0003[t]), [T.categories], 'only atlasnews_categories changes');
+  const col = (await columnsOf(T.categories)).find((x) => x.c === 'parent_id');
+  assert.match(col.t, /^int(\(10\))? unsigned$/, 'same type as categories.id');
+  assert.equal(col.n, 'YES');
+  const parents = await mod.query(`SELECT COUNT(*) AS n FROM ${T.categories} WHERE parent_id IS NOT NULL`);
+  assert.equal(Number(parents[0].n), 0, 'every existing category is a root');
+  assert.match(schema0003[T.categories], /FOREIGN KEY \(`parent_id`\) REFERENCES `atlasnews_categories` \(`id`\) ON UPDATE CASCADE/);
+  assert.doesNotMatch(schema0003[T.categories], /parent_id`\) REFERENCES[^\n]*ON DELETE (CASCADE|SET NULL)/, 'RESTRICT is the server default and is not spelled out');
+
+  /* the database itself: a parent must exist; a parent with children cannot be deleted */
+  await assert.rejects(mod.query(`UPDATE ${T.categories} SET parent_id = 999999 WHERE id = ?`, [b.insertId]), /ER_NO_REFERENCED_ROW/);
+  await mod.query(`UPDATE ${T.categories} SET parent_id = ? WHERE id = ?`, [a.insertId, b.insertId]);
+  await assert.rejects(mod.query(`DELETE FROM ${T.categories} WHERE id = ?`, [a.insertId]), /ER_ROW_IS_REFERENCED/, 'no silent cascade, no silent re-rooting');
+  assert.equal((await mod.query(`SELECT parent_id FROM ${T.categories} WHERE id = ?`, [b.insertId]))[0].parent_id, a.insertId);
+  await mod.query(`UPDATE ${T.categories} SET parent_id = NULL WHERE id = ?`, [b.insertId]);
+
+  /* down: the schema returns exactly to 0002's and the rows survive */
+  assert.equal((await mod.migrateDown({ confirm: true })).reverted, '0003_category_hierarchy');
+  assert.deepEqual(await schemaSnapshot(), schema0002, 'down reverses 0003 exactly');
+  const noUpd = (rs) => rs.map(({ updated_at: _u, ...r }) => r);
+  assert.deepEqual(noUpd(await rows()), noUpd(rows0002));
+  assert.deepEqual((await mod.migrateUp()).applied, ['0003_category_hierarchy']);
+  assert.equal(await surveyFingerprint(), before);
+  await mod.query(`DELETE FROM ${T.posts}`);
+  await mod.query(`DELETE FROM ${T.categories}`);
 });
 
 test('paired rollback: an ALTER migration failing part-way reverts the steps that succeeded', { skip }, async () => {
@@ -417,7 +464,8 @@ test('migrations: down needs --confirm, drops only News tables, then up again', 
   await assert.rejects(mod.migrateDown(), /explicit confirmation/);
   /* 12 News tables + the foreign atlasnews_extra the ownership tests created */
   assert.equal((await tablesLike('atlasnews\\_%')).length, 13);
-  assert.equal((await mod.migrateDown({ confirm: true })).reverted, '0002_cms_schema_gaps', 'newest first');
+  assert.equal((await mod.migrateDown({ confirm: true })).reverted, '0003_category_hierarchy', 'newest first');
+  assert.equal((await mod.migrateDown({ confirm: true })).reverted, '0002_cms_schema_gaps');
   assert.equal((await tablesLike('atlasnews\\_%')).length, 13, 'reverting 0002 drops no table');
   const r = await mod.migrateDown({ confirm: true });
   assert.equal(r.reverted, '0001_initial_schema');
@@ -432,6 +480,6 @@ test('migrations: down needs --confirm, drops only News tables, then up again', 
   await assert.rejects(mod.migrateUp(), /already exist without migration bookkeeping: atlasnews_extra/);
   /* test cleanup of the fixture table (the test's own admin connection, never the runner) */
   await admin.query(`DROP TABLE \`${NAME}\`.atlasnews_extra`);
-  assert.deepEqual((await mod.migrateUp()).applied, ['0001_initial_schema', '0002_cms_schema_gaps']);
+  assert.deepEqual((await mod.migrateUp()).applied, ['0001_initial_schema', '0002_cms_schema_gaps', '0003_category_hierarchy']);
   assert.equal((await tablesLike('atlasnews\\_%')).length, 12);
 });

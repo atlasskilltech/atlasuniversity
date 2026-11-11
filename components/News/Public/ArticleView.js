@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import ArticleBody from './ArticleBody';
@@ -7,7 +8,7 @@ import { SectionHeading } from './Home';
 import { Kicker, StoryCard } from './StoryCard';
 import { ClockIcon } from './Icons';
 import { cx, DECK, FOCUS, META, NEWS_CONTAINER } from './ui';
-import { articleJsonLd, formatDate } from '@/lib/news/public/seo';
+import { articleJsonLd, breadcrumbCategories, formatDate } from '@/lib/news/public/seo';
 
 /**
  * One article as readers see it: header, featured image, body, categories and related stories.
@@ -28,16 +29,17 @@ export default function ArticleView({ article, related = [], jsonLd = true }) {
                   News
                 </Link>
               </li>
-              {article.category ? (
-                <>
+              {/* the primary category's full ancestor path (root first), or just the category */}
+              {breadcrumbCategories(article).map((c) => (
+                <Fragment key={c.slug}>
                   <li aria-hidden="true">/</li>
                   <li>
-                    <Link href={article.category.url} className={cx('hover:text-news-ink', FOCUS)}>
-                      {article.category.name}
+                    <Link href={c.url} className={cx('hover:text-news-ink', FOCUS)}>
+                      {c.name}
                     </Link>
                   </li>
-                </>
-              ) : null}
+                </Fragment>
+              ))}
             </ol>
           </nav>
           <Kicker category={article.category} />

@@ -94,6 +94,30 @@ test('schema: 0002 is additive — ALTER ADD only on existing News tables, paire
   assert.deepEqual(validateMigrations().created.get('0002_cms_schema_gaps'), [], '0002 creates no table');
 });
 
+test('schema: migration 0002 is frozen too — it is applied in production', () => {
+  assert.equal(MIGRATIONS[1].id, '0002_cms_schema_gaps');
+  assert.equal(checksum(MIGRATIONS[1]), 'b2e5712bf8b2f2e8c52f17a0fa127e8d525109f9dac9746954e6a970802ca3aa');
+});
+
+test('schema: 0003 adds only categories.parent_id (self-reference, ON DELETE RESTRICT), paired with an exact reverse', () => {
+  const m = MIGRATIONS.find((x) => x.id === '0003_category_hierarchy');
+  assert.ok(m);
+  assert.equal(MIGRATIONS.indexOf(m), 2, '0003 follows 0002');
+  assert.equal(m.pairedDown, true);
+  for (const sql of m.up) {
+    assert.match(sql, new RegExp(`^ALTER TABLE ${T.categories}\\b`));
+    assert.doesNotMatch(sql, /\b(DROP|MODIFY|CHANGE|RENAME)\b/i);
+  }
+  const all = m.up.join(' ');
+  assert.deepEqual(all.match(/ADD COLUMN (\w+)/g), ['ADD COLUMN parent_id']);
+  assert.match(all, /parent_id INT UNSIGNED NULL/, 'nullable, same type as categories.id');
+  assert.match(all, new RegExp(`FOREIGN KEY \\(parent_id\\) REFERENCES ${T.categories} \\(id\\) ON DELETE RESTRICT ON UPDATE CASCADE`));
+  assert.doesNotMatch(all, /ON DELETE (CASCADE|SET NULL)/, 'descendants are never deleted or re-rooted silently');
+  assert.deepEqual(m.down.join(' ').match(/DROP COLUMN (\w+)/g), ['DROP COLUMN parent_id']);
+  assert.match(m.down[0], /DROP FOREIGN KEY fk_atlasnews_categories_parent/, 'the key is dropped before the column');
+  assert.deepEqual(validateMigrations().created.get('0003_category_hierarchy'), [], 'creates no table');
+});
+
 test('schema guard: pairedDown is validated', () => {
   const base = { id: '0001_a', up: ['CREATE TABLE atlasnews_a (id INT)'], down: ['DROP TABLE IF EXISTS atlasnews_a'] };
   const alter = (t, c) => `ALTER TABLE ${t} ADD COLUMN ${c} INT NULL`;

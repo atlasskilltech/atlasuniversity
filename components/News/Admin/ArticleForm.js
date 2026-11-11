@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 import { api } from './api';
+import { indent, treeOrder } from './categoryTree';
 import MediaPicker, { articleSrcOf, thumbOf } from './MediaPicker';
 import RichEditor from './RichEditor';
 import { BTN_DANGER, BTN_GHOST, BTN_PRIMARY, BTN_SECONDARY, CARD, cx, ERR, formatDateTime, HINT, INPUT, INPUT_ERR, LABEL, StateBadge } from './ui';
@@ -307,13 +308,13 @@ export default function ArticleForm({ initial, categories }) {
             <p className={LABEL}>Categories</p>
             {categories.length ? (
               <ul className="max-h-[260px] space-y-1 overflow-y-auto pr-1">
-                {categories.map((c) => {
+                {treeOrder(categories).map((c) => {
                   const on = f.categoryIds.includes(c.id);
                   return (
                     <li key={c.id} className="flex items-center justify-between gap-2">
-                      <label className="flex min-w-0 items-center gap-2 text-[14px]">
+                      <label data-category-depth={c.depth} className={cx('flex min-w-0 items-center gap-2 text-[14px]', indent(c.depth))}>
                         <input type="checkbox" checked={on} onChange={() => toggleCategory(c.id)} className="h-4 w-4" />
-                        <span className="truncate">{c.name}</span>
+                        <span className="truncate" title={c.path.join(' › ')}>{c.label}</span>
                       </label>
                       {on ? (
                         <label className={cx('shrink-0 cursor-pointer rounded-full px-2 py-0.5 text-[11.5px] font-semibold', f.primaryCategoryId === c.id ? 'bg-[#14161a] text-white' : 'text-[#6b7180] hover:bg-[#eef0f3]')}>

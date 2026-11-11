@@ -422,6 +422,50 @@ try {
   r = await pub('/news/admin/api/articles');
   check('public: CMS APIs are not public', r.status === 401);
 
+  /* 7d. Category hierarchy over HTTP: API, parent archive, breadcrumbs, legacy nested URLs */
+  r = await req('POST', '/news/admin/api/categories', J({ name: 'Hier Root' }));
+  const hRoot = r.json.id;
+  r = await req('POST', '/news/admin/api/categories', J({ name: 'Hier Child', parentId: hRoot }));
+  const hChild = r.json.id;
+  check('hierarchy: child created through the API', r.status === 201 && hChild > 0, r.text.slice(0, 160));
+  r = await req('POST', '/news/admin/api/categories', J({ name: 'Hier Grand', parentId: hChild }));
+  const hGrand = r.json.id;
+  r = await req('PUT', `/news/admin/api/categories/${hRoot}`, J({ name: 'Hier Root', parentId: hGrand }));
+  check('hierarchy: a cycle through the API → 409 with a field message', r.status === 409 && r.json.code === 'category_cycle' && r.json.fields?.parentId, r.text.slice(0, 200));
+  r = await req('DELETE', `/news/admin/api/categories/${hChild}`, { cookie: CK });
+  check('hierarchy: deleting a parent with children → 409 category_has_children', r.status === 409 && r.json.code === 'category_has_children', r.status);
+  r = await req('POST', '/news/admin/api/articles', J({ title: 'Hierarchy story', status: 'published', contentHtml: '<p>Deep</p>', categoryIds: [hGrand] }));
+  const hArt = r.json.id;
+  check('hierarchy: article published in the grandchild', r.status === 201, r.text.slice(0, 160));
+  r = await pub('/news/category/hier-root');
+  check('hierarchy: the ROOT archive lists the grandchild’s article', r.status === 200 && r.text.includes('Hierarchy story'), r.status);
+  r = await pub('/news/hierarchy-story');
+  const crumbs = [...r.text.matchAll(/aria-label="Breadcrumb"[\s\S]*?<\/nav>/g)][0]?.[0] || '';
+  const order = ['>News<', '>Hier Root<', '>Hier Child<', '>Hier Grand<'].map((s) => crumbs.indexOf(s));
+  check('hierarchy: the article breadcrumb shows the full path, root first', order.every((i) => i >= 0) && order.every((v, i) => i === 0 || v > order[i - 1]), order);
+  const ld = [...r.text.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => JSON.parse(m[1])).flat().find((x) => x['@type'] === 'BreadcrumbList');
+  check('hierarchy: BreadcrumbList structured data = News › Root › Child › Grand › article, positions 1..5',
+    ld && ld.itemListElement.map((e) => e.name).join('|') === 'ATLAS News|Hier Root|Hier Child|Hier Grand|Hierarchy story' && ld.itemListElement.every((e, i) => e.position === i + 1),
+    JSON.stringify(ld?.itemListElement?.map((e) => [e.position, e.name])));
+  check('hierarchy: canonical unchanged (the article’s own flat URL)', r.text.includes('rel="canonical" href="https://atlasuniversity.edu.in/news/hierarchy-story"'));
+  r = await pub('/news/category/hier-root/hier-child/hier-grand');
+  check('legacy URL: complete chain → permanent redirect to the flat category URL', [301, 308].includes(r.status) && (r.headers.get('location') || '').endsWith('/news/category/hier-grand'), `${r.status} ${r.headers.get('location')}`);
+  r = await pub('/news/category/hier-root/hier-child/page/2');
+  check('legacy URL: pagination kept', [301, 308].includes(r.status) && (r.headers.get('location') || '').endsWith('/news/category/hier-child/page/2'), `${r.status} ${r.headers.get('location')}`);
+  r = await pub('/news/category/hier-child/hier-grand');
+  check('legacy URL: partial chain → 404', r.status === 404, r.status);
+  r = await pub('/news/category/public-desk-2/hier-grand');
+  check('legacy URL: wrong ancestor → 404', r.status === 404, r.status);
+  r = await pub('/news/category/hier-root/nope');
+  check('legacy URL: unknown slug → 404', r.status === 404, r.status);
+  r = await pub('/news/category/hier-grand');
+  check('flat category URL still 200 (no redirect loop)', r.status === 200, r.status);
+  r = await pub('/news/category/hier-root/page/1');
+  check('existing /page/1 route unchanged (redirect to the base URL)', [301, 308].includes(r.status) && (r.headers.get('location') || '').endsWith('/news/category/hier-root'), r.status);
+  r = await pub('/news/hierarchy-story/extra');
+  check('article routes untouched: /news/<slug>/<extra> → 404', r.status === 404, r.status);
+  await req('DELETE', `/news/admin/api/articles/${hArt}`, { cookie: CK });
+
   /* 8. page authentication: direct, RSC, expired — on the dashboard AND the system page */
   const DATA = [DB.name, 'Migrations applied', 'Table prefix', '>Foundation status</h1>', `127.0.0.1:${stub.port}`, '>Dashboard</h1>', 'Live articles', 'Recently edited'];
   const treeFor = (leaf) => encodeURIComponent(JSON.stringify(['', { children: ['news', { children: ['admin', { children: ['(panel)', { children: leaf }, null, null] }, null, null] }, null, null] }, null, null, true]));
