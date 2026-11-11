@@ -19,7 +19,8 @@ export default function CategoryManager({ items }) {
   const [message, setMessage] = useState(null);
   const [busy, setBusy] = useState(false);
   const [picker, setPicker] = useState(false);
-  const inMenu = items.filter((c) => c.showInMenu).length;
+  /* only top-level entries count against the limit; a sub-category in the menu appears in its parent's dropdown */
+  const inMenu = items.filter((c) => c.showInMenu && !c.parentId).length;
   const tree = treeOrder(items);
   const labelOf = new Map(tree.map((c) => [c.id, c.label]));
 
@@ -71,7 +72,7 @@ export default function CategoryManager({ items }) {
           </div>
         ) : null}
         <p className="mb-3 text-[13px] text-[#5b6170]">
-          {inMenu} of {MAX_MENU} navigation places used. Menu order: lower numbers first. Sub-categories are listed under their parent.
+          {inMenu} of {MAX_MENU} top-level navigation places used. A sub-category shown in the navigation appears in its parent&apos;s dropdown (when the parent is in the navigation too). Menu order: lower numbers first, among the category&apos;s siblings.
         </p>
         <div className={cx(CARD, '!p-0 overflow-hidden')}>
           {items.length ? (
@@ -164,7 +165,7 @@ export default function CategoryManager({ items }) {
             <div className="grid grid-cols-[1fr_110px] items-end gap-3">
               <label className="flex items-center gap-2 text-[14px] font-medium">
                 <input type="checkbox" checked={edit.showInMenu} onChange={(e) => set('showInMenu', e.target.checked)} className="h-4 w-4" />
-                Show in navigation
+                {edit.parentId ? 'Show in the parent’s dropdown' : 'Show in navigation'}
               </label>
               <div>
                 <label className={LABEL} htmlFor="c-order">Menu order</label>

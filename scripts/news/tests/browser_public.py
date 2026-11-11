@@ -74,6 +74,41 @@ with sync_playwright() as p:
             common('home')
             pg.screenshot(path=os.path.join(OUT, f'public-home-{w}-{scheme}.png'), full_page=True)
 
+            # ---- navigation dropdowns (a menu category with menu sub-categories)
+            if w >= 992:
+                toggle = pg.locator('nav[aria-label="Sections"] button[aria-label$=": show sections"]:visible').first
+                check(f'{tag} nav: a dropdown toggle exists', toggle.count() == 1)
+                if toggle.count():
+                    panel = pg.locator('[id="%s"]' % toggle.get_attribute('aria-controls'))
+                    item = toggle.locator('xpath=ancestor::li[1]')
+                    item.hover()
+                    pg.wait_for_timeout(150)
+                    check(f'{tag} nav: hover opens the dropdown', panel.is_visible() and toggle.get_attribute('aria-expanded') == 'true')
+                    links = panel.locator('a')
+                    check(f'{tag} nav: the dropdown lists its sub-categories', links.count() >= 2, links.count())
+                    ovf = pg.evaluate('() => document.documentElement.scrollWidth - document.documentElement.clientWidth')
+                    check(f'{tag} nav: an open dropdown causes no horizontal overflow', ovf <= 0, ovf)
+                    pg.mouse.move(5, 5)
+                    pg.wait_for_timeout(150)
+                    check(f'{tag} nav: moving away closes it', not panel.is_visible())
+                    toggle.focus()
+                    pg.keyboard.press('Enter')
+                    check(f'{tag} nav: Enter on the toggle opens it (keyboard)', panel.is_visible())
+                    pg.keyboard.press('Escape')
+                    check(f'{tag} nav: Escape closes it and returns focus to the toggle', (not panel.is_visible()) and pg.evaluate('() => document.activeElement?.getAttribute("aria-label") || ""').endswith(': show sections'))
+            else:
+                pg.click('button[aria-controls="news-mobile-menu"]')
+                sub = pg.locator('#news-mobile-menu button[aria-label$=": show sections"]').first
+                check(f'{tag} mobile nav: a section with sub-sections can expand', sub.count() == 1)
+                if sub.count():
+                    target = pg.locator('[id="%s"]' % sub.get_attribute('aria-controls'))
+                    check(f'{tag} mobile nav: collapsed at first', not target.is_visible())
+                    sub.click()
+                    check(f'{tag} mobile nav: expands to show its sub-sections', target.is_visible() and target.locator('a').count() >= 1)
+                    ovf = pg.evaluate('() => document.documentElement.scrollWidth - document.documentElement.clientWidth')
+                    check(f'{tag} mobile nav: no horizontal overflow when expanded', ovf <= 0, ovf)
+                pg.keyboard.press('Escape')
+
             # ---- article
             pg.goto(BASE + ARTICLE, wait_until='networkidle')
             check(f'{tag} article: heading', pg.locator('h1', has_text=LEAD).count() == 1)

@@ -466,6 +466,46 @@ try {
   check('article routes untouched: /news/<slug>/<extra> → 404', r.status === 404, r.status);
   await req('DELETE', `/news/admin/api/articles/${hArt}`, { cookie: CK });
 
+  /* 7e. Navigation dropdowns and homepage sections (the old WordPress structure, as CMS data) */
+  r = await req('POST', '/news/admin/api/categories', J({ name: 'Nav Root', showInMenu: true, menuOrder: 3 }));
+  const navRoot = r.json.id;
+  r = await req('POST', '/news/admin/api/categories', J({ name: 'Nav Child', showInMenu: true, menuOrder: 10, parentId: navRoot }));
+  const navChild = r.json.id;
+  r = await req('POST', '/news/admin/api/categories', J({ name: 'Nav Grandchild', showInMenu: true, menuOrder: 10, parentId: navChild }));
+  r = await req('POST', '/news/admin/api/categories', J({ name: 'Nav Hidden Child', showInMenu: false, parentId: navRoot }));
+  r = await req('POST', '/news/admin/api/articles', J({ title: 'Section story one', status: 'published', contentHtml: '<p>One</p>', categoryIds: [navChild] }));
+  const secArt = r.json.id;
+  r = await pub('/news');
+  const navHtml = (r.text.match(/<nav aria-label="Sections"[\s\S]*?<\/nav>/) || [''])[0];
+  check('nav: a menu category with sub-categories gets a dropdown toggle', r.text.includes('aria-label="Nav Root: show sections"'), r.status);
+  check('nav: the dropdown lists sub-categories in the menu, any depth', navHtml.includes('href="/news/category/nav-child"') && navHtml.includes('href="/news/category/nav-grandchild"'));
+  check('nav: a sub-category NOT in the menu is not listed', !navHtml.includes('nav-hidden-child'));
+  const footer = (r.text.match(/<footer[\s\S]*?<\/footer>/) || [''])[0];
+  check('footer: top-level sections only', footer.includes('href="/news/category/nav-root"') && !footer.includes('href="/news/category/nav-child"'));
+  for (const slug of ['nav-root', 'nav-child', 'nav-grandchild']) check(`nav link /news/category/${slug} → 200`, (await pub(`/news/category/${slug}`)).status === 200);
+
+  r = await req('GET', '/news/admin/api/homepage/sections', { cookie: CK });
+  check('sections API: readable by the admin; none configured yet', r.status === 200 && Array.isArray(r.json.sections) && r.json.sections.length === 0 && r.json.configured === false, r.text.slice(0, 160));
+  check('sections API: not public', (await pub('/news/admin/api/homepage/sections')).status === 401);
+  r = await req('PUT', '/news/admin/api/homepage/sections', J({ sections: [{ layout: 'grid', title: 'X', categoryIds: [999999], count: 40 }] }));
+  check('sections API: invalid → 400 with field messages, nothing saved', r.status === 400 && r.json.fields?.['sections.0.categoryIds'] && r.json.fields?.['sections.0.count'], r.text.slice(0, 200));
+  r = await req('PUT', '/news/admin/api/homepage/sections', J({ sections: [
+    { layout: 'heading', title: 'Restored Group' },
+    { layout: 'headlines', title: 'Restored Headlines', categoryIds: [navRoot], count: 4, width: 'half' },
+    { layout: 'grid', title: 'Restored Grid', categoryIds: [navChild], count: 3, width: 'half' },
+  ] }));
+  check('sections API: saved', r.status === 200 && r.json.sections.length === 3, r.text.slice(0, 200));
+  r = await pub('/news');
+  check('homepage: configured sections render in order, with their titles', ['Restored Group', 'Restored Headlines', 'Restored Grid'].map((t) => r.text.indexOf(`>${t}<`)).every((v, i, a) => v > 0 && (i === 0 || v > a[i - 1])), r.status);
+  check('homepage: a section reads its category AND sub-categories', r.text.includes('Section story one'));
+  check('homepage: the section title links to its single category', r.text.includes('href="/news/category/nav-root"'));
+  r = await req('GET', '/news/admin/homepage', { cookie: CK, origin: null });
+  check('admin Homepage page shows the Sections editor', r.status === 200 && r.text.includes('Save sections') && r.text.includes('Restored Headlines'), r.status);
+  r = await req('PUT', '/news/admin/api/homepage/sections', J({ sections: [] }));
+  r = await pub('/news');
+  check('homepage: an empty section list falls back to the automatic category sections', !r.text.includes('Restored Headlines'), r.status);
+  await req('DELETE', `/news/admin/api/articles/${secArt}`, { cookie: CK });
+
   /* 8. page authentication: direct, RSC, expired — on the dashboard AND the system page */
   const DATA = [DB.name, 'Migrations applied', 'Table prefix', '>Foundation status</h1>', `127.0.0.1:${stub.port}`, '>Dashboard</h1>', 'Live articles', 'Recently edited'];
   const treeFor = (leaf) => encodeURIComponent(JSON.stringify(['', { children: ['news', { children: ['admin', { children: ['(panel)', { children: leaf }, null, null] }, null, null] }, null, null] }, null, null, true]));

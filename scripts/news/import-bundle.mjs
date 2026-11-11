@@ -91,6 +91,9 @@ async function doApply() {
   log(`published:  +${P.published.created} insert, ${P.published.updated} update, ${P.published.unchanged} unchanged, ${P.published.protected} protected (edited in the CMS), ${P.published.skipped} skipped`);
   log(`drafts:     +${P.draft.created} insert, ${P.draft.updated} update, ${P.draft.unchanged} unchanged, ${P.draft.protected} protected, ${P.draft.skipped} skipped`);
   log(`redirects:  +${report.redirects.created} new, ${report.redirects.existing} existing, ${report.redirects.skipped.length} skipped`);
+  log(`menu:       ${report.menu.set} categories into the navigation, ${report.menu.unchanged} unchanged, ${report.menu.protected.length} protected (edited in the CMS)${report.menu.topLevel !== null ? `; top-level entries now ${report.menu.topLevel}` : ''}`);
+  log(`homepage:   ${report.homepage.count} sections — ${report.homepage.result || 'none in the bundle'}`);
+  for (const s of report.menu.protected.slice(0, 20)) log(`  menu protected term#${s.termId}: ${s.reason}`);
   for (const s of report.skippedPosts.slice(0, 20)) log(`  skipped wp#${s.wpId} ${s.slug}: ${s.reason}`);
   for (const s of report.protectedPosts.slice(0, 20)) log(`  protected wp#${s.wpId} ${s.slug}: ${s.reason}`);
   if (report.duplicates) log(`duplicates by WordPress id: ${JSON.stringify(report.duplicates)}`);

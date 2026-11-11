@@ -162,7 +162,11 @@ test('deletion: a leaf that still has articles is refused (existing rule unchang
 
 test('existing rules still hold for nested categories: menu limit, slug rename redirect', { skip }, async () => {
   for (let i = 0; i < 8; i++) await m.createCategory({ name: `Menu ${i}`, showInMenu: true });
-  await cmsRejects(m.createCategory({ name: 'Ninth', showInMenu: true, parentId: ids.global }), 409, 'menu_full');
+  /* the limit counts TOP-LEVEL entries only: a ninth root is refused, a sub-category in a dropdown is not */
+  await cmsRejects(m.createCategory({ name: 'Ninth', showInMenu: true }), 409, 'menu_full');
+  const sub = await m.createCategory({ name: 'Ninth (sub)', showInMenu: true, parentId: ids.global });
+  assert.ok(sub.id, 'a sub-category may join the menu with 8 top-level entries');
+  await cmsRejects(m.updateCategory(sub.id, { name: 'Ninth (sub)', showInMenu: true, parentId: null }), 409, 'menu_full');
   const r = await m.updateCategory(ids.masterclass, { name: 'Masterclass', slug: 'masterclasses' });
   assert.equal(r.redirectFrom, '/news/category/masterclass');
   assert.equal(r.parentId, ids.industry, 'renaming the slug keeps the parent');

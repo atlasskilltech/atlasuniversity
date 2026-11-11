@@ -81,7 +81,7 @@ const full = (a, side) => a && { ...card(a, side), contentHtml: a.contentHtml, s
 
 test('empty database: a quiet homepage, no navigation, 404s — never sample content', { skip }, async () => {
   const h = await q.getHomepage();
-  assert.deepEqual({ ...h }, { lead: null, companions: [], spotlight: null, latest: [], sections: [], picks: [], categories: [] });
+  assert.deepEqual({ ...h }, { lead: null, companions: [], spotlight: null, latest: [], sections: [], configured: null, picks: [], categories: [] });
   assert.deepEqual(await q.getNavigation(), []);
   assert.equal(await q.getArticleBySlug('a-graduating-class-steps-into-a-world-still-being-written'), null);
   assert.equal(await q.getCategoryPage('academic', 1), null);
@@ -95,7 +95,8 @@ test('equivalence: seeded with the Stage 2 content, every public query matches t
   assert.equal(s.postId.size, seed.ARTICLES.length);
 
   /* navigation */
-  assert.deepEqual(await q.getNavigation(), await ref.getNavigation());
+  /* the navigation is now a tree; the Stage 2 seed has no sub-categories in the menu, so every entry's children are [] */
+  assert.deepEqual(await q.getNavigation(), (await ref.getNavigation()).map((c) => ({ ...c, children: [] })));
 
   /* homepage: hero (lead + 2 left + 2 right), latest, sections, spotlight */
   const [h, r] = [await q.getHomepage(), await ref.getHomepage()];

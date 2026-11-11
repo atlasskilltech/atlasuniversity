@@ -99,3 +99,8 @@ export const YouTubeIcon = (p) => (
     <path d="m10.5 9.5 4 2.5-4 2.5Z" />
   </Svg>
 );
+export const ChevronDownIcon = (p) => (
+  <Svg {...p}>
+    <path d="m6 9 6 6 6-6" />
+  </Svg>
+);

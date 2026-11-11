@@ -1,4 +1,5 @@
 import { BriefPanel, CategorySection, EditorsPicks, HomeHero, LatestStrip, Spotlight } from '@/components/News/Public/Home';
+import HomeSections from '@/components/News/Public/HomeSections';
 import JsonLd from '@/components/News/Public/JsonLd';
 import { cx, KICKER, NEWS_CONTAINER } from '@/components/News/Public/ui';
 import { getHomepage, getIndexingEnabled } from '@/lib/news/public/repository';
@@ -47,11 +48,18 @@ export default async function NewsHomePage() {
       <h1 className="sr-only">{NEWS_NAME}</h1>
       {home.lead ? <HomeHero lead={home.lead} companions={home.companions} /> : <EmptyPublication />}
       <LatestStrip articles={home.latest} />
-      {firstSection ? <CategorySection {...firstSection} /> : null}
-      <Spotlight article={home.spotlight} />
-      {moreSections.map((s, i) => (
-        <CategorySection key={s.category.slug} {...s} flip={i % 2 === 0} />
-      ))}
+      {home.configured ? (
+        /* the sections configured in the admin (seeded from the old WordPress homepage) */
+        <HomeSections sections={home.configured} spotlight={home.spotlight} />
+      ) : (
+        <>
+          {firstSection ? <CategorySection {...firstSection} /> : null}
+          <Spotlight article={home.spotlight} />
+          {moreSections.map((s, i) => (
+            <CategorySection key={s.category.slug} {...s} flip={i % 2 === 0} />
+          ))}
+        </>
+      )}
       {home.picks.length ? (
         <div className={`${NEWS_CONTAINER} mt-20 grid gap-14 md:mt-28 lg:grid-cols-12 lg:gap-12`}>
           <div className="lg:col-span-7">

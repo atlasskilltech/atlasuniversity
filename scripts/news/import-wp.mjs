@@ -115,6 +115,8 @@ async function main() {
   log(`media: images +${report.media.imagesCreated} (${report.media.imagesReused} reused), videos +${report.media.videosCreated} (${report.media.videosReused} reused); sources ${JSON.stringify(report.media.sourceKinds)}`);
   log(`featured linked: ${report.featured.linked}, featured missing: ${report.featured.missing.length}; images missing: ${report.missingImages.length}, failed: ${report.failedMedia.length}, videos missing: ${report.missingVideos.length}`);
   log(`skipped: ${report.skippedPosts.length}, protected (edited in CMS): ${report.protectedPosts.length}, slugs adjusted: ${report.slugAdjusted.length}, redirects +${report.redirects.created}`);
+  log(`menu "${report.menu.name}": ${report.menu.set} categories into the navigation, ${report.menu.unchanged} unchanged, ${report.menu.protected.length} protected; ignored ${JSON.stringify(report.menu.ignored)}; mismatches ${report.menu.mismatches.length}`);
+  log(`homepage sections: ${report.homepage.count} — ${report.homepage.result}; skipped ${report.homepage.skipped.length} old blocks (see report.json)`);
   log(`duplicates by WordPress id: ${JSON.stringify(report.duplicates)}`);
   log(`report: ${dir}`);
 }

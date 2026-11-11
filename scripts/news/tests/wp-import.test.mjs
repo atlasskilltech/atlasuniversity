@@ -26,8 +26,8 @@ function table(name, cols, rows) {
   const ins = rows.length ? `INSERT INTO \`${P}${name}\` (${cols.map((c) => `\`${c}\``).join(', ')}) VALUES\n${rows.map((r) => `(${cols.map((c) => sqlVal(r[c] ?? null)).join(', ')})`).join(',\n')};\n` : '';
   return create + ins;
 }
-const POSTCOLS = ['ID', 'post_author', 'post_date', 'post_date_gmt', 'post_content', 'post_title', 'post_excerpt', 'post_status', 'post_name', 'post_modified', 'post_modified_gmt', 'post_parent', 'post_type', 'post_mime_type'];
-const post = (o) => ({ post_author: '1', post_excerpt: '', post_parent: '0', post_mime_type: '', post_modified: o.post_date, post_modified_gmt: o.post_date_gmt ?? o.post_date, ...o });
+const POSTCOLS = ['ID', 'post_author', 'post_date', 'post_date_gmt', 'post_content', 'post_title', 'post_excerpt', 'post_status', 'post_name', 'post_modified', 'post_modified_gmt', 'post_parent', 'menu_order', 'post_type', 'post_mime_type'];
+const post = (o) => ({ post_author: '1', post_excerpt: '', post_parent: '0', menu_order: '0', post_mime_type: '', post_modified: o.post_date, post_modified_gmt: o.post_date_gmt ?? o.post_date, ...o });
 const U = 'https://atlasuniversity.edu.in/news/wp-content/uploads';
 const attMeta = (file, w, h, sizes = {}) => {
   const ser = (s) => `s:${Buffer.byteLength(s)}:"${s}";`;
@@ -61,24 +61,48 @@ function dumpSql() {
     post({ ID: '101', post_date: '2023-05-10 07:00:00', post_content: '', post_title: 'second', post_status: 'inherit', post_name: 'second', post_type: 'attachment', post_mime_type: 'image/jpeg' }),
     post({ ID: '102', post_date: '2023-05-10 07:00:00', post_content: '', post_title: 'clip', post_status: 'inherit', post_name: 'clip', post_type: 'attachment', post_mime_type: 'video/mp4' }),
     post({ ID: '103', post_date: '2023-05-10 07:00:00', post_content: '', post_title: 'gone', post_status: 'inherit', post_name: 'gone', post_type: 'attachment', post_mime_type: 'image/jpeg' }),
+    /* the header menu: a page link, Industry, and Masterclass under it; plus a theme demo menu */
+    ...[['300', '1', 'Home'], ['301', '2', ''], ['302', '3', ''], ['400', '1', 'Vibe Weather']].map(([ID, order, title]) =>
+      post({ ID, post_date: '2023-01-01 00:00:00', post_content: '', post_title: title, post_status: 'publish', post_name: ID, post_type: 'nav_menu_item', menu_order: order })),
+    post({ ID: '200', post_date: '2023-01-01 00:00:00', post_content: '', post_title: 'Home', post_status: 'publish', post_name: 'home', post_type: 'page' }),
   ];
+  const elementor = JSON.stringify([
+    { elType: 'section', elements: [{ elType: 'column', elements: [
+      { elType: 'widget', widgetType: 'posts-block-item-two', settings: { post_categories: [], post_number: 3, post_block_title: "What's Happening" } },
+      { elType: 'widget', widgetType: 'posts-blocklist', settings: { post_block_title: 'x', post_list_sec_title: 'TOP HEADLINES', post_categories: ['events', 'masterclass'], post_number: 5 } },
+    ] }] },
+    { elType: 'section', elements: [{ elType: 'column', elements: [{ elType: 'widget', widgetType: 'heading', settings: { title: '<span>More Stories</span>' } }] }] },
+    { elType: 'section', elements: [{ elType: 'column', elements: [
+      { elType: 'widget', widgetType: 'posts-tab-one', settings: { tab_title_text: 'ACADEMICS', post_number: 6, tabs: [{ tab_menu_name: 'All', post_categories: ['industry'] }, { tab_menu_name: 'Events', post_categories: ['events'] }, { tab_menu_name: 'INSOFE', post_categories: ['insofe'] }] } },
+      { elType: 'widget', widgetType: 'image', settings: { image: { url: 'https://example.com/banner.png' } } },
+    ] }] },
+    { elType: 'section', elements: [{ elType: 'column', elements: [
+      { elType: 'widget', widgetType: 'heading', settings: { title: 'LATEST' } },
+      { elType: 'widget', widgetType: 'posts-video-block', settings: { video_post_block_title: 'GLOBAL CONNECT', post_categories: ['globalconnect'], post_number: 3 } },
+    ] }] },
+  ]);
   const meta = [
+    ['200', '_elementor_data', elementor],
+    ['300', '_menu_item_type', 'post_type'], ['300', '_menu_item_object', 'page'], ['300', '_menu_item_object_id', '200'], ['300', '_menu_item_menu_item_parent', '0'],
+    ['301', '_menu_item_type', 'taxonomy'], ['301', '_menu_item_object', 'category'], ['301', '_menu_item_object_id', '2'], ['301', '_menu_item_menu_item_parent', '0'],
+    ['302', '_menu_item_type', 'taxonomy'], ['302', '_menu_item_object', 'category'], ['302', '_menu_item_object_id', '3'], ['302', '_menu_item_menu_item_parent', '301'],
+    ['400', '_menu_item_type', 'custom'], ['400', '_menu_item_object', 'custom'], ['400', '_menu_item_object_id', '400'], ['400', '_menu_item_url', '#'],
     ['10', '_thumbnail_id', '100'], ['11', '_thumbnail_id', '103'], ['10', '_yoast_wpseo_title', 'Rock &amp; Roll | ATLAS'],
     ['10', '_yoast_wpseo_metadesc', 'A description. '.repeat(45)], ['10', '_yoast_wpseo_primary_category', '3'], ['10', '_wp_old_slug', 'rock-day'],
     ['100', '_wp_attached_file', '2023/05/photo.jpg'], ['100', '_wp_attachment_metadata', attMeta('2023/05/photo.jpg', 1600, 1067, { large: ['photo-1024x683.jpg', 1024, 683], medium: ['photo-300x200.jpg', 300, 200] })],
     ['100', '_wp_attachment_image_alt', 'Students on stage'],
     ['101', '_wp_attached_file', '2023/05/second.jpg'], ['102', '_wp_attached_file', '2023/05/clip.mp4'], ['103', '_wp_attached_file', '2023/05/gone.jpg'],
   ].map(([post_id, meta_key, meta_value], i) => ({ meta_id: String(i + 1), post_id, meta_key, meta_value }));
-  const terms = [[1, 'Events &amp; Festivals', 'events'], [2, 'Industry', 'industry'], [3, 'Masterclass', 'masterclass'], [4, 'Homepage', 'homepage'], [5, 'Design', 'design-tag'], [6, 'Unused', 'unused-tag']];
-  const tt = [[1, 1, 'category', 0], [2, 2, 'category', 0], [3, 3, 'category', 2], [4, 4, 'category', 0], [5, 5, 'post_tag', 0], [6, 6, 'post_tag', 0]];
-  const rel = [[10, 1], [10, 3], [10, 4], [10, 5], [11, 3], [12, 2], [13, 1]];
+  const terms = [[1, 'Events &amp; Festivals', 'events'], [2, 'Industry', 'industry'], [3, 'Masterclass', 'masterclass'], [4, 'Homepage', 'homepage'], [5, 'Design', 'design-tag'], [6, 'Unused', 'unused-tag'], [7, 'Student Newsletter', 'student-newsletter'], [8, 'Footer Menu', 'footer-menu']];
+  const tt = [[1, 1, 'category', 0], [2, 2, 'category', 0], [3, 3, 'category', 2], [4, 4, 'category', 0], [5, 5, 'post_tag', 0], [6, 6, 'post_tag', 0], [7, 7, 'nav_menu', 0], [8, 8, 'nav_menu', 0]];
+  const rel = [[10, 1], [10, 3], [10, 4], [10, 5], [11, 3], [12, 2], [13, 1], [300, 7], [301, 7], [302, 7], [400, 8]];
   return [
     table('posts', POSTCOLS, posts),
     table('postmeta', ['meta_id', 'post_id', 'meta_key', 'meta_value'], meta),
     table('terms', ['term_id', 'name', 'slug', 'term_group', 'term_order'], terms.map(([a, b, c]) => ({ term_id: String(a), name: b, slug: c, term_group: '0', term_order: '0' }))),
     table('term_taxonomy', ['term_taxonomy_id', 'term_id', 'taxonomy', 'description', 'parent', 'count'], tt.map(([a, b, c, d]) => ({ term_taxonomy_id: String(a), term_id: String(b), taxonomy: c, description: '', parent: String(d), count: '0' }))),
     table('term_relationships', ['object_id', 'term_taxonomy_id', 'term_order'], rel.map(([a, b]) => ({ object_id: String(a), term_taxonomy_id: String(b), term_order: '0' }))),
-    table('options', ['option_id', 'option_name', 'option_value', 'autoload'], [{ option_id: '1', option_name: 'home', option_value: 'https://atlasuniversity.edu.in/news/', autoload: 'yes' }, { option_id: '2', option_name: 'admin_email', option_value: 'secret@example.com', autoload: 'yes' }]),
+    table('options', ['option_id', 'option_name', 'option_value', 'autoload'], [{ option_id: '1', option_name: 'home', option_value: 'https://atlasuniversity.edu.in/news/', autoload: 'yes' }, { option_id: '2', option_name: 'admin_email', option_value: 'secret@example.com', autoload: 'yes' }, { option_id: '3', option_name: 'page_on_front', option_value: '200', autoload: 'yes' }]),
     /* a plugin table sharing the prefix must not be mistaken for the core one */
     'CREATE TABLE `wpx_pmxe_posts` (\n  `id` text\n) ENGINE=InnoDB;\n',
   ].join('\n');
@@ -89,13 +113,55 @@ function dumpSql() {
 test('dump: core prefix detected past a plugin table; escapes, NULL and option allow-list', () => {
   const t = parseWordPressDump(dumpSql());
   assert.equal(t.prefix, P);
-  assert.equal(t.posts.length, 8);
+  assert.equal(t.posts.length, 12, 'posts, attachments and menu items — never pages, revisions or products');
   assert.ok(t.posts[0].post_content.includes('\n\n'), 'escaped newlines restored');
-  assert.deepEqual(t.options.map((o) => o.option_name), ['home'], 'non-allow-listed options (admin_email) are never read');
+  assert.deepEqual(t.options.map((o) => o.option_name), ['home', 'page_on_front'], 'non-allow-listed options (admin_email) are never read');
 });
 
 test('php unserialize counts UTF-8 bytes', () => {
   assert.deepEqual(phpUnserialize('a:2:{s:4:"file";s:13:"2023/é/x.jpg";s:5:"width";i:10;}'), { file: '2023/é/x.jpg', width: 10 });
+});
+
+test('model: the header menu and the homepage sections come from the dump, not from code', () => {
+  const m = buildModel(parseWordPressDump(dumpSql()));
+  assert.equal(m.menu.name, 'Student Newsletter', 'the menu with the most categories, not the theme demo menu');
+  assert.deepEqual(m.menu.items, [{ termId: 2, order: 10 }, { termId: 3, order: 10 }]);
+  assert.deepEqual(m.menu.ignored, ['Home'], 'the page link is not a category');
+  assert.deepEqual(m.menu.mismatches, []);
+  const h = m.homepage;
+  assert.deepEqual(h.sections.map((s) => [s.id, s.layout, s.title, s.width]), [
+    ['wp1', 'headlines', 'Top Headlines', 'full'],
+    ['wp2', 'heading', 'More Stories', undefined],
+    ['wp3', 'tabs', 'Academics', 'full'],
+  ]);
+  assert.deepEqual(h.sections[0].termIds, [1, 3]);
+  assert.deepEqual(h.sections[2].tabs.map((t) => [t.label, t.termIds]), [['All', [2]], ['Events', [1]]]);
+  assert.deepEqual(h.skipped.map((s) => s.widget), ['posts-block-item-two', 'posts-tab-one tab', 'image', 'posts-video-block', 'heading'],
+    'every old block that is not reproduced is reported, with its reason');
+});
+
+test('homepage sections: validation', async () => {
+  const { validateHomepageSections } = await import('../../../lib/news/cms/homepageSections.js');
+  const known = new Set([1, 2, 3]);
+  const ok = validateHomepageSections({ sections: [
+    { id: 'a', layout: 'headlines', title: '  Top  Headlines ', categoryIds: ['1', 2, 2, 'x'], count: 5, offset: 0, width: 'half' },
+    { id: 'b', layout: 'heading', title: 'More' },
+    { id: 'c', layout: 'tabs', title: 'Academics', count: 6, tabs: [{ label: 'All', categoryIds: [1] }, { label: 'ISDI', categoryIds: [2] }] },
+  ] }, known);
+  assert.equal(ok.ok, true, JSON.stringify(ok.errors));
+  assert.deepEqual(ok.value[0], { id: 'a', layout: 'headlines', title: 'Top Headlines', width: 'half', categoryIds: [1, 2], count: 5, offset: 0, tabs: [] });
+  assert.deepEqual([ok.value[1].count, ok.value[1].categoryIds], [0, []]);
+  const bad = validateHomepageSections({ sections: [
+    { layout: 'nope', categoryIds: [9], count: 0 },
+    { layout: 'heading', title: '' },
+    { layout: 'tabs', count: 3, tabs: [{ label: '', categoryIds: [] }] },
+    { layout: 'grid', categoryIds: [], count: 13, offset: 30 },
+  ] }, known);
+  assert.equal(bad.ok, false);
+  for (const k of ['sections.0.layout', 'sections.0.categoryIds', 'sections.0.count', 'sections.1.title', 'sections.2.tabs', 'sections.2.tabs.0.label', 'sections.2.tabs.0.categoryIds', 'sections.3.categoryIds', 'sections.3.count', 'sections.3.offset']) {
+    assert.ok(bad.errors[k], `expected an error at ${k}: ${JSON.stringify(bad.errors)}`);
+  }
+  assert.equal(validateHomepageSections({ sections: 'x' }, known).ok, false);
 });
 
 test('model: statuses, hierarchy, primary category, SEO, old slugs', () => {
@@ -314,6 +380,38 @@ test('import: a slug already used by a CMS article is not overwritten — the Wo
   assert.equal((await mod.query(`SELECT title FROM ${T.posts} WHERE slug = 'fresh-one'`))[0].title, 'Made in the CMS');
 });
 
+test('import: the old menu and homepage become CMS data — rendered from the database, editor changes protected', { skip }, async () => {
+  const pub = await import('../../../lib/news/public/queries.js');
+  const { saveHomepageSections, getHomepageSections } = await import('../../../lib/news/cms/homepageSections.js');
+  const cat = async (slug) => (await mod.query(`SELECT id, show_in_menu, menu_order FROM ${T.categories} WHERE slug = ?`, [slug]))[0];
+  assert.deepEqual([(await cat('industry')).show_in_menu, (await cat('industry')).menu_order, (await cat('masterclass')).show_in_menu, (await cat('events')).show_in_menu], [1, 10, 1, 0]);
+
+  const nav = await pub.getNavigation();
+  assert.deepEqual(nav.map((c) => [c.name, c.children.map((x) => x.name)]), [['Industry', ['Masterclass']]], 'a dropdown from the category tree');
+
+  const hs = await getHomepageSections();
+  assert.deepEqual(hs.sections.map((s) => [s.layout, s.title]), [['headlines', 'Top Headlines'], ['heading', 'More Stories'], ['tabs', 'Academics']]);
+  assert.deepEqual(hs.sections[0].categoryIds.sort(), [(await cat('events')).id, (await cat('masterclass')).id].sort(), 'WordPress term ids became this database\'s category ids');
+
+  const home = await pub.getHomepage();
+  assert.deepEqual(home.sections, [], 'configured sections replace the automatic category sections');
+  assert.deepEqual(home.configured.map((s) => s.layout), ['headlines', 'heading', 'tabs']);
+  assert.ok(home.configured[0].articles.length >= 1 && home.configured[2].tabs.length === 2, JSON.stringify(home.configured.map((s) => [s.layout, s.articles?.length, s.tabs?.length])));
+
+  /* a rerun changes nothing */
+  const again = await mod.runImport({ model: model(), mediaRoots: [media], dryRun: false, phase: 'posts' });
+  assert.deepEqual([again.menu.set, again.menu.protected.length, again.homepage.result], [0, 0, 'unchanged']);
+
+  /* editors change the menu order and a section title in the CMS: a rerun leaves both alone */
+  await mod.query(`UPDATE ${T.categories} SET menu_order = 5 WHERE slug = 'industry'`);
+  await saveHomepageSections({ sections: hs.sections.map((s, i) => (i === 0 ? { ...s, title: 'Headlines (edited)' } : s)) });
+  const third = await mod.runImport({ model: model(), mediaRoots: [media], dryRun: false, phase: 'posts' });
+  assert.deepEqual(third.menu.protected.map((p) => p.termId), [2]);
+  assert.equal(third.homepage.result, 'protected');
+  assert.equal((await cat('industry')).menu_order, 5);
+  assert.equal((await getHomepageSections()).sections[0].title, 'Headlines (edited)');
+});
+
 /* ------------------------------------------------------------------ bundle: export → encrypt → apply */
 
 test('bundle: AES-256-GCM round trip; a wrong key or a single changed byte is refused', async () => {
@@ -333,7 +431,7 @@ test('bundle: AES-256-GCM round trip; a wrong key or a single changed byte is re
 test('bundle: export from the import database, apply into a fresh database — identical, idempotent, editor-safe', { skip }, async () => {
   const { exportBundle, applyBundle, ASSET_TOKEN } = await import('../../../lib/news/import/bundle.js');
   const bundle = await exportBundle();
-  assert.deepEqual(bundle.counts, { categories: 4, tags: 1, media: 3, posts: 3, published: 2, drafts: 1, redirects: 1 });
+  assert.deepEqual(bundle.counts, { categories: 4, tags: 1, media: 3, posts: 3, published: 2, drafts: 1, redirects: 1, menuItems: 2, homepageSections: 3 });
   assert.ok(bundle.posts.every((p) => !p.html.includes('cdn.test.invalid')), 'no storage address leaves the machine');
   assert.ok(bundle.posts.find((p) => p.wpId === 10).html.includes(`${ASSET_TOKEN}/assets/news/media/2023/05/`));
   assert.ok(!JSON.stringify(bundle).includes('Private'), 'private posts are not in the import database, so not in the bundle');
@@ -362,6 +460,14 @@ test('bundle: export from the import database, apply into a fresh database — i
     assert.ok(p10.content_html.includes('<img src="https://cdn.production.invalid/assets/news/media/2023/05/'), 'asset references resolve to THIS server\'s storage');
     assert.ok(!p10.content_html.includes(ASSET_TOKEN));
     assert.equal((await mod.query(`SELECT name FROM ${T.categories} WHERE slug = 'industry'`))[0].name, 'Industry (made in the CMS)', 'a CMS category is linked, never renamed');
+
+    /* the navigation and the homepage sections travel with the bundle, mapped to THIS database's ids */
+    const pub = await import('../../../lib/news/public/queries.js');
+    assert.deepEqual((await pub.getNavigation()).map((c) => [c.name, c.children.map((x) => x.name)]), [['Industry (made in the CMS)', ['Masterclass']]]);
+    assert.equal(run.homepage.result, 'written');
+    const hs = JSON.parse((await mod.query(`SELECT setting_value FROM ${T.settings} WHERE setting_key = 'homepage_sections'`))[0].setting_value);
+    const targetIds = new Set((await mod.query(`SELECT id FROM ${T.categories}`)).map((r) => Number(r.id)));
+    assert.ok(hs.sections.length === 3 && hs.sections.every((x) => [...x.categoryIds, ...x.tabs.flatMap((t) => t.categoryIds)].every((id) => targetIds.has(id))));
 
     const again = await applyBundle(bundle, { dryRun: false });
     assert.deepEqual([again.posts.published.unchanged, again.posts.draft.unchanged, again.media.created, again.categories.created], [2, 1, 0, 0]);
