@@ -114,8 +114,9 @@ async function main() {
   log(`categories: +${report.categories.created} (${report.categories.existing} existing, ${report.categories.adopted} adopted, ${report.categories.errors.length} errors)   tags: +${report.tags.created} (${report.tags.existing} existing, ${report.tags.adopted} adopted, ${report.tags.errors.length} errors)`);
   log(`media: images +${report.media.imagesCreated} (${report.media.imagesReused} reused), videos +${report.media.videosCreated} (${report.media.videosReused} reused); sources ${JSON.stringify(report.media.sourceKinds)}`);
   log(`featured linked: ${report.featured.linked}, featured missing: ${report.featured.missing.length}; images missing: ${report.missingImages.length}, failed: ${report.failedMedia.length}, videos missing: ${report.missingVideos.length}`);
-  log(`skipped: ${report.skippedPosts.length}, protected (edited in CMS): ${report.protectedPosts.length}, slugs adjusted: ${report.slugAdjusted.length}, redirects +${report.redirects.created}`);
-  log(`menu "${report.menu.name}": ${report.menu.set} categories into the navigation, ${report.menu.unchanged} unchanged, ${report.menu.protected.length} protected; ignored ${JSON.stringify(report.menu.ignored)}; mismatches ${report.menu.mismatches.length}`);
+  log(`skipped: ${report.skippedPosts.length}, protected (edited in CMS): ${report.protectedPosts.length}, slugs adjusted: ${report.slugAdjusted.length}`);
+  log(`redirects: ${execute ? `+${report.redirects.created} created` : `${report.redirects.created} would create (missing)`}, ${report.redirects.existing} existing, ${report.redirects.conflicts.length} conflicts (left unchanged), ${report.redirects.skipped.length} skipped`);
+  log(`menu "${report.menu.name}": ${execute ? `${report.menu.set} categories put into` : `would put ${report.menu.set} categories into`} the navigation, ${report.menu.unchanged} unchanged, ${report.menu.protected.length} protected; ignored ${JSON.stringify(report.menu.ignored)}; mismatches ${report.menu.mismatches.length}`);
   log(`homepage sections: ${report.homepage.count} — ${report.homepage.result}; skipped ${report.homepage.skipped.length} old blocks (see report.json)`);
   log(`duplicates by WordPress id: ${JSON.stringify(report.duplicates)}`);
   log(`report: ${dir}`);

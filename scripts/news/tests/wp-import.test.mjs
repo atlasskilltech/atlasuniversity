@@ -88,7 +88,7 @@ function dumpSql() {
     ['302', '_menu_item_type', 'taxonomy'], ['302', '_menu_item_object', 'category'], ['302', '_menu_item_object_id', '3'], ['302', '_menu_item_menu_item_parent', '301'],
     ['400', '_menu_item_type', 'custom'], ['400', '_menu_item_object', 'custom'], ['400', '_menu_item_object_id', '400'], ['400', '_menu_item_url', '#'],
     ['10', '_thumbnail_id', '100'], ['11', '_thumbnail_id', '103'], ['10', '_yoast_wpseo_title', 'Rock &amp; Roll | ATLAS'],
-    ['10', '_yoast_wpseo_metadesc', 'A description. '.repeat(45)], ['10', '_yoast_wpseo_primary_category', '3'], ['10', '_wp_old_slug', 'rock-day'],
+    ['10', '_yoast_wpseo_metadesc', 'A description. '.repeat(45)], ['10', '_yoast_wpseo_primary_category', '3'], ['10', '_wp_old_slug', 'rock-day'], ['10', '_wp_old_slug', 'rock-n-roll-day'], ['11', '_wp_old_slug', 'second'],
     ['100', '_wp_attached_file', '2023/05/photo.jpg'], ['100', '_wp_attachment_metadata', attMeta('2023/05/photo.jpg', 1600, 1067, { large: ['photo-1024x683.jpg', 1024, 683], medium: ['photo-300x200.jpg', 300, 200] })],
     ['100', '_wp_attachment_image_alt', 'Students on stage'],
     ['101', '_wp_attached_file', '2023/05/second.jpg'], ['102', '_wp_attached_file', '2023/05/clip.mp4'], ['103', '_wp_attached_file', '2023/05/gone.jpg'],
@@ -175,7 +175,7 @@ test('model: statuses, hierarchy, primary category, SEO, old slugs', () => {
   assert.equal(m.posts[2].primaryTermId, 2);
   assert.equal(p.seoTitle, 'Rock & Roll | ATLAS');
   assert.ok(p.seoDescriptionCut && p.seoDescription.length <= 500 && p.seoDescription.endsWith('…'));
-  assert.deepEqual(p.oldSlugs, ['rock-day']);
+  assert.deepEqual(p.oldSlugs, ['rock-day', 'rock-n-roll-day']);
   assert.equal(m.posts[2].publishedAt, null, 'a draft has no publication date');
   assert.deepEqual(m.categories.map((c) => [c.slug, c.depth]), [['events', 0], ['industry', 0], ['homepage', 0], ['masterclass', 1]]);
   assert.equal(m.categories.find((c) => c.slug === 'masterclass').parentTermId, 2);
@@ -314,7 +314,7 @@ test('import: posts, hierarchy, media, drafts, redirects — and every gap repor
   assert.equal(r.media.sourceKinds.resized, 1, 'photo came from WordPress\'s 1024 copy, and says so');
   assert.deepEqual(r.featured.missing.map((f) => f.wpId), [11], 'post 11\'s featured image has no local copy');
   assert.deepEqual(r.missingImages.map((x) => x.attachmentId), [103]);
-  assert.equal(r.redirects.created, 1);
+  assert.equal(r.redirects.created, 3);
   assert.deepEqual(r.duplicates, { posts: 0, categories: 0, tags: 0, media: 0, redirects: 0 });
   assert.equal(r.slugAdjusted.length, 1, 'the draft had no slug');
 
@@ -333,7 +333,7 @@ test('import: posts, hierarchy, media, drafts, redirects — and every gap repor
   assert.deepEqual({ ...primary }, { slug: 'masterclass', parent: 'industry' });
   assert.equal(await count(T.postCategories, `post_id = ${p10.id}`), 3);
   assert.equal(await count(T.postTags, `post_id = ${p10.id}`), 1);
-  const [red] = await mod.query(`SELECT from_path, to_path, status_code, source FROM ${T.redirects}`);
+  const [red] = await mod.query(`SELECT from_path, to_path, status_code, source FROM ${T.redirects} WHERE from_path = '/news/rock-day'`);
   assert.deepEqual({ ...red }, { from_path: '/news/rock-day', to_path: '/news/rock-roll-day', status_code: 301, source: 'wp_old_slug' });
   const [d] = await mod.query(`SELECT status, published_at, slug FROM ${T.posts} WHERE legacy_wp_id = 12`);
   assert.deepEqual({ ...d }, { status: 'draft', published_at: null, slug: 'draft-idea' });
@@ -352,7 +352,7 @@ test('import: a rerun changes nothing and uploads nothing', { skip }, async () =
   assert.deepEqual([r.categories.created, r.tags.created, r.media.imagesCreated, r.media.videosCreated, r.redirects.created], [0, 0, 0, 0, 0]);
   assert.equal(stub.log.filter((e) => e.method === 'PUT').length, puts);
   assert.deepEqual(await mod.query(`SELECT id, updated_at, content_html FROM ${T.posts} ORDER BY id`), before);
-  assert.deepEqual([await count(T.posts), await count(T.categories), await count(T.tags), await count(T.media), await count(T.redirects)], [3, 4, 1, 3, 1]);
+  assert.deepEqual([await count(T.posts), await count(T.categories), await count(T.tags), await count(T.media), await count(T.redirects)], [3, 4, 1, 3, 3]);
 });
 
 test('import: a post edited in the CMS is never overwritten; a WordPress change to an untouched post is applied', { skip }, async () => {
@@ -431,7 +431,7 @@ test('bundle: AES-256-GCM round trip; a wrong key or a single changed byte is re
 test('bundle: export from the import database, apply into a fresh database — identical, idempotent, editor-safe', { skip }, async () => {
   const { exportBundle, applyBundle, ASSET_TOKEN } = await import('../../../lib/news/import/bundle.js');
   const bundle = await exportBundle();
-  assert.deepEqual(bundle.counts, { categories: 4, tags: 1, media: 3, posts: 3, published: 2, drafts: 1, redirects: 1, menuItems: 2, homepageSections: 3 });
+  assert.deepEqual(bundle.counts, { categories: 4, tags: 1, media: 3, posts: 3, published: 2, drafts: 1, redirects: 3, menuItems: 2, homepageSections: 3 });
   assert.ok(bundle.posts.every((p) => !p.html.includes('cdn.test.invalid')), 'no storage address leaves the machine');
   assert.ok(bundle.posts.find((p) => p.wpId === 10).html.includes(`${ASSET_TOKEN}/assets/news/media/2023/05/`));
   assert.ok(!JSON.stringify(bundle).includes('Private'), 'private posts are not in the import database, so not in the bundle');
@@ -442,6 +442,7 @@ test('bundle: export from the import database, apply into a fresh database — i
   await admin.query(`CREATE DATABASE \`${target}\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci`);
   await mod.closePool();
   process.env.DB_NAME = target;
+  const assetBase = process.env.NEXT_PUBLIC_ASSET_BASE_URL;
   process.env.NEXT_PUBLIC_ASSET_BASE_URL = 'https://cdn.production.invalid';
   try {
     await mod.migrateUp();
@@ -454,7 +455,7 @@ test('bundle: export from the import database, apply into a fresh database — i
     assert.equal(await count(T.media), 0);
 
     const run = await applyBundle(bundle, { dryRun: false });
-    assert.deepEqual([run.posts.published.created, run.posts.draft.created, run.redirects.created], [2, 1, 1]);
+    assert.deepEqual([run.posts.published.created, run.posts.draft.created, run.redirects.created], [2, 1, 3]);
     assert.deepEqual(run.duplicates, { posts: 0, categories: 0, tags: 0, media: 0, redirects: 0 });
     const [p10] = await mod.query(`SELECT title, content_html, primary_category_id FROM ${T.posts} WHERE legacy_wp_id = 10`);
     assert.ok(p10.content_html.includes('<img src="https://cdn.production.invalid/assets/news/media/2023/05/'), 'asset references resolve to THIS server\'s storage');
@@ -479,6 +480,84 @@ test('bundle: export from the import database, apply into a fresh database — i
     /* storage missing an object: a real run refuses before writing anything */
     const broken = { ...bundle, media: [...bundle.media, { ...bundle.media[0], ref: 999, sha256: 'f'.repeat(64), storageKey: 'assets/news/media/2023/05/missing-full.webp', variants: [] }] };
     await assert.rejects(applyBundle(broken, { dryRun: false }), /referenced media objects are missing/);
+  } finally {
+    await mod.closePool();
+    process.env.DB_NAME = NAME;
+    process.env.NEXT_PUBLIC_ASSET_BASE_URL = assetBase;
+    await admin.query(`DROP DATABASE IF EXISTS \`${target}\``);
+  }
+});
+
+test('bundle re-apply: redirect integrity, idempotency, protected menu, planned (not written) settings', { skip }, async () => {
+  const { exportBundle, applyBundle } = await import('../../../lib/news/import/bundle.js');
+  const bundle = await exportBundle();
+  const expected = bundle.posts.flatMap((p) => p.oldSlugs.map((o) => [`/news/${o}`, `/news/${p.slug}`])).sort();
+  assert.equal(expected.length, 3);
+  const target = NAME.replace(/_test$/, '_reapply_test');
+  await admin.query(`DROP DATABASE IF EXISTS \`${target}\``);
+  await admin.query(`CREATE DATABASE \`${target}\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci`);
+  await mod.closePool();
+  process.env.DB_NAME = target;
+  const redirects = async () => (await mod.query(`SELECT from_path, to_path FROM ${T.redirects} WHERE source = 'wp_old_slug' ORDER BY from_path`)).map((r) => [r.from_path, r.to_path]);
+  const snapshot = async () => JSON.stringify([
+    await mod.query(`SELECT * FROM ${T.redirects} ORDER BY id`),
+    await mod.query(`SELECT id, show_in_menu, menu_order FROM ${T.categories} ORDER BY id`),
+    await mod.query(`SELECT setting_key, setting_value FROM ${T.settings} ORDER BY setting_key`),
+    await mod.query(`SELECT id, updated_at FROM ${T.posts} ORDER BY id`),
+  ]);
+  try {
+    await mod.migrateUp();
+
+    /* a fresh database: the homepage sections and the menu are only PLANNED by a dry run */
+    let before = await snapshot();
+    const plan = await applyBundle(bundle, { dryRun: true });
+    assert.equal(plan.homepage.result, 'would write', 'reported as planned, not written');
+    assert.equal(plan.redirects.created, 3, 'all three would be created');
+    assert.equal(await snapshot(), before, 'a dry run writes nothing');
+    assert.equal(await count(T.settings, "setting_key = 'homepage_sections'"), 0);
+
+    const first = await applyBundle(bundle, { dryRun: false });
+    assert.equal(first.homepage.result, 'written');
+    assert.deepEqual(await redirects(), expected);
+
+    /* every redirect already exists: reported as existing, nothing to create */
+    const all = await applyBundle(bundle, { dryRun: true });
+    assert.deepEqual([all.redirects.created, all.redirects.existing, all.redirects.conflicts.length, all.redirects.skipped.length], [0, 3, 0, 0]);
+    assert.deepEqual([all.posts.published.unchanged, all.posts.draft.unchanged, all.homepage.result], [2, 1, 'unchanged']);
+
+    /* one redirect missing: the dry run reports it (and writes nothing); the real run recreates exactly it */
+    await mod.query(`DELETE FROM ${T.redirects} WHERE from_path = ?`, [expected[0][0]]);
+    before = await snapshot();
+    const missing = await applyBundle(bundle, { dryRun: true });
+    assert.deepEqual([missing.redirects.created, missing.redirects.existing], [1, 2]);
+    assert.equal(await snapshot(), before, 'still read-only');
+    const repair = await applyBundle(bundle, { dryRun: false });
+    assert.deepEqual([repair.redirects.created, repair.redirects.existing, repair.posts.published.unchanged], [1, 2, 2], 'only the missing redirect is written');
+    assert.deepEqual(await redirects(), expected);
+
+    /* an existing redirect pointing to the wrong article: a conflict, reported and left unchanged */
+    await mod.query(`UPDATE ${T.redirects} SET to_path = '/news/somewhere-else' WHERE from_path = ?`, [expected[1][0]]);
+    const conflict = await applyBundle(bundle, { dryRun: false });
+    assert.deepEqual(conflict.redirects.conflicts.map((c) => [c.from, c.current, c.expected]), [[expected[1][0], '/news/somewhere-else', expected[1][1]]]);
+    assert.equal(conflict.redirects.created, 0);
+    assert.equal((await mod.query(`SELECT to_path FROM ${T.redirects} WHERE from_path = ?`, [expected[1][0]]))[0].to_path, '/news/somewhere-else', 'never overwritten');
+    await mod.query(`UPDATE ${T.redirects} SET to_path = ? WHERE from_path = ?`, [expected[1][1], expected[1][0]]);
+
+    /* a manual redirect and a CMS menu setting the import must not touch */
+    await mod.query(`INSERT INTO ${T.redirects} (from_path, to_path, status_code, source) VALUES ('/news/editor-made', '/news/second-story', 301, 'manual')`);
+    await mod.query(`UPDATE ${T.categories} SET menu_order = 99 WHERE slug = 'industry'`);
+
+    /* repeated imports are idempotent */
+    before = await snapshot();
+    for (let i = 0; i < 2; i += 1) {
+      const again = await applyBundle(bundle, { dryRun: false });
+      assert.deepEqual([again.posts.published.created, again.posts.published.updated, again.redirects.created, again.redirects.existing, again.redirects.conflicts.length], [0, 0, 0, 3, 0]);
+      assert.deepEqual(again.menu.protected.map((p) => p.termId), [2], 'the edited menu entry is protected');
+      assert.equal(again.homepage.result, 'unchanged');
+    }
+    assert.equal(await snapshot(), before, 'two more imports changed nothing at all');
+    assert.equal((await mod.query(`SELECT menu_order FROM ${T.categories} WHERE slug = 'industry'`))[0].menu_order, 99);
+    assert.equal(await count(T.redirects, "source = 'manual'"), 1);
   } finally {
     await mod.closePool();
     process.env.DB_NAME = NAME;
