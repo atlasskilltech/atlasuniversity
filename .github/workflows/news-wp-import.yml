@@ -96,22 +96,26 @@ jobs:
 
             run_apply() { printf '%s' "$BUNDLE_KEY" | node --no-warnings scripts/news/import-bundle.mjs apply --bundle="$BUNDLE" "$@"; }
 
+            # Both modes end by reaching the end of this script, never with `exit 0`: this runs in a LOGIN
+            # shell (`bash -l -s`), and a non-interactive login shell runs ~/.bash_logout on the `exit`
+            # builtin (not at end of input). Ubuntu's default .bash_logout calls clear_console, which fails
+            # without a terminal, and under this script's `set -e` that turned a successful dry run into
+            # exit code 1. The `exit 1` aborts above are failures either way.
             if [ "$MODE" = dry-run ]; then
               run_apply
-              exit 0
+            else
+              # ---- import: backup first; nothing is written if the backup fails
+              mkdir -p "$HOME/news-backups" && chmod 700 "$HOME/news-backups"
+              STAMP=$(date -u +%Y%m%dT%H%M%SZ)
+              node --no-warnings scripts/news/import-bundle.mjs backup --out="$HOME/news-backups/atlasnews-before-wp-import-$STAMP.sql.gz"
+              echo "[news-import] backup kept on the server: ~/news-backups/atlasnews-before-wp-import-$STAMP.sql.gz"
+
+              mkdir -p "$HOME/news-import-reports" && chmod 700 "$HOME/news-import-reports"
+              run_apply --execute --allow-remote-db --confirm="$CONFIRM" --report="$HOME/news-import-reports/import-$STAMP.json"
+
+              echo "[news-import] verification: a second dry run must find nothing left to do"
+              run_apply
             fi
-
-            # ---- import: backup first; nothing is written if the backup fails
-            mkdir -p "$HOME/news-backups" && chmod 700 "$HOME/news-backups"
-            STAMP=$(date -u +%Y%m%dT%H%M%SZ)
-            node --no-warnings scripts/news/import-bundle.mjs backup --out="$HOME/news-backups/atlasnews-before-wp-import-$STAMP.sql.gz"
-            echo "[news-import] backup kept on the server: ~/news-backups/atlasnews-before-wp-import-$STAMP.sql.gz"
-
-            mkdir -p "$HOME/news-import-reports" && chmod 700 "$HOME/news-import-reports"
-            run_apply --execute --allow-remote-db --confirm="$CONFIRM" --report="$HOME/news-import-reports/import-$STAMP.json"
-
-            echo "[news-import] verification: a second dry run must find nothing left to do"
-            run_apply
             unset BUNDLE_KEY
           EOF
           } | ssh -i ~/.ssh/key.pem -o StrictHostKeyChecking=no "$EC2_USER@$EC2_HOST" 'bash -l -s'
