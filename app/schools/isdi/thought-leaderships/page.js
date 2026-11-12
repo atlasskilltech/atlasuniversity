@@ -1,6 +1,10 @@
 import Hero from '@/components/Schools/ISDI/About/Hero';
 import BlogSection from '@/components/Schools/ISDI/ThoughtLeadership/BlogSection';
-import { hero, tabs, cards } from '@/lib/schools/isdi/thoughtLeadershipsContent';
+import { hero, tabs, cards as fallbackCards } from '@/lib/schools/isdi/thoughtLeadershipsContent';
+import { getBlogsBySchool } from '@/lib/schools/isdi/blog/api';
+
+/* Revalidate so a blog added in the dashboard appears on the listing within ~1 minute. */
+export const revalidate = 60;
 
 /*
  * ref reference/schools/isdi/thought-leaderships/index.php `$title` / `$description`,
@@ -31,12 +35,16 @@ export const metadata = {
  * Two blocks: a 658px image hero (`About/Hero`, image form) and `#blog-section` — a
  * five-school tab strip (ISDI active) over a `.common-flex-16-wrap` grid of 44 blog cards.
  *
- * The cards are a per-request snapshot of the UAT `atlas-blogs/by-school/isdi` feed,
- * transcribed from the production render into `lib/schools/isdi/thoughtLeadershipsContent.js`
- * (the same treatment the ATLAS homepage Thought Leadership section gets). The `type-b-responsive`
- * card is this page's own shape, so `BlogSection` is local rather than the shared `CardA`.
+ * The cards are read LIVE from the `atlas-blogs/by-school/isdi` feed (the reference curls the same
+ * endpoint); the snapshot in `lib/schools/isdi/thoughtLeadershipsContent.js` is kept only as a
+ * fallback. The `type-b-responsive` card is this page's own shape, so `BlogSection` is local rather
+ * than the shared `CardA`, and it takes `card.image` as `{ src, alt }`.
  */
-export default function ThoughtLeadershipsPage() {
+export default async function ThoughtLeadershipsPage() {
+  const live = await getBlogsBySchool('isdi');
+  const cards = live.cards.length
+    ? live.cards.map((c) => ({ title: c.title, date: c.date, href: c.href, image: { src: c.image, alt: c.alt } }))
+    : fallbackCards;
   return (
     <main id="isdi-thought-leaderships" className="font-poppins-isdi text-base text-[#333]">
       <Hero data={hero} />
