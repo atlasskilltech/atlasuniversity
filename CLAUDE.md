@@ -208,11 +208,28 @@ in `assets/include/header.php`'s inline `<style>`: `max-width: 568px`
 scroller). And some classes turn earlier than you'd guess: `.h2-tag.isdi` is
 36px from **991** down, while a plain `.h2-tag` waits until 767.
 
-**Thought Leadership is a data snapshot.** index.php curls
-`uat-dashboard.atlasskilltech.app/api/atlas-blogs` per request. It is
-snapshotted into `lib/homeContent.js` with its 20 images downloaded into
-`public/assets/images/thought-leadership/`, because the endpoint is UAT and the
-images are remote. Re-run the snapshot to refresh the feed.
+**Thought Leadership reads the dashboard feed live (2026-11-12).** It used to be a July snapshot
+in `lib/homeContent.js`, which is why the homepage showed only July posts while the API had
+October/November ones. All blog surfaces now go through `lib/schools/isdi/blog/api.js`:
+`getLatestBlogs()` (homepage — root `atlas-blogs`, published, first 20, as index.php),
+`getBlogsBySchool()` (the five `/…/thought-leaderships` listings) and `getBlogBySlug()` (detail
+pages). Every fetch is cached 60s (`BLOG_REVALIDATE_S`) and tagged `atlas-blogs` /
+`atlas-blogs:<school>`; the homepage and listings export `revalidate = 60`. Verified with a mock
+API against a production build: create / edit / date / image / publish / unpublish / delete /
+change-school all appear on every page ~70s after the change. The dashboard offers no webhook, so
+there is no on-demand endpoint yet — the tags are there for one.
+**A failed feed never shows the old snapshot at runtime**: `feedOrThrow` throws, so ISR keeps the
+last good page and retries (logged `[atlas-blogs] …`). Only a `next build` that cannot reach the
+API renders the bundled snapshot, logged and marked `data-blog-source="snapshot"`. The carousel sits
+56px under the head-wrap (40 below 768), measured on production.
+**Image dependency on the PHP host.** Every blog image the API returns (172 unique, all 200
+`image/png` on 2026-11-12) is an absolute URL on `atlasuniversity.edu.in` under the legacy PHP
+site's own folders — `/thought-leaderships/assets/images/<month>/N.png` (ATLAS) and
+`/schools/{isdi,isme,ugdx,law}/thought-leaderships/assets/images/…` — served through Cloudflare
+(`max-age=10368000`). The cards use those URLs as given (the documented runtime-remote exception for
+dynamic blog content). **If the domain moves to Next.js, those paths must stay routed to the PHP
+origin (or the dashboard must emit new URLs), or every blog image breaks.** Not migrated: changing
+image URLs needs approval.
 
 **Poppins exists for exactly one heading.** `.h2-tag.isdi` (Thought Leadership)
 is the only non-Manrope text on the homepage. Only the 500 face is self-hosted,
@@ -7138,11 +7155,12 @@ freezing into the build and without going `no-store` (which would refetch every 
 validation mirrors the PHP exactly — HTTP 200, `success === true`, non-empty `data`,
 `data.school === 'isdi'`, `data.status === 'published'` — returning `{status:'ok'|'notfound'|'error'}`.
 
-**Four states, as the brief required.** `app/schools/isdi/blog/[slug]/page.js` renders: **valid**
-→ `BlogArticle`; **not found** (unknown/unpublished/wrong-school) → a "Blog not found" screen with
-`robots:{index:false}`; **error** (network/timeout/malformed) → a "Something went wrong" screen;
-**loading** → `app/schools/isdi/blog/[slug]/loading.js`, a skeleton Next streams while the server
-component fetches. `generateMetadata` builds title/description/keywords/canonical from `blog.meta`
+**Three states.** `app/schools/isdi/blog/[slug]/page.js` renders: **valid** → `BlogArticle`;
+**not found** (unknown/unpublished/wrong-school) → `notFound()`, so `./not-found.js` renders the
+"Blog not found" screen with **HTTP 404** (2026-11-12, all five blog detail routes); **error**
+(network/timeout/malformed) → a "Something went wrong" screen. **There is deliberately no
+`loading.js`**: a streamed loading boundary flushes HTTP 200 before the page can call `notFound()`
+— verified, every missing slug answered 200 with it and 404 without. `generateMetadata` builds title/description/keywords/canonical from `blog.meta`
 (fetch is deduped with the page's within the request), and `schema_data` (article/faq/howto) is
 emitted as JSON-LD. The bare `/schools/isdi/blog` (`app/schools/isdi/blog/page.js`) reproduces the
 reference's SEO guard: `?slug=X` → a **308** to `/schools/isdi/blog/X` (the reference's permanent

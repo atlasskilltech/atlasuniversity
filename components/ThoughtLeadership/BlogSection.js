@@ -30,14 +30,16 @@ function BlogCard({ card }) {
     <div className="flex w-[285px] flex-none flex-col overflow-hidden bg-[#f2f2f2] text-black max-md:h-auto max-md:w-full md:h-[517px]">
       {/* ref .c-image */}
       <div className="relative h-[298px] bg-[#8facec]">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={card.image}
-          alt={card.alt}
-          loading="lazy"
-          decoding="async"
-          className="inline-block h-full w-full max-w-full object-cover align-middle"
-        />
+        {card.image && (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img
+            src={card.image}
+            alt={card.alt}
+            loading="lazy"
+            decoding="async"
+            className="inline-block h-full w-full max-w-full object-cover align-middle"
+          />
+        )}
         {/* ref .card-a-gradient — height 50% absolute, no background declared: inert */}
         <div className="absolute inset-x-0 bottom-0 h-1/2" />
       </div>
@@ -82,13 +84,13 @@ function BlogCard({ card }) {
 
 /* `accentText` — the active / hovered tab's text colour. Black on ATLAS (and every page before the
    School of Law); the Law (#CB5827) and uGDX (#EB1F3C) listings turn it white (their own <style>). */
-export default function BlogSection({ tabs, cards, accent = DEFAULT_ACCENT, accentText = '#000' }) {
+export default function BlogSection({ tabs, cards, accent = DEFAULT_ACCENT, accentText = '#000', source }) {
   return (
     /* ref .section#blog-section — the hero's `.mrgbtm` 56/40 gap is this section's top margin */
     /* ref .section#blog-section — padding-bottom 60 (40 at <=767), measured on production /thought-leaderships/
        and both school listings; it was missing here, which left the page 60px short from 768 up (below 768
        the tab strip's doubled 40px margins happened to make up the same 40) */
-    <section id="blog-section" className="block overflow-hidden pb-[60px] max-md:pb-10" style={{ '--tl-accent': accent, '--tl-accent-text': accentText }}>
+    <section id="blog-section" data-blog-source={source} className="block overflow-hidden pb-[60px] max-md:pb-10" style={{ '--tl-accent': accent, '--tl-accent-text': accentText }}>
       <div className={CONTAINER}>
         {/* ref .blog-tabs-container > .blog-tabs */}
         <div className="my-10 flex w-full max-md:my-5">
@@ -114,8 +116,11 @@ export default function BlogSection({ tabs, cards, accent = DEFAULT_ACCENT, acce
         {/* ref .w-dyn-list > .common-flex-16-wrap */}
         <div className="flex flex-wrap items-start justify-start gap-4 max-md:items-center max-md:justify-center">
           {cards.map((card, i) => (
-            <BlogCard key={`${i}-${card.href}`} card={card} />
+            <BlogCard key={card.id ?? `${i}-${card.href}`} card={card} />
           ))}
+          {cards.length === 0 && (
+            <p className="w-full py-10 text-center">No articles have been published here yet.</p>
+          )}
         </div>
       </div>
     </section>

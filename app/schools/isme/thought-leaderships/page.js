@@ -1,7 +1,7 @@
 import Hero from '@/components/Schools/ISDI/About/Hero';
 import BlogSection from '@/components/Schools/ISDI/ThoughtLeadership/BlogSection';
 import { hero, tabs, cards as fallbackCards } from '@/lib/schools/isme/thoughtLeadershipsContent';
-import { getBlogsBySchool } from '@/lib/schools/isdi/blog/api';
+import { getBlogsBySchool, feedOrThrow } from '@/lib/schools/isdi/blog/api';
 
 /*
  * reference/schools/isme/thought-leaderships/index.php — the ISME blog listing: the ISDI Thought
@@ -14,19 +14,21 @@ export const metadata = {
   alternates: { canonical: '/schools/isme/thought-leaderships' },
 };
 
-/* Revalidate so a blog added in the dashboard appears on the listing within ~1 minute. */
+/* Re-read the dashboard feed every minute (BLOG_REVALIDATE_S): create / edit / publish / unpublish /
+   delete in the dashboard shows here within about a minute. */
 export const revalidate = 60;
 
 export default async function Page() {
-  const live = await getBlogsBySchool('isme');
-  const cards = live.cards.length
-    ? live.cards.map((c) => ({ title: c.title, date: c.date, href: c.href, image: { src: c.image, alt: c.alt } }))
-    : fallbackCards;
+  const { cards: feed, source } = feedOrThrow(await getBlogsBySchool('isme'), fallbackCards, 'isme listing');
+  const cards =
+    source === 'live'
+      ? feed.map((c) => ({ id: c.id, title: c.title, date: c.date, href: c.href, image: { src: c.image, alt: c.alt } }))
+      : feed;
   return (
     <main>
       <Hero data={hero} />
       <div data-block="blog">
-        <BlogSection tabs={tabs} cards={cards} skin="isme" />
+        <BlogSection tabs={tabs} cards={cards} source={source} skin="isme" />
       </div>
     </main>
   );

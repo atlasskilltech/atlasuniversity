@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import BlogArticle from '@/components/Schools/ISDI/Blog/BlogArticle';
 import { getBlogBySlug } from '@/lib/schools/isdi/blog/api';
 
@@ -8,8 +9,8 @@ import { getBlogBySlug } from '@/lib/schools/isdi/blog/api';
  * URL, curls `atlas-blogs/by-slug/{slug}`, and renders the blog only when `school === 'isme'` and
  * `status === 'published'`, tinted with ISME's colour ($schoolConfig['isme'] = #07F6A0). So this route
  * reuses the same live integration and component as /schools/isdi/blog/[slug] and /atlas-blog/[slug]:
- * `getBlogBySlug(slug, 'isme')` and `BlogArticle` with the ISME accent. Four states — article, not
- * found, error, loading (loading.js). The listing is /schools/isme/thought-leaderships, whose cards
+ * `getBlogBySlug(slug, 'isme')` and `BlogArticle` with the ISME accent. Three states — article, not
+ * found (notFound() -> ./not-found.js, HTTP 404) and error; no loading.js, which would force a 200. The listing is /schools/isme/thought-leaderships, whose cards
  * link here.
  */
 
@@ -73,18 +74,8 @@ export default async function ISMEBlogDetailPage({ params }) {
     );
   }
 
-  if (result.status !== 'ok') {
-    return (
-      <main className="bg-white font-sans [--font-manrope:'Manrope']">
-        <StateScreen heading="Blog not found">
-          <p className="mb-6">This article doesn&apos;t exist or isn&apos;t published yet.</p>
-          <Link href={LISTING} className="font-bold text-[#07F6A0] hover:underline">
-            Browse Thought Leadership
-          </Link>
-        </StateScreen>
-      </main>
-    );
-  }
+  // Unknown / unpublished / deleted / other-school slug -> HTTP 404 (./not-found.js).
+  if (result.status !== 'ok') notFound();
 
   const schema = result.blog.schema_data || {};
   const ld = ['article', 'faq', 'howto'].map((k) => schema[k]).filter(Boolean);

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import BlogArticle from '@/components/Schools/ISDI/Blog/BlogArticle';
 import { getBlogBySlug } from '@/lib/schools/isdi/blog/api';
 
@@ -7,9 +8,10 @@ import { getBlogBySlug } from '@/lib/schools/isdi/blog/api';
  *
  * Live, API-driven: it fetches the published ISDI blog for the slug from the same
  * `atlas-blogs/by-slug` endpoint the reference curls (see lib/schools/isdi/blog/api.js),
- * and renders four states — valid (the article), not found (unknown / unpublished /
- * wrong-school slug, the reference's "Blog not found"), error (API unreachable / malformed),
- * and loading (loading.js, shown while the server component streams). The listing lives at
+ * and renders three states — valid (the article), not found (unknown / unpublished /
+ * wrong-school slug: notFound() -> ./not-found.js, HTTP 404) and error (API unreachable /
+ * malformed). There is no loading.js: a streamed loading boundary would send HTTP 200 before
+ * notFound() could set 404. The listing lives at
  * /schools/isdi/thought-leaderships; the `?slug=` → clean-URL redirect lives on the bare
  * /schools/isdi/blog route.
  *
@@ -78,23 +80,8 @@ export default async function ISDIBlogDetailPage({ params }) {
     );
   }
 
-  if (result.status !== 'ok') {
-    return (
-      <main className="bg-white">
-        <StateScreen heading="Blog not found">
-          <p className="mb-6">
-            This article doesn&apos;t exist or isn&apos;t published yet.
-          </p>
-          <Link
-            href="/schools/isdi/thought-leaderships"
-            className="font-bold text-[#EC1376] hover:underline"
-          >
-            Browse Thought Leadership
-          </Link>
-        </StateScreen>
-      </main>
-    );
-  }
+  // Unknown / unpublished / deleted / other-school slug -> HTTP 404 (./not-found.js).
+  if (result.status !== 'ok') notFound();
 
   const schema = result.blog.schema_data || {};
   const ld = ['article', 'faq', 'howto']

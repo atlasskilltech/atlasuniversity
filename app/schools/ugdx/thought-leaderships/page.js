@@ -2,7 +2,7 @@ import TLHero from '@/components/ThoughtLeadership/TLHero';
 import BlogSection from '@/components/ThoughtLeadership/BlogSection';
 import { hero } from '@/lib/thoughtLeadershipsContent';
 import { tabs, cards as fallbackCards } from '@/lib/schools/ugdx/thoughtLeadershipsContent';
-import { getBlogsBySchool } from '@/lib/schools/isdi/blog/api';
+import { getBlogsBySchool, feedOrThrow } from '@/lib/schools/isdi/blog/api';
 
 export const metadata = {
   title: 'uGDX - Thought Leaderships',
@@ -10,7 +10,8 @@ export const metadata = {
   alternates: { canonical: 'https://atlasuniversity.edu.in/schools/ugdx/thought-leaderships/' },
 };
 
-/* Revalidate so a blog added in the dashboard appears on the listing within ~1 minute. */
+/* Re-read the dashboard feed every minute (BLOG_REVALIDATE_S): create / edit / publish / unpublish /
+   delete in the dashboard shows here within about a minute. */
 export const revalidate = 60;
 
 /**
@@ -21,15 +22,14 @@ export const revalidate = 60;
  * lib/schools/ugdx/thoughtLeadershipsContent.js is kept only as a fallback.
  */
 export default async function UgdxThoughtLeadershipsPage() {
-  const live = await getBlogsBySchool('ugdx');
-  const cards = live.cards.length ? live.cards : fallbackCards;
+  const { cards, source } = feedOrThrow(await getBlogsBySchool('ugdx'), fallbackCards, 'ugdx listing');
   return (
     <>
       <div data-block="hero">
         <TLHero hero={hero} />
       </div>
       <div data-block="blog-section">
-        <BlogSection tabs={tabs} cards={cards} accent="#EB1F3C" accentText="#fff" />
+        <BlogSection tabs={tabs} cards={cards} source={source} accent="#EB1F3C" accentText="#fff" />
       </div>
     </>
   );

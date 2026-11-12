@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import BlogArticle from '@/components/Schools/ISDI/Blog/BlogArticle';
 import { getBlogBySlug } from '@/lib/schools/isdi/blog/api';
 
@@ -53,6 +54,8 @@ function StateScreen({ heading, children }) {
 export default async function BlogDetail({ school, slug }) {
   const cfg = SCHOOL_BLOG[school];
   const result = await getBlogBySlug(slug, school);
+  // Unknown / unpublished / deleted / other-school slug -> HTTP 404 (the route's not-found.js).
+  if (result.status === 'notfound') notFound();
   if (result.status !== 'ok') {
     const error = result.status === 'error';
     return (

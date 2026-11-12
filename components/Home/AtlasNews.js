@@ -36,14 +36,17 @@ export function NewsCard({ item, calendarIcon, arrowIcon, background }) {
     >
       {/* ref .c-image */}
       <div className="relative h-[298px] bg-[#8facec]">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={item.image}
-          alt={item.alt}
-          loading="lazy"
-          decoding="async"
-          className="h-full w-full object-cover"
-        />
+        {/* A live blog card may arrive with no image; the #8facec plate then shows alone. */}
+        {item.image && (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img
+            src={item.image}
+            alt={item.alt}
+            loading="lazy"
+            decoding="async"
+            className="h-full w-full object-cover"
+          />
+        )}
         {/* ref .card-a-gradient — an empty element upstream, no paint of its own */}
         <div className="absolute inset-x-0 bottom-0 h-1/2" />
       </div>

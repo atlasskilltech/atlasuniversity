@@ -4,6 +4,7 @@ import SecondaryButton from '@/components/ui/SecondaryButton';
 import Carousel from '@/components/Carousel/Carousel';
 import { NewsCard } from '@/components/Home/AtlasNews';
 import { CONTAINER, SECTION, H2, SUB } from '@/components/Home/SectionHead';
+import { getLatestBlogs, feedOrThrow } from '@/lib/schools/isdi/blog/api';
 
 /**
  * "Thought Leadership" — port of reference/index.php:2966-3048.
@@ -16,10 +17,19 @@ import { CONTAINER, SECTION, H2, SUB } from '@/components/Home/SectionHead';
  * `BG-Color="#F2F2F2"` (the card's inline background script exists for exactly
  * this) and `target="_blank"` on the link.
  *
- * The feed is snapshotted into lib/homeContent rather than fetched at runtime:
- * the endpoint is a UAT host, and every post's image lives on
- * atlasuniversity.edu.in, which this project's asset rule forbids referencing
- * remotely — all 20 are downloaded into public/assets/images/thought-leadership.
+ * The feed is read LIVE (`getLatestBlogs`: the root `atlas-blogs` endpoint,
+ * published only, first 20 — exactly what index.php does), revalidated every
+ * minute, so a blog created, edited, published, unpublished or deleted in the
+ * dashboard reaches this carousel within about a minute. Card images are the
+ * CMS's own public URLs, the one documented runtime-remote exception the blog
+ * detail pages already make. `thoughtLeadership.posts` in lib/homeContent is
+ * the July snapshot this section used to render; it is now only a BUILD-time
+ * fallback (see `feedOrThrow`), marked `data-blog-source="snapshot"`.
+ *
+ * Spacing: production's `.swiper.common-swiper` sits 56px under the head-wrap
+ * (40px below 768, under the stacked button) — measured on
+ * atlasuniversity.edu.in at 1440 / 768 / 390. The carousel used to start flush
+ * against the subtitle; `pt-14 max-md:pt-10` restores that gap.
  *
  * The heading is `.h2-tag.mrg16.isdi`: the one element on the homepage the
  * reference renders in **Poppins** rather than Manrope, at weight 400 — which,
@@ -28,14 +38,19 @@ import { CONTAINER, SECTION, H2, SUB } from '@/components/Home/SectionHead';
  * The head-wrap is plain `.head-wrap` (no `mrgbtm32`), with a "View all"
  * `.secondary-btn` beside the copy.
  */
-export default function ThoughtLeadership() {
-  const { heading, subheading, button, posts, cardBackground } =
+export default async function ThoughtLeadership() {
+  const { heading, subheading, button, posts: snapshot, cardBackground } =
     thoughtLeadership;
+  const { cards: posts, source } = feedOrThrow(
+    await getLatestBlogs(),
+    snapshot,
+    'homepage Thought Leadership'
+  );
   const { calendarIcon, arrowIcon } = atlasNews;
 
   return (
     /* ref section.section */
-    <section className={SECTION}>
+    <section className={SECTION} data-blog-source={source}>
       <div className={CONTAINER}>
         {/* ref .head-wrap — no `mrgbtm32` */}
         <div className="flex items-end justify-between max-md:flex-col max-md:items-stretch">
@@ -59,10 +74,11 @@ export default function ThoughtLeadership() {
         </div>
       </div>
 
-      <Carousel>
+      {posts.length > 0 && (
+      <Carousel className="pt-14 max-md:pt-10">
         {posts.map((post) => (
           <NewsCard
-            key={post.href}
+            key={post.id ?? post.href}
             item={{ ...post, title: [post.title], newTab: true }}
             calendarIcon={calendarIcon}
             arrowIcon={arrowIcon}
@@ -70,6 +86,7 @@ export default function ThoughtLeadership() {
           />
         ))}
       </Carousel>
+      )}
     </section>
   );
 }

@@ -57,8 +57,12 @@ import FAQ from '@/components/Home/FAQ';
  * being frozen into the build. `lib/instagram/latestPost.js` keeps its own
  * file-backed cache with the same TTL, so a revalidation that finds a fresh
  * entry costs nothing.
+ *
+ * "Thought Leadership" reads the dashboard blog feed live and needs a one-minute
+ * cadence (BLOG_REVALIDATE_S), so the route revalidates every 60s. That costs the
+ * Instagram feed nothing: its module-scope cache keeps its own 15-minute TTL.
  */
-export const revalidate = 900;
+export const revalidate = 60;
 
 export default function Home() {
   return (

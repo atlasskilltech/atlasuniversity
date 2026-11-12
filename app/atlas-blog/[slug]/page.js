@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import BlogArticle from '@/components/Schools/ISDI/Blog/BlogArticle';
 import { getBlogBySlug } from '@/lib/schools/isdi/blog/api';
 
@@ -72,18 +73,8 @@ export default async function ATLASBlogDetailPage({ params }) {
     );
   }
 
-  if (result.status !== 'ok') {
-    return (
-      <main className="bg-white">
-        <StateScreen heading="Blog not found">
-          <p className="mb-6">This article doesn&apos;t exist or isn&apos;t published yet.</p>
-          <Link href={LISTING} className="font-bold text-[#6EC1C2] hover:underline">
-            Browse Thought Leadership
-          </Link>
-        </StateScreen>
-      </main>
-    );
-  }
+  // Unknown / unpublished / deleted / other-school slug -> HTTP 404 (./not-found.js).
+  if (result.status !== 'ok') notFound();
 
   const schema = result.blog.schema_data || {};
   const ld = ['article', 'faq', 'howto'].map((k) => schema[k]).filter(Boolean);

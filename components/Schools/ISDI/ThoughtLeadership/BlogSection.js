@@ -31,14 +31,16 @@ function BlogCard({ card, pill = 'bg-[#ec1376]', size = 'max-md:h-auto max-md:w-
     <div className={cx('flex w-[285px] flex-none flex-col overflow-hidden bg-[#f2f2f2] text-black', size)}>
       {/* ref .c-image */}
       <div className="relative h-[298px] bg-[#8facec]">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={card.image.src}
-          alt={card.image.alt}
-          loading="lazy"
-          decoding="async"
-          className="inline-block h-full w-full max-w-full object-cover align-middle"
-        />
+        {card.image?.src && (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img
+            src={card.image.src}
+            alt={card.image.alt}
+            loading="lazy"
+            decoding="async"
+            className="inline-block h-full w-full max-w-full object-cover align-middle"
+          />
+        )}
         {/* ref .card-a-gradient — height 50% absolute, no background declared: inert */}
         <div className="absolute inset-x-0 bottom-0 h-1/2" />
       </div>
@@ -105,11 +107,11 @@ const SKIN = {
   },
 };
 
-export default function BlogSection({ tabs, cards, skin = 'isdi' }) {
+export default function BlogSection({ tabs, cards, skin = 'isdi', source }) {
   const sk = SKIN[skin] ?? SKIN.isdi;
   return (
     /* ref .section#blog-section — the hero's `.mrgbtm` 56/40 gap is this section's top margin */
-    <section id="blog-section" className={sk.section}>
+    <section id="blog-section" data-blog-source={source} className={sk.section}>
       <div className={sk.container}>
         {/* ref .blog-tabs-container > .blog-tabs */}
         <div className="my-10 flex w-full max-md:my-5">
@@ -133,8 +135,11 @@ export default function BlogSection({ tabs, cards, skin = 'isdi' }) {
         {/* ref .w-dyn-list > .common-flex-16-wrap */}
         <div className="flex flex-wrap items-start justify-start gap-4 max-md:items-center max-md:justify-center">
           {cards.map((card, i) => (
-            <BlogCard key={`${i}-${card.href}`} card={card} pill={sk.pill} size={sk.card} />
+            <BlogCard key={card.id ?? `${i}-${card.href}`} card={card} pill={sk.pill} size={sk.card} />
           ))}
+          {cards.length === 0 && (
+            <p className="w-full py-10 text-center">No articles have been published here yet.</p>
+          )}
         </div>
       </div>
     </section>
