@@ -1349,3 +1349,120 @@
 				transition: none;
 			}
 		}
+/* ============================================================================
+   BLOG CONTENT — the Atlas blog detail body (components/Schools/ISDI/Blog/
+   BlogArticle.js, shared by all five schools: atlas, isdi, isme, ugdx, law).
+   The CMS stores first-party HTML (lists, anchors, tables) that is rendered raw;
+   Tailwind Preflight strips its default styling, so these rules restore it. Every
+   selector is scoped under `.blog-content`, so no other page is affected. Existing
+   posts that inline their own styles or embed a per-table <style> still win on
+   equal specificity / source order, so they render exactly as before.
+   ========================================================================== */
+
+/* --- Lists (reference values) --- */
+.blog-content ul,
+.blog-content ol {
+  margin: 20px 0;
+  padding-left: 24px;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
+}
+.blog-content ul { list-style-type: disc; }
+.blog-content ol { list-style-type: decimal; }
+.blog-content li { margin-bottom: 12px; padding-left: 4px; }
+.blog-content li:last-child { margin-bottom: 0; }
+
+/* Nested lists render correctly */
+.blog-content li > ul,
+.blog-content li > ol { margin: 8px 0; width: auto; }
+.blog-content ul ul { list-style-type: circle; }
+.blog-content ol ol { list-style-type: lower-alpha; }
+
+/* --- Anchor tags --- */
+.blog-content a {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+.blog-content a:hover { text-decoration: none; }
+
+/* --- Bold / emphasis --- */
+.blog-content strong,
+.blog-content b { font-weight: 700; }
+.blog-content em,
+.blog-content i { font-style: italic; }
+
+/* --- Tables (generic: covers .bba-mba-table, .ai-judgement-table, any class, and
+       classless tables). The scroll wrapper is added around every <table> by the
+       renderer so a wide / label-less table scrolls instead of overflowing. --- */
+.blog-content .blog-table-scroll {
+  width: 100%;
+  max-width: 100%;
+  margin: 20px 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+}
+.blog-content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.blog-content .blog-table-scroll > table { margin: 0; }
+.blog-content th {
+  background: #f5f5f5;
+  color: #222;
+  font-weight: 600;
+  text-align: left;
+  padding: 14px;
+  border: 1px solid #ddd;
+}
+.blog-content td {
+  padding: 14px;
+  border: 1px solid #ddd;
+  color: #333;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.blog-content tbody tr:nth-child(even) { background: #fafafa; }
+
+/* --- Mobile (<=768px): tables that carry data-label become card rows; tables
+       WITHOUT data-label keep their layout and scroll (the wrapper above). --- */
+@media (max-width: 768px) {
+  .blog-content table:has(td[data-label]) { display: block; width: 100%; }
+  .blog-content table:has(td[data-label]) thead { display: none; }
+  .blog-content table:has(td[data-label]) tbody { display: block; }
+  .blog-content table:has(td[data-label]) tr {
+    display: block;
+    margin-bottom: 16px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .blog-content table:has(td[data-label]) td {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 12px 14px;
+    border: none;
+    border-bottom: 1px solid #eee;
+    text-align: right;
+  }
+  .blog-content table:has(td[data-label]) td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    text-align: left;
+    width: 35%;
+    flex-shrink: 0;
+  }
+  .blog-content table:has(td[data-label]) td:last-child { border-bottom: none; }
+}
