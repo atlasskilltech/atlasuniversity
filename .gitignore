@@ -17,3 +17,7 @@ assets.manifest.json.tmp-*
 !/public/assets/brand/
 # the PHP reference site — local only, never uploaded
 /reference/
+
+# News DB backups + import reports (contain data; written on the server by
+# .github/workflows/news-wp-import.yml). Never upload.
+/backups/

@@ -105,13 +105,15 @@ jobs:
               run_apply
             else
               # ---- import: backup first; nothing is written if the backup fails
-              mkdir -p "$HOME/news-backups" && chmod 700 "$HOME/news-backups"
+              # Backups and import reports live INSIDE the project dir (gitignored via /backups/),
+              # never directly under $HOME. $APP_DIR is set above to the server's project path.
+              mkdir -p "$APP_DIR/backups/news" && chmod 700 "$APP_DIR/backups" "$APP_DIR/backups/news"
               STAMP=$(date -u +%Y%m%dT%H%M%SZ)
-              node --no-warnings scripts/news/import-bundle.mjs backup --out="$HOME/news-backups/atlasnews-before-wp-import-$STAMP.sql.gz"
-              echo "[news-import] backup kept on the server: ~/news-backups/atlasnews-before-wp-import-$STAMP.sql.gz"
+              node --no-warnings scripts/news/import-bundle.mjs backup --out="$APP_DIR/backups/news/atlasnews-before-wp-import-$STAMP.sql.gz"
+              echo "[news-import] backup kept on the server: $APP_DIR/backups/news/atlasnews-before-wp-import-$STAMP.sql.gz"
 
-              mkdir -p "$HOME/news-import-reports" && chmod 700 "$HOME/news-import-reports"
-              run_apply --execute --allow-remote-db --confirm="$CONFIRM" --report="$HOME/news-import-reports/import-$STAMP.json"
+              mkdir -p "$APP_DIR/backups/news-import-reports" && chmod 700 "$APP_DIR/backups/news-import-reports"
+              run_apply --execute --allow-remote-db --confirm="$CONFIRM" --report="$APP_DIR/backups/news-import-reports/import-$STAMP.json"
 
               echo "[news-import] verification: a second dry run must find nothing left to do"
               run_apply
