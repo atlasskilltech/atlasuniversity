@@ -60,7 +60,7 @@ test('schema: every table uses the atlasnews_ prefix and the shipped migrations 
   assert.doesNotThrow(() => assertStatementsSafe());
   /* up creates exactly the managed tables; down drops exactly them */
   const created = MIGRATIONS.flatMap((m) => m.up).map((s) => s.match(/^CREATE TABLE (\S+)/)?.[1]).filter(Boolean).sort();
-  const dropped = MIGRATIONS.flatMap((m) => m.down).map((s) => s.match(/^DROP TABLE IF EXISTS (\S+)/)?.[1]).filter(Boolean).sort();
+  const dropped = MIGRATIONS.flatMap((m) => m.down).map((s) => s.match(/^DROP TABLE (?:IF EXISTS )?(\S+)/)?.[1]).filter(Boolean).sort();
   assert.deepEqual(created, [...MANAGED_TABLES].sort());
   assert.deepEqual(dropped, created);
   assert.match(checksum(MIGRATIONS[0]), /^[0-9a-f]{64}$/);
@@ -242,8 +242,10 @@ test('schema guard: ownership — down drops only its own tables; up drops only 
     { id: '0002_b', up: [create('atlasnews_b'), 'DROP TABLE atlasnews_a'], down: ['DROP TABLE IF EXISTS atlasnews_b'] },
   ]);
   assert.deepEqual(created.get('0002_b'), ['atlasnews_b']);
-  /* the shipped migration validates and owns exactly the managed tables */
-  assert.deepEqual([...validateMigrations().created.get('0001_initial_schema')].sort(), [...MANAGED_TABLES].sort());
+  /* the shipped migrations validate and, between them, own exactly the managed tables */
+  const owned = [...validateMigrations().created.values()].flat().sort();
+  assert.deepEqual(owned, [...MANAGED_TABLES].sort());
+  assert.deepEqual(validateMigrations().created.get('0005_admin_users'), [T.adminUsers]);
 });
 
 /* ------------------------------------------------------------------------------------ pool hook */

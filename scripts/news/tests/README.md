@@ -13,7 +13,7 @@
   any other host or name.
 - The end-to-end suite never touches real S3: it starts a local S3 stand-in (`s3-stub.mjs`), runs the app
   with dummy AWS credentials pointed at it, and **aborts before any upload** unless the app reports that
-  stand-in as its storage. The admin password is a random one generated per run.
+  stand-in as its storage. Admin users and sessions are created per run (sign-in itself is Google, which the tests never contact; the start route and the callback's refusals are checked over HTTP).
 
 ## Client IP and the trusted proxy (login rate limiting)
 

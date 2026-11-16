@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 export const metadata = { title: 'New article — ATLAS News Admin', robots: { index: false, follow: false } };
 
 export default async function NewArticlePage() {
-  await requireAdminPage();
+  await requireAdminPage({ tab: 'news' });
   let categories;
   try {
     categories = await listCategories();

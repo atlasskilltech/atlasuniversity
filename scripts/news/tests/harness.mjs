@@ -34,8 +34,9 @@ export function counter() {
   return { check, summary: () => ({ pass, fail }) };
 }
 
-/** Create, migrate and seed `name` (must end in _test, local host only). Returns { run, close }. */
-export async function makeSampleDb(name, { password } = {}) {
+/** Create, migrate and seed `name` (must end in _test, local host only). Returns { run, close } and, with
+ *  `adminSession`, `cookie` — a signed-in admin's session cookie (sign-in itself needs Google). */
+export async function makeSampleDb(name, { adminSession = false } = {}) {
   if (!/_test$/.test(name) || !/^(127\.0\.0\.1|localhost)$/.test(DB.host)) die('refusing: the database must be a local *_test database');
   const admin = await mysql.createConnection({ ...DB, timezone: 'Z' });
   await admin.query("SET time_zone = '+00:00'");
@@ -46,10 +47,12 @@ export async function makeSampleDb(name, { password } = {}) {
   const { migrateUp } = await import('../../../lib/news/db/migrate.js');
   const { closePool } = await import('../../../lib/news/db/pool.js');
   await migrateUp();
-  if (password) {
-    const { setSetting, SETTING } = await import('../../../lib/news/db/settings.js');
-    const { hashPassword } = await import('../../../lib/news/auth/password.js');
-    await setSetting(SETTING.adminPasswordHash, await hashPassword(password));
+  let cookie = null;
+  if (adminSession) {
+    const { addUser } = await import('../../../lib/news/auth/users.js');
+    const { createSession } = await import('../../../lib/news/auth/sessions.js');
+    const user = await addUser({ email: 'harness.admin@atlasuniversity.edu.in', role: 'admin' });
+    cookie = `atlasnews_admin=${(await createSession({ userId: user.id })).token}`;
   }
   await closePool();
   const run = async (sql, params) => (await admin.query(sql, params))[0];
@@ -58,6 +61,7 @@ export async function makeSampleDb(name, { password } = {}) {
   return {
     run,
     seeded,
+    cookie,
     close: async () => {
       await admin.query(`DROP DATABASE IF EXISTS \`${name}\``);
       await admin.end();

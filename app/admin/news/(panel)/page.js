@@ -19,7 +19,7 @@ function Stat({ label, value, href, note }) {
 
 /* Every figure is a COUNT over the News tables. There are no readership numbers: no analytics source exists. */
 export default async function NewsAdminDashboard() {
-  await requireAdminPage();
+  await requireAdminPage({ tab: 'news' });
   let d;
   try {
     d = await dashboardSummary();

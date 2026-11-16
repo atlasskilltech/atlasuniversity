@@ -17,20 +17,17 @@
 import { clearDataCache, counter, get, makeSampleDb, sleep, startApp } from './harness.mjs';
 
 const DB_NAME = process.env.NEWS_MULTIPROC_DB_NAME || 'atlasnews_multiproc_test';
-const PW = `Multiproc-Test-Password-${Date.now()}`;
 const LIMIT = 60_000;
 const { check, summary } = counter();
 
-const db = await makeSampleDb(DB_NAME, { password: PW });
+const db = await makeSampleDb(DB_NAME, { adminSession: true });
 clearDataCache();
 const A = await startApp(Number(process.env.NEWS_MULTIPROC_PORT_A || 3401), { dbName: DB_NAME, dbPort: 3306 });
 const B = await startApp(Number(process.env.NEWS_MULTIPROC_PORT_B || 3402), { dbName: DB_NAME, dbPort: 3306 });
 
-/* sign in on A */
-const login = await fetch(`${A.base}/admin/api/login`, {
-  method: 'POST', headers: { 'Content-Type': 'application/json', Origin: A.base }, body: JSON.stringify({ password: PW }),
-});
-const CK = (login.headers.getSetCookie?.()[0] || '').split(';')[0];
+/* an admin session (sign-in itself goes through Google), used against A */
+const CK = db.cookie;
+const login = await fetch(`${A.base}/admin/news/api/health`, { headers: { Cookie: CK } });
 const api = async (method, path, body) => {
   const res = await fetch(`${A.base}/admin/news/api${path}`, {
     method, headers: { Cookie: CK, Origin: A.base, ...(body ? { 'Content-Type': 'application/json' } : {}) }, body: body ? JSON.stringify(body) : undefined,

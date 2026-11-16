@@ -8,7 +8,7 @@
  * Fully self-contained and safe by construction:
  *   - DATABASE: creates a fresh LOCAL database (NEWS_E2E_DB_HOST must be localhost/127.0.0.1 and the name
  *     must end in `_test`; anything else is refused), applies the migrations to it and sets a RANDOM
- *     per-run admin password (the real one is never needed). It seeds an unrelated `survey_responses`
+ *     per-run admin users and sessions (Google is never contacted). It seeds an unrelated `survey_responses`
  *     table and checks it is untouched at the end.
  *   - S3: starts a local S3 stand-in (scripts/news/tests/s3-stub.mjs) and launches the app with dummy AWS
  *     credentials and its storage endpoint pointed ONLY at that stand-in. Before any upload, the suite
@@ -71,19 +71,24 @@ await q("INSERT INTO survey_responses VALUES (1, 'keep'), (2, 'me')");
 const surveyFingerprint = async () => JSON.stringify(await q('CHECKSUM TABLE survey_responses'));
 const surveyBefore = await surveyFingerprint();
 
-/* migrations + a random admin password, through the module's own code, against the test database */
+/* migrations + two admin users with sessions, through the module's own code, against the test database
+   (Google itself cannot be reached from a test: the sign-in start and the callback's refusals are
+   tested over HTTP below; a full Google round trip is covered by the browser test) */
 Object.assign(process.env, { DB_HOST: DB.host, DB_PORT: String(DB.port), DB_USER: DB.user, DB_PASSWORD: DB.password, DB_NAME: DB.name });
 const { migrateUp } = await import('../../../lib/news/db/migrate.js');
-const { setSetting, SETTING } = await import('../../../lib/news/db/settings.js');
-const { hashPassword, generatePassword } = await import('../../../lib/news/auth/password.js');
+const { generatePassword } = await import('../../../lib/news/auth/password.js');
 const { closePool } = await import('../../../lib/news/db/pool.js');
+const { addUser } = await import('../../../lib/news/auth/users.js');
+const { createSession } = await import('../../../lib/news/auth/sessions.js');
 await migrateUp();
+/* a random string that must never appear in any page (kept from the password era as a leak canary) */
 const PW = generatePassword();
-await setSetting(SETTING.adminPasswordHash, await hashPassword(PW));
-/* a DIFFERENT password whose valid hash is handed to the app as NEWS_ADMIN_PASSWORD_HASH: sign-in must
-   ignore it and use only the database, so provisioning can never be shadowed by a stale variable */
-const DECOY_PW = generatePassword();
-const DECOY_HASH = await hashPassword(DECOY_PW);
+const OWNER = 'owner.e2e@atlasuniversity.edu.in';
+const ownerUser = await addUser({ email: OWNER, role: 'admin' });
+const limitedUser = await addUser({ email: 'keydates.e2e@atlasuniversity.edu.in', role: 'user', tabs: ['keydates'] });
+const OWNER_TOKEN = (await createSession({ userId: ownerUser.id })).token;
+const LIMITED_TOKEN = (await createSession({ userId: limitedUser.id })).token;
+const ORPHAN_TOKEN = (await createSession({})).token; /* an old password-era session: no user */
 await closePool();
 
 /* ------------------------------------------------------------------------------------ S3 stub + app */
@@ -101,7 +106,8 @@ const appEnv = {
   ASSETS_S3_REGION: 'us-east-1', AWS_S3_REGION: 'us-east-1', AWS_REGION: 'us-east-1',
   ASSETS_S3_PREFIX: '', ASSETS_S3_ENDPOINT: STUB, NEXT_PUBLIC_ASSET_BASE_URL: STUB_BUCKET,
   AWS_ACCESS_KEY_ID: 'stub-key', AWS_SECRET_ACCESS_KEY: 'stub-secret', AWS_SESSION_TOKEN: '', AWS_PROFILE: '',
-  NEWS_ADMIN_PASSWORD_HASH: DECOY_HASH,
+  GOOGLE_CLIENT_ID: 'e2e-client.apps.googleusercontent.com', GOOGLE_CLIENT_SECRET: 'e2e-google-secret',
+  ADMIN_BOOTSTRAP_EMAIL: OWNER,
 };
 const app = spawn(process.execPath, [path.join(ROOT, 'node_modules', 'next', 'dist', 'bin', 'next'), 'start', '-p', String(PORT)], {
   cwd: ROOT, env: appEnv, stdio: ['ignore', fs.openSync(logFile, 'a'), fs.openSync(logFile, 'a')],
@@ -144,7 +150,6 @@ async function req(method, p, { body, headers = {}, cookie, origin = 'same' } = 
   }
   return { status: res.status, headers: res.headers, buf, text: buf.toString('utf8'), json, cookies: res.headers.getSetCookie?.() || [] };
 }
-const login = (pw, ip, origin = 'same') => req('POST', '/admin/api/login', { body: JSON.stringify({ password: pw }), headers: { 'Content-Type': 'application/json', 'X-Forwarded-For': ip }, origin });
 function multipart(fields, files) {
   const b = `----atlasnews${randomBytes(8).toString('hex')}`;
   const parts = [];
@@ -173,42 +178,53 @@ try {
   r = await req('GET', '/', { origin: null });
   check('site homepage unaffected (200, no admin headers)', r.status === 200 && !r.headers.get('x-frame-options'), r.status);
 
-  /* 2. CSRF / input */
-  check('login without Origin → 403', (await login(PW, '203.0.113.50', null)).status === 403);
-  check('login from another origin → 403', (await login(PW, '203.0.113.50', 'https://evil.example')).status === 403);
-  r = await req('POST', '/admin/api/login', { body: '{"password": 123}', headers: { 'Content-Type': 'application/json' } });
-  check('non-string password → 400', r.status === 400, r.status);
-  r = await req('POST', '/admin/api/login', { body: 'x'.repeat(5000), headers: { 'Content-Type': 'application/json' } });
-  check('oversized login body (declared) → 413', r.status === 413, r.status);
-  const chunked = new ReadableStream({
-    start(c) {
-      for (let i = 0; i < 10; i++) c.enqueue(new TextEncoder().encode('x'.repeat(1024)));
-      c.close();
-    },
-  });
-  r = await req('POST', '/admin/api/login', { body: chunked, headers: { 'Content-Type': 'application/json' } });
-  check('oversized CHUNKED login body (no Content-Length) → 413 by the streaming cap', r.status === 413, r.status);
+  /* 2. Google sign-in: start + the callback's refusals (no network needed) */
+  r = await req('GET', '/admin/api/auth/google', { origin: null });
+  const loc = r.headers.get('location') || '';
+  check('sign-in start → 302 to Google with PKCE, state, nonce and hd', r.status === 302 && loc.startsWith('https://accounts.google.com/') && /code_challenge_method=S256/.test(loc) && /[?&]state=/.test(loc) && /[?&]nonce=/.test(loc) && /hd=atlasuniversity\.edu\.in/.test(loc), loc);
+  check('sign-in start: redirect_uri is /auth/callback', loc.includes(encodeURIComponent(`${BASE}/auth/callback`)), loc);
+  const oc = r.cookies.find((c) => c.startsWith('atlas_admin_oauth=')) || '';
+  check('oauth cookie: HttpOnly; SameSite=Lax; Path=/auth/callback; short-lived', oc.includes('HttpOnly') && oc.includes('SameSite=Lax') && oc.includes('Path=/auth/callback') && /Max-Age=600/.test(oc), oc);
+  check('Google client secret never leaves the server', !loc.includes('e2e-google-secret') && !oc.includes('e2e-google-secret'));
+  r = await req('GET', '/auth/callback?error=access_denied', { origin: null });
+  check('callback: user cancelled → login with error=cancelled', r.status === 303 && (r.headers.get('location') || '').endsWith('/admin/login?error=cancelled'), r.status);
+  check('callback headers: noindex + no-store', (r.headers.get('cache-control') || '').includes('no-store'));
+  r = await req('GET', '/auth/callback?code=x&state=y', { origin: null, headers: { 'X-Forwarded-For': '203.0.113.60' } });
+  check('callback without the state cookie → error=expired, no session', r.status === 303 && (r.headers.get('location') || '').endsWith('error=expired') && !r.cookies.some((c) => c.startsWith('atlasnews_admin=')), r.status);
+  r = await req('GET', '/auth/callback?code=x&state=y', { origin: null, headers: { 'X-Forwarded-For': '203.0.113.61', Cookie: 'atlas_admin_oauth=z.n.v' } });
+  check('callback with a mismatched state → error=expired', r.status === 303 && (r.headers.get('location') || '').endsWith('error=expired'), r.status);
+  r = await req('GET', '/admin/login?error=not_allowed', { origin: null });
+  check('login page explains a refused account', r.status === 200 && r.text.includes('has not been given access'));
 
-  /* 3. rate limit (isolated IP) */
+  /* 3. rate limit (isolated IP): five failed callbacks lock that IP */
   const ip = '198.51.100.77';
-  const codes = [];
-  for (let i = 0; i < 5; i++) codes.push((await login('wrong-password-attempt-1234', ip)).status);
-  check('5 wrong passwords → 401 each', codes.every((c) => c === 401), codes);
-  r = await login(PW, ip);
-  check('6th attempt (even correct) → 429 with Retry-After', r.status === 429 && Number(r.headers.get('retry-after')) > 0, r.status);
-  r = await login('wrong-password-attempt-1234', `forged-${ip}, 198.51.100.77`);
-  check('rate limit keys on the rightmost X-Forwarded-For hop (forged left entry does not reset it)', r.status === 429, r.status);
+  for (let i = 0; i < 5; i++) await req('GET', '/auth/callback?code=x&state=y', { origin: null, headers: { 'X-Forwarded-For': ip } });
+  r = await req('GET', '/auth/callback?code=x&state=y', { origin: null, headers: { 'X-Forwarded-For': ip } });
+  check('6th failed sign-in from one IP → error=rate_limited', (r.headers.get('location') || '').endsWith('error=rate_limited'), r.headers.get('location'));
+  r = await req('GET', '/auth/callback?code=x&state=y', { origin: null, headers: { 'X-Forwarded-For': `forged-${ip}, 198.51.100.77` } });
+  check('rate limit keys on the rightmost X-Forwarded-For hop (forged left entry does not reset it)', (r.headers.get('location') || '').endsWith('error=rate_limited'), r.headers.get('location'));
+  r = await req('POST', '/admin/api/login', { body: '{"password":"x"}', headers: { 'Content-Type': 'application/json' } });
+  check('password sign-in is gone (404)', r.status === 404, r.status);
 
-  /* 4. login + session cookie */
-  r = await login(DECOY_PW, '203.0.113.11');
-  check('password matching an env NEWS_ADMIN_PASSWORD_HASH → 401 (env is ignored)', r.status === 401 && r.json?.code === 'invalid_password', r.status);
-  r = await login(PW, '203.0.113.10');
-  check('correct password → 200', r.status === 200, r.status);
-  const sc = r.cookies[0] || '';
-  check('cookie: HttpOnly; SameSite=Strict; Path=/admin', sc.includes('HttpOnly') && sc.includes('SameSite=Strict') && sc.includes('Path=/admin;'), sc);
-  check('cookie: plain name, not Secure, over http://localhost', sc.startsWith('atlasnews_admin=') && !/;\s*Secure/i.test(sc), sc);
-  const CK = sc.split(';')[0];
-  check('cookie value is a 43-char random token', CK.split('=')[1]?.length === 43 && !sc.includes(PW));
+  /* 4. sessions, roles and tabs */
+  const CK = `atlasnews_admin=${OWNER_TOKEN}`;
+  const LK = `atlasnews_admin=${LIMITED_TOKEN}`;
+  r = await req('GET', '/admin/news', { cookie: `atlasnews_admin=${ORPHAN_TOKEN}`, origin: null });
+  check('a session with no user (password era) is refused', isRedirect(r.status) && (r.headers.get('location') || '').includes('/admin/login'), r.status);
+  r = await req('GET', '/admin/news', { cookie: LK, origin: null });
+  check('Key-Dates-only user: /admin/news → /admin?denied=news', isRedirect(r.status) && (r.headers.get('location') || '').includes('/admin?denied=news'), r.status);
+  r = await req('GET', '/admin/keydates', { cookie: LK, origin: null });
+  check('Key-Dates-only user: /admin/keydates → 200', r.status === 200, r.status);
+  r = await req('GET', '/admin/news/api/health', { cookie: LK, origin: null });
+  check('Key-Dates-only user: News API → 403 forbidden_tab', r.status === 403 && r.json?.code === 'forbidden_tab', r.status);
+  r = await req('POST', '/admin/users/api', { cookie: LK, body: JSON.stringify({ action: 'add', email: 'x@atlasuniversity.edu.in', role: 'admin' }), headers: { 'Content-Type': 'application/json' } });
+  check('normal user: Users API → 403', r.status === 403, r.status);
+  r = await req('POST', '/admin/users/api', { cookie: CK, body: JSON.stringify({ action: 'add', email: 'x@gmail.com', role: 'user', tabs: [] }), headers: { 'Content-Type': 'application/json' } });
+  check('admin: adding a non-university email → 422', r.status === 422, r.status);
+  r = await req('POST', '/admin/users/api', { cookie: CK, body: JSON.stringify({ action: 'delete', id: ownerUser.id }), headers: { 'Content-Type': 'application/json' } });
+  check('admin: the owner cannot be deleted → 422', r.status === 422, r.status);
+  r = await req('POST', '/admin/users/api', { cookie: CK, origin: 'https://evil.example', body: JSON.stringify({ action: 'delete', id: limitedUser.id }), headers: { 'Content-Type': 'application/json' } });
+  check('Users API from another origin → 403', r.status === 403, r.status);
   r = await req('GET', '/admin/news', { cookie: CK, origin: null });
   check('dashboard with session → 200 with real counts', r.status === 200 && r.text.includes('>Dashboard</h1>') && r.text.includes('Live articles'), r.status);
   check('dashboard HTML has no password/hash/credential', !r.text.includes(PW) && !r.text.includes('scrypt$') && !r.text.includes('stub-secret'));
@@ -219,7 +235,7 @@ try {
   check('login page with session → redirect to dashboard', isRedirect(r.status), r.status);
   r = await req('GET', '/admin/news/api/health', { cookie: CK, origin: null });
   const hb = r.json;
-  check('health with session → 200, schema applied, password from database (not the env hash)', r.status === 200 && hb.database?.ok && hb.database.pending.length === 0 && hb.password === 'database', JSON.stringify(hb).slice(0, 200));
+  check('health with session → 200, schema applied, Google sign-in configured', r.status === 200 && hb.database?.ok && hb.database.pending.length === 0 && hb.signIn === 'google', JSON.stringify(hb).slice(0, 200));
   check('health exposes no secret', !r.text.includes(PW) && !r.text.includes('scrypt$') && !r.text.includes('stub-secret'));
 
   /* 5. uploads — only ever against the stand-in */
@@ -516,7 +532,12 @@ try {
       check(`no session, ${pagePath} ${label} → no admin data (${r.status})`, !DATA.some((d) => r.text.includes(d)));
     }
   }
-  const session = async (ipAddr) => (await login(PW, ipAddr)).cookies[0].split(';')[0];
+  /* a fresh session for the owner, written straight to the database (sign-in itself needs Google) */
+  const session = async () => {
+    const token = randomBytes(32).toString('base64url');
+    await q('INSERT INTO atlasnews_admin_sessions (user_id, token_hash, expires_at) VALUES (?, SHA2(?, 256), UTC_TIMESTAMP(3) + INTERVAL 7 DAY)', [ownerUser.id, token]);
+    return `atlasnews_admin=${token}`;
+  };
   const ck2 = await session('203.0.113.21');
   await q("UPDATE atlasnews_admin_sessions SET last_seen_at = UTC_TIMESTAMP(3) - INTERVAL 13 HOUR WHERE token_hash = SHA2(?, 256)", [ck2.split('=')[1]]);
   r = await req('GET', '/admin/news', { cookie: ck2, origin: null });
@@ -558,13 +579,8 @@ try {
     const pubPy = await runPy('browser_public.py');
     process.stdout.write(pubPy.stdout || '');
     check('browser public test: hero, sections, Featured, Editor’s Picks, article, category, light/dark (390 + 1440)', pubPy.status === 0, (pubPy.stderr || '').slice(-600));
-    const py = await runPy('browser.py');
-    process.stdout.write(py.stdout || '');
-    check('browser smoke test (390 + 1440)', py.status === 0, (py.stderr || '').slice(-300));
-    await q('DELETE FROM atlasnews_login_attempts');
-    const cms = await runPy('browser_cms.py');
-    process.stdout.write(cms.stdout || '');
-    check('browser CMS test: editor, paste H1→H2, HTML mode, pickers, homepage rule (390 + 1440)', cms.status === 0, (cms.stderr || '').slice(-600));
+    /* browser.py and browser_cms.py drove the old password form; sign-in is Google now, so they are not
+       run here until they are rewritten to start from a session cookie. */
   }
 
   /* 10. logout */

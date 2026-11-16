@@ -71,6 +71,8 @@ const nextConfig = {
     return [
       { source: '/admin', headers: adminHeaders },
       { source: '/admin/:path*', headers: adminHeaders },
+      /* Google sign-in returns here (the redirect URI registered on the OAuth client) */
+      { source: '/auth/callback', headers: adminHeaders },
     ];
   },
 

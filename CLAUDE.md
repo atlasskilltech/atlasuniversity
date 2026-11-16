@@ -8122,8 +8122,26 @@ width, emitted after `max-md`). And `leading-normal` is this project's 1.5 token
 
 ## ATLAS Admin — `/admin` (News + Key Dates)
 
-`/admin` is the admin hub (`components/Admin/AdminShell` — add a tool to `TOOLS`). Sign-in is `/admin/login`
-(APIs `/admin/api/login|logout`); the session cookie is scoped to `/admin`, so one login covers every tool.
+`/admin` is the admin hub (`components/Admin/AdminShell` — add a tool to `TOOLS` and its key to
+`lib/admin/access.js` `TABS`). The session cookie is scoped to `/admin`, so one sign-in covers every tool.
+
+### Sign-in, roles and tabs — `lib/news/auth/{admin,google,users}.js`, `lib/admin/access.js`, `/admin/users`
+
+**Google only** (2026-11-16; the shared password is gone). `/admin/login` → `/admin/api/auth/google`
+(state + nonce + PKCE in a Lax cookie scoped to the callback, `hd=atlasuniversity.edu.in`) → Google →
+`/auth/callback` (the redirect URI registered on the OAuth client, hence outside `/admin`), which checks
+state, exchanges the code, checks the ID token's iss/aud/exp/nonce/email_verified/hd, then requires the
+email to be in `atlasnews_admin_users` (migration `0005_admin_users`). Server env: `GOOGLE_CLIENT_ID`,
+`GOOGLE_CLIENT_SECRET`, `ADMIN_BOOTSTRAP_EMAIL` (the owner: always admin, created on first use, cannot be
+deleted or demoted — set once, never per user).
+- **Roles:** `admin` = every tab + Users; `user` = only the tabs ticked in `/admin/users`. Read from the DB on
+  every request (sessions JOIN users; deleting a user cascades their sessions), so changes apply at once.
+- **Enforcement:** pages call `requireAdminPage({ tab })`; APIs get the tab from the URL in
+  `requireAdminApi` (`/admin/<tab>/…`), so a new tool's APIs must live under `/admin/<tab>/`.
+- **Trap:** the session cookie is SameSite=Strict, and a browser does not send it on a redirect chain that
+  began at Google — the callback answers with a meta-refresh page to `/admin`, never a 302.
+- **Trap:** Playwright does not intercept a redirect hop; to fake Google in a browser test, turn the start
+  route's 302 into a page that navigates to Google, then mock `accounts.google.com`.
 The News admin lives at `/admin/news` (moved from `/news/admin`; old paths 308-redirect in `next.config.mjs`).
 
 ### Key Dates — `/admin/keydates`, `lib/keydates/`, `components/Admin/KeyDates/`, `components/KeyDates/Grid.js`

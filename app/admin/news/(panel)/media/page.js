@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 export const metadata = { title: 'Media — ATLAS News Admin', robots: { index: false, follow: false } };
 
 export default async function MediaPage() {
-  await requireAdminPage();
+  await requireAdminPage({ tab: 'news' });
   let initial;
   try {
     initial = await listMedia({ page: 1, pageSize: 36 });

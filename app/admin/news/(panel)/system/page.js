@@ -32,13 +32,13 @@ function Card({ title, children }) {
 
 /*
  * /admin/news/system — the Stage 1 foundation status, moved here when the editorial dashboard took over
- * /admin/news: database + schema, admin password, S3 storage and the upload pipeline, plus two tools to
+ * /admin/news: database + schema, Google sign-in, S3 storage and the upload pipeline, plus two tools to
  * prove them end to end on whichever server this runs on.
  */
 export default async function NewsAdminSystem() {
   /* The page checks the session itself: a layout's check is not re-run on client navigation (Next.js
      partial rendering), so the parent layout alone must never be what protects this page's data. */
-  await requireAdminPage();
+  await requireAdminPage({ tab: 'news' });
   const h = await foundationHealth();
   const db = h.database;
   return (
@@ -71,11 +71,11 @@ export default async function NewsAdminSystem() {
         </Card>
 
         <Card title="Admin access">
-          <Row label="Password source">
-            <Badge ok={h.password === 'database'}>{h.password}</Badge>
+          <Row label="Sign-in">
+            <Badge ok={h.signIn === 'google'}>{h.signIn}</Badge>
           </Row>
           <Row label="Session">active (database-backed, 12 h idle / 7 days max)</Row>
-          <Row label="Rate limit">5 failed attempts per IP per 15 min</Row>
+          <Row label="Rate limit">5 failed sign-ins per IP per 15 min</Row>
         </Card>
 
         <Card title="Public pages">

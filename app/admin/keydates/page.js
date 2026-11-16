@@ -14,7 +14,7 @@ export const metadata = { title: 'Key Dates — ATLAS Admin' };
  * one has, and the totals. "Manage" opens a page's tables to edit them, hide them or add new ones.
  */
 export default async function KeyDatesOverview() {
-  await requireAdminPage();
+  await requireAdminPage({ tab: 'keydates' });
   const [{ pages, totals, dbError }, calendars] = await Promise.all([loadOverview(), loadCalendars()]);
   const shared = calendars.filter((c) => c.pages.length > 1);
   const stats = [

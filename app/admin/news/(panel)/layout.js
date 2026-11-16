@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 /* Every page in this group requires an admin session; without one the visitor is sent to the login.
    (Each page ALSO checks the session itself — a layout is not re-run on client navigation.) */
 export default async function NewsAdminPanelLayout({ children }) {
-  await requireAdminPage();
+  await requireAdminPage({ tab: 'news' });
   return (
     <>
       <header className="sticky top-0 z-20 border-b border-[#e3e5ea] bg-white/95 backdrop-blur">

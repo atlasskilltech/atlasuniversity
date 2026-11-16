@@ -12,7 +12,7 @@ export const metadata = { title: 'Shared key dates — ATLAS Admin' };
 
 /* /admin/keydates/calendar/<id> — one calendar shown on several pages, edited once for all of them */
 export default async function CalendarPage({ params }) {
-  await requireAdminPage();
+  await requireAdminPage({ tab: 'keydates' });
   const detail = await loadCalendarDetail((await params).id);
   if (!detail) notFound();
   return (

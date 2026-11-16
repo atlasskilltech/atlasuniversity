@@ -38,6 +38,7 @@ before(async () => {
     ...(await import('../../../lib/news/db/pool.js')),
     ...(await import('../../../lib/news/db/settings.js')),
     ...(await import('../../../lib/news/auth/sessions.js')),
+    users: await import('../../../lib/news/auth/users.js'),
     rl: await import('../../../lib/news/auth/rateLimit.js'),
     cfg: await import('../../../lib/news/config.js'),
   };
@@ -48,6 +49,15 @@ after(async () => {
   await mod.closePool?.();
   await admin?.end();
 });
+
+/* every shipped migration id, oldest first */
+const ALL_IDS = (await import('../../../lib/news/db/migrations.js')).MIGRATIONS.map((m) => m.id);
+/** Revert, newest first, every applied migration after `id` (each one asserted by name). */
+const revertNewerThan = async (id) => {
+  for (const later of ALL_IDS.slice(ALL_IDS.indexOf(id) + 1).reverse()) {
+    assert.equal((await mod.migrateDown({ confirm: true })).reverted, later);
+  }
+};
 
 const surveyFingerprint = async () => {
   const [rows] = await admin.query(`CHECKSUM TABLE \`${NAME}\`.survey_responses`);
@@ -80,13 +90,13 @@ test('migrations: refuse to adopt pre-existing atlasnews_ tables', { skip }, asy
 test('migrations: dry run changes nothing; up creates exactly the News schema', { skip }, async () => {
   const before = await surveyFingerprint();
   const dry = await mod.migrateUp({ dryRun: true });
-  assert.deepEqual(dry.pending, ['0001_initial_schema', '0002_cms_schema_gaps', '0003_category_hierarchy']);
+  assert.deepEqual(dry.pending, ALL_IDS);
   assert.deepEqual(await tablesLike('atlasnews\\_%'), []);
   const r = await mod.migrateUp();
-  assert.deepEqual(r.applied, ['0001_initial_schema', '0002_cms_schema_gaps', '0003_category_hierarchy']);
+  assert.deepEqual(r.applied, ALL_IDS);
   const tables = await tablesLike('atlasnews\\_%');
   assert.deepEqual([...tables].sort(), Object.values(mod.cfg.T).sort());
-  assert.equal(tables.length, 12);
+  assert.equal(tables.length, Object.values(mod.cfg.T).length);
   assert.deepEqual((await mod.migrateUp()).applied, [], 'second run is a no-op');
   assert.equal(await surveyFingerprint(), before, 'survey_responses untouched');
   /* engine + collation */
@@ -98,8 +108,9 @@ test('migrations: dry run changes nothing; up creates exactly the News schema', 
   /* foreign keys only between News tables */
   const [fks] = await admin.query('SELECT table_name AS t, referenced_table_name AS r FROM information_schema.referential_constraints WHERE constraint_schema = ?', [NAME]);
   /* posts: featured, og, primary category · post_categories: 2 · post_tags: 2 · homepage_slots: 1 ·
-     categories.image_media_id (0002): 1 · categories.parent_id → categories (0003): 1 */
-  assert.equal(fks.length, 10);
+     categories.image_media_id (0002): 1 · categories.parent_id → categories (0003): 1 ·
+     admin_sessions.user_id → admin_users (0005): 1 */
+  assert.equal(fks.length, 11);
   for (const f of fks) assert.ok(f.t.startsWith('atlasnews_') && f.r.startsWith('atlasnews_'));
 });
 
@@ -132,10 +143,12 @@ test('constraints: slug uniqueness, FK actions, redirect status check', { skip }
   await mod.query(`DELETE FROM ${T.categories}`);
 });
 
-/* SHOW CREATE TABLE for every News table, minus the AUTO_INCREMENT counter (data, not schema) */
+/* SHOW CREATE TABLE for every News table that exists now (a test that reverts later migrations has
+   fewer), minus the AUTO_INCREMENT counter (data, not schema) */
 const schemaSnapshot = async () => {
   const out = {};
-  for (const t of Object.values(mod.cfg.T).filter((n) => n !== mod.cfg.T.migrations).sort()) {
+  const present = new Set(await tablesLike('atlasnews\\_%'));
+  for (const t of Object.values(mod.cfg.T).filter((n) => n !== mod.cfg.T.migrations && present.has(n)).sort()) {
     const [[row]] = await admin.query(`SHOW CREATE TABLE \`${NAME}\`.\`${t}\``);
     out[t] = row['Create Table'].replace(/ AUTO_INCREMENT=\d+/, '');
   }
@@ -156,6 +169,7 @@ test('0002: upgrading a 0001 database that holds content keeps every row and val
      nothing later (0003 is reverted first, then this test runs against migrations 0001-0002 only) */
   const { MIGRATIONS } = await import('../../../lib/news/db/migrations.js');
   const M2 = { migrations: MIGRATIONS.slice(0, 2) };
+  await revertNewerThan('0003_category_hierarchy');
   assert.equal((await mod.migrateDown({ confirm: true })).reverted, '0003_category_hierarchy');
   assert.equal((await mod.migrateDown({ confirm: true, ...M2 })).reverted, '0002_cms_schema_gaps');
   assert.deepEqual((await mod.migrationStatus(M2)).pending, ['0002_cms_schema_gaps']);
@@ -225,7 +239,7 @@ test('0002: upgrading a 0001 database that holds content keeps every row and val
   assert.deepEqual(noUpd(after.categories), noUpd(rows0001.categories));
 
   /* and forward again, leaving the database fully migrated for the tests that follow */
-  assert.deepEqual((await mod.migrateUp()).applied, ['0002_cms_schema_gaps', '0003_category_hierarchy']);
+  assert.deepEqual((await mod.migrateUp()).applied, ALL_IDS.slice(1));
   assert.equal(await surveyFingerprint(), before, 'survey_responses untouched throughout');
   await mod.query(`DELETE FROM ${T.homepageSlots}`);
   await mod.query(`DELETE FROM ${T.posts}`);
@@ -236,8 +250,11 @@ test('0002: upgrading a 0001 database that holds content keeps every row and val
 test('0003: existing categories keep their ids and become roots; the database itself refuses bad parents and orphaning; down is exact', { skip }, async () => {
   const T = mod.cfg.T;
   const before = await surveyFingerprint();
-  /* the state 0003 will meet in production: 0001 + 0002 applied, categories and articles present */
-  assert.equal((await mod.migrateDown({ confirm: true })).reverted, '0003_category_hierarchy');
+  /* the state 0003 will meet in production: 0001 + 0002 applied, categories and articles present (and
+     the code knowing nothing later: this test runs against migrations 0001-0003 only) */
+  const M3 = { migrations: (await import('../../../lib/news/db/migrations.js')).MIGRATIONS.slice(0, 3) };
+  await revertNewerThan('0003_category_hierarchy');
+  assert.equal((await mod.migrateDown({ confirm: true, ...M3 })).reverted, '0003_category_hierarchy');
   const a = await mod.query(`INSERT INTO ${T.categories} (slug, name, show_in_menu, menu_order, is_featured) VALUES ('alpha', 'Alpha', 1, 1, 1)`);
   const b = await mod.query(`INSERT INTO ${T.categories} (slug, name) VALUES ('beta', 'Beta')`);
   const p = await mod.query(`INSERT INTO ${T.posts} (slug, title, content_html, primary_category_id) VALUES ('in-alpha', 'In alpha', '<p>x</p>', ?)`, [a.insertId]);
@@ -246,7 +263,7 @@ test('0003: existing categories keep their ids and become roots; the database it
   const rows0002 = await rows();
   const schema0002 = await schemaSnapshot();
 
-  assert.deepEqual((await mod.migrateUp()).applied, ['0003_category_hierarchy']);
+  assert.deepEqual((await mod.migrateUp(M3)).applied, ['0003_category_hierarchy']);
   assert.deepEqual(await rows(), rows0002, 'every category row and id unchanged (updated_at included)');
   const schema0003 = await schemaSnapshot();
   assert.deepEqual(Object.keys(schema0002).filter((t) => schema0002[t] !== schema0003[t]), [T.categories], 'only atlasnews_categories changes');
@@ -266,11 +283,11 @@ test('0003: existing categories keep their ids and become roots; the database it
   await mod.query(`UPDATE ${T.categories} SET parent_id = NULL WHERE id = ?`, [b.insertId]);
 
   /* down: the schema returns exactly to 0002's and the rows survive */
-  assert.equal((await mod.migrateDown({ confirm: true })).reverted, '0003_category_hierarchy');
+  assert.equal((await mod.migrateDown({ confirm: true, ...M3 })).reverted, '0003_category_hierarchy');
   assert.deepEqual(await schemaSnapshot(), schema0002, 'down reverses 0003 exactly');
   const noUpd = (rs) => rs.map(({ updated_at: _u, ...r }) => r);
   assert.deepEqual(noUpd(await rows()), noUpd(rows0002));
-  assert.deepEqual((await mod.migrateUp()).applied, ['0003_category_hierarchy']);
+  assert.deepEqual((await mod.migrateUp()).applied, ALL_IDS.slice(2));
   assert.equal(await surveyFingerprint(), before);
   await mod.query(`DELETE FROM ${T.posts}`);
   await mod.query(`DELETE FROM ${T.categories}`);
@@ -305,12 +322,18 @@ test('settings + sessions: create, validate, idle and absolute expiry, revoke', 
   assert.equal(await mod.getSetting('admin_password_hash'), 'scrypt$15$8$1$x$y');
   await mod.query(`DELETE FROM ${T.settings}`);
 
-  const { token } = await mod.createSession({ ip: '203.0.113.9', userAgent: 'test' });
+  const owner = await mod.users.addUser({ email: 'sessions.test@atlasuniversity.edu.in', role: 'admin' });
+  const orphan = await mod.createSession({});
+  assert.equal(await mod.validateSession(orphan.token), null, 'a session with no user (password era) is refused');
+  await mod.query(`DELETE FROM ${T.sessions}`);
+  const { token } = await mod.createSession({ userId: owner.id, ip: '203.0.113.9', userAgent: 'test' });
   assert.match(token, /^[A-Za-z0-9_-]{43}$/);
   const [row] = await mod.query(`SELECT token_hash FROM ${T.sessions}`);
   assert.equal(row.token_hash, mod.hashToken(token));
   assert.notEqual(row.token_hash, token, 'only the hash is stored');
-  assert.ok(await mod.validateSession(token));
+  const live = await mod.validateSession(token);
+  assert.equal(live?.user?.email, 'sessions.test@atlasuniversity.edu.in', 'the session carries its user');
+  assert.equal(live.user.role, 'admin');
   assert.equal(await mod.validateSession(`${token.slice(0, -1)}A`), null);
   assert.equal(await mod.validateSession('not-a-token'), null);
 
@@ -319,15 +342,54 @@ test('settings + sessions: create, validate, idle and absolute expiry, revoke', 
   await mod.query(`UPDATE ${T.sessions} SET last_seen_at = UTC_TIMESTAMP(3), expires_at = UTC_TIMESTAMP(3) - INTERVAL 1 SECOND`);
   assert.equal(await mod.validateSession(token), null, 'absolute expiry');
 
-  const s2 = await mod.createSession({});
+  const s2 = await mod.createSession({ userId: owner.id });
   assert.ok(await mod.validateSession(s2.token));
   await mod.revokeSession(s2.token);
   assert.equal(await mod.validateSession(s2.token), null, 'revoked');
-  const s3 = await mod.createSession({});
+  const s3 = await mod.createSession({ userId: owner.id });
   /* the first session (expired, never explicitly revoked) and s3 */
   assert.equal(await mod.revokeAllSessions(), 2);
   assert.equal(await mod.validateSession(s3.token), null);
   await mod.pruneSessions();
+  /* deleting a user ends their sessions (ON DELETE CASCADE) */
+  const helper = await mod.users.addUser({ email: 'helper.test@atlasuniversity.edu.in', role: 'admin' });
+  const s4 = await mod.createSession({ userId: owner.id });
+  await mod.users.deleteUser(owner.id, helper);
+  assert.equal(await mod.validateSession(s4.token), null, 'deleted user is signed out');
+  await mod.query(`DELETE FROM ${T.adminUsers}`);
+});
+
+test('admin users: roles, tabs, owner and last-admin protection', { skip }, async () => {
+  const T = mod.cfg.T;
+  const u = mod.users;
+  process.env.ADMIN_BOOTSTRAP_EMAIL = 'Owner.Test@atlasuniversity.edu.in';
+  try {
+    const owner = await u.ensureOwner();
+    assert.equal(owner.email, 'owner.test@atlasuniversity.edu.in');
+    assert.equal(owner.role, 'admin');
+    assert.equal(owner.owner, true);
+    await assert.rejects(u.addUser({ email: 'x@gmail.com', role: 'user' }), { code: 'invalid_email' });
+    await assert.rejects(u.addUser({ email: 'x@atlasuniversity.edu.in', role: 'boss' }), { code: 'invalid_role' });
+    const ravi = await u.addUser({ email: ' Ravi.T@AtlasUniversity.edu.in ', role: 'user', tabs: ['keydates', 'keydates', 'bogus'] }, owner);
+    assert.equal(ravi.email, 'ravi.t@atlasuniversity.edu.in');
+    assert.deepEqual(ravi.tabs, ['keydates'], 'unknown and repeated tabs dropped');
+    await assert.rejects(u.addUser({ email: 'ravi.t@atlasuniversity.edu.in', role: 'user' }), { code: 'exists' });
+    assert.deepEqual((await u.updateUser(ravi.id, { role: 'user', tabs: ['news', 'keydates'] }, owner)).tabs, ['news', 'keydates']);
+    await assert.rejects(u.updateUser(owner.id, { role: 'user', tabs: [] }, null), { code: 'owner' });
+    await assert.rejects(u.deleteUser(owner.id, null), { code: 'owner' });
+    const second = await u.addUser({ email: 'second@atlasuniversity.edu.in', role: 'admin' }, owner);
+    await assert.rejects(u.deleteUser(second.id, second), { code: 'self' });
+    await assert.rejects(u.updateUser(second.id, { role: 'user', tabs: [] }, second), { code: 'self' });
+    assert.equal((await u.updateUser(second.id, { role: 'user', tabs: [] }, owner)).role, 'user');
+    /* the owner is re-promoted at sign-in even if someone demotes it in the database */
+    await mod.query(`UPDATE ${T.adminUsers} SET role = 'user' WHERE id = ?`, [owner.id]);
+    assert.equal((await u.userForSignIn('owner.test@atlasuniversity.edu.in', 'Owner')).role, 'admin');
+    assert.equal(await u.userForSignIn('stranger@atlasuniversity.edu.in'), null, 'not listed → no access');
+    assert.equal(await u.userForSignIn('ravi.t@gmail.com'), null, 'other domain → no access');
+  } finally {
+    delete process.env.ADMIN_BOOTSTRAP_EMAIL;
+    await mod.query(`DELETE FROM ${T.adminUsers}`);
+  }
 });
 
 test('rate limit: 5 failures per IP lock that IP only; successes do not count', { skip }, async () => {
@@ -402,7 +464,7 @@ test('ownership: a migration that fails part-way drops ONLY the tables this run 
   const [[row]] = await admin.query(`SELECT v FROM \`${NAME}\`.atlasnews_extra WHERE id = 1`);
   assert.equal(row.v, 'not ours');
   assert.equal(await surveyFingerprint(), before);
-  assert.equal((await tablesLike('atlasnews\\_%')).length, 13, '12 News tables + the foreign atlasnews_extra');
+  assert.equal((await tablesLike('atlasnews\\_%')).length, Object.values(mod.cfg.T).length + 1, 'every News table + the foreign atlasnews_extra');
   const [[b]] = await admin.query(`SELECT COUNT(*) AS n FROM \`${NAME}\`.atlasnews_schema_migrations WHERE id = '0099_test_partial'`);
   assert.equal(Number(b.n), 0);
 });
@@ -435,7 +497,8 @@ test('provision-password: first, unchanged, changed, corrupt stored hash, invali
   const stamp1 = await mod.getSetting('admin_password_updated_at');
 
   /* 2. unchanged password (every routine deploy): no write, session kept */
-  const { token } = await mod.createSession({});
+  const pwUser = await mod.users.addUser({ email: 'provision.test@atlasuniversity.edu.in', role: 'admin' });
+  const { token } = await mod.createSession({ userId: pwUser.id });
   assert.deepEqual(await provisionAdminPassword(PW1), { changed: false, revokedSessions: 0 });
   assert.equal(await mod.getSetting('admin_password_hash'), h1, 'not re-hashed (salt unchanged)');
   assert.equal(await mod.getSetting('admin_password_updated_at'), stamp1);
@@ -457,12 +520,16 @@ test('provision-password: first, unchanged, changed, corrupt stored hash, invali
 
   await mod.query(`DELETE FROM ${T.settings}`);
   await mod.query(`DELETE FROM ${T.sessions}`);
+  await mod.query(`DELETE FROM ${T.adminUsers}`);
 });
 
 test('migrations: down needs --confirm, drops only News tables, then up again', { skip }, async () => {
   const before = await surveyFingerprint();
   await assert.rejects(mod.migrateDown(), /explicit confirmation/);
-  /* 12 News tables + the foreign atlasnews_extra the ownership tests created */
+  /* every News table + the foreign atlasnews_extra the ownership tests created */
+  assert.equal((await tablesLike('atlasnews\\_%')).length, Object.values(mod.cfg.T).length + 1);
+  await revertNewerThan('0003_category_hierarchy');
+  /* 0004 and 0005 dropped their own tables (keydates, admin_users): 12 + the foreign one remain */
   assert.equal((await tablesLike('atlasnews\\_%')).length, 13);
   assert.equal((await mod.migrateDown({ confirm: true })).reverted, '0003_category_hierarchy', 'newest first');
   assert.equal((await mod.migrateDown({ confirm: true })).reverted, '0002_cms_schema_gaps');
@@ -480,6 +547,6 @@ test('migrations: down needs --confirm, drops only News tables, then up again', 
   await assert.rejects(mod.migrateUp(), /already exist without migration bookkeeping: atlasnews_extra/);
   /* test cleanup of the fixture table (the test's own admin connection, never the runner) */
   await admin.query(`DROP TABLE \`${NAME}\`.atlasnews_extra`);
-  assert.deepEqual((await mod.migrateUp()).applied, ['0001_initial_schema', '0002_cms_schema_gaps', '0003_category_hierarchy']);
-  assert.equal((await tablesLike('atlasnews\\_%')).length, 12);
+  assert.deepEqual((await mod.migrateUp()).applied, ALL_IDS);
+  assert.equal((await tablesLike('atlasnews\\_%')).length, Object.values(mod.cfg.T).length);
 });

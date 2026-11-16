@@ -12,7 +12,7 @@ export const metadata = { title: 'Key Dates — ATLAS Admin' };
 
 /* /admin/keydates/<page> — one page's key-dates tables: edit, hide, reset, and add new ones */
 export default async function KeyDatesPage({ params }) {
-  await requireAdminPage();
+  await requireAdminPage({ tab: 'keydates' });
   const detail = await loadPageDetail((await params).page);
   if (!detail) notFound();
   const { page } = detail;

@@ -20,7 +20,7 @@ export const metadata = { title: 'Preview — ATLAS News Admin', robots: { index
  * session, and the public /news routes never receive it. Never cached, never indexed (admin headers).
  */
 export default async function ArticlePreviewPage({ params }) {
-  await requireAdminPage();
+  await requireAdminPage({ tab: 'news' });
   const id = toId((await params).id);
   if (!id || Number.isNaN(id)) notFound();
   let article;

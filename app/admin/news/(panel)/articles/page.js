@@ -27,7 +27,7 @@ const SORTS = [
 /* Search, filter, sort and pagination are plain GET parameters: every view has a shareable URL and works
    without JavaScript. Row actions (duplicate, trash, restore) are the only client code on the page. */
 export default async function ArticlesPage({ searchParams }) {
-  await requireAdminPage();
+  await requireAdminPage({ tab: 'news' });
   const sp = await searchParams;
   const p = listParams(sp);
   let data;
