@@ -15,10 +15,6 @@ assets.manifest.json.tmp-*
 /public/assets/*
 !/public/assets/fonts/
 !/public/assets/brand/
-# ATLAS Hackathon 2026 (1.4 MB): kept in git as well as listed in the manifest, so any checkout can upload
-# them with `npm run assets:sync -- --only=atlas-hackathon-2026 --full` (they were added from a session
-# with no S3 write access). They are still served from S3 like every other migrated asset.
-!/public/assets/atlas-hackathon-2026/
 # the PHP reference site — local only, never uploaded
 /reference/
 

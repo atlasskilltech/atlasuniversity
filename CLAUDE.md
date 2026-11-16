@@ -8217,8 +8217,7 @@ images/) — not from `reference/`. Its own dark site: `MainSiteOnly` lists the 
   committed — it is students' personal data. Every admin change here is written to the Activity log
   (tab `hackathon`; edits with before/after values per field).
 - **Assets:** `public/assets/atlas-hackathon-2026/` — originals byte-for-byte (the email uses the JPG/PNG,
-  absolute S3 URLs) plus WebP for the site. Listed in the manifest **and** tracked in git (`.gitignore`
-  exception) because they were added from a session with no S3 write access; upload with
-  `npm run assets:sync -- --only=atlas-hackathon-2026 --full`. Fonts (Saira, Saira Condensed) are local-only
-  in `public/assets/fonts/`.
+  absolute S3 URLs) plus WebP for the site. On S3 like every migrated asset (uploaded and verified
+  2026-11-16: 27 objects, SHA-256 equal to the manifest) and git-ignored; restore a local copy with
+  `npm run assets:download`. Fonts (Saira, Saira Condensed) are local-only in `public/assets/fonts/`.
 - Tests: `scripts/news/tests/hackathon.test.mjs` (rules, CSV, IST, email, SendGrid request).
