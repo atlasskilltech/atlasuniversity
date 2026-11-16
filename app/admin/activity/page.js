@@ -10,6 +10,7 @@ export const metadata = { title: 'Activity — ATLAS Admin' };
 const TAB_TONE = {
   news: 'bg-[#eef2ff] text-[#3b4fc4]',
   keydates: 'bg-[#fff4d6] text-[#7a5600]',
+  hackathon: 'bg-[#fdeaf6] text-[#9c1d6b]',
   users: 'bg-[#e7f6ec] text-[#11733b]',
   'sign-in': 'bg-[#f1f2f4] text-[#4a4f5c]',
 };

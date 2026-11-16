@@ -137,6 +137,11 @@ module.exports = {
           ink: '#2b2b2b',       // menu link text
           panel: '#f5f5f5',     // level-2 / nav image panel
         },
+        /* /atlas-hackathon-2026 — the hackathon's own dark theme (its reference `@theme`: night, panel) */
+        hk: {
+          night: '#070816',
+          panel: '#0c0f25',
+        },
         isdi: {
           pink: '#ec1376',      // ISDI utility bar, menu hover + underline
           blue: '#1e3a8a',      // ATLAS ISDI Advantage partner-LP template brand blue
@@ -173,6 +178,9 @@ module.exports = {
         'poppins-library': ['Poppins Library', 'serif'],
         // /schools/ugdx/ugdxsummerschool's own <style> — see the Figtree note in globals.css
         figtree: ['Figtree', 'sans-serif'],
+        // /atlas-hackathon-2026: the reference's `--font-sans` / `--font-display` — see the Saira note in globals.css
+        hk: ['Saira', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        'hk-display': ['Saira Condensed', 'Saira', 'ui-sans-serif', 'sans-serif'],
         // ATLAS News (/news public pages): the editorial serif — see the Newsreader note in globals.css
         'news-serif': ['Newsreader', 'Georgia', 'Cambria', 'Times New Roman', 'serif'],
       },

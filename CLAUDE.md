@@ -8187,3 +8187,38 @@ to the BBA Admissions page with a "Key Dates" button and hold no dates of their 
   and line breaks. If the edit adds rows/columns/merges, every copy takes the new table whole. B.Des was the
   one calendar whose copies disagreed on 2026-11-16 (ATLAS UG vs ISDI B.Des); the admin shows it as
   "Dates differ" with "Use these dates on all pages" per copy — nothing picks a winner automatically.
+
+## /atlas-hackathon-2026 — ATLAS Hackathon 2026 — `components/Hackathon/`, `lib/hackathon/`, `/admin/hackathon`
+
+Port of a standalone event site supplied as files (index.html, register.php, success.php, emailer.php,
+images/) — not from `reference/`. Its own dark site: `MainSiteOnly` lists the route as STANDALONE, and
+`app/atlas-hackathon-2026/layout.js` is the reference `<body>` (night ground, Saira, the icon sprite).
+
+- **Tailwind v4 → v3.** The landing page (`components/Hackathon/Landing.js`) was converted from index.html
+  by a one-off script: `sm:`/`lg:` → `n640:`/`n1024:`, every `text-<size>` → its v4 px size and line height
+  (`text-[30px]/[36px]`; size only where the element has `leading-*`, because in v4 an explicit leading
+  wins), `bg-linear-*` → `bg-gradient-*`, `night`/`panel` → `hk-night`/`hk-panel`, `font-display`/`font-sans`
+  → `font-hk-display`/`font-hk`, `outline-2` + `outline`, `block` on every `<img>`. Measured against the
+  reference rendered with the real Tailwind v4 browser build: every section height identical at
+  1440 / 1024 / 768 / 390. **Hand-written v3 classes on these pages must give each text size its own line
+  height** — in v4 a child's `text-base` does not inherit its parent's `leading-tight` (it cost the footer 4px).
+- **Data:** `atlasnews_hackathon_registrations` (migration 0007). Rules in `lib/hackathon/validate.js` are
+  register.php's, shared by the form and the admin edit. Duplicate = team name + lead email
+  (case-insensitive collation + `cleanText`). The form is a server action; the success page reads an httpOnly
+  `hk_reg` cookie (`<id>.<token>`, 2 h) instead of a PHP session. Spam trap field `website`; 6 posts / IP /
+  10 min per process. Open/closed switch: `atlasnews_settings.hackathon_registration_open`.
+- **Email:** SendGrid v3 REST (no package), `lib/hackathon/mail.js`; template `lib/hackathon/emailTemplate.js`
+  is emailer.php with its early "Register" CTA replaced by the team's confirmation and the marketing footer
+  line removed. Lead on To, member 2 on Cc. The row is saved first; `mail_status` records the result and the
+  admin can re-send. Env: `SENDGRID_API_KEY`, `HACKATHON_MAIL_FROM` / `_FROM_NAME` / `_REPLY_TO`.
+- **Admin tab** `hackathon`: list/search/filter, view/edit dialog, add, delete, re-send, CSV export (BOM,
+  formula-safe), open/close, and "Import from old site" for the PHP export (registrations.csv: `legacy_id` =
+  old id, created_at read as IST; re-runnable). The old site's data is imported through that button, not
+  committed — it is students' personal data. Every admin change here is written to the Activity log
+  (tab `hackathon`; edits with before/after values per field).
+- **Assets:** `public/assets/atlas-hackathon-2026/` — originals byte-for-byte (the email uses the JPG/PNG,
+  absolute S3 URLs) plus WebP for the site. Listed in the manifest **and** tracked in git (`.gitignore`
+  exception) because they were added from a session with no S3 write access; upload with
+  `npm run assets:sync -- --only=atlas-hackathon-2026 --full`. Fonts (Saira, Saira Condensed) are local-only
+  in `public/assets/fonts/`.
+- Tests: `scripts/news/tests/hackathon.test.mjs` (rules, CSV, IST, email, SendGrid request).

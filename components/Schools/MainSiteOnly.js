@@ -53,6 +53,8 @@ const STANDALONE = [
   '/news',
   /* the ATLAS admin area (hub at /admin, News admin at /admin/news): its own admin chrome */
   '/admin',
+  /* ATLAS Hackathon 2026: its own dark site with its own header and footer (components/Hackathon) */
+  '/atlas-hackathon-2026',
 ];
 
 export default function MainSiteOnly({ children }) {

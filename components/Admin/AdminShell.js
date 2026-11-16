@@ -28,6 +28,14 @@ export const TOOLS = [
     cta: 'Open Key Dates',
   },
   {
+    key: 'hackathon',
+    href: '/admin/hackathon',
+    label: 'ATLAS Hackathon',
+    title: 'ATLAS Hackathon Registrations',
+    description: 'Teams registered for ATLAS Hackathon 2026: view, search, edit, delete, download, re-send the confirmation email, and open or close the form.',
+    cta: 'Open registrations',
+  },
+  {
     key: 'users',
     href: '/admin/users',
     label: 'Users',
