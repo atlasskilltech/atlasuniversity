@@ -115,7 +115,7 @@ process.on('exit', stopApp);
 
 for (let i = 0; ; i++) {
   try {
-    if ((await fetch(`${BASE}/admin/news/login`)).status === 200) break;
+    if ((await fetch(`${BASE}/admin/login`)).status === 200) break;
   } catch {
     /* not up yet */
   }
@@ -144,7 +144,7 @@ async function req(method, p, { body, headers = {}, cookie, origin = 'same' } = 
   }
   return { status: res.status, headers: res.headers, buf, text: buf.toString('utf8'), json, cookies: res.headers.getSetCookie?.() || [] };
 }
-const login = (pw, ip, origin = 'same') => req('POST', '/admin/news/api/login', { body: JSON.stringify({ password: pw }), headers: { 'Content-Type': 'application/json', 'X-Forwarded-For': ip }, origin });
+const login = (pw, ip, origin = 'same') => req('POST', '/admin/api/login', { body: JSON.stringify({ password: pw }), headers: { 'Content-Type': 'application/json', 'X-Forwarded-For': ip }, origin });
 function multipart(fields, files) {
   const b = `----atlasnews${randomBytes(8).toString('hex')}`;
   const parts = [];
@@ -161,8 +161,8 @@ const noise = (w, h) => sharp({ create: { width: w, height: h, channels: 3, nois
 /* ------------------------------------------------------------------------------------ 1. access */
 try {
   let r = await req('GET', '/admin/news', { origin: null });
-  check('GET /admin/news without session → redirect to login', isRedirect(r.status) && (r.headers.get('location') || '').includes('/admin/news/login'), r.status);
-  r = await req('GET', '/admin/news/login', { origin: null });
+  check('GET /admin/news without session → redirect to login', isRedirect(r.status) && (r.headers.get('location') || '').includes('/admin/login'), r.status);
+  r = await req('GET', '/admin/login', { origin: null });
   check('login page 200', r.status === 200);
   check('admin headers: X-Frame-Options DENY', r.headers.get('x-frame-options') === 'DENY');
   check("admin headers: CSP frame-ancestors 'none'", (r.headers.get('content-security-policy') || '').includes("frame-ancestors 'none'"));
@@ -176,9 +176,9 @@ try {
   /* 2. CSRF / input */
   check('login without Origin → 403', (await login(PW, '203.0.113.50', null)).status === 403);
   check('login from another origin → 403', (await login(PW, '203.0.113.50', 'https://evil.example')).status === 403);
-  r = await req('POST', '/admin/news/api/login', { body: '{"password": 123}', headers: { 'Content-Type': 'application/json' } });
+  r = await req('POST', '/admin/api/login', { body: '{"password": 123}', headers: { 'Content-Type': 'application/json' } });
   check('non-string password → 400', r.status === 400, r.status);
-  r = await req('POST', '/admin/news/api/login', { body: 'x'.repeat(5000), headers: { 'Content-Type': 'application/json' } });
+  r = await req('POST', '/admin/api/login', { body: 'x'.repeat(5000), headers: { 'Content-Type': 'application/json' } });
   check('oversized login body (declared) → 413', r.status === 413, r.status);
   const chunked = new ReadableStream({
     start(c) {
@@ -186,7 +186,7 @@ try {
       c.close();
     },
   });
-  r = await req('POST', '/admin/news/api/login', { body: chunked, headers: { 'Content-Type': 'application/json' } });
+  r = await req('POST', '/admin/api/login', { body: chunked, headers: { 'Content-Type': 'application/json' } });
   check('oversized CHUNKED login body (no Content-Length) → 413 by the streaming cap', r.status === 413, r.status);
 
   /* 3. rate limit (isolated IP) */
@@ -215,7 +215,7 @@ try {
   r = await req('GET', '/admin/news/system', { cookie: CK, origin: null });
   check('system page with session → 200 with data', r.status === 200 && r.text.includes('>Foundation status</h1>') && r.text.includes(DB.name), r.status);
   check('system page HTML has no password/hash/credential', !r.text.includes(PW) && !r.text.includes('scrypt$') && !r.text.includes('stub-secret'));
-  r = await req('GET', '/admin/news/login', { cookie: CK, origin: null });
+  r = await req('GET', '/admin/login', { cookie: CK, origin: null });
   check('login page with session → redirect to dashboard', isRedirect(r.status), r.status);
   r = await req('GET', '/admin/news/api/health', { cookie: CK, origin: null });
   const hb = r.json;
@@ -568,8 +568,8 @@ try {
   }
 
   /* 10. logout */
-  check('logout without Origin → 403', (await req('POST', '/admin/news/api/logout', { body: '', cookie: CK, origin: null })).status === 403);
-  r = await req('POST', '/admin/news/api/logout', { body: '', cookie: CK });
+  check('logout without Origin → 403', (await req('POST', '/admin/api/logout', { body: '', cookie: CK, origin: null })).status === 403);
+  r = await req('POST', '/admin/api/logout', { body: '', cookie: CK });
   check('logout → 200 and cookie cleared', r.status === 200 && r.cookies.some((c) => c.includes('Max-Age=0')), r.status);
   check('old token rejected after logout → 401', (await req('GET', '/admin/news/api/health', { cookie: CK, origin: null })).status === 401);
   check('forged token → 401', (await req('GET', '/admin/news/api/health', { cookie: `atlasnews_admin=${'A'.repeat(43)}`, origin: null })).status === 401);

@@ -126,7 +126,7 @@ export async function startApp(port, { dbName, dbPort, extraEnv = {} }) {
   process.on('exit', stop);
   for (let i = 0; ; i++) {
     try {
-      if ((await fetch(`${base}/admin/news/login`)).status === 200) break;
+      if ((await fetch(`${base}/admin/login`)).status === 200) break;
     } catch {
       /* starting */
     }

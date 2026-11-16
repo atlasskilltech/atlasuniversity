@@ -79,6 +79,11 @@ const nextConfig = {
       /* The News admin moved from /news/admin to /admin/news (the ATLAS admin hub's News tab). Old
          bookmarks and links keep working; 308 preserves the method, so a stale POST to an old API path
          is not silently turned into a GET. */
+      /* sign-in and sign-out belong to the whole admin, so they live at /admin, not under News */
+      { source: '/news/admin/login', destination: '/admin/login', permanent: true },
+      { source: '/admin/news/login', destination: '/admin/login', permanent: true },
+      { source: '/news/admin/api/:op(login|logout)', destination: '/admin/api/:op', permanent: true },
+      { source: '/admin/news/api/:op(login|logout)', destination: '/admin/api/:op', permanent: true },
       { source: '/news/admin', destination: '/admin/news', permanent: true },
       { source: '/news/admin/:path*', destination: '/admin/news/:path*', permanent: true },
       /*

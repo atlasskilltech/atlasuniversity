@@ -58,7 +58,7 @@ with sync_playwright() as p:
         pg.on('response', lambda r: r.status >= 400 and bad.append(f'{r.status} {r.request.method} {r.url[len(BASE):][:140]}'))
         tag = f'{w}px'
 
-        pg.goto(BASE + '/admin/news/login', wait_until='networkidle')
+        pg.goto(BASE + '/admin/login', wait_until='networkidle')
         pg.fill('#news-admin-password', PW)
         pg.click('button[type=submit]')
         pg.wait_for_url('**/admin/news', timeout=30000)

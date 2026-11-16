@@ -27,7 +27,7 @@ const A = await startApp(Number(process.env.NEWS_MULTIPROC_PORT_A || 3401), { db
 const B = await startApp(Number(process.env.NEWS_MULTIPROC_PORT_B || 3402), { dbName: DB_NAME, dbPort: 3306 });
 
 /* sign in on A */
-const login = await fetch(`${A.base}/admin/news/api/login`, {
+const login = await fetch(`${A.base}/admin/api/login`, {
   method: 'POST', headers: { 'Content-Type': 'application/json', Origin: A.base }, body: JSON.stringify({ password: PW }),
 });
 const CK = (login.headers.getSetCookie?.()[0] || '').split(';')[0];

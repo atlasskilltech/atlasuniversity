@@ -11,12 +11,6 @@ import LogoutButton from '@/components/News/Admin/LogoutButton';
  */
 export const dynamic = 'force-dynamic';
 
-export const metadata = {
-  title: 'ATLAS Admin',
-  description: 'ATLAS SkillTech University administration.',
-  robots: { index: false, follow: false, nocache: true, googleBot: { index: false, follow: false } },
-};
-
 /* One entry per admin tool. Add a tool here and it appears as a tab and as a card. */
 const TOOLS = [
   {
@@ -31,7 +25,7 @@ const TOOLS = [
 export default async function AdminHomePage() {
   await requireAdminPage();
   return (
-    <div className="min-h-dvh bg-[#f4f5f7] text-[#14161a] antialiased">
+    <>
       <header className="sticky top-0 z-20 border-b border-[#e3e5ea] bg-white/95 backdrop-blur">
         <div className="mx-auto max-w-[1200px] px-4">
           <div className="flex h-14 items-center justify-between gap-3">
@@ -76,6 +70,6 @@ export default async function AdminHomePage() {
           ))}
         </div>
       </main>
-    </div>
+    </>
   );
 }

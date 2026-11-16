@@ -27,7 +27,7 @@ with sync_playwright() as p:
         pg.on('console', lambda m: m.type == 'error' and errs.append(m.text[:160]))
         pg.on('pageerror', lambda e: errs.append(str(e)[:160]))
         pg.goto(BASE + '/admin/news', wait_until='networkidle')
-        on_login = pg.url.endswith('/admin/news/login')
+        on_login = pg.url.endswith('/admin/login')
         no_chrome = pg.evaluate("() => !document.getElementById('mainbar')")
         pg.screenshot(path=os.path.join(OUT, f'login-{w}.png'))
         pg.fill('#news-admin-password', 'definitely-the-wrong-password')
@@ -48,9 +48,9 @@ with sync_playwright() as p:
         check_ok = '"ok": true' in pg.inner_text('pre')
         pg.screenshot(path=os.path.join(OUT, f'dashboard-{w}.png'), full_page=True)
         pg.click('text=Sign out')
-        pg.wait_for_url('**/admin/news/login', timeout=30000)
+        pg.wait_for_url('**/admin/login', timeout=30000)
         pg.goto(BASE + '/admin/news', wait_until='networkidle')
-        signed_out = pg.url.endswith('/admin/news/login')
+        signed_out = pg.url.endswith('/admin/login')
         good = (on_login and no_chrome and 'Incorrect' in wrong_msg and dash == 'Dashboard' and ovf <= 0
                 and not cookie_js and check_ok and signed_out and len(errs) <= 1 and all('401' in e for e in errs))
         ok &= good
