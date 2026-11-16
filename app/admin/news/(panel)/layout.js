@@ -14,7 +14,9 @@ export default async function NewsAdminPanelLayout({ children }) {
         <div className="mx-auto max-w-[1200px] px-4">
           <div className="flex h-14 items-center justify-between gap-3">
             <p className="truncate text-[15px] font-semibold">
-              ATLAS News <span className="font-normal text-[#5b6170]">· Admin</span>
+              <a href="/admin" className="font-normal text-[#5b6170] hover:text-[#14161a]">ATLAS Admin</a>
+              <span className="font-normal text-[#5b6170]"> / </span>
+              ATLAS News
             </p>
             <div className="flex items-center gap-2">
               <a href="/news" target="_blank" rel="noopener noreferrer" className="hidden h-9 items-center rounded-lg px-3 text-[14px] font-medium text-[#5b6170] hover:bg-[#f4f5f7] hover:text-[#14161a] sm:inline-flex">

@@ -30,7 +30,7 @@ export default function FoundationTools() {
     setChecking(true);
     setCheck(null);
     try {
-      const res = await fetch('/news/admin/api/storage-check', { method: 'POST', credentials: 'same-origin' });
+      const res = await fetch('/admin/news/api/storage-check', { method: 'POST', credentials: 'same-origin' });
       setCheck({ status: res.status, ...(await res.json().catch(() => ({}))) });
     } catch {
       setCheck({ error: 'network error' });
@@ -48,7 +48,7 @@ export default function FoundationTools() {
     setUpload(null);
     try {
       const fd = new FormData(form);
-      const res = await fetch('/news/admin/api/media', { method: 'POST', body: fd, credentials: 'same-origin' });
+      const res = await fetch('/admin/news/api/media', { method: 'POST', body: fd, credentials: 'same-origin' });
       const body = await res.json().catch(() => ({}));
       setUpload({ status: res.status, ...body });
       if (res.ok) form.reset();

@@ -29,19 +29,19 @@ export default async function NewsAdminDashboard() {
   return (
     <div>
       <PageHeader title="Dashboard" description="What is on ATLAS News right now.">
-        <Link href="/news/admin/articles/new" className={BTN_PRIMARY}>
+        <Link href="/admin/news/articles/new" className={BTN_PRIMARY}>
           New article
         </Link>
       </PageHeader>
 
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-        <Stat label="Live articles" value={d.articles.live} href="/news/admin/articles?filter=live" />
-        <Stat label="Scheduled" value={d.articles.scheduled} href="/news/admin/articles?filter=scheduled" />
-        <Stat label="Drafts" value={d.articles.drafts} href="/news/admin/articles?filter=draft" />
-        <Stat label="In Trash" value={d.articles.trash} href="/news/admin/articles?filter=trash" />
-        <Stat label="Categories" value={d.categories.total} href="/news/admin/categories" note={`${d.categories.inMenu} of 8 in the navigation`} />
-        <Stat label="Homepage slots filled" value={`${d.homepage.filled}/${d.homepage.capacity}`} href="/news/admin/homepage" />
-        <Stat label="Images in library" value={d.media.total} href="/news/admin/media" />
+        <Stat label="Live articles" value={d.articles.live} href="/admin/news/articles?filter=live" />
+        <Stat label="Scheduled" value={d.articles.scheduled} href="/admin/news/articles?filter=scheduled" />
+        <Stat label="Drafts" value={d.articles.drafts} href="/admin/news/articles?filter=draft" />
+        <Stat label="In Trash" value={d.articles.trash} href="/admin/news/articles?filter=trash" />
+        <Stat label="Categories" value={d.categories.total} href="/admin/news/categories" note={`${d.categories.inMenu} of 8 in the navigation`} />
+        <Stat label="Homepage slots filled" value={`${d.homepage.filled}/${d.homepage.capacity}`} href="/admin/news/homepage" />
+        <Stat label="Images in library" value={d.media.total} href="/admin/news/media" />
       </div>
 
       <div className="mt-6 grid gap-5 lg:grid-cols-2">
@@ -51,7 +51,7 @@ export default async function NewsAdminDashboard() {
             <ul className="mt-3 divide-y divide-[#eef0f3]">
               {d.upcoming.map((a) => (
                 <li key={a.id} className="flex items-center justify-between gap-4 py-2.5">
-                  <Link href={`/news/admin/articles/${a.id}`} className="min-w-0 truncate text-[14px] font-medium hover:underline">
+                  <Link href={`/admin/news/articles/${a.id}`} className="min-w-0 truncate text-[14px] font-medium hover:underline">
                     {a.title}
                   </Link>
                   <span className="shrink-0 text-[13px] text-[#5b6170]">{formatDateTime(a.publishedAt)}</span>
@@ -68,7 +68,7 @@ export default async function NewsAdminDashboard() {
             <ul className="mt-3 divide-y divide-[#eef0f3]">
               {d.recent.map((a) => (
                 <li key={a.id} className="flex items-center justify-between gap-4 py-2.5">
-                  <Link href={`/news/admin/articles/${a.id}`} className="min-w-0 truncate text-[14px] font-medium hover:underline">
+                  <Link href={`/admin/news/articles/${a.id}`} className="min-w-0 truncate text-[14px] font-medium hover:underline">
                     {a.title}
                   </Link>
                   <StateBadge state={a.state} />

@@ -136,7 +136,7 @@ export default function ArticleForm({ initial, categories }) {
     }
     setDirty(false);
     if (isNew) {
-      router.replace(`/news/admin/articles/${r.data.id}?saved=1`);
+      router.replace(`/admin/news/articles/${r.data.id}?saved=1`);
       router.refresh();
       return undefined;
     }
@@ -164,7 +164,7 @@ export default function ArticleForm({ initial, categories }) {
     <div>
       <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="min-w-0">
-          <Link href="/news/admin/articles" className="text-[13px] font-medium text-[#5b6170] hover:text-[#14161a]">← Articles</Link>
+          <Link href="/admin/news/articles" className="text-[13px] font-medium text-[#5b6170] hover:text-[#14161a]">← Articles</Link>
           <div className="mt-1 flex flex-wrap items-center gap-2">
             <h1 className="truncate text-[22px] font-semibold leading-[1.3]">{isNew ? 'New article' : 'Edit article'}</h1>
             {initial ? <StateBadge state={initial.state} /> : null}
@@ -173,12 +173,12 @@ export default function ArticleForm({ initial, categories }) {
         </div>
         {!isNew ? (
           <div className="flex flex-wrap gap-2">
-            <a href={`/news/admin/preview/${initial.id}`} target="_blank" rel="noopener noreferrer" className={BTN_SECONDARY} title={dirty ? 'Preview shows the last saved version' : undefined}>
+            <a href={`/admin/news/preview/${initial.id}`} target="_blank" rel="noopener noreferrer" className={BTN_SECONDARY} title={dirty ? 'Preview shows the last saved version' : undefined}>
               Preview{dirty ? ' (saved version)' : ''}
             </a>
             {live ? <a href={`/news/${f.slug}`} target="_blank" rel="noopener noreferrer" className={BTN_GHOST}>View live ↗</a> : null}
-            <button type="button" className={BTN_GHOST} onClick={() => action('POST', `/articles/${initial.id}/duplicate`, null, (d) => router.push(`/news/admin/articles/${d.id}`))}>Duplicate</button>
-            <button type="button" className={BTN_DANGER} onClick={() => action('DELETE', `/articles/${initial.id}`, 'Move this article to Trash? It will be taken off the site and the homepage. You can restore it later (as a draft).', () => { setDirty(false); router.push('/news/admin/articles?filter=trash'); })}>Trash</button>
+            <button type="button" className={BTN_GHOST} onClick={() => action('POST', `/articles/${initial.id}/duplicate`, null, (d) => router.push(`/admin/news/articles/${d.id}`))}>Duplicate</button>
+            <button type="button" className={BTN_DANGER} onClick={() => action('DELETE', `/articles/${initial.id}`, 'Move this article to Trash? It will be taken off the site and the homepage. You can restore it later (as a draft).', () => { setDirty(false); router.push('/admin/news/articles?filter=trash'); })}>Trash</button>
           </div>
         ) : null}
       </div>
@@ -299,7 +299,7 @@ export default function ArticleForm({ initial, categories }) {
             ) : null}
             {initial?.homepage ? (
               <p className="rounded-lg bg-[#fff4e5] px-3 py-2 text-[12.5px] font-medium text-[#9a5b00]">
-                On the homepage: {initial.homepage.label}. <Link href="/news/admin/homepage" className="underline">Manage</Link>
+                On the homepage: {initial.homepage.label}. <Link href="/admin/news/homepage" className="underline">Manage</Link>
               </p>
             ) : null}
           </div>
@@ -327,7 +327,7 @@ export default function ArticleForm({ initial, categories }) {
                 })}
               </ul>
             ) : (
-              <p className="text-[13px] text-[#5b6170]">No categories yet. <Link href="/news/admin/categories" className="underline">Create one</Link>.</p>
+              <p className="text-[13px] text-[#5b6170]">No categories yet. <Link href="/admin/news/categories" className="underline">Create one</Link>.</p>
             )}
             {errors.categoryIds ? <p className={ERR} role="alert">{errors.categoryIds}</p> : <p className={HINT}>The main category is shown on the article and in its URL breadcrumb.</p>}
           </div>

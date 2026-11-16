@@ -54,9 +54,9 @@ const nextConfig = {
   ...(ASSET_URL_RULES ? { turbopack: { rules: ASSET_URL_RULES } } : {}),
 
   /*
-   * ATLAS News admin (/news/admin and everything under it, pages and APIs): never framed (clickjacking),
-   * never cached, never indexed, no referrer leaks, and only same-origin resources. Scoped to the admin
-   * area only — no other route's headers change.
+   * ATLAS admin (/admin and everything under it — the hub and the News admin at /admin/news, pages and
+   * APIs): never framed (clickjacking), never cached, never indexed, no referrer leaks, and only
+   * same-origin resources. Scoped to the admin area only — no other route's headers change.
    */
   async headers() {
     const adminHeaders = [
@@ -69,13 +69,18 @@ const nextConfig = {
       { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
     ];
     return [
-      { source: '/news/admin', headers: adminHeaders },
-      { source: '/news/admin/:path*', headers: adminHeaders },
+      { source: '/admin', headers: adminHeaders },
+      { source: '/admin/:path*', headers: adminHeaders },
     ];
   },
 
   async redirects() {
     return [
+      /* The News admin moved from /news/admin to /admin/news (the ATLAS admin hub's News tab). Old
+         bookmarks and links keep working; 308 preserves the method, so a stale POST to an old API path
+         is not silently turned into a GET. */
+      { source: '/news/admin', destination: '/admin/news', permanent: true },
+      { source: '/news/admin/:path*', destination: '/admin/news/:path*', permanent: true },
       /*
        * ref `reference/programs/index.php`, which is not a page — it is a
        * three-line guard on the `/programs/` directory:

@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * Password-only admin sign-in. The password goes to POST /news/admin/api/login over the same origin and
+ * Password-only admin sign-in. The password goes to POST /admin/news/api/login over the same origin and
  * is never stored in the browser; the session cookie the server sets is HttpOnly, so no script here can
  * read it.
  */
@@ -27,7 +27,7 @@ export default function LoginForm() {
     setError('');
     let message = 'Network error. Please try again.';
     try {
-      const res = await fetch('/news/admin/api/login', {
+      const res = await fetch('/admin/news/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password }),
@@ -35,7 +35,7 @@ export default function LoginForm() {
       });
       if (res.ok) {
         /* keep the form locked while the dashboard loads */
-        window.location.replace('/news/admin');
+        window.location.replace('/admin/news');
         return;
       }
       const body = await res.json().catch(() => ({}));

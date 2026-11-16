@@ -15,8 +15,8 @@ export const dynamic = 'force-dynamic';
 export const metadata = { title: 'Preview — ATLAS News Admin', robots: { index: false, follow: false, nocache: true } };
 
 /*
- * /news/admin/preview/[id] — any article (draft, scheduled, live) rendered with the public article layout.
- * It lives under /news/admin because the admin cookie is scoped to that path: the preview needs the
+ * /admin/news/preview/[id] — any article (draft, scheduled, live) rendered with the public article layout.
+ * It lives under /admin/news because the admin cookie is scoped to that path: the preview needs the
  * session, and the public /news routes never receive it. Never cached, never indexed (admin headers).
  */
 export default async function ArticlePreviewPage({ params }) {
@@ -55,7 +55,7 @@ export default async function ArticlePreviewPage({ params }) {
                     : 'Draft — not on the site.'}
             </span>
           </p>
-          <Link href={`/news/admin/articles/${article.id}`} className="font-semibold underline">
+          <Link href={`/admin/news/articles/${article.id}`} className="font-semibold underline">
             Back to editor
           </Link>
         </div>

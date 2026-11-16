@@ -1,7 +1,7 @@
 /*
  * ATLAS News — the public publication (/news, /news/[slug], /news/category/[slug]).
  *
- * A route group, so this layout wraps ONLY the public pages: /news/admin keeps its own layout, headers
+ * A route group, so this layout wraps ONLY the public pages: /admin/news keeps its own layout, headers
  * and authentication untouched. The university header and footer are already hidden on /news
  * (components/Schools/MainSiteOnly); News renders its own chrome and visual identity.
  *

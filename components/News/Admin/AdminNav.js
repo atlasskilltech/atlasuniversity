@@ -5,12 +5,12 @@ import { usePathname } from 'next/navigation';
 import { cx } from './ui';
 
 const ITEMS = [
-  { href: '/news/admin', label: 'Dashboard', exact: true },
-  { href: '/news/admin/articles', label: 'Articles' },
-  { href: '/news/admin/categories', label: 'Categories' },
-  { href: '/news/admin/homepage', label: 'Homepage' },
-  { href: '/news/admin/media', label: 'Media' },
-  { href: '/news/admin/system', label: 'System' },
+  { href: '/admin/news', label: 'Dashboard', exact: true },
+  { href: '/admin/news/articles', label: 'Articles' },
+  { href: '/admin/news/categories', label: 'Categories' },
+  { href: '/admin/news/homepage', label: 'Homepage' },
+  { href: '/admin/news/media', label: 'Media' },
+  { href: '/admin/news/system', label: 'System' },
 ];
 
 export default function AdminNav() {

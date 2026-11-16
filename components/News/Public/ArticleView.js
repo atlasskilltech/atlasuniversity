@@ -12,7 +12,7 @@ import { articleJsonLd, breadcrumbCategories, formatDate } from '@/lib/news/publ
 
 /**
  * One article as readers see it: header, featured image, body, categories and related stories.
- * Rendered by the public article page and, unchanged, by the admin preview (/news/admin/preview/[id]),
+ * Rendered by the public article page and, unchanged, by the admin preview (/admin/news/preview/[id]),
  * so a preview is exactly the published layout. `jsonLd={false}` omits structured data (the preview).
  */
 export default function ArticleView({ article, related = [], jsonLd = true }) {

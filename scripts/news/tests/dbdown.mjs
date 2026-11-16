@@ -45,9 +45,9 @@ try {
   }
   const head = await g('/news', { method: 'HEAD' });
   check('A HEAD /news → 503, no body', head.status === 503 && head.text === '');
-  let r = await g('/news/admin/login');
-  check('A admin sign-in still renders (the proxy never touches /news/admin)', r.status === 200 && r.text.includes('news-admin-password'));
-  r = await g('/news/admin/api/articles');
+  let r = await g('/admin/news/login');
+  check('A admin sign-in still renders (the proxy never touches /admin/news)', r.status === 200 && r.text.includes('news-admin-password'));
+  r = await g('/admin/news/api/articles');
   check('A admin API refuses without leaking', [401, 503].includes(r.status) && !leaksIn(r.text).length, r.status);
   for (const p of ['/', '/about-us', '/campus-atlas', '/schools/isdi']) {
     r = await g(p);

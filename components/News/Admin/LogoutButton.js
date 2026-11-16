@@ -7,9 +7,9 @@ export default function LogoutButton() {
   async function onClick() {
     setBusy(true);
     try {
-      await fetch('/news/admin/api/logout', { method: 'POST', credentials: 'same-origin' });
+      await fetch('/admin/news/api/logout', { method: 'POST', credentials: 'same-origin' });
     } finally {
-      window.location.replace('/news/admin/login');
+      window.location.replace('/admin/news/login');
     }
   }
   return (

@@ -20,7 +20,7 @@ function Usage({ usage }) {
           list.map((x) => (
             <li key={`${label}-${x.id}`}>
               {label}{' '}
-              {kind === 'a' ? <Link className="underline" href={`/news/admin/articles/${x.id}`}>{x.title}</Link> : <Link className="underline" href="/news/admin/categories">{x.title}</Link>}
+              {kind === 'a' ? <Link className="underline" href={`/admin/news/articles/${x.id}`}>{x.title}</Link> : <Link className="underline" href="/admin/news/categories">{x.title}</Link>}
             </li>
           )),
         )}

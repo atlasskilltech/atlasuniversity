@@ -39,7 +39,7 @@ def overflow(pg):
 
 def api(pg, method, path, body=None):
     return pg.evaluate(
-        """async ([m, p, b]) => { const r = await fetch('/news/admin/api' + p, { method: m, headers: b ? { 'Content-Type': 'application/json' } : {}, body: b ? JSON.stringify(b) : undefined });
+        """async ([m, p, b]) => { const r = await fetch('/admin/news/api' + p, { method: m, headers: b ? { 'Content-Type': 'application/json' } : {}, body: b ? JSON.stringify(b) : undefined });
            return { status: r.status, json: await r.json().catch(() => ({})) }; }""",
         [method, path, body],
     )
@@ -58,14 +58,14 @@ with sync_playwright() as p:
         pg.on('response', lambda r: r.status >= 400 and bad.append(f'{r.status} {r.request.method} {r.url[len(BASE):][:140]}'))
         tag = f'{w}px'
 
-        pg.goto(BASE + '/news/admin/login', wait_until='networkidle')
+        pg.goto(BASE + '/admin/news/login', wait_until='networkidle')
         pg.fill('#news-admin-password', PW)
         pg.click('button[type=submit]')
-        pg.wait_for_url('**/news/admin', timeout=30000)
+        pg.wait_for_url('**/admin/news', timeout=30000)
 
         # ---- category through the UI
         cat_name = f'Browser Cat {STAMP} {w}'
-        pg.goto(BASE + '/news/admin/categories', wait_until='networkidle')
+        pg.goto(BASE + '/admin/news/categories', wait_until='networkidle')
         pg.click('text=New category')
         pg.fill('#c-name', cat_name)
         pg.click('form button[type=submit]:has-text("Save")')
@@ -94,7 +94,7 @@ with sync_playwright() as p:
 
         # ---- article in the editor
         title = f'Browser story {STAMP} {w}'
-        pg.goto(BASE + '/news/admin/articles/new', wait_until='networkidle')
+        pg.goto(BASE + '/admin/news/articles/new', wait_until='networkidle')
         pg.wait_for_selector('.ProseMirror', timeout=20000)
         sub_lbl = pg.locator('label[data-category-depth]', has_text=sub_name)
         check(f'{tag} article form lists the sub-category indented under its parent', sub_lbl.count() == 1 and sub_lbl.get_attribute('data-category-depth') == '1', sub_lbl.count())
@@ -138,7 +138,7 @@ with sync_playwright() as p:
         pg.screenshot(path=os.path.join(OUT, f'cms-editor-scrolled-{w}.png'))
         check(f'{tag} editor page: no overflow', overflow(pg) <= 0, overflow(pg))
         pg.click('aside button[type=submit]')
-        pg.wait_for_url('**/news/admin/articles/*?saved=1', timeout=30000)
+        pg.wait_for_url('**/admin/news/articles/*?saved=1', timeout=30000)
         pg.wait_for_load_state('networkidle')
         art_id = int(pg.url.split('/articles/')[1].split('?')[0])
         check(f'{tag} published from the editor and shown as Live', pg.locator('text=Live').first.is_visible())
@@ -150,13 +150,13 @@ with sync_playwright() as p:
         cat_id = next(c['id'] for c in api(pg, 'GET', '/categories')['json']['items'] if c['name'] == cat_name)
         gal = api(pg, 'POST', '/articles', {'title': f'Gallery {STAMP} {w}', 'status': 'draft', 'categoryIds': [cat_id],
                                             'contentHtml': '<p>x</p><figure class="news-gallery"><img src="https://example.com/a.webp" alt="a"><figcaption>Cap</figcaption></figure>'})
-        pg.goto(BASE + f"/news/admin/articles/{gal['json']['id']}", wait_until='networkidle')
+        pg.goto(BASE + f"/admin/news/articles/{gal['json']['id']}", wait_until='networkidle')
         html_mode = pg.locator('textarea[aria-label="Article body (HTML)"]')
         check(f'{tag} gallery article opens in HTML mode (nothing silently dropped)', html_mode.count() == 1 and 'news-gallery' in html_mode.input_value() and pg.is_visible('text=HTML mode'))
 
         # ---- homepage: one article, one slot (start from an empty curation: earlier steps may have filled it)
         api(pg, 'PUT', '/homepage', {'zones': {}})
-        pg.goto(BASE + '/news/admin/homepage', wait_until='networkidle')
+        pg.goto(BASE + '/admin/news/homepage', wait_until='networkidle')
         pg.fill('aside input[aria-label="Search articles"]', title)
         pg.click('aside button:has-text("Search")')
         row = pg.locator('aside li', has_text=title)
@@ -176,18 +176,18 @@ with sync_playwright() as p:
         pg.screenshot(path=os.path.join(OUT, f'cms-homepage-{w}.png'), full_page=True)
 
         # ---- preview, media library, list
-        pg.goto(BASE + f'/news/admin/preview/{art_id}', wait_until='networkidle')
+        pg.goto(BASE + f'/admin/news/preview/{art_id}', wait_until='networkidle')
         check(f'{tag} preview renders the article', pg.locator('h1', has_text=title).count() == 1 and pg.locator('h2', has_text='Pasted heading').count() == 1)
-        pg.goto(BASE + '/news/admin/media', wait_until='networkidle')
+        pg.goto(BASE + '/admin/news/media', wait_until='networkidle')
         check(f'{tag} media library lists images', pg.locator('main ul li img').count() > 0)
         pg.locator('main ul li button').first.click()
         pg.wait_for_selector('aside >> text=/Used in|Not used anywhere/', timeout=15000)
         check(f'{tag} media item shows where it is used', True)
-        pg.goto(BASE + f'/news/admin/articles?q={STAMP}', wait_until='networkidle')
+        pg.goto(BASE + f'/admin/news/articles?q={STAMP}', wait_until='networkidle')
         check(f'{tag} article list search finds the story', pg.locator('main a', has_text=title).count() == 1)
         check(f'{tag} articles page: no overflow', overflow(pg) <= 0, overflow(pg))
 
-        for name, path in (('dashboard', '/news/admin'), ('articles', '/news/admin/articles'), ('categories', '/news/admin/categories'), ('media', '/news/admin/media')):
+        for name, path in (('dashboard', '/admin/news'), ('articles', '/admin/news/articles'), ('categories', '/admin/news/categories'), ('media', '/admin/news/media')):
             pg.goto(BASE + path, wait_until='networkidle')
             pg.screenshot(path=os.path.join(OUT, f'cms-{name}-{w}.png'))
             check(f'{tag} {name}: no overflow', overflow(pg) <= 0, overflow(pg))
@@ -204,7 +204,7 @@ with sync_playwright() as p:
         #  - the seeded Stage 2 sample media rows have no files in the S3 stand-in (test data, 404);
         #  - Next prefetching the preview's category link: public pages still read the Stage 2 fixtures
         #    until Phase D, so a category created here is not public yet (404).
-        known = lambda x: x == '400 PUT /news/admin/api/homepage' or (x.startswith('400 GET /_next/image?url=http%3A%2F%2F127.0.0.1')) or (x.startswith('404 GET /news/category/browser-cat-')) or ('/stub-bucket/assets/news/media/sample/' in x and x.startswith('404 GET'))
+        known = lambda x: x == '400 PUT /admin/news/api/homepage' or (x.startswith('400 GET /_next/image?url=http%3A%2F%2F127.0.0.1')) or (x.startswith('404 GET /news/category/browser-cat-')) or ('/stub-bucket/assets/news/media/sample/' in x and x.startswith('404 GET'))
         unexplained = [x for x in bad if not known(x)]
         resource_errs = [e for e in errs if e.startswith('Failed to load resource')]
         other_errs = [e for e in errs if not e.startswith('Failed to load resource')]

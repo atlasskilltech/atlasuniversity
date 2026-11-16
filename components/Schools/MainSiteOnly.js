@@ -49,8 +49,10 @@ const STANDALONE = [
   '/lp25',
   '/lp2022',
   '/sensorium',
-  /* ATLAS News: its own publication design and its own admin (/news/admin), never the ATLAS chrome */
+  /* ATLAS News: its own publication design, never the ATLAS chrome */
   '/news',
+  /* the ATLAS admin area (hub at /admin, News admin at /admin/news): its own admin chrome */
+  '/admin',
 ];
 
 export default function MainSiteOnly({ children }) {

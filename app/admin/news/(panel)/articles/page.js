@@ -42,13 +42,13 @@ export default async function ArticlesPage({ searchParams }) {
     const merged = { q: p.q, filter: p.filter, sort: p.sort, category: p.categoryId || '', page: 1, ...over };
     for (const [k, v] of Object.entries(merged)) if (v && !(k === 'page' && v === 1) && !(k === 'filter' && v === 'all') && !(k === 'sort' && v === 'updated')) q.set(k, String(v));
     const s = q.toString();
-    return `/news/admin/articles${s ? `?${s}` : ''}`;
+    return `/admin/news/articles${s ? `?${s}` : ''}`;
   };
 
   return (
     <div>
       <PageHeader title="Articles" description={`${data.total} ${data.total === 1 ? 'article' : 'articles'}${p.filter !== 'all' ? ` · ${FILTERS.find((f) => f[0] === p.filter)[1]}` : ''}`}>
-        <Link href="/news/admin/articles/new" className={BTN_PRIMARY}>
+        <Link href="/admin/news/articles/new" className={BTN_PRIMARY}>
           New article
         </Link>
       </PageHeader>
@@ -108,7 +108,7 @@ export default async function ArticlesPage({ searchParams }) {
                     <StateBadge state={a.state} />
                     {a.homepage ? <span className="rounded-full bg-[#fff4e5] px-2.5 py-0.5 text-[12px] font-semibold text-[#9a5b00]">Homepage · {a.homepage.label}</span> : null}
                   </div>
-                  <Link href={`/news/admin/articles/${a.id}`} className="mt-1 block truncate text-[15px] font-semibold hover:underline">
+                  <Link href={`/admin/news/articles/${a.id}`} className="mt-1 block truncate text-[15px] font-semibold hover:underline">
                     {a.title}
                   </Link>
                   <p className="mt-0.5 truncate text-[12.5px] text-[#6b7180]">

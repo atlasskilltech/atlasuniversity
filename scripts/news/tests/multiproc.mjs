@@ -27,12 +27,12 @@ const A = await startApp(Number(process.env.NEWS_MULTIPROC_PORT_A || 3401), { db
 const B = await startApp(Number(process.env.NEWS_MULTIPROC_PORT_B || 3402), { dbName: DB_NAME, dbPort: 3306 });
 
 /* sign in on A */
-const login = await fetch(`${A.base}/news/admin/api/login`, {
+const login = await fetch(`${A.base}/admin/news/api/login`, {
   method: 'POST', headers: { 'Content-Type': 'application/json', Origin: A.base }, body: JSON.stringify({ password: PW }),
 });
 const CK = (login.headers.getSetCookie?.()[0] || '').split(';')[0];
 const api = async (method, path, body) => {
-  const res = await fetch(`${A.base}/news/admin/api${path}`, {
+  const res = await fetch(`${A.base}/admin/news/api${path}`, {
     method, headers: { Cookie: CK, Origin: A.base, ...(body ? { 'Content-Type': 'application/json' } : {}) }, body: body ? JSON.stringify(body) : undefined,
   });
   return { status: res.status, json: await res.json().catch(() => ({})) };

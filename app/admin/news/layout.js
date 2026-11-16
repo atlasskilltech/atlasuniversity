@@ -1,5 +1,5 @@
 /*
- * /news/admin — the ATLAS News admin area (Stage 1: sign-in and the foundation status panel).
+ * /admin/news — the ATLAS News admin area (Stage 1: sign-in and the foundation status panel).
  * Never indexed, never cached; the ATLAS site chrome is hidden on /news (components/Schools/MainSiteOnly).
  * Security headers for the whole area are set in next.config.mjs (headers()).
  */

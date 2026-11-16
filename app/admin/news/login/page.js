@@ -10,7 +10,7 @@ export const metadata = {
 };
 
 export default async function NewsAdminLogin() {
-  if (await getAdminSession()) redirect('/news/admin');
+  if (await getAdminSession()) redirect('/admin/news');
   return (
     <main className="flex min-h-dvh items-center justify-center px-4 py-10">
       <div className="w-full max-w-[400px] rounded-2xl bg-white p-6 shadow-[0_8px_30px_rgba(16,24,40,0.08)] sm:p-8">

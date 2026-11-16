@@ -2,7 +2,7 @@
 
 /**
  * Client → admin API. Same-origin only (the browser sends the Origin header the server checks); the
- * session cookie rides along because its path is /news/admin. Never throws: returns
+ * session cookie rides along because its path is /admin. Never throws: returns
  * { ok, status, data } where data is the parsed JSON (or { error } for a network failure).
  */
 export async function api(method, path, body) {
@@ -13,7 +13,7 @@ export async function api(method, path, body) {
     init.body = JSON.stringify(body);
   }
   try {
-    const res = await fetch(`/news/admin/api${path}`, init);
+    const res = await fetch(`/admin/news/api${path}`, init);
     let data = null;
     try {
       data = await res.json();

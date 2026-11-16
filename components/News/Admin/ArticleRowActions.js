@@ -32,13 +32,13 @@ export default function ArticleRowActions({ id, state }) {
           </button>
         ) : (
           <>
-            <Link href={`/news/admin/articles/${id}`} className={BTN_SECONDARY}>
+            <Link href={`/admin/news/articles/${id}`} className={BTN_SECONDARY}>
               Edit
             </Link>
-            <a href={`/news/admin/preview/${id}`} target="_blank" rel="noopener noreferrer" className={BTN_GHOST}>
+            <a href={`/admin/news/preview/${id}`} target="_blank" rel="noopener noreferrer" className={BTN_GHOST}>
               Preview
             </a>
-            <button type="button" disabled={busy} className={BTN_GHOST} onClick={() => act('POST', `/articles/${id}/duplicate`, null, (d) => router.push(`/news/admin/articles/${d.id}`))}>
+            <button type="button" disabled={busy} className={BTN_GHOST} onClick={() => act('POST', `/articles/${id}/duplicate`, null, (d) => router.push(`/admin/news/articles/${d.id}`))}>
               Duplicate
             </button>
             <button type="button" disabled={busy} className={BTN_DANGER} onClick={() => act('DELETE', `/articles/${id}`, 'Move this article to Trash? It will be taken off the site and the homepage. You can restore it later (as a draft).')}>

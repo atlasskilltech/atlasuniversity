@@ -4,7 +4,8 @@ import { OUTAGE_HTML, outageResponseInit } from './lib/news/public/outage.js';
 
 /**
  * Request proxy (Next.js 16; always the Node.js runtime). It touches ONLY the public ATLAS News pages
- * (the matcher below); /news/admin and every other route of the site pass straight through.
+ * (the matcher below); the admin (/admin, News admin at /admin/news) and every other route of the site
+ * pass straight through. The old /news/admin paths are 308-redirected to /admin/news by next.config.mjs.
  *
  * Purpose: a proper HTTP 503 when the News database is unavailable. An App Router page cannot choose
  * its status (an error becomes a 500, and its error boundary is drawn only in the browser), so the
@@ -29,9 +30,10 @@ export async function proxy(request) {
 }
 
 /*
- * /news/admin (pages AND APIs) is excluded HERE, not only by the early return above: whenever a proxy
- * matches a request, Next.js prepares that request's body for it, which would defeat the upload route's
- * "refuse an oversized upload before reading the body" protection. Admin requests must never reach it.
+ * The admin (pages AND APIs, now at /admin/news) must never be matched: whenever a proxy matches a
+ * request, Next.js prepares that request's body for it, which would defeat the upload route's "refuse an
+ * oversized upload before reading the body" protection. /admin is outside this matcher; the legacy
+ * /news/admin paths stay excluded too, so a stale request is only ever redirected, never body-buffered.
  */
 export const config = {
   matcher: ['/news', '/news/((?!admin(?:/|$)).*)'],

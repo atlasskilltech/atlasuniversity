@@ -27,7 +27,7 @@ export default async function EditArticlePage({ params }) {
   if (article.state === 'trash') {
     return (
       <div>
-        <Link href="/news/admin/articles?filter=trash" className="text-[13px] font-medium text-[#5b6170]">← Trash</Link>
+        <Link href="/admin/news/articles?filter=trash" className="text-[13px] font-medium text-[#5b6170]">← Trash</Link>
         <PageHeader title={article.title} />
         <div className={CARD}>
           <div className="flex flex-wrap items-center justify-between gap-3">

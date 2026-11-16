@@ -31,8 +31,8 @@ function Card({ title, children }) {
 }
 
 /*
- * /news/admin/system — the Stage 1 foundation status, moved here when the editorial dashboard took over
- * /news/admin: database + schema, admin password, S3 storage and the upload pipeline, plus two tools to
+ * /admin/news/system — the Stage 1 foundation status, moved here when the editorial dashboard took over
+ * /admin/news: database + schema, admin password, S3 storage and the upload pipeline, plus two tools to
  * prove them end to end on whichever server this runs on.
  */
 export default async function NewsAdminSystem() {
