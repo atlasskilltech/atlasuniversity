@@ -47,3 +47,28 @@ test('google: ID token claims', () => {
   bad({ hd: undefined, email: 'f@gmail.com' }, 'wrong_domain');
   bad({ hd: 'atlasuniversity.edu.in', email: 'f@gmail.com' }, 'wrong_domain');
 });
+
+import { canOpen as canOpen2 } from '../../../lib/admin/access.js';
+import { diffFields, showValue } from '../../../lib/admin/activity.js';
+import { tableChanges } from '../../../lib/keydates/diff.js';
+
+test('activity: Activity and Users are admin-only', () => {
+  assert.equal(canOpen2({ role: 'user', tabs: ['news', 'keydates'] }, 'activity'), false);
+  assert.equal(canOpen2({ role: 'admin', tabs: [] }, 'activity'), true);
+  assert.equal(tabForPath('/admin/activity/export'), 'activity');
+});
+
+test('activity: field diff shows only what changed, in words', () => {
+  const ch = diffFields({ title: 'A', status: 'draft', tags: ['x'] }, { title: 'B', status: 'draft', tags: [] }, [['title', 'Title'], ['status', 'Status'], ['tags', 'Tags']]);
+  assert.deepEqual(ch, [{ field: 'Title', from: 'A', to: 'B' }, { field: 'Tags', from: 'x', to: '(none)' }]);
+  assert.equal(showValue(''), '(empty)');
+  assert.equal(showValue('x'.repeat(900)).length, 500);
+});
+
+test('activity: key dates diff names the row and shows both dates', () => {
+  const t = (d) => ({ rows: [{ cells: [{ text: 'Cycle', header: true }, { text: 'Current Cycle', header: true }] }, { cells: [{ text: 'Applications Close' }, { text: d }] }] });
+  assert.deepEqual(tableChanges(t('24<sup>th</sup> Oct 2026'), t('5th Nov 2026')).changes, [{ field: 'Applications Close', from: '24th Oct 2026', to: '5th Nov 2026' }]);
+  const wider = { rows: [...t('x').rows, { cells: [{ text: 'Result' }, { text: '' }] }] };
+  assert.match(tableChanges(t('x'), wider).note, /rows 2 → 3/);
+  assert.deepEqual(tableChanges(t('x'), t('x')).changes, []);
+});

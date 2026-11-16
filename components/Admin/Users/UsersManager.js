@@ -78,7 +78,10 @@ function UserRow({ u, me, allTabs, busy, onRun, editing, setEditing }) {
           </p>
           <p className={`${MUTED} mt-1`}>
             {u.name ? `${u.name} · ` : ''}
-            {access} · {u.lastLoginAt ? `last signed in ${formatDateTime(u.lastLoginAt)}` : 'has not signed in yet'}
+            {access} · {u.lastLoginAt ? `last signed in ${formatDateTime(u.lastLoginAt)}` : 'has not signed in yet'} ·{' '}
+            <a href={`/admin/activity?user=${encodeURIComponent(u.email)}`} className="font-medium text-[#14161a] underline">
+              View activity
+            </a>
           </p>
         </div>
         {!isEditing ? (

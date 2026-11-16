@@ -5,6 +5,7 @@ import { ImageRejected, MAX_UPLOAD_BYTES } from '@/lib/news/media/images';
 import { uploadImage } from '@/lib/news/media/service';
 import { StorageError } from '@/lib/news/storage/s3';
 import { cmsRoute } from '@/lib/news/cms/http';
+import { logMediaUpload } from '@/lib/admin/newsActivity';
 import { listMedia } from '@/lib/news/cms/media';
 import { listParams } from '@/lib/news/cms/validate';
 
@@ -74,6 +75,7 @@ export async function POST(request) {
         alt: form.get('alt'),
         caption: form.get('caption'),
       });
+      await logMediaUpload(request, auth.session.user, result);
       return json(result, result.deduplicated ? 200 : 201);
     } catch (e) {
       if (e instanceof ImageRejected) return fail(422, e.code, e.message);

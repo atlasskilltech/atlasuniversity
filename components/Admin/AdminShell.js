@@ -35,6 +35,14 @@ export const TOOLS = [
     description: 'Who can sign in with Google, whether they are an admin, and which tabs each user can open.',
     cta: 'Manage users',
   },
+  {
+    key: 'activity',
+    href: '/admin/activity',
+    label: 'Activity',
+    title: 'Activity log',
+    description: 'Who did what, and when: every sign-in, News change, Key Dates edit and user change, with before and after values.',
+    cta: 'View activity',
+  },
 ];
 
 /** The tools `user` may open. */

@@ -8144,6 +8144,19 @@ deleted or demoted — set once, never per user).
   route's 302 into a page that navigates to Google, then mock `accounts.google.com`.
 The News admin lives at `/admin/news` (moved from `/news/admin`; old paths 308-redirect in `next.config.mjs`).
 
+### Activity log — `/admin/activity` (admins only), `lib/admin/activity.js`, `lib/admin/newsActivity.js`, `lib/keydates/diff.js`
+
+Who did what, when, on what, with before/after values (`atlasnews_activity_log`, migration
+`0006_activity_log`; kept 365 days, pruned at most hourly on write; no FK to users, so history outlives a
+deleted user; no API edits or deletes a row). Filters (person / tab / dates / search) and a CSV export
+(`/admin/activity/export`, formula-safe cells). `logActivity()` never throws — a log failure must not fail
+the change. Hooks: sign-in / refused / sign-out (`lib/news/auth/admin.js`); every News write through
+`cmsRoute` (`newsBefore` snapshots, `newsAfter` diffs — publish / unpublish / schedule are named from the
+status change) plus the media upload route; Key Dates page and calendar routes (cell-by-cell via
+`tableChanges`, named by row label and column header); the Users API. **A new admin tool must call
+`logActivity` from its write routes**, and admin-only tabs go in `ADMIN_ONLY_TABS` (`lib/admin/access.js`).
+
+
 ### Key Dates — `/admin/keydates`, `lib/keydates/`, `components/Admin/KeyDates/`, `components/KeyDates/Grid.js`
 
 Edit every key-dates table on the site: change cells, add/delete rows and columns, merge (colspan/rowspan),

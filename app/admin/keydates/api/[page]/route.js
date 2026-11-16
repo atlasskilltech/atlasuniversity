@@ -2,6 +2,28 @@ import { revalidatePath, revalidateTag } from 'next/cache';
 import { fail, json, requireAdminApi } from '@/lib/news/auth/admin';
 import { BodyError, readBodyLimited } from '@/lib/news/http/body';
 import { KEYDATES_TAG, KeyDatesError, addTable, hideTable, resetTable, saveTable, showTable } from '@/lib/keydates/store';
+import { loadPageDetail } from '@/lib/keydates/admin';
+import { tableChanges } from '@/lib/keydates/diff';
+import { logActivity } from '@/lib/admin/activity';
+import { newsClientIp } from '@/lib/news/http/clientIp';
+
+const SUMMARY = {
+  save: 'Edited key dates table',
+  hide: 'Hid key dates table',
+  show: 'Showed key dates table again',
+  reset: 'Reset key dates table to original',
+  add: 'Added key dates table',
+};
+
+/** The table as the admin sees it now (null when the page or table is unknown or unreadable). */
+async function snapshot(pageId, slot) {
+  try {
+    const d = await loadPageDetail(pageId);
+    return { detail: d, table: d?.tables.find((t) => t.slot === slot) || null };
+  } catch {
+    return { detail: null, table: null };
+  }
+}
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -34,6 +56,7 @@ export async function POST(request, ctx) {
 
   const { action, slot } = body || {};
   if (action !== 'add' && !SLOT.test(String(slot || ''))) return fail(400, 'bad_request', 'Unknown table.');
+  const before = action === 'add' ? await snapshot(pageId, null) : await snapshot(pageId, slot);
   try {
     let page;
     let out = {};
@@ -52,6 +75,21 @@ export async function POST(request, ctx) {
     } catch {
       /* outside a request there is nothing to refresh */
     }
+    const after = await snapshot(pageId, out.slot || slot);
+    const pageName = `${page.school} · ${page.title}`;
+    const label = after.table?.label || before.table?.label || 'table';
+    const diff = tableChanges(before.table?.table || null, after.table?.table || null);
+    const summary = action === 'reset' && before.table?.status === 'added' ? 'Deleted added key dates table' : SUMMARY[action];
+    await logActivity({
+      user: auth.session.user,
+      tab: 'keydates',
+      action: `keydates.${action}`,
+      summary,
+      target: `${pageName} — ${label}`,
+      targetUrl: `/admin/keydates/${pageId}`,
+      details: action === 'hide' || action === 'show' ? { note: `Page: ${page.route}` } : { ...diff, note: [diff.note, `Page: ${page.route}`].filter(Boolean).join(' · ') },
+      ip: newsClientIp(request),
+    });
     return json({ ok: true, ...out });
   } catch (e) {
     if (e instanceof KeyDatesError) return fail(e.status, 'keydates', e.message);
