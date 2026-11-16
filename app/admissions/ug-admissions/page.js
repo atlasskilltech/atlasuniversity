@@ -17,6 +17,7 @@ import Scholarships from '@/components/Admissions/Scholarships';
 import Testimonials from '@/components/Home/Testimonials';
 import InfoBanner from '@/components/ui/InfoBanner';
 import FAQ from '@/components/Home/FAQ';
+import { withKeyDates } from '@/lib/keydates/store';
 
 /**
  * /admissions/ug-admissions — port of `reference/admissions/ug-admissions.php`,
@@ -85,12 +86,16 @@ export const metadata = {
     'Planning UG admissions? Explore eligibility, courses, application steps and get guidance to apply today.',
 };
 
-export default function UgAdmissionsPage() {
+/* Key dates come from the admin (/admin/keydates): re-checked at most every 60 s (lib/keydates/store) */
+export const revalidate = 60;
+
+export default async function UgAdmissionsPage() {
+  const kd = await withKeyDates('atlas-ug', keyDates);
   return (
     <>
       <InnerPageHero hero={hero} buttonWrap="row-576" />
       <OurSchools data={findYourPath} />
-      <KeyDates data={keyDates} />
+      <KeyDates data={kd} />
       <StandOut data={standOut} />
       <Scholarships data={scholarships} />
       <Testimonials data={testimonials} headingVariant="isdi" videoVariant="plain" />

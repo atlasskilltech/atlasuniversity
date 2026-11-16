@@ -20,6 +20,7 @@ import {
   isdiAdmMdesFaq,
   isdiAboutSearch,
 } from '@/lib/schools/isdi/admissionsMdesContent';
+import { withKeyDates } from '@/lib/keydates/store';
 
 /*
  * ref m-des.php `$title` / `$description`, written by
@@ -73,14 +74,18 @@ export const metadata = {
  *
  * `<main>` carries the ISDI body type (`body.isdi-page`: Poppins 16px/24, #333).
  */
-export default function ISDIAdmissionsMdesPage() {
+/* Key dates come from the admin (/admin/keydates): re-checked at most every 60 s (lib/keydates/store) */
+export const revalidate = 60;
+
+export default async function ISDIAdmissionsMdesPage() {
+  const kd = await withKeyDates('isdi-mdes', isdiAdmMdesKeyDates);
   return (
     <main id="isdi-adm-mdes" className="font-poppins-isdi text-base text-[#333]">
       <Hero data={isdiAdmMdesHero} />
       {/* this page's bar is the bare `.sticky-menus`, so it is left-aligned */}
       <AnchorMenu links={isdiAdmMdesMenu} centered={false} />
       <HowToApply data={isdiAdmMdesHowToApply} />
-      <KeyDates data={isdiAdmMdesKeyDates} />
+      {kd && <KeyDates data={kd} />}
       <Eligibility data={isdiAdmMdesEligibility} />
       <FeeStructure data={isdiAdmMdesFees} />
       {/* the scholarship lead is the bare `.sub-heading` here, not `.mrgbtm-0`, so it keeps

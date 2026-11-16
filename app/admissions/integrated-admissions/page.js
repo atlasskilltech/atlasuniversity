@@ -14,6 +14,8 @@ import Scholarships from '@/components/Admissions/Scholarships';
 import Testimonials from '@/components/Home/Testimonials';
 import InfoBanner from '@/components/ui/InfoBanner';
 import FAQ from '@/components/Home/FAQ';
+import { withKeyDates } from '@/lib/keydates/store';
+import { keyDates as integratedKeyDates } from '@/lib/integratedAdmissionsContent';
 
 /**
  * /admissions/integrated-admissions — port of
@@ -101,12 +103,16 @@ export const metadata = {
     'Apply for integrated UG+PG programs, dual degrees and combined pathways that fast-track academic progression and professional readiness.',
 };
 
-export default function IntegratedAdmissionsPage() {
+/* Key dates come from the admin (/admin/keydates): re-checked at most every 60 s (lib/keydates/store) */
+export const revalidate = 60;
+
+export default async function IntegratedAdmissionsPage() {
+  const kd = await withKeyDates('atlas-integrated', integratedKeyDates);
   return (
     <>
       <InnerPageHero hero={hero} />
       <OurSchools data={findYourPath} />
-      <KeyDates />
+      <KeyDates data={kd} />
       <StandOut />
       <Scholarships />
       <Testimonials data={testimonials} headingVariant="isdi" videoVariant="plain" />

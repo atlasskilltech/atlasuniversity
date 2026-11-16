@@ -6,6 +6,7 @@ import { cx } from '@/lib/cx';
 import PrimaryButton from '@/components/ui/PrimaryButton';
 import { PillTabStrip } from '@/components/ui/PillTabs';
 import { CONTAINER, SECTION, H2 } from '@/components/Home/SectionHead';
+import KeyDatesGrid from '@/components/KeyDates/Grid';
 
 /**
  * "Key Dates & Deadlines" — port of `integrated-admissions.php:161-309`
@@ -129,6 +130,9 @@ function DateValue({ value, className }) {
     <div className={className}>
       {value.closed ? (
         <b className="font-bold">Closed</b>
+      ) : value.parts ? (
+        /* a date edited in the admin (/admin/keydates): text with `{ sup }` ordinals */
+        value.parts.map((p, i) => (typeof p === 'string' ? <Fragment key={i}>{p}</Fragment> : p.sup != null ? <sup key={i}>{p.sup}</sup> : null))
       ) : (
         <>
           {value.day}
@@ -385,17 +389,22 @@ export default function KeyDates({ data = keyDates }) {
             {/* ref the `.w-tab-pane` inside it */}
             <div className={cx(tab.paneNumbered && 'max-md:text-base')}>
             {tab.blocks.map((block, i) => (
-              <div key={`${i}-${block.kind === 'table' ? block.table.caption : block.lead.title.join(' ')}`}>
-                {block.kind === 'table' ? (
+              <div key={`${active}-${i}`} className={cx(block.kind === 'grid' && i > 0 && 'pt-14')}>
+                {block.kind === 'grid' ? (
+                  /* a table edited or added in the admin (/admin/keydates) that no longer fits this layout */
+                  <KeyDatesGrid table={block.table} />
+                ) : block.kind === 'table' ? (
                   <KeyDatesTable block={block} />
                 ) : (
                   <DateStrip block={block} />
                 )}
 
                 {/* ref .buttons-wrapper */}
-                <div className={BUTTONS[data.buttonWrap ?? 'default']}>
-                  <PrimaryButton href={block.button.href}>{block.button.label}</PrimaryButton>
-                </div>
+                {block.button?.label && block.button?.href ? (
+                  <div className={BUTTONS[data.buttonWrap ?? 'default']}>
+                    <PrimaryButton href={block.button.href}>{block.button.label}</PrimaryButton>
+                  </div>
+                ) : null}
               </div>
             ))}
             </div>

@@ -20,6 +20,7 @@ import {
   isdiAdmBtechFaq,
   isdiAboutSearch,
 } from '@/lib/schools/isdi/admissionsBtechContent';
+import { withKeyDates } from '@/lib/keydates/store';
 
 /*
  * ref b-tech.php `$title` / `$description`, written by
@@ -80,14 +81,18 @@ export const metadata = {
  *
  * `<main>` carries the ISDI body type (`body.isdi-page`: Poppins 16px/24, #333).
  */
-export default function ISDIAdmissionsBtechPage() {
+/* Key dates come from the admin (/admin/keydates): re-checked at most every 60 s (lib/keydates/store) */
+export const revalidate = 60;
+
+export default async function ISDIAdmissionsBtechPage() {
+  const kd = await withKeyDates('isdi-btech', isdiAdmBtechKeyDates);
   return (
     <main id="isdi-adm-btech" className="font-poppins-isdi text-base text-[#333]">
       <Hero data={isdiAdmBtechHero} />
       {/* this page's bar is the bare `.sticky-menus`, so it is left-aligned */}
       <AnchorMenu links={isdiAdmBtechMenu} centered={false} />
       <HowToApply data={isdiAdmBtechHowToApply} />
-      <KeyDates data={isdiAdmBtechKeyDates} />
+      {kd && <KeyDates data={kd} />}
       <Eligibility data={isdiAdmBtechEligibility} />
       <FeeStructure data={isdiAdmBtechFees} />
       <Scholarships data={isdiAdmBtechScholarships} />

@@ -8119,3 +8119,33 @@ Bootstrap's card. Figtree is self-hosted as one variable face per subset (`font-
 
 **`max-576:` loses to `max-md:`** — it is emitted earlier in the screen order. Use `max-lp:` (same
 width, emitted after `max-md`). And `leading-normal` is this project's 1.5 token, not CSS `normal`.
+
+## ATLAS Admin — `/admin` (News + Key Dates)
+
+`/admin` is the admin hub (`components/Admin/AdminShell` — add a tool to `TOOLS`). Sign-in is `/admin/login`
+(APIs `/admin/api/login|logout`); the session cookie is scoped to `/admin`, so one login covers every tool.
+The News admin lives at `/admin/news` (moved from `/news/admin`; old paths 308-redirect in `next.config.mjs`).
+
+### Key Dates — `/admin/keydates`, `lib/keydates/`, `components/Admin/KeyDates/`, `components/KeyDates/Grid.js`
+
+Edit every key-dates table on the site: change cells, add/delete rows and columns, merge (colspan/rowspan),
+caption colour, bold/green, the button under a table, hide a table, reset it, or add new tables. The overview
+lists the **13 pages** that show key dates (ATLAS UG/PG/Integrated, ISDI B.Des/B.Tech/M.Des/MBA, ISME
+BBA/B.Sc/MBA/Scholarships, uGDX, Law) with table and date counts. The ~95 ISME BBA programme pages only link
+to the BBA Admissions page with a "Key Dates" button and hold no dates of their own.
+
+- **Storage:** `atlasnews_keydates` (migration `0004_keydates`, applied by `npm run news:migrate -- up` on
+  deploy). A block with no row is shown exactly as its content module has it — nothing changes until an edit.
+- **Registry:** `lib/keydates/registry.js` names each page's content and layout; block ids are positions
+  (`t0b1`, `b0`, `main`, `j3`), so **keep a page's key-dates blocks in the same order** or edits re-attach to
+  the wrong block.
+- **Rendering:** each page calls `withKeyDates(pageId, data)` (ISME: `withIsmeKeyDates(page)` in the
+  `[...slug]` route) and exports `revalidate = 60`; saves expire the `keydates` tag and the route. An edited
+  table that still fits the page's own layout (label | date rows, no merges) is drawn back in that layout by
+  `lib/keydates/convert.js`; otherwise as `components/KeyDates/Grid` (the site's key-dates table design).
+  A DB outage shows the last edits read, or the built content — never an empty section.
+- **Trap:** the ISME `[...slug]` route had `dynamicParams = false`, and Next answers an on-demand revalidation
+  of such a route with NoFallbackError — every revalidated ISME page became a 404. It is `true` now; unknown
+  paths still 404 through `notFound()`.
+- **Trap:** `"22".bold` is not `undefined` — `String.prototype.bold()` exists. Test run objects with
+  `typeof r === 'object'`, never `r.bold != null`.

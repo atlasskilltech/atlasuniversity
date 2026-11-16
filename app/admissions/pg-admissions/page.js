@@ -17,6 +17,7 @@ import Scholarships from '@/components/Admissions/Scholarships';
 import Testimonials from '@/components/Home/Testimonials';
 import InfoBanner from '@/components/ui/InfoBanner';
 import FAQ from '@/components/Home/FAQ';
+import { withKeyDates } from '@/lib/keydates/store';
 
 /**
  * /admissions/pg-admissions — port of `reference/admissions/pg-admissions.php`,
@@ -80,12 +81,16 @@ export const metadata = {
     'Find postgraduate admission details, course lists, eligibility, application process and career outcomes for masters and specialized programs.',
 };
 
-export default function PgAdmissionsPage() {
+/* Key dates come from the admin (/admin/keydates): re-checked at most every 60 s (lib/keydates/store) */
+export const revalidate = 60;
+
+export default async function PgAdmissionsPage() {
+  const kd = await withKeyDates('atlas-pg', keyDates);
   return (
     <>
       <InnerPageHero hero={hero} />
       <OurSchools data={findYourPath} />
-      <KeyDates data={keyDates} />
+      <KeyDates data={kd} />
       <StandOut data={standOut} />
       <Scholarships data={scholarships} />
       <Testimonials data={testimonials} headingVariant="isdi" videoVariant="plain" />

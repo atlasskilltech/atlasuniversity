@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import IsmePage from '@/components/Schools/ISME/Sections/IsmePage';
 import { ismePageMetadata, ismePagePaths, loadIsmePage } from '@/lib/schools/isme/pages/load';
+import { withIsmeKeyDates } from '@/lib/keydates/store';
 
 /*
  * The ISME one-off pages that have no folder of their own (Admissions, …), each rendered from the
@@ -11,7 +12,17 @@ import { ismePageMetadata, ismePagePaths, loadIsmePage } from '@/lib/schools/ism
 const BASE = '/schools/isme/';
 const OWN_ROUTES = ['events/', 'thought-leaderships/'];
 
-export const dynamicParams = false;
+/* Paths not in generateStaticParams are not 404'd up front (`dynamicParams = false`) but by `notFound()`
+   below, because Next answers a `dynamicParams = false` route's on-demand revalidation (an admin Key
+   Dates save) with NoFallbackError — every revalidated page here turned into a 404. Unknown paths still
+   404: loadIsmePage() returns null for anything outside lib/schools/isme/pages, and the more specific
+   sibling routes (events/, thought-leaderships/, life@atlas-isme/, programs/postgraduate/[slug]) keep
+   precedence over this catch-all. */
+export const dynamicParams = true;
+
+/* the Admissions and Scholarships pages' key dates come from the admin (/admin/keydates): re-checked at
+   most every 60 s (lib/keydates/store); every other page here is unaffected by the value */
+export const revalidate = 60;
 
 export function generateStaticParams() {
   return ismePagePaths(BASE)
@@ -32,5 +43,5 @@ export async function generateMetadata({ params }) {
 export default async function Page({ params }) {
   const page = await loadIsmePage(await pathOf(params));
   if (!page) notFound();
-  return <IsmePage page={page} />;
+  return <IsmePage page={await withIsmeKeyDates(page)} />;
 }

@@ -7,6 +7,7 @@ import { AdmissionKeyDates, AdmissionEligibility, FeeStrip } from '@/components/
 import SchoolBanner from '@/components/Schools/LawUgdx/SchoolBanner';
 import { moreQuestions } from '@/lib/schools/lawUgdxCommon';
 import { meta, hero, howToApply, keyDates, eligibility, fees, banner, faq } from '@/lib/schools/law/admissionsContent';
+import { withKeyDates } from '@/lib/keydates/store';
 
 export const metadata = {
   title: meta.title,
@@ -20,14 +21,18 @@ export const metadata = {
  * dates and the fee strip are a dated snapshot of production (lib/schools/law/admissionsContent.js):
  * the mirror's key-dates include is a cycle behind.
  */
-export default function LawAdmissionsPage() {
+/* Key dates come from the admin (/admin/keydates): re-checked at most every 60 s (lib/keydates/store) */
+export const revalidate = 60;
+
+export default async function LawAdmissionsPage() {
+  const kd = await withKeyDates('law-admissions', keyDates);
   return (
     <>
       <div data-block="hero">
         <CourseCoverHero hero={hero} size="screen" />
       </div>
       <GuideSteps data={howToApply} tone="law" block="how-to-apply" id="how-to-apply" extraspace />
-      <AdmissionKeyDates data={keyDates} />
+      <AdmissionKeyDates data={kd} />
       <AdmissionEligibility data={eligibility} tone="law" />
       <FeeStrip data={fees} tone="law" />
       <div id="scholarship">

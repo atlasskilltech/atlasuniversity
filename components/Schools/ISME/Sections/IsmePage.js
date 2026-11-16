@@ -200,7 +200,8 @@ const ISME_FAQ_ARROW = '/assets/images/schools/isme/icons/isme-down-arrow.svg';
 const flat = (r) => (Array.isArray(r) && r.every((x) => typeof x === 'string') ? r.join('') : r);
 
 function keyDates(b) {
-  const head = { heading: b.heading, id: b.id, headingMb: b.headingMods?.includes('mrg32') ? 'mrg32' : undefined };
+  /* `extras`: tables added in the admin (/admin/keydates), drawn after this block's own key dates */
+  const head = { heading: b.heading, id: b.id, headingMb: b.headingMods?.includes('mrg32') ? 'mrg32' : undefined, extras: b.extras };
   if (b.kind === 'keyTable') return { ...head, rows: b.rows, trailingBreaks: false };
   const lead = b.cards.find((c) => c.lead);
   return {

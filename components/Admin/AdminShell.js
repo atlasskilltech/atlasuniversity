@@ -1,0 +1,67 @@
+import Link from 'next/link';
+import LogoutButton from '@/components/News/Admin/LogoutButton';
+import { cx } from '@/components/News/Admin/ui';
+
+/**
+ * The ATLAS admin's own chrome (/admin and every tool page that is not the News admin, which keeps its
+ * own header): the title, the tool tabs, "View site" and "Sign out". Add a tool to TOOLS and it appears
+ * here and on the /admin home page.
+ */
+export const TOOLS = [
+  {
+    key: 'news',
+    href: '/admin/news',
+    label: 'News',
+    title: 'ATLAS News',
+    description: 'Articles, categories, the News homepage and the media library.',
+    cta: 'Open News dashboard',
+  },
+  {
+    key: 'keydates',
+    href: '/admin/keydates',
+    label: 'Key Dates',
+    title: 'Key Dates',
+    description: 'Every admissions key-dates table on the website: see where they are, edit dates, add rows, columns and tables.',
+    cta: 'Open Key Dates',
+  },
+];
+
+export default function AdminShell({ active, children }) {
+  return (
+    <>
+      <header className="sticky top-0 z-20 border-b border-[#e3e5ea] bg-white/95 backdrop-blur">
+        <div className="mx-auto max-w-[1200px] px-4">
+          <div className="flex h-14 items-center justify-between gap-3">
+            <p className="truncate text-[15px] font-semibold">
+              <Link href="/admin" className="hover:underline">
+                ATLAS <span className="font-normal text-[#5b6170]">· Admin</span>
+              </Link>
+            </p>
+            <div className="flex items-center gap-2">
+              <a href="/" target="_blank" rel="noopener noreferrer" className="hidden h-9 items-center rounded-lg px-3 text-[14px] font-medium text-[#5b6170] hover:bg-[#f4f5f7] hover:text-[#14161a] sm:inline-flex">
+                View site ↗
+              </a>
+              <LogoutButton />
+            </div>
+          </div>
+          <nav aria-label="Admin tools" className="-mb-px flex gap-1 overflow-x-auto [scrollbar-width:none]">
+            {TOOLS.map((t) => (
+              <Link
+                key={t.key}
+                href={t.href}
+                aria-current={active === t.key ? 'page' : undefined}
+                className={cx(
+                  'whitespace-nowrap border-b-2 px-3 py-2.5 text-[14px] font-medium transition',
+                  active === t.key ? 'border-[#14161a] text-[#14161a]' : 'border-transparent text-[#5b6170] hover:text-[#14161a]'
+                )}
+              >
+                {t.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      </header>
+      <main className="mx-auto max-w-[1200px] px-4 py-6 sm:py-8">{children}</main>
+    </>
+  );
+}

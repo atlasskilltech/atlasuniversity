@@ -19,6 +19,7 @@ import {
   isdiAdmMbaFaq,
   isdiAboutSearch,
 } from '@/lib/schools/isdi/admissionsMbaContent';
+import { withKeyDates } from '@/lib/keydates/store';
 
 /*
  * ref mba.php `$title` / `$description`, written by
@@ -75,21 +76,26 @@ export const metadata = {
  *
  * `<main>` carries the ISDI body type (`body.isdi-page`: Poppins 16px/24, #333).
  */
-export default function ISDIAdmissionsMbaPage() {
+/* Key dates come from the admin (/admin/keydates): re-checked at most every 60 s (lib/keydates/store) */
+export const revalidate = 60;
+
+export default async function ISDIAdmissionsMbaPage() {
+  const kd = await withKeyDates('isdi-mba', isdiAdmMbaKeyDates);
+  const kd2 = await withKeyDates('isdi-mba', isdiAdmMbaSecondStrip, 'second');
   return (
     <main id="isdi-adm-mba" className="font-poppins-isdi text-base text-[#333]">
       <Hero data={isdiAdmMbaHero} />
       {/* this page's bar is the bare `.sticky-menus`, so it is left-aligned */}
       <AnchorMenu links={isdiAdmMbaMenu} centered={false} />
       <HowToApply data={isdiAdmMbaHowToApply} />
-      <KeyDates data={isdiAdmMbaKeyDates} />
+      {kd && <KeyDates data={kd} />}
       <Eligibility data={isdiAdmMbaEligibility} />
       <FeeStructure data={isdiAdmMbaFees} />
       {/* the scholarship lead is the bare `.sub-heading`, not `.mrgbtm-0`, so it keeps its
           20px bottom padding below 480 */}
       <Scholarships data={isdiAdmMbaScholarships} subSpacing="base" />
       {/* ref `keydates/mba.php` — the bare strip, a direct child of `.main-wrapper` */}
-      <KeyDates data={isdiAdmMbaSecondStrip} block="mba-dates" />
+      {kd2 && <KeyDates data={kd2} block="mba-dates" />}
 
       {/* `MoreQuestions` carries its own `data-block="search"` */}
       <MoreQuestions data={isdiAboutSearch} />

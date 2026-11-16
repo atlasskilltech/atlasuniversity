@@ -3,6 +3,7 @@
 import { Fragment, useState } from 'react';
 import { CONTAINER, H2, SECTION, SUB_INNER_MRGBTM32 } from '@/components/Home/SectionHead';
 import { DateStrip, KeyDatesTable } from '@/components/Admissions/KeyDates';
+import KeyDatesGrid from '@/components/KeyDates/Grid';
 import ButtonRegular from '@/components/ui/ButtonRegular';
 import RichText from '@/components/Statutory/RichText';
 import withBreaks from '@/lib/withBreaks';
@@ -25,7 +26,16 @@ export function AdmissionKeyDates({ data, block = 'key-dates' }) {
     <section data-block={block} id="key-dates" className={SECTION}>
       <div className={CONTAINER}>
         <h2 className={H2_MRG32}>{data.heading}</h2>
-        {data.blocks.map((b, i) => (b.kind === 'strip' ? <DateStrip key={i} block={b} /> : <KeyDatesTable key={i} block={b} />))}
+        {data.blocks.map((b, i) =>
+          b.kind === 'grid' ? (
+            /* a table edited or added in the admin (/admin/keydates) that no longer fits this layout */
+            <KeyDatesGrid key={i} table={b.table} className={i > 0 ? 'mt-14' : undefined} />
+          ) : b.kind === 'strip' ? (
+            <DateStrip key={i} block={b} />
+          ) : (
+            <KeyDatesTable key={i} block={b} />
+          )
+        )}
       </div>
     </section>
   );

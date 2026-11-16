@@ -1,6 +1,7 @@
 import { cx } from '@/lib/cx';
 import withBreaks from '@/lib/withBreaks';
 import PrimaryButton from '@/components/ui/PrimaryButton';
+import KeyDatesGrid from '@/components/KeyDates/Grid';
 import { CONTAINER, H2, H2_MB, SECTION } from '../Home/ui';
 import { CONTAINER as ISME_CONTAINER, H2 as ISME_H2, SECTION as ISME_SECTION } from '@/components/Home/SectionHead';
 
@@ -282,6 +283,19 @@ function Strip({ strip, bare = false, skin = 'isdi' }) {
   );
 }
 
+/* tables added in the admin (/admin/keydates), drawn after the page's own key dates */
+function Extras({ tables, first = false }) {
+  if (!tables?.length) return null;
+  return tables.map((t, i) => (
+    <div key={i} className={first && i === 0 ? undefined : 'pt-14'}>
+      <KeyDatesGrid table={t} />
+    </div>
+  ));
+}
+
+/* the full-bleed bare strip has no container of its own; an edited table still needs one */
+const sk_container = (skin) => (SKIN[skin] ?? SKIN.isdi).container;
+
 export default function KeyDates({ data, block = 'key-dates', skin = 'isdi' }) {
   /*
    * The third form, and the only block on any Admissions page that is not a section.
@@ -292,19 +306,24 @@ export default function KeyDates({ data, block = 'key-dates', skin = 'isdi' }) {
   if (data.bare) {
     return (
       <div data-block={block}>
-        <Strip strip={data.strip} bare />
+        {/* a strip edited in the admin (/admin/keydates) into a shape the strip cannot draw */}
+        {data.grid ? <div className={sk_container(skin)}><KeyDatesGrid table={data.grid} /></div> : <Strip strip={data.strip} bare />}
+        <Extras tables={data.extras} skin={skin} />
       </div>
     );
   }
 
   const sk = SKIN[skin] ?? SKIN.isdi;
   const headMb = HEAD_MB[data.headingMb] ?? H2_MB.base;
-  if (data.strip) {
+  if (data.strip || data.grid || data.hiddenBody) {
     return (
       <section data-block={block} id={data.id ?? 'key-dates'} className={sk.section}>
         <div className={sk.container}>
           <h2 className={cx(sk.h2, headMb)}>{data.heading}</h2>
-          <Strip strip={data.strip} skin={skin} />
+          {/* `grid`: a strip edited in the admin into a shape the strip cannot draw; `hiddenBody`: the
+              page's own block hidden in the admin, with tables added there still to show */}
+          {data.hiddenBody ? null : data.grid ? <KeyDatesGrid table={data.grid} /> : <Strip strip={data.strip} skin={skin} />}
+          <Extras tables={data.extras} first={Boolean(data.hiddenBody)} />
         </div>
       </section>
     );
@@ -354,6 +373,7 @@ export default function KeyDates({ data, block = 'key-dates', skin = 'isdi' }) {
                           <td
                             key={`${j}-cell`}
                             colSpan={cell.colspan ?? undefined}
+                            rowSpan={cell.rowspan > 1 ? cell.rowspan : undefined}
                             className={cx(CELL, 'p-0 text-center')}
                           >
                             {/* `.header-table` drops to 16px at `max-width: 1100px` — the
@@ -369,6 +389,7 @@ export default function KeyDates({ data, block = 'key-dates', skin = 'isdi' }) {
                           <td
                             key={`${j}-cell`}
                             colSpan={cell.colspan ?? undefined}
+                            rowSpan={cell.rowspan > 1 ? cell.rowspan : undefined}
                             className={cx(
                               CELL,
                               /* ref `.table td { padding: .75rem }` */
@@ -414,6 +435,7 @@ export default function KeyDates({ data, block = 'key-dates', skin = 'isdi' }) {
                 </>
               )}
             </div>
+            <Extras tables={data.extras} />
           </div>
         </div>
       </div>

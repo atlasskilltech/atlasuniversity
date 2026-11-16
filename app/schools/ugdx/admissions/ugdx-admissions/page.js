@@ -4,6 +4,7 @@ import SchoolBanner from '@/components/Schools/LawUgdx/SchoolBanner';
 import WebflowFaq from '@/components/Schools/LawUgdx/WebflowFaq';
 import { moreQuestions } from '@/lib/schools/lawUgdxCommon';
 import { meta, hero, howToApply, keyDates, eligibility, fees, banner, faq } from '@/lib/schools/ugdx/admissionsContent';
+import { withKeyDates } from '@/lib/keydates/store';
 
 export const metadata = {
   title: meta.title,
@@ -19,14 +20,18 @@ export const metadata = {
  * Webflow list with the "More questions?" panel inside it, so it is `WebflowFaq`, not the shared
  * Bootstrap `Home/FAQ`.
  */
-export default function UgdxAdmissionsPage() {
+/* Key dates come from the admin (/admin/keydates): re-checked at most every 60 s (lib/keydates/store) */
+export const revalidate = 60;
+
+export default async function UgdxAdmissionsPage() {
+  const kd = await withKeyDates('ugdx-admissions', keyDates);
   return (
     <>
       <div data-block="hero">
         <CourseCoverHero hero={hero} size="screen" />
       </div>
       <UgdxSteps data={howToApply} />
-      <AdmissionKeyDates data={keyDates} />
+      <AdmissionKeyDates data={kd} />
       <AdmissionEligibility data={eligibility} tone="ugdx" />
       <FeeStrip data={fees} tone="ugdx" />
       <div id="scholarship">
