@@ -8149,3 +8149,10 @@ to the BBA Admissions page with a "Key Dates" button and hold no dates of their 
   paths still 404 through `notFound()`.
 - **Trap:** `"22".bold` is not `undefined` — `String.prototype.bold()` exists. Test run objects with
   `typeof r === 'object'`, never `r.bold != null`.
+- **Shared calendars** (`CALENDARS` in `lib/keydates/registry.js`): the 21 tables are 10 calendars; 8 are
+  shown on 2-3 pages. `/admin/keydates/calendar/<id>` edits one once for every page
+  (`saveCalendar` → `propagate` in `lib/keydates/table.js`): only cells the edit changed are copied, and only
+  onto pages that read the same before — so each page keeps its own wording ("Cycle 1" vs "Current Cycle")
+  and line breaks. If the edit adds rows/columns/merges, every copy takes the new table whole. B.Des was the
+  one calendar whose copies disagreed on 2026-11-16 (ATLAS UG vs ISDI B.Des); the admin shows it as
+  "Dates differ" with "Use these dates on all pages" per copy — nothing picks a winner automatically.

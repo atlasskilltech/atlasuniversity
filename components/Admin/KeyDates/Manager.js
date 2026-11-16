@@ -79,6 +79,15 @@ export default function KeyDatesManager({ detail }) {
                   <span className="text-[16px] font-semibold">{t.label}</span>
                   <span className={cx('rounded-full px-2.5 py-0.5 text-[12px] font-semibold', tone)}>{badge}</span>
                 </p>
+                {t.calendar ? (
+                  <p className="mt-1 text-[13px]">
+                    <span className="rounded-full bg-[#fff4d6] px-2.5 py-0.5 font-semibold text-[#7a5600]">Shared with {t.calendar.pages - 1} other page{t.calendar.pages > 2 ? 's' : ''}</span>{' '}
+                    <a href={`/admin/keydates/calendar/${t.calendar.id}`} className="font-medium underline">
+                      Edit on all {t.calendar.pages} pages
+                    </a>
+                    <span className="text-[#5b6170]"> — or Edit below to change this page only.</span>
+                  </p>
+                ) : null}
                 <p className={`${MUTED} mt-1`}>
                   {tabs && t.tab != null ? `Tab: ${tabs[t.tab]} · ` : ''}
                   {t.status === 'hidden' ? 'Not shown on the page' : `${t.dates} key dates`}

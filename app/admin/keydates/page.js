@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { requireAdminPage } from '@/lib/news/auth/admin';
 import AdminShell from '@/components/Admin/AdminShell';
 import { CARD, MUTED, PageHeader, formatDateTime } from '@/components/News/Admin/ui';
-import { loadOverview } from '@/lib/keydates/admin';
+import { loadCalendars, loadOverview } from '@/lib/keydates/admin';
 import { SCHOOLS } from '@/lib/keydates/registry';
 import DbNotice from '@/components/Admin/KeyDates/DbNotice';
 
@@ -15,13 +15,19 @@ export const metadata = { title: 'Key Dates — ATLAS Admin' };
  */
 export default async function KeyDatesOverview() {
   await requireAdminPage();
-  const { pages, totals, dbError } = await loadOverview();
+  const [{ pages, totals, dbError }, calendars] = await Promise.all([loadOverview(), loadCalendars()]);
+  const shared = calendars.filter((c) => c.pages.length > 1);
   const stats = [
     ['Pages showing key dates', totals.pages],
     ['Key-dates tables', totals.tables],
     ['Key dates (total)', totals.dates],
     ['Changed in admin', totals.edited],
   ];
+  const SYNC = {
+    'in-sync': ['Same on every page', 'bg-[#e7f6ec] text-[#11733b]'],
+    differ: ['Dates differ', 'bg-[#fdecea] text-[#b42318]'],
+    hidden: ['Hidden', 'bg-[#f1f2f4] text-[#4a4f5c]'],
+  };
   return (
     <AdminShell active="keydates">
       <PageHeader title="Key Dates" description="Every key-dates table on the website. Open a page to change dates, add rows and columns, merge cells, hide a table or add a new one." />
@@ -34,6 +40,64 @@ export default async function KeyDatesOverview() {
           </div>
         ))}
       </div>
+
+      <section className={`${CARD} mt-6`}>
+        <h2 className="text-[17px] font-semibold">
+          Shared key dates <span className="font-normal text-[#5b6170]">· {shared.length} calendars shown on more than one page</span>
+        </h2>
+        <p className={`${MUTED} mt-1`}>
+          The same calendar appears on several pages. Edit it here once and every page that shows it is updated.
+        </p>
+        <div className="mt-3 overflow-x-auto">
+          <table className="w-full min-w-[720px] text-left text-[14px]">
+            <thead className="text-[12.5px] uppercase tracking-wide text-[#6b7180]">
+              <tr className="border-b border-[#e3e5ea]">
+                <th className="py-2 pr-3 font-semibold">Calendar</th>
+                <th className="py-2 pr-3 font-semibold">Shown on</th>
+                <th className="py-2 pr-3 font-semibold">Key dates</th>
+                <th className="py-2 pr-3 font-semibold">Status</th>
+                <th className="py-2 font-semibold" />
+              </tr>
+            </thead>
+            <tbody>
+              {shared.map((c) => {
+                const [label, tone] = SYNC[c.sync];
+                return (
+                  <tr key={c.id} className="border-b border-[#f0f1f3] align-top last:border-0">
+                    <td className="py-3 pr-3">
+                      <Link href={`/admin/keydates/calendar/${c.id}`} className="font-medium hover:underline">
+                        {c.title}
+                      </Link>
+                    </td>
+                    <td className="py-3 pr-3">
+                      <span className="font-semibold">{c.pages.length} pages</span>
+                      <ul className="mt-1 space-y-0.5 text-[12.5px] text-[#5b6170]">
+                        {c.pages.map((p) => (
+                          <li key={p.id}>
+                            <a href={p.route} target="_blank" rel="noopener noreferrer" className="hover:text-[#14161a] hover:underline">
+                              {p.title} ↗
+                            </a>
+                            {p.status === 'hidden' ? ' (hidden)' : ''}
+                          </li>
+                        ))}
+                      </ul>
+                    </td>
+                    <td className="py-3 pr-3 font-semibold">{c.dates}</td>
+                    <td className="py-3 pr-3">
+                      <span className={`rounded-full px-2.5 py-0.5 text-[12px] font-semibold ${tone}`}>{label}</span>
+                    </td>
+                    <td className="py-3 text-right">
+                      <Link href={`/admin/keydates/calendar/${c.id}`} className="inline-flex h-9 items-center rounded-lg border border-[#d6d9e0] px-3 font-medium hover:bg-[#f4f5f7]">
+                        Edit on all pages
+                      </Link>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </section>
 
       {SCHOOLS.map((school) => {
         const rows = pages.filter((p) => p.school === school);
