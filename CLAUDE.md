@@ -8202,8 +8202,12 @@ images/) — not from `reference/`. Its own dark site: `MainSiteOnly` lists the 
   reference rendered with the real Tailwind v4 browser build: every section height identical at
   1440 / 1024 / 768 / 390. **Hand-written v3 classes on these pages must give each text size its own line
   height** — in v4 a child's `text-base` does not inherit its parent's `leading-tight` (it cost the footer 4px).
-- **Data:** `atlasnews_hackathon_registrations` (migration 0007). Rules in `lib/hackathon/validate.js` are
-  register.php's, shared by the form and the admin edit. Duplicate = team name + lead email
+- **Data:** `atlasnews_hackathon_registrations` (migrations 0007, 0008). Rules in `lib/hackathon/validate.js`
+  started as register.php's and are shared by the form and the admin edit. **Since 2026-11-16 a team is 1 to 3
+  students** (lead required; members 2 and 3 optional, all-or-nothing, member 3 needs member 2) and **school /
+  college + location are per member** (members may come from different schools). The team-level
+  `school_college_name` / `_location` columns stay, filled with the lead's school; older rows (and the old
+  site's imports) have only those, and `memberSchool()` falls back to them for every member. Duplicate = team name + lead email
   (case-insensitive collation + `cleanText`). The form is a server action; the success page reads an httpOnly
   `hk_reg` cookie (`<id>.<token>`, 2 h) instead of a PHP session. Spam trap field `website`; 6 posts / IP /
   10 min per process. Open/closed switch: `atlasnews_settings.hackathon_registration_open`.

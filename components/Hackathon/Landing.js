@@ -150,7 +150,7 @@ export default function HackathonLanding() {
             </dt>
             {' '}
             <dd className="mt-1 text-[16px] font-semibold leading-snug text-white n640:text-[20px] n1024:text-[18px] xl:text-[20px]">
-              2 Students per team
+              1 to 3 Students per team
             </dd>
           </div>
           {' '}

@@ -36,30 +36,37 @@ function Messages({ id, hint, error }) {
   );
 }
 
-function Label({ id, children }) {
+function Label({ id, required = true, children }) {
   return (
     <label className={FIELD_LABEL} htmlFor={id}>
-      {children}{' '}
-      <span className="text-rose-400" aria-hidden="true">
-        *
-      </span>
+      {children}
+      {required ? (
+        <>
+          {' '}
+          <span className="text-rose-400" aria-hidden="true">
+            *
+          </span>
+        </>
+      ) : null}
     </label>
   );
 }
 
-function TextField({ name, label, state, type = 'text', placeholder, hint, autoComplete, inputMode, maxLength, list }) {
+function TextField({ name, label, state, type = 'text', placeholder, hint, autoComplete, inputMode, maxLength, list, required = true }) {
   const id = `f-${name}`;
   const error = state.errors[name];
   const describedBy = [hint && `${id}-hint`, error && `${id}-error`].filter(Boolean).join(' ') || undefined;
   return (
     <div>
-      <Label id={id}>{label}</Label>
+      <Label id={id} required={required}>
+        {label}
+      </Label>
       <input
         type={type}
         id={id}
         name={name}
         defaultValue={state.values[name] || ''}
-        required
+        required={required}
         className={`${FIELD_INPUT} ${error ? FIELD_INVALID : ''}`}
         placeholder={placeholder}
         autoComplete={autoComplete}
@@ -81,16 +88,18 @@ function TextField({ name, label, state, type = 'text', placeholder, hint, autoC
   );
 }
 
-function GradeField({ name, state }) {
+function GradeField({ name, state, required = true }) {
   const id = `f-${name}`;
   const error = state.errors[name];
   return (
     <div>
-      <Label id={id}>Grade</Label>
+      <Label id={id} required={required}>
+        Grade
+      </Label>
       <select
         id={id}
         name={name}
-        required
+        required={required}
         defaultValue={state.values[name] || ''}
         className={`${FIELD_INPUT} appearance-none bg-[url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='%2394a3b8'%20stroke-width='2'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='m6%209%206%206%206-6'/%3E%3C/svg%3E")] bg-[length:20px_20px] bg-[position:right_14px_center] bg-no-repeat pr-11 ${error ? FIELD_INVALID : ''}`}
         aria-invalid={error ? 'true' : undefined}
@@ -115,6 +124,7 @@ function Fieldset({ n, tone, title, sub, legend, children }) {
     cyan: 'border-cyan-300/40 bg-cyan-300/10 text-cyan-300',
     yellow: 'border-yellow-300/40 bg-yellow-300/10 text-yellow-300',
     fuchsia: 'border-fuchsia-400/40 bg-fuchsia-500/10 text-fuchsia-300',
+    violet: 'border-violet-400/40 bg-violet-500/10 text-violet-300',
   };
   return (
     <fieldset className={CARD_PANEL}>
@@ -128,6 +138,36 @@ function Fieldset({ n, tone, title, sub, legend, children }) {
       </div>
       <div className="mt-6 grid gap-5 n640:grid-cols-2">{children}</div>
     </fieldset>
+  );
+}
+
+/** One member's fields: name, school / college and its location, stream, grade, mobile, email. Members 2
+ *  and 3 are optional — no asterisks, and the browser's own `required` is off for them. */
+function MemberFields({ prefix, label, state, required, emailHint, nameAutoComplete = 'off', schoolAutoComplete = 'off' }) {
+  const lead = prefix === 'lead';
+  return (
+    <>
+      <div className="n640:col-span-2">
+        <TextField name={`${prefix}_name`} label={`${label} Name`} state={state} placeholder="Full name" maxLength={80} autoComplete={nameAutoComplete} required={required} />
+      </div>
+      <TextField name={`${prefix}_school`} label="School / College Name" state={state} placeholder="e.g. Delhi Public School, Mumbai" maxLength={120} autoComplete={schoolAutoComplete} required={required} />
+      <TextField name={`${prefix}_location`} label="School / College Location" state={state} placeholder="e.g. Andheri West, Mumbai" maxLength={100} autoComplete="off" hint="City or town is enough." required={required} />
+      <TextField name={`${prefix}_stream`} label="Stream" state={state} placeholder={lead ? 'e.g. Science (PCM)' : 'e.g. Commerce'} maxLength={60} autoComplete="off" list={STREAM_SUGGESTIONS} required={required} />
+      <GradeField name={`${prefix}_grade`} state={state} required={required} />
+      <TextField
+        name={`${prefix}_mobile`}
+        label="Mobile No."
+        state={state}
+        type="tel"
+        placeholder="98765 43210"
+        inputMode="tel"
+        maxLength={20}
+        autoComplete={lead ? 'tel' : 'off'}
+        hint={lead ? '10-digit Indian mobile number. +91 is optional.' : undefined}
+        required={required}
+      />
+      <TextField name={`${prefix}_email`} label="Email ID" state={state} type="email" placeholder="name@example.com" inputMode="email" maxLength={150} autoComplete={lead ? 'email' : 'off'} hint={emailHint} required={required} />
+    </>
   );
 }
 
@@ -192,38 +232,40 @@ export default function RegisterForm() {
           <input type="text" id="f-website" name="website" tabIndex={-1} autoComplete="off" defaultValue="" />
         </div>
 
-        <Fieldset n="1" tone="cyan" title="Team details" sub="How your team appears on the leaderboard." legend="Team details">
+        <Fieldset n="1" tone="cyan" title="Team details" sub="How your team appears on the leaderboard. A team is 1 to 3 students." legend="Team details">
           <div className="n640:col-span-2">
-            <TextField name="team_name" label="Team Name" state={state} placeholder="e.g. Neural Ninjas" maxLength={60} autoComplete="off" hint="Pick something original - one team name per school / college." />
+            <TextField name="team_name" label="Team Name" state={state} placeholder="e.g. Neural Ninjas" maxLength={60} autoComplete="off" hint="Pick something original." />
           </div>
-          <TextField name="school_name" label="School / College Name" state={state} placeholder="e.g. Delhi Public School, Mumbai" maxLength={120} autoComplete="organization" />
-          <TextField name="school_location" label="School / College Location" state={state} placeholder="e.g. Andheri West, Mumbai" maxLength={100} autoComplete="address-level2" hint="City or town is enough." />
         </Fieldset>
 
         <Fieldset n="2" tone="yellow" title="Team lead" sub="Our single point of contact for everything about Round 1." legend="Team lead details">
-          <div className="n640:col-span-2">
-            <TextField name="lead_name" label="Team Lead Name" state={state} placeholder="Full name" maxLength={80} autoComplete="name" />
-          </div>
-          <TextField name="lead_stream" label="Stream" state={state} placeholder="e.g. Science (PCM)" maxLength={60} autoComplete="off" list={STREAM_SUGGESTIONS} />
-          <GradeField name="lead_grade" state={state} />
-          <TextField name="lead_mobile" label="Mobile No." state={state} type="tel" placeholder="98765 43210" inputMode="tel" maxLength={20} autoComplete="tel" hint="10-digit Indian mobile number. +91 is optional." />
-          <TextField name="lead_email" label="Email ID" state={state} type="email" placeholder="name@example.com" inputMode="email" maxLength={150} autoComplete="email" hint="All Round 1 instructions are sent here." />
+          <MemberFields prefix="lead" label="Team Lead" state={state} required nameAutoComplete="name" schoolAutoComplete="organization" emailHint="All Round 1 instructions are sent here." />
         </Fieldset>
 
-        <Fieldset n="3" tone="fuchsia" title="Second member" sub="Every team is exactly two students." legend="Second member details">
-          <div className="n640:col-span-2">
-            <TextField name="member2_name" label="Team Member 2 Name" state={state} placeholder="Full name" maxLength={80} autoComplete="off" />
-          </div>
-          <TextField name="member2_stream" label="Stream" state={state} placeholder="e.g. Commerce" maxLength={60} autoComplete="off" list={STREAM_SUGGESTIONS} />
-          <GradeField name="member2_grade" state={state} />
-          <TextField name="member2_mobile" label="Mobile No." state={state} type="tel" placeholder="98765 43210" inputMode="tel" maxLength={20} autoComplete="off" />
-          <TextField name="member2_email" label="Email ID" state={state} type="email" placeholder="name@example.com" inputMode="email" maxLength={150} autoComplete="off" hint="Must be different from the team lead's email." />
+        <Fieldset
+          n="3"
+          tone="fuchsia"
+          title="Team member 2"
+          sub="Optional — leave this blank for a one-student team. If you add a member, fill in all their details. Members can be from a different school or college."
+          legend="Team member 2 details (optional)"
+        >
+          <MemberFields prefix="member2" label="Team Member 2" state={state} required={false} emailHint="Must be different from the other members' emails." />
+        </Fieldset>
+
+        <Fieldset
+          n="4"
+          tone="violet"
+          title="Team member 3"
+          sub="Optional — add a third member only after Team member 2. If you add a member, fill in all their details."
+          legend="Team member 3 details (optional)"
+        >
+          <MemberFields prefix="member3" label="Team Member 3" state={state} required={false} emailHint="Must be different from the other members' emails." />
         </Fieldset>
 
         <div className="flex flex-col gap-4 rounded-3xl border border-white/10 bg-white/[0.03] p-5 n640:flex-row n640:items-center n640:justify-between n640:p-6">
           <p className="text-[14px] leading-relaxed text-slate-400">
-            Fields marked <span className="font-semibold text-rose-400">*</span> are required.
-            <br className="hidden n640:block" /> By registering you confirm both members are current Grade 11 or 12 students.
+            Fields marked <span className="font-semibold text-rose-400">*</span> are required. Team members 2 and 3 are optional.
+            <br className="hidden n640:block" /> By registering you confirm every team member is a current Grade 11 or 12 student.
           </p>
           <SubmitButton />
         </div>

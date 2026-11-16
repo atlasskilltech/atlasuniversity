@@ -2,7 +2,7 @@ import { fail, json, requireAdminApi } from '@/lib/news/auth/admin';
 import { BodyError, readBodyLimited } from '@/lib/news/http/body';
 import { diffFields, logActivity } from '@/lib/admin/activity';
 import { newsClientIp } from '@/lib/news/http/clientIp';
-import { COLUMN, FIELDS, validateRegistration } from '@/lib/hackathon/validate';
+import { COLUMN, FIELDS, MEMBERS, MEMBER_PARTS, validateRegistration } from '@/lib/hackathon/validate';
 import { parseCsv } from '@/lib/hackathon/csv';
 import {
   DuplicateTeamError, createRegistration, deleteRegistration, getRegistration, importLegacyRows, setMailStatus, setRegistrationOpen, updateRegistration,
@@ -13,10 +13,10 @@ export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
 
 /* every column the log compares on an edit, with the form's own labels */
+const PART = { name: 'name', school: 'school / college', location: 'location', stream: 'stream', grade: 'grade', mobile: 'mobile', email: 'email' };
 const LABEL = {
-  team_name: 'Team name', school_name: 'School / college', school_location: 'Location',
-  lead_name: 'Team lead name', lead_stream: 'Team lead stream', lead_grade: 'Team lead grade', lead_mobile: 'Team lead mobile', lead_email: 'Team lead email',
-  member2_name: 'Member 2 name', member2_stream: 'Member 2 stream', member2_grade: 'Member 2 grade', member2_mobile: 'Member 2 mobile', member2_email: 'Member 2 email',
+  team_name: 'Team name',
+  ...Object.fromEntries(MEMBERS.flatMap((m) => MEMBER_PARTS.map((p) => [`${m.prefix}_${p}`, `${m.label} ${PART[p]}`]))),
 };
 const LOG_FIELDS = FIELDS.map((k) => [COLUMN[k], LABEL[k]]);
 

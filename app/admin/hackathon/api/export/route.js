@@ -2,6 +2,7 @@ import { fail, requireAdminApi, NO_STORE_HEADERS } from '@/lib/news/auth/admin';
 import { toCsv } from '@/lib/hackathon/csv';
 import { listRegistrations } from '@/lib/hackathon/store';
 import { formatIst } from '@/lib/hackathon/mail';
+import { MEMBERS, rowMembers } from '@/lib/hackathon/validate';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -20,17 +21,22 @@ export async function GET(request) {
     return fail(503, 'database_unavailable', 'The admin database is unavailable.', { 'X-News-Error': String(e?.code || 'error') });
   }
   const header = [
-    'ID', 'Registered on (IST)', 'Team name', 'School / college', 'Location',
-    'Team lead name', 'Team lead stream', 'Team lead grade', 'Team lead mobile', 'Team lead email',
-    'Member 2 name', 'Member 2 stream', 'Member 2 grade', 'Member 2 mobile', 'Member 2 email',
+    'ID', 'Registered on (IST)', 'Team name', 'Team size',
+    ...MEMBERS.flatMap((m) => ['name', 'school / college', 'location', 'stream', 'grade', 'mobile', 'email'].map((p) => `${m.label} ${p}`)),
     'Confirmation email', 'Source', 'Old site ID',
   ];
-  const data = rows.map((r) => [
-    r.id, formatIst(r.created_at).replace(/ IST$/, ''), r.team_name, r.school_college_name, r.school_college_location,
-    r.team_lead_name, r.team_lead_stream, r.team_lead_grade, r.team_lead_mobile, r.team_lead_email,
-    r.member2_name, r.member2_stream, r.member2_grade, r.member2_mobile, r.member2_email,
-    MAIL[r.mail_status] || r.mail_status, SOURCE[r.source] || r.source, r.legacy_id ?? '',
-  ]);
+  const data = rows.map((r) => {
+    const members = rowMembers(r);
+    const cells = MEMBERS.flatMap((m) => {
+      const x = members.find((y) => y.prefix === m.prefix);
+      return x ? [x.name, x.school, x.location, x.stream, x.grade, x.mobile, x.email] : ['', '', '', '', '', '', ''];
+    });
+    return [
+      r.id, formatIst(r.created_at).replace(/ IST$/, ''), r.team_name, members.length,
+      ...cells,
+      MAIL[r.mail_status] || r.mail_status, SOURCE[r.source] || r.source, r.legacy_id ?? '',
+    ];
+  });
   const stamp = new Date().toISOString().slice(0, 10);
   return new Response(`﻿${toCsv([header, ...data])}`, {
     headers: {

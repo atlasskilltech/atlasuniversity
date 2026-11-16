@@ -5,6 +5,7 @@ import HackathonFooter from '@/components/Hackathon/Footer';
 import { BG_GRID, BTN_GHOST, BTN_PRIMARY } from '@/components/Hackathon/ui';
 import { CONFIRM_COOKIE, getConfirmation } from '@/lib/hackathon/store';
 import { formatIst } from '@/lib/hackathon/mail';
+import { rowMembers } from '@/lib/hackathon/validate';
 
 /*
  * /atlas-hackathon-2026/register/success — success.php. The registration comes from the httpOnly
@@ -21,7 +22,7 @@ export const metadata = {
 };
 
 const STEPS = [
-  ['Watch your inbox', 'Round 1 joining details go to both team members’ email.'],
+  ['Watch your inbox', 'Round 1 joining details go to every team member’s email.'],
   ['Prep together', 'Read the judging criteria and rules before the day.'],
   ['Build in 90 minutes', 'Prompt to product, live and online.'],
 ];
@@ -37,11 +38,13 @@ export default async function SuccessPage() {
   }
   if (!reg) redirect('/atlas-hackathon-2026/register');
 
+  const members = rowMembers(reg);
+  const schools = [...new Set(members.map((m) => m.school).filter(Boolean))];
   const summary = [
-    ['i-users', 'Team', reg.team_name],
-    ['i-building', 'School / College', reg.school_college_name],
-    ['i-cap', 'Team lead', reg.team_lead_name],
-    ['i-mail', 'Confirmation sent to', [reg.team_lead_email, reg.member2_email].filter(Boolean).join('\n')],
+    ['i-users', 'Team', `${reg.team_name}\n${members.length} ${members.length === 1 ? 'student' : 'students'}`],
+    ['i-cap', members.length === 1 ? 'Team member' : 'Team members', members.map((m) => m.name).join('\n')],
+    ['i-building', schools.length > 1 ? 'Schools / Colleges' : 'School / College', schools.join('\n')],
+    ['i-mail', 'Confirmation sent to', members.map((m) => m.email).join('\n')],
   ];
   const mailFailed = reg.mail_status === 'failed';
 
@@ -72,7 +75,7 @@ export default async function SuccessPage() {
 
               <p className="mx-auto mt-5 max-w-xl text-[16px] leading-relaxed text-slate-300 n640:text-[18px]">
                 Your team has been registered for <span className="font-semibold text-white">ATLAS Hackathon 2026 &mdash; Prompt to Product</span>. Round&nbsp;1
-                joining instructions will be sent to both team members.
+                joining instructions will be sent to {members.length > 1 ? 'every team member' : 'your email address'}.
               </p>
 
               <dl className="mt-8 grid gap-3 text-left n640:grid-cols-2">

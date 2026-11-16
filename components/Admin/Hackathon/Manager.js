@@ -3,7 +3,7 @@
 import { useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { BTN_DANGER, BTN_PRIMARY, BTN_SECONDARY, CARD, ERR, INPUT, INPUT_ERR, LABEL, MUTED, cx } from '@/components/News/Admin/ui';
-import { FIELDS, GRADES, rowToForm } from '@/lib/hackathon/validate';
+import { FIELDS, GRADES, MEMBERS, MEMBER_PARTS, rowMembers, rowToForm } from '@/lib/hackathon/validate';
 
 /**
  * /admin/hackathon — the registrations table and everything done to it: open / close the public form,
@@ -38,22 +38,8 @@ const MAIL = {
 };
 const SOURCE = { form: 'Website form', import: 'Old site', admin: 'Added in admin' };
 
-const LABELS = {
-  team_name: 'Team name',
-  school_name: 'School / college name',
-  school_location: 'School / college location',
-  lead_name: 'Team lead name',
-  lead_stream: 'Team lead stream',
-  lead_grade: 'Team lead grade',
-  lead_mobile: 'Team lead mobile',
-  lead_email: 'Team lead email',
-  member2_name: 'Member 2 name',
-  member2_stream: 'Member 2 stream',
-  member2_grade: 'Member 2 grade',
-  member2_mobile: 'Member 2 mobile',
-  member2_email: 'Member 2 email',
-};
-const WIDE = new Set(['team_name', 'school_name', 'lead_name', 'member2_name']);
+const PART_LABEL = { name: 'Name', school: 'School / college name', location: 'School / college location', stream: 'Stream', grade: 'Grade', mobile: 'Mobile', email: 'Email' };
+const WIDE = new Set(['name']);
 
 function Badge({ status, error }) {
   const [label, tone] = MAIL[status] || [status, 'bg-[#f1f2f4] text-[#4a4f5c]'];
@@ -61,6 +47,30 @@ function Badge({ status, error }) {
     <span title={error || undefined} className={cx('inline-block whitespace-nowrap rounded-full px-2.5 py-0.5 text-[12px] font-semibold', tone)}>
       {label}
     </span>
+  );
+}
+
+function Field({ k, label, wide, values, set, errors }) {
+  const id = `hk-${k}`;
+  return (
+    <div className={wide ? 'sm:col-span-2' : undefined}>
+      <label htmlFor={id} className={LABEL}>
+        {label}
+      </label>
+      {k.endsWith('_grade') ? (
+        <select id={id} value={values[k]} onChange={(e) => set(k, e.target.value)} className={cx(INPUT, errors[k] && INPUT_ERR)}>
+          <option value="">Select grade</option>
+          {Object.entries(GRADES).map(([v, l]) => (
+            <option key={v} value={v}>
+              {l}
+            </option>
+          ))}
+        </select>
+      ) : (
+        <input id={id} value={values[k]} onChange={(e) => set(k, e.target.value)} className={cx(INPUT, errors[k] && INPUT_ERR)} />
+      )}
+      {errors[k] ? <p className={ERR}>{errors[k]}</p> : null}
+    </div>
   );
 }
 
@@ -109,32 +119,22 @@ function EditDialog({ row, onClose, onSaved }) {
 
         {message ? <p className="mt-4 rounded-lg bg-[#fdecea] px-3 py-2 text-[14px] text-[#b42318]">{message}</p> : null}
 
-        <div className="mt-4 grid gap-4 sm:grid-cols-2">
-          {FIELDS.map((k) => {
-            const id = `hk-${k}`;
-            const isGrade = k.endsWith('_grade');
-            return (
-              <div key={k} className={WIDE.has(k) ? 'sm:col-span-2' : undefined}>
-                <label htmlFor={id} className={LABEL}>
-                  {LABELS[k]}
-                </label>
-                {isGrade ? (
-                  <select id={id} value={values[k]} onChange={(e) => set(k, e.target.value)} className={cx(INPUT, errors[k] && INPUT_ERR)}>
-                    <option value="">Select grade</option>
-                    {Object.entries(GRADES).map(([v, l]) => (
-                      <option key={v} value={v}>
-                        {l}
-                      </option>
-                    ))}
-                  </select>
-                ) : (
-                  <input id={id} value={values[k]} onChange={(e) => set(k, e.target.value)} className={cx(INPUT, errors[k] && INPUT_ERR)} />
-                )}
-                {errors[k] ? <p className={ERR}>{errors[k]}</p> : null}
-              </div>
-            );
-          })}
+        <div className="mt-4">
+          <Field k="team_name" label="Team name" wide values={values} set={set} errors={errors} />
         </div>
+        {MEMBERS.map((m) => (
+          <fieldset key={m.prefix} className="mt-5 border-t border-[#eef0f3] pt-4">
+            <legend className="sr-only">{m.label}</legend>
+            <p className="text-[14px] font-semibold">
+              {m.label} {m.required ? null : <span className="font-normal text-[#6b7180]">— optional; leave every field empty to remove</span>}
+            </p>
+            <div className="mt-3 grid gap-4 sm:grid-cols-2">
+              {MEMBER_PARTS.map((p) => (
+                <Field key={p} k={`${m.prefix}_${p}`} label={PART_LABEL[p]} wide={WIDE.has(p)} values={values} set={set} errors={errors} />
+              ))}
+            </div>
+          </fieldset>
+        ))}
 
         {!isNew && row.mail_error && row.mail_status === 'failed' ? <p className={cx(MUTED, 'mt-4')}>Last email problem: {row.mail_error}</p> : null}
 
@@ -169,10 +169,16 @@ export default function HackathonManager({ rows: initialRows, open: initialOpen,
   const stats = useMemo(() => {
     const today = istDay(new Date().toISOString());
     const g = { 11: 0, 12: 0 };
-    for (const r of rows) for (const k of ['team_lead_grade', 'member2_grade']) if (g[r[k]] != null) g[r[k]] += 1;
+    let students = 0;
+    for (const r of rows) {
+      for (const m of rowMembers(r)) {
+        students += 1;
+        if (g[m.grade] != null) g[m.grade] += 1;
+      }
+    }
     return [
       ['Teams registered', rows.length],
-      ['Students', rows.length * 2],
+      ['Students', students],
       ['Grade 11 / Grade 12 students', `${g[11]} / ${g[12]}`],
       ['Registered today', rows.filter((r) => istDay(r.created_at) === today).length],
     ];
@@ -182,10 +188,10 @@ export default function HackathonManager({ rows: initialRows, open: initialOpen,
     const needle = q.trim().toLowerCase();
     return rows.filter((r) => {
       if (source !== 'all' && r.source !== source) return false;
-      if (grade !== 'all' && r.team_lead_grade !== grade && r.member2_grade !== grade) return false;
+      const members = rowMembers(r);
+      if (grade !== 'all' && !members.some((m) => m.grade === grade)) return false;
       if (!needle) return true;
-      return [r.team_name, r.school_college_name, r.school_college_location, r.team_lead_name, r.team_lead_email, r.team_lead_mobile, r.member2_name, r.member2_email, r.member2_mobile]
-        .some((v) => String(v || '').toLowerCase().includes(needle));
+      return [r.team_name, ...members.flatMap((m) => [m.name, m.school, m.location, m.email, m.mobile])].some((v) => String(v || '').toLowerCase().includes(needle));
     });
   }, [rows, q, grade, source]);
 
@@ -211,7 +217,8 @@ export default function HackathonManager({ rows: initialRows, open: initialOpen,
   }
 
   async function resend(r) {
-    if (!window.confirm(`Send the confirmation email to ${r.team_lead_email} (Cc ${r.member2_email})?`)) return;
+    const [lead, ...others] = rowMembers(r);
+    if (!window.confirm(`Send the confirmation email to ${lead?.email}${others.length ? ` (Cc ${others.map((m) => m.email).join(', ')})` : ''}?`)) return;
     setBusy(`mail-${r.id}`);
     const { ok, data } = await post({ action: 'resend', id: r.id });
     setBusy(null);
@@ -321,13 +328,14 @@ export default function HackathonManager({ rows: initialRows, open: initialOpen,
         </p>
 
         <div className="mt-3 overflow-x-auto">
-          <table className="w-full min-w-[1080px] text-left text-[14px]">
+          <table className="w-full min-w-[1240px] text-left text-[14px]">
             <thead className="text-[12.5px] uppercase tracking-wide text-[#6b7180]">
               <tr className="border-b border-[#e3e5ea]">
                 <th className="py-2 pr-3 font-semibold">Registered</th>
                 <th className="py-2 pr-3 font-semibold">Team</th>
                 <th className="py-2 pr-3 font-semibold">Team lead</th>
                 <th className="py-2 pr-3 font-semibold">Member 2</th>
+                <th className="py-2 pr-3 font-semibold">Member 3</th>
                 <th className="py-2 pr-3 font-semibold">Email</th>
                 <th className="py-2 font-semibold" />
               </tr>
@@ -343,33 +351,35 @@ export default function HackathonManager({ rows: initialRows, open: initialOpen,
                     <button type="button" className="text-left font-semibold hover:underline" onClick={() => setEditing(r)}>
                       {r.team_name}
                     </button>
-                    <span className="block text-[13px] text-[#5b6170]">{r.school_college_name}</span>
-                    <span className="block text-[12.5px] text-[#6b7180]">{r.school_college_location}</span>
-                  </td>
-                  <td className="py-3 pr-3">
-                    <span className="font-medium">{r.team_lead_name}</span>
-                    <span className="block text-[12.5px] text-[#5b6170]">
-                      Grade {r.team_lead_grade} · {r.team_lead_stream}
+                    <span className="block text-[13px] text-[#5b6170]">
+                      {rowMembers(r).length} {rowMembers(r).length === 1 ? 'student' : 'students'}
                     </span>
-                    <a href={`mailto:${r.team_lead_email}`} className="block break-all text-[12.5px] text-[#3b5bdb] hover:underline">
-                      {r.team_lead_email}
-                    </a>
-                    <a href={`tel:${r.team_lead_mobile}`} className="block text-[12.5px] text-[#5b6170] hover:underline">
-                      {r.team_lead_mobile}
-                    </a>
                   </td>
-                  <td className="py-3 pr-3">
-                    <span className="font-medium">{r.member2_name}</span>
-                    <span className="block text-[12.5px] text-[#5b6170]">
-                      Grade {r.member2_grade} · {r.member2_stream}
-                    </span>
-                    <a href={`mailto:${r.member2_email}`} className="block break-all text-[12.5px] text-[#3b5bdb] hover:underline">
-                      {r.member2_email}
-                    </a>
-                    <a href={`tel:${r.member2_mobile}`} className="block text-[12.5px] text-[#5b6170] hover:underline">
-                      {r.member2_mobile}
-                    </a>
-                  </td>
+                  {MEMBERS.map((m) => {
+                    const x = rowMembers(r).find((y) => y.prefix === m.prefix);
+                    return (
+                      <td key={m.prefix} className="py-3 pr-3">
+                        {x ? (
+                          <>
+                            <span className="font-medium">{x.name}</span>
+                            <span className="block text-[12.5px] text-[#5b6170]">{x.school}</span>
+                            <span className="block text-[12px] text-[#6b7180]">{x.location}</span>
+                            <span className="block text-[12.5px] text-[#5b6170]">
+                              Grade {x.grade} · {x.stream}
+                            </span>
+                            <a href={`mailto:${x.email}`} className="block break-all text-[12.5px] text-[#3b5bdb] hover:underline">
+                              {x.email}
+                            </a>
+                            <a href={`tel:${x.mobile}`} className="block text-[12.5px] text-[#5b6170] hover:underline">
+                              {x.mobile}
+                            </a>
+                          </>
+                        ) : (
+                          <span className="text-[#9aa0ac]">—</span>
+                        )}
+                      </td>
+                    );
+                  })}
                   <td className="py-3 pr-3">
                     <Badge status={r.mail_status} error={r.mail_error} />
                     {r.mailed_at ? <span className="mt-1 block text-[12px] text-[#6b7180]">{ist(r.mailed_at)}</span> : null}
@@ -391,7 +401,7 @@ export default function HackathonManager({ rows: initialRows, open: initialOpen,
               ))}
               {!shown.length ? (
                 <tr>
-                  <td colSpan={6} className="py-10 text-center text-[#5b6170]">
+                  <td colSpan={7} className="py-10 text-center text-[#5b6170]">
                     {rows.length ? 'No team matches the search.' : 'No registrations yet.'}
                   </td>
                 </tr>

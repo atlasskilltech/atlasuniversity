@@ -3,7 +3,7 @@
 /**
  * The registration form's server action — the POST half of the old register.php:
  * validate on the server, refuse a duplicate team (team name + lead email), save the row, send the
- * confirmation email to both members, then send the browser to the success page. The row is saved
+ * confirmation email to every member, then send the browser to the success page. The row is saved
  * before the email is sent, so a mail problem only costs the email, never the registration.
  *
  * The success page finds the registration through a short-lived httpOnly cookie holding its id and a
@@ -68,7 +68,7 @@ export async function submitRegistration(prev, formData) {
     return state({ formError: 'Registration could not be saved right now. Please try again in a few minutes.' });
   }
 
-  /* one confirmation to both members; failures are logged and recorded, never shown as a lost registration */
+  /* one confirmation to the whole team; failures are logged and recorded, never shown as a lost registration */
   try {
     const row = await getRegistration(created.id);
     const mail = row ? await sendConfirmation(row) : { ok: false, error: 'row not found' };

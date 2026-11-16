@@ -3,7 +3,7 @@ import HackathonFooter from '@/components/Hackathon/Footer';
 import HackathonLanding from '@/components/Hackathon/Landing';
 
 const DESCRIPTION =
-  'ATLAS Hackathon 2026: Prompt to Product. A 90-minute online challenge for Grade 11 & 12 students in teams of two. The top 15 teams win a spot at the Grand Finale at ATLAS SkillTech University, Mumbai.';
+  'ATLAS Hackathon 2026: Prompt to Product. A 90-minute online challenge for Grade 11 & 12 students in teams of one to three. The top 15 teams win a spot at the Grand Finale at ATLAS SkillTech University, Mumbai.';
 
 export const metadata = {
   title: 'ATLAS Hackathon 2026 — Prompt to Product | ATLAS SkillTech University × uGDX',

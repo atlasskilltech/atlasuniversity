@@ -12,12 +12,12 @@ export const dynamic = 'force-dynamic';
 
 export const metadata = {
   title: 'Register Your Team - ATLAS Hackathon 2026',
-  description: 'Register your two-member team for ATLAS Hackathon 2026: Prompt to Product. Open to Grade 11 and Grade 12 students.',
+  description: 'Register your team of one to three students for ATLAS Hackathon 2026: Prompt to Product. Open to Grade 11 and Grade 12 students.',
   alternates: { canonical: '/atlas-hackathon-2026/register' },
 };
 
 const FACTS = [
-  ['i-users', 'Teams of 2'],
+  ['i-users', 'Teams of 1 to 3'],
   ['i-cap', 'Grade 11 & 12'],
   ['i-clock', '90-minute challenge'],
   ['i-star', 'Top 15 reach the Grand Finale'],
@@ -48,7 +48,7 @@ export default async function RegisterPage() {
             </h1>
 
             <p className="mt-4 max-w-2xl text-[16px] leading-relaxed text-slate-300 n640:text-[18px]">
-              Teams of two, 90 minutes, one idea taken from prompt to product. Fill in the details below and your school will be entered into Round 1.
+              Teams of one to three, 90 minutes, one idea taken from prompt to product. Team members can come from different schools or colleges. Fill in the details below and your team will be entered into Round 1.
             </p>
 
             <ul className="mt-6 flex flex-wrap gap-2 n640:gap-3">
