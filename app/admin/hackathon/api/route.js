@@ -3,9 +3,8 @@ import { BodyError, readBodyLimited } from '@/lib/news/http/body';
 import { diffFields, logActivity } from '@/lib/admin/activity';
 import { newsClientIp } from '@/lib/news/http/clientIp';
 import { COLUMN, FIELDS, MEMBERS, MEMBER_PARTS, validateRegistration } from '@/lib/hackathon/validate';
-import { parseCsv } from '@/lib/hackathon/csv';
 import {
-  DuplicateTeamError, createRegistration, deleteRegistration, getRegistration, importLegacyRows, setMailStatus, setRegistrationOpen, updateRegistration,
+  DuplicateTeamError, createRegistration, deleteRegistration, getRegistration, setMailStatus, setRegistrationOpen, updateRegistration,
 } from '@/lib/hackathon/store';
 import { sendConfirmation } from '@/lib/hackathon/mail';
 
@@ -27,9 +26,9 @@ const LOG_FIELDS = FIELDS.map((k) => [COLUMN[k], LABEL[k]]);
  *   { action: 'update', id, values }              edit a team (same rules as the form)
  *   { action: 'delete', id }
  *   { action: 'resend', id }                      send the confirmation email again
- *   { action: 'import', csv }                     import the old PHP site's registrations.csv
  * The tab comes from this URL (/admin/hackathon/…), so requireAdminApi allows admins and the users the
- * tab is ticked for; it also enforces the same-origin check for these writes.
+ * tab is ticked for; it also enforces the same-origin check for these writes. 'open' and 'add' are
+ * admin-only.
  */
 export async function POST(request) {
   const auth = await requireAdminApi(request);
@@ -43,6 +42,8 @@ export async function POST(request) {
   }
   const id = Number(body?.id);
   const needId = () => !Number.isInteger(id) || id <= 0;
+  const isAdmin = auth.session.user?.role === 'admin';
+  if (['open', 'add'].includes(body?.action) && !isAdmin) return fail(403, 'forbidden', 'Only an admin can do this.');
   const log = (action, summary, target, details = null) =>
     logActivity({ user: auth.session.user, tab: 'hackathon', action, summary, target, targetUrl: '/admin/hackathon', details, ip: newsClientIp(request) });
   try {
@@ -93,16 +94,6 @@ export async function POST(request) {
         });
         if (!mail.ok) return json({ error: `The email was not sent: ${mail.error}`, code: 'mail_failed', row: await getRegistration(id) }, 502);
         return json({ ok: true, row: await getRegistration(id) });
-      }
-
-      case 'import': {
-        const rows = parseCsv(String(body.csv || ''));
-        if (rows.length < 2) return fail(400, 'bad_request', 'The file has no registrations in it.');
-        const result = await importLegacyRows(rows);
-        await log('import', 'Imported registrations from the old site', 'registrations.csv', {
-          note: `${result.inserted} imported, ${result.skipped.length} already in the list, ${result.errors.length} not imported`,
-        });
-        return json({ ok: true, result });
       }
 
       default:

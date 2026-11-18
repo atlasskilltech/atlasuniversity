@@ -1,14 +1,13 @@
 'use client';
 
-import { useMemo, useRef, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useMemo, useState } from 'react';
 import { BTN_DANGER, BTN_PRIMARY, BTN_SECONDARY, CARD, ERR, INPUT, INPUT_ERR, LABEL, MUTED, cx } from '@/components/News/Admin/ui';
 import { FIELDS, GRADES, MEMBERS, MEMBER_PARTS, rowMembers, rowToForm } from '@/lib/hackathon/validate';
 
 /**
  * /admin/hackathon — the registrations table and everything done to it: open / close the public form,
- * search and filter, view and edit a team, add one, delete one, re-send its confirmation email,
- * download everything as CSV, and import the old PHP site's export (registrations.csv).
+ * search and filter, view and edit a team, add one, delete one, re-send its confirmation email and
+ * download everything as CSV. Opening / closing the form and adding a team are admin-only (isAdmin).
  */
 async function post(body) {
   try {
@@ -151,8 +150,7 @@ function EditDialog({ row, onClose, onSaved }) {
   );
 }
 
-export default function HackathonManager({ rows: initialRows, open: initialOpen, mailReady, disabled }) {
-  const router = useRouter();
+export default function HackathonManager({ rows: initialRows, open: initialOpen, mailReady, disabled, isAdmin = false }) {
   const [rows, setRows] = useState(initialRows);
   const [open, setOpen] = useState(initialOpen);
   const [q, setQ] = useState('');
@@ -161,7 +159,6 @@ export default function HackathonManager({ rows: initialRows, open: initialOpen,
   const [editing, setEditing] = useState(null); // row, 'new' or null
   const [busy, setBusy] = useState(null);
   const [notice, setNotice] = useState(null); // { tone: 'ok'|'err', text }
-  const fileRef = useRef(null);
 
   const say = (tone, text) => setNotice({ tone, text });
   const replace = (row) => setRows((rs) => rs.map((r) => (r.id === Number(row.id) ? { ...r, ...normalise(row) } : r)));
@@ -227,25 +224,7 @@ export default function HackathonManager({ rows: initialRows, open: initialOpen,
     say('ok', `Confirmation email sent to team “${r.team_name}”.`);
   }
 
-  async function importFile(e) {
-    const file = e.target.files?.[0];
-    e.target.value = '';
-    if (!file) return;
-    if (file.size > 1_500_000) return say('err', 'That file is too large for a registrations export.');
-    setBusy('import');
-    const csv = await file.text();
-    const { ok, data } = await post({ action: 'import', csv });
-    setBusy(null);
-    if (!ok) return say('err', data.error || 'Not imported.');
-    const { inserted, skipped, errors } = data.result;
-    const parts = [`${inserted} team${inserted === 1 ? '' : 's'} imported`];
-    if (skipped.length) parts.push(`${skipped.length} already in the list`);
-    if (errors.length) parts.push(`${errors.length} not imported: ${errors.join('; ')}`);
-    say(errors.length && !inserted ? 'err' : 'ok', `${parts.join(' · ')}.`);
-    router.refresh();
-  }
-
-  // rows from the server (router.refresh) replace the local copy
+  // rows from the server replace the local copy
   const [seen, setSeen] = useState(initialRows);
   if (seen !== initialRows) {
     setSeen(initialRows);
@@ -269,20 +248,22 @@ export default function HackathonManager({ rows: initialRows, open: initialOpen,
         </div>
       ) : null}
 
-      <div className="grid grid-cols-2 gap-4 lg:grid-cols-5">
+      <div className={cx('grid grid-cols-2 gap-4', isAdmin ? 'lg:grid-cols-5' : 'lg:grid-cols-4')}>
         {stats.map(([label, n]) => (
           <div key={label} className={CARD}>
             <p className={MUTED}>{label}</p>
             <p className="mt-1 text-[28px] font-semibold leading-none">{n}</p>
           </div>
         ))}
-        <div className={cx(CARD, 'col-span-2 lg:col-span-1')}>
-          <p className={MUTED}>Registration form</p>
-          <p className={cx('mt-1 text-[20px] font-semibold leading-tight', open ? 'text-[#11733b]' : 'text-[#b42318]')}>{open ? 'Open' : 'Closed'}</p>
-          <button type="button" onClick={toggleOpen} disabled={disabled || busy === 'open'} className={cx(open ? BTN_DANGER : BTN_PRIMARY, 'mt-3 w-full')}>
-            {open ? 'Close the form' : 'Open the form'}
-          </button>
-        </div>
+        {isAdmin ? (
+          <div className={cx(CARD, 'col-span-2 lg:col-span-1')}>
+            <p className={MUTED}>Registration form</p>
+            <p className={cx('mt-1 text-[20px] font-semibold leading-tight', open ? 'text-[#11733b]' : 'text-[#b42318]')}>{open ? 'Open' : 'Closed'}</p>
+            <button type="button" onClick={toggleOpen} disabled={disabled || busy === 'open'} className={cx(open ? BTN_DANGER : BTN_PRIMARY, 'mt-3 w-full')}>
+              {open ? 'Close the form' : 'Open the form'}
+            </button>
+          </div>
+        ) : null}
       </div>
 
       <section className={CARD}>
@@ -309,22 +290,19 @@ export default function HackathonManager({ rows: initialRows, open: initialOpen,
             </select>
           </div>
           <div className="flex flex-wrap gap-2">
-            <button type="button" className={BTN_PRIMARY} disabled={disabled} onClick={() => setEditing('new')}>
-              + Add team
-            </button>
+            {isAdmin ? (
+              <button type="button" className={BTN_PRIMARY} disabled={disabled} onClick={() => setEditing('new')}>
+                + Add team
+              </button>
+            ) : null}
             <a href="/admin/hackathon/api/export" className={cx(BTN_SECONDARY, disabled && 'pointer-events-none opacity-55')}>
               Download CSV
             </a>
-            <button type="button" className={BTN_SECONDARY} disabled={disabled || busy === 'import'} onClick={() => fileRef.current?.click()}>
-              {busy === 'import' ? 'Importing…' : 'Import from old site'}
-            </button>
-            <input ref={fileRef} type="file" accept=".csv,text/csv" className="hidden" onChange={importFile} />
           </div>
         </div>
 
         <p className={cx(MUTED, 'mt-3')}>
-          Showing {shown.length} of {rows.length} team{rows.length === 1 ? '' : 's'}. Times are IST. “Import from old site” takes the old PHP site&rsquo;s
-          registrations.csv; it can be run again safely — teams already in the list are skipped.
+          Showing {shown.length} of {rows.length} team{rows.length === 1 ? '' : 's'}. Times are IST.
         </p>
 
         <div className="mt-3 overflow-x-auto">

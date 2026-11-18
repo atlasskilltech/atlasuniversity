@@ -11,11 +11,13 @@ export const metadata = { title: 'ATLAS Hackathon Registrations — ATLAS Admin'
 
 /*
  * /admin/hackathon — every team registered for ATLAS Hackathon 2026 (the public form at
- * /atlas-hackathon-2026/register, plus the rows imported from the old PHP site). Admins see it; other
- * users only when the "ATLAS Hackathon Registrations" tab is ticked for them in Users.
+ * /atlas-hackathon-2026/register). Admins see it; other users only when the "ATLAS Hackathon
+ * Registrations" tab is ticked for them in Users. Opening / closing the form and adding a team are
+ * admin-only (here and in the API).
  */
 export default async function HackathonAdminPage() {
-  await requireAdminPage({ tab: 'hackathon' });
+  const session = await requireAdminPage({ tab: 'hackathon' });
+  const isAdmin = session.user?.role === 'admin';
   let rows = [];
   let open = true;
   let dbError = null;
@@ -35,7 +37,7 @@ export default async function HackathonAdminPage() {
     <AdminShell active="hackathon">
       <PageHeader
         title="ATLAS Hackathon Registrations"
-        description="Teams registered for ATLAS Hackathon 2026 — Prompt to Product. Search, view, edit, delete and download them, re-send a team's confirmation email, and open or close the registration form."
+        description="Teams registered for ATLAS Hackathon 2026 — Prompt to Product. Search, view, edit, delete and download them, and re-send a team's confirmation email."
       />
       {dbError ? (
         <div role="status" className="mb-5 rounded-xl border border-[#f5d48a] bg-[#fff8e6] px-4 py-3 text-[14px] text-[#6b4e00]">
@@ -44,7 +46,7 @@ export default async function HackathonAdminPage() {
             : 'The database could not be reached. Registrations will show again once it is back.'}
         </div>
       ) : null}
-      <HackathonManager rows={plain} open={open} mailReady={Boolean(mailConfig().apiKey)} disabled={Boolean(dbError)} />
+      <HackathonManager rows={plain} open={open} mailReady={Boolean(mailConfig().apiKey)} disabled={Boolean(dbError)} isAdmin={isAdmin} />
     </AdminShell>
   );
 }

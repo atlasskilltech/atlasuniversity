@@ -8215,11 +8215,12 @@ images/) — not from `reference/`. Its own dark site: `MainSiteOnly` lists the 
   is emailer.php with its early "Register" CTA replaced by the team's confirmation and the marketing footer
   line removed. Lead on To, member 2 on Cc. The row is saved first; `mail_status` records the result and the
   admin can re-send. Env: `SENDGRID_API_KEY`, `HACKATHON_MAIL_FROM` / `_FROM_NAME` / `_REPLY_TO`.
-- **Admin tab** `hackathon`: list/search/filter, view/edit dialog, add, delete, re-send, CSV export (BOM,
-  formula-safe), open/close, and "Import from old site" for the PHP export (registrations.csv: `legacy_id` =
-  old id, created_at read as IST; re-runnable). The old site's data is imported through that button, not
-  committed — it is students' personal data. Every admin change here is written to the Activity log
-  (tab `hackathon`; edits with before/after values per field).
+- **Admin tab** `hackathon`: list/search/filter, view/edit dialog, delete, re-send, CSV export (BOM,
+  formula-safe). **Open/close the form and "Add team" are admin-role only** (hidden in the UI for `user`
+  role, and refused 403 by the API). The "Import from old site" button and API action were removed on
+  2026-11-18 (the old site's rows are already in; `importLegacyRows` stays in `lib/hackathon/store.js`
+  unused). Every admin change here is written to the Activity log (tab `hackathon`; edits with
+  before/after values per field).
 - **Assets:** `public/assets/atlas-hackathon-2026/` — originals byte-for-byte (the email uses the JPG/PNG,
   absolute S3 URLs) plus WebP for the site. On S3 like every migrated asset (uploaded and verified
   2026-11-16: 27 objects, SHA-256 equal to the manifest) and git-ignored; restore a local copy with
