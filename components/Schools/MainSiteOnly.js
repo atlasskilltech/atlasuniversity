@@ -14,9 +14,8 @@ import { usePathname } from 'next/navigation';
  * finished route, and the root layout is the only place that has to know. This
  * keeps the existing routes exactly where they are.
  *
- * `/map` steps it aside too: the interactive website map is a standalone,
- * full-viewport application with its own app bar (components/Map/MapExplorer),
- * not a content page, so it renders no site header or footer.
+ * `/map` steps it aside too (it now only redirects to /admin/map, the admin-only
+ * website map, which is under /admin and so standalone anyway).
  *
  * `/contact-us` too: production serves it as a standalone document (a photo panel and the CRM
  * enquiry form, no site header or footer).

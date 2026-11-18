@@ -41,6 +41,10 @@ const DELAY = PRODUCTION ? Math.max(1500, Number(args.delay || 1500)) : Number(a
 const TIMEOUT = Number(args.timeout || 15000);
 const FOLLOW_LINKS = args.links !== 'false';
 const UA = 'ATLAS-website-map-audit/1.0 (+bounded page-health check)';
+/* Migrated assets (/assets/…) are not in git and production serves them from S3 (docs/assets-s3.md). A
+   local build without a full public/assets copy would report every PDF link as a 404, so asset paths are
+   checked on the asset host instead: --asset-base, else NEXT_PUBLIC_ASSET_BASE_URL, else the bucket. */
+const ASSET_BASE = (args['asset-base'] || process.env.NEXT_PUBLIC_ASSET_BASE_URL || 'https://atlas-web-cdn.s3.ap-south-1.amazonaws.com').replace(/\/+$/, '');
 /* --out=audit-production.json keeps a live-site check apart from the snapshot the page reads */
 const OUT_FILE = path.basename(args.out || 'audit.json');
 
@@ -94,7 +98,7 @@ async function request(url) {
 /* one URL: follow redirects by hand so every hop is recorded */
 async function check(p) {
   const hops = [];
-  let url = BASE + encodeURI(p);
+  let url = (p.startsWith('/assets/') && !PRODUCTION ? ASSET_BASE : BASE) + encodeURI(p);
   for (let i = 0; i < 6; i++) {
     let res;
     try {
@@ -106,7 +110,7 @@ async function check(p) {
       const next = new URL(res.headers.get('location'), url);
       /* the raw path: a slash-only redirect (/x -> /x/) must not read as a loop */
       let to = next.href;
-      if (next.origin === new URL(BASE).origin) {
+      if (next.origin === new URL(url).origin) {
         try {
           to = decodeURI(next.pathname);
         } catch {
@@ -115,7 +119,7 @@ async function check(p) {
       }
       hops.push({ status: res.status, to });
       await res.body?.cancel();
-      if (next.origin !== new URL(BASE).origin) return { status: hops[0].status, finalStatus: null, hops, offsite: true };
+      if (next.origin !== new URL(url).origin) return { status: hops[0].status, finalStatus: null, hops, offsite: true };
       url = next.href;
       continue;
     }
@@ -195,7 +199,10 @@ async function main() {
     }
   }
   const isChrome = (s, l) => htmlPages[s] >= 5 && (freq[s]?.[l] || 0) >= htmlPages[s] * 0.6;
-  const brokenTarget = (lp) => pages[lp] && (pages[lp].error || (pages[lp].finalStatus ?? 0) >= 400 || pages[lp].soft404);
+  /* a 503 on a local build is a database the build cannot reach (ATLAS News reads MySQL), not a broken
+     link; it is still recorded as that page's own status */
+  const unavailableHere = (r) => ENV === 'local-build' && r.finalStatus === 503;
+  const brokenTarget = (lp) => pages[lp] && !unavailableHere(pages[lp]) && (pages[lp].error || (pages[lp].finalStatus ?? 0) >= 400 || pages[lp].soft404);
   const sitewide = {};
 
   for (const [p, r] of Object.entries(pages)) {

@@ -78,6 +78,10 @@ const nextConfig = {
 
   async redirects() {
     return [
+      /* The interactive website map is an admin-only tool now (/admin/map, admin role). The old public
+         address forwards there, and so to the admin sign-in. Not permanent: it is an access gate, not a
+         move a search engine should learn. */
+      { source: '/map', destination: '/admin/map', permanent: false },
       /* The News admin moved from /news/admin to /admin/news (the ATLAS admin hub's News tab). Old
          bookmarks and links keep working; 308 preserves the method, so a stale POST to an old API path
          is not silently turned into a GET. */

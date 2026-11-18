@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-07T18:56:11.777Z",
+ "generatedAt": "2026-11-18T11:59:20.214Z",
  "facts": [
   {
    "route": "/aarohan2024",
@@ -17406,2724 +17406,1894 @@
    "status": "integrated"
   },
   {
-   "route": "/law/program-page-law",
-   "servedAt": null,
-   "reference": "reference/law/program-page-law.php",
-   "referenceTitle": "BBA Law Program in Mumbai – ATLAS Law",
-   "widgets": [
-    {
-     "id": "6a3e7d3ba1fd0680c6c1ba90",
-     "forms": [
-      "script"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": false,
-   "status": "not-built"
-  },
-  {
-   "route": "/programs/programs-list-integrated",
-   "servedAt": null,
-   "reference": "reference/programs/programs-list-integrated.php",
-   "referenceTitle": "Integrated Programmes & Pathways in Mumbai  – ATLAS SkillTech University",
-   "widgets": [
-    {
-     "id": "6a3e7d3ba1fd0680c6c1ba90",
-     "forms": [
-      "iframe"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/programs/ug/programs-list-commerce-finance-and-economics",
-   "servedAt": null,
-   "reference": "reference/programs/ug/programs-list-commerce-finance-and-economics.php",
-   "referenceTitle": "Commerce, Finance & Economics Programs in Mumbai – ATLAS",
-   "widgets": [
-    {
-     "id": "6a3e7a6aa1fd0680c6c18db8",
-     "forms": [
-      "iframe"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/programs/ug/programs-list-design-ai-and-technology",
-   "servedAt": null,
-   "reference": "reference/programs/ug/programs-list-design-ai-and-technology.php",
-   "referenceTitle": "Design AI Technology Programs in Mumbai – ATLAS",
-   "widgets": [
-    {
-     "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "iframe"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/programs/ug/programs-list-law-and-policy",
-   "servedAt": null,
-   "reference": "reference/programs/ug/programs-list-law-and-policy.php",
-   "referenceTitle": "Law and Policy Programs in Mumbai",
-   "widgets": [
-    {
-     "id": "6a3e7d3ba1fd0680c6c1ba90",
-     "forms": [
-      "iframe"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/programs/ug/programs-list-management-and-entrepreneurship",
-   "servedAt": null,
-   "reference": "reference/programs/ug/programs-list-management-and-entrepreneurship.php",
-   "referenceTitle": "Management Entrepreneurship Programs in Mumbai",
-   "widgets": [
-    {
-     "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "iframe"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/programs/ug/ug-design-and-innovation",
-   "servedAt": null,
-   "reference": "reference/programs/ug/ug-design-and-innovation.php",
-   "referenceTitle": "Design & Innovation Programs in Mumbai – ATLAS",
-   "widgets": [
-    {
-     "id": "6a3e5980b9dfccd3a4455fa2",
-     "forms": [
-      "iframe"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/schools/isdi/admissions/pre-university-summer-school",
-   "servedAt": null,
-   "reference": "reference/schools/isdi/admissions/pre-university-summer-school.php",
-   "referenceTitle": "ATLAS SkillTech University",
-   "widgets": [
-    {
-     "id": "6a9029a13af53723967be3fc",
-     "forms": [
-      "script"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/schools/isdi/programs/postgraduate-diploma/mba-creative-entrepreneurship",
-   "servedAt": null,
-   "reference": "reference/schools/isdi/programs/postgraduate-diploma/mba-creative-entrepreneurship.php",
-   "referenceTitle": "Creative Entrepreneurship  – ATLAS ISDI",
-   "widgets": [
-    {
-     "id": "6a3e5980b9dfccd3a4455fa2",
-     "forms": [
-      "iframe"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/schools/isdi/programs/postgraduate-diploma/pg-interior-styling-&-space-curation",
-   "servedAt": null,
-   "reference": "reference/schools/isdi/programs/postgraduate-diploma/pg-interior-styling-&-space-curation.php",
-   "referenceTitle": "Interior Styling & Spatial Curation  – ATLAS ISDI",
-   "widgets": [
-    {
-     "id": "6a3e5980b9dfccd3a4455fa2",
-     "forms": [
-      "iframe"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/schools/isdi/programs/postgraduate/m-des-in-design-futures",
-   "servedAt": "/schools/isdi/programs/postgraduate/mdes/design-futures-2-years",
-   "reference": "reference/schools/isdi/programs/postgraduate/m-des-in-design-futures.php",
-   "referenceTitle": "Design Futures Program in Mumbai – ATLAS ISDI",
-   "widgets": [
-    {
-     "id": "6a3e723ea1fd0680c6c0e846",
-     "forms": [
-      "script"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/schools/isdi/programs/postgraduate/mba-in-design-management-strategic-thinking",
-   "servedAt": null,
-   "reference": "reference/schools/isdi/programs/postgraduate/mba-in-design-management-strategic-thinking.php",
-   "referenceTitle": "MBA in Design Management & Strategic Thinking in Mumbai – ATLAS ISDI",
-   "widgets": [
-    {
-     "id": "6a3e7418a1fd0680c6c101fb",
-     "forms": [
-      "script"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/schools/isdi/programs/postgraduate/mba/mba-design-led-strategy-&-transformation",
-   "servedAt": null,
-   "reference": "reference/schools/isdi/programs/postgraduate/mba/mba-design-led-strategy-&-transformation.php",
-   "referenceTitle": "Design Management and Strategy  – ATLAS ISDI",
-   "widgets": [
-    {
-     "id": "6a3e5980b9dfccd3a4455fa2",
-     "forms": [
-      "iframe"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/schools/isdi/programs/postgraduate/mba/mba-in-event-&-experience-design",
-   "servedAt": null,
-   "reference": "reference/schools/isdi/programs/postgraduate/mba/mba-in-event-&-experience-design.php",
-   "referenceTitle": "Event & Experience Design  – ATLAS ISDI",
-   "widgets": [
-    {
-     "id": "6a3e5980b9dfccd3a4455fa2",
-     "forms": [
-      "iframe"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/schools/isdi/programs/postgraduate/mdes/design-futures-2-years",
-   "servedAt": null,
-   "reference": "reference/schools/isdi/programs/postgraduate/mdes/design-futures-2-years.php",
-   "referenceTitle": "Design Futures Program in Mumbai – ATLAS ISDI",
-   "widgets": [
-    {
-     "id": "6a3e723ea1fd0680c6c0e846",
-     "forms": [
-      "script"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/schools/isdi/programs/undergraduate/b-des/accessory-design-&-craft",
-   "servedAt": null,
-   "reference": "reference/schools/isdi/programs/undergraduate/b-des/accessory-design-&-craft.php",
-   "referenceTitle": "Accessory Design & Craft – ATLAS ISDI",
-   "widgets": [
-    {
-     "id": "6a3e5980b9dfccd3a4455fa2",
-     "forms": [
-      "iframe"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/schools/isdi/programs/undergraduate/b-des/b-des-in-animation-&-vfx-&-gaming",
-   "servedAt": null,
-   "reference": "reference/schools/isdi/programs/undergraduate/b-des/b-des-in-animation-&-vfx-&-gaming.php",
-   "referenceTitle": "Animation & VFX Course in Mumbai  – ATLAS ISDI",
-   "widgets": [
-    {
-     "id": "6a3e5980b9dfccd3a4455fa2",
-     "forms": [
-      "script"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/schools/isdi/programs/undergraduate/b-des/b-des-in-communication-design-&-new-media",
-   "servedAt": null,
-   "reference": "reference/schools/isdi/programs/undergraduate/b-des/b-des-in-communication-design-&-new-media.php",
-   "referenceTitle": "Communication Design Course in Mumbai  – ATLAS ISDI",
-   "widgets": [
-    {
-     "id": "6a3e5980b9dfccd3a4455fa2",
-     "forms": [
-      "script"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/schools/isdi/programs/undergraduate/b-des/b-des-in-fashion-communication-&-styling",
-   "servedAt": null,
-   "reference": "reference/schools/isdi/programs/undergraduate/b-des/b-des-in-fashion-communication-&-styling.php",
-   "referenceTitle": "Fashion Styling Course in Mumbai – ATLAS ISDI",
-   "widgets": [
-    {
-     "id": "6a3e5980b9dfccd3a4455fa2",
-     "forms": [
-      "script"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/schools/isdi/programs/undergraduate/b-des/b-des-in-fashion-design-&-technology",
-   "servedAt": null,
-   "reference": "reference/schools/isdi/programs/undergraduate/b-des/b-des-in-fashion-design-&-technology.php",
-   "referenceTitle": "Fashion Design Course in Mumbai  – ATLAS ISDI",
-   "widgets": [
-    {
-     "id": "6a3e5980b9dfccd3a4455fa2",
-     "forms": [
-      "script"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/schools/isdi/programs/undergraduate/b-des/b-des-in-interior-design-&-built-environment",
-   "servedAt": null,
-   "reference": "reference/schools/isdi/programs/undergraduate/b-des/b-des-in-interior-design-&-built-environment.php",
-   "referenceTitle": "Interior Design Course in Mumbai  – ATLAS ISDI",
-   "widgets": [
-    {
-     "id": "6a3e5980b9dfccd3a4455fa2",
-     "forms": [
-      "script"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/schools/isdi/programs/undergraduate/b-des/b-des-in-product-design",
-   "servedAt": null,
-   "reference": "reference/schools/isdi/programs/undergraduate/b-des/b-des-in-product-design.php",
-   "referenceTitle": "Product Design Course in Mumbai – ATLAS ISDI",
-   "widgets": [
-    {
-     "id": "6a3e5980b9dfccd3a4455fa2",
-     "forms": [
-      "script"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/schools/isdi/programs/undergraduate/b-des/b-des-in-strategic-design-&-innovation-management",
-   "servedAt": null,
-   "reference": "reference/schools/isdi/programs/undergraduate/b-des/b-des-in-strategic-design-&-innovation-management.php",
-   "referenceTitle": "Strategic Design Management Course in Mumbai – ATLAS ISDI",
-   "widgets": [
-    {
-     "id": "6a3e5980b9dfccd3a4455fa2",
-     "forms": [
-      "script"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/schools/isdi/programs/undergraduate/b-des/behavioural-design-&-ai",
-   "servedAt": null,
-   "reference": "reference/schools/isdi/programs/undergraduate/b-des/behavioural-design-&-ai.php",
-   "referenceTitle": "Behavioural Design & AI – ATLAS ISDI",
-   "widgets": [
-    {
-     "id": "6a3e5980b9dfccd3a4455fa2",
-     "forms": [
-      "iframe"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/schools/isdi/programs/undergraduate/b-des/fashion-brand-management",
-   "servedAt": null,
-   "reference": "reference/schools/isdi/programs/undergraduate/b-des/fashion-brand-management.php",
-   "referenceTitle": "Fashion Brand Management  – ATLAS ISDI",
-   "widgets": [
-    {
-     "id": "6a3e5980b9dfccd3a4455fa2",
-     "forms": [
-      "iframe"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/schools/isdi/programs/undergraduate/b-des/health-care-design",
-   "servedAt": null,
-   "reference": "reference/schools/isdi/programs/undergraduate/b-des/health-care-design.php",
-   "referenceTitle": "Health & Care Design Designing Innovations That Reach Patients",
-   "widgets": [
-    {
-     "id": "6a3e5980b9dfccd3a4455fa2",
-     "forms": [
-      "iframe"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/schools/isdi/programs/undergraduate/b-des/luxury-brand-strategy-&-experience-design",
-   "servedAt": null,
-   "reference": "reference/schools/isdi/programs/undergraduate/b-des/luxury-brand-strategy-&-experience-design.php",
-   "referenceTitle": "Luxury Brand Strategy  – ATLAS ISDI",
-   "widgets": [
-    {
-     "id": "6a3e5980b9dfccd3a4455fa2",
-     "forms": [
-      "iframe"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/schools/isdi/programs/undergraduate/b-des/service-&-experience-design",
-   "servedAt": null,
-   "reference": "reference/schools/isdi/programs/undergraduate/b-des/service-&-experience-design.php",
-   "referenceTitle": "Service & Experience Design  – ATLAS ISDI",
-   "widgets": [
-    {
-     "id": "6a3e5980b9dfccd3a4455fa2",
-     "forms": [
-      "iframe"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/schools/isdi/programs/undergraduate/btech/ai-engineering-&-intelligent-products",
-   "servedAt": null,
-   "reference": "reference/schools/isdi/programs/undergraduate/btech/ai-engineering-&-intelligent-products.php",
-   "referenceTitle": "AI Engineering & Intelligent products",
-   "widgets": [
-    {
-     "id": "6a9e61ba36bae5bdae0bd52d",
-     "forms": [
-      "script"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/schools/isdi/programs/undergraduate/btech/btech-design-engineering",
-   "servedAt": null,
-   "reference": "reference/schools/isdi/programs/undergraduate/btech/btech-design-engineering.php",
-   "referenceTitle": "Design Engineering",
-   "widgets": [
-    {
-     "id": "6a9e61ba36bae5bdae0bd52d",
-     "forms": [
-      "script"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/schools/isdi/programs/undergraduate/btech/systems-design-&-intelligent-manufacturing",
-   "servedAt": null,
-   "reference": "reference/schools/isdi/programs/undergraduate/btech/systems-design-&-intelligent-manufacturing.php",
-   "referenceTitle": "Systems Design & Intelligent Manufacturing",
-   "widgets": [
-    {
-     "id": "6a3e5980b9dfccd3a4455fa2",
-     "forms": [
-      "iframe"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
-   "route": "/schools/isdi/success-stories/success-snapshot",
-   "servedAt": null,
-   "reference": "reference/schools/isdi/success-stories/success-snapshot/index.php",
-   "referenceTitle": "ISDI Success Stories & Placements 2024 – ATLAS ISDI",
-   "widgets": [
-    {
-     "id": "6a901b9de104d95ba35cf740",
-     "forms": [
-      "script"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": true,
-   "status": "integrated"
-  },
-  {
    "route": "/schools/isme/admissions/summer-school-management",
    "servedAt": null,
-   "reference": "reference/schools/isme/admissions/summer-school-management.php",
-   "referenceTitle": "Summer School for Future Skills in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a902a463af53723967be5c4",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/postgraduate/dual-specialisation/business-analytics-digital-marketing-advertising",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/postgraduate/dual-specialisation/business-analytics-digital-marketing-advertising.php",
-   "referenceTitle": "MBA Analytics & Digital Marketing in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e7b56a1fd0680c6c18e59",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/postgraduate/dual-specialisation/entrepreneurships-business-analytics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/postgraduate/dual-specialisation/entrepreneurships-business-analytics.php",
-   "referenceTitle": "MBA Entrepreneurship & Analytics in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e7b56a1fd0680c6c18e59",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/postgraduate/dual-specialisation/entrepreneurships-digital-marketing",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/postgraduate/dual-specialisation/entrepreneurships-digital-marketing.php",
-   "referenceTitle": "MBA Entrepreneurship & Digital Marketing in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e7b56a1fd0680c6c18e59",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/postgraduate/dual-specialisation/finance-business-analytics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/postgraduate/dual-specialisation/finance-business-analytics.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e7b56a1fd0680c6c18e59",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/postgraduate/dual-specialisation/finance-digital-marketing-advertising",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/postgraduate/dual-specialisation/finance-digital-marketing-advertising.php",
-   "referenceTitle": "MBA Finance & Digital Marketing in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e7b56a1fd0680c6c18e59",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/postgraduate/dual-specialisation/finance-entrepreneurships",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/postgraduate/dual-specialisation/finance-entrepreneurships.php",
-   "referenceTitle": "MBA Finance & Entrepreneurship in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e7b56a1fd0680c6c18e59",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/postgraduate/dual-specialisation/marketing-business-analytics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/postgraduate/dual-specialisation/marketing-business-analytics.php",
-   "referenceTitle": "MBA Marketing & Business Analytics in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e7b56a1fd0680c6c18e59",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/postgraduate/dual-specialisation/marketing-digital-marketing",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/postgraduate/dual-specialisation/marketing-digital-marketing.php",
-   "referenceTitle": "MBA Marketing & Digital Skills in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e7b56a1fd0680c6c18e59",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/postgraduate/dual-specialisation/marketing-entrepreneurship",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/postgraduate/dual-specialisation/marketing-entrepreneurship.php",
-   "referenceTitle": "MBA Marketing & Entrepreneurship in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e7b56a1fd0680c6c18e59",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/postgraduate/dual-specialisation/marketing-finance",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/postgraduate/dual-specialisation/marketing-finance.php",
-   "referenceTitle": "Exam Timetables & Guidelines  – ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e7b56a1fd0680c6c18e59",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/postgraduate/mba-financial-planning-applied-finance",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/postgraduate/mba-financial-planning-applied-finance.php",
-   "referenceTitle": "MBA in FinTech & Financial Innovation in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e7b56a1fd0680c6c18e59",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/postgraduate/mba-hyper/mba-in-fintech",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/postgraduate/mba-hyper/mba-in-fintech.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e7b56a1fd0680c6c18e59",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/postgraduate/mba-hyper/mba-with-digital-marketing-and-advertising",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/postgraduate/mba-hyper/mba-with-digital-marketing-and-advertising.php",
-   "referenceTitle": "MBA Marketing & Digital Skills in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e7b56a1fd0680c6c18e59",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/postgraduate/mba-hyper/mba-with-hyper-specialisation-business-analytics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/postgraduate/mba-hyper/mba-with-hyper-specialisation-business-analytics.php",
-   "referenceTitle": "MBA in Business Analytics in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e7b56a1fd0680c6c18e59",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/postgraduate/mba-hyper/mba-with-hyper-specialisation-entrepreneurship",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/postgraduate/mba-hyper/mba-with-hyper-specialisation-entrepreneurship.php",
-   "referenceTitle": "MBA in Entrepreneurship & Startup Skills in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e7b56a1fd0680c6c18e59",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/postgraduate/mba-hyper/mba-with-hyper-specialisation-marketing",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/postgraduate/mba-hyper/mba-with-hyper-specialisation-marketing.php",
-   "referenceTitle": "MBA in Marketing Strategy & Branding in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e7b56a1fd0680c6c18e59",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/postgraduate/mba-hyper/mba-with-specialisation",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/postgraduate/mba-hyper/mba-with-specialisation.php",
-   "referenceTitle": "MBA in Management & Entrepreneurship in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e7b56a1fd0680c6c18e59",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/postgraduate/mba-hyper/mba-with-strategic-human-capital-management",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/postgraduate/mba-hyper/mba-with-strategic-human-capital-management.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e7b56a1fd0680c6c18e59",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/postgraduate/program-mba-in-fintech",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/postgraduate/program-mba-in-fintech.php",
-   "referenceTitle": "MBA in FinTech in Mumbai at ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e7b56a1fd0680c6c18e59",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/postgraduate/program-mba-in-investment-banking",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/postgraduate/program-mba-in-investment-banking.php",
-   "referenceTitle": "MBA in Investment Banking in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e7b56a1fd0680c6c18e59",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/index.php",
-   "referenceTitle": "BBA Hons Major Programs at Atlas ISME Mumbai",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-ai-emerging-technologies",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-ai-emerging-technologies/index.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-ai-emerging-technologies/business-analytics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-ai-emerging-technologies/business-analytics.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-ai-emerging-technologies/business-psychology",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-ai-emerging-technologies/business-psychology.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-ai-emerging-technologies/digital-branding-advertising",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-ai-emerging-technologies/digital-branding-advertising.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-ai-emerging-technologies/economics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-ai-emerging-technologies/economics.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-ai-emerging-technologies/entrepreneurship",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-ai-emerging-technologies/entrepreneurship.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-ai-emerging-technologies/family-managed-business",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-ai-emerging-technologies/family-managed-business.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-ai-emerging-technologies/finance",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-ai-emerging-technologies/finance.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-analytics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-analytics/index.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-analytics/ai-emerging-technologies",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-analytics/ai-emerging-technologies.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-analytics/business-psychology",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-analytics/business-psychology.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-analytics/digital-branding-advertising",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-analytics/digital-branding-advertising.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-analytics/economics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-analytics/economics.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-analytics/entrepreneurship",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-analytics/entrepreneurship.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-analytics/family-managed-business",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-analytics/family-managed-business.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-analytics/finance",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-analytics/finance.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-psychology",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-psychology/index.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-psychology/ai-emerging-technologies",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-psychology/ai-emerging-technologies.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-psychology/business-analytics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-psychology/business-analytics.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-psychology/digital-branding-advertising",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-psychology/digital-branding-advertising.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-psychology/economics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-psychology/economics.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-psychology/entrepreneurship",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-psychology/entrepreneurship.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-psychology/family-managed-business",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-psychology/family-managed-business.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-psychology/finance",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-psychology/finance.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-psychology/marketing",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-business-psychology/marketing.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-digital-branding-advertising",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-digital-branding-advertising/index.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-digital-branding-advertising/ai-emerging-technologies",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-digital-branding-advertising/ai-emerging-technologies.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-digital-branding-advertising/business-analytics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-digital-branding-advertising/business-analytics.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-digital-branding-advertising/business-psychology",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-digital-branding-advertising/business-psychology.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-digital-branding-advertising/economics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-digital-branding-advertising/economics.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-digital-branding-advertising/entrepreneurship",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-digital-branding-advertising/entrepreneurship.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-digital-branding-advertising/family-managed-business",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-digital-branding-advertising/family-managed-business.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-digital-branding-advertising/finance",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-digital-branding-advertising/finance.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-finance",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-finance/index.php",
-   "referenceTitle": "BBA in Finance | Atlas ISME Mumbai",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-finance/ai-emerging-technologies",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-finance/ai-emerging-technologies.php",
-   "referenceTitle": "BBA in Finance with AI Emerging Technologies | Atlas",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-finance/business-analytics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-finance/business-analytics.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-finance/business-psychology",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-finance/business-psychology.php",
-   "referenceTitle": "BBA in Finance with Business Psychology | Atlas",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-finance/digital-branding-advertising",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-finance/digital-branding-advertising.php",
-   "referenceTitle": "BBA in Finance with Digital Branding | Atlas ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-finance/economics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-finance/economics.php",
-   "referenceTitle": "BBA Finance with Economics in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-finance/entrepreneurship",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-finance/entrepreneurship.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-finance/family-managed-business",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-finance/family-managed-business.php",
-   "referenceTitle": "BBA in Finance with Family Managed Business | Atlas",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-marketing",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-marketing/index.php",
-   "referenceTitle": "BBA in Marketing | Atlas ISME Mumbai",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-marketing/ai-emerging-technologies",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-marketing/ai-emerging-technologies.php",
-   "referenceTitle": "BBA in Marketing with AI Emerging Technologies | Atlas",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-marketing/business-analytics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-marketing/business-analytics.php",
-   "referenceTitle": "BBA Marketing with Business Analytics in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-marketing/business-psychology",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-marketing/business-psychology.php",
-   "referenceTitle": "BBA in Marketing with Business Psychology | Atlas",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-marketing/digital-branding-advertising",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-marketing/digital-branding-advertising.php",
-   "referenceTitle": "BBA in Marketing with Digital Branding | Atlas ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-marketing/economics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-marketing/economics.php",
-   "referenceTitle": "BBA Marketing with Economics in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-marketing/entrepreneurship",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-marketing/entrepreneurship.php",
-   "referenceTitle": "BBA Marketing with Entrepreneurship in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-marketing/family-managed-business",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons-major/majoring-in-marketing/family-managed-business.php",
-   "referenceTitle": "BBA in Business Psychology with Marketing | Atlas",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/bba-hons-ai-emerging-technologies",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/bba-hons-ai-emerging-technologies.php",
-   "referenceTitle": "BBA AI & Emerging Tech in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/bba-Hons-business-psychology",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/bba-Hons-business-psychology.php",
-   "referenceTitle": "BBA in Business Psychology in Mumbai– ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/bba-hons-digital-branding-advertising",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/bba-hons-digital-branding-advertising.php",
-   "referenceTitle": "BBA Digital Branding & Advertising in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/bba-Hons-in-business-analytics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/bba-Hons-in-business-analytics.php",
-   "referenceTitle": "BBA (Hons.) in Business Analytics in Mumbai– ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/bba-Hons-in-finance",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/bba-Hons-in-finance.php",
-   "referenceTitle": "BBA (Hons.) in Finance in Mumbai– ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/bba-hons-in-international-accounting-finance-with-acca",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/bba-hons-in-international-accounting-finance-with-acca.php",
-   "referenceTitle": "BBA in International Accounting & Finance with ACCA",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "iframe"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/bba-Hons-in-marketing",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/bba-Hons-in-marketing.php",
-   "referenceTitle": "BBA (Hons.) in Marketing in Mumbai– ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/bba-hons-marketing-finance-business-analytics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/bba-hons-marketing-finance-business-analytics.php",
-   "referenceTitle": "BBA in Marketing, Finance & Business Analytics | Atlas",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-ai-emerging-technologies",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-ai-emerging-technologies/index.php",
-   "referenceTitle": "BBA AI & Emerging Tech in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-ai-emerging-technologies/business-analytics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-ai-emerging-technologies/business-analytics.php",
-   "referenceTitle": "BBA in AI & Emerging Technologies with Business Analytics",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-ai-emerging-technologies/business-psychology",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-ai-emerging-technologies/business-psychology.php",
-   "referenceTitle": "BBA in AI & Emerging Technologies with Business Psychology",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-ai-emerging-technologies/digital-branding-advertising",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-ai-emerging-technologies/digital-branding-advertising.php",
-   "referenceTitle": "BBA in AI & Tech with Digital Branding | Atlas ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-ai-emerging-technologies/economics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-ai-emerging-technologies/economics.php",
-   "referenceTitle": "BBA in AI & Emerging Technologies with Economics",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-ai-emerging-technologies/entrepreneurship",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-ai-emerging-technologies/entrepreneurship.php",
-   "referenceTitle": "BBA in AI & Emerging Technologies with Entrepreneurship",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-ai-emerging-technologies/finance",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-ai-emerging-technologies/finance.php",
-   "referenceTitle": "BBA in AI & Emerging Technologies with Finance",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-analytics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-analytics/index.php",
-   "referenceTitle": "BBA Business Analytics  in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-analytics/ai-emerging-technologies",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-analytics/ai-emerging-technologies.php",
-   "referenceTitle": "BBA in Business Analytics with AI Technologies",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-analytics/business-psychology",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-analytics/business-psychology.php",
-   "referenceTitle": "BBA in Business Analytics with Business Psychology",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-analytics/digital-branding-advertising",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-analytics/digital-branding-advertising.php",
-   "referenceTitle": "BBA Business Analytics with Marketing in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-analytics/economics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-analytics/economics.php",
-   "referenceTitle": "BBA Business Analytics with Economics in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-analytics/entrepreneurship",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-analytics/entrepreneurship.php",
-   "referenceTitle": "BBA Business Analytics with Finance in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-analytics/finance",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-analytics/finance.php",
-   "referenceTitle": "BBA Business Analytics with Finance in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-psychology",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-psychology/index.php",
-   "referenceTitle": "BBA in Business Psychology in Mumbai– ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-psychology/ai-emerging-technologies",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-psychology/ai-emerging-technologies.php",
-   "referenceTitle": "BBA in Business Psychology with AI Technologies | Atlas",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-psychology/business-analytics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-psychology/business-analytics.php",
-   "referenceTitle": "BBA in Business Psychology with Business Analytics",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-psychology/digital-branding-advertising",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-psychology/digital-branding-advertising.php",
-   "referenceTitle": "BBA in Business Psychology with Digital Branding | Atlas",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-psychology/economics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-psychology/economics.php",
-   "referenceTitle": "BBA in Business Psychology with Economics | Atlas",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-psychology/entrepreneurship",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-psychology/entrepreneurship.php",
-   "referenceTitle": "BBA in Business Psychology with Entrepreneurship | Atlas",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-psychology/finance",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-psychology/finance.php",
-   "referenceTitle": "BBA in Business Psychology with Finance | Atlas ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-psychology/marketing",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-business-psychology/marketing.php",
-   "referenceTitle": "BBA in Business Psychology with Marketing | Atlas",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "iframe"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-digital-branding-advertising",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-digital-branding-advertising/index.php",
-   "referenceTitle": "BBA Digital Branding & Advertising in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-digital-branding-advertising/ai-emerging-technologies",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-digital-branding-advertising/ai-emerging-technologies.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-digital-branding-advertising/business-analytics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-digital-branding-advertising/business-analytics.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-digital-branding-advertising/business-psychology",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-digital-branding-advertising/business-psychology.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-digital-branding-advertising/economics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-digital-branding-advertising/economics.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-digital-branding-advertising/entrepreneurship",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-digital-branding-advertising/entrepreneurship.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-digital-branding-advertising/finance",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-digital-branding-advertising/finance.php",
-   "referenceTitle": "ATLAS SkillTech University",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-finance",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-finance/index.php",
-   "referenceTitle": "BBA Finance with Business Analytics in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-finance/ai-emerging-technologies",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-finance/ai-emerging-technologies.php",
-   "referenceTitle": "BBA in Finance with AI & Emerging Technologies",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-finance/business-analytics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-finance/business-analytics.php",
-   "referenceTitle": "BBA Finance with Business Analytics in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-finance/business-psychology",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-finance/business-psychology.php",
-   "referenceTitle": "BBA in Finance with Business Psychology | Atlas",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-finance/digital-branding-advertising",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-finance/digital-branding-advertising.php",
-   "referenceTitle": "BBA in Finance with Digital Branding & Advertising",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-finance/economics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-finance/economics.php",
-   "referenceTitle": "BBA Finance with Economics in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-finance/entrepreneurship",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-finance/entrepreneurship.php",
-   "referenceTitle": "BBA Finance with Entrepreneurship Skills in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-finance/family-managed-business",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-finance/family-managed-business.php",
-   "referenceTitle": "BBA in Finance with Family Managed Business | Atlas",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-marketing",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-marketing/index.php",
-   "referenceTitle": "BBA Marketing Major with Finance in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-marketing/ai-emerging-technologies",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-marketing/ai-emerging-technologies.php",
-   "referenceTitle": "BBA Marketing Major with Finance in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-marketing/business-analytics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-marketing/business-analytics.php",
-   "referenceTitle": "BBA Marketing Major with Finance in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-marketing/business-psychology",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-marketing/business-psychology.php",
-   "referenceTitle": "BBA Marketing Major with Finance in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-marketing/digital-branding-advertising",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-marketing/digital-branding-advertising.php",
-   "referenceTitle": "BBA Marketing Major with Finance in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-marketing/economics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-marketing/economics.php",
-   "referenceTitle": "BBA Marketing Major with Finance in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bba-hons/majoring-in-marketing/entrepreneurship",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bba-hons/majoring-in-marketing/entrepreneurship.php",
-   "referenceTitle": "BBA Marketing Major with Finance in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e788ea1fd0680c6c15cad",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bsc-hons/bsc-hons-in-finance",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bsc-hons/bsc-hons-in-finance.php",
-   "referenceTitle": "B.Sc Finance Program in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e7a6aa1fd0680c6c18db8",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/programs/undergraduate/bsc-hons/bsc-in-economics-and-data-analytics",
    "servedAt": null,
-   "reference": "reference/schools/isme/programs/undergraduate/bsc-hons/bsc-in-economics-and-data-analytics.php",
-   "referenceTitle": "BBA Business Analytics with Economics in Mumbai – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a3e7a6aa1fd0680c6c18db8",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
   },
   {
    "route": "/schools/isme/success-stories/success-snapshot/success-stories",
    "servedAt": null,
-   "reference": "reference/schools/isme/success-stories/success-snapshot/success-stories.php",
-   "referenceTitle": "Success Stories & Career Wins – ATLAS ISME",
+   "reference": null,
+   "referenceTitle": null,
    "widgets": [
     {
      "id": "6a901fefe104d95ba35d279a",
-     "forms": [
-      "script"
-     ]
+     "forms": []
     }
    ],
-   "inReference": true,
+   "inReference": false,
    "integrated": true,
    "status": "integrated"
-  },
-  {
-   "route": "/ugdx/integrated/integrated-b-tech-in-cs-ai-ml-&-mba",
-   "servedAt": null,
-   "reference": "reference/ugdx/integrated/integrated-b-tech-in-cs-ai-ml-&-mba.php",
-   "referenceTitle": "Integrated B.Tech + MBA in Technology in Mumbai – ATLAS uGDX",
-   "widgets": [
-    {
-     "id": "6a3e7bbda1fd0680c6c1a4a3",
-     "forms": [
-      "script"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": false,
-   "status": "not-built"
-  },
-  {
-   "route": "/ugdx/nextgen-women-in-stem-scholarship",
-   "servedAt": null,
-   "reference": "reference/ugdx/nextgen-women-in-stem-scholarship.php",
-   "referenceTitle": "B.Tech in IT, AI & Data Science in Mumbai – ATLAS uGDX",
-   "widgets": [
-    {
-     "id": "6a950f599ac2658d595d0d47",
-     "forms": [
-      "script"
-     ]
-    }
-   ],
-   "inReference": true,
-   "integrated": false,
-   "status": "not-built"
   }
  ]
 }

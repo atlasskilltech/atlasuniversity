@@ -13,6 +13,15 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 
+const NEXT_CACHE_STUB = [
+  'export const unstable_cache = (fn) => fn;',
+  'export const revalidateTag = () => {};',
+  'export const revalidatePath = () => {};',
+  'export const unstable_noStore = () => {};',
+].join('\n');
+
+const NODE_MODULES = `${path.sep}node_modules${path.sep}`;
+
 function firstExisting(base) {
   for (const c of [base, `${base}.js`, `${base}.mjs`, path.join(base, 'index.js')]) {
     try {
@@ -27,6 +36,9 @@ function firstExisting(base) {
 export async function resolve(specifier, context, nextResolve) {
   /* `server-only` exists to stop client bundles importing a module; a build script is server-side */
   if (specifier === 'server-only') return { url: 'data:text/javascript,export {}', shortCircuit: true };
+  /* `next/cache` only works inside a Next server; outside it a cached function is just the function
+     (lib/keydates/store wraps its database read in unstable_cache) */
+  if (specifier === 'next/cache') return { url: `data:text/javascript,${encodeURIComponent(NEXT_CACHE_STUB)}`, shortCircuit: true };
 
   let target = null;
   if (specifier.startsWith('@/')) target = firstExisting(path.join(ROOT, specifier.slice(2)));
@@ -38,7 +50,8 @@ export async function resolve(specifier, context, nextResolve) {
 }
 
 export async function load(url, context, nextLoad) {
-  if (url.startsWith('file:') && url.endsWith('.js') && fileURLToPath(url).startsWith(ROOT)) {
+  /* project files only: a package's own .js (mysql2/promise.js is CommonJS) keeps its own format */
+  if (url.startsWith('file:') && url.endsWith('.js') && fileURLToPath(url).startsWith(ROOT) && !fileURLToPath(url).includes(NODE_MODULES)) {
     return nextLoad(url, { ...context, format: 'module' });
   }
   return nextLoad(url, context);

@@ -27,8 +27,9 @@ const NOT_CONTENT = [
   /^lib\/news\//,
 ];
 
-/* Routes that are not public pages and never belong on the site map: the News admin area. */
-const PRIVATE_ROUTE = /^\/news\/admin(\/|$)/;
+/* Routes that are not public pages and never belong on the site map: the admin area (/admin, where the
+   map itself now lives, and the old /news/admin paths that redirect there) and the OAuth callback. */
+const PRIVATE_ROUTE = /^\/(admin|news\/admin|auth)(\/|$)/;
 
 function walk(dir, out = []) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -69,7 +70,8 @@ function staticMetadata(src) {
   const body = block ? block[1] : '';
   const field = (k) => {
     const lit = body.match(new RegExp(`\\b${k}\\s*:\\s*(['"\`])((?:\\\\.|(?!\\1)[\\s\\S])*?)\\1`));
-    if (lit) return clean(lit[2]);
+    /* a template literal with ${…} is computed at runtime — not a usable title */
+    if (lit) return lit[2].includes('${') ? null : clean(lit[2]);
     const ref = body.match(new RegExp(`\\b${k}\\s*:\\s*([A-Z_]+)\\b`));
     return ref ? consts[ref[1]] ?? null : null;
   };

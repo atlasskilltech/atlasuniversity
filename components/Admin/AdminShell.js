@@ -36,6 +36,14 @@ export const TOOLS = [
     cta: 'Open registrations',
   },
   {
+    key: 'map',
+    href: '/admin/map',
+    label: 'University Map',
+    title: 'University Map',
+    description: 'The interactive map of the whole website: every school, programme and page, with fees, eligibility, key dates, CRM widgets and page health. Admins only.',
+    cta: 'Open the map',
+  },
+  {
     key: 'users',
     href: '/admin/users',
     label: 'Users',

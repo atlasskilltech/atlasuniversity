@@ -7965,7 +7965,23 @@ match). **Site-wide regression: all 84 routes at 1440/390, systems CLEAN, 0 new 
 B.Des + the unlinked `behavioural-design-&-ai`, two menu-linked B.Tech + the unlinked
 `systems-design-&-intelligent-manufacturing`, plus the two overviews.
 
-## /map — interactive website map — `app/map/`, `components/Map/`, `lib/map/`, `scripts/map/`, `data/map/`
+## /admin/map — interactive website map (admins only) — `app/admin/map/`, `components/Map/`, `lib/map/`, `scripts/map/`, `data/map/`
+
+**Moved into the admin on 2026-11-18.** It is the admin's "University Map" tab, `map` is in
+`ADMIN_ONLY_TABS` (a `user` account never sees it, whatever its ticks), the page calls
+`requireAdminPage({ tab: 'map' })`, and the old public `/map` 307-redirects to `/admin/map` (and so to
+the sign-in). The text below still says "/map" for the app itself.
+
+**Why the snapshot had stopped updating (fixed the same day).** The key-dates pages now import
+`lib/keydates/store` (`next/cache` + MySQL), and `npm run map:discover` failed on all 17 of them — so
+their facts silently fell back to the 2026-11-07 snapshot. `scripts/map/alias-hooks.mjs` now stubs
+`next/cache` (a cached function is the function) and no longer forces packages under `node_modules`
+(mysql2's CommonJS `promise.js`) into ESM; with no database configured the store returns the built
+content. Discovery also skips every `/admin`, `/news/admin` and `/auth` route, and ignores a metadata
+title written as a `${…}` template literal. The audit checks `/assets/…` links on the S3 asset host
+(`--asset-base`, else `NEXT_PUBLIC_ASSET_BASE_URL`, else the bucket) because the migrated assets are not
+in git, and a local-build 503 (ATLAS News without its database) is not counted as a broken link. Check
+`moduleErrors` in `data/map/graph.json` after every discovery run — it must be `[]`.
 
 A public roadmap.sh-style map of the whole site, generated from the project itself — never a
 hand-maintained sitemap. Two views over one snapshot: **Explore University** (the tree, a list view,

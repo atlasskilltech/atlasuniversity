@@ -26,15 +26,16 @@ const SHOW = [
 ];
 
 /**
- * /map — the interactive ATLAS University map, a standalone full-viewport application. The site
- * header and footer step aside on this route (components/Schools/MainSiteOnly); the app bar,
- * toolbar and stage below are the only chrome. One snapshot, two ways in:
+ * /admin/map — the interactive ATLAS University map, an admin-only, full-viewport application. The
+ * site header and footer step aside under /admin (components/Schools/MainSiteOnly); the app bar,
+ * toolbar and stage below are the only chrome. `admin` ({ email }) makes the logo lead back to the
+ * admin hub and shows who is signed in. One snapshot, two ways in:
  *   Explore University     the roadmap (or its list view) + a details panel per node
  *   Website information    every known page with its safe page-health indicators
  *   Key information        CRM widget pages, key dates, fee information and fee documents
  * The Guide drawer holds the introduction, the key and the upcoming admission dates.
  */
-export default function MapExplorer({ data }) {
+export default function MapExplorer({ data, admin = null }) {
   const byId = useMemo(() => new Map(data.nodes.map((n) => [n.id, n])), [data.nodes]);
   const byPath = useMemo(() => {
     const m = new Map();
@@ -177,7 +178,7 @@ export default function MapExplorer({ data }) {
     <div className="flex h-[100dvh] w-full flex-col overflow-hidden bg-[#fbfbfd] text-atlas-ink">
       {/* ---- app bar --------------------------------------------------------------------------- */}
       <header className="flex h-14 shrink-0 items-center gap-2 bg-atlas-footer px-3 text-white md:gap-3 md:px-4">
-        <Link href="/" prefetch={false} aria-label="ATLAS SkillTech University — website home" className="shrink-0 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-atlas-teal">
+        <Link href={admin ? '/admin' : '/'} prefetch={false} aria-label={admin ? 'ATLAS Admin — back to the admin hub' : 'ATLAS SkillTech University — website home'} className="shrink-0 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-atlas-teal">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/assets/logos/atlas-logo-102x45.svg"
@@ -190,6 +191,16 @@ export default function MapExplorer({ data }) {
         </Link>
         <span className="hidden h-6 w-px bg-white/25 sm:block" aria-hidden="true" />
         <h1 className="hidden truncate text-[15px] font-bold sm:block">University Map</h1>
+        {admin ? (
+          <Link
+            href="/admin"
+            prefetch={false}
+            title={admin.email}
+            className="hidden h-8 shrink-0 items-center rounded-full px-3 text-[13px] font-semibold text-white/85 hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-atlas-teal lg:inline-flex"
+          >
+            ← Admin
+          </Link>
+        ) : null}
 
         <div role="tablist" aria-label="Map views" className="ml-auto flex rounded-full bg-white/10 p-1">
           {[
