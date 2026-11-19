@@ -36,6 +36,14 @@ export const TOOLS = [
     cta: 'Open registrations',
   },
   {
+    key: 's3drive',
+    href: '/admin/s3drive',
+    label: 'S3 Drive',
+    title: 'S3 Drive',
+    description: 'The files in the atlas-web-cdn S3 bucket: browse folders, copy S3 and website links, and (admins) upload, create folders and delete.',
+    cta: 'Open S3 Drive',
+  },
+  {
     key: 'map',
     href: '/admin/map',
     label: 'University Map',

@@ -8242,3 +8242,21 @@ images/) — not from `reference/`. Its own dark site: `MainSiteOnly` lists the 
   2026-11-16: 27 objects, SHA-256 equal to the manifest) and git-ignored; restore a local copy with
   `npm run assets:download`. Fonts (Saira, Saira Condensed) are local-only in `public/assets/fonts/`.
 - Tests: `scripts/news/tests/hackathon.test.mjs` (rules, CSV, IST, email, SendGrid request).
+
+### S3 Drive — `/admin/s3drive`, `lib/s3drive/drive.js`, `components/Admin/S3Drive/Drive.js`
+
+A file browser over the whole `atlas-web-cdn` bucket (same `AWS_S3_*` settings and credentials as
+`assets:sync` and the News media library). Admins: upload (any size), new folder, delete file, delete
+folder (type DELETE; shows the file count first). Users with the "S3 Drive" tab: browse, search the
+folder, preview images, copy links — the API refuses every write for them. Every change goes to the
+Activity log (tab `s3drive`).
+- **Uploads never pass through the server**: the API returns a 15-minute presigned PUT and the browser
+  sends the file straight to S3. That needs a **CORS rule on the bucket** allowing `PUT` from the admin's
+  origin; without it the upload fails with a message saying so.
+- The server's AWS key needs `s3:ListBucket`, `s3:PutObject`, `s3:DeleteObject` (and `s3:GetObject` for
+  the HEAD after upload).
+- Each file shows its S3 link, and a website link where the site serves that folder from S3
+  (`DOMAIN_PREFIXES` in `lib/s3drive/drive.js` — today only `wordpress-custom-image/`, matching the
+  `rewrites()` in `next.config.mjs`). Add a prefix in both places together.
+- Legacy files: `npm run legacy:upload -- <path>` uploads from `reference/wordpress-custom-image/` to
+  the same key in S3 (skips same-size files, never deletes).
