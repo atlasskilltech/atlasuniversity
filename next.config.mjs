@@ -211,6 +211,23 @@ const nextConfig = {
       { source: '/lp2022/film-animation_26/thank-you', destination: '/lp2022/film-animation_26', permanent: false },
     ];
   },
+
+  /*
+   * Legacy WordPress uploads. The old PHP site served ~100 GB under /wordpress-custom-image/, and those
+   * links are circulating. The files live in the S3 bucket under the SAME key prefix (read-only archive,
+   * never in git), and this rewrite serves them at the old path on this domain, so a link like
+   * /wordpress-custom-image/alumni-connect/groupImage.png keeps working and the URL never changes.
+   * A rewrite proxies the bytes through this server; for heavy traffic, route this path to S3 at the
+   * CDN/DNS layer (e.g. a Cloudflare rule) instead and delete this.
+   */
+  async rewrites() {
+    return [
+      {
+        source: '/wordpress-custom-image/:path*',
+        destination: 'https://atlas-web-cdn.s3.ap-south-1.amazonaws.com/wordpress-custom-image/:path*',
+      },
+    ];
+  },
 };
 
 export default nextConfig;
