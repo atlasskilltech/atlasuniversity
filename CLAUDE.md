@@ -8259,6 +8259,10 @@ A file browser over the whole `atlas-web-cdn` bucket (same `AWS_S3_*` settings a
 `assets:sync` and the News media library). **Admins only** (`s3drive` is in `ADMIN_ONLY_TABS`, so it is
 never offered to a `user` in /admin/users). Browse, search the folder, preview images, upload (any size),
 new folder, copy links. Every change goes to the Activity log (tab `s3drive`).
+- **Layout (2026-11-19): cPanel File Manager.** Icon toolbar (+ Folder, Upload, View, S3 link, Website
+  link, Open — the last four act on the selected row), a path bar (Home / Up One Level / Reload and a
+  typed path + Go), a lazy folder tree on the left (≥992px), a selectable table (Name / Size / Last
+  Modified / Type; double-click opens), and a status bar.
 - **Deleting is OFF for everyone, admins included** (owner's decision, 2026-11-19): `ALLOW_DELETE = false`
   in `lib/s3drive/drive.js`. The API refuses delete / delete-folder, the UI shows no Delete buttons, and an
   upload may not replace an existing file (overwriting deletes the old version) — same-name files are

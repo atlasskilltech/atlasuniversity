@@ -1,10 +1,11 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
-import { BTN_DANGER, BTN_GHOST, BTN_PRIMARY, BTN_SECONDARY, CARD, INPUT, MUTED, cx } from '@/components/News/Admin/ui';
+import { BTN_GHOST, BTN_SECONDARY, INPUT, MUTED, cx } from '@/components/News/Admin/ui';
 
 /*
- * S3 Drive — a file browser over the atlas-web-cdn bucket (/admin/s3drive).
+ * S3 Drive — a file browser over the atlas-web-cdn bucket (/admin/s3drive), laid out like cPanel's File
+ * Manager: an icon toolbar, a path bar, a folder tree on the left, a selectable file table and a status bar.
  * Everyone with the tab: open folders, search the current folder, preview images, copy the S3 link and
  * (where the site serves the folder) the website link. Admins also: upload (drag and drop or the
  * button; any size — the browser PUTs straight to S3 with a presigned URL), new folder, delete file,
@@ -94,6 +95,51 @@ function FileIcon() {
   );
 }
 
+const TB = {
+  home: 'M3 10.5 12 3l9 7.5M5 9v11h5v-6h4v6h5V9',
+  up: 'M12 19V5M5 12l7-7 7 7',
+  refresh: 'M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7',
+  folder: 'M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7ZM12 10v6M9 13h6',
+  upload: 'M12 16V4M7 9l5-5 5 5M4 20h16',
+  link: 'M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1',
+  globe: 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM3 12h18M12 3c2.5 2.5 3.5 5.5 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-5.5-3.5-9s1-6.5 3.5-9Z',
+  view: 'M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12ZM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z',
+  open: 'M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5',
+  trash: 'M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13',
+};
+
+/* One cPanel-style toolbar button: an icon over a short label. */
+function ToolBtn({ icon, label, onClick, disabled, title, done }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      title={title || label}
+      className="flex min-w-[64px] flex-col items-center gap-0.5 rounded-md px-2 py-1.5 text-[12px] font-medium text-[#2b2f38] transition hover:bg-[#eef0f3] disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent"
+    >
+      <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d={TB[icon]} />
+      </svg>
+      <span className="whitespace-nowrap">{done || label}</span>
+    </button>
+  );
+}
+
+/** Copy `text`, with a prompt() fallback where the clipboard API is not allowed. */
+async function copyText(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch {
+    window.prompt('Copy this link:', text);
+  }
+}
+
+const typeOf = (key) => {
+  const m = /\.([a-z0-9]+)$/i.exec(key);
+  return m ? `${m[1].toUpperCase()} file` : 'File';
+};
+
 export default function S3Drive({ isAdmin, canDelete = false, bucket, s3Base, domainPrefixes, initialPrefix }) {
   const [prefix, setPrefix] = useState(() => {
     const p = (initialPrefix || '').replace(/^\/+/, '');
@@ -109,6 +155,11 @@ export default function S3Drive({ isAdmin, canDelete = false, bucket, s3Base, do
   const [queue, setQueue] = useState([]); // [{ id, name, size, progress, state: 'waiting'|'uploading'|'done'|'error', error }]
   const [dragging, setDragging] = useState(false);
   const [preview, setPreview] = useState(null);
+  const [selected, setSelected] = useState(null); // a file key or a folder prefix
+  const [copied, setCopied] = useState('');
+  const [tree, setTree] = useState({}); // { prefix: [child folder prefixes] } for the left-hand tree
+  const [openNodes, setOpenNodes] = useState(() => new Set());
+  const [pathText, setPathText] = useState(null); // the path bar while it is being edited
   /* the site's own origin, for "website" links ('' while rendering on the server) */
   const origin = useSyncExternalStore(noSubscribe, () => window.location.origin, () => '');
   const inputRef = useRef(null);
@@ -121,6 +172,7 @@ export default function S3Drive({ isAdmin, canDelete = false, bucket, s3Base, do
       if (!token) { setFolders([]); setFiles([]); setNext(null); }
     } else {
       setFolders((prev) => (token ? [...prev, ...data.folders] : data.folders));
+      if (!token) setTree((t) => ({ ...t, [data.prefix]: data.folders }));
       setFiles((prev) => (token ? [...prev, ...data.files] : data.files));
       setNext(data.next);
       setError('');
@@ -147,6 +199,8 @@ export default function S3Drive({ isAdmin, canDelete = false, bucket, s3Base, do
   const open = (p) => {
     setSearch('');
     setNotice('');
+    setSelected(null);
+    setPathText(null);
     if (p === prefix) { load(p); return; }
     setLoading(true);
     setError('');
@@ -160,6 +214,27 @@ export default function S3Drive({ isAdmin, canDelete = false, bucket, s3Base, do
     const parts = prefix.split('/').filter(Boolean);
     return parts.map((name, i) => ({ name, prefix: `${parts.slice(0, i + 1).join('/')}/` }));
   }, [prefix]);
+
+  /* the tree shows the bucket root and every folder on the way to the open one, plus any the user expands */
+  const ancestors = useMemo(() => ['', ...crumbs.map((c) => c.prefix)], [crumbs]);
+  useEffect(() => {
+    let live = true;
+    for (const a of ancestors) {
+      if (tree[a] === undefined) {
+        getFolder(a).then((d) => live && setTree((t) => ({ ...t, [a]: d.folders })), () => {});
+      }
+    }
+    return () => { live = false; };
+  }, [ancestors, tree]);
+  const isOpenNode = (p) => p === '' || ancestors.includes(p) || openNodes.has(p);
+  const toggleNode = (p) => {
+    setOpenNodes((s0) => {
+      const s1 = new Set(s0);
+      if (s1.has(p)) s1.delete(p); else s1.add(p);
+      return s1;
+    });
+    if (tree[p] === undefined) getFolder(p).then((d) => setTree((t) => ({ ...t, [p]: d.folders })), () => {});
+  };
 
   const q = search.trim().toLowerCase();
   const shownFolders = q ? folders.filter((f) => baseName(f).toLowerCase().includes(q)) : folders;
@@ -260,56 +335,115 @@ export default function S3Drive({ isAdmin, canDelete = false, bucket, s3Base, do
 
   /* ---------------------------------------------------------------- render */
 
+  const selFile = files.find((f) => f.key === selected) || null;
+  const selFolder = folders.includes(selected) ? selected : null;
+  const flash = (what) => { setCopied(what); setTimeout(() => setCopied(''), 1500); };
+  const parent = crumbs.length > 1 ? crumbs[crumbs.length - 2].prefix : '';
+
+  const goPath = (raw) => {
+    const t = String(raw || '').trim().replace(/^\/+/, '').replace(new RegExp(`^${bucket.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/?`), '');
+    open(t && !t.endsWith('/') ? `${t}/` : t);
+  };
+
+  const treeNode = (p, depth) => {
+    const kids = tree[p];
+    const isOpen = isOpenNode(p);
+    const here = p === prefix;
+    return (
+      <li key={p}>
+        <div className={cx('flex items-center rounded', here ? 'bg-[#e8ebf0] font-semibold text-[#14161a]' : 'hover:bg-[#f4f5f7]')} style={{ paddingLeft: depth * 12 }}>
+          <button type="button" onClick={() => p !== '' && toggleNode(p)} className={cx('flex h-6 w-5 flex-none items-center justify-center text-[#8a8f9b]', p === '' && 'invisible')} aria-label={isOpen ? 'Collapse' : 'Expand'}>
+            <svg viewBox="0 0 24 24" className={cx('h-3 w-3 transition', isOpen && 'rotate-90')} fill="currentColor" aria-hidden="true"><path d="M9 6l6 6-6 6z" /></svg>
+          </button>
+          <button type="button" onClick={() => open(p)} className="flex min-w-0 flex-1 items-center gap-1.5 py-1 pr-2 text-left text-[13px]">
+            {p === '' ? (
+              <svg viewBox="0 0 24 24" className="h-4 w-4 flex-none text-[#5b6170]" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d={TB.home} /></svg>
+            ) : <FolderIcon />}
+            <span className="truncate">{p === '' ? bucket : baseName(p)}</span>
+          </button>
+        </div>
+        {isOpen && kids?.length ? (
+          <ul>{kids.map((k) => treeNode(k, depth + 1))}</ul>
+        ) : null}
+      </li>
+    );
+  };
+
   return (
     <div
-      className={cx(CARD, 'relative', dragging && 'ring-2 ring-[#14161a]')}
+      className={cx('relative overflow-hidden rounded-md bg-white ring-1 ring-[#e3e5ea]', dragging && 'ring-2 ring-[#14161a]')}
       onDragOver={isAdmin ? (e) => { e.preventDefault(); setDragging(true); } : undefined}
       onDragLeave={isAdmin ? (e) => { if (!e.currentTarget.contains(e.relatedTarget)) setDragging(false); } : undefined}
       onDrop={isAdmin ? (e) => { e.preventDefault(); setDragging(false); upload(e.dataTransfer.files); } : undefined}
     >
-      {/* breadcrumbs */}
-      <nav aria-label="Folder" className="mb-4 flex flex-wrap items-center gap-1 text-[14px]">
-        <button type="button" onClick={() => open('')} className={cx('rounded px-1.5 py-0.5 font-semibold hover:bg-[#f4f5f7]', !prefix && 'text-[#14161a]')}>
-          {bucket}
-        </button>
-        {crumbs.map((c) => (
-          <span key={c.prefix} className="flex items-center gap-1">
-            <span className="text-[#a0a5b1]">/</span>
-            <button type="button" onClick={() => open(c.prefix)} className="rounded px-1.5 py-0.5 hover:bg-[#f4f5f7]">{c.name}</button>
-          </span>
-        ))}
-      </nav>
-
-      {/* toolbar */}
-      <div className="mb-4 flex flex-wrap items-center gap-2">
-        <input
-          type="search"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search this folder"
-          aria-label="Search this folder"
-          className={cx(INPUT, 'h-10 max-w-[280px] flex-1')}
-        />
-        <div className="ml-auto flex flex-wrap gap-2">
-          {prefix ? (
-            <button type="button" className={BTN_SECONDARY} onClick={() => open(crumbs.length > 1 ? crumbs[crumbs.length - 2].prefix : '')}>↑ Up</button>
-          ) : null}
-          <button type="button" className={BTN_SECONDARY} onClick={() => load(prefix)} disabled={loading}>Refresh</button>
-          {isAdmin ? (
-            <>
-              <button type="button" className={BTN_SECONDARY} onClick={newFolder}>New folder</button>
-              <button type="button" className={BTN_PRIMARY} onClick={() => inputRef.current?.click()}>Upload files</button>
-              <input ref={inputRef} type="file" multiple hidden onChange={(e) => { upload(e.target.files); e.target.value = ''; }} />
-            </>
-          ) : null}
+      {/* toolbar — the actions act on the current folder or on the selected row */}
+      <div className="flex flex-wrap items-center gap-0.5 border-b border-[#e3e5ea] bg-[#fafbfc] px-2 py-1">
+        {isAdmin ? (
+          <>
+            <ToolBtn icon="folder" label="+ Folder" onClick={newFolder} />
+            <ToolBtn icon="upload" label="Upload" onClick={() => inputRef.current?.click()} />
+            <input ref={inputRef} type="file" multiple hidden onChange={(e) => { upload(e.target.files); e.target.value = ''; }} />
+            <span className="mx-1 h-8 w-px bg-[#e3e5ea]" aria-hidden="true" />
+          </>
+        ) : null}
+        <ToolBtn icon="view" label="View" disabled={!selFile} title={selFile ? `View ${baseName(selFile.key)}` : 'Select a file first'}
+          onClick={() => selFile && (IMG.test(selFile.key) ? setPreview(selFile.key) : window.open(s3Link(selFile.key), '_blank', 'noopener'))} />
+        <ToolBtn icon="link" label="S3 link" done={copied === 's3' ? 'Copied ✓' : ''} disabled={!selFile} title={selFile ? 'Copy S3 link' : 'Select a file first'}
+          onClick={async () => { if (selFile) { await copyText(s3Link(selFile.key)); flash('s3'); } }} />
+        <ToolBtn icon="globe" label="Website link" done={copied === 'site' ? 'Copied ✓' : ''} disabled={!selFile || !siteLink(selFile.key)}
+          title={!selFile ? 'Select a file first' : siteLink(selFile.key) ? 'Copy website link' : 'This folder is not served on the website domain'}
+          onClick={async () => { const l = selFile && siteLink(selFile.key); if (l) { await copyText(l); flash('site'); } }} />
+        <ToolBtn icon="open" label="Open" disabled={!selFile && !selFolder} title="Open the selected folder or file"
+          onClick={() => (selFolder ? open(selFolder) : selFile && window.open(s3Link(selFile.key), '_blank', 'noopener'))} />
+        {isAdmin && canDelete ? (
+          <ToolBtn icon="trash" label="Delete" disabled={!selFile && !selFolder} onClick={() => (selFolder ? removeFolder(selFolder) : selFile && removeFile(selFile.key))} />
+        ) : null}
+        <div className="ml-auto flex items-center gap-2 py-1">
+          <input
+            type="search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search this folder"
+            aria-label="Search this folder"
+            className={cx(INPUT, 'h-8 w-[200px] py-1 text-[13px] sm:w-[240px]')}
+          />
         </div>
       </div>
 
-      {isAdmin ? <p className={cx(MUTED, 'mb-3 text-[13px]')}>Tip: drag files from your computer onto this box to upload them into <b>{prefix || 'the bucket root'}</b>.</p> : null}
+      {/* path bar — Home / Up One Level / Refresh, and the path itself (type a path and press Go) */}
+      <div className="flex flex-wrap items-center gap-1 border-b border-[#e3e5ea] px-2 py-1.5">
+        <button type="button" className={cx(BTN_GHOST, 'h-8 px-2 text-[13px]')} onClick={() => open('')} title="Go to the bucket root">
+          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d={TB.home} /></svg>Home
+        </button>
+        <button type="button" className={cx(BTN_GHOST, 'h-8 px-2 text-[13px]')} onClick={() => open(parent)} disabled={!prefix} title="Up one level">
+          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d={TB.up} /></svg>Up One Level
+        </button>
+        <button type="button" className={cx(BTN_GHOST, 'h-8 px-2 text-[13px]')} onClick={() => load(prefix)} disabled={loading} title="Reload this folder">
+          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d={TB.refresh} /></svg>Reload
+        </button>
+        <form
+          className="flex min-w-[220px] flex-1 items-center gap-1"
+          onSubmit={(e) => { e.preventDefault(); goPath(pathText ?? prefix); }}
+        >
+          <label className="sr-only" htmlFor="s3drive-path">Folder path</label>
+          <div className="flex h-8 min-w-0 flex-1 items-center rounded-md border border-[#d6d9e0] bg-white pl-2 text-[13px] focus-within:border-[#14161a]">
+            <span className="flex-none text-[#8a8f9b]">/{bucket}/</span>
+            <input
+              id="s3drive-path"
+              value={pathText ?? prefix}
+              onChange={(e) => setPathText(e.target.value)}
+              onKeyDown={(e) => e.key === 'Escape' && setPathText(null)}
+              className="h-full min-w-0 flex-1 bg-transparent px-1 outline-none"
+              spellCheck={false}
+            />
+          </div>
+          <button type="submit" className={cx(BTN_SECONDARY, 'h-8 px-3 text-[13px]')}>Go</button>
+        </form>
+      </div>
 
-      {notice ? <p role="status" className="mb-3 rounded-lg bg-[#eef8f0] px-3 py-2 text-[14px] text-[#1f6b35]">{notice}</p> : null}
+      {notice ? <p role="status" className="border-b border-[#e3e5ea] bg-[#eef8f0] px-3 py-1.5 text-[13.5px] text-[#1f6b35]">{notice}</p> : null}
       {error ? (
-        <p role="alert" className="mb-3 flex items-start justify-between gap-3 rounded-lg bg-[#fdecea] px-3 py-2 text-[14px] text-[#b42318]">
+        <p role="alert" className="flex items-start justify-between gap-3 border-b border-[#e3e5ea] bg-[#fdecea] px-3 py-1.5 text-[13.5px] text-[#b42318]">
           <span>{error}</span>
           <button type="button" className="font-semibold" onClick={() => setError('')} aria-label="Dismiss">×</button>
         </p>
@@ -317,12 +451,12 @@ export default function S3Drive({ isAdmin, canDelete = false, bucket, s3Base, do
 
       {/* upload queue */}
       {queue.length ? (
-        <div className="mb-4 rounded-xl border border-[#e3e5ea] p-3">
-          <div className="mb-2 flex items-center justify-between">
-            <p className="text-[13px] font-semibold">Uploads</p>
+        <div className="border-b border-[#e3e5ea] px-3 py-2">
+          <div className="mb-1.5 flex items-center justify-between">
+            <p className="text-[12.5px] font-semibold uppercase tracking-[0.05em] text-[#5b6170]">Uploads</p>
             {!busy ? <button type="button" className="text-[13px] text-[#5b6170] hover:underline" onClick={() => setQueue([])}>Clear</button> : null}
           </div>
-          <ul className="space-y-2">
+          <ul className="grid gap-1.5 lg:grid-cols-2">
             {queue.map((j) => (
               <li key={j.id} className="text-[13px]">
                 <div className="flex justify-between gap-3">
@@ -341,67 +475,114 @@ export default function S3Drive({ isAdmin, canDelete = false, bucket, s3Base, do
         </div>
       ) : null}
 
-      {/* listing */}
-      <div className="overflow-hidden rounded-xl border border-[#e3e5ea]">
-        <div className="hidden grid-cols-[1fr_110px_170px] gap-3 border-b border-[#e3e5ea] bg-[#f8f9fb] px-4 py-2 text-[12.5px] font-semibold text-[#5b6170] md:grid">
-          <span>Name</span><span className="text-right">Size</span><span>Last modified</span>
+      <div className="flex min-h-[420px]">
+        {/* folder tree */}
+        <aside className="hidden w-[240px] flex-none overflow-y-auto border-r border-[#e3e5ea] bg-[#fafbfc] p-2 lg:block lg:max-h-[calc(100dvh-260px)]" aria-label="Folder tree">
+          <ul>{treeNode('', 0)}</ul>
+        </aside>
+
+        {/* file table */}
+        <div className="min-w-0 flex-1 overflow-x-auto">
+          <table className="w-full border-collapse text-[13.5px] sm:min-w-[560px]">
+            <thead>
+              <tr className="sticky top-0 border-b border-[#e3e5ea] bg-[#f4f5f7] text-left text-[12.5px] font-semibold text-[#5b6170]">
+                <th className="px-3 py-1.5 font-semibold">Name</th>
+                <th className="w-[100px] px-3 py-1.5 text-right font-semibold">Size</th>
+                <th className="hidden w-[170px] px-3 py-1.5 font-semibold sm:table-cell">Last Modified</th>
+                <th className="hidden w-[110px] px-3 py-1.5 font-semibold sm:table-cell">Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              {prefix ? (
+                <tr className="cursor-pointer border-b border-[#eef0f3] hover:bg-[#f4f5f7]" onClick={() => open(parent)}>
+                  <td className="px-3 py-1.5" colSpan={4}>
+                    <span className="flex items-center gap-2 text-[#5b6170]">
+                      <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d={TB.up} /></svg>
+                      Up One Level
+                    </span>
+                  </td>
+                </tr>
+              ) : null}
+              {loading && !folders.length && !files.length ? (
+                <tr><td colSpan={4} className={cx(MUTED, 'px-3 py-6')}>Loading…</td></tr>
+              ) : null}
+              {!loading && !error && !shownFolders.length && !shownFiles.length ? (
+                <tr><td colSpan={4} className={cx(MUTED, 'px-3 py-6')}>{q ? 'Nothing in this folder matches your search.' : isAdmin ? 'This folder is empty. Upload files or drop them here.' : 'This folder is empty.'}</td></tr>
+              ) : null}
+              {shownFolders.map((f) => (
+                <tr
+                  key={f}
+                  aria-selected={selected === f}
+                  onClick={() => setSelected(f)}
+                  onDoubleClick={() => open(f)}
+                  className={cx('cursor-pointer border-b border-[#eef0f3]', selected === f ? 'bg-[#e8ebf0]' : 'hover:bg-[#f7f8fa]')}
+                >
+                  <td className="px-3 py-1.5">
+                    <button type="button" onClick={(e) => { e.stopPropagation(); open(f); }} className="flex min-w-0 items-center gap-2 text-left font-medium hover:underline">
+                      <FolderIcon /><span className="truncate">{baseName(f)}</span>
+                    </button>
+                  </td>
+                  <td className="px-3 py-1.5 text-right text-[#8a8f9b]">—</td>
+                  <td className="hidden px-3 py-1.5 text-[#8a8f9b] sm:table-cell">—</td>
+                  <td className="hidden px-3 py-1.5 text-[#5b6170] sm:table-cell">Folder</td>
+                </tr>
+              ))}
+              {shownFiles.map((f) => {
+                const isImg = IMG.test(f.key);
+                return (
+                  <tr
+                    key={f.key}
+                    aria-selected={selected === f.key}
+                    onClick={() => setSelected(f.key)}
+                    onDoubleClick={() => (isImg ? setPreview(f.key) : window.open(s3Link(f.key), '_blank', 'noopener'))}
+                    className={cx('cursor-pointer border-b border-[#eef0f3]', selected === f.key ? 'bg-[#e8ebf0]' : 'hover:bg-[#f7f8fa]')}
+                  >
+                    <td className="px-3 py-1.5">
+                      <span className="flex min-w-0 items-center gap-2">
+                        {isImg ? (
+                          <button type="button" onClick={(e) => { e.stopPropagation(); setPreview(f.key); }} className="h-6 w-6 flex-none overflow-hidden rounded border border-[#e3e5ea] bg-[#f4f5f7]" aria-label={`Preview ${baseName(f.key)}`}>
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img src={s3Link(f.key)} alt="" loading="lazy" className="h-full w-full object-cover" />
+                          </button>
+                        ) : <FileIcon />}
+                        <span className="truncate">{baseName(f.key)}</span>
+                      </span>
+                    </td>
+                    <td className="whitespace-nowrap px-3 py-1.5 text-right text-[#5b6170]">{fmtSize(f.size)}</td>
+                    <td className="hidden whitespace-nowrap px-3 py-1.5 text-[#5b6170] sm:table-cell">{fmtDate(f.modified)}</td>
+                    <td className="hidden px-3 py-1.5 text-[#5b6170] sm:table-cell">{typeOf(f.key)}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+          {next ? (
+            <div className="border-t border-[#eef0f3] py-2 text-center">
+              <button type="button" className={cx(BTN_SECONDARY, 'h-8 text-[13px]')} onClick={() => load(prefix, next)} disabled={loading}>{loading ? 'Loading…' : 'Load more'}</button>
+            </div>
+          ) : null}
         </div>
-        {loading && !folders.length && !files.length ? <p className={cx(MUTED, 'px-4 py-6')}>Loading…</p> : null}
-        {!loading && !error && !shownFolders.length && !shownFiles.length ? (
-          <p className={cx(MUTED, 'px-4 py-6')}>{q ? 'Nothing in this folder matches your search.' : isAdmin ? 'This folder is empty. Upload files or drop them here.' : 'This folder is empty.'}</p>
-        ) : null}
-        <ul>
-          {shownFolders.map((f) => (
-            <li key={f} className="flex items-center gap-3 border-b border-[#eef0f3] px-4 py-2.5 last:border-0 hover:bg-[#fafbfc]">
-              <button type="button" onClick={() => open(f)} className="flex min-w-0 flex-1 items-center gap-2.5 text-left text-[14px] font-medium">
-                <FolderIcon /><span className="truncate">{baseName(f)}</span>
-              </button>
-              {isAdmin && canDelete ? <button type="button" className={cx(BTN_DANGER, 'h-8 px-2.5 text-[12.5px]')} onClick={() => removeFolder(f)}>Delete</button> : null}
-            </li>
-          ))}
-          {shownFiles.map((f) => {
-            const site = siteLink(f.key);
-            const isImg = IMG.test(f.key);
-            return (
-              <li key={f.key} className="border-b border-[#eef0f3] px-4 py-2.5 last:border-0 hover:bg-[#fafbfc]">
-                <div className="grid grid-cols-1 gap-1 md:grid-cols-[1fr_110px_170px] md:items-center md:gap-3">
-                  <div className="flex min-w-0 items-center gap-2.5">
-                    {isImg ? (
-                      <button type="button" onClick={() => setPreview(f.key)} className="h-9 w-9 flex-none overflow-hidden rounded border border-[#e3e5ea] bg-[#f4f5f7]" aria-label={`Preview ${baseName(f.key)}`}>
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={s3Link(f.key)} alt="" loading="lazy" className="h-full w-full object-cover" />
-                      </button>
-                    ) : <FileIcon />}
-                    <a href={s3Link(f.key)} target="_blank" rel="noopener noreferrer" className="truncate text-[14px] hover:underline">{baseName(f.key)}</a>
-                  </div>
-                  <span className="text-[13px] text-[#5b6170] md:text-right">{fmtSize(f.size)}</span>
-                  <span className="text-[13px] text-[#5b6170]">{fmtDate(f.modified)}</span>
-                </div>
-                <div className="mt-1.5 flex flex-wrap items-center gap-1 md:pl-[46px]">
-                  <CopyButton text={s3Link(f.key)} label="Copy S3 link" />
-                  {site ? <CopyButton text={site} label="Copy website link" /> : null}
-                  {isAdmin && canDelete ? <button type="button" className={cx(BTN_GHOST, 'h-8 px-2.5 text-[12.5px] text-[#b42318] hover:bg-[#fdecea]')} onClick={() => removeFile(f.key)}>Delete</button> : null}
-                </div>
-              </li>
-            );
-          })}
-        </ul>
       </div>
-      {next ? (
-        <div className="mt-3 text-center">
-          <button type="button" className={BTN_SECONDARY} onClick={() => load(prefix, next)} disabled={loading}>{loading ? 'Loading…' : 'Load more'}</button>
-        </div>
-      ) : null}
+
+      {/* status bar */}
+      <div className="flex flex-wrap items-center justify-between gap-2 border-t border-[#e3e5ea] bg-[#fafbfc] px-3 py-1.5 text-[12.5px] text-[#5b6170]">
+        <span>
+          {shownFolders.length} folder{shownFolders.length === 1 ? '' : 's'}, {shownFiles.length} file{shownFiles.length === 1 ? '' : 's'}
+          {next ? ' (more to load)' : ''}
+          {selFile ? ` · Selected: ${baseName(selFile.key)} (${fmtSize(selFile.size)})` : selFolder ? ` · Selected: ${baseName(selFolder)}/` : ''}
+        </span>
+        {isAdmin ? <span>Tip: drag files here to upload into <b>/{prefix}</b>. Double-click to open.</span> : <span>Double-click to open.</span>}
+      </div>
 
       {dragging ? (
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-2xl bg-white/85 text-[16px] font-semibold">
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-md bg-white/85 text-[16px] font-semibold">
           Drop to upload into {prefix || 'the bucket root'}
         </div>
       ) : null}
 
       {preview ? (
         <div role="dialog" aria-modal="true" aria-label="Image preview" className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4" onClick={() => setPreview(null)}>
-          <div className="max-h-full max-w-[900px] rounded-xl bg-white p-3" onClick={(e) => e.stopPropagation()}>
+          <div className="max-h-full max-w-[900px] rounded-md bg-white p-3" onClick={(e) => e.stopPropagation()}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={s3Link(preview)} alt={baseName(preview)} className="max-h-[70vh] w-auto rounded" />
             <p className="mt-2 break-all text-[13px]">{preview}</p>
