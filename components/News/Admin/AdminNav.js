@@ -25,7 +25,7 @@ export default function AdminNav() {
             href={it.href}
             aria-current={active ? 'page' : undefined}
             className={cx(
-              'whitespace-nowrap border-b-2 px-3 py-2.5 text-[14px] font-medium transition',
+              'whitespace-nowrap border-b-2 px-3 py-2 text-[13.5px] font-medium transition',
               active ? 'border-[#14161a] text-[#14161a]' : 'border-transparent text-[#5b6170] hover:text-[#14161a]',
             )}
           >

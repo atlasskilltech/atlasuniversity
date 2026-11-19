@@ -8158,6 +8158,13 @@ deleted or demoted — set once, never per user).
   began at Google — the callback answers with a meta-refresh page to `/admin`, never a 302.
 - **Trap:** Playwright does not intercept a redirect hop; to fake Google in a browser test, turn the start
   route's 302 into a page that navigates to Google, then mock `accounts.google.com`.
+**Layout (2026-11-19): cPanel-style.** `components/Admin/AdminFrame` (client) is the chrome for every
+admin page except /admin/map (a full-screen app): a 232px left sidebar with every tool grouped
+(`group` on each `TOOLS` entry, order in `GROUPS`) and iconed (`ToolIcon`), a drawer below 992px, a
+slim top bar (breadcrumb, email, View site, Sign out) and full-width content. `AdminShell` renders it
+server-side; the News admin passes its sub-tabs as `subnav`. A new tool needs a `group` and an icon
+path in `AdminFrame`'s `PATHS`. The /admin home is `components/Admin/HomeTools` (find-a-tool filter
++ compact tiles) beside a "General information" panel.
 The News admin lives at `/admin/news` (moved from `/news/admin`; old paths 308-redirect in `next.config.mjs`).
 
 ### Activity log — `/admin/activity` (admins only), `lib/admin/activity.js`, `lib/admin/newsActivity.js`, `lib/keydates/diff.js`
