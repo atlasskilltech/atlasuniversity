@@ -3,7 +3,7 @@ import { BodyError, readBodyLimited } from '@/lib/news/http/body';
 import { logActivity } from '@/lib/admin/activity';
 import { newsClientIp } from '@/lib/news/http/clientIp';
 import {
-  DriveError, createFolder, deleteFile, deleteFolder, folderStats, headFile, listFolder, presignUpload,
+  ALLOW_DELETE, DriveError, createFolder, deleteFile, deleteFolder, folderStats, headFile, listFolder, presignUpload,
 } from '@/lib/s3drive/drive';
 
 export const dynamic = 'force-dynamic';
@@ -37,6 +37,7 @@ export async function GET(request) {
  *   { action: 'delete', key }                delete one file
  *   { action: 'stats', prefix }              files and size inside a folder (shown before deleting it)
  *   { action: 'rmdir', prefix }              delete a folder and everything in it
+ * delete / stats / rmdir are refused for everyone while ALLOW_DELETE is false (lib/s3drive/drive.js).
  */
 export async function POST(request) {
   const auth = await requireAdminApi(request);
@@ -55,6 +56,9 @@ export async function POST(request) {
       targetUrl: `/admin/s3drive?prefix=${encodeURIComponent(target.endsWith('/') ? target : target.slice(0, target.lastIndexOf('/') + 1))}`,
       details: note ? { note } : null, ip: newsClientIp(request),
     });
+  if (!ALLOW_DELETE && ['delete', 'stats', 'rmdir'].includes(body?.action)) {
+    return fail(403, 'delete_disabled', 'Deleting files from S3 is turned off.');
+  }
   try {
     switch (body?.action) {
       case 'presign':

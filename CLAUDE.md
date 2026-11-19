@@ -8246,10 +8246,13 @@ images/) — not from `reference/`. Its own dark site: `MainSiteOnly` lists the 
 ### S3 Drive — `/admin/s3drive`, `lib/s3drive/drive.js`, `components/Admin/S3Drive/Drive.js`
 
 A file browser over the whole `atlas-web-cdn` bucket (same `AWS_S3_*` settings and credentials as
-`assets:sync` and the News media library). Admins: upload (any size), new folder, delete file, delete
-folder (type DELETE; shows the file count first). Users with the "S3 Drive" tab: browse, search the
-folder, preview images, copy links — the API refuses every write for them. Every change goes to the
-Activity log (tab `s3drive`).
+`assets:sync` and the News media library). **Admins only** (`s3drive` is in `ADMIN_ONLY_TABS`, so it is
+never offered to a `user` in /admin/users). Browse, search the folder, preview images, upload (any size),
+new folder, copy links. Every change goes to the Activity log (tab `s3drive`).
+- **Deleting is OFF for everyone, admins included** (owner's decision, 2026-11-19): `ALLOW_DELETE = false`
+  in `lib/s3drive/drive.js`. The API refuses delete / delete-folder, the UI shows no Delete buttons, and an
+  upload may not replace an existing file (overwriting deletes the old version) — same-name files are
+  skipped with a message. Flip the one constant to bring all three back; the delete code is still there.
 - **Uploads never pass through the server**: the API returns a 15-minute presigned PUT and the browser
   sends the file straight to S3. That needs a **CORS rule on the bucket** allowing `PUT` from the admin's
   origin; without it the upload fails with a message saying so.

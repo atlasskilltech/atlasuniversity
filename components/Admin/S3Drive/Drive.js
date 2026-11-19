@@ -94,7 +94,7 @@ function FileIcon() {
   );
 }
 
-export default function S3Drive({ isAdmin, bucket, s3Base, domainPrefixes, initialPrefix }) {
+export default function S3Drive({ isAdmin, canDelete = false, bucket, s3Base, domainPrefixes, initialPrefix }) {
   const [prefix, setPrefix] = useState(() => {
     const p = (initialPrefix || '').replace(/^\/+/, '');
     return p && !p.endsWith('/') ? `${p}/` : p;
@@ -171,10 +171,18 @@ export default function S3Drive({ isAdmin, bucket, s3Base, domainPrefixes, initi
   /* ---------------------------------------------------------------- uploads (admin) */
 
   async function upload(list) {
-    const chosen = Array.from(list || []).filter((f) => f && f.name);
+    let chosen = Array.from(list || []).filter((f) => f && f.name);
     if (!chosen.length) return;
     const existing = new Set(files.map((f) => baseName(f.key)));
-    const clash = chosen.filter((f) => existing.has(f.name));
+    let clash = chosen.filter((f) => existing.has(f.name));
+    let skipped = '';
+    if (clash.length && !canDelete) {
+      /* replacing a file deletes its old version, and deleting is off: skip those, upload the rest */
+      skipped = `${clash.length} file(s) not uploaded because a file with the same name is already in this folder (replacing is turned off). Rename them and upload again: ${clash.slice(0, 10).map((f) => f.name).join(', ')}${clash.length > 10 ? ', …' : ''}`;
+      chosen = chosen.filter((f) => !existing.has(f.name));
+      clash = [];
+      if (!chosen.length) { setError(skipped); return; }
+    }
     if (clash.length && !window.confirm(`${clash.length} file(s) already exist in this folder and will be replaced:\n\n${clash.slice(0, 10).map((f) => f.name).join('\n')}${clash.length > 10 ? '\n…' : ''}\n\nContinue?`)) return;
     const folderAtStart = prefix;
     const jobs = chosen.map((file) => ({ id: (seq.current += 1), name: file.name, size: file.size, progress: 0, state: 'waiting', file }));
@@ -202,6 +210,7 @@ export default function S3Drive({ isAdmin, bucket, s3Base, domainPrefixes, initi
     /* refresh first, so the "already exists" check sees these files straight away */
     await load(folderAtStart);
     if (ok) setNotice(`Uploaded ${ok} file${ok === 1 ? '' : 's'}.`);
+    if (skipped) setError(skipped);
   }
 
   async function newFolder() {
@@ -347,7 +356,7 @@ export default function S3Drive({ isAdmin, bucket, s3Base, domainPrefixes, initi
               <button type="button" onClick={() => open(f)} className="flex min-w-0 flex-1 items-center gap-2.5 text-left text-[14px] font-medium">
                 <FolderIcon /><span className="truncate">{baseName(f)}</span>
               </button>
-              {isAdmin ? <button type="button" className={cx(BTN_DANGER, 'h-8 px-2.5 text-[12.5px]')} onClick={() => removeFolder(f)}>Delete</button> : null}
+              {isAdmin && canDelete ? <button type="button" className={cx(BTN_DANGER, 'h-8 px-2.5 text-[12.5px]')} onClick={() => removeFolder(f)}>Delete</button> : null}
             </li>
           ))}
           {shownFiles.map((f) => {
@@ -371,7 +380,7 @@ export default function S3Drive({ isAdmin, bucket, s3Base, domainPrefixes, initi
                 <div className="mt-1.5 flex flex-wrap items-center gap-1 md:pl-[46px]">
                   <CopyButton text={s3Link(f.key)} label="Copy S3 link" />
                   {site ? <CopyButton text={site} label="Copy website link" /> : null}
-                  {isAdmin ? <button type="button" className={cx(BTN_GHOST, 'h-8 px-2.5 text-[12.5px] text-[#b42318] hover:bg-[#fdecea]')} onClick={() => removeFile(f.key)}>Delete</button> : null}
+                  {isAdmin && canDelete ? <button type="button" className={cx(BTN_GHOST, 'h-8 px-2.5 text-[12.5px] text-[#b42318] hover:bg-[#fdecea]')} onClick={() => removeFile(f.key)}>Delete</button> : null}
                 </div>
               </li>
             );
