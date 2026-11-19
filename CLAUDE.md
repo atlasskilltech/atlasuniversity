@@ -8165,6 +8165,9 @@ slim top bar (breadcrumb, email, View site, Sign out) and full-width content. `A
 server-side; the News admin passes its sub-tabs as `subnav`. A new tool needs a `group` and an icon
 path in `AdminFrame`'s `PATHS`. The /admin home is `components/Admin/HomeTools` (find-a-tool filter
 + compact tiles) beside a "General information" panel.
+The News admin uses the same look: `components/News/Admin/ui` `CARD` is a tight hairline panel, and
+`PANEL` / `PANEL_HEAD` give a grey title strip; its dashboard is an "Overview" tile panel plus two list
+panels (same counts and links as before).
 The News admin lives at `/admin/news` (moved from `/news/admin`; old paths 308-redirect in `next.config.mjs`).
 
 ### Activity log — `/admin/activity` (admins only), `lib/admin/activity.js`, `lib/admin/newsActivity.js`, `lib/keydates/diff.js`

@@ -4,8 +4,12 @@
  */
 export const cx = (...a) => a.filter(Boolean).join(' ');
 
-export const CARD = 'rounded-2xl bg-white p-5 shadow-[0_1px_2px_rgba(16,24,40,0.06)] sm:p-6';
-export const H1 = 'text-[22px] font-semibold leading-[1.3] sm:text-[26px]';
+/* cPanel-style panel: square-ish corners, a hairline ring instead of a shadow, tight padding. */
+export const CARD = 'rounded-md bg-white p-4 ring-1 ring-[#e3e5ea]';
+/* A panel's title bar (cPanel's grey header strip) and a panel with no padding of its own. */
+export const PANEL = 'overflow-hidden rounded-md bg-white ring-1 ring-[#e3e5ea]';
+export const PANEL_HEAD = 'flex items-center justify-between gap-3 border-b border-[#e3e5ea] bg-[#fafbfc] px-4 py-2 text-[13px] font-semibold uppercase tracking-[0.05em] text-[#5b6170]';
+export const H1 = 'text-[20px] font-semibold leading-[1.3] sm:text-[22px]';
 export const MUTED = 'text-[14px] leading-[1.5] text-[#5b6170]';
 export const LABEL = 'mb-1.5 block text-[13px] font-semibold text-[#2b2f38]';
 export const HINT = 'mt-1 text-[12.5px] leading-[1.45] text-[#6b7180]';
@@ -34,10 +38,10 @@ export function StateBadge({ state }) {
 
 export function PageHeader({ title, description, children }) {
   return (
-    <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+    <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
       <div>
         <h1 className={H1}>{title}</h1>
-        {description ? <p className={cx(MUTED, 'mt-1')}>{description}</p> : null}
+        {description ? <p className={cx(MUTED, 'mt-0.5')}>{description}</p> : null}
       </div>
       {children ? <div className="flex flex-wrap gap-2">{children}</div> : null}
     </div>
