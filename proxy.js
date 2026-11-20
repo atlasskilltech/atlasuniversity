@@ -17,37 +17,8 @@ import { OUTAGE_HTML, outageResponseInit } from './lib/news/public/outage.js';
  *   database down, nothing cached         → HTTP 503 + Retry-After with a self-contained, server-rendered
  *                                            News page (no JavaScript needed, no cause disclosed)
  */
-/*
- * TEMPORARY HACKATHON-ONLY MODE (2026-11-20). While ON, every page except the admin and the ATLAS
- * Hackathon 2026 site is 307-redirected to /atlas-hackathon-2026. Nothing is deleted — every route is
- * still built. TO UNDO: set HACKATHON_ONLY to false and redeploy.
- */
-const HACKATHON_ONLY = true;
-const HACKATHON = '/atlas-hackathon-2026';
-const HACKATHON_ALLOWED = [HACKATHON, '/admin', '/auth/callback', '/assets', '/wordpress-custom-image'];
-
-function hackathonRedirect(request) {
-  const { pathname } = request.nextUrl;
-  if (HACKATHON_ALLOWED.some((p) => pathname === p || pathname.startsWith(`${p}/`))) return null;
-  // Static files (favicon.ico, robots.txt, images…) pass; old .php / .html page URLs do not.
-  if (/\.[a-z0-9]+$/i.test(pathname) && !/\.(php|html?)$/i.test(pathname)) return null;
-  const url = request.nextUrl.clone();
-  url.pathname = HACKATHON;
-  url.search = '';
-  return NextResponse.redirect(url, 307);
-}
-
-function isNews(pathname) {
-  return pathname === '/news' || (pathname.startsWith('/news/') && !/^\/news\/admin(\/|$)/.test(pathname));
-}
-
 export async function proxy(request) {
-  if (HACKATHON_ONLY) {
-    const redirect = hackathonRedirect(request);
-    if (redirect) return redirect;
-  }
   const { pathname } = request.nextUrl;
-  if (!isNews(pathname)) return NextResponse.next();
   if (pathname === '/news/admin' || pathname.startsWith('/news/admin/')) return NextResponse.next();
   if (request.method !== 'GET' && request.method !== 'HEAD') return NextResponse.next();
   /* a page served before can always fall back to its cached copy, so a cached health result is enough;
@@ -65,8 +36,5 @@ export async function proxy(request) {
  * /news/admin paths stay excluded too, so a stale request is only ever redirected, never body-buffered.
  */
 export const config = {
-  /* With HACKATHON_ONLY on, every path except /admin (see above) and Next's own files is matched; the
-     News logic still runs only for the paths isNews() accepts. With it off, put back
-     ['/news', '/news/((?!admin(?:/|$)).*)'] to match only the News pages again. */
-  matcher: ['/((?!_next/|admin(?:/|$)).*)'],
+  matcher: ['/news', '/news/((?!admin(?:/|$)).*)'],
 };
