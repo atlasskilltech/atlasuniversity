@@ -1,4 +1,4 @@
-/* /aarohan23 - generated route over components/Aarohan + lib/aarohan/2023. Metadata is production's own
+/* /aarohan2023 - generated route over components/Aarohan + lib/aarohan/2023. Metadata is production's own
    (<title>, empty description, `noindex, follow`). */
 import { AboutPage } from '@/components/Aarohan/Pages/InnerPages';
 import { site } from '@/lib/aarohan/2023/site';
@@ -8,8 +8,8 @@ export const metadata = {
   title: "Aarohan",
   description: "",
   robots: { index: false, follow: true },
-  alternates: { canonical: "https://atlasuniversity.edu.in/aarohan23/about" },
-  openGraph: { title: "Aarohan", description: "", url: "https://atlasuniversity.edu.in/aarohan23/about", type: 'website' },
+  alternates: { canonical: "https://atlasuniversity.edu.in/aarohan2023/about" },
+  openGraph: { title: "Aarohan", description: "", url: "https://atlasuniversity.edu.in/aarohan2023/about", type: 'website' },
   twitter: { card: 'summary_large_image', title: "Aarohan", description: "" },
 };
 

@@ -1,4 +1,4 @@
-/* /aarohan23 - generated route over components/Aarohan + lib/aarohan/2023. Metadata is production's own
+/* /aarohan2023 - generated route over components/Aarohan + lib/aarohan/2023. Metadata is production's own
    (<title>, empty description, `noindex, follow`). */
 import Shell from '@/components/Aarohan/Shell';
 import { site } from '@/lib/aarohan/2023/site';

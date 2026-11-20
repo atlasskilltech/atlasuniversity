@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-18T11:59:20.214Z",
+ "generatedAt": "2026-11-20T09:30:54.473Z",
  "routes": [
   {
    "route": "/",
@@ -13,6 +13,45 @@
    },
    "heroTitle": "India’s First New-Age Urban Multidisciplinary University",
    "contentModules": 1
+  },
+  {
+   "route": "/aarohan2023",
+   "dynamic": false,
+   "meta": {
+    "title": "Aarohan",
+    "description": null,
+    "canonical": "https://atlasuniversity.edu.in/aarohan2023/",
+    "noindex": true,
+    "hasMetadata": true
+   },
+   "heroTitle": null,
+   "contentModules": 2
+  },
+  {
+   "route": "/aarohan2023/[speaker]",
+   "dynamic": true,
+   "meta": {
+    "title": "Aarohan",
+    "description": null,
+    "canonical": null,
+    "noindex": false,
+    "hasMetadata": true
+   },
+   "heroTitle": null,
+   "contentModules": 2
+  },
+  {
+   "route": "/aarohan2023/about",
+   "dynamic": false,
+   "meta": {
+    "title": "Aarohan",
+    "description": null,
+    "canonical": "https://atlasuniversity.edu.in/aarohan2023/about",
+    "noindex": true,
+    "hasMetadata": true
+   },
+   "heroTitle": null,
+   "contentModules": 2
   },
   {
    "route": "/aarohan2024",
@@ -151,45 +190,6 @@
     "title": "Aarohan",
     "description": null,
     "canonical": "https://atlasuniversity.edu.in/aarohan2025/research-ethics.php",
-    "noindex": true,
-    "hasMetadata": true
-   },
-   "heroTitle": null,
-   "contentModules": 2
-  },
-  {
-   "route": "/aarohan23",
-   "dynamic": false,
-   "meta": {
-    "title": "Aarohan",
-    "description": null,
-    "canonical": "https://atlasuniversity.edu.in/aarohan23/",
-    "noindex": true,
-    "hasMetadata": true
-   },
-   "heroTitle": null,
-   "contentModules": 2
-  },
-  {
-   "route": "/aarohan23/[speaker]",
-   "dynamic": true,
-   "meta": {
-    "title": "Aarohan",
-    "description": null,
-    "canonical": null,
-    "noindex": false,
-    "hasMetadata": true
-   },
-   "heroTitle": null,
-   "contentModules": 2
-  },
-  {
-   "route": "/aarohan23/about",
-   "dynamic": false,
-   "meta": {
-    "title": "Aarohan",
-    "description": null,
-    "canonical": "https://atlasuniversity.edu.in/aarohan23/about",
     "noindex": true,
     "hasMetadata": true
    },
@@ -5160,12 +5160,32 @@
   },
   {
    "source": "/aarohan23/index.php",
-   "destination": "/aarohan23",
+   "destination": "/aarohan2023",
    "permanent": true
   },
   {
    "source": "/aarohan23/:slug([^/]+?)\\.php",
-   "destination": "/aarohan23/:slug",
+   "destination": "/aarohan2023/:slug",
+   "permanent": true
+  },
+  {
+   "source": "/aarohan23",
+   "destination": "/aarohan2023",
+   "permanent": true
+  },
+  {
+   "source": "/aarohan23/:path*",
+   "destination": "/aarohan2023/:path*",
+   "permanent": true
+  },
+  {
+   "source": "/aarohan2023/index.php",
+   "destination": "/aarohan2023",
+   "permanent": true
+  },
+  {
+   "source": "/aarohan2023/:slug([^/]+?)\\.php",
+   "destination": "/aarohan2023/:slug",
    "permanent": true
   },
   {
@@ -12389,8 +12409,8 @@
   {
    "id": "g:13nypww",
    "children": [
+    "p:/aarohan2023",
     "p:/aarohan2024",
-    "p:/aarohan23",
     "p:/advantages/partnership/international-summerschool",
     "p:/atlas-blog",
     "p:/brand",
@@ -12430,6 +12450,42 @@
    "school": null
   },
   {
+   "id": "p:/aarohan2023",
+   "children": [
+    "p:/aarohan2023/about"
+   ],
+   "refs": [],
+   "listedOn": [],
+   "aliases": [],
+   "order": 337,
+   "type": "page",
+   "label": "Aarohan2023",
+   "title": "Aarohan2023",
+   "parent": "g:13nypww",
+   "path": "/aarohan2023",
+   "built": true,
+   "school": null,
+   "via": "path",
+   "category": "other"
+  },
+  {
+   "id": "p:/aarohan2023/about",
+   "children": [],
+   "refs": [],
+   "listedOn": [],
+   "aliases": [],
+   "order": 338,
+   "type": "page",
+   "label": "About",
+   "title": "About",
+   "parent": "p:/aarohan2023",
+   "path": "/aarohan2023/about",
+   "built": true,
+   "school": null,
+   "via": "path",
+   "category": "other"
+  },
+  {
    "id": "p:/aarohan2024",
    "children": [
     "p:/aarohan2024/about"
@@ -12437,7 +12493,7 @@
    "refs": [],
    "listedOn": [],
    "aliases": [],
-   "order": 337,
+   "order": 339,
    "type": "page",
    "label": "Aarohan2024",
    "title": "Aarohan2024",
@@ -12454,48 +12510,12 @@
    "refs": [],
    "listedOn": [],
    "aliases": [],
-   "order": 338,
+   "order": 340,
    "type": "page",
    "label": "About",
    "title": "About",
    "parent": "p:/aarohan2024",
    "path": "/aarohan2024/about",
-   "built": true,
-   "school": null,
-   "via": "path",
-   "category": "other"
-  },
-  {
-   "id": "p:/aarohan23",
-   "children": [
-    "p:/aarohan23/about"
-   ],
-   "refs": [],
-   "listedOn": [],
-   "aliases": [],
-   "order": 339,
-   "type": "page",
-   "label": "Aarohan23",
-   "title": "Aarohan23",
-   "parent": "g:13nypww",
-   "path": "/aarohan23",
-   "built": true,
-   "school": null,
-   "via": "path",
-   "category": "other"
-  },
-  {
-   "id": "p:/aarohan23/about",
-   "children": [],
-   "refs": [],
-   "listedOn": [],
-   "aliases": [],
-   "order": 340,
-   "type": "page",
-   "label": "About",
-   "title": "About",
-   "parent": "p:/aarohan23",
-   "path": "/aarohan23/about",
    "built": true,
    "school": null,
    "via": "path",

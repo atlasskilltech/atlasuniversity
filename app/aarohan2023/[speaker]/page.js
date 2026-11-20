@@ -1,4 +1,4 @@
-/* /aarohan23 - generated route (one per speaker page; slug = the PHP file name) over components/Aarohan + lib/aarohan/2023. Metadata is production's own
+/* /aarohan2023 - generated route (one per speaker page; slug = the PHP file name) over components/Aarohan + lib/aarohan/2023. Metadata is production's own
    (<title>, empty description, `noindex, follow`). */
 import { notFound } from 'next/navigation';
 import { SpeakerPage } from '@/components/Aarohan/Pages/InnerPages';
@@ -13,7 +13,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { speaker } = await params;
-  const url = `https://atlasuniversity.edu.in/aarohan23/${speaker}`;
+  const url = `https://atlasuniversity.edu.in/aarohan2023/${speaker}`;
   return {
     title: "Aarohan",
     description: "",

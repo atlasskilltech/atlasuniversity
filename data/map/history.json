@@ -1,6 +1,125 @@
 {
  "runs": [
   {
+   "at": "2026-11-20T09:30:54.473Z",
+   "pagesAdded": [
+    "/aarohan2023",
+    "/aarohan2023/[speaker]",
+    "/aarohan2023/about"
+   ],
+   "pagesRemoved": [
+    "/aarohan23",
+    "/aarohan23/[speaker]",
+    "/aarohan23/about"
+   ],
+   "valuesChanged": [
+    {
+     "route": "/journal",
+     "kind": "document",
+     "label": "View",
+     "group": null,
+     "from": "/assets/journal/pdf/industrial-development.pdf",
+     "to": "/assets/journal/pdf/ubers-4ps.pdf"
+    },
+    {
+     "route": "/journal",
+     "kind": "document",
+     "label": "View",
+     "group": null,
+     "from": "/assets/journal/pdf/industrial-development.pdf",
+     "to": "/assets/journal/pdf/environmental-issues.pdf"
+    },
+    {
+     "route": "/journal",
+     "kind": "document",
+     "label": "View",
+     "group": null,
+     "from": "/assets/journal/pdf/industrial-development.pdf",
+     "to": "/assets/journal/pdf/media-entrepreneurship.pdf"
+    },
+    {
+     "route": "/journal",
+     "kind": "document",
+     "label": "View",
+     "group": null,
+     "from": "/assets/journal/pdf/industrial-development.pdf",
+     "to": "/assets/journal/pdf/airbnb-tourism.pdf"
+    },
+    {
+     "route": "/journal",
+     "kind": "document",
+     "label": "View",
+     "group": null,
+     "from": "/assets/journal/pdf/industrial-development.pdf",
+     "to": "/assets/journal/pdf/luxury-fashion.pdf"
+    },
+    {
+     "route": "/journal",
+     "kind": "document",
+     "label": "View",
+     "group": null,
+     "from": "/assets/journal/pdf/industrial-development.pdf",
+     "to": "/assets/journal/pdf/social-media-marketing.pdf"
+    },
+    {
+     "route": "/journal",
+     "kind": "document",
+     "label": "View",
+     "group": null,
+     "from": "/assets/journal/pdf/industrial-development.pdf",
+     "to": "/assets/journal/pdf/covid19-study.pdf"
+    },
+    {
+     "route": "/programs/pg/pg-digital-and-emerging-technologies-in-business",
+     "kind": "eligibility",
+     "label": "Indian Boards (ISC / CBSE / State Boards)",
+     "group": null,
+     "from": "Minimum 60% in Class XII · Mathematics is mandatory",
+     "to": "Minimum 60% in Class XII"
+    },
+    {
+     "route": "/programs/ug/programs-list-design-ai-and-technology",
+     "kind": "eligibility",
+     "label": "Indian Boards (ISC / CBSE / State Boards)",
+     "group": null,
+     "from": "Minimum 50% in Class XII",
+     "to": "Minimum 50% in Class XII · Maths & Physics are mandatory"
+    },
+    {
+     "route": "/programs/ug/programs-list-design-ai-and-technology",
+     "kind": "eligibility",
+     "label": "A-Levels (UK)",
+     "group": null,
+     "from": "Minimum grades A/B/C in 2 subjects",
+     "to": "Minimum grades A/B/C in 2 subjects · Grade B or above in Mathematics"
+    },
+    {
+     "route": "/programs/ug/programs-list-design-ai-and-technology",
+     "kind": "eligibility",
+     "label": "International Baccalaureate (IB)",
+     "group": null,
+     "from": "Minimum of 24 points in 3 HL & 3 SL subjects",
+     "to": "Minimum of 24 points in 3 HL & 3 SL subjects · Mathematics is mandatory"
+    },
+    {
+     "route": "/schools/ugdx",
+     "kind": "programme",
+     "label": "Eligibility",
+     "group": null,
+     "from": "50% in Class XII (Science) or equivalent IB / A-Levels",
+     "to": "50% in Class XII (Science) or equivalent IB / A-Levels Physics & Maths Mandatory"
+    },
+    {
+     "route": "/schools/ugdx",
+     "kind": "programme",
+     "label": "Eligibility",
+     "group": null,
+     "from": "50% in Class XII (Science) or equivalent IB / A-Levels",
+     "to": "50% in Class XII (Science)or equivalent IB / A-Levels Physics & Maths Mandatory"
+    }
+   ]
+  },
+  {
    "at": "2026-11-18T11:59:20.214Z",
    "pagesAdded": [],
    "pagesRemoved": [

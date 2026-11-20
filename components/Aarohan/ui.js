@@ -1,6 +1,6 @@
 /* Shared primitives for the three Aarohan conference sites (the "Meeta" event template over
    Bootstrap 5.1.3 + the template's style.css). Values are the template's own, measured on
-   https://atlasuniversity.edu.in/aarohan23|2024|2025/.
+   https://atlasuniversity.edu.in/aarohan2023|2024|2025/.
 
    Breakpoints: the template writes max-width 1399 / 1199 / 991 / 767 / 575 and Bootstrap's grid
    turns at 576 / 768 / 992 / 1200. Mapped as: 767 -> max-md, 991 -> max-lg, 575 -> max-lp (576:

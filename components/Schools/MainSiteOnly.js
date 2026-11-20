@@ -39,7 +39,7 @@ const ATLAS_CHROME_SCHOOLS = ['/schools/law', '/schools/ugdx'];
 const STANDALONE = [
   '/timcook',
   '/convocation',
-  '/aarohan23',
+  '/aarohan2023',
   '/aarohan2024',
   '/aarohan2025',
   '/lp',

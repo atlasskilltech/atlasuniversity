@@ -194,7 +194,13 @@ const nextConfig = {
         destination: '/',
         permanent: false,
       })),
-      ...['aarohan23', 'aarohan2024', 'aarohan2025'].flatMap((y) => [
+      /* Aarohan 2023 moved from /aarohan23 to /aarohan2023 (2026-11-20, on request); every old URL,
+         .php spellings included, goes straight to its new path. */
+      { source: '/aarohan23/index.php', destination: '/aarohan2023', permanent: true },
+      { source: '/aarohan23/:slug([^/]+?)\\.php', destination: '/aarohan2023/:slug', permanent: true },
+      { source: '/aarohan23', destination: '/aarohan2023', permanent: true },
+      { source: '/aarohan23/:path*', destination: '/aarohan2023/:path*', permanent: true },
+      ...['aarohan2023', 'aarohan2024', 'aarohan2025'].flatMap((y) => [
         { source: `/${y}/index.php`, destination: `/${y}`, permanent: true },
         { source: `/${y}/:slug([^/]+?)\\.php`, destination: `/${y}/:slug`, permanent: true },
       ]),
