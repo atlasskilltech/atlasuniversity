@@ -73,6 +73,14 @@ const nextConfig = {
       { source: '/admin/:path*', headers: adminHeaders },
       /* Google sign-in returns here (the redirect URI registered on the OAuth client) */
       { source: '/auth/callback', headers: adminHeaders },
+      /* Test / preview deployments: keep them out of search engines. Every response served on any host
+         OTHER than the live domain gets noindex; atlasuniversity.edu.in (with or without www) is untouched.
+         app/robots.js does the same split for /robots.txt. */
+      {
+        source: '/:path*',
+        missing: [{ type: 'host', value: '(www\\.)?atlasuniversity\\.edu\\.in' }],
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+      },
     ];
   },
 
