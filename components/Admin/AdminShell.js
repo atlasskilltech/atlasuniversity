@@ -56,6 +56,15 @@ export const TOOLS = [
     cta: 'Open the map',
   },
   {
+    key: 'pdf-studio',
+    group: 'Site tools',
+    href: '/admin/pdf-studio',
+    label: 'PDF Studio',
+    title: 'ATLAS Tech PDF Studio',
+    description: 'Fee structures and policy documents: preview, download as PDF, and copy flipbook embed codes. Admins only.',
+    cta: 'Open PDF Studio',
+  },
+  {
     key: 'users',
     group: 'Administration',
     href: '/admin/users',

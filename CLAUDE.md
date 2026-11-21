@@ -8253,6 +8253,17 @@ images/) — not from `reference/`. Its own dark site: `MainSiteOnly` lists the 
   `npm run assets:download`. Fonts (Saira, Saira Condensed) are local-only in `public/assets/fonts/`.
 - Tests: `scripts/news/tests/hackathon.test.mjs` (rules, CSV, IST, email, SendGrid request).
 
+### PDF Studio — `/admin/pdf-studio` (admins only), `components/PdfStudio/`, `lib/pdf-studio/`
+
+The ATLAS Tech PDF Studio (fee structures and policy documents: preview, PDF export, flipbook embed
+codes) moved into the admin on 2026-11-21, the same way the map did: `pdf-studio` is in
+`ADMIN_ONLY_TABS`, the page calls `requireAdminPage({ tab: 'pdf-studio' })`, and the old `/pdf-studio`
+307-redirects to it (and so to the sign-in). **Only the studio page moved.** `/pdf-studio/flipbook/<id>`
+and `/pdf-studio/print/<id>` stay public — embed codes on other websites point at them — and the
+public Mandatory Disclosures page (`lib/mandatoryDisclosuresContent.js`) now links its seven statutory
+documents to `/pdf-studio/flipbook/<id>` instead of the studio's old `/pdf-studio#<id>`. The fonts and
+theme wrapper is `components/PdfStudio/StudioShell`, shared by both.
+
 ### S3 Drive — `/admin/s3drive`, `lib/s3drive/drive.js`, `components/Admin/S3Drive/Drive.js`
 
 A file browser over the whole `atlas-web-cdn` bucket (same `AWS_S3_*` settings and credentials as

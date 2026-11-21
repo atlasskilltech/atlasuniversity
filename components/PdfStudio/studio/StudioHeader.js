@@ -22,10 +22,20 @@ function DownloadIcon() {
   );
 }
 
-export default function StudioHeader({ onDownloadAll, busy }) {
+/* `admin` ({ email }) is set when the studio is opened from the ATLAS admin (/admin/pdf-studio):
+   a link back to the admin hub is shown before the logo. */
+export default function StudioHeader({ onDownloadAll, busy, admin = null }) {
   return (
     <header className="bg-[#342B7C] text-white">
       <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-3 px-4 py-4 n640:gap-4 n640:px-6">
+        {admin ? (
+          <a
+            href="/admin"
+            className="inline-flex flex-none items-center gap-1 rounded-md border border-white/30 px-3 py-1.5 text-xs font-semibold leading-5 text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3CA7B6]"
+          >
+            <span aria-hidden="true">←</span> Admin
+          </a>
+        ) : null}
         <h1 className="flex-none">
           <span className="sr-only">{PRODUCT.name}</span>
           {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -46,7 +46,7 @@ const STATUTORY_PAGES = Object.fromEntries(
   DOCUMENTS.filter(isStatutory).map((entry) => [entry.id, entry.doc.pages.length]),
 );
 
-export default function Studio() {
+export default function Studio({ admin = null }) {
   const storeRef = useRef(null);
   const [units, setUnits] = useState({});
   const [pageCounts, setPageCounts] = useState(STATUTORY_PAGES);
@@ -195,7 +195,7 @@ export default function Studio() {
 
   return (
     <div className="min-h-screen">
-      <StudioHeader onDownloadAll={downloadAll} busy={busy} />
+      <StudioHeader onDownloadAll={downloadAll} busy={busy} admin={admin} />
 
       <main className="mx-auto grid max-w-7xl gap-6 px-4 py-6 n640:px-6 n1024:grid-cols-[20rem_minmax(0,1fr)] xl:grid-cols-[22rem_minmax(0,1fr)]">
         {/* ---------------------------------------------------------------
