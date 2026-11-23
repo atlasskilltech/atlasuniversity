@@ -86,10 +86,6 @@ const nextConfig = {
 
   async redirects() {
     return [
-      /* Center for Research moved from production's /centre_for_research to a hyphenated slug
-         (2026-11-23); old links and bookmarks keep working. */
-      { source: '/centre_for_research', destination: '/centre-for-research', permanent: true },
-      { source: '/centre_for_research/:path*', destination: '/centre-for-research', permanent: true },
       /* The interactive website map is an admin-only tool now (/admin/map, admin role). The old public
          address forwards there, and so to the admin sign-in. Not permanent: it is an access gate, not a
          move a search engine should learn. */
