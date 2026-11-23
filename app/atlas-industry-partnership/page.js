@@ -2,8 +2,7 @@ import InnerPageHero from '@/components/ui/InnerPageHero';
 import StatBand from '@/components/ui/StatBand';
 import ContentCardB, { SHAPING_WRAPPER } from '@/components/ui/ContentCardB';
 import CardTypeF from '@/components/ui/CardTypeF';
-import ZoomSliderLg from '@/components/ui/ZoomSliderLg';
-import SliderCardA from '@/components/ui/SliderCardA';
+import ViksitSlider from '@/components/IndustryPartnership/ViksitSlider';
 import InfoBanner from '@/components/ui/InfoBanner';
 import DropdownFaq from '@/components/ui/DropdownFaq';
 import Carousel from '@/components/Carousel/Carousel';
@@ -12,7 +11,7 @@ import Testimonials from '@/components/Industry/Testimonials';
 import ScopeCards from '@/components/Hei/ScopeCards';
 import { CONTAINER, SECTION, H2, SUB_INNER, SUB_INNER_MRGBTM } from '@/components/Home/SectionHead';
 import {
-  hero, stats, why, recruiters, relations, scope, viksit, banner, faq,
+  hero, stats, why, recruiters, relations, scope, banner, faq,
 } from '@/lib/industryPartnershipContent';
 
 /* ref atlas-industry-partnership.php `$title` / `$description` / `$keywords` */
@@ -86,20 +85,7 @@ export default function IndustryPartnershipPage() {
         </div>
       </section>
 
-      {/* ref section.section > .container > (h2.h2-tag.mrg16.isdi, .sub-heading.mrgbtm.isdi,
-          .swiper.zoom-slider-lg) — `.h2-tag.isdi` is Poppins 400, 36px from 991 down */}
-      <section className={SECTION}>
-        <div className={CONTAINER}>
-          <h2 className={`mb-4 font-poppins font-normal max-lg:text-5xl max-lg:leading-[1.2] max-md:mb-2 ${H2}`}>{viksit.heading}</h2>
-          {/* `.sub-heading.mrgbtm.isdi` — the `.isdi` modifier sets Poppins (300, measured) */}
-          <div className={`font-poppins ${SUB_INNER_MRGBTM}`}>{viksit.subheading}</div>
-          <ZoomSliderLg label={viksit.heading} dots="swiper">
-            {viksit.cards.map((card, i) => (
-              <SliderCardA key={i} card={card} />
-            ))}
-          </ZoomSliderLg>
-        </div>
-      </section>
+      <ViksitSlider />
 
       <InfoBanner
         banner={{
