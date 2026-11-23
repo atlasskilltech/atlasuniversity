@@ -1,5 +1,6 @@
 import { cx } from '@/lib/cx';
 import withBreaks from '@/lib/withBreaks';
+import SecondaryButton from '@/components/ui/SecondaryButton';
 
 /**
  * `.career-sup-card.ugdx` — a photograph over an indigo caption block, laid out
@@ -132,6 +133,17 @@ export default function CareerSupportCard({ card, titleVariant = 'manrope', skin
         >
           {card.text}
         </div>
+
+        {/* /centre-for-research: each "Research and Innovation" card links to its own page with the
+            site's `.secondary-btn` pill; rendered only when the card has an `href`, so no other
+            caller changes */}
+        {card.href && (
+          <div className="mt-4 flex">
+            <SecondaryButton href={card.href} variant="atlas">
+              {card.buttonLabel ?? 'Know More'}
+            </SecondaryButton>
+          </div>
+        )}
       </div>
     </div>
   );

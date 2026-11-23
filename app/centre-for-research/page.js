@@ -1,12 +1,11 @@
 import InnerPageHero from '@/components/ui/InnerPageHero';
 import StatBand from '@/components/ui/StatBand';
 import CareerSupportCard from '@/components/ui/CareerSupportCard';
-import PortCardM from '@/components/ui/PortCardM';
 import FAQ from '@/components/Home/FAQ';
-import Carousel from '@/components/Carousel/Carousel';
+import Objectives from '@/components/CentreForResearch/Objectives';
 import AboutStory from '@/components/Partnership/AboutStory';
 import { CONTAINER, SECTION, H2 } from '@/components/Home/SectionHead';
-import { hero, stats, about, research, objectives, faq } from '@/lib/centreForResearchContent';
+import { hero, stats, about, research, faq } from '@/lib/centreForResearchContent';
 
 /* ref centre_for_research/index.php `$title` / `$description` / `$keywords` */
 const TITLE = 'Research & Publications – ATLAS ISME';
@@ -64,18 +63,7 @@ export default function CentreForResearchPage() {
         </div>
       </div>
 
-      {/* ref div.section > .container > (h2.h2-tag.mrg16, .abt-text, .swiper.common-swiper.mrgtp32) */}
-      <div className={SECTION}>
-        <div className={CONTAINER}>
-          <h2 className={`mb-4 max-md:mb-2 ${H2}`}>{objectives.heading}</h2>
-          <div className={LEAD}>{objectives.sub}</div>
-        </div>
-        <Carousel className="pt-8" bullets="inline">
-          {objectives.items.map((item) => (
-            <PortCardM key={item.name} item={item} variant="ugdx" />
-          ))}
-        </Carousel>
-      </div>
+      <Objectives />
 
       <FAQ data={faq} />
     </>
