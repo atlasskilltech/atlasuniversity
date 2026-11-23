@@ -1,17 +1,16 @@
 import InnerPageHero from '@/components/ui/InnerPageHero';
 import StatBand from '@/components/ui/StatBand';
 import ContentCardB, { SHAPING_WRAPPER } from '@/components/ui/ContentCardB';
-import CardTypeF from '@/components/ui/CardTypeF';
 import ViksitSlider from '@/components/IndustryPartnership/ViksitSlider';
+import Relations from '@/components/IndustryPartnership/Relations';
+import Scope from '@/components/IndustryPartnership/Scope';
 import InfoBanner from '@/components/ui/InfoBanner';
 import DropdownFaq from '@/components/ui/DropdownFaq';
-import Carousel from '@/components/Carousel/Carousel';
 import RecruitmentPartners from '@/components/Industry/RecruitmentPartners';
 import Testimonials from '@/components/Industry/Testimonials';
-import ScopeCards from '@/components/Hei/ScopeCards';
-import { CONTAINER, SECTION, H2, SUB_INNER, SUB_INNER_MRGBTM } from '@/components/Home/SectionHead';
+import { CONTAINER, H2, SUB_INNER } from '@/components/Home/SectionHead';
 import {
-  hero, stats, why, recruiters, relations, scope, banner, faq,
+  hero, stats, why, recruiters, banner, faq,
 } from '@/lib/industryPartnershipContent';
 
 /* ref atlas-industry-partnership.php `$title` / `$description` / `$keywords` */
@@ -62,28 +61,11 @@ export default function IndustryPartnershipPage() {
 
       <RecruitmentPartners data={recruiters} />
 
-      {/* ref section.section > .container > (h2.h2-tag.mrg16, .sub-heading, .swiper.common-swiper) */}
-      <section className={SECTION}>
-        <div className={CONTAINER}>
-          <h2 className={`mb-4 max-md:mb-2 ${H2}`}>{relations.heading}</h2>
-          <div className={SUB_INNER}>{relations.subheading}</div>
-        </div>
-        <Carousel className="pt-14 max-md:pt-10" bullets="inline">
-          {relations.cards.map((card) => (
-            <CardTypeF key={card.image.src} card={card} />
-          ))}
-        </Carousel>
-      </section>
+      <Relations />
 
       <Testimonials bullets="inline-overlay" />
 
-      <section className={SECTION}>
-        <div className={CONTAINER}>
-          <h2 className={`mb-4 max-md:mb-2 ${H2}`}>{scope.heading}</h2>
-          <div className={SUB_INNER_MRGBTM}>{scope.subheading}</div>
-          <ScopeCards cards={scope.cards} />
-        </div>
-      </section>
+      <Scope />
 
       <ViksitSlider />
 
