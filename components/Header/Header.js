@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 
 import { cx } from '@/lib/cx';
 import { useIsDesktop } from '@/lib/useMediaQuery';
-import { megaMenu, primaryLinks, applyHrefFor } from '@/lib/navigation';
+import { megaMenu, primaryLinks, trailingMenu, applyHrefFor } from '@/lib/navigation';
 import SmartLink from '@/components/SmartLink';
 
 import TopBar from './TopBar';
@@ -109,6 +109,20 @@ export default function Header() {
     return () => document.body.classList.remove('overflow-hidden');
   }, [drawerOpen]);
 
+  const renderMenu = (entry) => (
+    <NavItem
+      key={entry.id}
+      entry={entry}
+      isDesktop={isDesktop}
+      open={openId === entry.id}
+      sub2Open={sub2Id === entry.id}
+      onToggle={() => toggleEntry(entry.id)}
+      onClose={() => patchMenu({ openId: null })}
+      onToggleSub2={() => toggleSub2(entry.id)}
+      onCloseSub2={() => patchMenu({ sub2Id: null })}
+    />
+  );
+
   const utilityBar = (
     <TopBar retracted={topbarHidden} isDesktop={isDesktop} drawerOpen={drawerOpen} />
   );
@@ -151,19 +165,7 @@ export default function Header() {
               !isDesktop && (drawerOpen ? 'max-lg:opacity-100' : 'max-lg:opacity-0'),
             )}
           >
-            {megaMenu.map((entry) => (
-              <NavItem
-                key={entry.id}
-                entry={entry}
-                isDesktop={isDesktop}
-                open={openId === entry.id}
-                sub2Open={sub2Id === entry.id}
-                onToggle={() => toggleEntry(entry.id)}
-                onClose={() => patchMenu({ openId: null })}
-                onToggleSub2={() => toggleSub2(entry.id)}
-                onCloseSub2={() => patchMenu({ sub2Id: null })}
-              />
-            ))}
+            {megaMenu.map(renderMenu)}
 
             {primaryLinks.map((link) => (
               <div key={link.href} className={s.NAV_ITEM}>
@@ -172,6 +174,8 @@ export default function Header() {
                 </SmartLink>
               </div>
             ))}
+
+            {trailingMenu.map(renderMenu)}
           </nav>
 
           {/* Mobile: the utility bar lives inside the drawer, below the nav. */}
