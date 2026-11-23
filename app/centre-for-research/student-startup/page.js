@@ -3,7 +3,8 @@ import Startups from '@/components/Success/Startups';
 import StartupsFounded from '@/components/Success/StartupsFounded';
 import Backing from '@/components/Entrepreneurship/Backing';
 import Founders from '@/components/Entrepreneurship/Founders';
-import { startupPage } from '@/lib/centreForResearchContent';
+import { FigureSection } from '@/components/CentreForResearch/Blocks';
+import { startupPage, startupIntro } from '@/lib/centreForResearchContent';
 
 const TITLE = 'Student Startup – Centre for Research | ATLAS SkillTech University';
 const DESCRIPTION = startupPage.hero.text;
@@ -26,6 +27,7 @@ export default function CentreForResearchStartupPage() {
   return (
     <>
       <InnerPageHero hero={startupPage.hero} />
+      <FigureSection heading={startupIntro.heading} paragraphs={startupIntro.paragraphs} stats={startupIntro.stats} />
       <Startups />
       <StartupsFounded />
       <Backing />

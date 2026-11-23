@@ -35,11 +35,19 @@ function Cell({ head, children }) {
   );
 }
 
-export default function CommitteeTable({ heading, headingMargin = 'mrg24', head, rows }) {
+/* `layout` — the track list. `committee` is the three statutory pages' 1fr 4fr 4fr; `publications`
+   (/centre-for-research/faculty-publications) is a six-column catalogue that keeps a 900px floor so
+   the wrap scrolls below it, the same scroller the committee tables use at <=767. */
+const LAYOUT = {
+  committee: 'grid-cols-[1fr_4fr_4fr]',
+  publications: 'min-w-[900px] grid-cols-[1.3fr_2.6fr_0.8fr_2.2fr_0.7fr_1.4fr]',
+};
+
+export default function CommitteeTable({ heading, headingMargin = 'mrg24', head, rows, layout = 'committee' }) {
   return (
-    <div className="pt-[54px] max-md:overflow-x-auto max-md:pt-0 max-sm:-mx-[21px] max-sm:px-5">
+    <div className={`pt-[54px] max-md:overflow-x-auto max-md:pt-0 max-sm:-mx-[21px] max-sm:px-5${layout === 'committee' ? '' : ' overflow-x-auto'}`}>
       {heading && <h2 className={`${HEAD_MARGIN[headingMargin]} ${H2}`}>{heading}</h2>}
-      <div className="grid grid-cols-[1fr_4fr_4fr] justify-center gap-0 p-5">
+      <div className={`grid ${LAYOUT[layout]} justify-center gap-0 p-5`}>
         {head.map((label) => (
           <Cell key={label} head>
             {label}

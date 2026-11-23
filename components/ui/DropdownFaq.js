@@ -80,7 +80,7 @@ function Answer({ a, html }) {
   ));
 }
 
-function Item({ item, open, onToggle, icon }) {
+function Item({ item, open, onToggle, icon, unclamp }) {
   return (
     /* ref .accordion-item.w-dropdown */
     <div className={cx('relative overflow-hidden border-0 border-b-2 border-solid border-[#eee]', !open && 'h-20')}>
@@ -95,7 +95,7 @@ function Item({ item, open, onToggle, icon }) {
         {/* ref .accordion-title */}
         {/* `-webkit-line-clamp: 2` with overflow hidden — a three-line question ends in an
             ellipsis on its second line (visible below 768) */}
-        <span className="mr-[50px] line-clamp-2 text-[24px] font-normal leading-[1.2] text-[rgba(43,43,43,0.8)] max-md:text-[16px] max-md:font-semibold">
+        <span className={cx('mr-[50px] text-[24px] font-normal leading-[1.2] text-[rgba(43,43,43,0.8)] max-md:text-[16px] max-md:font-semibold', !unclamp && 'line-clamp-2')}>
           {item.q}
         </span>
       </button>
@@ -103,25 +103,39 @@ function Item({ item, open, onToggle, icon }) {
       {open && (
         <div className="pb-6 pr-6">
           <Answer a={item.a} html={item.html} />
+          {/* `item.images` (/centre-for-research/indian-knowledge-system) — the activity's photographs
+              under its copy, in a wrapping row */}
+          {item.images?.length > 0 && (
+            <div className="mt-4 flex flex-wrap gap-4">
+              {item.images.map((img) => (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img key={img.src} src={img.src} alt={img.alt} loading="lazy" className="block h-auto max-h-[300px] w-auto max-w-full rounded-tl-[24px] rounded-br-[24px] max-md:max-h-none" />
+              ))}
+            </div>
+          )}
         </div>
       )}
     </div>
   );
 }
 
-export default function DropdownFaq({ data, search, searchVariant = 'blue', icon = 'blue' }) {
+/* `id` / `data.lead` / `data.unclamp` — /centre-for-research/indian-knowledge-system renders three of these on
+   one page (so each needs its own id), puts a lead under the heading, and has long titles that the
+   reference's own `.accordion-title.unclamp` leaves unclamped. All default to the existing behaviour. */
+export default function DropdownFaq({ data, search, searchVariant = 'blue', icon = 'blue', id = 'faq' }) {
   const [open, setOpen] = useState(null);
   return (
     /* ref section.section */
-    <section id="faq" className={SECTION}>
+    <section id={id} className={SECTION}>
       <div className={CONTAINER}>
         {/* ref h2.h2-tag.mrg16 */}
         {/* the PhD page comments its heading out, so it is optional */}
         {data.heading && <h2 className={`mb-4 max-md:mb-2 ${H2}`}>{data.heading}</h2>}
+        {data.lead && <div className="mb-4 text-base leading-6 text-[#333]">{data.lead}</div>}
         {/* ref .w-dyn-list > .w-dyn-items */}
         <div>
           {data.items.map((item, i) => (
-            <Item key={i} item={item} icon={icon} open={open === i} onToggle={() => setOpen(open === i ? null : i)} />
+            <Item key={i} item={item} icon={icon} unclamp={data.unclamp} open={open === i} onToggle={() => setOpen(open === i ? null : i)} />
           ))}
         </div>
         {/* ref .search-ques-wrap */}

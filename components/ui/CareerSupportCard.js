@@ -64,7 +64,7 @@ export default function CareerSupportCard({ card, titleVariant = 'manrope', skin
           src={card.image.src}
           alt={card.image.alt}
           loading="lazy"
-          className="block h-[101%] w-full max-w-none object-cover max-md:object-[50%_76%]"
+          className={cx('block h-[101%] w-full max-w-none', card.imageFit === 'contain' ? 'bg-white object-contain' : 'object-cover max-md:object-[50%_76%]')}
         />
 
         {card.badge && (
@@ -133,6 +133,9 @@ export default function CareerSupportCard({ card, titleVariant = 'manrope', skin
         >
           {card.text}
         </div>
+
+        {/* `card.note` (/centre-for-research/patents-and-innovations) — the student names under the copy */}
+        {card.note && <div className="mt-3 text-[14px] font-semibold leading-[1.4] text-white">{card.note}</div>}
 
         {/* /centre-for-research: each "Research and Innovation" card links to its own page with the
             site's `.secondary-btn` pill; rendered only when the card has an `href`, so no other

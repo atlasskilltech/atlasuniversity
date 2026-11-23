@@ -2,7 +2,8 @@ import InnerPageHero from '@/components/ui/InnerPageHero';
 import Patents from '@/components/Success/Patents';
 import PortCardSection from '@/components/Entrepreneurship/PortCardSection';
 import { entrepreneurshipContent } from '@/lib/entrepreneurshipContent';
-import { patentsPage } from '@/lib/centreForResearchContent';
+import { CardSection } from '@/components/CentreForResearch/Blocks';
+import { patentsPage, patentHighlights } from '@/lib/centreForResearchContent';
 
 const TITLE = 'Patents & Innovations – Centre for Research | ATLAS SkillTech University';
 const DESCRIPTION = patentsPage.hero.text;
@@ -26,6 +27,7 @@ export default function CentreForResearchPatentsPage() {
     <>
       <InnerPageHero hero={patentsPage.hero} />
       <Patents />
+      <CardSection heading={patentHighlights.heading} cards={patentHighlights.cards} />
       <PortCardSection data={entrepreneurshipContent.ipr} lead="mrgbtm32" />
     </>
   );

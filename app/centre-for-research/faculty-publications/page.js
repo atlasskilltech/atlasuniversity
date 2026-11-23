@@ -1,7 +1,8 @@
 import InnerPageHero from '@/components/ui/InnerPageHero';
 import ResearchPapers from '@/components/Success/ResearchPapers';
 import ThoughtLeadership from '@/components/Home/ThoughtLeadership';
-import { publicationsPage } from '@/lib/centreForResearchContent';
+import { TextSection, TableSection } from '@/components/CentreForResearch/Blocks';
+import { publicationsPage, facultyCatalogue } from '@/lib/centreForResearchContent';
 
 /* Thought Leadership reads the dashboard blog feed live, cached 60s — the homepage's cadence */
 export const revalidate = 60;
@@ -26,6 +27,8 @@ export default function CentreForResearchPublicationsPage() {
   return (
     <>
       <InnerPageHero hero={publicationsPage.hero} />
+      <TextSection heading={facultyCatalogue.heading} paragraphs={facultyCatalogue.paragraphs} />
+      <TableSection heading={facultyCatalogue.tableHeading} columns={facultyCatalogue.columns} rows={facultyCatalogue.rows} />
       <ResearchPapers />
       <ThoughtLeadership />
     </>
