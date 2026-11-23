@@ -147,7 +147,7 @@ export default function InnerPageHero({ hero, buttonWrap = 'row', scrim = 'defau
             {withBreaks(hero.title)}
           </h1>
 
-          {/* ref .course-duration — /centre_for_research's tagline under the title: 24px/1.5 300
+          {/* ref .course-duration — /centre-for-research's tagline under the title: 24px/1.5 300
               white, padding 16 0 10, unchanged at every width (measured 1440 / 767 / 390) */}
           {hero.duration && (
             <div className="pb-2.5 pt-4 text-[24px] font-light leading-[1.5] text-white">{hero.duration}</div>

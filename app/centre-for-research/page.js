@@ -17,7 +17,7 @@ export const metadata = {
   title: TITLE,
   description: DESCRIPTION,
   keywords: 'atlas, contact',
-  alternates: { canonical: 'https://atlasuniversity.edu.in/centre_for_research/' },
+  alternates: { canonical: 'https://atlasuniversity.edu.in/centre-for-research/' },
   openGraph: { siteName: 'ATLAS SKILLTECH UNIVERSITY', title: TITLE, url: 'https://atlasuniversity.edu.in/', type: 'website', description: DESCRIPTION },
   twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION },
 };
@@ -27,7 +27,7 @@ export const metadata = {
 const LEAD = 'text-base leading-6';
 
 /**
- * /centre_for_research — reference/centre_for_research/index.php (`$css = "coe.css"`, `$body = "body
+ * /centre-for-research — reference/centre_for_research/index.php (`$css = "coe.css"`, `$body = "body
  * body-ugdx"`; the route keeps production's own slug, which the nav already used). In its order:
  * hero (title, the "RESEARCH. INNOVATE. EXCEL." line, three buttons) · five figures (this page's
  * own <style>: the band stacks at 992, inclusive) · "About Center for research" · "Research and

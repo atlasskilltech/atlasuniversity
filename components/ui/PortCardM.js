@@ -32,7 +32,7 @@ import withBreaks from '@/lib/withBreaks';
  * own `#41418e`, so it matches the bar.
  */
 /*
- * `variant="ugdx"` — `.port-card-m-wrap-ugdx`, /centre_for_research "Our Objectives". Measured at
+ * `variant="ugdx"` — `.port-card-m-wrap-ugdx`, /centre-for-research "Our Objectives". Measured at
  * 1440 / 767 / 390 (the card does not change with width):
  *   .port-card-m-wrap-ugdx      295 x 480 (not 520), radius 32px 0, clipped
  *   .port-card-m-txt-wrap-ugdx  absolute bottom, #41418e, row, align-end, padding 24; the first card
@@ -49,7 +49,7 @@ function PortCardMUgdx({ item }) {
       {/* ref .port-card-m-txt-wrap-ugdx(.custom-card-height) */}
       {/* ref .pcm-tp-wrap > img.port-card-m-comp-logo — the School of Law / uGDX "Our Halls attract the
           Remarkable" cards carry the company mark top-left (padding 20 20 0, the logo at its own size);
-          /centre_for_research's cards author none, so it renders only when the data has one */}
+          /centre-for-research's cards author none, so it renders only when the data has one */}
       {item.logo && (
         <div className="absolute inset-x-0 top-0 z-[1] flex items-center justify-between px-5 pt-5">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -58,7 +58,7 @@ function PortCardMUgdx({ item }) {
       )}
       <div
         className="absolute inset-x-0 bottom-0 z-[1] flex w-full flex-row items-end p-6"
-        /* `item.barColor` — the bar is #41418e on /centre_for_research and #011627 on the School of
+        /* `item.barColor` — the bar is #41418e on /centre-for-research and #011627 on the School of
            Law's homepage; the colour travels with the card so no two bg utilities meet */
         style={{ backgroundColor: item.barColor ?? '#41418e', ...(item.barHeight ? { height: item.barHeight } : null) }}
       >

@@ -46,7 +46,7 @@ function Copy({ text }) {
 }
 
 /*
- * Also (/centre_for_research): `headingMargin` — that page's `h2.h2-tag.mrg32` (32px, not 42);
+ * Also (/centre-for-research): `headingMargin` — that page's `h2.h2-tag.mrg32` (32px, not 42);
  * `photoClip` — its `.about-image-wrap-ugdx` is radius 32px 0 and clipped at every width, and below
  * 768 a flex box that centres the photograph.
  */

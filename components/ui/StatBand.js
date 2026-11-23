@@ -63,7 +63,7 @@ import { cx } from '@/lib/cx';
 
 /*
  * ── `stack992` ─────────────────────────────────────────────────────────────
- * /centre_for_research restyles the band in its own <style>: `default` from 993 up, but the
+ * /centre-for-research restyles the band in its own <style>: `default` from 993 up, but the
  * band turns into a column at `@media (max-width: 992px)` — inclusive, 992 is already stacked — and
  * the mobile card (padding 24 24 24 22, 18 / 22px type) applies from there. Measured at 1440 / 992 / 991 / 390.
  */
