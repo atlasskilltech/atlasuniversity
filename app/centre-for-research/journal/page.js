@@ -11,13 +11,13 @@ export const metadata = {
   title: TITLE,
   description: DESCRIPTION,
   keywords: 'atlas, contact',
-  alternates: { canonical: 'https://atlasuniversity.edu.in/journal/' },
+  alternates: { canonical: 'https://atlasuniversity.edu.in/centre-for-research/journal' },
   openGraph: { siteName: 'ATLAS SKILLTECH UNIVERSITY', title: TITLE, url: 'https://atlasuniversity.edu.in/', type: 'website', description: DESCRIPTION },
   twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION },
 };
 
 /**
- * /journal — the ATLAS Innovation Review (reference/new pages/journal.zip -> journal/index.php;
+ * /centre-for-research/journal (moved from /journal on 2026-11-23, no redirect) — the ATLAS Innovation Review (reference/new pages/journal.zip -> journal/index.php;
  * production serves it at /journal/). Inside the page's own `#body` wrapper (max 1920px, Poppins over
  * Bootstrap's 16px/1.5 #212529): hero · Journals · Aim and Scope · Name and Address of Publisher (the
  * publisher card, Editor-in-Chief with the profile tabs, Editorial Desk, Board, Review Committee,

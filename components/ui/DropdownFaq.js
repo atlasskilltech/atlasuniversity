@@ -58,8 +58,23 @@ function Chevron({ open, icon }) {
   );
 }
 
+/* `item.html` (/centre-for-research/phd-application) — a rich answer (paragraphs, nested lists,
+   tables, document buttons) given as static HTML from this project's own content file, styled here
+   to the same .w-richtext type: p 16/24 #333 mb 10 (14/21 at <=767), lists padded 40, tables ruled. */
+const RICH =
+  'text-[16px] leading-6 text-[#333] max-md:text-[14px] max-md:leading-[21px] ' +
+  '[&_p]:mb-2.5 [&_b]:font-bold [&_strong]:font-bold [&_a]:font-bold [&_a]:text-[#c36] [&_a]:no-underline ' +
+  '[&_ul]:mb-2.5 [&_ul]:list-disc [&_ul]:pl-10 [&_ol]:mb-2.5 [&_ol]:list-decimal [&_ol]:pl-10 ' +
+  '[&_ol[type=a]]:list-[lower-alpha] [&_ol[type=I]]:list-[upper-roman] [&_li]:mb-1 ' +
+  '[&_.tbl]:mb-2.5 [&_.tbl]:overflow-x-auto [&_table]:w-full [&_table]:min-w-[560px] [&_table]:border-collapse ' +
+  '[&_td]:border [&_td]:border-solid [&_td]:border-[#ccc] [&_td]:p-2 [&_td]:align-top ' +
+  '[&_th]:border [&_th]:border-solid [&_th]:border-[#ccc] [&_th]:bg-[#41418e] [&_th]:p-2 [&_th]:text-left [&_th]:font-semibold [&_th]:text-white ' +
+  '[&_td_p]:mb-0 [&_.docs]:flex [&_.docs]:flex-wrap [&_.docs]:gap-3 ' +
+  '[&_.docs_a]:rounded-3xl [&_.docs_a]:bg-atlas-cyan [&_.docs_a]:px-4 [&_.docs_a]:py-2.5 [&_.docs_a]:text-[14px] [&_.docs_a]:font-semibold [&_.docs_a]:text-black';
+
 /* ref .content.w-richtext — a string is one paragraph, an array is several. */
-function Answer({ a }) {
+function Answer({ a, html }) {
+  if (html) return <div className={RICH} dangerouslySetInnerHTML={{ __html: html }} />;
   return (Array.isArray(a) ? a : [a]).map((p, i) => (
     <p key={i} className="mb-2.5 text-[16px] leading-6 text-[#333] max-md:text-[14px] max-md:leading-[21px]">{p}</p>
   ));
@@ -87,7 +102,7 @@ function Item({ item, open, onToggle, icon }) {
       {/* ref nav.accordion-content.w-dropdown-list */}
       {open && (
         <div className="pb-6 pr-6">
-          <Answer a={item.a} />
+          <Answer a={item.a} html={item.html} />
         </div>
       )}
     </div>
@@ -101,7 +116,8 @@ export default function DropdownFaq({ data, search, searchVariant = 'blue', icon
     <section id="faq" className={SECTION}>
       <div className={CONTAINER}>
         {/* ref h2.h2-tag.mrg16 */}
-        <h2 className={`mb-4 max-md:mb-2 ${H2}`}>{data.heading}</h2>
+        {/* the PhD page comments its heading out, so it is optional */}
+        {data.heading && <h2 className={`mb-4 max-md:mb-2 ${H2}`}>{data.heading}</h2>}
         {/* ref .w-dyn-list > .w-dyn-items */}
         <div>
           {data.items.map((item, i) => (

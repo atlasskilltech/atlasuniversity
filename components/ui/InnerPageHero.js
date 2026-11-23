@@ -201,6 +201,15 @@ export default function InnerPageHero({ hero, buttonWrap = 'row', scrim = 'defau
             )))}
           </div>
           )}
+
+          {/* `hero.after` — lines under the button row (/centre-for-research/phd-application: "For more
+              details:" then a contact and an email line). Each is a `.course-desc-isme.big-txt`; the
+              first keeps the class's 16px top padding, the rest are authored `padding: 0`. */}
+          {hero.after?.map((line, i) => (
+            <div key={i} className={cx('block text-[24px] font-light text-white max-md:text-[20px] max-sm:text-[16px]', i === 0 && 'pt-4')}>
+              {line}
+            </div>
+          ))}
         </div>
       </div>
     </section>
