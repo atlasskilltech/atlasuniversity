@@ -5,6 +5,14 @@ on:
     branches:
       - main
 
+# One deployment at a time. Two pushes close together used to start two runs on the same server
+# folder; the second run's `npm ci` / `next build` collided with the first ("Another next build
+# process is already running"). A new run now waits for the running one to finish (not cancelled,
+# so every pushed commit still deploys in order).
+concurrency:
+  group: deploy-ec2-atlasuniversity
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
