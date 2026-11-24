@@ -107,3 +107,43 @@ export function PhotoRow({ photos }) {
     </div>
   );
 }
+
+/* coloured project tiles in a 3-column grid (1 column below 768) — the old community page's
+   project blocks; a tile with text shows it above its title */
+export function TileSection({ heading, tiles }) {
+  return (
+    <section className={SECTION}>
+      <div className={CONTAINER}>
+        <h2 className={`mb-0 ${H2}`}>{heading}</h2>
+        <div className="grid grid-cols-3 gap-4 pt-14 max-lg:grid-cols-2 max-md:grid-cols-1 max-md:pt-10">
+          {tiles.map((t) => (
+            <div
+              key={t.title}
+              className="flex min-h-[240px] flex-col justify-end rounded-tl-[32px] rounded-br-[32px] p-6 text-white max-md:min-h-[160px]"
+              style={{ backgroundColor: t.color }}
+            >
+              {t.text && <p className="m-0 mb-4 text-[14px] leading-[1.5]">{t.text}</p>}
+              <div className="text-[20px] font-semibold leading-[1.3]">{t.title}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* a heading over a wrapping grid of e-mail links */
+export function EmailSection({ heading, emails }) {
+  return (
+    <section className={SECTION}>
+      <div className={CONTAINER}>
+        <h2 className={`mb-0 ${H2}`}>{heading}</h2>
+        <div className="grid grid-cols-3 gap-x-10 gap-y-4 pt-8 max-lg:grid-cols-2 max-md:grid-cols-1">
+          {emails.map((e) => (
+            <a key={e} href={`mailto:${e}`} className={`break-all text-[#41418e] no-underline hover:underline ${COPY}`}>{e}</a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
