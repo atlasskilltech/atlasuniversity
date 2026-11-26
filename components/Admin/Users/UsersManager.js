@@ -20,6 +20,13 @@ async function post(body) {
   }
 }
 
+/** S3 Drive is ticked but no folder is chosen yet — the user cannot be saved like that. */
+const needsFolder = (role, tabs, folder) => role === 'user' && tabs.includes('s3drive') && !normFolder(folder);
+
+function FolderHint() {
+  return <span className="text-[13px] font-medium text-[#b42318]">Choose the S3 folder above first (click “Select” on a folder, or create one).</span>;
+}
+
 const normFolder = (v) => {
   const t = String(v || '').trim().replace(/\\/g, '/').replace(/^\/+/, '').replace(/\/{2,}/g, '/');
   return t && !t.endsWith('/') ? `${t}/` : t;
@@ -77,6 +84,11 @@ function FolderPicker({ idPrefix, value, setValue }) {
           />
         </span>
       </label>
+      {chosen ? (
+        <p className="mt-1.5 text-[13px] font-medium text-[#11733b]">Selected folder: /{chosen} ✓</p>
+      ) : (
+        <p className="mt-1.5 text-[13px] font-medium text-[#b42318]">No folder selected yet — click “Select” next to a folder below.</p>
+      )}
       <p className={`${MUTED} mt-1 text-[12.5px]`}>
         They will see only this folder in S3 Drive, and can upload, create folders and delete inside it — nothing outside it.
       </p>
@@ -219,12 +231,13 @@ function UserRow({ u, me, allTabs, busy, onRun, editing, setEditing }) {
         <div className="mt-4 rounded-xl border border-[#e3e5ea] p-4">
           <AccessFields idPrefix={`u${u.id}`} role={role} setRole={setRole} tabs={tabs} setTabs={setTabs} allTabs={allTabs} s3Folder={s3Folder} setS3Folder={setS3Folder} />
           <div className="mt-4 flex gap-2">
-            <button type="button" className={BTN_PRIMARY} disabled={busy} onClick={() => onRun({ action: 'update', id: u.id, role, tabs, s3Folder }, 'Access updated. It applies on their next click.')}>
+            <button type="button" className={BTN_PRIMARY} disabled={busy || needsFolder(role, tabs, s3Folder)} onClick={() => onRun({ action: 'update', id: u.id, role, tabs, s3Folder }, 'Access updated. It applies on their next click.')}>
               Save
             </button>
             <button type="button" className={BTN_SECONDARY} disabled={busy} onClick={() => setEditing(null)}>
               Cancel
             </button>
+            {needsFolder(role, tabs, s3Folder) ? <span className="self-center"><FolderHint /></span> : null}
           </div>
         </div>
       ) : null}
@@ -248,6 +261,8 @@ export default function UsersManager({ users, tabs: allTabs, me, domain }) {
     setMessage(null);
     const r = await post(body);
     setBusy(false);
+    /* the message sits at the top of the page; bring it into view so it is not missed */
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     if (!r.ok) return setMessage({ error: true, text: r.data.error || 'The change could not be saved.' });
     setMessage({ error: false, text: r.data.note ? `${done} ${r.data.note}` : done });
     setEditing(null);
@@ -283,9 +298,12 @@ export default function UsersManager({ users, tabs: allTabs, me, domain }) {
             <input type="email" className={INPUT} placeholder={`name@${domain}`} value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="off" required />
           </label>
           <AccessFields idPrefix="new" role={role} setRole={setRole} tabs={tabs} setTabs={setTabs} allTabs={allTabs} s3Folder={s3Folder} setS3Folder={setS3Folder} />
-          <button type="submit" className={BTN_PRIMARY} disabled={busy || !email.trim()}>
-            Add user
-          </button>
+          <div className="flex flex-wrap items-center gap-3">
+            <button type="submit" className={BTN_PRIMARY} disabled={busy || !email.trim() || needsFolder(role, tabs, s3Folder)}>
+              Add user
+            </button>
+            {needsFolder(role, tabs, s3Folder) ? <FolderHint /> : null}
+          </div>
         </form>
       </section>
 
