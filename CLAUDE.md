@@ -8267,14 +8267,19 @@ theme wrapper is `components/PdfStudio/StudioShell`, shared by both.
 ### S3 Drive — `/admin/s3drive`, `lib/s3drive/drive.js`, `components/Admin/S3Drive/Drive.js`
 
 A file browser over the whole `atlas-web-cdn` bucket (same `AWS_S3_*` settings and credentials as
-`assets:sync` and the News media library). **Admins only** (`s3drive` is in `ADMIN_ONLY_TABS`, so it is
-never offered to a `user` in /admin/users). Browse, search the folder, preview images, upload (any size),
-new folder, copy links. Every change goes to the Activity log (tab `s3drive`).
+`assets:sync` and the News media library). Admins see the whole bucket. Browse, search the folder,
+preview images, upload (any size), new folder, copy links. Every change goes to the Activity log (tab `s3drive`).
+- **Per-folder access for normal users (2026-11-26).** Ticking "S3 Drive (one folder)" for a normal user in
+  /admin/users asks for ONE folder (browse and pick, or type a new one — created in S3 on save). It is
+  `atlasnews_admin_users.s3_folder` (migration `0009_admin_users_s3_folder`). That user sees only that
+  folder and may upload, replace, create sub-folders and delete inside it — never outside it, and never
+  the folder itself. Enforced in `app/admin/s3drive/api/route.js` (`s3Scope` / `insideScope` in
+  `lib/admin/access.js`), not just in the UI; the tab is not opened at all without a folder.
 - **Layout (2026-11-19): cPanel File Manager.** Icon toolbar (+ Folder, Upload, View, S3 link, Website
   link, Open — the last four act on the selected row), a path bar (Home / Up One Level / Reload and a
   typed path + Go), a lazy folder tree on the left (≥992px), a selectable table (Name / Size / Last
   Modified / Type; double-click opens), and a status bar.
-- **Deleting is OFF for everyone, admins included** (owner's decision, 2026-11-19): `ALLOW_DELETE = false`
+- **Deleting is OFF for admins** (owner's decision, 2026-11-19; a folder user may delete inside their own folder): `ALLOW_DELETE = false`
   in `lib/s3drive/drive.js`. The API refuses delete / delete-folder, the UI shows no Delete buttons, and an
   upload may not replace an existing file (overwriting deletes the old version) — same-name files are
   skipped with a message. Flip the one constant to bring all three back; the delete code is still there.

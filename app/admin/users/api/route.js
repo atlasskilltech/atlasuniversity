@@ -4,6 +4,20 @@ import { addUser, deleteUser, findUserById, updateUser, UserError } from '@/lib/
 import { diffFields, logActivity } from '@/lib/admin/activity';
 import { TABS } from '@/lib/admin/access';
 import { newsClientIp } from '@/lib/news/http/clientIp';
+import { createFolder, listFolder } from '@/lib/s3drive/drive';
+
+/** Make sure a user's S3 folder exists (an empty folder only shows in S3 once it has a marker). Never
+ *  fails the save: returns a note for the admin when S3 could not be reached. */
+async function ensureFolder(user) {
+  if (!user?.s3Folder) return null;
+  try {
+    const r = await listFolder(user.s3Folder);
+    if (!r.folders.length && !r.files.length) await createFolder(user.s3Folder);
+    return null;
+  } catch (e) {
+    return `The folder /${user.s3Folder} could not be created in S3 just now (${e?.message || 'error'}); it will appear once something is uploaded to it.`;
+  }
+}
 
 const tabNames = (tabs) => TABS.filter((t) => (tabs || []).includes(t.key)).map((t) => t.label);
 const roleName = (r) => (r === 'admin' ? 'Admin' : r === 'user' ? 'Normal user' : '');
@@ -11,13 +25,15 @@ const roleName = (r) => (r === 'admin' ? 'Admin' : r === 'user' ? 'Normal user' 
 const ACCESS = [
   ['role', 'Role', roleName],
   ['tabs', 'Tabs', (t) => tabNames(t)],
+  ['s3Folder', 'S3 folder', (f) => (f ? `/${f}` : '')],
 ];
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
 
 /**
- * POST { action: 'add', email, role, tabs } | { action: 'update', id, role, tabs } | { action: 'delete', id }
+ * POST { action: 'add', email, role, tabs, s3Folder } | { action: 'update', id, role, tabs, s3Folder } | { action: 'delete', id }
+ * s3Folder is required when tabs include 's3drive' (the one folder that user may manage).
  * Admins only: requireAdminApi reads the tab from this URL (/admin/users/…), and only admins may open it.
  */
 export async function POST(request) {
@@ -38,7 +54,7 @@ export async function POST(request) {
     if (body?.action === 'add') {
       const user = await addUser(body, actor);
       await log('user.add', 'Added user', user.email, diffFields({}, user, ACCESS));
-      return json({ ok: true, user });
+      return json({ ok: true, user, note: await ensureFolder(user) });
     }
     if (body?.action === 'update') {
       if (!Number.isInteger(id) || id <= 0) return fail(400, 'bad_request', 'Invalid user.');
@@ -46,7 +62,7 @@ export async function POST(request) {
       const user = await updateUser(id, body, actor);
       const changes = diffFields(before, user, ACCESS);
       if (changes.length) await log('user.access', 'Changed access', user.email, changes);
-      return json({ ok: true, user });
+      return json({ ok: true, user, note: user.s3Folder !== before?.s3Folder ? await ensureFolder(user) : null });
     }
     if (body?.action === 'delete') {
       if (!Number.isInteger(id) || id <= 0) return fail(400, 'bad_request', 'Invalid user.');

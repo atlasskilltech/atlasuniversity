@@ -72,3 +72,29 @@ test('activity: key dates diff names the row and shows both dates', () => {
   assert.match(tableChanges(t('x'), wider).note, /rows 2 → 3/);
   assert.deepEqual(tableChanges(t('x'), t('x')).changes, []);
 });
+
+import { cleanS3Folder, insideScope, s3Scope } from '../../../lib/admin/access.js';
+
+test('S3 Drive: a normal user opens it only with the tab AND a folder, and is held to that folder', () => {
+  const admin = { role: 'admin', tabs: [] };
+  const withFolder = { role: 'user', tabs: ['s3drive'], s3Folder: 'events/2026/' };
+  const noFolder = { role: 'user', tabs: ['s3drive'], s3Folder: null };
+  const noTab = { role: 'user', tabs: ['news'], s3Folder: 'events/2026/' };
+  assert.equal(canOpen2(admin, 's3drive'), true);
+  assert.equal(canOpen2(withFolder, 's3drive'), true);
+  assert.equal(canOpen2(noFolder, 's3drive'), false);
+  assert.equal(canOpen2(noTab, 's3drive'), false);
+  assert.equal(tabForPath('/admin/s3drive/api'), 's3drive');
+  assert.equal(s3Scope(admin), '');
+  assert.equal(s3Scope(withFolder), 'events/2026/');
+  assert.equal(s3Scope(noTab), null);
+  assert.equal(insideScope('events/2026/', 'events/2026/a.png'), true);
+  assert.equal(insideScope('events/2026/', 'events/2026/sub/'), true);
+  assert.equal(insideScope('events/2026/', 'events/2025/a.png'), false);
+  assert.equal(insideScope('events/2026/', 'events/2026-old/a.png'), false);
+  assert.equal(insideScope('', 'anything/x.png'), true);
+  assert.equal(cleanS3Folder('/events//2026'), 'events/2026/');
+  assert.equal(cleanS3Folder(''), null);
+  assert.equal(cleanS3Folder('/'), null);
+  assert.equal(cleanS3Folder('events/../assets'), null);
+});

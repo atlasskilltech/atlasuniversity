@@ -43,7 +43,7 @@ export const TOOLS = [
     href: '/admin/s3drive',
     label: 'S3 Drive',
     title: 'S3 Drive',
-    description: 'The files in the atlas-web-cdn S3 bucket: browse folders, upload files, create folders, and copy S3 and website links. Admins only.',
+    description: 'The files in the atlas-web-cdn S3 bucket: browse folders, upload files, create folders, and copy S3 and website links. Admins see the whole bucket; a user given S3 Drive sees only their own folder.',
     cta: 'Open S3 Drive',
   },
   {

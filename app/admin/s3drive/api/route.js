@@ -2,8 +2,9 @@ import { fail, json, requireAdminApi } from '@/lib/news/auth/admin';
 import { BodyError, readBodyLimited } from '@/lib/news/http/body';
 import { logActivity } from '@/lib/admin/activity';
 import { newsClientIp } from '@/lib/news/http/clientIp';
+import { insideScope, s3Scope } from '@/lib/admin/access';
 import {
-  ALLOW_DELETE, DriveError, createFolder, deleteFile, deleteFolder, folderStats, headFile, listFolder, presignUpload,
+  ALLOW_DELETE, DriveError, cleanKey, createFolder, deleteFile, deleteFolder, folderStats, headFile, listFolder, presignUpload,
 } from '@/lib/s3drive/drive';
 
 export const dynamic = 'force-dynamic';
@@ -17,32 +18,51 @@ function driveFail(e) {
   return fail(500, 'error', 'Something went wrong.');
 }
 
-/** GET ?prefix=a/b/&token=… — one folder level. Anyone who may open the S3 Drive tab. */
+const OUTSIDE = () => fail(403, 'outside_folder', 'You can only work inside the folder you were given.');
+
+/**
+ * Who may do what. An admin works on the whole bucket and may delete only while ALLOW_DELETE is true.
+ * A normal user with S3 Drive is held to their own folder (`scope`), and inside it may upload, replace,
+ * create folders and delete — but never delete or rename the folder itself.
+ */
+function access(user) {
+  const scope = s3Scope(user);
+  const isAdmin = user?.role === 'admin';
+  return { scope, isAdmin, canDelete: isAdmin ? ALLOW_DELETE : scope != null };
+}
+
+/** GET ?prefix=a/b/&token=… — one folder level, inside the caller's scope ('' opens their own folder). */
 export async function GET(request) {
   const auth = await requireAdminApi(request);
   if (auth.response) return auth.response;
+  const { scope } = access(auth.session.user);
+  if (scope == null) return fail(403, 'forbidden_tab', 'You do not have access to S3 Drive.');
   const u = new URL(request.url);
   try {
-    return json(await listFolder(u.searchParams.get('prefix') || '', u.searchParams.get('token') || ''));
+    const prefix = cleanKey(u.searchParams.get('prefix') || scope, { folder: true });
+    if (!insideScope(scope, prefix)) return OUTSIDE();
+    return json(await listFolder(prefix, u.searchParams.get('token') || ''));
   } catch (e) {
     return driveFail(e);
   }
 }
 
 /**
- * POST, JSON body — every action is admin-only (users with the tab can only look and copy links):
+ * POST, JSON body — admins anywhere; a normal user only inside their own folder:
  *   { action: 'presign', key, type, size }   a presigned PUT for the browser to upload one file
  *   { action: 'uploaded', key }              after the PUT: confirms it in S3 and writes the log
  *   { action: 'mkdir', prefix }              new empty folder
  *   { action: 'delete', key }                delete one file
  *   { action: 'stats', prefix }              files and size inside a folder (shown before deleting it)
  *   { action: 'rmdir', prefix }              delete a folder and everything in it
- * delete / stats / rmdir are refused for everyone while ALLOW_DELETE is false (lib/s3drive/drive.js).
+ * For admins, delete / stats / rmdir (and replacing a file) are refused while ALLOW_DELETE is false
+ * (lib/s3drive/drive.js). A normal user may always do them inside their folder.
  */
 export async function POST(request) {
   const auth = await requireAdminApi(request);
   if (auth.response) return auth.response;
-  if (auth.session.user?.role !== 'admin') return fail(403, 'forbidden', 'Only an admin can change files. You can view files and copy their links.');
+  const { scope, canDelete } = access(auth.session.user);
+  if (scope == null) return fail(403, 'forbidden_tab', 'You do not have access to S3 Drive.');
   let body;
   try {
     body = JSON.parse((await readBodyLimited(request, 20_000)).toString('utf8') || '{}');
@@ -56,13 +76,20 @@ export async function POST(request) {
       targetUrl: `/admin/s3drive?prefix=${encodeURIComponent(target.endsWith('/') ? target : target.slice(0, target.lastIndexOf('/') + 1))}`,
       details: note ? { note } : null, ip: newsClientIp(request),
     });
-  if (!ALLOW_DELETE && ['delete', 'stats', 'rmdir'].includes(body?.action)) {
+  if (!canDelete && ['delete', 'stats', 'rmdir'].includes(body?.action)) {
     return fail(403, 'delete_disabled', 'Deleting files from S3 is turned off.');
   }
   try {
+    /* the target of every action must sit inside the caller's folder; a folder action may not be the
+       folder itself (a normal user cannot delete or re-create their own root) */
+    if (scope !== '') {
+      const isFolder = ['mkdir', 'stats', 'rmdir'].includes(body?.action);
+      const target = cleanKey(isFolder ? body?.prefix : body?.key, { folder: isFolder });
+      if (!insideScope(scope, target) || target === scope) return OUTSIDE();
+    }
     switch (body?.action) {
       case 'presign':
-        return json(await presignUpload(body.key, body.type));
+        return json(await presignUpload(body.key, body.type, { overwrite: canDelete }));
 
       case 'uploaded': {
         const f = await headFile(body.key);

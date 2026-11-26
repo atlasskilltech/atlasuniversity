@@ -140,7 +140,8 @@ const typeOf = (key) => {
   return m ? `${m[1].toUpperCase()} file` : 'File';
 };
 
-export default function S3Drive({ isAdmin, canDelete = false, bucket, s3Base, domainPrefixes, initialPrefix }) {
+export default function S3Drive({ isAdmin, canWrite = isAdmin, canDelete = false, root = '', bucket, s3Base, domainPrefixes, initialPrefix }) {
+  /* `root` is where this person may go: '' (the whole bucket) for an admin, their own folder otherwise */
   const [prefix, setPrefix] = useState(() => {
     const p = (initialPrefix || '').replace(/^\/+/, '');
     return p && !p.endsWith('/') ? `${p}/` : p;
@@ -216,7 +217,7 @@ export default function S3Drive({ isAdmin, canDelete = false, bucket, s3Base, do
   }, [prefix]);
 
   /* the tree shows the bucket root and every folder on the way to the open one, plus any the user expands */
-  const ancestors = useMemo(() => ['', ...crumbs.map((c) => c.prefix)], [crumbs]);
+  const ancestors = useMemo(() => [root, ...crumbs.map((c) => c.prefix).filter((c) => c.length > root.length && c.startsWith(root))], [crumbs, root]);
   useEffect(() => {
     let live = true;
     for (const a of ancestors) {
@@ -226,7 +227,7 @@ export default function S3Drive({ isAdmin, canDelete = false, bucket, s3Base, do
     }
     return () => { live = false; };
   }, [ancestors, tree]);
-  const isOpenNode = (p) => p === '' || ancestors.includes(p) || openNodes.has(p);
+  const isOpenNode = (p) => p === root || ancestors.includes(p) || openNodes.has(p);
   const toggleNode = (p) => {
     setOpenNodes((s0) => {
       const s1 = new Set(s0);
@@ -338,11 +339,15 @@ export default function S3Drive({ isAdmin, canDelete = false, bucket, s3Base, do
   const selFile = files.find((f) => f.key === selected) || null;
   const selFolder = folders.includes(selected) ? selected : null;
   const flash = (what) => { setCopied(what); setTimeout(() => setCopied(''), 1500); };
-  const parent = crumbs.length > 1 ? crumbs[crumbs.length - 2].prefix : '';
+  const parentRaw = crumbs.length > 1 ? crumbs[crumbs.length - 2].prefix : '';
+  const parent = parentRaw.length < root.length ? root : parentRaw;
+  const atRoot = prefix === root;
 
   const goPath = (raw) => {
     const t = String(raw || '').trim().replace(/^\/+/, '').replace(new RegExp(`^${bucket.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/?`), '');
-    open(t && !t.endsWith('/') ? `${t}/` : t);
+    const p = t && !t.endsWith('/') ? `${t}/` : t;
+    if (!p.startsWith(root)) { setPathText(null); setError(`You can only open folders inside /${root}.`); return; }
+    open(p);
   };
 
   const treeNode = (p, depth) => {
@@ -352,14 +357,14 @@ export default function S3Drive({ isAdmin, canDelete = false, bucket, s3Base, do
     return (
       <li key={p}>
         <div className={cx('flex items-center rounded', here ? 'bg-[#e8ebf0] font-semibold text-[#14161a]' : 'hover:bg-[#f4f5f7]')} style={{ paddingLeft: depth * 12 }}>
-          <button type="button" onClick={() => p !== '' && toggleNode(p)} className={cx('flex h-6 w-5 flex-none items-center justify-center text-[#8a8f9b]', p === '' && 'invisible')} aria-label={isOpen ? 'Collapse' : 'Expand'}>
+          <button type="button" onClick={() => p !== root && toggleNode(p)} className={cx('flex h-6 w-5 flex-none items-center justify-center text-[#8a8f9b]', p === root && 'invisible')} aria-label={isOpen ? 'Collapse' : 'Expand'}>
             <svg viewBox="0 0 24 24" className={cx('h-3 w-3 transition', isOpen && 'rotate-90')} fill="currentColor" aria-hidden="true"><path d="M9 6l6 6-6 6z" /></svg>
           </button>
           <button type="button" onClick={() => open(p)} className="flex min-w-0 flex-1 items-center gap-1.5 py-1 pr-2 text-left text-[13px]">
-            {p === '' ? (
+            {p === root ? (
               <svg viewBox="0 0 24 24" className="h-4 w-4 flex-none text-[#5b6170]" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d={TB.home} /></svg>
             ) : <FolderIcon />}
-            <span className="truncate">{p === '' ? bucket : baseName(p)}</span>
+            <span className="truncate">{p === '' ? bucket : p === root ? p.replace(/\/$/, '') : baseName(p)}</span>
           </button>
         </div>
         {isOpen && kids?.length ? (
@@ -372,13 +377,13 @@ export default function S3Drive({ isAdmin, canDelete = false, bucket, s3Base, do
   return (
     <div
       className={cx('relative overflow-hidden rounded-md bg-white ring-1 ring-[#e3e5ea]', dragging && 'ring-2 ring-[#14161a]')}
-      onDragOver={isAdmin ? (e) => { e.preventDefault(); setDragging(true); } : undefined}
-      onDragLeave={isAdmin ? (e) => { if (!e.currentTarget.contains(e.relatedTarget)) setDragging(false); } : undefined}
-      onDrop={isAdmin ? (e) => { e.preventDefault(); setDragging(false); upload(e.dataTransfer.files); } : undefined}
+      onDragOver={canWrite ? (e) => { e.preventDefault(); setDragging(true); } : undefined}
+      onDragLeave={canWrite ? (e) => { if (!e.currentTarget.contains(e.relatedTarget)) setDragging(false); } : undefined}
+      onDrop={canWrite ? (e) => { e.preventDefault(); setDragging(false); upload(e.dataTransfer.files); } : undefined}
     >
       {/* toolbar — the actions act on the current folder or on the selected row */}
       <div className="flex flex-wrap items-center gap-0.5 border-b border-[#e3e5ea] bg-[#fafbfc] px-2 py-1">
-        {isAdmin ? (
+        {canWrite ? (
           <>
             <ToolBtn icon="folder" label="+ Folder" onClick={newFolder} />
             <ToolBtn icon="upload" label="Upload" onClick={() => inputRef.current?.click()} />
@@ -395,7 +400,7 @@ export default function S3Drive({ isAdmin, canDelete = false, bucket, s3Base, do
           onClick={async () => { const l = selFile && siteLink(selFile.key); if (l) { await copyText(l); flash('site'); } }} />
         <ToolBtn icon="open" label="Open" disabled={!selFile && !selFolder} title="Open the selected folder or file"
           onClick={() => (selFolder ? open(selFolder) : selFile && window.open(s3Link(selFile.key), '_blank', 'noopener'))} />
-        {isAdmin && canDelete ? (
+        {canWrite && canDelete ? (
           <ToolBtn icon="trash" label="Delete" disabled={!selFile && !selFolder} onClick={() => (selFolder ? removeFolder(selFolder) : selFile && removeFile(selFile.key))} />
         ) : null}
         <div className="ml-auto flex items-center gap-2 py-1">
@@ -412,10 +417,10 @@ export default function S3Drive({ isAdmin, canDelete = false, bucket, s3Base, do
 
       {/* path bar — Home / Up One Level / Refresh, and the path itself (type a path and press Go) */}
       <div className="flex flex-wrap items-center gap-1 border-b border-[#e3e5ea] px-2 py-1.5">
-        <button type="button" className={cx(BTN_GHOST, 'h-8 px-2 text-[13px]')} onClick={() => open('')} title="Go to the bucket root">
+        <button type="button" className={cx(BTN_GHOST, 'h-8 px-2 text-[13px]')} onClick={() => open(root)} title={root ? 'Go to your folder' : 'Go to the bucket root'}>
           <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d={TB.home} /></svg>Home
         </button>
-        <button type="button" className={cx(BTN_GHOST, 'h-8 px-2 text-[13px]')} onClick={() => open(parent)} disabled={!prefix} title="Up one level">
+        <button type="button" className={cx(BTN_GHOST, 'h-8 px-2 text-[13px]')} onClick={() => open(parent)} disabled={atRoot} title="Up one level">
           <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><path d={TB.up} /></svg>Up One Level
         </button>
         <button type="button" className={cx(BTN_GHOST, 'h-8 px-2 text-[13px]')} onClick={() => load(prefix)} disabled={loading} title="Reload this folder">
@@ -478,7 +483,7 @@ export default function S3Drive({ isAdmin, canDelete = false, bucket, s3Base, do
       <div className="flex min-h-[420px]">
         {/* folder tree */}
         <aside className="hidden w-[240px] flex-none overflow-y-auto border-r border-[#e3e5ea] bg-[#fafbfc] p-2 lg:block lg:max-h-[calc(100dvh-260px)]" aria-label="Folder tree">
-          <ul>{treeNode('', 0)}</ul>
+          <ul>{treeNode(root, 0)}</ul>
         </aside>
 
         {/* file table */}
@@ -493,7 +498,7 @@ export default function S3Drive({ isAdmin, canDelete = false, bucket, s3Base, do
               </tr>
             </thead>
             <tbody>
-              {prefix ? (
+              {!atRoot ? (
                 <tr className="cursor-pointer border-b border-[#eef0f3] hover:bg-[#f4f5f7]" onClick={() => open(parent)}>
                   <td className="px-3 py-1.5" colSpan={4}>
                     <span className="flex items-center gap-2 text-[#5b6170]">
@@ -507,7 +512,7 @@ export default function S3Drive({ isAdmin, canDelete = false, bucket, s3Base, do
                 <tr><td colSpan={4} className={cx(MUTED, 'px-3 py-6')}>Loading…</td></tr>
               ) : null}
               {!loading && !error && !shownFolders.length && !shownFiles.length ? (
-                <tr><td colSpan={4} className={cx(MUTED, 'px-3 py-6')}>{q ? 'Nothing in this folder matches your search.' : isAdmin ? 'This folder is empty. Upload files or drop them here.' : 'This folder is empty.'}</td></tr>
+                <tr><td colSpan={4} className={cx(MUTED, 'px-3 py-6')}>{q ? 'Nothing in this folder matches your search.' : canWrite ? 'This folder is empty. Upload files or drop them here.' : 'This folder is empty.'}</td></tr>
               ) : null}
               {shownFolders.map((f) => (
                 <tr
@@ -571,7 +576,7 @@ export default function S3Drive({ isAdmin, canDelete = false, bucket, s3Base, do
           {next ? ' (more to load)' : ''}
           {selFile ? ` · Selected: ${baseName(selFile.key)} (${fmtSize(selFile.size)})` : selFolder ? ` · Selected: ${baseName(selFolder)}/` : ''}
         </span>
-        {isAdmin ? <span>Tip: drag files here to upload into <b>/{prefix}</b>. Double-click to open.</span> : <span>Double-click to open.</span>}
+        {canWrite ? <span>Tip: drag files here to upload into <b>/{prefix}</b>. Double-click to open.</span> : <span>Double-click to open.</span>}
       </div>
 
       {dragging ? (
