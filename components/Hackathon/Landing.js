@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element -- plain <img>: /assets/ paths are rewritten to S3 at build time */
 import HeroSlider from './HeroSlider';
+import { HK_REGISTER } from './Header';
 
 /**
  * ATLAS Hackathon 2026 — the landing page's content (reference index.html, `<main>`): hero, at a
@@ -85,7 +86,7 @@ export default function HackathonLanding() {
           </p>
           {' '}
           <div className="mt-7 flex flex-col gap-3 n640:mt-8 n640:flex-row n640:items-center">
-            <a href="/atlas-hackathon-2026/register" className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-yellow-300 via-amber-400 to-fuchsia-500 px-7 font-hk-display text-[20px]/[28px] font-extrabold uppercase tracking-wide text-hk-night shadow-[0_10px_40px_-10px_rgb(250_204_21/0.7)] transition hover:-translate-y-0.5 n1024:px-6 n1024:text-[18px]/[28px] xl:px-7 xl:text-[20px]/[28px] hover:shadow-[0_16px_50px_-10px_rgb(217_70_239/0.8)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
+            <a href={HK_REGISTER} target="_blank" rel="noopener noreferrer" className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-yellow-300 via-amber-400 to-fuchsia-500 px-7 font-hk-display text-[20px]/[28px] font-extrabold uppercase tracking-wide text-hk-night shadow-[0_10px_40px_-10px_rgb(250_204_21/0.7)] transition hover:-translate-y-0.5 n1024:px-6 n1024:text-[18px]/[28px] xl:px-7 xl:text-[20px]/[28px] hover:shadow-[0_16px_50px_-10px_rgb(217_70_239/0.8)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
               Register Your Team Now{' '}
               <svg className="size-5 transition group-hover:translate-x-1" aria-hidden="true">
                 <use href="#i-arrow" />
@@ -248,8 +249,8 @@ export default function HackathonLanding() {
                 Registrations Close
               </p>
               {' '}
-              <time dateTime="2026-11-25" className="whitespace-nowrap font-hk-display text-[30px] font-extrabold uppercase leading-none text-white xl:text-[36px]">
-                25 Nov{' '}
+              <time dateTime="2026-12-15" className="whitespace-nowrap font-hk-display text-[30px] font-extrabold uppercase leading-none text-white xl:text-[36px]">
+                15 Dec{' '}
                 <span className="text-[20px]/[28px] font-bold text-slate-400 n1024:mt-1 n1024:block">
                   2026
                 </span>
@@ -271,8 +272,8 @@ export default function HackathonLanding() {
                 Round 1 – Online Challenge
               </p>
               {' '}
-              <time dateTime="2026-11-28" className="whitespace-nowrap font-hk-display text-[30px] font-extrabold uppercase leading-none text-white xl:text-[36px]">
-                28 Nov{' '}
+              <time dateTime="2026-12-19" className="whitespace-nowrap font-hk-display text-[30px] font-extrabold uppercase leading-none text-white xl:text-[36px]">
+                19 Dec{' '}
                 <span className="text-[20px]/[28px] font-bold text-slate-400 n1024:mt-1 n1024:block">
                   2026
                 </span>
@@ -294,8 +295,8 @@ export default function HackathonLanding() {
                 Top 15 Announcement
               </p>
               {' '}
-              <time dateTime="2026-11-30" className="whitespace-nowrap font-hk-display text-[30px] font-extrabold uppercase leading-none text-white xl:text-[36px]">
-                30 Nov{' '}
+              <time dateTime="2026-12-23" className="whitespace-nowrap font-hk-display text-[30px] font-extrabold uppercase leading-none text-white xl:text-[36px]">
+                23 Dec{' '}
                 <span className="text-[20px]/[28px] font-bold text-slate-400 n1024:mt-1 n1024:block">
                   2026
                 </span>
@@ -315,10 +316,10 @@ export default function HackathonLanding() {
                 Grand Finale – ATLAS Mumbai
               </p>
               {' '}
-              <time dateTime="2026-12-15" className="whitespace-nowrap font-hk-display text-[30px] font-extrabold uppercase leading-none text-white xl:text-[36px]">
-                15 Dec{' '}
+              <time dateTime="2027-01-16" className="whitespace-nowrap font-hk-display text-[30px] font-extrabold uppercase leading-none text-white xl:text-[36px]">
+                16 Jan{' '}
                 <span className="text-[20px]/[28px] font-bold text-slate-400 n1024:mt-1 n1024:block">
-                  2026
+                  2027
                 </span>
               </time>
             </div>
@@ -1222,7 +1223,7 @@ export default function HackathonLanding() {
           </div>
           {' '}
           <div className="flex flex-col gap-3 n640:items-start n1024:items-end">
-            <a href="/atlas-hackathon-2026/register" className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-yellow-300 via-amber-400 to-fuchsia-500 px-5 font-hk-display text-[20px]/[28px] font-black n640:min-h-16 n640:px-8 uppercase tracking-wide text-hk-night shadow-[0_15px_50px_-10px_rgb(250_204_21/0.7)] ring-1 ring-white/30 transition hover:-translate-y-1 hover:shadow-[0_20px_60px_-10px_rgb(217_70_239/0.8)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 n640:text-[30px]/[36px]">
+            <a href={HK_REGISTER} target="_blank" rel="noopener noreferrer" className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-yellow-300 via-amber-400 to-fuchsia-500 px-5 font-hk-display text-[20px]/[28px] font-black n640:min-h-16 n640:px-8 uppercase tracking-wide text-hk-night shadow-[0_15px_50px_-10px_rgb(250_204_21/0.7)] ring-1 ring-white/30 transition hover:-translate-y-1 hover:shadow-[0_20px_60px_-10px_rgb(217_70_239/0.8)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 n640:text-[30px]/[36px]">
               Register Your Team Now!{' '}
               <svg className="size-6 shrink-0 transition group-hover:translate-x-1 n640:size-7" aria-hidden="true">
                 <use href="#i-arrow" />
