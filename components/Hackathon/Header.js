@@ -10,7 +10,9 @@ import MobileMenu from './MobileMenu';
  * so its `sm:`/`lg:` are written `n640:`/`n1024:` (see tailwind.config.js).
  */
 export const HK_ROUTE = '/atlas-hackathon-2026';
-export const HK_REGISTER = '/atlas-hackathon-2026/register';
+// Registration is handled on Unstop; every "Register" CTA opens that listing in a new tab.
+export const HK_REGISTER =
+  'https://unstop.com/competitions/crp-atlas-hackathon-2026-prompt-to-product-atlas-skilltech-university-maharashtra-1820748';
 
 const PRIMARY = [
   ['challenge', 'Challenge'],
@@ -64,6 +66,8 @@ export default function HackathonHeader({ base = '' }) {
         <div className="flex items-center gap-2">
           <a
             href={HK_REGISTER}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden min-h-11 items-center gap-2 rounded-lg bg-yellow-300 px-4 font-hk-display text-[16px]/[24px] font-extrabold uppercase tracking-wide text-hk-night transition hover:bg-yellow-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300 n640:inline-flex"
           >
             Register
@@ -84,6 +88,8 @@ export default function HackathonHeader({ base = '' }) {
               <li className="p-2">
                 <a
                   href={HK_REGISTER}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex min-h-12 items-center justify-center rounded-lg bg-yellow-300 font-hk-display text-[18px]/[28px] font-extrabold uppercase text-hk-night hover:bg-yellow-200"
                 >
                   Register Your Team
